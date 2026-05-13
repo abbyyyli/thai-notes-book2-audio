@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 8 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 8 學習指南</h1>
+    <p class="subtitle">主題：放置與拿取、位置詞、家具與容器、樓上樓下、前後左右、身體部位、用身體部位做動作</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 8 的核心是「東西在哪裡、要放在哪裡、用身體做什麼」。這課很生活化，因為你每天都會用到：
+      找手機、叫人幫你拿東西、請外送員放門口、跟清潔阿姨說東西放哪裡、在按摩店或藥局說身體哪裡不舒服。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Find something</div>
+        <div class="triad">
+          <div class="thai">โทรศัพท์อยู่ไหนคะ</div>
+          <div class="roman">thoo-rá-sàp yùu nǎi khá</div>
+          <div class="eng">Where is the phone?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Put something somewhere</div>
+        <div class="triad">
+          <div class="thai">ฉันวางแก้วไว้บนโต๊ะค่ะ</div>
+          <div class="roman">chǎn waang gâew wái bon dtó khâ</div>
+          <div class="eng">I put the glass on the table.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Store something</div>
+        <div class="triad">
+          <div class="thai">ฉันเก็บเสื้อผ้าไว้ในตู้เสื้อผ้าค่ะ</div>
+          <div class="roman">chǎn gèp sʉ̂a-phâa wái nai dtûu-sʉ̂a-phâa khâ</div>
+          <div class="eng">I keep clothes in the wardrobe.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Body function</div>
+        <div class="triad">
+          <div class="thai">เราใช้ตาดูค่ะ</div>
+          <div class="roman">rao chái dtaa duu khâ</div>
+          <div class="eng">We use eyes to see.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 6 學過
+      <span class="thai">เอา...มา / เอา...ไป</span> /
+      <span class="roman">ao...maa / ao...bpai</span> /
+      <span class="eng">bring here / take there</span>。
+      Day 8 會延伸成：
+      <span class="thai">เอา...ขึ้นมา / เอา...ลงไป</span> /
+      <span class="roman">ao...khʉ̂n maa / ao...long bpai</span> /
+      <span class="eng">bring up / take down</span>。
+    </div>
+
+    <div class="tip blue">
+      <strong>本版結構調整：</strong>
+      這一版不把每個小主題拆成 tab，而是集中在 <strong>Supplement</strong> 裡細講：
+      動作動詞、位置詞、家具容器、樓上樓下、身體部位、同義詞/反義詞都放在同一個補充區，複習時比較順。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Action Verbs｜動作動詞</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">จับ</div><div class="roman">jàp</div><div class="eng">to hold / grab / touch</div></div></td>
+          <td>Action verb</td>
+          <td>—</td>
+          <td>強調用手接觸、抓住。比 <span class="thai">ถือ</span> 更像「抓住 / 碰」。</td>
+          <td><div class="triad"><div class="thai">จับมือ / จับแก้ว / อย่าจับ</div><div class="roman">jàp mʉʉ / jàp gâew / yàa jàp</div><div class="eng">hold hands / hold a glass / don’t touch</div></div></td>
+          <td><div class="triad"><div class="thai">อย่าจับแก้วร้อนนะคะ</div><div class="roman">yàa jàp gâew rɔ́ɔn ná khá</div><div class="eng">Don’t touch the hot glass.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หยิบ</div><div class="roman">yìp</div><div class="eng">to pick up / take by hand</div></div></td>
+          <td>Action verb</td>
+          <td>—</td>
+          <td>從某處拿起某物，常用在「幫我拿一下」。</td>
+          <td><div class="triad"><div class="thai">หยิบปากกา / หยิบของ / ช่วยหยิบ...</div><div class="roman">yìp bpàak-gaa / yìp khɔ̌ɔng / chûai yìp...</div><div class="eng">pick up a pen / pick up things / please pick up...</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยหยิบปากกาบนโต๊ะให้หน่อยค่ะ</div><div class="roman">chûai yìp bpàak-gaa bon dtó hâi nòi khâ</div><div class="eng">Please pick up the pen on the table for me.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ถือ</div><div class="roman">thʉ̌ʉ</div><div class="eng">to hold / carry in hand</div></div></td>
+          <td>Action verb</td>
+          <td>—</td>
+          <td>強調「拿著、手持」的狀態，不一定是從哪裡拿起來。</td>
+          <td><div class="triad"><div class="thai">ถือแก้ว / ถือกระเป๋า / ถือโทรศัพท์</div><div class="roman">thʉ̌ʉ gâew / thʉ̌ʉ grà-bpǎo / thʉ̌ʉ thoo-rá-sàp</div><div class="eng">hold a glass / carry a bag / hold a phone</div></div></td>
+          <td><div class="triad"><div class="thai">เขาถือโทรศัพท์อยู่ค่ะ</div><div class="roman">khǎo thʉ̌ʉ thoo-rá-sàp yùu khâ</div><div class="eng">He is holding a phone.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยก</div><div class="roman">yók</div><div class="eng">to lift / raise</div></div></td>
+          <td>Action verb</td>
+          <td>—</td>
+          <td>把東西往上抬，也可用在舉手。</td>
+          <td><div class="triad"><div class="thai">ยกมือ / ยกกล่อง / ยกของหนัก</div><div class="roman">yók mʉʉ / yók glɔ̀ng / yók khɔ̌ɔng nàk</div><div class="eng">raise hand / lift a box / lift heavy things</div></div></td>
+          <td><div class="triad"><div class="thai">กล่องนี้หนักมาก ฉันยกไม่ไหวค่ะ</div><div class="roman">glɔ̀ng níi nàk mâak, chǎn yók mâi wǎi khâ</div><div class="eng">This box is very heavy. I can’t lift it.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">วาง</div><div class="roman">waang</div><div class="eng">to put / place down</div></div></td>
+          <td>Action verb</td>
+          <td>—</td>
+          <td>把東西放在某處。常搭配 <span class="thai">ไว้</span> 表示「放著」。</td>
+          <td><div class="triad"><div class="thai">วางไว้บนโต๊ะ / วางของ / วางโทรศัพท์</div><div class="roman">waang wái bon dtó / waang khɔ̌ɔng / waang thoo-rá-sàp</div><div class="eng">put on the table / put things / put the phone down</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันวางกุญแจไว้บนโต๊ะค่ะ</div><div class="roman">chǎn waang gun-jae wái bon dtó khâ</div><div class="eng">I put the keys on the table.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ปล่อย</div><div class="roman">bplɔ̀i</div><div class="eng">to release / let go</div></div></td>
+          <td>Action verb</td>
+          <td>—</td>
+          <td>放開手、不抓住。也可抽象用在「放手」。</td>
+          <td><div class="triad"><div class="thai">ปล่อยมือ / ปล่อยแมว / อย่าปล่อย</div><div class="roman">bplɔ̀i mʉʉ / bplɔ̀i mɛɛo / yàa bplɔ̀i</div><div class="eng">let go of the hand / release the cat / don’t let go</div></div></td>
+          <td><div class="triad"><div class="thai">อย่าปล่อยมือเด็กนะคะ</div><div class="roman">yàa bplɔ̀i mʉʉ dèk ná khá</div><div class="eng">Don’t let go of the child’s hand.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เก็บ</div><div class="roman">gèp</div><div class="eng">to keep / put away / collect</div></div></td>
+          <td>Action verb</td>
+          <td>—</td>
+          <td>教材用在「把東西收進櫃子」。日常也可表示收拾、保存、收錢。</td>
+          <td><div class="triad"><div class="thai">เก็บของ / เก็บเสื้อผ้า / เก็บไว้ในตู้</div><div class="roman">gèp khɔ̌ɔng / gèp sʉ̂a-phâa / gèp wái nai dtûu</div><div class="eng">put things away / put clothes away / keep inside a cabinet</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยเก็บของเข้าตู้หน่อยค่ะ</div><div class="roman">chûai gèp khɔ̌ɔng khâo dtûu nòi khâ</div><div class="eng">Please help put the things into the cabinet.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Position Words｜位置詞</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">บน</div><div class="roman">bon</div><div class="eng">on</div></div></td>
+          <td>Position</td>
+          <td>—</td>
+          <td>放在某物表面上。</td>
+          <td><div class="triad"><div class="thai">บนโต๊ะ / บนเตียง / บนชั้น</div><div class="roman">bon dtó / bon dtiang / bon chán</div><div class="eng">on the table / on the bed / on the shelf</div></div></td>
+          <td><div class="triad"><div class="thai">โทรศัพท์อยู่บนโต๊ะค่ะ</div><div class="roman">thoo-rá-sàp yùu bon dtó khâ</div><div class="eng">The phone is on the table.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ใต้</div><div class="roman">dtâai</div><div class="eng">under</div></div></td>
+          <td>Position</td>
+          <td>—</td>
+          <td>在某物下面。口語也常聽 <span class="thai">ข้างใต้</span>。</td>
+          <td><div class="triad"><div class="thai">ใต้โต๊ะ / ใต้เตียง / ข้างใต้</div><div class="roman">dtâai dtó / dtâai dtiang / khâang-dtâai</div><div class="eng">under the table / under the bed / underneath</div></div></td>
+          <td><div class="triad"><div class="thai">รองเท้าอยู่ใต้เตียงค่ะ</div><div class="roman">rɔɔng-tháao yùu dtâai dtiang khâ</div><div class="eng">The shoes are under the bed.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ข้าง ๆ</div><div class="roman">khâang-khâang</div><div class="eng">beside / next to</div></div></td>
+          <td>Position</td>
+          <td>—</td>
+          <td>在旁邊，左右不特別指定。</td>
+          <td><div class="triad"><div class="thai">ข้าง ๆ โต๊ะ / ข้าง ๆ ฉัน / ร้านข้าง ๆ</div><div class="roman">khâang-khâang dtó / khâang-khâang chǎn / ráan khâang-khâang</div><div class="eng">beside the table / next to me / the shop next door</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านกาแฟอยู่ข้าง ๆ คอนโดค่ะ</div><div class="roman">ráan gaa-fɛɛ yùu khâang-khâang khɔɔn-doo khâ</div><div class="eng">The coffee shop is next to the condo.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ข้างใน</div><div class="roman">khâang-nai</div><div class="eng">inside</div></div></td>
+          <td>Position</td>
+          <td>—</td>
+          <td>某空間 / 容器裡面。</td>
+          <td><div class="triad"><div class="thai">ข้างในตู้ / ข้างในห้อง / ข้างในกระเป๋า</div><div class="roman">khâang-nai dtûu / khâang-nai hɔ̂ng / khâang-nai grà-bpǎo</div><div class="eng">inside the cabinet / inside the room / inside the bag</div></div></td>
+          <td><div class="triad"><div class="thai">กุญแจอยู่ข้างในกระเป๋าค่ะ</div><div class="roman">gun-jae yùu khâang-nai grà-bpǎo khâ</div><div class="eng">The keys are inside the bag.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ข้างนอก</div><div class="roman">khâang-nɔ̂ɔk</div><div class="eng">outside</div></div></td>
+          <td>Position</td>
+          <td>—</td>
+          <td>某空間外面，也可表示「外面」。</td>
+          <td><div class="triad"><div class="thai">ข้างนอกบ้าน / ข้างนอกห้อง / ออกไปข้างนอก</div><div class="roman">khâang-nɔ̂ɔk bâan / khâang-nɔ̂ɔk hɔ̂ng / ɔ̀ɔk bpai khâang-nɔ̂ɔk</div><div class="eng">outside the house / outside the room / go outside</div></div></td>
+          <td><div class="triad"><div class="thai">คนขับรออยู่ข้างนอกค่ะ</div><div class="roman">khon-khàp rɔɔ yùu khâang-nɔ̂ɔk khâ</div><div class="eng">The driver is waiting outside.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ข้างบน</div><div class="roman">khâang-bon</div><div class="eng">upstairs / above</div></div></td>
+          <td>Position</td>
+          <td>—</td>
+          <td>可以指樓上，也可指上方。</td>
+          <td><div class="triad"><div class="thai">อยู่ข้างบน / ขึ้นไปข้างบน / เอาขึ้นมาข้างบน</div><div class="roman">yùu khâang-bon / khʉ̂n bpai khâang-bon / ao khʉ̂n maa khâang-bon</div><div class="eng">be upstairs / go upstairs / bring up upstairs</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องนอนอยู่ข้างบนค่ะ</div><div class="roman">hɔ̂ng-nɔɔn yùu khâang-bon khâ</div><div class="eng">The bedroom is upstairs.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ข้างล่าง</div><div class="roman">khâang-lâang</div><div class="eng">downstairs / below</div></div></td>
+          <td>Position</td>
+          <td>—</td>
+          <td>可以指樓下，也可指下方。</td>
+          <td><div class="triad"><div class="thai">อยู่ข้างล่าง / ลงไปข้างล่าง / เอาลงไปข้างล่าง</div><div class="roman">yùu khâang-lâang / long bpai khâang-lâang / ao long bpai khâang-lâang</div><div class="eng">be downstairs / go downstairs / take down downstairs</div></div></td>
+          <td><div class="triad"><div class="thai">พัสดุอยู่ข้างล่างที่ล็อบบี้ค่ะ</div><div class="roman">phát-sà-dù yùu khâang-lâang thîi lɔ́p-bîi khâ</div><div class="eng">The parcel is downstairs at the lobby.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ข้างหน้า</div><div class="roman">khâang-nâa</div><div class="eng">in front</div></div></td>
+          <td>Position</td>
+          <td>—</td>
+          <td>在前面。可用於人、店、建築、門口。</td>
+          <td><div class="triad"><div class="thai">ข้างหน้าบ้าน / หน้าประตู / ร้านข้างหน้า</div><div class="roman">khâang-nâa bâan / nâa bprà-dtuu / ráan khâang-nâa</div><div class="eng">in front of the house / in front of the door / the shop in front</div></div></td>
+          <td><div class="triad"><div class="thai">วางไว้หน้าประตูได้เลยค่ะ</div><div class="roman">waang wái nâa bprà-dtuu dâai ləəi khâ</div><div class="eng">You can put it in front of the door.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ข้างหลัง</div><div class="roman">khâang-lǎng</div><div class="eng">behind / at the back</div></div></td>
+          <td>Position</td>
+          <td>—</td>
+          <td>在後面。</td>
+          <td><div class="triad"><div class="thai">ข้างหลังบ้าน / คนข้างหลัง / หลังตึก</div><div class="roman">khâang-lǎng bâan / khon khâang-lǎng / lǎng dtʉ̀k</div><div class="eng">behind the house / the person behind / behind the building</div></div></td>
+          <td><div class="triad"><div class="thai">ที่จอดรถอยู่ข้างหลังตึกค่ะ</div><div class="roman">thîi-jɔ̀ɔt-rót yùu khâang-lǎng dtʉ̀k khâ</div><div class="eng">The parking lot is behind the building.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Furniture, House & Body Parts｜家具、房子與身體部位</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">โต๊ะ</div><div class="roman">dtó</div><div class="eng">table / desk</div></div></td>
+          <td>Furniture</td>
+          <td><span class="classifier-chip">ตัว</span></td>
+          <td>桌子、椅子等家具常用 <span class="thai">ตัว</span>。</td>
+          <td><div class="triad"><div class="thai">บนโต๊ะ / ใต้โต๊ะ / โต๊ะทำงาน</div><div class="roman">bon dtó / dtâai dtó / dtó tham-ngaan</div><div class="eng">on the table / under the table / work desk</div></div></td>
+          <td><div class="triad"><div class="thai">คอมพิวเตอร์อยู่บนโต๊ะทำงานค่ะ</div><div class="roman">khɔɔm-phiu-dtə̂ə yùu bon dtó tham-ngaan khâ</div><div class="eng">The computer is on the work desk.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตู้เสื้อผ้า</div><div class="roman">dtûu-sʉ̂a-phâa</div><div class="eng">wardrobe / closet</div></div></td>
+          <td>Furniture</td>
+          <td><span class="classifier-chip">ตู้</span></td>
+          <td>字面是「衣服櫃」。</td>
+          <td><div class="triad"><div class="thai">เก็บเสื้อผ้าในตู้เสื้อผ้า / เปิดตู้เสื้อผ้า</div><div class="roman">gèp sʉ̂a-phâa nai dtûu-sʉ̂a-phâa / bpə̀ət dtûu-sʉ̂a-phâa</div><div class="eng">keep clothes in the wardrobe / open the wardrobe</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเก็บเสื้อผ้าไว้ในตู้เสื้อผ้าค่ะ</div><div class="roman">chǎn gèp sʉ̂a-phâa wái nai dtûu-sʉ̂a-phâa khâ</div><div class="eng">I keep clothes in the wardrobe.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตู้เย็น</div><div class="roman">dtûu-yen</div><div class="eng">refrigerator</div></div></td>
+          <td>Appliance</td>
+          <td><span class="classifier-chip">ตู้ / เครื่อง</span></td>
+          <td>字面是「冷櫃」。日常很常用。</td>
+          <td><div class="triad"><div class="thai">ในตู้เย็น / เปิดตู้เย็น / เก็บไว้ในตู้เย็น</div><div class="roman">nai dtûu-yen / bpə̀ət dtûu-yen / gèp wái nai dtûu-yen</div><div class="eng">in the fridge / open the fridge / keep in the fridge</div></div></td>
+          <td><div class="triad"><div class="thai">นมอยู่ในตู้เย็นค่ะ</div><div class="roman">nom yùu nai dtûu-yen khâ</div><div class="eng">The milk is in the fridge.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ชั้นรองเท้า</div><div class="roman">chán rɔɔng-tháao</div><div class="eng">shoe rack</div></div></td>
+          <td>Furniture</td>
+          <td><span class="classifier-chip">ชั้น</span></td>
+          <td><span class="thai">ชั้น</span> 可是「層、架子」，也可用在樓層。</td>
+          <td><div class="triad"><div class="thai">เก็บรองเท้าไว้บนชั้นรองเท้า / ชั้นรองเท้าอยู่ข้างประตู</div><div class="roman">gèp rɔɔng-tháao wái bon chán rɔɔng-tháao / chán rɔɔng-tháao yùu khâang bprà-dtuu</div><div class="eng">keep shoes on the shoe rack / the shoe rack is beside the door</div></div></td>
+          <td><div class="triad"><div class="thai">รองเท้าอยู่บนชั้นรองเท้าค่ะ</div><div class="roman">rɔɔng-tháao yùu bon chán rɔɔng-tháao khâ</div><div class="eng">The shoes are on the shoe rack.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">บ้านสองชั้น</div><div class="roman">bâan sɔ̌ɔng chán</div><div class="eng">two-storey house</div></div></td>
+          <td>House</td>
+          <td><span class="classifier-chip">ชั้น</span></td>
+          <td><span class="thai">ชั้น</span> = floor / level。</td>
+          <td><div class="triad"><div class="thai">บ้านชั้นเดียว / บ้านสองชั้น / ชั้นบน / ชั้นล่าง</div><div class="roman">bâan chán diao / bâan sɔ̌ɔng chán / chán-bon / chán-lâang</div><div class="eng">one-storey house / two-storey house / upper floor / lower floor</div></div></td>
+          <td><div class="triad"><div class="thai">บ้านนี้เป็นบ้านสองชั้นค่ะ</div><div class="roman">bâan níi bpen bâan sɔ̌ɔng chán khâ</div><div class="eng">This house is a two-storey house.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตา / หู / จมูก / ปาก</div><div class="roman">dtaa / hǔu / jà-mùuk / bpàak</div><div class="eng">eye / ear / nose / mouth</div></div></td>
+          <td>Body parts</td>
+          <td><span class="classifier-chip">ข้าง</span> for paired sides</td>
+          <td>身體功能句型會用 <span class="thai">ใช้</span>。</td>
+          <td><div class="triad"><div class="thai">ใช้ตาดู / ใช้หูฟัง / ใช้จมูกหายใจ / ใช้ปากพูด</div><div class="roman">chái dtaa duu / chái hǔu fang / chái jà-mùuk hǎai-jai / chái bpàak phûut</div><div class="eng">use eyes to see / ears to listen / nose to breathe / mouth to speak</div></div></td>
+          <td><div class="triad"><div class="thai">เราใช้ตาดูและใช้หูฟังค่ะ</div><div class="roman">rao chái dtaa duu lɛ́ chái hǔu fang khâ</div><div class="eng">We use eyes to see and ears to listen.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หัว / คอ / ไหล่ / หลัง / ท้อง</div><div class="roman">hǔa / khɔɔ / lài / lǎng / thɔ́ɔng</div><div class="eng">head / neck or throat / shoulder / back / stomach</div></div></td>
+          <td>Body parts</td>
+          <td>—</td>
+          <td>看醫生、按摩店最實用的一組。</td>
+          <td><div class="triad"><div class="thai">ปวดหัว / เจ็บคอ / ไหล่ตึง / ปวดหลัง / ปวดท้อง</div><div class="roman">bpùat hǔa / jèp khɔɔ / lài dtʉng / bpùat lǎng / bpùat thɔ́ɔng</div><div class="eng">headache / sore throat / tight shoulders / back pain / stomachache</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันปวดหลังกับไหล่ค่ะ</div><div class="roman">wan-níi chǎn bpùat lǎng gàp lài khâ</div><div class="eng">Today my back and shoulders hurt.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ตัว</span><div class="triad"><div class="thai">ตัว</div><div class="roman">dtua</div><div class="eng">classifier for furniture / body / animals</div></div></td>
+          <td><div class="triad"><div class="thai">โต๊ะ / เก้าอี้ / ร่างกาย</div><div class="roman">dtó / gâo-îi / râang-gaai</div><div class="eng">table / chair / body</div></div></td>
+          <td>家具常用；身體相關也常看到 <span class="thai">ตัว</span> 作「身體」。</td>
+          <td><div class="triad"><div class="thai">โต๊ะหนึ่งตัว</div><div class="roman">dtó nʉ̀eng dtua</div><div class="eng">one table</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要把所有家具都用 <span class="thai">อัน</span> / <span class="roman">an</span> / <span class="eng">general classifier</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ตู้</span><div class="triad"><div class="thai">ตู้</div><div class="roman">dtûu</div><div class="eng">classifier for cabinets / closets / fridge-like items</div></div></td>
+          <td><div class="triad"><div class="thai">ตู้เสื้อผ้า / ตู้เย็น / ตู้หนังสือ</div><div class="roman">dtûu-sʉ̂a-phâa / dtûu-yen / dtûu nǎng-sʉ̌ʉ</div><div class="eng">wardrobe / refrigerator / book cabinet</div></div></td>
+          <td>櫃子本身可當量詞。</td>
+          <td><div class="triad"><div class="thai">ตู้เย็นหนึ่งตู้</div><div class="roman">dtûu-yen nʉ̀eng dtûu</div><div class="eng">one refrigerator</div></div></td>
+          <td><span class="label warn">Common mistake</span> 冰箱初學先記 <span class="thai">ตู้เย็นหนึ่งตู้</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ชั้น</span><div class="triad"><div class="thai">ชั้น</div><div class="roman">chán</div><div class="eng">classifier for floors / shelves / levels</div></div></td>
+          <td><div class="triad"><div class="thai">บ้านสองชั้น / ชั้นหนังสือ / ชั้นรองเท้า</div><div class="roman">bâan sɔ̌ɔng chán / chán nǎng-sʉ̌ʉ / chán rɔɔng-tháao</div><div class="eng">two-storey house / bookshelf / shoe rack</div></div></td>
+          <td>表示「層」或「架」。</td>
+          <td><div class="triad"><div class="thai">บ้านสองชั้น</div><div class="roman">bâan sɔ̌ɔng chán</div><div class="eng">a two-storey house</div></div></td>
+          <td><span class="label warn">Common mistake</span> <span class="thai">ชั้น</span> 可是「樓層」也可是「架子」，要看上下文。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ซี่</span><div class="triad"><div class="thai">ซี่</div><div class="roman">sîi</div><div class="eng">classifier for teeth-like small items</div></div></td>
+          <td><div class="triad"><div class="thai">ฟัน</div><div class="roman">fan</div><div class="eng">tooth / teeth</div></div></td>
+          <td>數牙齒常用。</td>
+          <td><div class="triad"><div class="thai">ฟันหนึ่งซี่</div><div class="roman">fan nʉ̀eng sîi</div><div class="eng">one tooth</div></div></td>
+          <td><span class="label warn">Common mistake</span> 牙齒不要用 <span class="thai">อัน</span> 當精準量詞。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ข้าง</span><div class="triad"><div class="thai">ข้าง</div><div class="roman">khâang</div><div class="eng">side / classifier for paired body sides</div></div></td>
+          <td><div class="triad"><div class="thai">ตา / หู / มือ / เท้า / ขา / แขน</div><div class="roman">dtaa / hǔu / mʉʉ / tháao / khǎa / khɛ̌ɛn</div><div class="eng">eye / ear / hand / foot / leg / arm</div></div></td>
+          <td>身體左右兩邊可用「ข้าง」。</td>
+          <td><div class="triad"><div class="thai">ตาข้างซ้าย</div><div class="roman">dtaa khâang sáai</div><div class="eng">left eye</div></div></td>
+          <td><span class="label warn">Common mistake</span> <span class="thai">ข้าง</span> 是「一邊」，不是一般物品的一個。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜本課重點補充</h2>
+
+    <h3>จับ / หยิบ / ถือ / ยก / วาง / ปล่อย｜動作差異</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Verb</th>
+          <th>Core Meaning</th>
+          <th>Best Used When</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">จับ</div><div class="roman">jàp</div><div class="eng">grab / touch / hold</div></div></td>
+          <td>接觸、抓住。</td>
+          <td>摸東西、抓手、抓住某物。</td>
+          <td><div class="triad"><div class="thai">อย่าจับจานร้อนค่ะ</div><div class="roman">yàa jàp jaan rɔ́ɔn khâ</div><div class="eng">Don’t touch the hot plate.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หยิบ</div><div class="roman">yìp</div><div class="eng">pick up</div></div></td>
+          <td>從某處拿起來。</td>
+          <td>請別人幫你拿桌上、包包裡、櫃子裡的東西。</td>
+          <td><div class="triad"><div class="thai">ช่วยหยิบแก้วบนโต๊ะให้หน่อยค่ะ</div><div class="roman">chûai yìp gâew bon dtó hâi nòi khâ</div><div class="eng">Please pick up the glass on the table for me.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ถือ</div><div class="roman">thʉ̌ʉ</div><div class="eng">hold / carry in hand</div></div></td>
+          <td>拿著的狀態。</td>
+          <td>手上拿手機、袋子、飲料。</td>
+          <td><div class="triad"><div class="thai">ฉันถือกาแฟอยู่ค่ะ</div><div class="roman">chǎn thʉ̌ʉ gaa-fɛɛ yùu khâ</div><div class="eng">I am holding coffee.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ยก</div><div class="roman">yók</div><div class="eng">lift / raise</div></div></td>
+          <td>往上抬。</td>
+          <td>搬重物、舉手、抬箱子。</td>
+          <td><div class="triad"><div class="thai">ช่วยยกกระเป๋าขึ้นไปข้างบนหน่อยค่ะ</div><div class="roman">chûai yók grà-bpǎo khʉ̂n bpai khâang-bon nòi khâ</div><div class="eng">Please help lift the bag upstairs.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">วาง</div><div class="roman">waang</div><div class="eng">put / place down</div></div></td>
+          <td>放下、放置。</td>
+          <td>把東西放桌上、櫃子裡、地上。</td>
+          <td><div class="triad"><div class="thai">วางไว้ตรงนี้ได้เลยค่ะ</div><div class="roman">waang wái dtrong-níi dâai ləəi khâ</div><div class="eng">You can put it right here.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ปล่อย</div><div class="roman">bplɔ̀i</div><div class="eng">let go / release</div></div></td>
+          <td>放開。</td>
+          <td>放開手、放開寵物、不要鬆手。</td>
+          <td><div class="triad"><div class="thai">อย่าปล่อยมือฉันนะคะ</div><div class="roman">yàa bplɔ̀i mʉʉ chǎn ná khá</div><div class="eng">Don’t let go of my hand.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>實用語感：</strong>
+      <span class="thai">หยิบ</span> 是「拿起來」；
+      <span class="thai">ถือ</span> 是「拿著」；
+      <span class="thai">วาง</span> 是「放下」；
+      <span class="thai">ปล่อย</span> 是「放開」。
+      這四個最容易混淆。
+    </div>
+
+    <h3>Position Words｜位置詞總整理</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Thai / Romanization / English</th>
+          <th>Textbook-style Example</th>
+          <th>Bangkok Life Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>On</td>
+          <td><div class="triad"><div class="thai">บน</div><div class="roman">bon</div><div class="eng">on</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้วยอยู่บนโต๊ะค่ะ</div><div class="roman">thûai yùu bon dtó khâ</div><div class="eng">The cup is on the table.</div></div></td>
+          <td><div class="triad"><div class="thai">กุญแจอยู่บนโต๊ะหน้าทีวีค่ะ</div><div class="roman">gun-jae yùu bon dtó nâa thii-wii khâ</div><div class="eng">The keys are on the table in front of the TV.</div></div></td>
+        </tr>
+        <tr>
+          <td>Under</td>
+          <td><div class="triad"><div class="thai">ใต้</div><div class="roman">dtâai</div><div class="eng">under</div></div></td>
+          <td><div class="triad"><div class="thai">แมวนอนใต้โต๊ะค่ะ</div><div class="roman">mɛɛo nɔɔn dtâai dtó khâ</div><div class="eng">The cat is sleeping under the table.</div></div></td>
+          <td><div class="triad"><div class="thai">รองเท้าอยู่ใต้เตียงค่ะ</div><div class="roman">rɔɔng-tháao yùu dtâai dtiang khâ</div><div class="eng">The shoes are under the bed.</div></div></td>
+        </tr>
+        <tr>
+          <td>Inside</td>
+          <td><div class="triad"><div class="thai">ใน / ข้างใน</div><div class="roman">nai / khâang-nai</div><div class="eng">in / inside</div></div></td>
+          <td><div class="triad"><div class="thai">ไอศกรีมอยู่ในตู้เย็นค่ะ</div><div class="roman">ai-sà-griim yùu nai dtûu-yen khâ</div><div class="eng">The ice cream is in the fridge.</div></div></td>
+          <td><div class="triad"><div class="thai">บัตรอยู่ข้างในกระเป๋าสตางค์ค่ะ</div><div class="roman">bàt yùu khâang-nai grà-bpǎo sà-dtaang khâ</div><div class="eng">The card is inside the wallet.</div></div></td>
+        </tr>
+        <tr>
+          <td>Outside</td>
+          <td><div class="triad"><div class="thai">นอก / ข้างนอก</div><div class="roman">nɔ̂ɔk / khâang-nɔ̂ɔk</div><div class="eng">out / outside</div></div></td>
+          <td><div class="triad"><div class="thai">รองเท้าอยู่ข้างนอกค่ะ</div><div class="roman">rɔɔng-tháao yùu khâang-nɔ̂ɔk khâ</div><div class="eng">The shoes are outside.</div></div></td>
+          <td><div class="triad"><div class="thai">คนขับรออยู่ข้างนอกค่ะ</div><div class="roman">khon-khàp rɔɔ yùu khâang-nɔ̂ɔk khâ</div><div class="eng">The driver is waiting outside.</div></div></td>
+        </tr>
+        <tr>
+          <td>Upstairs / above</td>
+          <td><div class="triad"><div class="thai">ข้างบน / ชั้นบน</div><div class="roman">khâang-bon / chán-bon</div><div class="eng">upstairs / upper floor</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องนอนอยู่ข้างบนค่ะ</div><div class="roman">hɔ̂ng-nɔɔn yùu khâang-bon khâ</div><div class="eng">The bedroom is upstairs.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยู่ข้างบน เดี๋ยวลงไปค่ะ</div><div class="roman">chǎn yùu khâang-bon, dǐao long bpai khâ</div><div class="eng">I’m upstairs. I’ll go down in a moment.</div></div></td>
+        </tr>
+        <tr>
+          <td>Downstairs / below</td>
+          <td><div class="triad"><div class="thai">ข้างล่าง / ชั้นล่าง</div><div class="roman">khâang-lâang / chán-lâang</div><div class="eng">downstairs / lower floor</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องรับแขกอยู่ข้างล่างค่ะ</div><div class="roman">hɔ̂ng-ráp-khɛ̀ɛk yùu khâang-lâang khâ</div><div class="eng">The living room is downstairs.</div></div></td>
+          <td><div class="triad"><div class="thai">พัสดุอยู่ข้างล่างที่ล็อบบี้ค่ะ</div><div class="roman">phát-sà-dù yùu khâang-lâang thîi lɔ́p-bîi khâ</div><div class="eng">The parcel is downstairs at the lobby.</div></div></td>
+        </tr>
+        <tr>
+          <td>Front / behind</td>
+          <td><div class="triad"><div class="thai">ข้างหน้า / ข้างหลัง</div><div class="roman">khâang-nâa / khâang-lǎng</div><div class="eng">in front / behind</div></div></td>
+          <td><div class="triad"><div class="thai">เด็กผู้ชายยืนข้างหน้าผมค่ะ</div><div class="roman">dèk-phûu-chaai yʉʉn khâang-nâa phǒm khâ</div><div class="eng">The boy is standing in front of me.</div></div></td>
+          <td><div class="triad"><div class="thai">ที่จอดรถอยู่ข้างหลังตึกค่ะ</div><div class="roman">thîi-jɔ̀ɔt-rót yùu khâang-lǎng dtʉ̀k khâ</div><div class="eng">The parking lot is behind the building.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Furniture & Containers｜家具與容器</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Container / Furniture</th>
+          <th>Thai / Romanization / English</th>
+          <th>What goes there?</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wardrobe</td>
+          <td><div class="triad"><div class="thai">ตู้เสื้อผ้า</div><div class="roman">dtûu-sʉ̂a-phâa</div><div class="eng">wardrobe</div></div></td>
+          <td><div class="triad"><div class="thai">เสื้อผ้า</div><div class="roman">sʉ̂a-phâa</div><div class="eng">clothes</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเก็บเสื้อผ้าไว้ในตู้เสื้อผ้าค่ะ</div><div class="roman">chǎn gèp sʉ̂a-phâa wái nai dtûu-sʉ̂a-phâa khâ</div><div class="eng">I keep clothes in the wardrobe.</div></div></td>
+        </tr>
+        <tr>
+          <td>Fridge</td>
+          <td><div class="triad"><div class="thai">ตู้เย็น</div><div class="roman">dtûu-yen</div><div class="eng">refrigerator</div></div></td>
+          <td><div class="triad"><div class="thai">นม / น้ำ / ไอศกรีม</div><div class="roman">nom / náam / ai-sà-griim</div><div class="eng">milk / water / ice cream</div></div></td>
+          <td><div class="triad"><div class="thai">เก็บนมไว้ในตู้เย็นนะคะ</div><div class="roman">gèp nom wái nai dtûu-yen ná khá</div><div class="eng">Keep the milk in the fridge.</div></div></td>
+        </tr>
+        <tr>
+          <td>Shoe rack</td>
+          <td><div class="triad"><div class="thai">ชั้นรองเท้า</div><div class="roman">chán rɔɔng-tháao</div><div class="eng">shoe rack</div></div></td>
+          <td><div class="triad"><div class="thai">รองเท้า</div><div class="roman">rɔɔng-tháao</div><div class="eng">shoes</div></div></td>
+          <td><div class="triad"><div class="thai">กรุณาเก็บรองเท้าไว้บนชั้นรองเท้าค่ะ</div><div class="roman">gà-rú-naa gèp rɔɔng-tháao wái bon chán rɔɔng-tháao khâ</div><div class="eng">Please keep the shoes on the shoe rack.</div></div></td>
+        </tr>
+        <tr>
+          <td>Bookshelf</td>
+          <td><div class="triad"><div class="thai">ชั้นหนังสือ</div><div class="roman">chán nǎng-sʉ̌ʉ</div><div class="eng">bookshelf</div></div></td>
+          <td><div class="triad"><div class="thai">หนังสือ</div><div class="roman">nǎng-sʉ̌ʉ</div><div class="eng">books</div></div></td>
+          <td><div class="triad"><div class="thai">หนังสือภาษาไทยอยู่บนชั้นหนังสือค่ะ</div><div class="roman">nǎng-sʉ̌ʉ phaa-sǎa-thai yùu bon chán nǎng-sʉ̌ʉ khâ</div><div class="eng">The Thai book is on the bookshelf.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>House & Floors｜房子與樓層</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>One-storey house</td>
+          <td><div class="triad"><div class="thai">บ้านชั้นเดียว</div><div class="roman">bâan chán diao</div><div class="eng">one-storey house</div></div></td>
+          <td><div class="triad"><div class="thai">บ้านคุณยายเป็นบ้านชั้นเดียวค่ะ</div><div class="roman">bâan khun-yaai bpen bâan chán diao khâ</div><div class="eng">Grandma’s house is a one-storey house.</div></div></td>
+          <td><span class="thai">เดียว</span> = one / single。</td>
+        </tr>
+        <tr>
+          <td>Two-storey house</td>
+          <td><div class="triad"><div class="thai">บ้านสองชั้น</div><div class="roman">bâan sɔ̌ɔng chán</div><div class="eng">two-storey house</div></div></td>
+          <td><div class="triad"><div class="thai">บ้านนี้เป็นบ้านสองชั้นค่ะ</div><div class="roman">bâan níi bpen bâan sɔ̌ɔng chán khâ</div><div class="eng">This house is a two-storey house.</div></div></td>
+          <td><span class="thai">ชั้น</span> = floor / level。</td>
+        </tr>
+        <tr>
+          <td>Bring up</td>
+          <td><div class="triad"><div class="thai">เอาขึ้นมาข้างบน</div><div class="roman">ao khʉ̂n maa khâang-bon</div><div class="eng">bring up upstairs</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยเอาน้ำขึ้นมาข้างบนหน่อยค่ะ</div><div class="roman">chûai ao náam khʉ̂n maa khâang-bon nòi khâ</div><div class="eng">Please bring water upstairs for me.</div></div></td>
+          <td><span class="label review">Review</span> Day 6 的 <span class="thai">เอา...มา</span> 加上 <span class="thai">ขึ้น</span>。</td>
+        </tr>
+        <tr>
+          <td>Take down</td>
+          <td><div class="triad"><div class="thai">เอาลงไปข้างล่าง</div><div class="roman">ao long bpai khâang-lâang</div><div class="eng">take down downstairs</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยเอาขยะลงไปข้างล่างหน่อยค่ะ</div><div class="roman">chûai ao khà-yà long bpai khâang-lâang nòi khâ</div><div class="eng">Please take the trash downstairs.</div></div></td>
+          <td>公寓生活很實用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Body Parts & Functions｜身體部位與功能</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Body Part</th>
+          <th>Function</th>
+          <th>Thai / Romanization / English</th>
+          <th>Bangkok Life Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ตา</div><div class="roman">dtaa</div><div class="eng">eye</div></div></td>
+          <td>See / look</td>
+          <td><div class="triad"><div class="thai">เราใช้ตาดูค่ะ</div><div class="roman">rao chái dtaa duu khâ</div><div class="eng">We use eyes to see.</div></div></td>
+          <td><div class="triad"><div class="thai">ตาฉันแห้งเพราะดูจอนานค่ะ</div><div class="roman">dtaa chǎn hɛ̂ɛng phrɔ́ duu jɔɔ naan khâ</div><div class="eng">My eyes are dry because I looked at a screen for a long time.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หู</div><div class="roman">hǔu</div><div class="eng">ear</div></div></td>
+          <td>Listen / hear</td>
+          <td><div class="triad"><div class="thai">เราใช้หูฟังเสียงค่ะ</div><div class="roman">rao chái hǔu fang sǐang khâ</div><div class="eng">We use ears to listen to sounds.</div></div></td>
+          <td><div class="triad"><div class="thai">ได้ยินไหมคะ</div><div class="roman">dâai-yin mái khá</div><div class="eng">Can you hear it?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">จมูก</div><div class="roman">jà-mùuk</div><div class="eng">nose</div></div></td>
+          <td>Breathe / smell</td>
+          <td><div class="triad"><div class="thai">เราใช้จมูกหายใจและดมกลิ่นค่ะ</div><div class="roman">rao chái jà-mùuk hǎai-jai lɛ́ dom glìn khâ</div><div class="eng">We use the nose to breathe and smell.</div></div></td>
+          <td><div class="triad"><div class="thai">กลิ่นนี้หอมมากค่ะ</div><div class="roman">glìn níi hɔ̌ɔm mâak khâ</div><div class="eng">This smell is very fragrant.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ปาก</div><div class="roman">bpàak</div><div class="eng">mouth</div></div></td>
+          <td>Speak / eat</td>
+          <td><div class="triad"><div class="thai">เราใช้ปากพูดและกินค่ะ</div><div class="roman">rao chái bpàak phûut lɛ́ gin khâ</div><div class="eng">We use the mouth to speak and eat.</div></div></td>
+          <td><div class="triad"><div class="thai">อย่าพูดตอนมีอาหารในปากนะคะ</div><div class="roman">yàa phûut dtɔɔn mii aa-hǎan nai bpàak ná khá</div><div class="eng">Don’t speak when there is food in your mouth.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ฟัน</div><div class="roman">fan</div><div class="eng">teeth</div></div></td>
+          <td>Bite / chew</td>
+          <td><div class="triad"><div class="thai">เราใช้ฟันกัดและเคี้ยวอาหารค่ะ</div><div class="roman">rao chái fan gàt lɛ́ khíao aa-hǎan khâ</div><div class="eng">We use teeth to bite and chew food.</div></div></td>
+          <td><div class="triad"><div class="thai">ฟันฉันเจ็บ เวลาเคี้ยวอาหารค่ะ</div><div class="roman">fan chǎn jèp wee-laa khíao aa-hǎan khâ</div><div class="eng">My tooth hurts when I chew food.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ลิ้น</div><div class="roman">lín</div><div class="eng">tongue</div></div></td>
+          <td>Taste / lick</td>
+          <td><div class="triad"><div class="thai">เราใช้ลิ้นรับรสชาติค่ะ</div><div class="roman">rao chái lín ráp rót-châat khâ</div><div class="eng">We use the tongue to taste.</div></div></td>
+          <td><div class="triad"><div class="thai">เด็กใช้ลิ้นเลียไอศกรีมค่ะ</div><div class="roman">dèk chái lín lia ai-sà-griim khâ</div><div class="eng">The child uses the tongue to lick ice cream.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Synonyms & Opposites｜同義詞 / 反義詞 / 對比詞</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Pair / Contrast</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example A</th>
+          <th>Example B</th>
+          <th>Usage Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>拿起 / 拿著</td>
+          <td>
+            <div class="triad"><div class="thai">หยิบ</div><div class="roman">yìp</div><div class="eng">pick up</div></div>
+            <div class="triad"><div class="thai">ถือ</div><div class="roman">thʉ̌ʉ</div><div class="eng">hold / carry in hand</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ช่วยหยิบโทรศัพท์บนโต๊ะให้หน่อยค่ะ</div><div class="roman">chûai yìp thoo-rá-sàp bon dtó hâi nòi khâ</div><div class="eng">Please pick up the phone on the table for me.</div></div></td>
+          <td><div class="triad"><div class="thai">เขาถือโทรศัพท์อยู่ค่ะ</div><div class="roman">khǎo thʉ̌ʉ thoo-rá-sàp yùu khâ</div><div class="eng">He is holding a phone.</div></div></td>
+          <td><span class="thai">หยิบ</span> 是拿起動作；<span class="thai">ถือ</span> 是手上拿著的狀態。</td>
+        </tr>
+
+        <tr>
+          <td>放下 / 放開</td>
+          <td>
+            <div class="triad"><div class="thai">วาง</div><div class="roman">waang</div><div class="eng">put / place down</div></div>
+            <div class="triad"><div class="thai">ปล่อย</div><div class="roman">bplɔ̀i</div><div class="eng">let go / release</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">วางแก้วไว้บนโต๊ะค่ะ</div><div class="roman">waang gâew wái bon dtó khâ</div><div class="eng">Put the glass on the table.</div></div></td>
+          <td><div class="triad"><div class="thai">อย่าปล่อยมือเด็กนะคะ</div><div class="roman">yàa bplɔ̀i mʉʉ dèk ná khá</div><div class="eng">Don’t let go of the child’s hand.</div></div></td>
+          <td><span class="thai">วาง</span> 是把物品放到某處；<span class="thai">ปล่อย</span> 是鬆手 / 放開。</td>
+        </tr>
+
+        <tr>
+          <td>裡面 / 外面</td>
+          <td>
+            <div class="triad"><div class="thai">ข้างใน</div><div class="roman">khâang-nai</div><div class="eng">inside</div></div>
+            <div class="triad"><div class="thai">ข้างนอก</div><div class="roman">khâang-nɔ̂ɔk</div><div class="eng">outside</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">เงินอยู่ข้างในกระเป๋าค่ะ</div><div class="roman">ngoen yùu khâang-nai grà-bpǎo khâ</div><div class="eng">The money is inside the bag.</div></div></td>
+          <td><div class="triad"><div class="thai">คนขับรออยู่ข้างนอกค่ะ</div><div class="roman">khon-khàp rɔɔ yùu khâang-nɔ̂ɔk khâ</div><div class="eng">The driver is waiting outside.</div></div></td>
+          <td>容器 / 房間內外的對比。</td>
+        </tr>
+
+        <tr>
+          <td>樓上 / 樓下</td>
+          <td>
+            <div class="triad"><div class="thai">ข้างบน / ชั้นบน</div><div class="roman">khâang-bon / chán-bon</div><div class="eng">upstairs / upper floor</div></div>
+            <div class="triad"><div class="thai">ข้างล่าง / ชั้นล่าง</div><div class="roman">khâang-lâang / chán-lâang</div><div class="eng">downstairs / lower floor</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ฉันอยู่ข้างบน เดี๋ยวลงไปค่ะ</div><div class="roman">chǎn yùu khâang-bon, dǐao long bpai khâ</div><div class="eng">I’m upstairs. I’ll go down in a moment.</div></div></td>
+          <td><div class="triad"><div class="thai">พัสดุอยู่ข้างล่างที่ล็อบบี้ค่ะ</div><div class="roman">phát-sà-dù yùu khâang-lâang thîi lɔ́p-bîi khâ</div><div class="eng">The parcel is downstairs at the lobby.</div></div></td>
+          <td><span class="thai">ชั้นบน / ชั้นล่าง</span> 比較像樓層；<span class="thai">ข้างบน / ข้างล่าง</span> 日常口語更廣。</td>
+        </tr>
+
+        <tr>
+          <td>香 / 臭</td>
+          <td>
+            <div class="triad"><div class="thai">หอม</div><div class="roman">hɔ̌ɔm</div><div class="eng">fragrant / smells good</div></div>
+            <div class="triad"><div class="thai">เหม็น</div><div class="roman">mĕn</div><div class="eng">stinky / smells bad</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ร้านนี้กลิ่นกาแฟหอมมากค่ะ</div><div class="roman">ráan níi glìn gaa-fɛɛ hɔ̌ɔm mâak khâ</div><div class="eng">This shop smells strongly of fragrant coffee.</div></div></td>
+          <td><div class="triad"><div class="thai">ขยะข้างล่างเหม็นมากค่ะ</div><div class="roman">khà-yà khâang-lâang mĕn mâak khâ</div><div class="eng">The trash downstairs smells very bad.</div></div></td>
+          <td>本課鼻子功能延伸。<span class="thai">หอม</span> 是好聞；<span class="thai">เหม็น</span> 是臭。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>Structure｜N อยู่ที่ไหน？東西在哪裡？</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">N อยู่ที่ไหนคะ/ครับ</div>
+        <div class="roman">N yùu thîi-nǎi khá/khráp</div>
+        <div class="eng">Where is N?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Pattern</th>
+          <th>Answer Pattern</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">แก้วอยู่ที่ไหนคะ</div><div class="roman">gâew yùu thîi-nǎi khá</div><div class="eng">Where is the glass?</div></div></td>
+          <td><div class="triad"><div class="thai">แก้วอยู่บนโต๊ะค่ะ</div><div class="roman">gâew yùu bon dtó khâ</div><div class="eng">The glass is on the table.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">กุญแจอยู่ที่ไหนคะ</div><div class="roman">gun-jae yùu thîi-nǎi khá</div><div class="eng">Where are the keys?</div></div>
+            <div class="triad"><div class="thai">บัตรอยู่ในกระเป๋าสตางค์ค่ะ</div><div class="roman">bàt yùu nai grà-bpǎo sà-dtaang khâ</div><div class="eng">The card is in the wallet.</div></div>
+            <div class="triad"><div class="thai">พัสดุอยู่ข้างล่างค่ะ</div><div class="roman">phát-sà-dù yùu khâang-lâang khâ</div><div class="eng">The parcel is downstairs.</div></div>
+          </td>
+          <td><span class="thai">อยู่</span> 是存在 / 位於；位置詞放後面。口語可說 <span class="thai">อยู่ไหน</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜วาง N ไว้ + Position：把東西放在……</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">Subject + วาง + N + ไว้ + Position + Place</div>
+        <div class="roman">Subject + waang + N + wái + Position + Place</div>
+        <div class="eng">Subject puts N at a position/place.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ฉันวางถ้วยไว้บนโต๊ะค่ะ</div><div class="roman">chǎn waang thûai wái bon dtó khâ</div><div class="eng">I put the cup on the table.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">วางไว้ตรงนี้ได้เลยค่ะ</div><div class="roman">waang wái dtrong-níi dâai ləəi khâ</div><div class="eng">You can put it right here.</div></div>
+            <div class="triad"><div class="thai">ฉันวางโทรศัพท์ไว้ข้างเตียงค่ะ</div><div class="roman">chǎn waang thoo-rá-sàp wái khâang dtiang khâ</div><div class="eng">I put my phone beside the bed.</div></div>
+            <div class="triad"><div class="thai">อย่าวางของไว้หน้าประตูนะคะ</div><div class="roman">yàa waang khɔ̌ɔng wái nâa bprà-dtuu ná khá</div><div class="eng">Don’t put things in front of the door.</div></div>
+          </td>
+          <td><span class="thai">ไว้</span> 表示「放著、留在某處」。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜เก็บ N ไว้ใน N：把東西收進……</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">Subject + เก็บ + N1 + ไว้ใน + N2</div>
+        <div class="roman">Subject + gèp + N1 + wái nai + N2</div>
+        <div class="eng">Subject keeps N1 inside N2.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ฉันเก็บเสื้อผ้าไว้ในตู้เสื้อผ้าค่ะ</div><div class="roman">chǎn gèp sʉ̂a-phâa wái nai dtûu-sʉ̂a-phâa khâ</div><div class="eng">I keep clothes in the wardrobe.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">เก็บนมไว้ในตู้เย็นนะคะ</div><div class="roman">gèp nom wái nai dtûu-yen ná khá</div><div class="eng">Keep the milk in the fridge.</div></div>
+            <div class="triad"><div class="thai">ฉันเก็บเอกสารไว้ในลิ้นชักค่ะ</div><div class="roman">chǎn gèp èek-gà-sǎan wái nai lín-chák khâ</div><div class="eng">I keep the documents in the drawer.</div></div>
+            <div class="triad"><div class="thai">ช่วยเก็บรองเท้าไว้บนชั้นรองเท้าหน่อยค่ะ</div><div class="roman">chûai gèp rɔɔng-tháao wái bon chán rɔɔng-tháao nòi khâ</div><div class="eng">Please put the shoes on the shoe rack.</div></div>
+          </td>
+          <td><span class="thai">เก็บ</span> 有收起、保存的感覺。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜ใช้ + Body Part + Verb：用某身體部位做動作</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">Subject + ใช้ + Body Part + Verb + Object</div>
+        <div class="roman">Subject + chái + Body Part + Verb + Object</div>
+        <div class="eng">Subject uses a body part to do something.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เราใช้หูฟังเสียงค่ะ</div><div class="roman">rao chái hǔu fang sǐang khâ</div><div class="eng">We use ears to listen to sounds.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">เราใช้ตาดูค่ะ</div><div class="roman">rao chái dtaa duu khâ</div><div class="eng">We use eyes to see.</div></div>
+            <div class="triad"><div class="thai">เราใช้ปากพูดค่ะ</div><div class="roman">rao chái bpàak phûut khâ</div><div class="eng">We use the mouth to speak.</div></div>
+            <div class="triad"><div class="thai">เราใช้จมูกดมกลิ่นค่ะ</div><div class="roman">rao chái jà-mùuk dom glìn khâ</div><div class="eng">We use the nose to smell.</div></div>
+          </td>
+          <td>這是本課身體部位功能句型。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問東西在哪裡</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หนังสืออยู่ที่ไหนคะ</div><div class="roman">nǎng-sʉ̌ʉ yùu thîi-nǎi khá</div><div class="eng">Where is the book?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">หนังสืออยู่ไหนคะ</div><div class="roman">nǎng-sʉ̌ʉ yùu nǎi khá</div><div class="eng">Where is the book?</div></div></td>
+          <td>口語常省略 <span class="thai">ที่</span>，說 <span class="thai">อยู่ไหน</span>。</td>
+        </tr>
+
+        <tr>
+          <td>請對方幫你拿東西</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ช่วยหยิบปากกาบนโต๊ะให้หน่อยค่ะ</div><div class="roman">chûai yìp bpàak-gaa bon dtó hâi nòi khâ</div><div class="eng">Please pick up the pen on the table for me.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">หยิบปากกาให้หน่อยค่ะ</div><div class="roman">yìp bpàak-gaa hâi nòi khâ</div><div class="eng">Please get the pen for me.</div></div></td>
+          <td>朋友 / 熟人可省略 <span class="thai">ช่วย</span>，但對店員 / 陌生人加上更禮貌。</td>
+        </tr>
+
+        <tr>
+          <td>請外送員放這裡</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">วางไว้ตรงนี้ได้ค่ะ</div><div class="roman">waang wái dtrong-níi dâai khâ</div><div class="eng">You can put it here.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วางตรงนี้ได้เลยค่ะ</div><div class="roman">waang dtrong-níi dâai ləəi khâ</div><div class="eng">Just put it right here.</div></div></td>
+          <td><span class="thai">ได้เลย</span> 很自然，語氣像「可以直接……」。</td>
+        </tr>
+
+        <tr>
+          <td>說在樓下</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">อยู่ข้างล่างค่ะ</div><div class="roman">yùu khâang-lâang khâ</div><div class="eng">It is downstairs.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยู่ล็อบบี้ข้างล่างค่ะ</div><div class="roman">yùu lɔ́p-bîi khâang-lâang khâ</div><div class="eng">It’s at the lobby downstairs.</div></div></td>
+          <td>公寓生活中常用 <span class="thai">ล็อบบี้</span> / lobby。</td>
+        </tr>
+
+        <tr>
+          <td>按摩店說肩膀痛</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันปวดไหล่ค่ะ</div><div class="roman">chǎn bpùat lài khâ</div><div class="eng">My shoulder hurts.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไหล่ตึงมากค่ะ</div><div class="roman">lài dtʉng mâak khâ</div><div class="eng">My shoulders are very tight.</div></div></td>
+          <td><span class="thai">ตึง</span> 很適合按摩情境，表示緊繃。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bangkok" class="tab-content">
+    <h2>Bangkok Expansion｜Real-life Bangkok Situations</h2>
+
+    <h3>Condo Life｜公寓生活：東西在哪裡？</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>找鑰匙</td>
+          <td><div class="triad"><div class="thai">กุญแจอยู่ที่ไหนคะ</div><div class="roman">gun-jae yùu thîi-nǎi khá</div><div class="eng">Where are the keys?</div></div></td>
+          <td>最基本找東西句。</td>
+        </tr>
+        <tr>
+          <td>回答在桌上</td>
+          <td><div class="triad"><div class="thai">กุญแจอยู่บนโต๊ะค่ะ</div><div class="roman">gun-jae yùu bon dtó khâ</div><div class="eng">The keys are on the table.</div></div></td>
+          <td><span class="thai">บน</span> = on。</td>
+        </tr>
+        <tr>
+          <td>手機在床邊</td>
+          <td><div class="triad"><div class="thai">โทรศัพท์อยู่ข้างเตียงค่ะ</div><div class="roman">thoo-rá-sàp yùu khâang dtiang khâ</div><div class="eng">The phone is beside the bed.</div></div></td>
+          <td>很像日常找手機。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Delivery & Lobby｜外送 / 包裹 / 公寓大廳</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>包裹在樓下</td>
+          <td><div class="triad"><div class="thai">พัสดุอยู่ข้างล่างที่ล็อบบี้ค่ะ</div><div class="roman">phát-sà-dù yùu khâang-lâang thîi lɔ́p-bîi khâ</div><div class="eng">The parcel is downstairs at the lobby.</div></div></td>
+          <td>公寓收包裹很常用。</td>
+        </tr>
+        <tr>
+          <td>請司機放前面</td>
+          <td><div class="triad"><div class="thai">วางไว้ข้างหน้าประตูได้เลยค่ะ</div><div class="roman">waang wái khâang-nâa bprà-dtuu dâai ləəi khâ</div><div class="eng">You can put it in front of the door.</div></div></td>
+          <td>Grab / 外送實用。</td>
+        </tr>
+        <tr>
+          <td>叫司機等外面</td>
+          <td><div class="triad"><div class="thai">รอข้างนอกแป๊บนึงได้ไหมคะ</div><div class="roman">rɔɔ khâang-nɔ̂ɔk bpɛ́ɛp-nʉng dâai mái khá</div><div class="eng">Can you wait outside for a moment?</div></div></td>
+          <td><span class="thai">แป๊บนึง</span> = 一下下，口語。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Housekeeping｜清潔阿姨 / 整理房間</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>請放進櫃子</td>
+          <td><div class="triad"><div class="thai">ช่วยเก็บผ้าไว้ในตู้หน่อยค่ะ</div><div class="roman">chûai gèp phâa wái nai dtûu nòi khâ</div><div class="eng">Please put the cloth/clothes in the cabinet.</div></div></td>
+          <td><span class="thai">ช่วย...หน่อยค่ะ</span> 禮貌請求。</td>
+        </tr>
+        <tr>
+          <td>鞋子放鞋架</td>
+          <td><div class="triad"><div class="thai">รองเท้าวางไว้บนชั้นรองเท้าได้เลยค่ะ</div><div class="roman">rɔɔng-tháao waang wái bon chán rɔɔng-tháao dâai ləəi khâ</div><div class="eng">You can put the shoes on the shoe rack.</div></div></td>
+          <td>居家常用。</td>
+        </tr>
+        <tr>
+          <td>不要放門口</td>
+          <td><div class="triad"><div class="thai">อย่าวางของไว้หน้าประตูนะคะ</div><div class="roman">yàa waang khɔ̌ɔng wái nâa bprà-dtuu ná khá</div><div class="eng">Don’t put things in front of the door.</div></div></td>
+          <td>提醒語氣，柔和可加 <span class="thai">นะคะ</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Clinic, Pharmacy & Massage｜診所、藥局、按摩店</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>頭痛</td>
+          <td><div class="triad"><div class="thai">ฉันปวดหัวค่ะ</div><div class="roman">chǎn bpùat hǔa khâ</div><div class="eng">I have a headache.</div></div></td>
+          <td>看醫生最實用身體句。</td>
+        </tr>
+        <tr>
+          <td>喉嚨痛</td>
+          <td><div class="triad"><div class="thai">ฉันเจ็บคอค่ะ</div><div class="roman">chǎn jèp khɔɔ khâ</div><div class="eng">I have a sore throat.</div></div></td>
+          <td><span class="thai">คอ</span> 可指喉嚨 / 脖子。</td>
+        </tr>
+        <tr>
+          <td>肚子痛</td>
+          <td><div class="triad"><div class="thai">ฉันปวดท้องค่ะ</div><div class="roman">chǎn bpùat thɔ́ɔng khâ</div><div class="eng">I have a stomachache.</div></div></td>
+          <td>可加症狀：<span class="thai">ท้องเสีย</span> / diarrhea。</td>
+        </tr>
+        <tr>
+          <td>肩膀緊</td>
+          <td><div class="triad"><div class="thai">ไหล่ตึงมากค่ะ</div><div class="roman">lài dtʉng mâak khâ</div><div class="eng">My shoulders are very tight.</div></div></td>
+          <td>按摩店比 <span class="thai">ปวด</span> 更精準。</td>
+        </tr>
+        <tr>
+          <td>不要按太重</td>
+          <td><div class="triad"><div class="thai">เบา ๆ หน่อยได้ไหมคะ</div><div class="roman">bao-bao nòi dâai mái khá</div><div class="eng">Could you make it a little lighter?</div></div></td>
+          <td>真實按摩必備句。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>找手機：手機在哪裡？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">โทรศัพท์ฉันอยู่ไหนคะ</div><div class="roman">thoo-rá-sàp chǎn yùu nǎi khá</div><div class="eng">Where is my phone?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยู่บนโต๊ะข้างเตียงค่ะ</div><div class="roman">yùu bon dtó khâang dtiang khâ</div><div class="eng">It’s on the table beside the bed.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ช่วยหยิบให้หน่อยได้ไหมคะ</div><div class="roman">chûai yìp hâi nòi dâai mái khá</div><div class="eng">Could you pick it up for me?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ เดี๋ยวหยิบให้ค่ะ</div><div class="roman">dâai khâ, dǐao yìp hâi khâ</div><div class="eng">Sure, I’ll get it for you.</div></div></div>
+    </div>
+
+    <h3>外送：請放門口</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ผมมาถึงแล้วครับ</div><div class="roman">phǒm maa thʉ̌ng lɛ́ɛw khráp</div><div class="eng">I’ve arrived.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วางไว้หน้าประตูได้เลยค่ะ</div><div class="roman">waang wái nâa bprà-dtuu dâai ləəi khâ</div><div class="eng">You can put it in front of the door.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">หน้าห้องใช่ไหมครับ</div><div class="roman">nâa hɔ̂ng châi mái khráp</div><div class="eng">In front of the room, right?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ใช่ค่ะ ขอบคุณค่ะ</div><div class="roman">châi khâ, khɔ̀ɔp-khun khâ</div><div class="eng">Yes, thank you.</div></div></div>
+    </div>
+
+    <h3>公寓：包裹在樓下</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Receptionist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">มีพัสดุของคุณค่ะ</div><div class="roman">mii phát-sà-dù khɔ̌ɔng khun khâ</div><div class="eng">There is a parcel for you.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">พัสดุอยู่ที่ไหนคะ</div><div class="roman">phát-sà-dù yùu thîi-nǎi khá</div><div class="eng">Where is the parcel?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Receptionist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยู่ข้างล่างที่ล็อบบี้ค่ะ</div><div class="roman">yùu khâang-lâang thîi lɔ́p-bîi khâ</div><div class="eng">It’s downstairs at the lobby.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เดี๋ยวฉันลงไปเอาค่ะ</div><div class="roman">dǐao chǎn long bpai ao khâ</div><div class="eng">I’ll go down to get it in a moment.</div></div></div>
+    </div>
+
+    <h3>整理房間：東西要放哪裡？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Housekeeper</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เสื้อผ้าเก็บไว้ที่ไหนคะ</div><div class="roman">sʉ̂a-phâa gèp wái thîi-nǎi khá</div><div class="eng">Where should I put the clothes?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label textbook">Textbook-based + Supplement</span><div class="triad"><div class="thai">เก็บไว้ในตู้เสื้อผ้าค่ะ</div><div class="roman">gèp wái nai dtûu-sʉ̂a-phâa khâ</div><div class="eng">Keep them in the wardrobe.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Housekeeper</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">รองเท้าล่ะคะ</div><div class="roman">rɔɔng-tháao lâ khá</div><div class="eng">What about the shoes?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label textbook">Textbook-based + Supplement</span><div class="triad"><div class="thai">วางไว้บนชั้นรองเท้าได้เลยค่ะ</div><div class="roman">waang wái bon chán rɔɔng-tháao dâai ləəi khâ</div><div class="eng">You can put them on the shoe rack.</div></div></div>
+    </div>
+
+    <h3>按摩店：肩膀與背很緊</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Massage Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วันนี้ปวดตรงไหนคะ</div><div class="roman">wan-níi bpùat dtrong-nǎi khá</div><div class="eng">Where does it hurt today?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ปวดหลังกับไหล่ค่ะ</div><div class="roman">bpùat lǎng gàp lài khâ</div><div class="eng">My back and shoulders hurt.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Massage Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">นวดหนักได้ไหมคะ</div><div class="roman">nûat nàk dâai mái khá</div><div class="eng">Can I massage firmly?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เบา ๆ หน่อยค่ะ ไหล่ตึงมากค่ะ</div><div class="roman">bao-bao nòi khâ, lài dtʉng mâak khâ</div><div class="eng">A little lighter, please. My shoulders are very tight.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">หยิบ / ถือ 混用</div><div class="roman">yìp / thʉ̌ʉ</div><div class="eng">pick up / hold</div></div></td>
+          <td><span class="thai">หยิบ</span> 是拿起動作；<span class="thai">ถือ</span> 是拿著狀態。</td>
+          <td>
+            <div class="triad"><div class="thai">ช่วยหยิบแก้วให้หน่อยค่ะ</div><div class="roman">chûai yìp gâew hâi nòi khâ</div><div class="eng">Please pick up the glass for me.</div></div>
+            <div class="triad"><div class="thai">เขาถือแก้วอยู่ค่ะ</div><div class="roman">khǎo thʉ̌ʉ gâew yùu khâ</div><div class="eng">He is holding a glass.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">วาง / ปล่อย 混用</div><div class="roman">waang / bplɔ̀i</div><div class="eng">put / let go</div></div></td>
+          <td><span class="thai">วาง</span> 是放置；<span class="thai">ปล่อย</span> 是放開 / 鬆手。</td>
+          <td>
+            <div class="triad"><div class="thai">วางของไว้บนโต๊ะค่ะ</div><div class="roman">waang khɔ̌ɔng wái bon dtó khâ</div><div class="eng">Put the things on the table.</div></div>
+            <div class="triad"><div class="thai">อย่าปล่อยมือเด็กนะคะ</div><div class="roman">yàa bplɔ̀i mʉʉ dèk ná khá</div><div class="eng">Don’t let go of the child’s hand.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">บน / ข้างบน 混用</div><div class="roman">bon / khâang-bon</div><div class="eng">on / upstairs or above</div></div></td>
+          <td><span class="thai">บน</span> 是在表面上；<span class="thai">ข้างบน</span> 是上方 / 樓上。</td>
+          <td>
+            <div class="triad"><div class="thai">แก้วอยู่บนโต๊ะค่ะ</div><div class="roman">gâew yùu bon dtó khâ</div><div class="eng">The glass is on the table.</div></div>
+            <div class="triad"><div class="thai">ห้องนอนอยู่ข้างบนค่ะ</div><div class="roman">hɔ̂ng-nɔɔn yùu khâang-bon khâ</div><div class="eng">The bedroom is upstairs.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หน้า / ข้างหน้า 混用</div><div class="roman">nâa / khâang-nâa</div><div class="eng">face or front / in front</div></div></td>
+          <td><span class="thai">หน้า</span> 可以是臉，也可以是前面；<span class="thai">ข้างหน้า</span> 比較明確是前面。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันล้างหน้าค่ะ</div><div class="roman">chǎn láang nâa khâ</div><div class="eng">I wash my face.</div></div>
+            <div class="triad"><div class="thai">รถอยู่ข้างหน้าคอนโดค่ะ</div><div class="roman">rót yùu khâang-nâa khɔɔn-doo khâ</div><div class="eng">The car is in front of the condo.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หลัง / ข้างหลัง 混用</div><div class="roman">lǎng / khâang-lǎng</div><div class="eng">back / behind</div></div></td>
+          <td><span class="thai">หลัง</span> 可指背；<span class="thai">ข้างหลัง</span> 指後面。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันปวดหลังค่ะ</div><div class="roman">chǎn bpùat lǎng khâ</div><div class="eng">My back hurts.</div></div>
+            <div class="triad"><div class="thai">ที่จอดรถอยู่ข้างหลังตึกค่ะ</div><div class="roman">thîi-jɔ̀ɔt-rót yùu khâang-lǎng dtʉ̀k khâ</div><div class="eng">The parking lot is behind the building.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+    <details>
+      <summary>grab / pick up / hold / lift / put / release</summary>
+      <div class="triad"><div class="thai">จับ / หยิบ / ถือ / ยก / วาง / ปล่อย</div><div class="roman">jàp / yìp / thʉ̌ʉ / yók / waang / bplɔ̀i</div><div class="eng">grab / pick up / hold / lift / put / release</div></div>
+      <p><strong>Chinese Explanation:</strong> 本課最重要的動作動詞組。</p>
+    </details>
+
+    <details>
+      <summary>on / under / inside / outside / upstairs / downstairs / in front / behind</summary>
+      <div class="triad"><div class="thai">บน / ใต้ / ข้างใน / ข้างนอก / ข้างบน / ข้างล่าง / ข้างหน้า / ข้างหลัง</div><div class="roman">bon / dtâai / khâang-nai / khâang-nɔ̂ɔk / khâang-bon / khâang-lâang / khâang-nâa / khâang-lǎng</div><div class="eng">on / under / inside / outside / upstairs / downstairs / in front / behind</div></div>
+      <p><strong>Chinese Explanation:</strong> 位置詞要搭配 <span class="thai">อยู่</span> 使用。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+    <details>
+      <summary>one table</summary>
+      <div class="triad"><div class="thai">โต๊ะหนึ่งตัว</div><div class="roman">dtó nʉ̀eng dtua</div><div class="eng">one table</div></div>
+      <p><strong>Chinese Explanation:</strong> 家具常用 <span class="thai">ตัว</span>。</p>
+    </details>
+
+    <details>
+      <summary>one refrigerator</summary>
+      <div class="triad"><div class="thai">ตู้เย็นหนึ่งตู้</div><div class="roman">dtûu-yen nʉ̀eng dtûu</div><div class="eng">one refrigerator</div></div>
+      <p><strong>Chinese Explanation:</strong> 櫃子 / 冰箱類可用 <span class="thai">ตู้</span>。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+    <details>
+      <summary>手機在桌上。</summary>
+      <div class="triad"><div class="thai">โทรศัพท์อยู่บนโต๊ะค่ะ</div><div class="roman">thoo-rá-sàp yùu bon dtó khâ</div><div class="eng">The phone is on the table.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">อยู่บน</span> = located on。</p>
+    </details>
+
+    <details>
+      <summary>請幫我拿桌上的筆。</summary>
+      <div class="triad"><div class="thai">ช่วยหยิบปากกาบนโต๊ะให้หน่อยค่ะ</div><div class="roman">chûai yìp bpàak-gaa bon dtó hâi nòi khâ</div><div class="eng">Please pick up the pen on the table for me.</div></div>
+      <p><strong>Chinese Explanation:</strong> 請別人幫拿東西用 <span class="thai">ช่วยหยิบ...ให้หน่อยค่ะ</span>。</p>
+    </details>
+
+    <details>
+      <summary>我背痛。</summary>
+      <div class="triad"><div class="thai">ฉันปวดหลังค่ะ</div><div class="roman">chǎn bpùat lǎng khâ</div><div class="eng">My back hurts.</div></div>
+      <p><strong>Chinese Explanation:</strong> 身體痛用 <span class="thai">ปวด + body part</span>。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+    <details>
+      <summary>把「หนังสืออยู่ที่ไหนคะ」改成更口語。</summary>
+      <div class="triad"><div class="thai">หนังสืออยู่ไหนคะ</div><div class="roman">nǎng-sʉ̌ʉ yùu nǎi khá</div><div class="eng">Where is the book?</div></div>
+      <p><strong>Chinese Explanation:</strong> 口語常省略 <span class="thai">ที่</span>。</p>
+    </details>
+
+    <details>
+      <summary>把「วางไว้ตรงนี้ได้ค่ะ」改成更自然外送句。</summary>
+      <div class="triad"><div class="thai">วางตรงนี้ได้เลยค่ะ</div><div class="roman">waang dtrong-níi dâai ləəi khâ</div><div class="eng">Just put it right here.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ได้เลย</span> 語氣自然，像「可以直接」。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="triad"><div class="thai">โทรศัพท์อยู่ไหนคะ</div><div class="roman">thoo-rá-sàp yùu nǎi khá</div><div class="eng">Where is the phone?</div></div></td><td>找東西</td></tr>
+        <tr><td>2</td><td><div class="triad"><div class="thai">อยู่บนโต๊ะค่ะ</div><div class="roman">yùu bon dtó khâ</div><div class="eng">It’s on the table.</div></div></td><td>回答位置</td></tr>
+        <tr><td>3</td><td><div class="triad"><div class="thai">ช่วยหยิบให้หน่อยค่ะ</div><div class="roman">chûai yìp hâi nòi khâ</div><div class="eng">Please pick it up for me.</div></div></td><td>請人幫拿</td></tr>
+        <tr><td>4</td><td><div class="triad"><div class="thai">วางไว้ตรงนี้ได้เลยค่ะ</div><div class="roman">waang wái dtrong-níi dâai ləəi khâ</div><div class="eng">You can put it right here.</div></div></td><td>外送 / 搬東西</td></tr>
+        <tr><td>5</td><td><div class="triad"><div class="thai">พัสดุอยู่ข้างล่างที่ล็อบบี้ค่ะ</div><div class="roman">phát-sà-dù yùu khâang-lâang thîi lɔ́p-bîi khâ</div><div class="eng">The parcel is downstairs at the lobby.</div></div></td><td>公寓生活</td></tr>
+        <tr><td>6</td><td><div class="triad"><div class="thai">ช่วยเอาน้ำขึ้นมาข้างบนหน่อยค่ะ</div><div class="roman">chûai ao náam khʉ̂n maa khâang-bon nòi khâ</div><div class="eng">Please bring water upstairs for me.</div></div></td><td>樓上樓下</td></tr>
+        <tr><td>7</td><td><div class="triad"><div class="thai">เก็บไว้ในตู้เย็นนะคะ</div><div class="roman">gèp wái nai dtûu-yen ná khá</div><div class="eng">Keep it in the fridge.</div></div></td><td>整理 / 保存食物</td></tr>
+        <tr><td>8</td><td><div class="triad"><div class="thai">ฉันปวดหลังค่ะ</div><div class="roman">chǎn bpùat lǎng khâ</div><div class="eng">My back hurts.</div></div></td><td>按摩 / 看醫生</td></tr>
+        <tr><td>9</td><td><div class="triad"><div class="thai">ไหล่ตึงมากค่ะ</div><div class="roman">lài dtʉng mâak khâ</div><div class="eng">My shoulders are very tight.</div></div></td><td>按摩店</td></tr>
+        <tr><td>10</td><td><div class="triad"><div class="thai">เราใช้ตาดูค่ะ</div><div class="roman">rao chái dtaa duu khâ</div><div class="eng">We use eyes to see.</div></div></td><td>身體部位功能</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>今日背誦優先順序：</strong>
+      先背 1、3、4、5、8、9。這六句最容易在曼谷生活中直接用到：找東西、請人幫拿、外送放置、公寓包裹、按摩 / 看醫生表達身體不舒服。
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

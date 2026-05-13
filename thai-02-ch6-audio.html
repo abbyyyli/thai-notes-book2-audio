@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 6 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 18px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 6 學習指南</h1>
+    <p class="subtitle">主題：บ้าง / มั่ง 有哪些、เอา...มา / เอา...ไป 帶來 / 帶去、海邊用品、簽證延期、移民局、พาใครมา / ไป 帶誰來 / 去</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'bang')">บ้าง / มั่ง</button>
+    <button class="tab-btn" onclick="openTab(event, 'aomaa')">เอาไป / เอามา</button>
+    <button class="tab-btn" onclick="openTab(event, 'beach')">Beach Items</button>
+    <button class="tab-btn" onclick="openTab(event, 'visa')">Visa & Immigration</button>
+    <button class="tab-btn" onclick="openTab(event, 'phaa')">พาใคร</button>
+    <button class="tab-btn" onclick="openTab(event, 'synonyms')">Synonyms & Opposites</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'usage')">Practical Usage</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 6 的主線是「列舉」與「帶東西 / 帶人」。教材先用
+      <span class="thai">บ้าง</span> /
+      <span class="roman">bâang</span> /
+      <span class="eng">some / what are some</span>
+      來問「有哪些？」。例如：
+    </p>
+
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">คุณเอาอะไรมาเมืองไทยบ้างคะ</div>
+        <div class="roman">khun ao à-rai maa mʉang-thai bâang khá</div>
+        <div class="eng">What things did you bring to Thailand?</div>
+      </div>
+    </div>
+
+    <p>
+      接著教材進入「來泰國帶什麼」、「去海邊帶什麼」、「延簽要帶什麼」，最後學
+      <span class="thai">พาใครมา/ไป</span> /
+      <span class="roman">phaa khrai maa/bpai</span> /
+      <span class="eng">bring/take whom here/there</span>。
+      這課很適合做成曼谷生活清單：出門要帶什麼、去海邊要帶什麼、去移民局要帶什麼、跟誰去。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Ask for a list</div>
+        <div class="triad">
+          <div class="thai">คุณเอาอะไรไปบ้างคะ</div>
+          <div class="roman">khun ao à-rai bpai bâang khá</div>
+          <div class="eng">What things did you take?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Bring here</div>
+        <div class="triad">
+          <div class="thai">ฉันเอาหนังสือเดินทางมาเมืองไทยค่ะ</div>
+          <div class="roman">chǎn ao nǎng-sʉ̌ʉ-dəən-thaang maa mʉang-thai khâ</div>
+          <div class="eng">I brought my passport to Thailand.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Take there</div>
+        <div class="triad">
+          <div class="thai">ฉันเอาครีมกันแดดไปทะเลค่ะ</div>
+          <div class="roman">chǎn ao khriim gan-dɛ̀ɛt bpai thá-lee khâ</div>
+          <div class="eng">I take sunscreen to the beach.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Take a person</div>
+        <div class="triad">
+          <div class="thai">ฉันพาเพื่อนไปสำนักงานตรวจคนเข้าเมืองค่ะ</div>
+          <div class="roman">chǎn phaa phʉ̂an bpai sǎm-nák-ngaan dtrùat khon khâo mʉang khâ</div>
+          <div class="eng">I took my friend to the Immigration Office.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 3 已學過
+      <span class="thai">หมดอายุ</span> /
+      <span class="roman">mòt aa-yú</span> /
+      <span class="eng">expire</span>
+      和
+      <span class="thai">ต่ออายุ</span> /
+      <span class="roman">dtɔ̀ɔ aa-yú</span> /
+      <span class="eng">renew / extend</span>。
+      Day 6 放到簽證情境：
+      <span class="thai">วีซ่าหมดอายุ</span> /
+      <span class="roman">wii-sâa mòt aa-yú</span> /
+      <span class="eng">the visa expires</span>。
+    </div>
+
+    <div class="tip blue">
+      <strong>教材內容 vs 曼谷補充：</strong>
+      教材主軸是列舉句型、海邊用品、延簽用品、帶誰來/去。本指南另外補充真實曼谷情境，例如去移民局、去公寓看房、去健身房、去 BTS / MRT、去夜市、去小吃店、去咖啡店讀書時，怎麼問「要帶什麼 / 帶了哪些東西 / 跟誰去」。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Question & Listing Words</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">บ้าง</div><div class="roman">bâang</div><div class="eng">some / what are some</div></div>
+          </td>
+          <td>Question / listing particle</td>
+          <td>—</td>
+          <td>放在問句尾，表示「有哪些？」通常期待多個答案，不是單一答案。</td>
+          <td>
+            <div class="triad"><div class="thai">อะไรบ้าง / ที่ไหนบ้าง / ใครบ้าง</div><div class="roman">à-rai bâang / thîi-nǎi bâang / khrai bâang</div><div class="eng">what things / which places / who all</div></div>
+          </td>
+          <td>
+            <div class="triad"><div class="thai">คุณซื้ออะไรที่ตลาดบ้างคะ</div><div class="roman">khun sʉ́ʉ à-rai thîi dtà-làat bâang khá</div><div class="eng">What things did you buy at the market?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="label local">Supplement / Local usage</span>
+            <div class="triad"><div class="thai">มั่ง</div><div class="roman">mâng</div><div class="eng">casual form of บ้าง</div></div>
+          </td>
+          <td>Casual particle</td>
+          <td>—</td>
+          <td>口語版，朋友聊天常聽到。正式場合、老師面前、移民局不建議優先用。</td>
+          <td>
+            <div class="triad"><div class="thai">ไปไหนมั่ง / ซื้ออะไรมามั่ง / มีอะไรมั่ง</div><div class="roman">bpai nǎi mâng / sʉ́ʉ à-rai maa mâng / mii à-rai mâng</div><div class="eng">where did you go / what did you buy / what is there</div></div>
+          </td>
+          <td>
+            <div class="triad"><div class="thai">วันหยุดไปไหนมามั่ง</div><div class="roman">wan-yùt bpai nǎi maa mâng</div><div class="eng">Where did you go during the holiday?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">เท่านั้น</div><div class="roman">thâo-nán</div><div class="eng">only / only that</div></div>
+          </td>
+          <td>Limiting phrase</td>
+          <td>—</td>
+          <td>表示「只有……」。可以放在名詞後，也可以作為補充句。</td>
+          <td>
+            <div class="triad"><div class="thai">อันนี้เท่านั้น / เงินเท่านั้น / กระเป๋าใบนี้เท่านั้น</div><div class="roman">an níi thâo-nán / ngoen thâo-nán / grà-bpǎo bai níi thâo-nán</div><div class="eng">only this one / only money / only this bag</div></div>
+          </td>
+          <td>
+            <div class="triad"><div class="thai">วันนี้ฉันเอากระเป๋าเป้มาเท่านั้นค่ะ</div><div class="roman">wan-níi chǎn ao grà-bpǎo bpêe maa thâo-nán khâ</div><div class="eng">Today I brought only a backpack.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">กับ</div><div class="roman">gàp</div><div class="eng">with / and</div></div>
+          </td>
+          <td>Connector</td>
+          <td>—</td>
+          <td>可以表示「和某人一起」，也可以列舉兩個東西。</td>
+          <td>
+            <div class="triad"><div class="thai">ไปกับเพื่อน / หนังสือเดินทางกับเงิน / แฟนกับเพื่อน</div><div class="roman">bpai gàp phʉ̂an / nǎng-sʉ̌ʉ-dəən-thaang gàp ngoen / fɛɛn gàp phʉ̂an</div><div class="eng">go with a friend / passport and money / partner and friend</div></div>
+          </td>
+          <td>
+            <div class="triad"><div class="thai">ฉันไปทะเลกับแฟนค่ะ</div><div class="roman">chǎn bpai thá-lee gàp fɛɛn khâ</div><div class="eng">I went to the beach with my partner.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">แล้วก็</div><div class="roman">lɛ́ɛw gɔ̂ɔ</div><div class="eng">and then / also</div></div>
+          </td>
+          <td>Connector</td>
+          <td>—</td>
+          <td>口語列舉很常見，像中文「然後還有」。</td>
+          <td>
+            <div class="triad"><div class="thai">แล้วก็อีกหลายอย่าง / แล้วก็ไปต่อ / แล้วก็ซื้อของ</div><div class="roman">lɛ́ɛw gɔ̂ɔ ìik lǎai yàang / lɛ́ɛw gɔ̂ɔ bpai dtɔ̀ɔ / lɛ́ɛw gɔ̂ɔ sʉ́ʉ khɔ̌ɔng</div><div class="eng">and many other things / then continue going / then buy things</div></div>
+          </td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเอาร่ม หมวก แล้วก็แว่นกันแดดไปค่ะ</div><div class="roman">chǎn ao rôm, mùak, lɛ́ɛw gɔ̂ɔ wɛ̂ɛn gan-dɛ̀ɛt bpai khâ</div><div class="eng">I took an umbrella, a hat, and sunglasses.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Bags & Travel Items</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หนังสือเดินทาง</div><div class="roman">nǎng-sʉ̌ʉ-dəən-thaang</div><div class="eng">passport</div></div></td>
+          <td>Document</td>
+          <td><span class="classifier-chip">เล่ม</span><div class="roman">lêm</div><div class="eng">classifier for books/passports</div></td>
+          <td>字面是「旅行的書」，所以量詞用 <span class="thai">เล่ม</span>。</td>
+          <td><div class="triad"><div class="thai">เอาหนังสือเดินทางไป / หนังสือเดินทางหมดอายุ</div><div class="roman">ao nǎng-sʉ̌ʉ-dəən-thaang bpai / nǎng-sʉ̌ʉ-dəən-thaang mòt aa-yú</div><div class="eng">take a passport / passport expires</div></div></td>
+          <td><div class="triad"><div class="thai">เวลาต่อวีซ่า ต้องเอาหนังสือเดินทางไปค่ะ</div><div class="roman">wee-laa dtɔ̀ɔ wii-sâa, dtɔ̂ng ao nǎng-sʉ̌ʉ-dəən-thaang bpai khâ</div><div class="eng">When extending a visa, you have to take your passport.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กระเป๋าเดินทาง</div><div class="roman">grà-bpǎo-dəən-thaang</div><div class="eng">suitcase / luggage</div></div></td>
+          <td>Bag</td>
+          <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for bags</div></td>
+          <td><span class="label review">Review</span> 包包類多用 <span class="thai">ใบ</span>。</td>
+          <td><div class="triad"><div class="thai">ลากกระเป๋าเดินทาง / กระเป๋าเดินทางใบใหญ่</div><div class="roman">lâak grà-bpǎo-dəən-thaang / grà-bpǎo-dəən-thaang bai yài</div><div class="eng">pull a suitcase / a big suitcase</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอากระเป๋าเดินทางใบใหญ่มาเมืองไทยค่ะ</div><div class="roman">chǎn ao grà-bpǎo-dəən-thaang bai yài maa mʉang-thai khâ</div><div class="eng">I brought a big suitcase to Thailand.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กระเป๋าเป้</div><div class="roman">grà-bpǎo bpêe</div><div class="eng">backpack</div></div></td>
+          <td>Bag</td>
+          <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for bags</div></td>
+          <td>背包；去上課、去咖啡店、去旅行都很常用。</td>
+          <td><div class="triad"><div class="thai">สะพายกระเป๋าเป้ / กระเป๋าเป้ใบเล็ก</div><div class="roman">sà-phaai grà-bpǎo bpêe / grà-bpǎo bpêe bai lék</div><div class="eng">carry a backpack / a small backpack</div></div></td>
+          <td><div class="triad"><div class="thai">เวลาไปเรียน ฉันเอากระเป๋าเป้ไปค่ะ</div><div class="roman">wee-laa bpai rian, chǎn ao grà-bpǎo bpêe bpai khâ</div><div class="eng">When I go to class, I take a backpack.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กระเป๋าสะพาย</div><div class="roman">grà-bpǎo sà-phaai</div><div class="eng">shoulder bag</div></div></td>
+          <td>Bag</td>
+          <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for bags</div></td>
+          <td><span class="thai">สะพาย</span> / <span class="roman">sà-phaai</span> / <span class="eng">carry over shoulder</span>，指背在肩上的包。</td>
+          <td><div class="triad"><div class="thai">สะพายกระเป๋า / กระเป๋าสะพายสีดำ</div><div class="roman">sà-phaai grà-bpǎo / grà-bpǎo sà-phaai sǐi dam</div><div class="eng">carry a bag over the shoulder / black shoulder bag</div></div></td>
+          <td><div class="triad"><div class="thai">เวลาไปห้าง ฉันเอากระเป๋าสะพายไปค่ะ</div><div class="roman">wee-laa bpai hâang, chǎn ao grà-bpǎo sà-phaai bpai khâ</div><div class="eng">When I go to the mall, I take a shoulder bag.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กระเป๋าถือ</div><div class="roman">grà-bpǎo thʉ̌ʉ</div><div class="eng">handbag</div></div></td>
+          <td>Bag</td>
+          <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for bags</div></td>
+          <td><span class="thai">ถือ</span> / <span class="roman">thʉ̌ʉ</span> / <span class="eng">hold</span>，手拿包。</td>
+          <td><div class="triad"><div class="thai">ถือกระเป๋า / กระเป๋าถือใบใหม่</div><div class="roman">thʉ̌ʉ grà-bpǎo / grà-bpǎo thʉ̌ʉ bai mài</div><div class="eng">hold a bag / a new handbag</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันไม่อยากเอากระเป๋าใหญ่ไป เอากระเป๋าถือใบเล็กพอค่ะ</div><div class="roman">chǎn mâi yàak ao grà-bpǎo yài bpai, ao grà-bpǎo thʉ̌ʉ bai lék phɔɔ khâ</div><div class="eng">I don’t want to take a big bag. A small handbag is enough.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กระเป๋าสตางค์</div><div class="roman">grà-bpǎo sà-dtaang</div><div class="eng">wallet</div></div></td>
+          <td>Bag / personal item</td>
+          <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for wallets/bags</div></td>
+          <td><span class="label review">Review</span> Day 4 已學過「錢包不見」相關句型。</td>
+          <td><div class="triad"><div class="thai">กระเป๋าสตางค์หาย / ลืมกระเป๋าสตางค์</div><div class="roman">grà-bpǎo sà-dtaang hǎai / lʉʉm grà-bpǎo sà-dtaang</div><div class="eng">wallet is missing / forget wallet</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันลืมกระเป๋าสตางค์ไว้ที่คอนโดค่ะ</div><div class="roman">chǎn lʉʉm grà-bpǎo sà-dtaang wái thîi khɔɔn-doo khâ</div><div class="eng">I left my wallet at the condo.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Visa & Immigration</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">วีซ่า</div><div class="roman">wii-sâa</div><div class="eng">visa</div></div></td>
+          <td>Immigration</td>
+          <td>—</td>
+          <td>外來語。常搭配到期、延長、旅遊簽。</td>
+          <td><div class="triad"><div class="thai">ต่อวีซ่า / วีซ่าหมดอายุ / วีซ่าท่องเที่ยว</div><div class="roman">dtɔ̀ɔ wii-sâa / wii-sâa mòt aa-yú / wii-sâa thɔ̂ng-thîao</div><div class="eng">extend a visa / visa expires / tourist visa</div></div></td>
+          <td><div class="triad"><div class="thai">วีซ่าของฉันหมดอายุวันที่หนึ่งมีนาคมค่ะ</div><div class="roman">wii-sâa khɔ̌ɔng chǎn mòt aa-yú wan-thîi nʉ̀eng mii-naa-khom khâ</div><div class="eng">My visa expires on March 1st.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">วีซ่าท่องเที่ยว</div><div class="roman">wii-sâa thɔ̂ng-thîao</div><div class="eng">tourist visa</div></div></td>
+          <td>Immigration</td>
+          <td>—</td>
+          <td><span class="thai">ท่องเที่ยว</span> / <span class="roman">thɔ̂ng-thîao</span> / <span class="eng">travel / tourism</span>。</td>
+          <td><div class="triad"><div class="thai">วีซ่าท่องเที่ยวมีอายุสองเดือน</div><div class="roman">wii-sâa thɔ̂ng-thîao mii aa-yú sɔ̌ɔng dʉan</div><div class="eng">a tourist visa is valid for two months</div></div></td>
+          <td><div class="triad"><div class="thai">วีซ่าท่องเที่ยวมีอายุสองเดือนค่ะ</div><div class="roman">wii-sâa thɔ̂ng-thîao mii aa-yú sɔ̌ɔng dʉan khâ</div><div class="eng">The tourist visa is valid for two months.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สำนักงานตรวจคนเข้าเมือง</div><div class="roman">sǎm-nák-ngaan dtrùat khon khâo mʉang</div><div class="eng">Immigration Office</div></div></td>
+          <td>Place</td>
+          <td>—</td>
+          <td>完整正式名稱。口語常用縮寫。</td>
+          <td><div class="triad"><div class="thai">ไปสำนักงานตรวจคนเข้าเมือง / ไป ตม.</div><div class="roman">bpai sǎm-nák-ngaan dtrùat khon khâo mʉang / bpai dtɔɔ-mɔɔ</div><div class="eng">go to the Immigration Office / go to Immigration</div></div></td>
+          <td><div class="triad"><div class="thai">พรุ่งนี้ฉันต้องไปสำนักงานตรวจคนเข้าเมืองค่ะ</div><div class="roman">phrûng-níi chǎn dtɔ̂ng bpai sǎm-nák-ngaan dtrùat khon khâo mʉang khâ</div><div class="eng">Tomorrow I have to go to the Immigration Office.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เงิน</div><div class="roman">ngoen</div><div class="eng">money</div></div></td>
+          <td>Money</td>
+          <td>—</td>
+          <td>不可數名詞，不需要一般物品量詞。</td>
+          <td><div class="triad"><div class="thai">เอาเงินไป / จ่ายเงิน / เงินสด</div><div class="roman">ao ngoen bpai / jàai ngoen / ngoen-sòt</div><div class="eng">take money / pay money / cash</div></div></td>
+          <td><div class="triad"><div class="thai">ไปตลาดควรเอาเงินสดไปค่ะ</div><div class="roman">bpai dtà-làat khuan ao ngoen-sòt bpai khâ</div><div class="eng">When going to the market, you should take cash.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รูปถ่าย</div><div class="roman">rûup-thàai</div><div class="eng">photo</div></div></td>
+          <td>Document item</td>
+          <td><span class="classifier-chip">รูป</span><div class="roman">rûup</div><div class="eng">classifier for photos</div></td>
+          <td>照片可用 <span class="thai">รูป</span> 數。</td>
+          <td><div class="triad"><div class="thai">ถ่ายรูป / รูปถ่ายสองรูป / รูปถ่ายติดบัตร</div><div class="roman">thàai-rûup / rûup-thàai sɔ̌ɔng rûup / rûup-thàai dtìt bàt</div><div class="eng">take a photo / two photos / ID photo</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันต้องเอารูปถ่ายสองรูปไปค่ะ</div><div class="roman">chǎn dtɔ̂ng ao rûup-thàai sɔ̌ɔng rûup bpai khâ</div><div class="eng">I have to take two photos.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เอกสาร</div><div class="roman">èek-gà-sǎan</div><div class="eng">document</div></div></td>
+          <td>Document</td>
+          <td><span class="classifier-chip">ฉบับ / ชุด</span><div class="roman">chà-bàp / chút</div><div class="eng">copy / set</div></td>
+          <td>一份文件可用 <span class="thai">ฉบับ</span>；一套文件用 <span class="thai">ชุด</span>。</td>
+          <td><div class="triad"><div class="thai">เตรียมเอกสาร / เอกสารครบ / เอกสารไม่ครบ</div><div class="roman">dtriam èek-gà-sǎan / èek-gà-sǎan khróp / èek-gà-sǎan mâi khróp</div><div class="eng">prepare documents / documents complete / documents incomplete</div></div></td>
+          <td><div class="triad"><div class="thai">เอกสารยังไม่ครบค่ะ</div><div class="roman">èek-gà-sǎan yang mâi khróp khâ</div><div class="eng">The documents are still incomplete.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ใบ</span><div class="triad"><div class="thai">ใบ</div><div class="roman">bai</div><div class="eng">classifier for bags, hats, helmets</div></div></td>
+          <td><div class="triad"><div class="thai">กระเป๋า / หมวก / หมวกกันน็อก</div><div class="roman">grà-bpǎo / mùak / mùak gan-nɔ́k</div><div class="eng">bag / hat / helmet</div></div></td>
+          <td>包包、帽子、安全帽這類物品常用。</td>
+          <td><div class="triad"><div class="thai">กระเป๋าเป้หนึ่งใบ</div><div class="roman">grà-bpǎo bpêe nʉ̀eng bai</div><div class="eng">one backpack</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要說 <span class="thai">กระเป๋าเป้หนึ่งอัน</span> / <span class="roman">grà-bpǎo bpêe nʉ̀eng an</span> / <span class="eng">one backpack using wrong classifier</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เล่ม</span><div class="triad"><div class="thai">เล่ม</div><div class="roman">lêm</div><div class="eng">classifier for books/passports</div></div></td>
+          <td><div class="triad"><div class="thai">หนังสือ / หนังสือเดินทาง</div><div class="roman">nǎng-sʉ̌ʉ / nǎng-sʉ̌ʉ-dəən-thaang</div><div class="eng">book / passport</div></div></td>
+          <td>護照泰文裡有「書」的概念，所以用書本量詞。</td>
+          <td><div class="triad"><div class="thai">หนังสือเดินทางหนึ่งเล่ม</div><div class="roman">nǎng-sʉ̌ʉ-dəən-thaang nʉ̀eng lêm</div><div class="eng">one passport</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要用 <span class="thai">ใบ</span> / <span class="roman">bai</span> / <span class="eng">classifier for bags</span> 數護照。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คู่</span><div class="triad"><div class="thai">คู่</div><div class="roman">khûu</div><div class="eng">pair</div></div></td>
+          <td><div class="triad"><div class="thai">รองเท้า / แว่นตา</div><div class="roman">rɔɔng-tháao / wɛ̂ɛn-dtaa</div><div class="eng">shoes / glasses</div></div></td>
+          <td>成雙成對的東西。</td>
+          <td><div class="triad"><div class="thai">รองเท้าแตะหนึ่งคู่</div><div class="roman">rɔɔng-tháao dtɛ̀ nʉ̀eng khûu</div><div class="eng">one pair of sandals</div></div></td>
+          <td><span class="label warn">Common mistake</span> 鞋子不要用 <span class="thai">ใบ</span> / <span class="roman">bai</span> / <span class="eng">classifier for bags</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ตัว</span><div class="triad"><div class="thai">ตัว</div><div class="roman">dtua</div><div class="eng">classifier for clothes / some devices</div></div></td>
+          <td><div class="triad"><div class="thai">เสื้อกันฝน / เสื้อกันหนาว / กล้องถ่ายรูป</div><div class="roman">sʉ̂a gan-fǒn / sʉ̂a gan-nǎao / glɔ̂ng-thàai-rûup</div><div class="eng">raincoat / jacket / camera</div></div></td>
+          <td>衣服類常用；相機、某些裝置也常用。</td>
+          <td><div class="triad"><div class="thai">เสื้อกันหนาวหนึ่งตัว</div><div class="roman">sʉ̂a gan-nǎao nʉ̀eng dtua</div><div class="eng">one jacket</div></div></td>
+          <td><span class="label warn">Common mistake</span> 衣服不要用 <span class="thai">ใบ</span> / <span class="roman">bai</span> / <span class="eng">classifier for bags</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ผืน</span><div class="triad"><div class="thai">ผืน</div><div class="roman">phʉ̌ʉn</div><div class="eng">classifier for cloth pieces</div></div></td>
+          <td><div class="triad"><div class="thai">ผ้าเช็ดตัว / ผ้าห่ม / ผ้า</div><div class="roman">phâa-chét-dtua / phâa-hòm / phâa</div><div class="eng">towel / blanket / cloth</div></div></td>
+          <td>布料、毛巾、大片布類。</td>
+          <td><div class="triad"><div class="thai">ผ้าเช็ดตัวสองผืน</div><div class="roman">phâa-chét-dtua sɔ̌ɔng phʉ̌ʉn</div><div class="eng">two towels</div></div></td>
+          <td><span class="label warn">Common mistake</span> 毛巾不要用 <span class="thai">ตัว</span> / <span class="roman">dtua</span> / <span class="eng">classifier for clothes</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คัน</span><div class="triad"><div class="thai">คัน</div><div class="roman">khan</div><div class="eng">classifier for umbrellas/vehicles</div></div></td>
+          <td><div class="triad"><div class="thai">ร่ม / รถ / มอเตอร์ไซค์</div><div class="roman">rôm / rót / mɔɔ-dtə̂ə-sai</div><div class="eng">umbrella / car / motorbike</div></div></td>
+          <td>雨傘和交通工具常用。</td>
+          <td><div class="triad"><div class="thai">ร่มหนึ่งคัน</div><div class="roman">rôm nʉ̀eng khan</div><div class="eng">one umbrella</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要說 <span class="thai">ร่มหนึ่งใบ</span> / <span class="roman">rôm nʉ̀eng bai</span> / <span class="eng">one umbrella using wrong classifier</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">รูป</span><div class="triad"><div class="thai">รูป</div><div class="roman">rûup</div><div class="eng">classifier for photos</div></div></td>
+          <td><div class="triad"><div class="thai">รูปถ่าย</div><div class="roman">rûup-thàai</div><div class="eng">photo</div></div></td>
+          <td>照片本身也可以用 <span class="thai">รูป</span> 數。</td>
+          <td><div class="triad"><div class="thai">รูปถ่ายสองรูป</div><div class="roman">rûup-thàai sɔ̌ɔng rûup</div><div class="eng">two photos</div></div></td>
+          <td><span class="label warn">Common mistake</span> 初學先避免全部用 <span class="thai">อัน</span> / <span class="roman">an</span> / <span class="eng">general object classifier</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ฉบับ / ชุด</span><div class="triad"><div class="thai">ฉบับ / ชุด</div><div class="roman">chà-bàp / chút</div><div class="eng">copy / set</div></div></td>
+          <td><div class="triad"><div class="thai">เอกสาร / สัญญา</div><div class="roman">èek-gà-sǎan / sǎn-yaa</div><div class="eng">documents / contract</div></div></td>
+          <td>單份文件用 <span class="thai">ฉบับ</span>；一套資料用 <span class="thai">ชุด</span>。</td>
+          <td><div class="triad"><div class="thai">เอกสารหนึ่งชุด</div><div class="roman">èek-gà-sǎan nʉ̀eng chút</div><div class="eng">one set of documents</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要所有文件都用 <span class="thai">อัน</span> / <span class="roman">an</span> / <span class="eng">general object classifier</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>Classifier Quick Review：</strong>
+      <p><span class="thai">กระเป๋า / หมวก</span>｜<span class="roman">grà-bpǎo / mùak</span>｜<span class="eng">bag / hat</span> → <span class="classifier-chip">ใบ</span></p>
+      <p><span class="thai">รองเท้า / แว่นตา</span>｜<span class="roman">rɔɔng-tháao / wɛ̂ɛn-dtaa</span>｜<span class="eng">shoes / glasses</span> → <span class="classifier-chip">คู่</span></p>
+      <p><span class="thai">เสื้อ</span>｜<span class="roman">sʉ̂a</span>｜<span class="eng">shirt / clothing</span> → <span class="classifier-chip">ตัว</span></p>
+      <p><span class="thai">ผ้า</span>｜<span class="roman">phâa</span>｜<span class="eng">cloth</span> → <span class="classifier-chip">ผืน</span></p>
+      <p><span class="thai">หนังสือเดินทาง</span>｜<span class="roman">nǎng-sʉ̌ʉ-dəən-thaang</span>｜<span class="eng">passport</span> → <span class="classifier-chip">เล่ม</span></p>
+    </div>
+  </section>
+
+  <section id="bang" class="tab-content">
+    <h2>บ้าง / มั่ง｜問「有哪些？」</h2>
+
+    <h3>Core Pattern</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Subject + Verb + Question Word + บ้าง + คะ/ครับ</div>
+        <div class="roman">Subject + Verb + Question Word + bâang + khá/khráp</div>
+        <div class="eng">What / where / who are some that subject verbs?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Question Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example Question</th>
+          <th>Natural Answer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>What things?</td>
+          <td><div class="triad"><div class="thai">อะไรบ้าง</div><div class="roman">à-rai bâang</div><div class="eng">what things / what are some</div></div></td>
+          <td><div class="triad"><div class="thai">คุณเอาอะไรไปทะเลบ้างคะ</div><div class="roman">khun ao à-rai bpai thá-lee bâang khá</div><div class="eng">What things do you take to the beach?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาหมวก ร่ม แล้วก็แว่นกันแดดไปค่ะ</div><div class="roman">chǎn ao mùak, rôm, lɛ́ɛw gɔ̂ɔ wɛ̂ɛn gan-dɛ̀ɛt bpai khâ</div><div class="eng">I take a hat, umbrella, and sunglasses.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Which places?</td>
+          <td><div class="triad"><div class="thai">ที่ไหนบ้าง</div><div class="roman">thîi-nǎi bâang</div><div class="eng">which places</div></div></td>
+          <td><div class="triad"><div class="thai">คุณไปที่ไหนบ้างคะ</div><div class="roman">khun bpai thîi-nǎi bâang khá</div><div class="eng">Which places did you go to?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันไปสยาม อโศก และทองหล่อค่ะ</div><div class="roman">chǎn bpai sà-yǎam, à-sòok, lɛ́ thɔɔng-lɔ̀ɔ khâ</div><div class="eng">I went to Siam, Asok, and Thong Lo.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Who all?</td>
+          <td><div class="triad"><div class="thai">ใครบ้าง</div><div class="roman">khrai bâang</div><div class="eng">who all / who are some people</div></div></td>
+          <td><div class="triad"><div class="thai">คุณพาใครไปทะเลบ้างคะ</div><div class="roman">khun phaa khrai bpai thá-lee bâang khá</div><div class="eng">Who did you take to the beach?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันพาแฟนกับเพื่อนไปค่ะ</div><div class="roman">chǎn phaa fɛɛn gàp phʉ̂an bpai khâ</div><div class="eng">I took my partner and friend.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Answer Levels</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Answer Type</th>
+          <th>Pattern</th>
+          <th>Example</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Only A</td>
+          <td><div class="triad"><div class="thai">A เท่านั้นค่ะ</div><div class="roman">A thâo-nán khâ</div><div class="eng">Only A.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอากระเป๋าเป้เท่านั้นค่ะ</div><div class="roman">chǎn ao grà-bpǎo bpêe thâo-nán khâ</div><div class="eng">I only brought a backpack.</div></div></td>
+          <td>簡單清楚。</td>
+        </tr>
+
+        <tr>
+          <td>A and B</td>
+          <td><div class="triad"><div class="thai">A กับ B ค่ะ</div><div class="roman">A gàp B khâ</div><div class="eng">A and B.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาหนังสือเดินทางกับเงินมาค่ะ</div><div class="roman">chǎn ao nǎng-sʉ̌ʉ-dəən-thaang gàp ngoen maa khâ</div><div class="eng">I brought my passport and money.</div></div></td>
+          <td>兩個東西時很自然。</td>
+        </tr>
+
+        <tr>
+          <td>A, B, C and D</td>
+          <td><div class="triad"><div class="thai">A, B, C และ D ค่ะ</div><div class="roman">A, B, C lɛ́ D khâ</div><div class="eng">A, B, C, and D.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาเงิน หนังสือเดินทาง รูปถ่าย และเอกสารไปค่ะ</div><div class="roman">chǎn ao ngoen, nǎng-sʉ̌ʉ-dəən-thaang, rûup-thàai, lɛ́ èek-gà-sǎan bpai khâ</div><div class="eng">I took money, passport, photos, and documents.</div></div></td>
+          <td>正式列舉。</td>
+        </tr>
+
+        <tr>
+          <td>A, B, C and many others</td>
+          <td><div class="triad"><div class="thai">A, B, C แล้วก็อีกหลายอย่างค่ะ</div><div class="roman">A, B, C lɛ́ɛw gɔ̂ɔ ìik lǎai yàang khâ</div><div class="eng">A, B, C, and many other things.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาชุดว่ายน้ำ ร่ม หมวก แล้วก็อีกหลายอย่างไปค่ะ</div><div class="roman">chǎn ao chút wâai-náam, rôm, mùak, lɛ́ɛw gɔ̂ɔ ìik lǎai yàang bpai khâ</div><div class="eng">I took a swimsuit, umbrella, hat, and many other things.</div></div></td>
+          <td>口語、自然，不用把全部講完。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>語感補充：</strong>
+      <span class="thai">คุณเอาอะไรไปคะ</span> /
+      <span class="roman">khun ao à-rai bpai khá</span> /
+      <span class="eng">What did you take?</span>
+      可以問單一物品；
+      <span class="thai">คุณเอาอะไรไปบ้างคะ</span> /
+      <span class="roman">khun ao à-rai bpai bâang khá</span> /
+      <span class="eng">What things did you take?</span>
+      比較像「你都帶了哪些東西？」
+    </div>
+  </section>
+
+  <section id="aomaa" class="tab-content">
+    <h2>เอาไป / เอามา｜帶去 / 帶來</h2>
+
+    <h3>Core Difference</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Direction Logic</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>bring here</td>
+          <td><div class="triad"><div class="thai">เอา...มา</div><div class="roman">ao ... maa</div><div class="eng">bring ... here / bring ... to speaker’s side</div></div></td>
+          <td><span class="thai">มา</span> 往說話者/目前焦點這邊。</td>
+          <td><div class="triad"><div class="thai">คุณเอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">khun ao à-rai maa mʉang-thai bâang khá</div><div class="eng">What things did you bring to Thailand?</div></div></td>
+        </tr>
+
+        <tr>
+          <td>take there</td>
+          <td><div class="triad"><div class="thai">เอา...ไป</div><div class="roman">ao ... bpai</div><div class="eng">take ... there / take ... away</div></div></td>
+          <td><span class="thai">ไป</span> 往別處/目的地去。</td>
+          <td><div class="triad"><div class="thai">คุณเอาอะไรไปทะเลบ้างคะ</div><div class="roman">khun ao à-rai bpai thá-lee bâang khá</div><div class="eng">What things do you take to the beach?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Textbook-style Questions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Thai / Romanization / English</th>
+          <th>Answer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>帶什麼來泰國</td>
+          <td><div class="triad"><div class="thai">เวลาคุณมาเมืองไทย คุณเอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">wee-laa khun maa mʉang-thai, khun ao à-rai maa mʉang-thai bâang khá</div><div class="eng">When you come to Thailand, what things do you bring to Thailand?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาหนังสือเดินทาง เงิน กระเป๋าเป้ แล้วก็อีกหลายอย่างมาค่ะ</div><div class="roman">chǎn ao nǎng-sʉ̌ʉ-dəən-thaang, ngoen, grà-bpǎo bpêe, lɛ́ɛw gɔ̂ɔ ìik lǎai yàang maa khâ</div><div class="eng">I brought a passport, money, a backpack, and many other things.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>帶什麼去海邊</td>
+          <td><div class="triad"><div class="thai">เวลาคุณไปทะเล คุณเอาอะไรไปทะเลบ้างคะ</div><div class="roman">wee-laa khun bpai thá-lee, khun ao à-rai bpai thá-lee bâang khá</div><div class="eng">When you go to the beach, what do you take to the beach?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาชุดว่ายน้ำ ผ้าเช็ดตัว ร่ม และแว่นกันแดดไปค่ะ</div><div class="roman">chǎn ao chút wâai-náam, phâa-chét-dtua, rôm, lɛ́ wɛ̂ɛn gan-dɛ̀ɛt bpai khâ</div><div class="eng">I take a swimsuit, towel, umbrella, and sunglasses.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>帶什麼去移民局</td>
+          <td><div class="triad"><div class="thai">เวลาคุณไปสำนักงานตรวจคนเข้าเมือง คุณเอาอะไรไปบ้างคะ</div><div class="roman">wee-laa khun bpai sǎm-nák-ngaan dtrùat khon khâo mʉang, khun ao à-rai bpai bâang khá</div><div class="eng">When you go to the Immigration Office, what do you take?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาหนังสือเดินทาง เงิน รูปถ่าย และเอกสารไปค่ะ</div><div class="roman">chǎn ao nǎng-sʉ̌ʉ-dəən-thaang, ngoen, rûup-thàai, lɛ́ èek-gà-sǎan bpai khâ</div><div class="eng">I take my passport, money, photos, and documents.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 4 已學 <span class="thai">มา / ไป</span> 的方向感。Day 6 的重點是把方向放進「帶東西」：
+      <span class="thai">เอามา</span> /
+      <span class="roman">ao maa</span> /
+      <span class="eng">bring here</span>；
+      <span class="thai">เอาไป</span> /
+      <span class="roman">ao bpai</span> /
+      <span class="eng">take there</span>。
+    </div>
+  </section>
+
+  <section id="beach" class="tab-content">
+    <h2>Beach Items｜去海邊帶什麼</h2>
+
+    <h3>Beach Packing Table</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Classifier</th>
+          <th>Usage Sentence</th>
+          <th>Real-life Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ชุดว่ายน้ำ</div><div class="roman">chút wâai-náam</div><div class="eng">swimsuit</div></div></td>
+          <td><span class="classifier-chip">ชุด</span></td>
+          <td><div class="triad"><div class="thai">ฉันเอาชุดว่ายน้ำไปทะเลค่ะ</div><div class="roman">chǎn ao chút wâai-náam bpai thá-lee khâ</div><div class="eng">I take a swimsuit to the beach.</div></div></td>
+          <td>去海邊最基本。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แว่นตาว่ายน้ำ</div><div class="roman">wɛ̂ɛn-dtaa wâai-náam</div><div class="eng">swimming goggles</div></div></td>
+          <td><span class="classifier-chip">คู่ / อัน</span></td>
+          <td><div class="triad"><div class="thai">ถ้าว่ายน้ำในสระ ฉันชอบใส่แว่นตาว่ายน้ำค่ะ</div><div class="roman">thâa wâai-náam nai sà, chǎn chɔ̂ɔp sài wɛ̂ɛn-dtaa wâai-náam khâ</div><div class="eng">If I swim in a pool, I like wearing swimming goggles.</div></div></td>
+          <td>泳池比海邊更常用到。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ผ้าเช็ดตัว</div><div class="roman">phâa-chét-dtua</div><div class="eng">towel</div></div></td>
+          <td><span class="classifier-chip">ผืน</span></td>
+          <td><div class="triad"><div class="thai">ฉันเอาผ้าเช็ดตัวสองผืนไปค่ะ</div><div class="roman">chǎn ao phâa-chét-dtua sɔ̌ɔng phʉ̌ʉn bpai khâ</div><div class="eng">I take two towels.</div></div></td>
+          <td>如果住飯店有時不用帶。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ร่ม</div><div class="roman">rôm</div><div class="eng">umbrella</div></div></td>
+          <td><span class="classifier-chip">คัน</span></td>
+          <td><div class="triad"><div class="thai">ถ้าแดดแรง ฉันจะเอาร่มไปค่ะ</div><div class="roman">thâa dɛ̀ɛt rɛɛng, chǎn jà ao rôm bpai khâ</div><div class="eng">If the sun is strong, I will take an umbrella.</div></div></td>
+          <td>泰國太陽強，防曬重要。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แว่นกันแดด</div><div class="roman">wɛ̂ɛn gan-dɛ̀ɛt</div><div class="eng">sunglasses</div></div></td>
+          <td><span class="classifier-chip">คู่ / อัน</span></td>
+          <td><div class="triad"><div class="thai">อย่าลืมแว่นกันแดดนะคะ</div><div class="roman">yàa lʉʉm wɛ̂ɛn gan-dɛ̀ɛt ná khá</div><div class="eng">Don’t forget your sunglasses.</div></div></td>
+          <td>曼谷平常也常用。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หมวก</div><div class="roman">mùak</div><div class="eng">hat / cap</div></div></td>
+          <td><span class="classifier-chip">ใบ</span></td>
+          <td><div class="triad"><div class="thai">ฉันซื้อหมวกใบใหม่ก่อนไปทะเลค่ะ</div><div class="roman">chǎn sʉ́ʉ mùak bai mài gɔ̀ɔn bpai thá-lee khâ</div><div class="eng">I bought a new hat before going to the beach.</div></div></td>
+          <td>帽子量詞用 <span class="thai">ใบ</span>。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">รองเท้าแตะ</div><div class="roman">rɔɔng-tháao dtɛ̀</div><div class="eng">sandals / flip-flops</div></div></td>
+          <td><span class="classifier-chip">คู่</span></td>
+          <td><div class="triad"><div class="thai">ไปทะเลควรใส่รองเท้าแตะค่ะ</div><div class="roman">bpai thá-lee khuan sài rɔɔng-tháao dtɛ̀ khâ</div><div class="eng">You should wear sandals to the beach.</div></div></td>
+          <td>鞋子量詞用 <span class="thai">คู่</span>。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">รองเท้าส้นสูง</div><div class="roman">rɔɔng-tháao sôn-sǔung</div><div class="eng">high heels</div></div></td>
+          <td><span class="classifier-chip">คู่</span></td>
+          <td><div class="triad"><div class="thai">ไปตลาดกลางคืนไม่ควรใส่รองเท้าส้นสูงค่ะ</div><div class="roman">bpai dtà-làat glaang-khʉʉn mâi khuan sài rɔɔng-tháao sôn-sǔung khâ</div><div class="eng">You shouldn’t wear high heels to a night market.</div></div></td>
+          <td>高跟鞋不只海邊不適合，夜市也不方便。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">กล้องถ่ายรูป</div><div class="roman">glɔ̂ng-thàai-rûup</div><div class="eng">camera</div></div></td>
+          <td><span class="classifier-chip">ตัว</span></td>
+          <td><div class="triad"><div class="thai">ฉันเอากล้องถ่ายรูปไปถ่ายรูปค่ะ</div><div class="roman">chǎn ao glɔ̂ng-thàai-rûup bpai thàai-rûup khâ</div><div class="eng">I take a camera to take photos.</div></div></td>
+          <td>現在也可用手機拍照。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Bangkok-local Add-ons</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example</th>
+          <th>Why useful</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sunscreen</td>
+          <td><div class="triad"><div class="thai">ครีมกันแดด</div><div class="roman">khriim gan-dɛ̀ɛt</div><div class="eng">sunscreen</div></div></td>
+          <td><div class="triad"><div class="thai">เวลาไปทะเล ฉันต้องเอาครีมกันแดดไปค่ะ</div><div class="roman">wee-laa bpai thá-lee, chǎn dtɔ̂ng ao khriim gan-dɛ̀ɛt bpai khâ</div><div class="eng">When I go to the beach, I have to take sunscreen.</div></div></td>
+          <td>泰國日照強，非常實用。</td>
+        </tr>
+
+        <tr>
+          <td>Power bank</td>
+          <td><div class="triad"><div class="thai">พาวเวอร์แบงก์</div><div class="roman">phaao-wə̂ə-bɛɛng</div><div class="eng">power bank</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าไปเที่ยวทั้งวัน ควรเอาพาวเวอร์แบงก์ไปค่ะ</div><div class="roman">thâa bpai thîao tháng wan, khuan ao phaao-wə̂ə-bɛɛng bpai khâ</div><div class="eng">If you travel all day, you should take a power bank.</div></div></td>
+          <td>一天行程、拍照、叫車都需要。</td>
+        </tr>
+
+        <tr>
+          <td>Wet wipes</td>
+          <td><div class="triad"><div class="thai">ทิชชู่เปียก</div><div class="roman">thít-chûu bpìak</div><div class="eng">wet wipes</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาทิชชู่เปียกไปด้วยค่ะ</div><div class="roman">chǎn ao thít-chûu bpìak bpai dûai khâ</div><div class="eng">I also take wet wipes.</div></div></td>
+          <td>小吃店、海邊、夜市都實用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="visa" class="tab-content">
+    <h2>Visa & Immigration｜簽證延期與移民局</h2>
+
+    <h3>Textbook Pattern</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เวลาต่อวีซ่า ต้องเอา...ไปสำนักงานตรวจคนเข้าเมือง</div>
+        <div class="roman">wee-laa dtɔ̀ɔ wii-sâa, dtɔ̂ng ao...bpai sǎm-nák-ngaan dtrùat khon khâo mʉang</div>
+        <div class="eng">When extending a visa, you have to take...to the Immigration Office.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example Sentence</th>
+          <th>Practical Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Passport</td>
+          <td><div class="triad"><div class="thai">หนังสือเดินทาง</div><div class="roman">nǎng-sʉ̌ʉ-dəən-thaang</div><div class="eng">passport</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องเอาหนังสือเดินทางไปค่ะ</div><div class="roman">dtɔ̂ng ao nǎng-sʉ̌ʉ-dəən-thaang bpai khâ</div><div class="eng">You have to take your passport.</div></div></td>
+          <td>量詞 <span class="thai">เล่ม</span>。</td>
+        </tr>
+
+        <tr>
+          <td>Money</td>
+          <td><div class="triad"><div class="thai">เงิน</div><div class="roman">ngoen</div><div class="eng">money</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องเอาเงินไปด้วยค่ะ</div><div class="roman">dtɔ̂ng ao ngoen bpai dûai khâ</div><div class="eng">You have to take money too.</div></div></td>
+          <td><span class="thai">ด้วย</span> = too / as well。</td>
+        </tr>
+
+        <tr>
+          <td>Photo</td>
+          <td><div class="triad"><div class="thai">รูปถ่าย</div><div class="roman">rûup-thàai</div><div class="eng">photo</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องเอารูปถ่ายไปค่ะ</div><div class="roman">dtɔ̂ng ao rûup-thàai bpai khâ</div><div class="eng">You have to take photos.</div></div></td>
+          <td>文件照要注意尺寸，實際規定可能依當時政策而變。</td>
+        </tr>
+
+        <tr>
+          <td>Documents</td>
+          <td><div class="triad"><div class="thai">เอกสาร</div><div class="roman">èek-gà-sǎan</div><div class="eng">documents</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องเตรียมเอกสารให้ครบค่ะ</div><div class="roman">dtɔ̂ng dtriam èek-gà-sǎan hâi khróp khâ</div><div class="eng">You have to prepare all documents completely.</div></div></td>
+          <td><span class="thai">ครบ</span> = complete。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Validity & Expiration</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>簽證有效兩個月</td>
+          <td><div class="triad"><div class="thai">วีซ่าท่องเที่ยวมีอายุสองเดือนค่ะ</div><div class="roman">wii-sâa thɔ̂ng-thîao mii aa-yú sɔ̌ɔng dʉan khâ</div><div class="eng">The tourist visa is valid for two months.</div></div></td>
+          <td><span class="thai">มีอายุ</span> = 有效期為……。</td>
+        </tr>
+
+        <tr>
+          <td>簽證在 3/1 到期</td>
+          <td><div class="triad"><div class="thai">วีซ่าหมดอายุวันที่หนึ่งมีนาคมค่ะ</div><div class="roman">wii-sâa mòt aa-yú wan-thîi nʉ̀eng mii-naa-khom khâ</div><div class="eng">The visa expires on March 1st.</div></div></td>
+          <td><span class="label review">Review</span> Day 3 已學 <span class="thai">หมดอายุ</span>。</td>
+        </tr>
+
+        <tr>
+          <td>我要去延簽</td>
+          <td><div class="triad"><div class="thai">ฉันต้องไปต่อวีซ่าค่ะ</div><div class="roman">chǎn dtɔ̂ng bpai dtɔ̀ɔ wii-sâa khâ</div><div class="eng">I have to go extend my visa.</div></div></td>
+          <td>外國人在泰國生活很實用。</td>
+        </tr>
+
+        <tr>
+          <td>文件不齊</td>
+          <td><div class="triad"><div class="thai">เอกสารไม่ครบค่ะ</div><div class="roman">èek-gà-sǎan mâi khróp khâ</div><div class="eng">The documents are incomplete.</div></div></td>
+          <td>移民局、學校、銀行都可能用到。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>注意：</strong>
+      這裡是語言學習句型，不是法律/簽證建議。實際延簽資料、費用、地點與政策可能變動，辦理前要確認官方最新規定。
+    </div>
+  </section>
+
+  <section id="phaa" class="tab-content">
+    <h2>พาใครมา/ไป｜帶誰來 / 帶誰去</h2>
+
+    <h3>Core Pattern</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Subject + พา + ใคร + มา/ไป + Place + คะ</div>
+        <div class="roman">Subject + phaa + khrai + maa/bpai + Place + khá</div>
+        <div class="eng">Whom did subject bring/take to place?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Answer</th>
+          <th>Direction Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณพาใครมาเมืองไทยคะ</div><div class="roman">khun phaa khrai maa mʉang-thai khá</div><div class="eng">Whom did you bring to Thailand?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันพาแม่มาเมืองไทยค่ะ</div><div class="roman">chǎn phaa mɛ̂ɛ maa mʉang-thai khâ</div><div class="eng">I brought my mom to Thailand.</div></div></td>
+          <td><span class="thai">มา</span> = 帶來說話者/現在焦點這邊。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คุณพาใครไปทะเลคะ</div><div class="roman">khun phaa khrai bpai thá-lee khá</div><div class="eng">Whom did you take to the beach?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันพาแฟนไปทะเลค่ะ</div><div class="roman">chǎn phaa fɛɛn bpai thá-lee khâ</div><div class="eng">I took my partner to the beach.</div></div></td>
+          <td><span class="thai">ไป</span> = 帶去另一個地方。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ใครพาคุณมาโรงเรียนคะ</div><div class="roman">khrai phaa khun maa roong-rian khá</div><div class="eng">Who brought you to school?</div></div></td>
+          <td><div class="triad"><div class="thai">เพื่อนพาฉันมาโรงเรียนค่ะ</div><div class="roman">phʉ̂an phaa chǎn maa roong-rian khâ</div><div class="eng">My friend brought me to school.</div></div></td>
+          <td>第 6 頁也有「誰帶某人來/去」的倒裝問法。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>พา vs เอา：</strong>
+      <p><span class="thai">พา</span> / <span class="roman">phaa</span> / <span class="eng">bring/take a person or animal</span>：帶人、帶寵物。</p>
+      <p><span class="thai">เอา</span> / <span class="roman">ao</span> / <span class="eng">take/bring an object</span>：帶東西。</p>
+      <p>所以：帶媽媽用 <span class="thai">พาแม่ไป</span>；帶護照用 <span class="thai">เอาหนังสือเดินทางไป</span>。</p>
+    </div>
+  </section>
+
+  <section id="synonyms" class="tab-content">
+    <h2>Synonyms & Opposites｜同義詞 / 反義詞 / 對比詞</h2>
+
+    <h3>Bring / Take / Carry</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Meaning</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example A</th>
+          <th>Example B</th>
+          <th>Usage Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>帶東西 / 帶人</td>
+          <td>
+            <div class="triad"><div class="thai">เอา</div><div class="roman">ao</div><div class="eng">take/bring object</div></div>
+            <div class="triad"><div class="thai">พา</div><div class="roman">phaa</div><div class="eng">take/bring person/animal</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ฉันเอาร่มไปตลาดค่ะ</div><div class="roman">chǎn ao rôm bpai dtà-làat khâ</div><div class="eng">I take an umbrella to the market.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันพาน้องสาวไปดูหนังค่ะ</div><div class="roman">chǎn phaa nɔ́ɔng-sǎao bpai duu nǎng khâ</div><div class="eng">I take my younger sister to watch a movie.</div></div></td>
+          <td>物品用 <span class="thai">เอา</span>；人/寵物用 <span class="thai">พา</span>。</td>
+        </tr>
+
+        <tr>
+          <td>帶來 / 帶去</td>
+          <td>
+            <div class="triad"><div class="thai">เอามา</div><div class="roman">ao maa</div><div class="eng">bring here</div></div>
+            <div class="triad"><div class="thai">เอาไป</div><div class="roman">ao bpai</div><div class="eng">take there</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ฉันเอาขนมมาบ้านเพื่อนค่ะ</div><div class="roman">chǎn ao khà-nǒm maa bâan phʉ̂an khâ</div><div class="eng">I brought snacks to my friend’s house.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาเอกสารไปโรงเรียนค่ะ</div><div class="roman">chǎn ao èek-gà-sǎan bpai roong-rian khâ</div><div class="eng">I take documents to school.</div></div></td>
+          <td>看方向：往這裡 = <span class="thai">มา</span>；往那裡 = <span class="thai">ไป</span>。</td>
+        </tr>
+
+        <tr>
+          <td>有哪些 / 口語有哪些</td>
+          <td>
+            <div class="triad"><div class="thai">บ้าง</div><div class="roman">bâang</div><div class="eng">what are some</div></div>
+            <div class="triad"><div class="thai">มั่ง</div><div class="roman">mâng</div><div class="eng">casual บ้าง</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ต้องเตรียมอะไรบ้างคะ</div><div class="roman">dtɔ̂ng dtriam à-rai bâang khá</div><div class="eng">What do I need to prepare?</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ไปไหนมามั่ง</div><div class="roman">wan-níi bpai nǎi maa mâng</div><div class="eng">Where did you go today?</div></div></td>
+          <td><span class="thai">มั่ง</span> 更口語，不建議在正式場合優先用。</td>
+        </tr>
+
+        <tr>
+          <td>文件齊 / 文件缺</td>
+          <td>
+            <div class="triad"><div class="thai">ครบ</div><div class="roman">khróp</div><div class="eng">complete</div></div>
+            <div class="triad"><div class="thai">ขาด</div><div class="roman">khàat</div><div class="eng">missing / lack</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">เอกสารครบแล้วค่ะ</div><div class="roman">èek-gà-sǎan khróp lɛ́ɛw khâ</div><div class="eng">The documents are complete now.</div></div></td>
+          <td><div class="triad"><div class="thai">ขาดสำเนาหนังสือเดินทางค่ะ</div><div class="roman">khàat sǎm-nao nǎng-sʉ̌ʉ-dəən-thaang khâ</div><div class="eng">A copy of the passport is missing.</div></div></td>
+          <td>辦手續時非常重要，一個是「齊」，一個是「缺」。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Travel Item Opposites / Contrasts</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Pair / Contrast</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example for A</th>
+          <th>Example for B</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>帶 / 忘記帶</td>
+          <td>
+            <div class="triad"><div class="thai">เอา...ไป</div><div class="roman">ao...bpai</div><div class="eng">take...</div></div>
+            <div class="triad"><div class="thai">ลืมเอา...ไป</div><div class="roman">lʉʉm ao...bpai</div><div class="eng">forget to take...</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ฉันเอารูปถ่ายไปค่ะ</div><div class="roman">chǎn ao rûup-thàai bpai khâ</div><div class="eng">I took photos.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันลืมเอารูปถ่ายไปค่ะ</div><div class="roman">chǎn lʉʉm ao rûup-thàai bpai khâ</div><div class="eng">I forgot to take photos.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>到期 / 有效</td>
+          <td>
+            <div class="triad"><div class="thai">หมดอายุ</div><div class="roman">mòt aa-yú</div><div class="eng">expire</div></div>
+            <div class="triad"><div class="thai">มีอายุ</div><div class="roman">mii aa-yú</div><div class="eng">be valid for</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">วีซ่าหมดอายุวันที่หนึ่งมีนาคมค่ะ</div><div class="roman">wii-sâa mòt aa-yú wan-thîi nʉ̀eng mii-naa-khom khâ</div><div class="eng">The visa expires on March 1st.</div></div></td>
+          <td><div class="triad"><div class="thai">วีซ่ามีอายุสองเดือนค่ะ</div><div class="roman">wii-sâa mii aa-yú sɔ̌ɔng dʉan khâ</div><div class="eng">The visa is valid for two months.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>Structure 1｜Question Word + บ้าง：問「有哪些？」</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Subject + Verb + Question Word + บ้าง + คะ/ครับ</div>
+        <div class="roman">Subject + Verb + Question Word + bâang + khá/khráp</div>
+        <div class="eng">What / where / who are some that subject verbs?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Question Word</th>
+          <th>Textbook Pattern</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">อะไรบ้าง</div><div class="roman">à-rai bâang</div><div class="eng">what things</div></div></td>
+          <td><div class="triad"><div class="thai">คุณเอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">khun ao à-rai maa mʉang-thai bâang khá</div><div class="eng">What things did you bring to Thailand?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ไปยิมต้องเอาอะไรไปบ้างคะ</div><div class="roman">bpai yim dtɔ̂ng ao à-rai bpai bâang khá</div><div class="eng">What things do I have to take to the gym?</div></div>
+            <div class="triad"><div class="thai">ไป ตม. ต้องเตรียมอะไรบ้างคะ</div><div class="roman">bpai dtɔɔ-mɔɔ dtɔ̂ng dtriam à-rai bâang khá</div><div class="eng">What do I need to prepare for Immigration?</div></div>
+            <div class="triad"><div class="thai">วันนี้ซื้ออะไรที่เซเว่นบ้างคะ</div><div class="roman">wan-níi sʉ́ʉ à-rai thîi see-wên bâang khá</div><div class="eng">What things did you buy at 7-Eleven today?</div></div>
+          </td>
+          <td>問多個東西或例子時，用 <span class="thai">บ้าง</span>。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ที่ไหนบ้าง</div><div class="roman">thîi-nǎi bâang</div><div class="eng">which places</div></div></td>
+          <td><div class="triad"><div class="thai">คุณไปที่ไหนบ้างคะ</div><div class="roman">khun bpai thîi-nǎi bâang khá</div><div class="eng">Which places did you go to?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">มาไทยครั้งนี้ไปที่ไหนบ้างคะ</div><div class="roman">maa thai khráng níi bpai thîi-nǎi bâang khá</div><div class="eng">This time in Thailand, which places did you go to?</div></div>
+            <div class="triad"><div class="thai">แถวนี้มีคาเฟ่ที่ไหนบ้างคะ</div><div class="roman">thɛ̌ɛo níi mii khaa-fêe thîi-nǎi bâang khá</div><div class="eng">What cafés are there around here?</div></div>
+            <div class="triad"><div class="thai">คุณเคยไปตลาดกลางคืนที่ไหนบ้างคะ</div><div class="roman">khun khəəi bpai dtà-làat glaang-khʉʉn thîi-nǎi bâang khá</div><div class="eng">Which night markets have you been to?</div></div>
+          </td>
+          <td>問「哪些地方」時使用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure 2｜เวลาต่อวีซ่า：延簽時要帶……</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เวลาต่อวีซ่า ต้องเอา + Items + ไป + สำนักงานตรวจคนเข้าเมือง</div>
+        <div class="roman">wee-laa dtɔ̀ɔ wii-sâa, dtɔ̂ng ao + Items + bpai + sǎm-nák-ngaan dtrùat khon khâo mʉang</div>
+        <div class="eng">When extending a visa, you have to take items to the Immigration Office.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เวลาต่อวีซ่า ต้องเอาหนังสือเดินทาง เงิน รูปถ่าย และเอกสารไปสำนักงานตรวจคนเข้าเมืองค่ะ</div><div class="roman">wee-laa dtɔ̀ɔ wii-sâa, dtɔ̂ng ao nǎng-sʉ̌ʉ-dəən-thaang, ngoen, rûup-thàai, lɛ́ èek-gà-sǎan bpai sǎm-nák-ngaan dtrùat khon khâo mʉang khâ</div><div class="eng">When extending a visa, you have to take your passport, money, photos, and documents to the Immigration Office.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ก่อนออกจากบ้าน ต้องเช็กเอกสารให้ครบค่ะ</div><div class="roman">gɔ̀ɔn ɔ̀ɔk jàak bâan, dtɔ̂ng chék èek-gà-sǎan hâi khróp khâ</div><div class="eng">Before leaving home, you have to check that your documents are complete.</div></div>
+            <div class="triad"><div class="thai">ถ้าเอกสารไม่ครบ ต้องกลับมาใหม่ค่ะ</div><div class="roman">thâa èek-gà-sǎan mâi khróp, dtɔ̂ng glàp maa mài khâ</div><div class="eng">If the documents are incomplete, you have to come back again.</div></div>
+            <div class="triad"><div class="thai">ไป ตม. ต้องเอาเงินสดไปด้วยค่ะ</div><div class="roman">bpai dtɔɔ-mɔɔ dtɔ̂ng ao ngoen-sòt bpai dûai khâ</div><div class="eng">When going to Immigration, you have to take cash too.</div></div>
+          </td>
+          <td><span class="thai">ต้อง</span> 表示必要性。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問「帶了哪些東西？」</td>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">คุณเอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">khun ao à-rai maa mʉang-thai bâang khá</div><div class="eng">What things did you bring to Thailand?</div></div>
+          </td>
+          <td>
+            <span class="label local">Supplement / Local usage</span>
+            <div class="triad"><div class="thai">เอาอะไรมามั่งคะ</div><div class="roman">ao à-rai maa mâng khá</div><div class="eng">What did you bring?</div></div>
+          </td>
+          <td><span class="thai">มั่ง</span> 比較口語，朋友間自然；正式場合用 <span class="thai">บ้าง</span>。</td>
+        </tr>
+
+        <tr>
+          <td>去海邊帶什麼</td>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">เวลาคุณไปทะเล คุณเอาอะไรไปทะเลบ้างคะ</div><div class="roman">wee-laa khun bpai thá-lee, khun ao à-rai bpai thá-lee bâang khá</div><div class="eng">When you go to the beach, what do you take to the beach?</div></div>
+          </td>
+          <td>
+            <span class="label local">Supplement / Local usage</span>
+            <div class="triad"><div class="thai">ไปทะเลเอาอะไรไปบ้างคะ</div><div class="roman">bpai thá-lee ao à-rai bpai bâang khá</div><div class="eng">Going to the beach, what do you take?</div></div>
+          </td>
+          <td>口語可省略前面的 <span class="thai">เวลา</span>。</td>
+        </tr>
+
+        <tr>
+          <td>很多東西，不想全部列</td>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">แล้วก็อีกหลายอย่างค่ะ</div><div class="roman">lɛ́ɛw gɔ̂ɔ ìik lǎai yàang khâ</div><div class="eng">and many other things.</div></div>
+          </td>
+          <td>
+            <span class="label local">Supplement / Local usage</span>
+            <div class="triad"><div class="thai">เยอะมากค่ะ</div><div class="roman">yə́ mâak khâ</div><div class="eng">A lot.</div></div>
+          </td>
+          <td><span class="thai">เยอะมาก</span> 比較口語、偷懶但自然；教材句比較完整。</td>
+        </tr>
+
+        <tr>
+          <td>去移民局</td>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">ไปสำนักงานตรวจคนเข้าเมือง</div><div class="roman">bpai sǎm-nák-ngaan dtrùat khon khâo mʉang</div><div class="eng">go to the Immigration Office</div></div>
+          </td>
+          <td>
+            <span class="label local">Supplement / Local usage</span>
+            <div class="triad"><div class="thai">ไป ตม.</div><div class="roman">bpai dtɔɔ-mɔɔ</div><div class="eng">go to Immigration</div></div>
+          </td>
+          <td>泰國人口語常說 <span class="thai">ตม.</span>。初學先認得完整名稱，再學縮寫。</td>
+        </tr>
+
+        <tr>
+          <td>問文件帶齊了沒</td>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">เอกสารครบไหมคะ</div><div class="roman">èek-gà-sǎan khróp mái khá</div><div class="eng">Are the documents complete?</div></div>
+          </td>
+          <td>
+            <span class="label local">Supplement / Local usage</span>
+            <div class="triad"><div class="thai">เอกสารครบหรือยังคะ</div><div class="roman">èek-gà-sǎan khróp rʉ̌ʉ-yang khá</div><div class="eng">Are the documents complete yet?</div></div>
+          </td>
+          <td><span class="thai">หรือยัง</span> 很適合問「好了沒、完成了沒」。</td>
+        </tr>
+
+        <tr>
+          <td>問帶誰去</td>
+          <td>
+            <span class="label textbook">Textbook-based</span>
+            <div class="triad"><div class="thai">คุณพาใครไปทะเลคะ</div><div class="roman">khun phaa khrai bpai thá-lee khá</div><div class="eng">Whom did you take to the beach?</div></div>
+          </td>
+          <td>
+            <span class="label local">Supplement / Local usage</span>
+            <div class="triad"><div class="thai">ไปกับใครคะ</div><div class="roman">bpai gàp khrai khá</div><div class="eng">Who are you going with?</div></div>
+          </td>
+          <td>如果只是問「跟誰去」，曼谷口語更常用 <span class="thai">ไปกับใคร</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="usage" class="tab-content">
+    <h2>Practical Usage Bank｜曼谷實戰句庫</h2>
+
+    <h3>Coming to Thailand｜來泰國帶什麼</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問朋友帶了什麼</td>
+          <td><div class="triad"><div class="thai">คุณเอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">khun ao à-rai maa mʉang-thai bâang khá</div><div class="eng">What things did you bring to Thailand?</div></div></td>
+          <td>教材第 3 頁核心。</td>
+        </tr>
+        <tr>
+          <td>回答帶行李</td>
+          <td><div class="triad"><div class="thai">ฉันเอากระเป๋าเดินทางหนึ่งใบกับกระเป๋าเป้มาค่ะ</div><div class="roman">chǎn ao grà-bpǎo-dəən-thaang nʉ̀eng bai gàp grà-bpǎo bpêe maa khâ</div><div class="eng">I brought one suitcase and a backpack.</div></div></td>
+          <td>練包包量詞 <span class="thai">ใบ</span>。</td>
+        </tr>
+        <tr>
+          <td>回答很多東西</td>
+          <td><div class="triad"><div class="thai">ฉันเอาเสื้อผ้า เครื่องสำอาง แล้วก็อีกหลายอย่างมาค่ะ</div><div class="roman">chǎn ao sʉ̂a-phâa, khrʉ̂ang-sǎm-aang, lɛ́ɛw gɔ̂ɔ ìik lǎai yàang maa khâ</div><div class="eng">I brought clothes, cosmetics, and many other things.</div></div></td>
+          <td>搬去泰國生活很常用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Going to the Beach｜去海邊</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問帶什麼</td>
+          <td><div class="triad"><div class="thai">ไปทะเลเอาอะไรไปบ้างคะ</div><div class="roman">bpai thá-lee ao à-rai bpai bâang khá</div><div class="eng">Going to the beach, what do you take?</div></div></td>
+          <td>口語版。</td>
+        </tr>
+        <tr>
+          <td>實用清單</td>
+          <td><div class="triad"><div class="thai">ฉันเอาชุดว่ายน้ำ ผ้าเช็ดตัว ครีมกันแดด และแว่นกันแดดไปค่ะ</div><div class="roman">chǎn ao chút wâai-náam, phâa-chét-dtua, khriim gan-dɛ̀ɛt, lɛ́ wɛ̂ɛn gan-dɛ̀ɛt bpai khâ</div><div class="eng">I take a swimsuit, towel, sunscreen, and sunglasses.</div></div></td>
+          <td>補充生活必需品。</td>
+        </tr>
+        <tr>
+          <td>提醒不要穿高跟鞋</td>
+          <td><div class="triad"><div class="thai">ไปทะเลอย่าใส่รองเท้าส้นสูงนะคะ</div><div class="roman">bpai thá-lee yàa sài rɔɔng-tháao sôn-sǔung ná khá</div><div class="eng">Don’t wear high heels to the beach.</div></div></td>
+          <td><span class="label review">Review</span> Day 4 已學 <span class="thai">อย่า</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Immigration Office｜去移民局</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>我要延簽</td>
+          <td><div class="triad"><div class="thai">ฉันต้องไปต่อวีซ่าค่ะ</div><div class="roman">chǎn dtɔ̂ng bpai dtɔ̀ɔ wii-sâa khâ</div><div class="eng">I have to go extend my visa.</div></div></td>
+          <td>最實用一句。</td>
+        </tr>
+        <tr>
+          <td>問要帶什麼</td>
+          <td><div class="triad"><div class="thai">ต้องเอาอะไรไปบ้างคะ</div><div class="roman">dtɔ̂ng ao à-rai bpai bâang khá</div><div class="eng">What things do I have to take?</div></div></td>
+          <td>移民局/學校/銀行都可用。</td>
+        </tr>
+        <tr>
+          <td>確認文件</td>
+          <td><div class="triad"><div class="thai">เอกสารครบหรือยังคะ</div><div class="roman">èek-gà-sǎan khróp rʉ̌ʉ-yang khá</div><div class="eng">Are the documents complete yet?</div></div></td>
+          <td>實戰必備。</td>
+        </tr>
+        <tr>
+          <td>忘記帶照片</td>
+          <td><div class="triad"><div class="thai">ฉันลืมเอารูปถ่ายไปค่ะ</div><div class="roman">chǎn lʉʉm ao rûup-thàai bpai khâ</div><div class="eng">I forgot to take the photos.</div></div></td>
+          <td>如果現場才發現問題。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>BTS / MRT / 日常出門</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>出門前問朋友</td>
+          <td><div class="triad"><div class="thai">เอาบัตรกับเงินสดไปด้วยไหมคะ</div><div class="roman">ao bàt gàp ngoen-sòt bpai dûai mái khá</div><div class="eng">Did you take your card and cash too?</div></div></td>
+          <td>坐 BTS / MRT、去夜市都實用。</td>
+        </tr>
+        <tr>
+          <td>去健身房</td>
+          <td><div class="triad"><div class="thai">ไปยิมฉันเอาผ้าเช็ดตัวกับขวดน้ำไปค่ะ</div><div class="roman">bpai yim chǎn ao phâa-chét-dtua gàp khùat-náam bpai khâ</div><div class="eng">When I go to the gym, I take a towel and a water bottle.</div></div></td>
+          <td>量詞延伸：<span class="thai">ขวด</span> = bottle。</td>
+        </tr>
+        <tr>
+          <td>去咖啡店讀書</td>
+          <td><div class="triad"><div class="thai">ไปคาเฟ่ฉันเอาโน้ตบุ๊กกับที่ชาร์จไปค่ะ</div><div class="roman">bpai khaa-fêe chǎn ao nóot-búk gàp thîi-cháat bpai khâ</div><div class="eng">When I go to a café, I take my laptop and charger.</div></div></td>
+          <td>曼谷咖啡店讀書/工作很常見。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>來泰國：你帶了哪些東西？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คุณเอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">khun ao à-rai maa mʉang-thai bâang khá</div><div class="eng">What things did you bring to Thailand?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ฉันเอากระเป๋าเดินทางหนึ่งใบ กระเป๋าเป้หนึ่งใบ หนังสือเดินทาง เงิน แล้วก็อีกหลายอย่างมาค่ะ</div><div class="roman">chǎn ao grà-bpǎo-dəən-thaang nʉ̀eng bai, grà-bpǎo bpêe nʉ̀eng bai, nǎng-sʉ̌ʉ-dəən-thaang, ngoen, lɛ́ɛw gɔ̂ɔ ìik lǎai yàang maa khâ</div><div class="eng">I brought one suitcase, one backpack, my passport, money, and many other things.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เยอะมากค่ะ หนักไหมคะ</div><div class="roman">yə́ mâak khâ, nàk mái khá</div><div class="eng">That’s a lot. Is it heavy?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">หนักมากค่ะ แต่จำเป็นค่ะ</div><div class="roman">nàk mâak khâ, dtɛ̀ɛ jam-bpen khâ</div><div class="eng">Very heavy, but necessary.</div></div></div>
+    </div>
+
+    <h3>去海邊：朋友提醒你帶防曬</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">พรุ่งนี้ไปหัวหินนะคะ เอาอะไรไปบ้างคะ</div><div class="roman">phrûng-níi bpai hǔa-hǐn ná khá, ao à-rai bpai bâang khá</div><div class="eng">We’re going to Hua Hin tomorrow. What are you taking?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label textbook">Textbook-based + Supplement</span><div class="triad"><div class="thai">ฉันเอาชุดว่ายน้ำ ผ้าเช็ดตัว หมวก แล้วก็แว่นกันแดดไปค่ะ</div><div class="roman">chǎn ao chút wâai-náam, phâa-chét-dtua, mùak, lɛ́ɛw gɔ̂ɔ wɛ̂ɛn gan-dɛ̀ɛt bpai khâ</div><div class="eng">I’ll take a swimsuit, towel, hat, and sunglasses.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อย่าลืมครีมกันแดดนะคะ แดดแรงมากค่ะ</div><div class="roman">yàa lʉʉm khriim gan-dɛ̀ɛt ná khá, dɛ̀ɛt rɛɛng mâak khâ</div><div class="eng">Don’t forget sunscreen. The sun is very strong.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">จริงค่ะ เดี๋ยวฉันซื้อที่เซเว่นค่ะ</div><div class="roman">jing khâ, dǐao chǎn sʉ́ʉ thîi see-wên khâ</div><div class="eng">True. I’ll buy it at 7-Eleven in a bit.</div></div></div>
+    </div>
+
+    <h3>移民局：延簽要帶什麼？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">พรุ่งนี้ฉันต้องไปต่อวีซ่าค่ะ</div><div class="roman">phrûng-níi chǎn dtɔ̂ng bpai dtɔ̀ɔ wii-sâa khâ</div><div class="eng">Tomorrow I have to go extend my visa.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ต้องเอาอะไรไปบ้างคะ</div><div class="roman">dtɔ̂ng ao à-rai bpai bâang khá</div><div class="eng">What things do you have to take?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ต้องเอาหนังสือเดินทาง เงิน รูปถ่าย และเอกสารไปค่ะ</div><div class="roman">dtɔ̂ng ao nǎng-sʉ̌ʉ-dəən-thaang, ngoen, rûup-thàai, lɛ́ èek-gà-sǎan bpai khâ</div><div class="eng">I have to take my passport, money, photos, and documents.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เช็กเอกสารให้ครบก่อนออกจากบ้านนะคะ</div><div class="roman">chék èek-gà-sǎan hâi khróp gɔ̀ɔn ɔ̀ɔk jàak bâan ná khá</div><div class="eng">Check that your documents are complete before leaving home.</div></div></div>
+    </div>
+
+    <h3>移民局櫃台：文件不齊</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Officer</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เอกสารไม่ครบค่ะ</div><div class="roman">èek-gà-sǎan mâi khróp khâ</div><div class="eng">The documents are incomplete.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอโทษค่ะ ขาดอะไรคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, khàat à-rai khá</div><div class="eng">Sorry, what is missing?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Officer</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขาดรูปถ่ายหนึ่งรูปค่ะ</div><div class="roman">khàat rûup-thàai nʉ̀eng rûup khâ</div><div class="eng">One photo is missing.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ถ่ายรูปที่นี่ได้ไหมคะ</div><div class="roman">thàai-rûup thîi-nîi dâai mái khá</div><div class="eng">Can I take a photo here?</div></div></div>
+    </div>
+
+    <h3>朋友聊天：去過曼谷哪些地方？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">มาไทยครั้งนี้ คุณไปที่ไหนบ้างคะ</div><div class="roman">maa thai khráng níi, khun bpai thîi-nǎi bâang khá</div><div class="eng">This time in Thailand, which places did you go to?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ฉันไปสยาม อโศก ทองหล่อ แล้วก็อีกหลายที่ค่ะ</div><div class="roman">chǎn bpai sà-yǎam, à-sòok, thɔɔng-lɔ̀ɔ, lɛ́ɛw gɔ̂ɔ ìik lǎai thîi khâ</div><div class="eng">I went to Siam, Asok, Thong Lo, and many other places.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ชอบที่ไหนมากที่สุดคะ</div><div class="roman">chɔ̂ɔp thîi-nǎi mâak thîi-sùt khá</div><div class="eng">Which place did you like the most?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ฉันชอบทองหล่อค่ะ มีคาเฟ่สวย ๆ เยอะค่ะ</div><div class="roman">chǎn chɔ̂ɔp thɔɔng-lɔ̀ɔ khâ, mii khaa-fêe sǔai-sǔai yə́ khâ</div><div class="eng">I like Thong Lo. There are many pretty cafés.</div></div></div>
+    </div>
+
+    <h3>小吃店/市場：買了哪些東西？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ตลาดวันนี้ซื้ออะไรมาบ้างคะ</div><div class="roman">dtà-làat wan-níi sʉ́ʉ à-rai maa bâang khá</div><div class="eng">At the market today, what did you buy?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ฉันซื้อมะม่วง น้ำมะพร้าว แล้วก็ขนมไทยมาค่ะ</div><div class="roman">chǎn sʉ́ʉ má-mûang, náam má-phráao, lɛ́ɛw gɔ̂ɔ khà-nǒm thai maa khâ</div><div class="eng">I bought mangoes, coconut water, and Thai desserts.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เยอะมากค่ะ กินหมดไหมคะ</div><div class="roman">yə́ mâak khâ, gin mòt mái khá</div><div class="eng">That’s a lot. Can you finish eating it?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">กินไม่หมดค่ะ เดี๋ยวแบ่งให้เพื่อนค่ะ</div><div class="roman">gin mâi mòt khâ, dǐao bɛ̀ng hâi phʉ̂an khâ</div><div class="eng">I can’t finish it. I’ll share it with my friend.</div></div></div>
+    </div>
+
+    <h3>帶誰去海邊？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คุณพาใครไปทะเลคะ</div><div class="roman">khun phaa khrai bpai thá-lee khá</div><div class="eng">Whom did you take to the beach?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ฉันพาแฟนไปทะเลค่ะ</div><div class="roman">chǎn phaa fɛɛn bpai thá-lee khâ</div><div class="eng">I took my partner to the beach.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">แล้วเอาอะไรไปบ้างคะ</div><div class="roman">lɛ́ɛw ao à-rai bpai bâang khá</div><div class="eng">And what things did you take?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เอากล้องถ่ายรูป หมวก และแว่นกันแดดไปค่ะ</div><div class="roman">ao glɔ̂ng-thàai-rûup, mùak, lɛ́ wɛ̂ɛn gan-dɛ̀ɛt bpai khâ</div><div class="eng">I took a camera, a hat, and sunglasses.</div></div></div>
+    </div>
+
+    <h3>咖啡店讀書：你帶筆電了嗎？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปคาเฟ่วันนี้ เอาโน้ตบุ๊กมาด้วยไหมคะ</div><div class="roman">bpai khaa-fêe wan-níi, ao nóot-búk maa dûai mái khá</div><div class="eng">Going to the café today, did you bring your laptop too?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เอามาค่ะ แต่ลืมเอาที่ชาร์จมาค่ะ</div><div class="roman">ao maa khâ, dtɛ̀ɛ lʉʉm ao thîi-cháat maa khâ</div><div class="eng">I brought it, but I forgot to bring the charger.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไม่เป็นไรค่ะ ฉันมีพาวเวอร์แบงก์ค่ะ</div><div class="roman">mâi bpen rai khâ, chǎn mii phaao-wə̂ə-bɛɛng khâ</div><div class="eng">No problem. I have a power bank.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">อะไร vs อะไรบ้าง</div><div class="roman">à-rai vs à-rai bâang</div><div class="eng">what vs what things</div></div></td>
+          <td><span class="thai">อะไร</span> 可以是單一答案；<span class="thai">อะไรบ้าง</span> 問「有哪些」。</td>
+          <td>
+            <div class="triad"><div class="thai">คุณเอาอะไรไปคะ</div><div class="roman">khun ao à-rai bpai khá</div><div class="eng">What did you take?</div></div>
+            <div class="triad"><div class="thai">คุณเอาอะไรไปบ้างคะ</div><div class="roman">khun ao à-rai bpai bâang khá</div><div class="eng">What things did you take?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">บ้าง vs มั่ง</div><div class="roman">bâang vs mâng</div><div class="eng">some vs casual some</div></div></td>
+          <td><span class="thai">มั่ง</span> 比較口語，不適合很正式的場合。</td>
+          <td>
+            <div class="triad"><div class="thai">ต้องเตรียมอะไรบ้างคะ</div><div class="roman">dtɔ̂ng dtriam à-rai bâang khá</div><div class="eng">What do I need to prepare?</div></div>
+            <div class="triad"><div class="thai">วันนี้ไปไหนมามั่ง</div><div class="roman">wan-níi bpai nǎi maa mâng</div><div class="eng">Where did you go today?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เอา / พา 混用</div><div class="roman">ao / phaa</div><div class="eng">take object / take person</div></div></td>
+          <td>物品用 <span class="thai">เอา</span>；人或動物用 <span class="thai">พา</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเอาหนังสือเดินทางไปค่ะ</div><div class="roman">chǎn ao nǎng-sʉ̌ʉ-dəən-thaang bpai khâ</div><div class="eng">I took my passport.</div></div>
+            <div class="triad"><div class="thai">ฉันพาแม่ไปค่ะ</div><div class="roman">chǎn phaa mɛ̂ɛ bpai khâ</div><div class="eng">I took my mom.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">มา / ไป 方向錯</div><div class="roman">maa / bpai</div><div class="eng">come / go</div></div></td>
+          <td><span class="thai">มา</span> 往說話者或焦點這邊；<span class="thai">ไป</span> 往別處。</td>
+          <td>
+            <div class="triad"><div class="thai">เอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">ao à-rai maa mʉang-thai bâang khá</div><div class="eng">What things did you bring to Thailand?</div></div>
+            <div class="triad"><div class="thai">เอาอะไรไปทะเลบ้างคะ</div><div class="roman">ao à-rai bpai thá-lee bâang khá</div><div class="eng">What things do you take to the beach?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ครบ / ขาด 混淆</div><div class="roman">khróp / khàat</div><div class="eng">complete / missing</div></div></td>
+          <td><span class="thai">ครบ</span> 是齊全；<span class="thai">ขาด</span> 是缺少。</td>
+          <td>
+            <div class="triad"><div class="thai">เอกสารครบแล้วค่ะ</div><div class="roman">èek-gà-sǎan khróp lɛ́ɛw khâ</div><div class="eng">The documents are complete now.</div></div>
+            <div class="triad"><div class="thai">ขาดรูปถ่ายหนึ่งรูปค่ะ</div><div class="roman">khàat rûup-thàai nʉ̀eng rûup khâ</div><div class="eng">One photo is missing.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>本課最重要錯誤避免：</strong>
+      <p>物品用 <span class="thai">เอา</span>，人用 <span class="thai">พา</span>。</p>
+      <p>問多個答案用 <span class="thai">บ้าง</span>，朋友聊天才可用 <span class="thai">มั่ง</span>。</p>
+      <p>帶來用 <span class="thai">เอามา</span>，帶去用 <span class="thai">เอาไป</span>。</p>
+      <p>文件齊全是 <span class="thai">ครบ</span>，缺少是 <span class="thai">ขาด</span>。</p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Vocabulary Recall</h3>
+    <details>
+      <summary>what things / which places / who all</summary>
+      <div class="triad"><div class="thai">อะไรบ้าง / ที่ไหนบ้าง / ใครบ้าง</div><div class="roman">à-rai bâang / thîi-nǎi bâang / khrai bâang</div><div class="eng">what things / which places / who all</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">บ้าง</span> 用來問多個例子。</p>
+    </details>
+
+    <details>
+      <summary>passport / money / photo / documents</summary>
+      <div class="triad"><div class="thai">หนังสือเดินทาง / เงิน / รูปถ่าย / เอกสาร</div><div class="roman">nǎng-sʉ̌ʉ-dəən-thaang / ngoen / rûup-thàai / èek-gà-sǎan</div><div class="eng">passport / money / photo / documents</div></div>
+      <p><strong>Chinese Explanation:</strong> 這組是去移民局或辦文件最重要的單字。</p>
+    </details>
+
+    <details>
+      <summary>swimsuit / towel / sunglasses / sandals</summary>
+      <div class="triad"><div class="thai">ชุดว่ายน้ำ / ผ้าเช็ดตัว / แว่นกันแดด / รองเท้าแตะ</div><div class="roman">chút wâai-náam / phâa-chét-dtua / wɛ̂ɛn gan-dɛ̀ɛt / rɔɔng-tháao dtɛ̀</div><div class="eng">swimsuit / towel / sunglasses / sandals</div></div>
+      <p><strong>Chinese Explanation:</strong> 去海邊會用到的基本用品。</p>
+    </details>
+
+    <h3>B. Classifier Practice</h3>
+    <details>
+      <summary>one backpack</summary>
+      <div class="triad"><div class="thai">กระเป๋าเป้หนึ่งใบ</div><div class="roman">grà-bpǎo bpêe nʉ̀eng bai</div><div class="eng">one backpack</div></div>
+      <p><strong>Chinese Explanation:</strong> 包包類用 <span class="thai">ใบ</span>。</p>
+    </details>
+
+    <details>
+      <summary>one passport</summary>
+      <div class="triad"><div class="thai">หนังสือเดินทางหนึ่งเล่ม</div><div class="roman">nǎng-sʉ̌ʉ-dəən-thaang nʉ̀eng lêm</div><div class="eng">one passport</div></div>
+      <p><strong>Chinese Explanation:</strong> 護照用書本類量詞 <span class="thai">เล่ม</span>。</p>
+    </details>
+
+    <details>
+      <summary>two towels</summary>
+      <div class="triad"><div class="thai">ผ้าเช็ดตัวสองผืน</div><div class="roman">phâa-chét-dtua sɔ̌ɔng phʉ̌ʉn</div><div class="eng">two towels</div></div>
+      <p><strong>Chinese Explanation:</strong> 布類、毛巾用 <span class="thai">ผืน</span>。</p>
+    </details>
+
+    <details>
+      <summary>one pair of sandals</summary>
+      <div class="triad"><div class="thai">รองเท้าแตะหนึ่งคู่</div><div class="roman">rɔɔng-tháao dtɛ̀ nʉ̀eng khûu</div><div class="eng">one pair of sandals</div></div>
+      <p><strong>Chinese Explanation:</strong> 鞋子成雙，用 <span class="thai">คู่</span>。</p>
+    </details>
+
+    <h3>C. Translation Chinese → Thai</h3>
+    <details>
+      <summary>你來泰國帶了哪些東西？</summary>
+      <div class="triad"><div class="thai">คุณเอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">khun ao à-rai maa mʉang-thai bâang khá</div><div class="eng">What things did you bring to Thailand?</div></div>
+      <p><strong>Chinese Explanation:</strong> 「帶來」用 <span class="thai">เอา...มา</span>，問多個東西用 <span class="thai">อะไรบ้าง</span>。</p>
+    </details>
+
+    <details>
+      <summary>我明天要去延簽。</summary>
+      <div class="triad"><div class="thai">พรุ่งนี้ฉันต้องไปต่อวีซ่าค่ะ</div><div class="roman">phrûng-níi chǎn dtɔ̂ng bpai dtɔ̀ɔ wii-sâa khâ</div><div class="eng">Tomorrow I have to go extend my visa.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ต่อวีซ่า</span> 是日常口語很常用的說法。</p>
+    </details>
+
+    <details>
+      <summary>我帶媽媽去海邊。</summary>
+      <div class="triad"><div class="thai">ฉันพาแม่ไปทะเลค่ะ</div><div class="roman">chǎn phaa mɛ̂ɛ bpai thá-lee khâ</div><div class="eng">I took my mom to the beach.</div></div>
+      <p><strong>Chinese Explanation:</strong> 帶人用 <span class="thai">พา</span>，不是 <span class="thai">เอา</span>。</p>
+    </details>
+
+    <h3>D. Translation English → Thai</h3>
+    <details>
+      <summary>What things do I have to prepare?</summary>
+      <div class="triad"><div class="thai">ต้องเตรียมอะไรบ้างคะ</div><div class="roman">dtɔ̂ng dtriam à-rai bâang khá</div><div class="eng">What things do I have to prepare?</div></div>
+      <p><strong>Chinese Explanation:</strong> 辦文件、報名、去移民局都很實用。</p>
+    </details>
+
+    <details>
+      <summary>Are the documents complete yet?</summary>
+      <div class="triad"><div class="thai">เอกสารครบหรือยังคะ</div><div class="roman">èek-gà-sǎan khróp rʉ̌ʉ-yang khá</div><div class="eng">Are the documents complete yet?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">หรือยัง</span> 用來問「完成了沒」。</p>
+    </details>
+
+    <details>
+      <summary>I forgot to take my photos.</summary>
+      <div class="triad"><div class="thai">ฉันลืมเอารูปถ่ายไปค่ะ</div><div class="roman">chǎn lʉʉm ao rûup-thàai bpai khâ</div><div class="eng">I forgot to take my photos.</div></div>
+      <p><strong>Chinese Explanation:</strong> 忘記帶東西用 <span class="thai">ลืมเอา...ไป</span>。</p>
+    </details>
+
+    <h3>E. Street Thai Conversion</h3>
+    <details>
+      <summary>把教材句「คุณเอาอะไรมาเมืองไทยบ้างคะ」改成朋友聊天版。</summary>
+      <div class="triad"><div class="thai">เอาอะไรมามั่งคะ</div><div class="roman">ao à-rai maa mâng khá</div><div class="eng">What did you bring?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">มั่ง</span> 比 <span class="thai">บ้าง</span> 更口語，但正式場合不要優先用。</p>
+    </details>
+
+    <details>
+      <summary>把完整正式地名「สำนักงานตรวจคนเข้าเมือง」改成口語縮寫。</summary>
+      <div class="triad"><div class="thai">ตม.</div><div class="roman">dtɔɔ-mɔɔ</div><div class="eng">Immigration</div></div>
+      <p><strong>Chinese Explanation:</strong> 泰國人口語常用縮寫，但你要先認得完整名稱。</p>
+    </details>
+
+    <h3>F. Dialogue Completion</h3>
+    <details>
+      <summary>Friend: ไปทะเลเอาอะไรไปบ้างคะ？You: ______</summary>
+      <div class="triad"><div class="thai">ฉันเอาชุดว่ายน้ำ ผ้าเช็ดตัว ครีมกันแดด และแว่นกันแดดไปค่ะ</div><div class="roman">chǎn ao chút wâai-náam, phâa-chét-dtua, khriim gan-dɛ̀ɛt, lɛ́ wɛ̂ɛn gan-dɛ̀ɛt bpai khâ</div><div class="eng">I take a swimsuit, towel, sunscreen, and sunglasses.</div></div>
+      <p><strong>Chinese Explanation:</strong> 這句結合教材海邊用品與曼谷實用補充。</p>
+    </details>
+
+    <details>
+      <summary>Officer: เอกสารไม่ครบค่ะ。You: ______</summary>
+      <div class="triad"><div class="thai">ขอโทษค่ะ ขาดอะไรคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, khàat à-rai khá</div><div class="eng">Sorry, what is missing?</div></div>
+      <p><strong>Chinese Explanation:</strong> 文件不齊時，不要慌，先問「缺什麼」。</p>
+    </details>
+
+    <h3>G. Mini Role-play</h3>
+    <details>
+      <summary>朋友問你來泰國帶了什麼。你回答：一個行李箱、一個背包、護照、錢，還有很多東西。</summary>
+      <div class="bubble-wrap">
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">คุณเอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">khun ao à-rai maa mʉang-thai bâang khá</div><div class="eng">What things did you bring to Thailand?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ฉันเอากระเป๋าเดินทางหนึ่งใบ กระเป๋าเป้หนึ่งใบ หนังสือเดินทาง เงิน แล้วก็อีกหลายอย่างมาค่ะ</div><div class="roman">chǎn ao grà-bpǎo-dəən-thaang nʉ̀eng bai, grà-bpǎo bpêe nʉ̀eng bai, nǎng-sʉ̌ʉ-dəən-thaang, ngoen, lɛ́ɛw gɔ̂ɔ ìik lǎai yàang maa khâ</div><div class="eng">I brought one suitcase, one backpack, my passport, money, and many other things.</div></div></div>
+      </div>
+      <p><strong>Chinese Explanation:</strong> 練習列舉、包包量詞 <span class="thai">ใบ</span>，以及 <span class="thai">แล้วก็อีกหลายอย่าง</span>。</p>
+    </details>
+
+    <h3>H. Synonyms / Opposites Practice</h3>
+    <details>
+      <summary>บ้าง 和 มั่ง 差在哪裡？各造一句。</summary>
+      <div class="triad"><div class="thai">ต้องเตรียมอะไรบ้างคะ</div><div class="roman">dtɔ̂ng dtriam à-rai bâang khá</div><div class="eng">What do I need to prepare?</div></div>
+      <div class="triad"><div class="thai">วันนี้ไปไหนมามั่ง</div><div class="roman">wan-níi bpai nǎi maa mâng</div><div class="eng">Where did you go today?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">บ้าง</span> 較標準；<span class="thai">มั่ง</span> 較口語。</p>
+    </details>
+
+    <details>
+      <summary>เอา 和 พา 差在哪裡？各造一句。</summary>
+      <div class="triad"><div class="thai">ฉันเอาร่มไปตลาดค่ะ</div><div class="roman">chǎn ao rôm bpai dtà-làat khâ</div><div class="eng">I take an umbrella to the market.</div></div>
+      <div class="triad"><div class="thai">ฉันพาเพื่อนไปดูหนังค่ะ</div><div class="roman">chǎn phaa phʉ̂an bpai duu nǎng khâ</div><div class="eng">I take my friend to watch a movie.</div></div>
+      <p><strong>Chinese Explanation:</strong> 物品用 <span class="thai">เอา</span>；人或動物用 <span class="thai">พา</span>。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="triad"><div class="thai">คุณเอาอะไรมาเมืองไทยบ้างคะ</div><div class="roman">khun ao à-rai maa mʉang-thai bâang khá</div><div class="eng">What things did you bring to Thailand?</div></div></td><td>問對方帶了哪些東西</td></tr>
+        <tr><td>2</td><td><div class="triad"><div class="thai">ฉันเอาหนังสือเดินทางกับเงินมาค่ะ</div><div class="roman">chǎn ao nǎng-sʉ̌ʉ-dəən-thaang gàp ngoen maa khâ</div><div class="eng">I brought my passport and money.</div></div></td><td>回答兩個物品</td></tr>
+        <tr><td>3</td><td><div class="triad"><div class="thai">ฉันเอากระเป๋าเดินทาง กระเป๋าเป้ แล้วก็อีกหลายอย่างมาค่ะ</div><div class="roman">chǎn ao grà-bpǎo-dəən-thaang, grà-bpǎo bpêe, lɛ́ɛw gɔ̂ɔ ìik lǎai yàang maa khâ</div><div class="eng">I brought a suitcase, backpack, and many other things.</div></div></td><td>回答很多東西</td></tr>
+        <tr><td>4</td><td><div class="triad"><div class="thai">เวลาไปทะเล คุณเอาอะไรไปบ้างคะ</div><div class="roman">wee-laa bpai thá-lee, khun ao à-rai bpai bâang khá</div><div class="eng">When you go to the beach, what things do you take?</div></div></td><td>海邊情境</td></tr>
+        <tr><td>5</td><td><div class="triad"><div class="thai">ฉันเอาชุดว่ายน้ำ ผ้าเช็ดตัว ครีมกันแดด และแว่นกันแดดไปค่ะ</div><div class="roman">chǎn ao chút wâai-náam, phâa-chét-dtua, khriim gan-dɛ̀ɛt, lɛ́ wɛ̂ɛn gan-dɛ̀ɛt bpai khâ</div><div class="eng">I take a swimsuit, towel, sunscreen, and sunglasses.</div></div></td><td>海邊用品</td></tr>
+        <tr><td>6</td><td><div class="triad"><div class="thai">พรุ่งนี้ฉันต้องไปต่อวีซ่าค่ะ</div><div class="roman">phrûng-níi chǎn dtɔ̂ng bpai dtɔ̀ɔ wii-sâa khâ</div><div class="eng">Tomorrow I have to go extend my visa.</div></div></td><td>延簽</td></tr>
+        <tr><td>7</td><td><div class="triad"><div class="thai">ต้องเตรียมอะไรบ้างคะ</div><div class="roman">dtɔ̂ng dtriam à-rai bâang khá</div><div class="eng">What do I need to prepare?</div></div></td><td>問文件 / 問準備事項</td></tr>
+        <tr><td>8</td><td><div class="triad"><div class="thai">เอกสารครบหรือยังคะ</div><div class="roman">èek-gà-sǎan khróp rʉ̌ʉ-yang khá</div><div class="eng">Are the documents complete yet?</div></div></td><td>確認文件</td></tr>
+        <tr><td>9</td><td><div class="triad"><div class="thai">คุณพาใครไปทะเลคะ</div><div class="roman">khun phaa khrai bpai thá-lee khá</div><div class="eng">Whom did you take to the beach?</div></div></td><td>問帶誰去</td></tr>
+        <tr><td>10</td><td><div class="triad"><div class="thai">เพื่อนพาฉันไปสำนักงานตรวจคนเข้าเมืองค่ะ</div><div class="roman">phʉ̂an phaa chǎn bpai sǎm-nák-ngaan dtrùat khon khâo mʉang khâ</div><div class="eng">My friend took me to the Immigration Office.</div></div></td><td>帶人去某地</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>今日背誦優先順序：</strong>
+      先背 1、4、6、7、8。這五句最容易在曼谷生活中直接用到：問帶什麼、去海邊、延簽、問準備資料、確認文件。
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 19 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: #9a3412;
+      border: .5px solid rgba(249,115,22,.35);
+      font-weight: 800;
+      margin-right: 6px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 19 學習指南</h1>
+    <p class="subtitle">主題：先後順序、做完就可以、銀行開戶與提款、紙鈔硬幣、真實辦事流程</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Overview｜本課總覽</h2>
+
+    <div class="cards">
+      <div class="card">
+        <span class="label textbook">Textbook-based</span>
+        <h3>本課主要學什麼？</h3>
+        <ol>
+          <li>用 <strong>ต้อง V1 ก่อน V2</strong> 表達「要先做 V1，再做 V2」。</li>
+          <li>用 <strong>ก่อน V2 ต้อง V1</strong> 反過來說「在 V2 之前，必須先 V1」。</li>
+          <li>用 <strong>พอ..., ก็...</strong> 表達「一……就……」。</li>
+          <li>用 <strong>S + V ก่อนนะคะ</strong> 表達「我先去做某事喔」。</li>
+          <li>用 <strong>V1 เสร็จแล้ว V2 ได้เลย</strong> 表達「做完 V1 後就可以直接 V2」。</li>
+          <li>學銀行詞彙：銀行、開戶、關戶、帳戶、存摺、職員、號碼牌、窗口。</li>
+          <li>學金錢動作：存錢、領錢、提款、轉帳、換零錢、簽名、數錢。</li>
+          <li>學泰銖紙鈔與硬幣說法：千元鈔、五百、百元、五十、二十；十銖、五銖、兩銖、一銖、五十 satang、二十五 satang。</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <span class="label local">Supplement / Local usage</span>
+        <h3>曼谷生活會怎麼用？</h3>
+        <p>
+          Day 19 非常生活化，尤其是去銀行、櫃台、餐廳、超商、學校辦事時。「先抽號碼牌、再等叫號」、「填完表就可以拿去櫃台」、「要先跟職員說明，才可以開戶」、「我先回家喔」這些都是曼谷日常會用到的句型。
+        </p>
+      </div>
+    </div>
+
+    <h3>你學完後可以說什麼？</h3>
+
+    <div class="cards">
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ต้องคุยกับเจ้าหน้าที่ก่อนเปิดบัญชีค่ะ</div>
+          <div class="roman">dtɔ̂ng khui gàp jâo-nâa-thîi gɔ̀ɔn bpə̀ət ban-chii khâ</div>
+          <div class="eng">You have to talk with the staff before opening an account.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ก่อนเปิดบัญชีต้องคุยกับเจ้าหน้าที่ค่ะ</div>
+          <div class="roman">gɔ̀ɔn bpə̀ət ban-chii dtɔ̂ng khui gàp jâo-nâa-thîi khâ</div>
+          <div class="eng">Before opening an account, you have to talk with the staff.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">พอฝนตก ถนนก็เปียกค่ะ</div>
+          <div class="roman">phɔɔ fǒn-dtòk, thà-nǒn gɔ̂ɔ bpìak khâ</div>
+          <div class="eng">Once it rains, the road gets wet.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันกลับบ้านก่อนนะคะ</div>
+          <div class="roman">chǎn glàp bâan gɔ̀ɔn ná khá</div>
+          <div class="eng">I’ll go home first, okay?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">เซ็นชื่อเสร็จแล้วรับเงินได้เลยค่ะ</div>
+          <div class="roman">sen-chʉ̂ʉ sèt lɛ́ɛw ráp-ngən dâai ləəi khâ</div>
+          <div class="eng">After signing, you can receive the money right away.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ขอแลกแบงก์ร้อยเป็นแบงก์ย่อยได้ไหมคะ</div>
+          <div class="roman">khɔ̌ɔ lɛ̂ɛk bɛng-rɔ́ɔi bpen bɛng-yɔ̂i dâai mái khá</div>
+          <div class="eng">Could I change a 100-baht bill into smaller bills?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <h3>本課 PDF 對應重點</h3>
+      <p>第 2 頁：句型 <strong>ต้อง V1 ก่อน V2</strong>、<strong>ก่อน V2 ต้อง V1</strong>，例句是「要先跟職員說，再開戶」；同頁也有 <strong>พอ..., ก็...</strong>，例如「下雨，路就濕」、「關燈，房間就暗」、「開燈，房間就亮」。</p>
+      <p>第 3 頁：句型 <strong>V1 เสร็จแล้ว V2 ได้เลย</strong>，例如簽名後領錢、學完 Book 2 口說後學 Book 3 口說、學完口說後學寫字、脫衣服後洗澡、做完功課後玩遊戲。</p>
+      <p>第 4 頁：銀行情境：銀行、開戶/關戶、帳戶、存摺、職員/員工、號碼牌、窗口、領錢、存錢、提款、轉帳、換零錢、簽名、數錢、零錢。</p>
+      <p>第 5–6 頁：紙鈔與硬幣：แบงก์พัน、แบงก์ห้าร้อย、แบงก์ร้อย、แบงก์ห้าสิบ、แบงก์ยี่สิบ，以及เหรียญสิบ、เหรียญห้า、เหรียญสอง、เหรียญบาท、เหรียญห้าสิบสตางค์、เหรียญยี่สิบห้าสตางค์ / สลึง。</p>
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Sequence & Process｜先後順序與流程</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ก่อน</div><div class="roman">gɔ̀ɔn</div><div class="eng">before / first</div></div></td>
+          <td>Time / sequence word</td>
+          <td>—</td>
+          <td>可放在動詞前表示「在……之前」，也可放句尾表示「先……」。</td>
+          <td><div class="triad"><div class="thai">กินข้าวก่อน / ก่อนเปิดบัญชี / กลับบ้านก่อน</div><div class="roman">gin khâao gɔ̀ɔn / gɔ̀ɔn bpə̀ət ban-chii / glàp bâan gɔ̀ɔn</div><div class="eng">eat first / before opening an account / go home first</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันขอไปกดเงินก่อนนะคะ</div><div class="roman">chǎn khɔ̌ɔ bpai gòt-ngən gɔ̀ɔn ná khá</div><div class="eng">Let me go withdraw cash first.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พอ...</div><div class="roman">phɔɔ...</div><div class="eng">once / when / as soon as</div></div></td>
+          <td>Connector</td>
+          <td>—</td>
+          <td>常和 <span class="thai">ก็</span> 搭配：<span class="thai">พอ..., ก็...</span> = 一……就……。</td>
+          <td><div class="triad"><div class="thai">พอฝนตก / พอถึงคิว / พอเรียนเสร็จ</div><div class="roman">phɔɔ fǒn-dtòk / phɔɔ thʉ̌ng khiu / phɔɔ rian sèt</div><div class="eng">once it rains / once the queue reaches you / once class is finished</div></div></td>
+          <td><div class="triad"><div class="thai">พอถึงคิวฉัน เจ้าหน้าที่ก็เรียกไปช่องสองค่ะ</div><div class="roman">phɔɔ thʉ̌ng khiu chǎn, jâo-nâa-thîi gɔ̂ɔ rîak bpai chɔ̂ng sɔ̌ɔng khâ</div><div class="eng">Once it was my turn, the staff called me to counter 2.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เสร็จแล้ว</div><div class="roman">sèt lɛ́ɛw</div><div class="eng">finished / after finishing</div></div></td>
+          <td>Completion phrase</td>
+          <td>—</td>
+          <td>接在動詞後，表示做完了。常接下一個動作。</td>
+          <td><div class="triad"><div class="thai">เรียนเสร็จแล้ว / เซ็นชื่อเสร็จแล้ว / ทำการบ้านเสร็จแล้ว</div><div class="roman">rian sèt lɛ́ɛw / sen-chʉ̂ʉ sèt lɛ́ɛw / tham gaan-bâan sèt lɛ́ɛw</div><div class="eng">finished studying / finished signing / finished homework</div></div></td>
+          <td><div class="triad"><div class="thai">กรอกแบบฟอร์มเสร็จแล้วเอาไปให้เจ้าหน้าที่ได้เลยค่ะ</div><div class="roman">grɔ̀ɔk bɛ̀ɛp-fɔɔm sèt lɛ́ɛw ao bpai hâi jâo-nâa-thîi dâai ləəi khâ</div><div class="eng">After filling out the form, you can take it to the staff right away.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ได้เลย</div><div class="roman">dâai ləəi</div><div class="eng">can right away / sure, go ahead</div></div></td>
+          <td>Phrase</td>
+          <td>—</td>
+          <td>表示可以直接做；也常用於回應「可以啊」。</td>
+          <td><div class="triad"><div class="thai">รับเงินได้เลย / เข้าไปได้เลย / ใช้ได้เลย</div><div class="roman">ráp-ngən dâai ləəi / khâo bpai dâai ləəi / chái dâai ləəi</div><div class="eng">can receive money right away / can go in right away / can use it right away</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้ากรอกข้อมูลครบแล้ว กดส่งได้เลยค่ะ</div><div class="roman">thâa grɔ̀ɔk khɔ̂ɔ-muun khróp lɛ́ɛw, gòt sòng dâai ləəi khâ</div><div class="eng">If you’ve filled in all the information, you can press submit right away.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Banking｜銀行與帳戶</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ธนาคาร</div><div class="roman">thá-naa-khaan</div><div class="eng">bank</div></div></td>
+          <td>Place</td>
+          <td>แห่ง / สาขา</td>
+          <td>銀行機構用 <span class="thai">แห่ง</span>，分行常用 <span class="thai">สาขา</span>。</td>
+          <td><div class="triad"><div class="thai">ไปธนาคาร / สาขาใกล้บ้าน / ธนาคารกรุงเทพ</div><div class="roman">bpai thá-naa-khaan / sǎa-khǎa glâi bâan / thá-naa-khaan grung-thêep</div><div class="eng">go to the bank / nearby branch / Bangkok Bank</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันต้องไปธนาคารเพื่อเปิดบัญชีค่ะ</div><div class="roman">chǎn dtɔ̂ng bpai thá-naa-khaan phʉ̂a bpə̀ət ban-chii khâ</div><div class="eng">I need to go to the bank to open an account.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เปิดบัญชี</div><div class="roman">bpə̀ət ban-chii</div><div class="eng">to open a bank account</div></div></td>
+          <td>Verb phrase</td>
+          <td>บัญชี</td>
+          <td><span class="thai">เปิด</span> 是開；帳戶用 <span class="thai">บัญชี</span>。</td>
+          <td><div class="triad"><div class="thai">เปิดบัญชีใหม่ / เปิดบัญชีธนาคาร / เอกสารเปิดบัญชี</div><div class="roman">bpə̀ət ban-chii mài / bpə̀ət ban-chii thá-naa-khaan / èek-gà-sǎan bpə̀ət ban-chii</div><div class="eng">open a new account / open a bank account / account-opening documents</div></div></td>
+          <td><div class="triad"><div class="thai">ก่อนเปิดบัญชีต้องเตรียมพาสปอร์ตกับเอกสารค่ะ</div><div class="roman">gɔ̀ɔn bpə̀ət ban-chii dtɔ̂ng dtriam pháat-bpɔ̀ɔt gàp èek-gà-sǎan khâ</div><div class="eng">Before opening an account, you have to prepare your passport and documents.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ปิดบัญชี</div><div class="roman">bpìt ban-chii</div><div class="eng">to close a bank account</div></div></td>
+          <td>Verb phrase</td>
+          <td>บัญชี</td>
+          <td>和 <span class="thai">เปิดบัญชี</span> 相反。</td>
+          <td><div class="triad"><div class="thai">ปิดบัญชีเก่า / ปิดบัญชีธนาคาร / ค่าธรรมเนียมปิดบัญชี</div><div class="roman">bpìt ban-chii gào / bpìt ban-chii thá-naa-khaan / khâa-tham-niam bpìt ban-chii</div><div class="eng">close old account / close bank account / account-closing fee</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าจะกลับประเทศ อาจต้องปิดบัญชีก่อนค่ะ</div><div class="roman">thâa jà glàp bprà-thêet, àat dtɔ̂ng bpìt ban-chii gɔ̀ɔn khâ</div><div class="eng">If you’re going back to your country, you may need to close the account first.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">บัญชี</div><div class="roman">ban-chii</div><div class="eng">account</div></div></td>
+          <td>Noun</td>
+          <td>บัญชี</td>
+          <td>銀行帳戶、帳號都可能用到。也可指會計帳。</td>
+          <td><div class="triad"><div class="thai">เลขบัญชี / ชื่อบัญชี / โอนเข้าบัญชี</div><div class="roman">lêek ban-chii / chʉ̂ʉ ban-chii / oon khâo ban-chii</div><div class="eng">account number / account name / transfer into account</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยเขียนเลขบัญชีให้หน่อยได้ไหมคะ</div><div class="roman">chûai khǐan lêek ban-chii hâi nòi dâai mái khá</div><div class="eng">Could you write the account number for me?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สมุดบัญชี</div><div class="roman">sà-mùt ban-chii</div><div class="eng">bank passbook</div></div></td>
+          <td>Noun</td>
+          <td>เล่ม</td>
+          <td><span class="thai">สมุด</span> 是本子，銀行存摺用 <span class="thai">สมุดบัญชี</span>。</td>
+          <td><div class="triad"><div class="thai">อัปเดตสมุดบัญชี / ลืมสมุดบัญชี / สมุดบัญชีหาย</div><div class="roman">áp-dèet sà-mùt ban-chii / lʉʉm sà-mùt ban-chii / sà-mùt ban-chii hǎai</div><div class="eng">update passbook / forgot passbook / passbook lost</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันลืมเอาสมุดบัญชีมา ต้องกลับบ้านก่อนค่ะ</div><div class="roman">chǎn lʉʉm ao sà-mùt ban-chii maa, dtɔ̂ng glàp bâan gɔ̀ɔn khâ</div><div class="eng">I forgot to bring my bank passbook, so I have to go home first.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เจ้าหน้าที่</div><div class="roman">jâo-nâa-thîi</div><div class="eng">officer / staff</div></div></td>
+          <td>Person</td>
+          <td>คน</td>
+          <td>正式一點的「職員、承辦人員」。教材也標註可等於 <span class="thai">พนักงาน</span>。</td>
+          <td><div class="triad"><div class="thai">คุยกับเจ้าหน้าที่ / เจ้าหน้าที่เรียกคิว / ถามเจ้าหน้าที่</div><div class="roman">khui gàp jâo-nâa-thîi / jâo-nâa-thîi rîak khiu / thǎam jâo-nâa-thîi</div><div class="eng">talk with staff / staff calls queue / ask the staff</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าไม่เข้าใจ ต้องถามเจ้าหน้าที่ก่อนเซ็นชื่อค่ะ</div><div class="roman">thâa mâi khâo-jai, dtɔ̂ng thǎam jâo-nâa-thîi gɔ̀ɔn sen-chʉ̂ʉ khâ</div><div class="eng">If you don’t understand, you have to ask the staff before signing.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พนักงาน</div><div class="roman">phá-nák-ngaan</div><div class="eng">employee / staff</div></div></td>
+          <td>Person</td>
+          <td>คน</td>
+          <td>比 <span class="thai">เจ้าหน้าที่</span> 更一般，可用於銀行、店家、公司員工。</td>
+          <td><div class="triad"><div class="thai">พนักงานธนาคาร / พนักงานร้าน / ถามพนักงาน</div><div class="roman">phá-nák-ngaan thá-naa-khaan / phá-nák-ngaan ráan / thǎam phá-nák-ngaan</div><div class="eng">bank employee / shop staff / ask staff</div></div></td>
+          <td><div class="triad"><div class="thai">พนักงานบอกให้ฉันรอเรียกคิวค่ะ</div><div class="roman">phá-nák-ngaan bɔ̀ɔk hâi chǎn rɔɔ rîak khiu khâ</div><div class="eng">The staff told me to wait for my queue to be called.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">บัตรคิว</div><div class="roman">bàt-khiu</div><div class="eng">queue ticket / queue number</div></div></td>
+          <td>Noun</td>
+          <td>ใบ</td>
+          <td>在銀行、醫院、政府機關常見。螢幕會叫號。</td>
+          <td><div class="triad"><div class="thai">กดบัตรคิว / รับบัตรคิว / เรียกหมายเลข</div><div class="roman">gòt bàt-khiu / ráp bàt-khiu / rîak mǎai-lêek</div><div class="eng">press queue ticket / receive queue ticket / call number</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องกดบัตรคิวก่อนคุยกับเจ้าหน้าที่ค่ะ</div><div class="roman">dtɔ̂ng gòt bàt-khiu gɔ̀ɔn khui gàp jâo-nâa-thîi khâ</div><div class="eng">You have to take a queue ticket before talking with the staff.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ช่อง</div><div class="roman">chɔ̂ng</div><div class="eng">counter / channel / slot</div></div></td>
+          <td>Noun</td>
+          <td>ช่อง</td>
+          <td>銀行櫃台窗口、電視頻道、ช่องทาง 管道都會用。</td>
+          <td><div class="triad"><div class="thai">ช่องสอง / ช่องบริการ / ช่องทางออนไลน์</div><div class="roman">chɔ̂ng sɔ̌ɔng / chɔ̂ng bɔɔ-rí-gaan / chɔ̂ng-thaang ɔɔn-lai</div><div class="eng">counter 2 / service counter / online channel</div></div></td>
+          <td><div class="triad"><div class="thai">ขอเชิญหมายเลขสี่สามศูนย์ที่ช่องสองค่ะ</div><div class="roman">khɔ̌ɔ chəən mǎai-lêek sìi-sǎam-sǔun thîi chɔ̂ng sɔ̌ɔng khâ</div><div class="eng">Number 430, please go to counter 2.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Money Actions｜金錢動作</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฝากเงิน</div><div class="roman">fàak-ngən</div><div class="eng">to deposit money</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td><span class="thai">ฝาก</span> 是寄放、存；銀行存錢用 <span class="thai">ฝากเงิน</span>。</td>
+          <td><div class="triad"><div class="thai">ฝากเงินเข้าบัญชี / ฝากเงินสด / ฝากเงินที่ตู้</div><div class="roman">fàak-ngən khâo ban-chii / fàak-ngən sòt / fàak-ngən thîi dtûu</div><div class="eng">deposit into account / deposit cash / deposit at machine</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันต้องฝากเงินเข้าบัญชีก่อนจ่ายค่าเช่าค่ะ</div><div class="roman">chǎn dtɔ̂ng fàak-ngən khâo ban-chii gɔ̀ɔn jàai khâa-châo khâ</div><div class="eng">I have to deposit money into the account before paying rent.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เบิกเงิน</div><div class="roman">bə̀ək-ngən</div><div class="eng">to withdraw money / claim money</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td>較正式，可用於銀行提款，也可用於公司報帳請款。</td>
+          <td><div class="triad"><div class="thai">เบิกเงินสด / เบิกค่าเดินทาง / เบิกเงินจากบัญชี</div><div class="roman">bə̀ək-ngən sòt / bə̀ək khâa-dəən-thaang / bə̀ək-ngən jàak ban-chii</div><div class="eng">withdraw cash / claim transportation fee / withdraw from account</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าจะเบิกเงินจำนวนมาก ต้องใช้บัตรประชาชนค่ะ</div><div class="roman">thâa jà bə̀ək-ngən jam-nuan mâak, dtɔ̂ng chái bàt-bprà-chaa-chon khâ</div><div class="eng">If you want to withdraw a large amount, you need to use an ID card.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ถอนเงิน</div><div class="roman">thɔ̌ɔn-ngən</div><div class="eng">to withdraw money</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td>提款最常用說法之一，ATM 也常用。</td>
+          <td><div class="triad"><div class="thai">ถอนเงินจากตู้ ATM / ถอนเงินสด / ถอนเงินห้าพัน</div><div class="roman">thɔ̌ɔn-ngən jàak dtûu ATM / thɔ̌ɔn-ngən sòt / thɔ̌ɔn-ngən hâa phan</div><div class="eng">withdraw from ATM / withdraw cash / withdraw 5,000</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจะถอนเงินก่อน แล้วค่อยไปซื้อของค่ะ</div><div class="roman">chǎn jà thɔ̌ɔn-ngən gɔ̀ɔn, lɛ́ɛw khɔ̂i bpai sʉ́ʉ khɔ̌ɔng khâ</div><div class="eng">I’ll withdraw money first, then go shopping.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กดเงิน</div><div class="roman">gòt-ngən</div><div class="eng">to withdraw cash from ATM</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td>超口語，在地人常說「去按錢」。通常指 ATM。</td>
+          <td><div class="triad"><div class="thai">ไปกดเงิน / กดเงินที่ตู้ / กดเงินสด</div><div class="roman">bpai gòt-ngən / gòt-ngən thîi dtûu / gòt-ngən sòt</div><div class="eng">go withdraw cash / withdraw at machine / withdraw cash</div></div></td>
+          <td><div class="triad"><div class="thai">เดี๋ยวฉันไปกดเงินก่อนนะคะ เพราะร้านนี้รับแต่เงินสด</div><div class="roman">dǐao chǎn bpai gòt-ngən gɔ̀ɔn ná khá, phrɔ́ ráan níi ráp dtɛ̀ɛ ngən-sòt</div><div class="eng">I’ll go withdraw cash first because this shop only accepts cash.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">โอนเงิน</div><div class="roman">oon-ngən</div><div class="eng">to transfer money</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td>轉帳。泰國很常掃 QR / 轉 PromptPay。</td>
+          <td><div class="triad"><div class="thai">โอนเงินให้เพื่อน / โอนผ่านแอป / โอนเข้าบัญชี</div><div class="roman">oon-ngən hâi phʉ̂an / oon phàan ɛ̀ɛp / oon khâo ban-chii</div><div class="eng">transfer money to friend / transfer through app / transfer into account</div></div></td>
+          <td><div class="triad"><div class="thai">โอนเงินเสร็จแล้วส่งสลิปให้ได้เลยค่ะ</div><div class="roman">oon-ngən sèt lɛ́ɛw sòng sà-líp hâi dâai ləəi khâ</div><div class="eng">After transferring, you can send the slip right away.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แลกเงิน</div><div class="roman">lɛ̂ɛk-ngən</div><div class="eng">to exchange money</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td>可指換外幣，也可指把大鈔換小鈔/零錢。</td>
+          <td><div class="triad"><div class="thai">แลกเงินไทย / แลกแบงก์ย่อย / แลกเหรียญ</div><div class="roman">lɛ̂ɛk ngən thai / lɛ̂ɛk bɛng-yɔ̂i / lɛ̂ɛk rǐan</div><div class="eng">exchange Thai money / change into small bills / exchange coins</div></div></td>
+          <td><div class="triad"><div class="thai">ขอแลกแบงก์พันเป็นแบงก์ร้อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ lɛ̂ɛk bɛng-phan bpen bɛng-rɔ́ɔi dâai mái khá</div><div class="eng">Can I change a 1,000-baht bill into 100-baht bills?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เงินทอน</div><div class="roman">ngən-thɔɔn</div><div class="eng">change</div></div></td>
+          <td>Noun</td>
+          <td>—</td>
+          <td>買東西找回來的錢。</td>
+          <td><div class="triad"><div class="thai">รับเงินทอน / ทอนเงิน / ไม่มีเงินทอน</div><div class="roman">ráp ngən-thɔɔn / thɔɔn-ngən / mâi mii ngən-thɔɔn</div><div class="eng">receive change / give change / no change</div></div></td>
+          <td><div class="triad"><div class="thai">แม่ค้าลืมให้เงินทอน ฉันเลยต้องบอกเบา ๆ ค่ะ</div><div class="roman">mɛ̂ɛ-kháa lʉʉm hâi ngən-thɔɔn, chǎn ləəi dtɔ̂ng bɔ̀ɔk bao-bao khâ</div><div class="eng">The vendor forgot to give change, so I had to tell her softly.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เศษเงิน / เงินย่อย</div><div class="roman">sèet-ngən / ngən-yɔ̂i</div><div class="eng">small change / small money</div></div></td>
+          <td>Noun</td>
+          <td>—</td>
+          <td><span class="thai">เศษเงิน</span> 偏零散小錢；<span class="thai">เงินย่อย</span> 常指可找零的小鈔零錢。</td>
+          <td><div class="triad"><div class="thai">มีเงินย่อยไหม / ขอเงินย่อย / ไม่มีเศษเงิน</div><div class="roman">mii ngən-yɔ̂i mái / khɔ̌ɔ ngən-yɔ̂i / mâi mii sèet-ngən</div><div class="eng">do you have small change? / small change please / no small change</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านเล็ก ๆ บางร้านไม่มีเงินทอนสำหรับแบงก์พันค่ะ</div><div class="roman">ráan lék-lék baang ráan mâi mii ngən-thɔɔn sǎm-ràp bɛng-phan khâ</div><div class="eng">Some small shops don’t have change for a 1,000-baht bill.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Banknotes & Coins｜紙鈔與硬幣</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แบงก์</div><div class="roman">bɛng</div><div class="eng">banknote / bill</div></div></td>
+          <td>Noun</td>
+          <td>ใบ</td>
+          <td>口語來自 English “banknote”。紙鈔用量詞 <span class="thai">ใบ</span>。</td>
+          <td><div class="triad"><div class="thai">แบงก์พัน / แบงก์ร้อย / แบงก์ย่อย</div><div class="roman">bɛng-phan / bɛng-rɔ́ɔi / bɛng-yɔ̂i</div><div class="eng">1,000-baht bill / 100-baht bill / small bills</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมีแต่แบงก์พัน ไม่มีแบงก์ย่อยค่ะ</div><div class="roman">chǎn mii dtɛ̀ɛ bɛng-phan, mâi mii bɛng-yɔ̂i khâ</div><div class="eng">I only have a 1,000-baht bill, no small bills.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เหรียญ</div><div class="roman">rǐan</div><div class="eng">coin</div></div></td>
+          <td>Noun</td>
+          <td>เหรียญ</td>
+          <td>硬幣。硬幣可直接用 <span class="thai">เหรียญ</span> 當名詞與量詞。</td>
+          <td><div class="triad"><div class="thai">เหรียญสิบ / เหรียญห้า / เหรียญบาท</div><div class="roman">rǐan-sìp / rǐan-hâa / rǐan-bàat</div><div class="eng">10-baht coin / 5-baht coin / 1-baht coin</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันต้องใช้เหรียญสิบสองเหรียญสำหรับซักผ้าค่ะ</div><div class="roman">chǎn dtɔ̂ng chái rǐan-sìp sɔ̌ɔng rǐan sǎm-ràp sák-phâa khâ</div><div class="eng">I need two 10-baht coins for laundry.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สตางค์</div><div class="roman">sà-dtaang</div><div class="eng">satang / small currency unit</div></div></td>
+          <td>Currency unit</td>
+          <td>—</td>
+          <td>100 satang = 1 baht。生活中較少用，但硬幣名稱會出現。</td>
+          <td><div class="triad"><div class="thai">ห้าสิบสตางค์ / ยี่สิบห้าสตางค์ / เก็บสตางค์</div><div class="roman">hâa-sìp sà-dtaang / yîi-sìp-hâa sà-dtaang / gèp sà-dtaang</div><div class="eng">50 satang / 25 satang / save money</div></div></td>
+          <td><div class="triad"><div class="thai">เหรียญห้าสิบสตางค์ใช้ไม่บ่อยเท่าเหรียญบาทค่ะ</div><div class="roman">rǐan hâa-sìp sà-dtaang chái mâi bɔ̀i thâo rǐan-bàat khâ</div><div class="eng">The 50-satang coin is not used as often as the 1-baht coin.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ใบ</span><div class="triad"><div class="thai">ใบ</div><div class="roman">bai</div><div class="eng">flat item classifier</div></div></td>
+          <td><div class="triad"><div class="thai">แบงก์ / บัตรคิว / เอกสารบางชนิด</div><div class="roman">bɛng / bàt-khiu / èek-gà-sǎan baang chá-nít</div><div class="eng">banknotes / queue tickets / some documents</div></div></td>
+          <td>紙鈔、票券、卡片這類扁平物常用 <span class="thai">ใบ</span>。</td>
+          <td><div class="triad"><div class="thai">ขอแบงก์ร้อยห้าใบค่ะ</div><div class="roman">khɔ̌ɔ bɛng-rɔ́ɔi hâa bai khâ</div><div class="eng">I’d like five 100-baht bills.</div></div></td>
+          <td><span class="label review">Review</span> 前面學過 <span class="thai">ใบ</span> 可用於葉子、紙張、包包、票券；這課用於紙鈔與號碼牌。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เหรียญ</span><div class="triad"><div class="thai">เหรียญ</div><div class="roman">rǐan</div><div class="eng">coin classifier</div></div></td>
+          <td><div class="triad"><div class="thai">เหรียญสิบ / เหรียญห้า / เหรียญบาท</div><div class="roman">rǐan-sìp / rǐan-hâa / rǐan-bàat</div><div class="eng">10-baht coin / 5-baht coin / 1-baht coin</div></div></td>
+          <td>硬幣本身就用 <span class="thai">เหรียญ</span> 數。</td>
+          <td><div class="triad"><div class="thai">มีเหรียญสิบสามเหรียญไหมคะ</div><div class="roman">mii rǐan-sìp sǎam rǐan mái khá</div><div class="eng">Do you have three 10-baht coins?</div></div></td>
+          <td>不要把硬幣說成 <span class="thai">สามใบ</span>，紙鈔才用 <span class="thai">ใบ</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">บัญชี</span><div class="triad"><div class="thai">บัญชี</div><div class="roman">ban-chii</div><div class="eng">account classifier</div></div></td>
+          <td><div class="triad"><div class="thai">บัญชีธนาคาร / บัญชีออมทรัพย์ / บัญชีเงินเดือน</div><div class="roman">ban-chii thá-naa-khaan / ban-chii ɔɔm-sáp / ban-chii ngən-dʉan</div><div class="eng">bank account / savings account / payroll account</div></div></td>
+          <td>帳戶可用名詞本身作量詞。</td>
+          <td><div class="triad"><div class="thai">ฉันมีบัญชีไทยหนึ่งบัญชีค่ะ</div><div class="roman">chǎn mii ban-chii thai nʉ̀eng ban-chii khâ</div><div class="eng">I have one Thai bank account.</div></div></td>
+          <td>不要用 <span class="thai">อัน</span> 數帳戶。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เล่ม</span><div class="triad"><div class="thai">เล่ม</div><div class="roman">lêm</div><div class="eng">book-like object classifier</div></div></td>
+          <td><div class="triad"><div class="thai">สมุดบัญชี / หนังสือ / แบบเรียน</div><div class="roman">sà-mùt ban-chii / nǎng-sʉ̌ʉ / bɛ̀ɛp-rian</div><div class="eng">bank passbook / book / textbook</div></div></td>
+          <td>成冊、書本狀物品用 <span class="thai">เล่ม</span>。</td>
+          <td><div class="triad"><div class="thai">สมุดบัญชีเล่มนี้เป็นของฉันค่ะ</div><div class="roman">sà-mùt ban-chii lêm níi bpen khɔ̌ɔng chǎn khâ</div><div class="eng">This bank passbook is mine.</div></div></td>
+          <td><span class="label review">Review</span> Day 18 也用 <span class="thai">เล่ม</span> 數 Book 2 / Book 3。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คน</span><div class="triad"><div class="thai">คน</div><div class="roman">khon</div><div class="eng">person classifier</div></div></td>
+          <td><div class="triad"><div class="thai">เจ้าหน้าที่ / พนักงาน / ลูกค้า</div><div class="roman">jâo-nâa-thîi / phá-nák-ngaan / lûuk-kháa</div><div class="eng">officer / employee / customer</div></div></td>
+          <td>人用 <span class="thai">คน</span>。</td>
+          <td><div class="triad"><div class="thai">วันนี้มีเจ้าหน้าที่แค่สองคนค่ะ</div><div class="roman">wan-níi mii jâo-nâa-thîi khɛ̂ɛ sɔ̌ɔng khon khâ</div><div class="eng">There are only two staff members today.</div></div></td>
+          <td>銀行職員是人，不要用 <span class="thai">อัน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ช่อง</span><div class="triad"><div class="thai">ช่อง</div><div class="roman">chɔ̂ng</div><div class="eng">counter / channel classifier</div></div></td>
+          <td><div class="triad"><div class="thai">ช่องหนึ่ง / ช่องสอง / ช่องบริการ</div><div class="roman">chɔ̂ng nʉ̀eng / chɔ̂ng sɔ̌ɔng / chɔ̂ng bɔɔ-rí-gaan</div><div class="eng">counter 1 / counter 2 / service counter</div></div></td>
+          <td>櫃台窗口、通道、頻道用 <span class="thai">ช่อง</span>。</td>
+          <td><div class="triad"><div class="thai">ขอเชิญที่ช่องสองค่ะ</div><div class="roman">khɔ̌ɔ chəən thîi chɔ̂ng sɔ̌ɔng khâ</div><div class="eng">Please come to counter 2.</div></div></td>
+          <td>銀行櫃台不要說 <span class="thai">โต๊ะสอง</span>，叫號通常說 <span class="thai">ช่องสอง</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">สาขา</span><div class="triad"><div class="thai">สาขา</div><div class="roman">sǎa-khǎa</div><div class="eng">branch classifier</div></div></td>
+          <td><div class="triad"><div class="thai">ธนาคาร / ร้านค้า / โรงเรียน</div><div class="roman">thá-naa-khaan / ráan-kháa / rooŋ-rian</div><div class="eng">bank / shop / school</div></div></td>
+          <td>分行、分店、分校用 <span class="thai">สาขา</span>。</td>
+          <td><div class="triad"><div class="thai">ธนาคารนี้มีหลายสาขาในกรุงเทพฯ ค่ะ</div><div class="roman">thá-naa-khaan níi mii lǎai sǎa-khǎa nai grung-thêep khâ</div><div class="eng">This bank has many branches in Bangkok.</div></div></td>
+          <td><span class="thai">แห่ง</span> 偏地點/機構，<span class="thai">สาขา</span> 偏分行分店。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜相似/相反詞與在地用法補充</h2>
+
+    <h3>ก่อน vs เสร็จแล้ว vs ได้เลย｜先、做完、可以直接</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Word / Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage Difference</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>先</td>
+          <td><div class="triad"><div class="thai">ก่อน</div><div class="roman">gɔ̀ɔn</div><div class="eng">before / first</div></div></td>
+          <td>表示順序。可說「先做 A」或「在 B 前先 A」。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันไปธนาคารก่อน แล้วค่อยไปเรียนค่ะ</div><div class="roman">chǎn bpai thá-naa-khaan gɔ̀ɔn, lɛ́ɛw khɔ̂i bpai rian khâ</div><div class="eng">I’ll go to the bank first, then go to class.</div></div>
+            <div class="triad"><div class="thai">ก่อนโอนเงิน ต้องเช็กเลขบัญชีก่อนค่ะ</div><div class="roman">gɔ̀ɔn oon-ngən dtɔ̂ng chék lêek ban-chii gɔ̀ɔn khâ</div><div class="eng">Before transferring money, you must check the account number first.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>做完後</td>
+          <td><div class="triad"><div class="thai">เสร็จแล้ว</div><div class="roman">sèt lɛ́ɛw</div><div class="eng">after finishing / finished</div></div></td>
+          <td>重點是「動作完成後」。</td>
+          <td>
+            <div class="triad"><div class="thai">เรียนเสร็จแล้วฉันจะไปกินข้าวค่ะ</div><div class="roman">rian sèt lɛ́ɛw chǎn jà bpai gin khâao khâ</div><div class="eng">After class finishes, I will go eat.</div></div>
+            <div class="triad"><div class="thai">ถอนเงินเสร็จแล้วอย่าลืมเก็บบัตรนะคะ</div><div class="roman">thɔ̌ɔn-ngən sèt lɛ́ɛw yàa lʉʉm gèp bàt ná khá</div><div class="eng">After withdrawing money, don’t forget to take your card.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>可以直接</td>
+          <td><div class="triad"><div class="thai">ได้เลย</div><div class="roman">dâai ləəi</div><div class="eng">can right away / go ahead</div></div></td>
+          <td>表示完成條件後可以立刻做下一步。</td>
+          <td>
+            <div class="triad"><div class="thai">กรอกเอกสารเสร็จแล้วส่งได้เลยค่ะ</div><div class="roman">grɔ̀ɔk èek-gà-sǎan sèt lɛ́ɛw sòng dâai ləəi khâ</div><div class="eng">After filling out the documents, you can submit them right away.</div></div>
+            <div class="triad"><div class="thai">ถ้าพร้อมแล้วเริ่มได้เลยค่ะ</div><div class="roman">thâa phrɔ́ɔm lɛ́ɛw rə̂əm dâai ləəi khâ</div><div class="eng">If you’re ready, you can start right away.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>เปิด vs ปิด｜開 vs 關</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Common Collocations</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>開</td>
+          <td><div class="triad"><div class="thai">เปิด</div><div class="roman">bpə̀ət</div><div class="eng">to open / turn on</div></div></td>
+          <td>開戶、開燈、開門、開店、開手機。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันอยากเปิดบัญชีธนาคารไทยค่ะ</div><div class="roman">chǎn yàak bpə̀ət ban-chii thá-naa-khaan thai khâ</div><div class="eng">I want to open a Thai bank account.</div></div>
+            <div class="triad"><div class="thai">พอเปิดไฟ ห้องก็สว่างค่ะ</div><div class="roman">phɔɔ bpə̀ət fai, hɔ̂ng gɔ̂ɔ sà-wàang khâ</div><div class="eng">Once the light is turned on, the room becomes bright.</div></div>
+            <div class="triad"><div class="thai">ร้านนี้เปิดกี่โมงคะ</div><div class="roman">ráan níi bpə̀ət gìi moong khá</div><div class="eng">What time does this shop open?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>關</td>
+          <td><div class="triad"><div class="thai">ปิด</div><div class="roman">bpìt</div><div class="eng">to close / turn off</div></div></td>
+          <td>關戶、關燈、關門、關店、關手機。</td>
+          <td>
+            <div class="triad"><div class="thai">ถ้ากลับประเทศ อาจต้องปิดบัญชีก่อนค่ะ</div><div class="roman">thâa glàp bprà-thêet, àat dtɔ̂ng bpìt ban-chii gɔ̀ɔn khâ</div><div class="eng">If you return to your country, you may need to close the account first.</div></div>
+            <div class="triad"><div class="thai">พอปิดไฟ ห้องก็มืดค่ะ</div><div class="roman">phɔɔ bpìt fai, hɔ̂ng gɔ̂ɔ mʉ̂ʉt khâ</div><div class="eng">Once the light is turned off, the room becomes dark.</div></div>
+            <div class="triad"><div class="thai">ธนาคารปิดบ่ายสามครึ่งค่ะ</div><div class="roman">thá-naa-khaan bpìt bàai sǎam khrʉ̂ng khâ</div><div class="eng">The bank closes at 3:30 p.m.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>ถอนเงิน / เบิกเงิน / กดเงิน / โอนเงิน｜提款、請款、ATM提款、轉帳</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Local Feeling</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>提款</td>
+          <td><div class="triad"><div class="thai">ถอนเงิน</div><div class="roman">thɔ̌ɔn-ngən</div><div class="eng">withdraw money</div></div></td>
+          <td>標準、銀行/ATM 都可用。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันต้องถอนเงินสดก่อนขึ้นแท็กซี่ค่ะ</div><div class="roman">chǎn dtɔ̂ng thɔ̌ɔn-ngən sòt gɔ̀ɔn khʉ̂n thɛ́k-sîi khâ</div><div class="eng">I need to withdraw cash before taking a taxi.</div></div>
+            <div class="triad"><div class="thai">ถอนเงินเสร็จแล้วอย่าลืมเช็กยอดเงินค่ะ</div><div class="roman">thɔ̌ɔn-ngən sèt lɛ́ɛw yàa lʉʉm chék yɔ̂ɔt-ngən khâ</div><div class="eng">After withdrawing money, don’t forget to check the balance.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>ATM 提款</td>
+          <td><div class="triad"><div class="thai">กดเงิน</div><div class="roman">gòt-ngən</div><div class="eng">withdraw cash from ATM</div></div></td>
+          <td>非常口語、曼谷在地日常常聽到。</td>
+          <td>
+            <div class="triad"><div class="thai">เดี๋ยวไปกดเงินก่อนนะ ร้านนี้รับเงินสดอย่างเดียว</div><div class="roman">dǐao bpai gòt-ngən gɔ̀ɔn ná, ráan níi ráp ngən-sòt yàang-diao</div><div class="eng">I’ll go withdraw cash first; this shop only takes cash.</div></div>
+            <div class="triad"><div class="thai">ตู้ ATM ตรงนี้กดเงินไม่ได้ค่ะ</div><div class="roman">dtûu ATM dtrong níi gòt-ngən mâi dâai khâ</div><div class="eng">This ATM here can’t withdraw cash.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>較正式提款/請款</td>
+          <td><div class="triad"><div class="thai">เบิกเงิน</div><div class="roman">bə̀ək-ngən</div><div class="eng">withdraw / claim reimbursement</div></div></td>
+          <td>銀行正式、公司請款報帳也常見。</td>
+          <td>
+            <div class="triad"><div class="thai">ต้องเซ็นชื่อก่อนเบิกเงินค่ะ</div><div class="roman">dtɔ̂ng sen-chʉ̂ʉ gɔ̀ɔn bə̀ək-ngən khâ</div><div class="eng">You have to sign before withdrawing/claiming the money.</div></div>
+            <div class="triad"><div class="thai">บริษัทให้เบิกค่าเดินทางได้ค่ะ</div><div class="roman">bɔɔ-rí-sàt hâi bə̀ək khâa-dəən-thaang dâai khâ</div><div class="eng">The company allows reimbursement for transportation expenses.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>轉帳</td>
+          <td><div class="triad"><div class="thai">โอนเงิน</div><div class="roman">oon-ngən</div><div class="eng">transfer money</div></div></td>
+          <td>泰國生活很常用，掃 QR、PromptPay 都會用。</td>
+          <td>
+            <div class="triad"><div class="thai">โอนแล้วส่งสลิปให้หน่อยนะคะ</div><div class="roman">oon lɛ́ɛw sòng sà-líp hâi nòi ná khá</div><div class="eng">After transferring, please send me the slip.</div></div>
+            <div class="triad"><div class="thai">ร้านนี้รับโอน แต่ไม่รับบัตรค่ะ</div><div class="roman">ráan níi ráp oon, dtɛ̀ɛ mâi ráp bàt khâ</div><div class="eng">This shop accepts bank transfer but not card.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>แบงก์ / เงินสด / เงินทอน / เงินย่อย｜紙鈔、現金、找零、小鈔</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage Difference</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>紙鈔</td>
+          <td><div class="triad"><div class="thai">แบงก์</div><div class="roman">bɛng</div><div class="eng">banknote / bill</div></div></td>
+          <td>口語紙鈔。</td>
+          <td>
+            <div class="triad"><div class="thai">มีแต่แบงก์พันค่ะ ทอนได้ไหมคะ</div><div class="roman">mii dtɛ̀ɛ bɛng-phan khâ, thɔɔn dâai mái khá</div><div class="eng">I only have a 1,000-baht bill. Can you give change?</div></div>
+            <div class="triad"><div class="thai">ขอแบงก์ย่อยหน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ bɛng-yɔ̂i nòi dâai mái khá</div><div class="eng">Could I have smaller bills?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>現金</td>
+          <td><div class="triad"><div class="thai">เงินสด</div><div class="roman">ngən-sòt</div><div class="eng">cash</div></div></td>
+          <td>非轉帳、非刷卡，實體現金。</td>
+          <td>
+            <div class="triad"><div class="thai">ร้านนี้รับเงินสดเท่านั้นค่ะ</div><div class="roman">ráan níi ráp ngən-sòt thâo-nán khâ</div><div class="eng">This shop accepts cash only.</div></div>
+            <div class="triad"><div class="thai">ฉันไม่ค่อยพกเงินสด เพราะใช้สแกนจ่ายบ่อยค่ะ</div><div class="roman">chǎn mâi khɔ̂i phók ngən-sòt, phrɔ́ chái sà-gɛɛn jàai bɔ̀i khâ</div><div class="eng">I don’t carry cash much because I often pay by scanning.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>找零</td>
+          <td><div class="triad"><div class="thai">เงินทอน</div><div class="roman">ngən-thɔɔn</div><div class="eng">change</div></div></td>
+          <td>付完錢後對方找你的錢。</td>
+          <td>
+            <div class="triad"><div class="thai">ยังไม่ได้รับเงินทอนค่ะ</div><div class="roman">yang mâi dâai ráp ngən-thɔɔn khâ</div><div class="eng">I haven’t received the change yet.</div></div>
+            <div class="triad"><div class="thai">ไม่ต้องทอนค่ะ</div><div class="roman">mâi dtɔ̂ng thɔɔn khâ</div><div class="eng">No need to give change.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>小鈔/零錢</td>
+          <td><div class="triad"><div class="thai">เงินย่อย</div><div class="roman">ngən-yɔ̂i</div><div class="eng">small change / small bills</div></div></td>
+          <td>方便找零的小面額。</td>
+          <td>
+            <div class="triad"><div class="thai">มีเงินย่อยไหมคะ พอดีแท็กซี่ไม่มีทอนค่ะ</div><div class="roman">mii ngən-yɔ̂i mái khá, phɔɔ-dii thɛ́k-sîi mâi mii thɔɔn khâ</div><div class="eng">Do you have small change? The taxi doesn’t have change.</div></div>
+            <div class="triad"><div class="thai">ช่วยแลกเป็นเงินย่อยให้หน่อยได้ไหมคะ</div><div class="roman">chûai lɛ̂ɛk bpen ngən-yɔ̂i hâi nòi dâai mái khá</div><div class="eng">Could you change it into small bills/coins for me?</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>泰銖紙鈔與硬幣快速表</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Thai / Romanization / English</th>
+          <th>Real-life Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1000 bill</td>
+          <td><div class="triad"><div class="thai">แบงก์พัน</div><div class="roman">bɛng-phan</div><div class="eng">1,000-baht bill</div></div></td>
+          <td>小吃店、計程車、攤販可能不好找。</td>
+        </tr>
+        <tr>
+          <td>500 bill</td>
+          <td><div class="triad"><div class="thai">แบงก์ห้าร้อย</div><div class="roman">bɛng-hâa-rɔ́ɔi</div><div class="eng">500-baht bill</div></div></td>
+          <td>比千元鈔好用一些，但小攤仍可能不好找。</td>
+        </tr>
+        <tr>
+          <td>100 bill</td>
+          <td><div class="triad"><div class="thai">แบงก์ร้อย</div><div class="roman">bɛng-rɔ́ɔi</div><div class="eng">100-baht bill</div></div></td>
+          <td>曼谷日常最實用之一。</td>
+        </tr>
+        <tr>
+          <td>50 bill</td>
+          <td><div class="triad"><div class="thai">แบงก์ห้าสิบ</div><div class="roman">bɛng-hâa-sìp</div><div class="eng">50-baht bill</div></div></td>
+          <td>小吃、飲料、摩托車計程車常好用。</td>
+        </tr>
+        <tr>
+          <td>20 bill</td>
+          <td><div class="triad"><div class="thai">แบงก์ยี่สิบ</div><div class="roman">bɛng-yîi-sìp</div><div class="eng">20-baht bill</div></div></td>
+          <td>超好用，建議身上常留幾張。</td>
+        </tr>
+        <tr>
+          <td>10 coin</td>
+          <td><div class="triad"><div class="thai">เหรียญสิบ</div><div class="roman">rǐan-sìp</div><div class="eng">10-baht coin</div></div></td>
+          <td>洗衣機、販賣機、搭交通有時需要。</td>
+        </tr>
+        <tr>
+          <td>5 coin</td>
+          <td><div class="triad"><div class="thai">เหรียญห้า</div><div class="roman">rǐan-hâa</div><div class="eng">5-baht coin</div></div></td>
+          <td>常見找零。</td>
+        </tr>
+        <tr>
+          <td>1 coin</td>
+          <td><div class="triad"><div class="thai">เหรียญบาท</div><div class="roman">rǐan-bàat</div><div class="eng">1-baht coin</div></div></td>
+          <td>小額找零。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Structures｜句型整理</h2>
+
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <h3>1. ต้อง + V1 + ก่อน + V2</h3>
+      <div class="triad">
+        <div class="thai">ต้อง + V1 + ก่อน + V2</div>
+        <div class="roman">dtɔ̂ng + V1 + gɔ̀ɔn + V2</div>
+        <div class="eng">Must do V1 before doing V2.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ต้องคุยกับเจ้าหน้าที่ก่อนเปิดบัญชีค่ะ</div>
+        <div class="roman">dtɔ̂ng khui gàp jâo-nâa-thîi gɔ̀ɔn bpə̀ət ban-chii khâ</div>
+        <div class="eng">You have to talk with the staff before opening an account.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ต้องกดบัตรคิวก่อนคุยกับเจ้าหน้าที่ค่ะ</div><div class="roman">dtɔ̂ng gòt bàt-khiu gɔ̀ɔn khui gàp jâo-nâa-thîi khâ</div><div class="eng">You have to take a queue ticket before talking with the staff.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องเช็กเลขบัญชีก่อนโอนเงินค่ะ</div><div class="roman">dtɔ̂ng chék lêek ban-chii gɔ̀ɔn oon-ngən khâ</div><div class="eng">You have to check the account number before transferring money.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องกรอกเอกสารก่อนเซ็นชื่อค่ะ</div><div class="roman">dtɔ̂ng grɔ̀ɔk èek-gà-sǎan gɔ̀ɔn sen-chʉ̂ʉ khâ</div><div class="eng">You have to fill out the documents before signing.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องกดเงินก่อนขึ้นแท็กซี่ค่ะ</div><div class="roman">dtɔ̂ng gòt-ngən gɔ̀ɔn khʉ̂n thɛ́k-sîi khâ</div><div class="eng">You have to withdraw cash before taking a taxi.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>2. ก่อน + V2 + ต้อง + V1</h3>
+      <div class="triad">
+        <div class="thai">ก่อน + V2 + ต้อง + V1</div>
+        <div class="roman">gɔ̀ɔn + V2 + dtɔ̂ng + V1</div>
+        <div class="eng">Before V2, you must do V1.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ก่อนเปิดบัญชีต้องคุยกับเจ้าหน้าที่ค่ะ</div>
+        <div class="roman">gɔ̀ɔn bpə̀ət ban-chii dtɔ̂ng khui gàp jâo-nâa-thîi khâ</div>
+        <div class="eng">Before opening an account, you have to talk with the staff.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ก่อนถอนเงินต้องใส่รหัสผ่านค่ะ</div><div class="roman">gɔ̀ɔn thɔ̌ɔn-ngən dtɔ̂ng sài rá-hàt-phàan khâ</div><div class="eng">Before withdrawing money, you have to enter the password.</div></div></li>
+        <li><div class="triad"><div class="thai">ก่อนเซ็นชื่อควรอ่านเอกสารให้เข้าใจก่อนค่ะ</div><div class="roman">gɔ̀ɔn sen-chʉ̂ʉ khuan àan èek-gà-sǎan hâi khâo-jai gɔ̀ɔn khâ</div><div class="eng">Before signing, you should read and understand the documents first.</div></div></li>
+        <li><div class="triad"><div class="thai">ก่อนออกจากธนาคารต้องเก็บบัตรกับสมุดบัญชีค่ะ</div><div class="roman">gɔ̀ɔn ɔ̀ɔk jàak thá-naa-khaan dtɔ̂ng gèp bàt gàp sà-mùt ban-chii khâ</div><div class="eng">Before leaving the bank, you must take your card and passbook.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>3. พอ + Clause 1, S + ก็ + Clause 2</h3>
+      <div class="triad">
+        <div class="thai">พอ + Clause 1, Subject + ก็ + Clause 2</div>
+        <div class="roman">phɔɔ + Clause 1, Subject + gɔ̂ɔ + Clause 2</div>
+        <div class="eng">Once Clause 1 happens, Clause 2 happens.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">พอฝนตก ถนนก็เปียกค่ะ</div><div class="roman">phɔɔ fǒn-dtòk, thà-nǒn gɔ̂ɔ bpìak khâ</div><div class="eng">Once it rains, the road gets wet.</div></div></li>
+        <li><div class="triad"><div class="thai">พอปิดไฟ ห้องก็มืดค่ะ</div><div class="roman">phɔɔ bpìt fai, hɔ̂ng gɔ̂ɔ mʉ̂ʉt khâ</div><div class="eng">Once the light is turned off, the room becomes dark.</div></div></li>
+        <li><div class="triad"><div class="thai">พอเปิดไฟ ห้องก็สว่างค่ะ</div><div class="roman">phɔɔ bpə̀ət fai, hɔ̂ng gɔ̂ɔ sà-wàang khâ</div><div class="eng">Once the light is turned on, the room becomes bright.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">พอถึงคิวฉัน เจ้าหน้าที่ก็เรียกไปช่องสองค่ะ</div><div class="roman">phɔɔ thʉ̌ng khiu chǎn, jâo-nâa-thîi gɔ̂ɔ rîak bpai chɔ̂ng sɔ̌ɔng khâ</div><div class="eng">Once my turn arrived, the staff called me to counter 2.</div></div></li>
+        <li><div class="triad"><div class="thai">พอเงินเข้า ฉันก็โอนค่าเช่าเลยค่ะ</div><div class="roman">phɔɔ ngən khâo, chǎn gɔ̂ɔ oon khâa-châo ləəi khâ</div><div class="eng">Once the money came in, I transferred the rent right away.</div></div></li>
+        <li><div class="triad"><div class="thai">พอร้านไม่รับบัตร ฉันก็ต้องไปกดเงินค่ะ</div><div class="roman">phɔɔ ráan mâi ráp bàt, chǎn gɔ̂ɔ dtɔ̂ng bpai gòt-ngən khâ</div><div class="eng">Once the shop didn’t accept cards, I had to go withdraw cash.</div></div></li>
+        <li><div class="triad"><div class="thai">พอเรียนเสร็จ ฉันก็กลับคอนโดเลยค่ะ</div><div class="roman">phɔɔ rian sèt, chǎn gɔ̂ɔ glàp khɔɔn-doo ləəi khâ</div><div class="eng">Once class is finished, I go back to the condo right away.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>4. S + V + ก่อนนะคะ</h3>
+      <div class="triad">
+        <div class="thai">Subject + Verb + ก่อนนะคะ</div>
+        <div class="roman">Subject + Verb + gɔ̀ɔn ná khá</div>
+        <div class="eng">Subject will do Verb first, okay? / I’ll go do Verb first.</div>
+      </div>
+
+      <h4>Textbook-style dialogue</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันกลับบ้านก่อนนะคะ</div><div class="roman">chǎn glàp bâan gɔ̀ɔn ná khá</div><div class="eng">I’ll go home first, okay?</div></div></li>
+        <li><div class="triad"><div class="thai">กลับบ้านเลยค่ะ</div><div class="roman">glàp bâan ləəi khâ</div><div class="eng">Go home right away.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันไปกดเงินก่อนนะคะ</div><div class="roman">chǎn bpai gòt-ngən gɔ̀ɔn ná khá</div><div class="eng">I’ll go withdraw cash first, okay?</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันไปถามเจ้าหน้าที่ก่อนนะคะ</div><div class="roman">chǎn bpai thǎam jâo-nâa-thîi gɔ̀ɔn ná khá</div><div class="eng">I’ll go ask the staff first, okay?</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันขอเช็กเอกสารก่อนนะคะ</div><div class="roman">chǎn khɔ̌ɔ chék èek-gà-sǎan gɔ̀ɔn ná khá</div><div class="eng">Let me check the documents first, okay?</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>5. V1 + เสร็จแล้ว + V2 + ได้เลย</h3>
+      <div class="triad">
+        <div class="thai">V1 + เสร็จแล้ว + V2 + ได้เลย</div>
+        <div class="roman">V1 + sèt lɛ́ɛw + V2 + dâai ləəi</div>
+        <div class="eng">After finishing V1, you can do V2 right away.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">เซ็นชื่อเสร็จแล้วรับเงินได้เลยค่ะ</div><div class="roman">sen-chʉ̂ʉ sèt lɛ́ɛw ráp-ngən dâai ləəi khâ</div><div class="eng">After signing, you can receive the money right away.</div></div></li>
+        <li><div class="triad"><div class="thai">เรียนพูดเล่มสองเสร็จแล้วเรียนพูดเล่มสามได้เลยค่ะ</div><div class="roman">rian phûut lêm sɔ̌ɔng sèt lɛ́ɛw rian phûut lêm sǎam dâai ləəi khâ</div><div class="eng">After finishing speaking Book 2, you can study speaking Book 3 right away.</div></div></li>
+        <li><div class="triad"><div class="thai">ทำการบ้านเสร็จแล้วเล่นเกมได้เลยค่ะ</div><div class="roman">tham gaan-bâan sèt lɛ́ɛw lên geem dâai ləəi khâ</div><div class="eng">After finishing homework, you can play games right away.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">กรอกเอกสารเสร็จแล้วเอาไปยื่นได้เลยค่ะ</div><div class="roman">grɔ̀ɔk èek-gà-sǎan sèt lɛ́ɛw ao bpai yʉ̂ʉn dâai ləəi khâ</div><div class="eng">After filling out the documents, you can submit them right away.</div></div></li>
+        <li><div class="triad"><div class="thai">โอนเงินเสร็จแล้วส่งสลิปได้เลยค่ะ</div><div class="roman">oon-ngən sèt lɛ́ɛw sòng sà-líp dâai ləəi khâ</div><div class="eng">After transferring money, you can send the slip right away.</div></div></li>
+        <li><div class="triad"><div class="thai">กดบัตรคิวเสร็จแล้วนั่งรอได้เลยค่ะ</div><div class="roman">gòt bàt-khiu sèt lɛ́ɛw nâng rɔɔ dâai ləəi khâ</div><div class="eng">After taking the queue ticket, you can sit and wait right away.</div></div></li>
+        <li><div class="triad"><div class="thai">เรียนเสร็จแล้วไปคาเฟ่ใกล้โรงเรียนได้เลยค่ะ</div><div class="roman">rian sèt lɛ́ɛw bpai khaa-fêe glâi rooŋ-rian dâai ləəi khâ</div><div class="eng">After class is finished, you can go to a café near the school right away.</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>去 ATM 提款</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันจะถอนเงินค่ะ</div><div class="roman">chǎn jà thɔ̌ɔn-ngən khâ</div><div class="eng">I will withdraw money.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เดี๋ยวไปกดเงินก่อนนะ</div><div class="roman">dǐao bpai gòt-ngən gɔ̀ɔn ná</div><div class="eng">I’ll go withdraw cash first.</div></div></td>
+          <td><span class="thai">กดเงิน</span> 是超在地口語，尤其 ATM 提款。</td>
+        </tr>
+
+        <tr>
+          <td>銀行職員</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เจ้าหน้าที่</div><div class="roman">jâo-nâa-thîi</div><div class="eng">officer / staff</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">พนักงาน</div><div class="roman">phá-nák-ngaan</div><div class="eng">staff / employee</div></div></td>
+          <td><span class="thai">เจ้าหน้าที่</span> 正式，銀行/政府機關常用；<span class="thai">พนักงาน</span> 更泛用。</td>
+        </tr>
+
+        <tr>
+          <td>換小鈔</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ขอแลกเงินได้ไหมคะ</div><div class="roman">khɔ̌ɔ lɛ̂ɛk-ngən dâai mái khá</div><div class="eng">Can I exchange money?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอแลกแบงก์ย่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ lɛ̂ɛk bɛng-yɔ̂i dâai mái khá</div><div class="eng">Can I change this into smaller bills?</div></div></td>
+          <td>換外幣也叫 <span class="thai">แลกเงิน</span>；如果只是換小鈔，說 <span class="thai">แบงก์ย่อย</span> 更清楚。</td>
+        </tr>
+
+        <tr>
+          <td>問可不可以找千元鈔</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีเงินทอนไหมคะ</div><div class="roman">mii ngən-thɔɔn mái khá</div><div class="eng">Do you have change?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">แบงก์พันทอนได้ไหมคะ</div><div class="roman">bɛng-phan thɔɔn dâai mái khá</div><div class="eng">Can you give change for a 1,000-baht bill?</div></div></td>
+          <td>在小吃店/攤販，直接說幾元鈔會更清楚。</td>
+        </tr>
+
+        <tr>
+          <td>做完就可以</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เซ็นชื่อเสร็จแล้วรับเงินได้เลยค่ะ</div><div class="roman">sen-chʉ̂ʉ sèt lɛ́ɛw ráp-ngən dâai ləəi khâ</div><div class="eng">After signing, you can receive the money right away.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เซ็นตรงนี้แล้วรับเงินได้เลยค่ะ</div><div class="roman">sen dtrong níi lɛ́ɛw ráp-ngən dâai ləəi khâ</div><div class="eng">Sign here, then you can receive the money.</div></div></td>
+          <td>櫃台人員常會直接說 <span class="thai">เซ็นตรงนี้</span> = 在這裡簽名。</td>
+        </tr>
+
+        <tr>
+          <td>先走/先回家</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันกลับบ้านก่อนนะคะ</div><div class="roman">chǎn glàp bâan gɔ̀ɔn ná khá</div><div class="eng">I’ll go home first.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">กลับก่อนนะ</div><div class="roman">glàp gɔ̀ɔn ná</div><div class="eng">I’m leaving first.</div></div></td>
+          <td>朋友間可以省主詞。禮貌場合保留 <span class="thai">ค่ะ</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bangkok" class="tab-content">
+    <h2>Bangkok Expansion｜曼谷生活實用場景</h2>
+
+    <h3>1. Bank｜去銀行開戶</h3>
+    <div class="cards">
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ฉันอยากเปิดบัญชีค่ะ ต้องเตรียมเอกสารอะไรบ้างคะ</div><div class="roman">chǎn yàak bpə̀ət ban-chii khâ, dtɔ̂ng dtriam èek-gà-sǎan à-rai bâang khá</div><div class="eng">I want to open an account. What documents do I need to prepare?</div></div>
+        <p>開戶第一句。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ต้องกดบัตรคิวก่อนคุยกับเจ้าหน้าที่ค่ะ</div><div class="roman">dtɔ̂ng gòt bàt-khiu gɔ̀ɔn khui gàp jâo-nâa-thîi khâ</div><div class="eng">You have to take a queue ticket before talking with the staff.</div></div>
+        <p>真實辦事流程。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">กรอกเอกสารเสร็จแล้วเอาไปยื่นได้เลยค่ะ</div><div class="roman">grɔ̀ɔk èek-gà-sǎan sèt lɛ́ɛw ao bpai yʉ̂ʉn dâai ləəi khâ</div><div class="eng">After filling out the documents, you can submit them right away.</div></div>
+        <p>櫃台流程超常見。</p>
+      </div>
+    </div>
+
+    <h3>2. ATM / Cash｜去 ATM 領錢</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">เดี๋ยวฉันไปกดเงินก่อนนะคะ</div><div class="roman">dǐao chǎn bpai gòt-ngən gɔ̀ɔn ná khá</div><div class="eng">I’ll go withdraw cash first.</div></div>
+        <p>在地口語。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ตู้ ATM อยู่ตรงไหนคะ</div><div class="roman">dtûu ATM yùu dtrong nǎi khá</div><div class="eng">Where is the ATM?</div></div>
+        <p>找提款機。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ร้านนี้รับโอนหรือรับเงินสดคะ</div><div class="roman">ráan níi ráp oon rʉ̌ʉ ráp ngən-sòt khá</div><div class="eng">Does this shop accept transfer or cash?</div></div>
+        <p>泰國付款方式很實用。</p>
+      </div>
+    </div>
+
+    <h3>3. Street Food / Small Shop｜小店沒有零錢</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">มีเงินทอนแบงก์พันไหมคะ</div><div class="roman">mii ngən-thɔɔn bɛng-phan mái khá</div><div class="eng">Do you have change for a 1,000-baht bill?</div></div>
+        <p>小店付款前先問。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ขอโทษค่ะ มีแต่แบงก์พันค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, mii dtɛ̀ɛ bɛng-phan khâ</div><div class="eng">Sorry, I only have a 1,000-baht bill.</div></div>
+        <p>很常用。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ขอไปแลกเงินก่อนนะคะ</div><div class="roman">khɔ̌ɔ bpai lɛ̂ɛk-ngən gɔ̀ɔn ná khá</div><div class="eng">Let me go change money first.</div></div>
+        <p>沒有小鈔時。</p>
+      </div>
+    </div>
+
+    <h3>4. Laundromat / Condo｜硬幣使用</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ต้องใช้เหรียญสิบกี่เหรียญคะ</div><div class="roman">dtɔ̂ng chái rǐan-sìp gìi rǐan khá</div><div class="eng">How many 10-baht coins do I need?</div></div>
+        <p>投幣洗衣機很實用。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ขอแลกเหรียญสิบได้ไหมคะ</div><div class="roman">khɔ̌ɔ lɛ̂ɛk rǐan-sìp dâai mái khá</div><div class="eng">Could I exchange for 10-baht coins?</div></div>
+        <p>跟櫃台/管理員問。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">หยอดเหรียญเสร็จแล้วกดปุ่มนี้ได้เลยค่ะ</div><div class="roman">yɔ̀ɔt rǐan sèt lɛ́ɛw gòt bpùm níi dâai ləəi khâ</div><div class="eng">After inserting the coins, press this button.</div></div>
+        <p>機器操作流程。</p>
+      </div>
+    </div>
+
+    <h3>5. Class / Daily Life｜先做 A 再做 B</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ทำการบ้านเสร็จแล้วพักได้เลยค่ะ</div><div class="roman">tham gaan-bâan sèt lɛ́ɛw phák dâai ləəi khâ</div><div class="eng">After finishing homework, you can rest right away.</div></div>
+        <p>學習流程。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ก่อนออกจากบ้านต้องเช็กกระเป๋าก่อนค่ะ</div><div class="roman">gɔ̀ɔn ɔ̀ɔk jàak bâan dtɔ̂ng chék grà-bpǎo gɔ̀ɔn khâ</div><div class="eng">Before leaving home, you have to check your bag first.</div></div>
+        <p>日常流程。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">พอเรียนเสร็จ ฉันก็ไปกินข้าวกับเพื่อนค่ะ</div><div class="roman">phɔɔ rian sèt, chǎn gɔ̂ɔ bpai gin khâao gàp phʉ̂an khâ</div><div class="eng">Once class finishes, I go eat with friends.</div></div>
+        <p>一……就……。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>銀行開戶：先抽號碼牌再跟職員說</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สวัสดีค่ะ ฉันอยากเปิดบัญชีค่ะ</div><div class="roman">sà-wàt-dii khâ, chǎn yàak bpə̀ət ban-chii khâ</div><div class="eng">Hello, I’d like to open an account.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">กดบัตรคิวก่อนนะคะ แล้วรอเรียกหมายเลขค่ะ</div><div class="roman">gòt bàt-khiu gɔ̀ɔn ná khá, lɛ́ɛw rɔɔ rîak mǎai-lêek khâ</div><div class="eng">Please take a queue ticket first, then wait for your number to be called.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ต้องเตรียมเอกสารอะไรบ้างคะ</div><div class="roman">dtɔ̂ng dtriam èek-gà-sǎan à-rai bâang khá</div><div class="eng">What documents do I need to prepare?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ต้องใช้พาสปอร์ตและเบอร์โทรศัพท์ไทยค่ะ</div><div class="roman">dtɔ̂ng chái pháat-bpɔ̀ɔt lɛ́ bəə thoo-rá-sàp thai khâ</div><div class="eng">You need a passport and a Thai phone number.</div></div></div>
+      <div class="bubble c"><span class="speaker c">Announcement</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ขอเชิญหมายเลขสี่สามศูนย์ที่ช่องสองค่ะ</div><div class="roman">khɔ̌ɔ chəən mǎai-lêek sìi-sǎam-sǔun thîi chɔ̂ng sɔ̌ɔng khâ</div><div class="eng">Number 430, please go to counter 2.</div></div></div>
+    </div>
+
+    <h3>提款：簽名後就可以領錢</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ฉันอยากถอนเงินค่ะ</div><div class="roman">chǎn yàak thɔ̌ɔn-ngən khâ</div><div class="eng">I’d like to withdraw money.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ถอนเท่าไหร่คะ</div><div class="roman">thɔ̌ɔn thâo-rài khá</div><div class="eng">How much would you like to withdraw?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ห้าพันบาทค่ะ ขอแบงก์ร้อยได้ไหมคะ</div><div class="roman">hâa phan bàat khâ, khɔ̌ɔ bɛng-rɔ́ɔi dâai mái khá</div><div class="eng">5,000 baht. Could I have 100-baht bills?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ เซ็นชื่อตรงนี้ก่อนนะคะ</div><div class="roman">dâai khâ, sen-chʉ̂ʉ dtrong níi gɔ̀ɔn ná khá</div><div class="eng">Sure. Please sign here first.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เซ็นชื่อเสร็จแล้วรับเงินได้เลยค่ะ</div><div class="roman">sen-chʉ̂ʉ sèt lɛ́ɛw ráp-ngən dâai ləəi khâ</div><div class="eng">After signing, you can receive the money right away.</div></div></div>
+    </div>
+
+    <h3>小吃店：只有千元鈔，問能不能找</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอโทษค่ะ มีแต่แบงก์พัน ทอนได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, mii dtɛ̀ɛ bɛng-phan, thɔɔn dâai mái khá</div><div class="eng">Sorry, I only have a 1,000-baht bill. Can you give change?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Vendor</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไม่มีเงินทอนเลยค่ะ มีเงินย่อยไหม</div><div class="roman">mâi mii ngən-thɔɔn ləəi khâ, mii ngən-yɔ̂i mái</div><div class="eng">I don’t have change at all. Do you have smaller money?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไม่มีค่ะ เดี๋ยวฉันไปแลกเงินก่อนนะคะ</div><div class="roman">mâi mii khâ, dǐao chǎn bpai lɛ̂ɛk-ngən gɔ̀ɔn ná khá</div><div class="eng">No. I’ll go change money first.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Vendor</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ หรือสแกนจ่ายก็ได้ค่ะ</div><div class="roman">dâai khâ, rʉ̌ʉ sà-gɛɛn jàai gɔ̂ɔ dâai khâ</div><div class="eng">Okay, or you can pay by scanning.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">งั้นขอสแกนจ่ายค่ะ</div><div class="roman">ngán khɔ̌ɔ sà-gɛɛn jàai khâ</div><div class="eng">Then I’ll pay by scanning.</div></div></div>
+    </div>
+
+    <h3>投幣洗衣機：換十銖硬幣</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอแลกเหรียญสิบได้ไหมคะ</div><div class="roman">khɔ̌ɔ lɛ̂ɛk rǐan-sìp dâai mái khá</div><div class="eng">Could I exchange for 10-baht coins?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">จะเอากี่เหรียญคะ</div><div class="roman">jà ao gìi rǐan khá</div><div class="eng">How many coins do you want?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอสี่เหรียญค่ะ ใช้ซักผ้า</div><div class="roman">khɔ̌ɔ sìi rǐan khâ, chái sák-phâa</div><div class="eng">Four coins, please. I’ll use them for laundry.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ หยอดเหรียญเสร็จแล้วกดปุ่มสีเขียวได้เลย</div><div class="roman">dâai khâ, yɔ̀ɔt rǐan sèt lɛ́ɛw gòt bpùm sǐi khǐao dâai ləəi</div><div class="eng">Sure. After inserting the coins, press the green button.</div></div></div>
+    </div>
+
+    <h3>朋友約你：我先回家再出來</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปกินข้าวกันไหม</div><div class="roman">bpai gin khâao gan mái</div><div class="eng">Do you want to go eat together?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอกลับบ้านก่อนนะคะ ต้องเอาของไปเก็บก่อน</div><div class="roman">khɔ̌ɔ glàp bâan gɔ̀ɔn ná khá, dtɔ̂ng ao khɔ̌ɔng bpai gèp gɔ̀ɔn</div><div class="eng">Let me go home first. I need to put my things away first.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">โอเค งั้นเสร็จแล้วทักมานะ</div><div class="roman">oo-khee, ngán sèt lɛ́ɛw thák maa ná</div><div class="eng">Okay, then message me when you’re done.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ได้ค่ะ พอถึงคอนโดแล้วจะทักไปค่ะ</div><div class="roman">dâai khâ, phɔɔ thʉ̌ng khɔɔn-doo lɛ́ɛw jà thák bpai khâ</div><div class="eng">Okay. Once I reach the condo, I’ll message you.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ก่อน 放錯位置</div><div class="roman">gɔ̀ɔn</div><div class="eng">before / first</div></div></td>
+          <td><span class="thai">ก่อน</span> 可放動詞前或句尾，但意思和結構要清楚。</td>
+          <td>
+            <div class="triad"><div class="thai">ต้องคุยกับเจ้าหน้าที่ก่อนเปิดบัญชีค่ะ</div><div class="roman">dtɔ̂ng khui gàp jâo-nâa-thîi gɔ̀ɔn bpə̀ət ban-chii khâ</div><div class="eng">You have to talk with the staff before opening an account.</div></div>
+            <div class="triad"><div class="thai">ก่อนเปิดบัญชีต้องคุยกับเจ้าหน้าที่ค่ะ</div><div class="roman">gɔ̀ɔn bpə̀ət ban-chii dtɔ̂ng khui gàp jâo-nâa-thîi khâ</div><div class="eng">Before opening an account, you have to talk with the staff.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">พอ...ก็... 忘記 ก็</div><div class="roman">phɔɔ...gɔ̂ɔ...</div><div class="eng">once..., then...</div></div></td>
+          <td><span class="thai">พอ</span> 開頭後，後半常用 <span class="thai">ก็</span> 接自然結果。</td>
+          <td>
+            <div class="triad"><div class="thai">พอฝนตก ถนนก็เปียกค่ะ</div><div class="roman">phɔɔ fǒn-dtòk, thà-nǒn gɔ̂ɔ bpìak khâ</div><div class="eng">Once it rains, the road gets wet.</div></div>
+            <div class="triad"><div class="thai">พอถึงคิว เจ้าหน้าที่ก็เรียกค่ะ</div><div class="roman">phɔɔ thʉ̌ng khiu, jâo-nâa-thîi gɔ̂ɔ rîak khâ</div><div class="eng">Once it’s your turn, the staff calls.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ถอนเงิน / โอนเงิน 混淆</div><div class="roman">thɔ̌ɔn-ngən / oon-ngən</div><div class="eng">withdraw money / transfer money</div></div></td>
+          <td><span class="thai">ถอนเงิน</span> 是把錢拿出來；<span class="thai">โอนเงิน</span> 是轉給別人或另一個帳戶。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันจะถอนเงินจาก ATM ค่ะ</div><div class="roman">chǎn jà thɔ̌ɔn-ngən jàak ATM khâ</div><div class="eng">I will withdraw money from the ATM.</div></div>
+            <div class="triad"><div class="thai">ฉันจะโอนเงินค่าเช่าค่ะ</div><div class="roman">chǎn jà oon-ngən khâa-châo khâ</div><div class="eng">I will transfer the rent.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แบงก์ / เหรียญ 量詞混淆</div><div class="roman">bɛng / rǐan</div><div class="eng">bill / coin</div></div></td>
+          <td>紙鈔用 <span class="thai">ใบ</span>，硬幣用 <span class="thai">เหรียญ</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">แบงก์ร้อยสามใบ</div><div class="roman">bɛng-rɔ́ɔi sǎam bai</div><div class="eng">three 100-baht bills</div></div>
+            <div class="triad"><div class="thai">เหรียญสิบสามเหรียญ</div><div class="roman">rǐan-sìp sǎam rǐan</div><div class="eng">three 10-baht coins</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เงินทอน / เงินย่อย 混淆</div><div class="roman">ngən-thɔɔn / ngən-yɔ̂i</div><div class="eng">change / small change</div></div></td>
+          <td><span class="thai">เงินทอน</span> 是交易後找回來的錢；<span class="thai">เงินย่อย</span> 是小額鈔票/零錢。</td>
+          <td>
+            <div class="triad"><div class="thai">ยังไม่ได้รับเงินทอนค่ะ</div><div class="roman">yang mâi dâai ráp ngən-thɔɔn khâ</div><div class="eng">I haven’t received the change yet.</div></div>
+            <div class="triad"><div class="thai">มีเงินย่อยไหมคะ</div><div class="roman">mii ngən-yɔ̂i mái khá</div><div class="eng">Do you have small change?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ได้เลย 以為只是 okay</div><div class="roman">dâai ləəi</div><div class="eng">can right away / sure</div></div></td>
+          <td><span class="thai">ได้เลย</span> 在流程中常表示「現在就可以做下一步」。</td>
+          <td>
+            <div class="triad"><div class="thai">เซ็นชื่อเสร็จแล้วรับเงินได้เลยค่ะ</div><div class="roman">sen-chʉ̂ʉ sèt lɛ́ɛw ráp-ngən dâai ləəi khâ</div><div class="eng">After signing, you can receive the money right away.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+
+    <details>
+      <summary>bank / open account / close account / account / passbook</summary>
+      <div class="triad"><div class="thai">ธนาคาร / เปิดบัญชี / ปิดบัญชี / บัญชี / สมุดบัญชี</div><div class="roman">thá-naa-khaan / bpə̀ət ban-chii / bpìt ban-chii / ban-chii / sà-mùt ban-chii</div><div class="eng">bank / open account / close account / account / bank passbook</div></div>
+      <p><strong>Chinese Explanation:</strong> 銀行開戶核心詞。</p>
+    </details>
+
+    <details>
+      <summary>staff / employee / queue ticket / counter / number</summary>
+      <div class="triad"><div class="thai">เจ้าหน้าที่ / พนักงาน / บัตรคิว / ช่อง / หมายเลข</div><div class="roman">jâo-nâa-thîi / phá-nák-ngaan / bàt-khiu / chɔ̂ng / mǎai-lêek</div><div class="eng">officer / employee / queue ticket / counter / number</div></div>
+      <p><strong>Chinese Explanation:</strong> 銀行、醫院、政府機關辦事常用。</p>
+    </details>
+
+    <details>
+      <summary>deposit / withdraw / ATM withdraw / transfer / exchange money / change</summary>
+      <div class="triad"><div class="thai">ฝากเงิน / ถอนเงิน / กดเงิน / โอนเงิน / แลกเงิน / เงินทอน</div><div class="roman">fàak-ngən / thɔ̌ɔn-ngən / gòt-ngən / oon-ngən / lɛ̂ɛk-ngən / ngən-thɔɔn</div><div class="eng">deposit / withdraw / withdraw from ATM / transfer / exchange money / change</div></div>
+      <p><strong>Chinese Explanation:</strong> 金錢動作組。</p>
+    </details>
+
+    <details>
+      <summary>bills / coins / 1000 bill / 100 bill / 10-baht coin / 1-baht coin</summary>
+      <div class="triad"><div class="thai">แบงก์ / เหรียญ / แบงก์พัน / แบงก์ร้อย / เหรียญสิบ / เหรียญบาท</div><div class="roman">bɛng / rǐan / bɛng-phan / bɛng-rɔ́ɔi / rǐan-sìp / rǐan-bàat</div><div class="eng">bill / coin / 1,000-baht bill / 100-baht bill / 10-baht coin / 1-baht coin</div></div>
+      <p><strong>Chinese Explanation:</strong> 泰銖日常必備。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+
+    <details>
+      <summary>three 100-baht bills</summary>
+      <div class="triad"><div class="thai">แบงก์ร้อยสามใบ</div><div class="roman">bɛng-rɔ́ɔi sǎam bai</div><div class="eng">three 100-baht bills</div></div>
+      <p><strong>Chinese Explanation:</strong> 紙鈔用 <span class="thai">ใบ</span>。</p>
+    </details>
+
+    <details>
+      <summary>two 10-baht coins</summary>
+      <div class="triad"><div class="thai">เหรียญสิบสองเหรียญ</div><div class="roman">rǐan-sìp sɔ̌ɔng rǐan</div><div class="eng">two 10-baht coins</div></div>
+      <p><strong>Chinese Explanation:</strong> 硬幣用 <span class="thai">เหรียญ</span>。</p>
+    </details>
+
+    <details>
+      <summary>one Thai bank account</summary>
+      <div class="triad"><div class="thai">บัญชีไทยหนึ่งบัญชี</div><div class="roman">ban-chii thai nʉ̀eng ban-chii</div><div class="eng">one Thai bank account</div></div>
+      <p><strong>Chinese Explanation:</strong> 帳戶可用 <span class="thai">บัญชี</span> 作量詞。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+
+    <details>
+      <summary>開戶前要先跟職員說。</summary>
+      <div class="triad"><div class="thai">ก่อนเปิดบัญชีต้องคุยกับเจ้าหน้าที่ค่ะ</div><div class="roman">gɔ̀ɔn bpə̀ət ban-chii dtɔ̂ng khui gàp jâo-nâa-thîi khâ</div><div class="eng">Before opening an account, you have to talk with the staff.</div></div>
+      <p><strong>Chinese Explanation:</strong> 本課核心句型。</p>
+    </details>
+
+    <details>
+      <summary>簽名後就可以領錢。</summary>
+      <div class="triad"><div class="thai">เซ็นชื่อเสร็จแล้วรับเงินได้เลยค่ะ</div><div class="roman">sen-chʉ̂ʉ sèt lɛ́ɛw ráp-ngən dâai ləəi khâ</div><div class="eng">After signing, you can receive the money right away.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">เสร็จแล้ว...ได้เลย</span> = 做完後就可以。</p>
+    </details>
+
+    <details>
+      <summary>我先去提款。</summary>
+      <div class="triad"><div class="thai">ฉันไปกดเงินก่อนนะคะ</div><div class="roman">chǎn bpai gòt-ngən gɔ̀ɔn ná khá</div><div class="eng">I’ll go withdraw cash first.</div></div>
+      <p><strong>Chinese Explanation:</strong> 口語 ATM 提款用 <span class="thai">กดเงิน</span>。</p>
+    </details>
+
+    <details>
+      <summary>請問可以把千元鈔換成百元鈔嗎？</summary>
+      <div class="triad"><div class="thai">ขอแลกแบงก์พันเป็นแบงก์ร้อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ lɛ̂ɛk bɛng-phan bpen bɛng-rɔ́ɔi dâai mái khá</div><div class="eng">Could I change a 1,000-baht bill into 100-baht bills?</div></div>
+      <p><strong>Chinese Explanation:</strong> 小鈔需求很實用。</p>
+    </details>
+
+    <details>
+      <summary>一到我的號碼，職員就叫我去二號窗口。</summary>
+      <div class="triad"><div class="thai">พอถึงคิวฉัน เจ้าหน้าที่ก็เรียกไปช่องสองค่ะ</div><div class="roman">phɔɔ thʉ̌ng khiu chǎn, jâo-nâa-thîi gɔ̂ɔ rîak bpai chɔ̂ng sɔ̌ɔng khâ</div><div class="eng">Once it was my turn, the staff called me to counter 2.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">พอ..., ก็...</span> = 一……就……。</p>
+    </details>
+
+    <details>
+      <summary>我只有千元鈔，可以找嗎？</summary>
+      <div class="triad"><div class="thai">มีแต่แบงก์พัน ทอนได้ไหมคะ</div><div class="roman">mii dtɛ̀ɛ bɛng-phan, thɔɔn dâai mái khá</div><div class="eng">I only have a 1,000-baht bill. Can you give change?</div></div>
+      <p><strong>Chinese Explanation:</strong> 小吃店、計程車、攤販常用。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+
+    <details>
+      <summary>把「ฉันจะถอนเงินค่ะ」改成 ATM 口語。</summary>
+      <div class="triad"><div class="thai">ฉันจะไปกดเงินค่ะ</div><div class="roman">chǎn jà bpai gòt-ngən khâ</div><div class="eng">I’m going to withdraw cash from an ATM.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">กดเงิน</span> 是在地口語提款。</p>
+    </details>
+
+    <details>
+      <summary>把「ฉันกลับบ้านก่อนนะคะ」改成朋友間更自然。</summary>
+      <div class="triad"><div class="thai">กลับก่อนนะ</div><div class="roman">glàp gɔ̀ɔn ná</div><div class="eng">I’m leaving first.</div></div>
+      <p><strong>Chinese Explanation:</strong> 朋友間可省略主詞與敬語，但對長輩/店員仍保留 <span class="thai">ค่ะ</span>。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>Top 10｜今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="priority">1</span></td>
+          <td><div class="triad"><div class="thai">ต้องคุยกับเจ้าหน้าที่ก่อนเปิดบัญชีค่ะ</div><div class="roman">dtɔ̂ng khui gàp jâo-nâa-thîi gɔ̀ɔn bpə̀ət ban-chii khâ</div><div class="eng">You have to talk with the staff before opening an account.</div></div></td>
+          <td>先後順序</td>
+        </tr>
+        <tr>
+          <td><span class="priority">2</span></td>
+          <td><div class="triad"><div class="thai">ก่อนเปิดบัญชีต้องคุยกับเจ้าหน้าที่ค่ะ</div><div class="roman">gɔ̀ɔn bpə̀ət ban-chii dtɔ̂ng khui gàp jâo-nâa-thîi khâ</div><div class="eng">Before opening an account, you have to talk with the staff.</div></div></td>
+          <td>句型轉換</td>
+        </tr>
+        <tr>
+          <td><span class="priority">3</span></td>
+          <td><div class="triad"><div class="thai">ฉันกลับบ้านก่อนนะคะ</div><div class="roman">chǎn glàp bâan gɔ̀ɔn ná khá</div><div class="eng">I’ll go home first.</div></div></td>
+          <td>先離開</td>
+        </tr>
+        <tr>
+          <td><span class="priority">4</span></td>
+          <td><div class="triad"><div class="thai">เซ็นชื่อเสร็จแล้วรับเงินได้เลยค่ะ</div><div class="roman">sen-chʉ̂ʉ sèt lɛ́ɛw ráp-ngən dâai ləəi khâ</div><div class="eng">After signing, you can receive the money right away.</div></div></td>
+          <td>做完就可以</td>
+        </tr>
+        <tr>
+          <td><span class="priority">5</span></td>
+          <td><div class="triad"><div class="thai">พอฝนตก ถนนก็เปียกค่ะ</div><div class="roman">phɔɔ fǒn-dtòk, thà-nǒn gɔ̂ɔ bpìak khâ</div><div class="eng">Once it rains, the road gets wet.</div></div></td>
+          <td>一……就……</td>
+        </tr>
+        <tr>
+          <td><span class="priority">6</span></td>
+          <td><div class="triad"><div class="thai">ขอเชิญหมายเลขสี่สามศูนย์ที่ช่องสองค่ะ</div><div class="roman">khɔ̌ɔ chəən mǎai-lêek sìi-sǎam-sǔun thîi chɔ̂ng sɔ̌ɔng khâ</div><div class="eng">Number 430, please go to counter 2.</div></div></td>
+          <td>銀行叫號</td>
+        </tr>
+        <tr>
+          <td><span class="priority">7</span></td>
+          <td><div class="triad"><div class="thai">ฉันไปกดเงินก่อนนะคะ</div><div class="roman">chǎn bpai gòt-ngən gɔ̀ɔn ná khá</div><div class="eng">I’ll go withdraw cash first.</div></div></td>
+          <td>ATM 提款口語</td>
+        </tr>
+        <tr>
+          <td><span class="priority">8</span></td>
+          <td><div class="triad"><div class="thai">ขอแลกแบงก์พันเป็นแบงก์ร้อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ lɛ̂ɛk bɛng-phan bpen bɛng-rɔ́ɔi dâai mái khá</div><div class="eng">Can I change a 1,000-baht bill into 100-baht bills?</div></div></td>
+          <td>換小鈔</td>
+        </tr>
+        <tr>
+          <td><span class="priority">9</span></td>
+          <td><div class="triad"><div class="thai">มีเงินทอนแบงก์พันไหมคะ</div><div class="roman">mii ngən-thɔɔn bɛng-phan mái khá</div><div class="eng">Do you have change for a 1,000-baht bill?</div></div></td>
+          <td>找零</td>
+        </tr>
+        <tr>
+          <td><span class="priority">10</span></td>
+          <td><div class="triad"><div class="thai">โอนเงินเสร็จแล้วส่งสลิปได้เลยค่ะ</div><div class="roman">oon-ngən sèt lɛ́ɛw sòng sà-líp dâai ləəi khâ</div><div class="eng">After transferring money, you can send the slip right away.</div></div></td>
+          <td>轉帳付款</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<script>
+function openTab(event,tabId){
+  const contents=document.querySelectorAll('.tab-content');
+  const buttons=document.querySelectorAll('.tab-btn');
+  contents.forEach(c=>c.classList.remove('active'));
+  buttons.forEach(b=>b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

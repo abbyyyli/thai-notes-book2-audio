@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 10 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 10 學習指南</h1>
+    <p class="subtitle">主題：เวลา｜when / while、ก่อน...แล้วก็...ทีหลัง、ฝาก...ไว้ที่ / ไว้กับ、ฝาก買東西、ฝาก帶東西、ของฝาก</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 10 的核心有三條線。第一是
+      <span class="thai">เวลา</span> /
+      <span class="roman">wee-laa</span> /
+      <span class="eng">when / while / time</span>，
+      用來說「做 A 的時候做 B」。第二是
+      <span class="thai">ก่อน, แล้วก็...ทีหลัง</span> /
+      <span class="roman">gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ...thii-lǎng</span> /
+      <span class="eng">first, and then...later</span>，
+      用來說先後順序。第三是
+      <span class="thai">ฝาก</span> /
+      <span class="roman">fàak</span> /
+      <span class="eng">to leave something with someone / ask someone to do something / bring something for someone</span>，
+      這是非常泰國生活化的一個字。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">When / while</div>
+        <div class="triad">
+          <div class="thai">อย่าเล่นมือถือเวลาขับรถค่ะ</div>
+          <div class="roman">yàa lên mʉʉ-thʉ̌ʉ wee-laa khàp-rót khâ</div>
+          <div class="eng">Don’t use your phone while driving.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">First, then later</div>
+        <div class="triad">
+          <div class="thai">ลูกทำการบ้านก่อน แล้วก็ดูทีวีทีหลังค่ะ</div>
+          <div class="roman">lûuk tham-gaan-bâan gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ duu thii-wii thii-lǎng khâ</div>
+          <div class="eng">The child does homework first, and then watches TV later.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Leave something somewhere</div>
+        <div class="triad">
+          <div class="thai">ฝากกระเป๋าเดินทางไว้ที่โรงแรมค่ะ</div>
+          <div class="roman">fàak grà-bpǎo-dəən-thaang wái thîi rooŋ-rɛɛm khâ</div>
+          <div class="eng">Leave the luggage at the hotel.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Souvenir</div>
+        <div class="triad">
+          <div class="thai">ของฝากจากกรุงเทพฯ</div>
+          <div class="roman">khɔ̌ɔng-fàak jàak grung-thêep</div>
+          <div class="eng">souvenir from Bangkok</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 9 學過
+      <span class="thai">ก่อน / หลัง</span> /
+      <span class="roman">gɔ̀ɔn / lǎng</span> /
+      <span class="eng">before / after</span>。
+      Day 10 的
+      <span class="thai">ก่อน, แล้วก็...ทีหลัง</span> /
+      <span class="roman">gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ...thii-lǎng</span> /
+      <span class="eng">first, and then...later</span>
+      更像「排順序」：先做一件事，之後再做另一件事。
+    </div>
+
+    <div class="tip blue">
+      <strong>曼谷生活連結：</strong>
+      這課可以直接用在飯店寄放行李、請朋友幫買東西、請人幫帶伴手禮、拜託鄰居看家、提醒朋友開車不要玩手機、飛機起飛時不要滑手機。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Time, Sequence & Action｜時間、順序與動作</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เวลา</div><div class="roman">wee-laa</div><div class="eng">time / when / while</div></div></td>
+          <td>Time word / conjunction</td>
+          <td>—</td>
+          <td>本課用作連接詞，表示「當……的時候 / 在……期間」。也可單獨表示時間。</td>
+          <td><div class="triad"><div class="thai">เวลาขับรถ / เวลาทำงาน / เวลาเครื่องบินกำลังขึ้น</div><div class="roman">wee-laa khàp-rót / wee-laa tham-ngaan / wee-laa khrʉ̂ang-bin gam-lang khʉ̂n</div><div class="eng">while driving / while working / when the plane is taking off</div></div></td>
+          <td><div class="triad"><div class="thai">อย่าเล่นมือถือเวลาขับรถค่ะ</div><div class="roman">yàa lên mʉʉ-thʉ̌ʉ wee-laa khàp-rót khâ</div><div class="eng">Don’t use your phone while driving.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ก่อน</div><div class="roman">gɔ̀ɔn</div><div class="eng">first / before</div></div></td>
+          <td>Sequence word</td>
+          <td>—</td>
+          <td>表示先做某事。Day 10 搭配 <span class="thai">แล้วก็...ทีหลัง</span>，形成「先……再……」。</td>
+          <td><div class="triad"><div class="thai">ทำก่อน / เรียนก่อน / กินข้าวก่อน</div><div class="roman">tham gɔ̀ɔn / rian gɔ̀ɔn / gin khâao gɔ̀ɔn</div><div class="eng">do first / study first / eat first</div></div></td>
+          <td><div class="triad"><div class="thai">เรากินข้าวก่อน แล้วค่อยไปซื้อของค่ะ</div><div class="roman">rao gin khâao gɔ̀ɔn, lɛ́ɛw khɔ̂i bpai sʉ́ʉ-khɔ̌ɔng khâ</div><div class="eng">We eat first, then go shopping later.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แล้วก็</div><div class="roman">lɛ́ɛw-gɔ̂ɔ</div><div class="eng">and then</div></div></td>
+          <td>Connector</td>
+          <td>—</td>
+          <td>連接後續動作，比單獨 <span class="thai">แล้ว</span> 更口語、順口。</td>
+          <td><div class="triad"><div class="thai">กินข้าวแล้วก็กลับบ้าน / ซื้อของแล้วก็ไปคาเฟ่</div><div class="roman">gin khâao lɛ́ɛw-gɔ̂ɔ glàp bâan / sʉ́ʉ-khɔ̌ɔng lɛ́ɛw-gɔ̂ɔ bpai khaa-fêe</div><div class="eng">eat and then go home / shop and then go to a café</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเรียนภาษาไทยแล้วก็ไปทำงานค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai lɛ́ɛw-gɔ̂ɔ bpai tham-ngaan khâ</div><div class="eng">I study Thai and then go to work.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ทีหลัง</div><div class="roman">thii-lǎng</div><div class="eng">later / afterwards</div></div></td>
+          <td>Time adverb</td>
+          <td>—</td>
+          <td>表示稍後、之後。常放句尾。</td>
+          <td><div class="triad"><div class="thai">ค่อยทำทีหลัง / ไปทีหลัง / ดูทีหลัง</div><div class="roman">khɔ̂i tham thii-lǎng / bpai thii-lǎng / duu thii-lǎng</div><div class="eng">do later / go later / watch later</div></div></td>
+          <td><div class="triad"><div class="thai">ตอนนี้ยุ่งมาก เดี๋ยวตอบทีหลังนะคะ</div><div class="roman">dtɔɔn-níi yûng mâak, dǐao dtɔ̀ɔp thii-lǎng ná khá</div><div class="eng">I’m very busy now. I’ll reply later.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กำลัง</div><div class="roman">gam-lang</div><div class="eng">be currently doing</div></div></td>
+          <td>Aspect marker</td>
+          <td>—</td>
+          <td>表示動作正在進行。本課例子是 <span class="thai">เครื่องบินกำลังขึ้น</span>。</td>
+          <td><div class="triad"><div class="thai">กำลังทำงาน / กำลังขึ้น / กำลังขับรถ</div><div class="roman">gam-lang tham-ngaan / gam-lang khʉ̂n / gam-lang khàp-rót</div><div class="eng">be working / be taking off or going up / be driving</div></div></td>
+          <td><div class="triad"><div class="thai">ห้ามใช้มือถือเวลาเครื่องบินกำลังขึ้นค่ะ</div><div class="roman">hâam chái mʉʉ-thʉ̌ʉ wee-laa khrʉ̂ang-bin gam-lang khʉ̂n khâ</div><div class="eng">Do not use your phone when the plane is taking off.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Deposit, Asking Favors & Souvenirs｜寄放、拜託與伴手禮</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฝาก</div><div class="roman">fàak</div><div class="eng">to leave with / entrust / ask someone to do something</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>非常重要的一字多用：寄放東西、託人照顧、請人幫買、請人幫帶給別人。</td>
+          <td><div class="triad"><div class="thai">ฝากกระเป๋า / ฝากลูก / ฝากซื้อ / ฝากไปให้</div><div class="roman">fàak grà-bpǎo / fàak lûuk / fàak sʉ́ʉ / fàak bpai hâi</div><div class="eng">leave a bag / leave a child with someone / ask someone to buy / ask someone to bring to someone</div></div></td>
+          <td><div class="triad"><div class="thai">ฝากกระเป๋าไว้ที่โรงแรมได้ไหมคะ</div><div class="roman">fàak grà-bpǎo wái thîi rooŋ-rɛɛm dâai mái khá</div><div class="eng">Can I leave my bag at the hotel?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไว้</div><div class="roman">wái</div><div class="eng">to keep / leave / put aside</div></div></td>
+          <td>Verb particle</td>
+          <td>—</td>
+          <td>表示把某物留在某處，Day 8 也學過 <span class="thai">วางไว้</span>。</td>
+          <td><div class="triad"><div class="thai">ฝากไว้ / วางไว้ / เก็บไว้</div><div class="roman">fàak wái / waang wái / gèp wái</div><div class="eng">leave with / put and keep / keep</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันฝากของไว้ที่ล็อบบี้ค่ะ</div><div class="roman">chǎn fàak khɔ̌ɔng wái thîi lɔ́p-bîi khâ</div><div class="eng">I left my things at the lobby.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ของฝาก</div><div class="roman">khɔ̌ɔng-fàak</div><div class="eng">souvenir / gift brought from somewhere</div></div></td>
+          <td>Noun</td>
+          <td><span class="classifier-chip">ชิ้น / อย่าง / กล่อง / ถุง</span></td>
+          <td>不是一般禮物，而是「從某地帶回來給人的東西」。教材說 <span class="thai">ของฝาก = ของขวัญ</span>，但生活語感更偏伴手禮。</td>
+          <td><div class="triad"><div class="thai">ซื้อของฝาก / ของฝากจากไทย / ของฝากจากกรุงเทพฯ</div><div class="roman">sʉ́ʉ khɔ̌ɔng-fàak / khɔ̌ɔng-fàak jàak thai / khɔ̌ɔng-fàak jàak grung-thêep</div><div class="eng">buy souvenirs / souvenir from Thailand / souvenir from Bangkok</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันซื้อยาดมเป็นของฝากให้เพื่อนค่ะ</div><div class="roman">chǎn sʉ́ʉ yaa-dom bpen khɔ̌ɔng-fàak hâi phʉ̂an khâ</div><div class="eng">I bought inhalers as souvenirs for my friend.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ของขวัญ</div><div class="roman">khɔ̌ɔng-khwǎn</div><div class="eng">gift / present</div></div></td>
+          <td>Noun</td>
+          <td><span class="classifier-chip">ชิ้น / กล่อง</span></td>
+          <td>一般禮物，例如生日禮物、節日禮物。不一定是旅行帶回來的。</td>
+          <td><div class="triad"><div class="thai">ให้ของขวัญ / ซื้อของขวัญ / ของขวัญวันเกิด</div><div class="roman">hâi khɔ̌ɔng-khwǎn / sʉ́ʉ khɔ̌ɔng-khwǎn / khɔ̌ɔng-khwǎn wan-gə̀ət</div><div class="eng">give a gift / buy a gift / birthday present</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันซื้อของขวัญวันเกิดให้แฟนค่ะ</div><div class="roman">chǎn sʉ́ʉ khɔ̌ɔng-khwǎn wan-gə̀ət hâi fɛɛn khâ</div><div class="eng">I bought a birthday present for my boyfriend/girlfriend.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Souvenir Items｜伴手禮單字</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กางเกงช้าง</div><div class="roman">gaang-geeng cháang</div><div class="eng">elephant pants</div></div></td>
+          <td>Souvenir / clothing</td>
+          <td><span class="classifier-chip">ตัว</span></td>
+          <td>泰國觀光客常買的褲子。衣服類常用 <span class="thai">ตัว</span>。</td>
+          <td><div class="triad"><div class="thai">ซื้อกางเกงช้าง / ใส่กางเกงช้าง</div><div class="roman">sʉ́ʉ gaang-geeng cháang / sài gaang-geeng cháang</div><div class="eng">buy elephant pants / wear elephant pants</div></div></td>
+          <td><div class="triad"><div class="thai">กางเกงช้างตัวนี้ใส่สบายมากค่ะ</div><div class="roman">gaang-geeng cháang dtua níi sài sà-baai mâak khâ</div><div class="eng">These elephant pants are very comfortable to wear.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยาดม</div><div class="roman">yaa-dom</div><div class="eng">Thai inhaler</div></div></td>
+          <td>Souvenir / health item</td>
+          <td><span class="classifier-chip">หลอด / อัน</span></td>
+          <td>泰國超熱門小物。<span class="thai">หลอด</span> 用於管狀物，口語也可聽到 <span class="thai">อัน</span>。</td>
+          <td><div class="triad"><div class="thai">ดมยาดม / ซื้อยาดม / ยาดมหนึ่งหลอด</div><div class="roman">dom yaa-dom / sʉ́ʉ yaa-dom / yaa-dom nʉ̀eng lɔ̀ɔt</div><div class="eng">smell/use inhaler / buy inhaler / one inhaler stick</div></div></td>
+          <td><div class="triad"><div class="thai">ฝากซื้อยาดมสองหลอดให้หน่อยค่ะ</div><div class="roman">fàak sʉ́ʉ yaa-dom sɔ̌ɔng lɔ̀ɔt hâi nòi khâ</div><div class="eng">Please buy two Thai inhalers for me.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยาหม่อง</div><div class="roman">yaa-mɔ̀ɔng</div><div class="eng">balm / medicated ointment</div></div></td>
+          <td>Souvenir / health item</td>
+          <td><span class="classifier-chip">กระปุก / ขวด</span></td>
+          <td>像青草膏、萬金油類的外用藥膏。小罐常用 <span class="thai">กระปุก</span>。</td>
+          <td><div class="triad"><div class="thai">ทายาหม่อง / ยาหม่องหนึ่งกระปุก</div><div class="roman">thaa yaa-mɔ̀ɔng / yaa-mɔ̀ɔng nʉ̀eng grà-bpùk</div><div class="eng">apply balm / one jar of balm</div></div></td>
+          <td><div class="triad"><div class="thai">ยาหม่องกระปุกนี้หอมมากค่ะ</div><div class="roman">yaa-mɔ̀ɔng grà-bpùk níi hɔ̌ɔm mâak khâ</div><div class="eng">This jar of balm smells very nice.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สบู่</div><div class="roman">sà-bùu</div><div class="eng">soap</div></div></td>
+          <td>Souvenir / daily item</td>
+          <td><span class="classifier-chip">ก้อน / กล่อง</span></td>
+          <td>肥皂塊常用 <span class="thai">ก้อน</span>；盒裝可用 <span class="thai">กล่อง</span>。</td>
+          <td><div class="triad"><div class="thai">สบู่หอม / สบู่สมุนไพร / สบู่หนึ่งก้อน</div><div class="roman">sà-bùu hɔ̌ɔm / sà-bùu sà-mǔn-phrai / sà-bùu nʉ̀eng gɔ̂ɔn</div><div class="eng">fragrant soap / herbal soap / one bar of soap</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันซื้อสบู่สมุนไพรเป็นของฝากค่ะ</div><div class="roman">chǎn sʉ́ʉ sà-bùu sà-mǔn-phrai bpen khɔ̌ɔng-fàak khâ</div><div class="eng">I bought herbal soap as a souvenir.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ผ้าไหม</div><div class="roman">phâa-mǎi</div><div class="eng">silk / silk cloth</div></div></td>
+          <td>Souvenir / fabric</td>
+          <td><span class="classifier-chip">ผืน</span></td>
+          <td>布料、毛巾、毯子等片狀布常用 <span class="thai">ผืน</span>。</td>
+          <td><div class="triad"><div class="thai">ผ้าไหมไทย / ซื้อผ้าไหม / ผ้าไหมหนึ่งผืน</div><div class="roman">phâa-mǎi thai / sʉ́ʉ phâa-mǎi / phâa-mǎi nʉ̀eng phʉ̌ʉn</div><div class="eng">Thai silk / buy silk / one piece of silk cloth</div></div></td>
+          <td><div class="triad"><div class="thai">ผ้าไหมผืนนี้สวยมากค่ะ</div><div class="roman">phâa-mǎi phʉ̌ʉn níi sǔai mâak khâ</div><div class="eng">This piece of silk is very beautiful.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เครื่องสำอาง</div><div class="roman">khrʉ̂ang-sǎm-aang</div><div class="eng">cosmetics</div></div></td>
+          <td>Shopping item</td>
+          <td><span class="classifier-chip">ชิ้น / อัน / ขวด / ตลับ</span></td>
+          <td>總稱是化妝品。具體量詞依容器：瓶、盒、粉盒等。</td>
+          <td><div class="triad"><div class="thai">ซื้อเครื่องสำอาง / ฝากซื้อเครื่องสำอาง / ร้านเครื่องสำอาง</div><div class="roman">sʉ́ʉ khrʉ̂ang-sǎm-aang / fàak sʉ́ʉ khrʉ̂ang-sǎm-aang / ráan khrʉ̂ang-sǎm-aang</div><div class="eng">buy cosmetics / ask someone to buy cosmetics / cosmetics shop</div></div></td>
+          <td><div class="triad"><div class="thai">ฝากซื้อเครื่องสำอางที่สยามให้หน่อยค่ะ</div><div class="roman">fàak sʉ́ʉ khrʉ̂ang-sǎm-aang thîi sà-yǎam hâi nòi khâ</div><div class="eng">Please buy cosmetics at Siam for me.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ใบ</span><div class="triad"><div class="thai">ใบ</div><div class="roman">bai</div><div class="eng">classifier for bags / tickets / leaves / flat or container-like items</div></div></td>
+          <td><div class="triad"><div class="thai">กระเป๋า / กระเป๋าเดินทาง</div><div class="roman">grà-bpǎo / grà-bpǎo-dəən-thaang</div><div class="eng">bag / luggage</div></div></td>
+          <td>包包、行李箱常用 <span class="thai">ใบ</span>。</td>
+          <td><div class="triad"><div class="thai">กระเป๋าเดินทางหนึ่งใบ</div><div class="roman">grà-bpǎo-dəən-thaang nʉ̀eng bai</div><div class="eng">one suitcase</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要用 <span class="thai">ตัว</span> 數行李箱；衣服用 <span class="thai">ตัว</span>，包包多用 <span class="thai">ใบ</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ตัว</span><div class="triad"><div class="thai">ตัว</div><div class="roman">dtua</div><div class="eng">classifier for clothing / animals / furniture</div></div></td>
+          <td><div class="triad"><div class="thai">กางเกง / กางเกงช้าง / เสื้อ</div><div class="roman">gaang-geeng / gaang-geeng cháang / sʉ̂a</div><div class="eng">pants / elephant pants / shirt</div></div></td>
+          <td>衣服類常用。</td>
+          <td><div class="triad"><div class="thai">กางเกงช้างหนึ่งตัว</div><div class="roman">gaang-geeng cháang nʉ̀eng dtua</div><div class="eng">one pair of elephant pants</div></div></td>
+          <td><span class="label warn">Common mistake</span> 中文說「一條褲子」，泰文衣物用 <span class="thai">ตัว</span> 比較常見。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">หลอด</span><div class="triad"><div class="thai">หลอด</div><div class="roman">lɔ̀ɔt</div><div class="eng">tube / stick-like container classifier</div></div></td>
+          <td><div class="triad"><div class="thai">ยาดม</div><div class="roman">yaa-dom</div><div class="eng">Thai inhaler</div></div></td>
+          <td>ยาดม 是管狀/條狀，所以精準量詞可用 <span class="thai">หลอด</span>。</td>
+          <td><div class="triad"><div class="thai">ยาดมสองหลอด</div><div class="roman">yaa-dom sɔ̌ɔng lɔ̀ɔt</div><div class="eng">two Thai inhalers</div></div></td>
+          <td>口語可能聽到 <span class="thai">อัน</span>，但學習時先記 <span class="thai">หลอด</span> 更精準。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">กระปุก</span><div class="triad"><div class="thai">กระปุก</div><div class="roman">grà-bpùk</div><div class="eng">small jar / tub classifier</div></div></td>
+          <td><div class="triad"><div class="thai">ยาหม่อง / ครีม</div><div class="roman">yaa-mɔ̀ɔng / khriim</div><div class="eng">balm / cream</div></div></td>
+          <td>小罐、小盒狀容器用。</td>
+          <td><div class="triad"><div class="thai">ยาหม่องหนึ่งกระปุก</div><div class="roman">yaa-mɔ̀ɔng nʉ̀eng grà-bpùk</div><div class="eng">one jar of balm</div></div></td>
+          <td>不要把所有藥用品都用 <span class="thai">ขวด</span>；看容器形狀。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ก้อน</span><div class="triad"><div class="thai">ก้อน</div><div class="roman">gɔ̂ɔn</div><div class="eng">lump / bar classifier</div></div></td>
+          <td><div class="triad"><div class="thai">สบู่</div><div class="roman">sà-bùu</div><div class="eng">soap</div></div></td>
+          <td>肥皂一塊一塊的，所以用 <span class="thai">ก้อน</span>。</td>
+          <td><div class="triad"><div class="thai">สบู่สามก้อน</div><div class="roman">sà-bùu sǎam gɔ̂ɔn</div><div class="eng">three bars of soap</div></div></td>
+          <td>盒裝商品可用 <span class="thai">กล่อง</span>，但一塊肥皂用 <span class="thai">ก้อน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ผืน</span><div class="triad"><div class="thai">ผืน</div><div class="roman">phʉ̌ʉn</div><div class="eng">classifier for pieces of cloth</div></div></td>
+          <td><div class="triad"><div class="thai">ผ้าไหม / ผ้าเช็ดตัว / ผ้าห่ม</div><div class="roman">phâa-mǎi / phâa-chét-dtua / phâa-hòm</div><div class="eng">silk cloth / towel / blanket</div></div></td>
+          <td>片狀布料用。</td>
+          <td><div class="triad"><div class="thai">ผ้าไหมหนึ่งผืน</div><div class="roman">phâa-mǎi nʉ̀eng phʉ̌ʉn</div><div class="eng">one piece of silk cloth</div></div></td>
+          <td>不要把布料用 <span class="thai">ตัว</span>；衣服才常用 <span class="thai">ตัว</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ชิ้น</span><div class="triad"><div class="thai">ชิ้น</div><div class="roman">chín</div><div class="eng">piece / item classifier</div></div></td>
+          <td><div class="triad"><div class="thai">ของฝาก / ของขวัญ / ขนมบางชนิด</div><div class="roman">khɔ̌ɔng-fàak / khɔ̌ɔng-khwǎn / khà-nǒm baang chá-nít</div><div class="eng">souvenir / gift / some snacks</div></div></td>
+          <td>一般「一個物品 / 一件東西」的泛用量詞。</td>
+          <td><div class="triad"><div class="thai">ของฝากหนึ่งชิ้น</div><div class="roman">khɔ̌ɔng-fàak nʉ̀eng chín</div><div class="eng">one souvenir item</div></div></td>
+          <td>如果知道更精準量詞，優先用精準量詞；不知道時 <span class="thai">ชิ้น</span> 可救急。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜本課重點補充</h2>
+
+    <h3>เวลา｜when / while：什麼時候可以用？</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Use</th>
+          <th>Thai / Romanization / English</th>
+          <th>Explanation</th>
+          <th>Real-life Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Two actions happen at the same time</td>
+          <td><div class="triad"><div class="thai">S + V1 + เวลา + S + V2</div><div class="roman">S + V1 + wee-laa + S + V2</div><div class="eng">S does V1 when/while S does V2.</div></div></td>
+          <td>表示「當……的時候」。</td>
+          <td><div class="triad"><div class="thai">ลูกดูทีวีเวลาลูกทำการบ้านค่ะ</div><div class="roman">lûuk duu thii-wii wee-laa lûuk tham-gaan-bâan khâ</div><div class="eng">The child watches TV while doing homework.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Things you should not do while doing something</td>
+          <td><div class="triad"><div class="thai">V1 + เวลา + V2 + ไม่ได้</div><div class="roman">V1 + wee-laa + V2 + mâi-dâai</div><div class="eng">You cannot do V1 while doing V2.</div></div></td>
+          <td>教材第 2 頁有一組「不能同時做」的練習。</td>
+          <td><div class="triad"><div class="thai">เล่นมือถือเวลาขับรถไม่ได้ค่ะ</div><div class="roman">lên mʉʉ-thʉ̌ʉ wee-laa khàp-rót mâi-dâai khâ</div><div class="eng">You cannot use your phone while driving.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Safety warning</td>
+          <td><div class="triad"><div class="thai">อย่า + V1 + เวลา + V2</div><div class="roman">yàa + V1 + wee-laa + V2</div><div class="eng">Don’t do V1 while doing V2.</div></div></td>
+          <td>比單純說 <span class="thai">ไม่ได้</span> 更像提醒、警告。</td>
+          <td><div class="triad"><div class="thai">อย่าสูบบุหรี่เวลาเติมน้ำมันค่ะ</div><div class="roman">yàa sùup bù-rìi wee-laa dtəəm náam-man khâ</div><div class="eng">Don’t smoke while refueling.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>容易混淆：</strong>
+      <span class="thai">เวลา</span> /
+      <span class="roman">wee-laa</span> /
+      <span class="eng">when / while</span>
+      不是只表示「時間幾點」。本課多數情況是連接兩個動作，意思接近「當……的時候」。
+    </div>
+
+    <h3>ก่อน, แล้วก็...ทีหลัง｜先後順序</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Meaning</th>
+          <th>Textbook Example</th>
+          <th>Bangkok Life Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">S + V1 + ก่อน, แล้วก็ + V2 + ทีหลัง</div><div class="roman">S + V1 + gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ + V2 + thii-lǎng</div><div class="eng">S does V1 first, and then does V2 later.</div></div></td>
+          <td>把兩件事排順序。</td>
+          <td><div class="triad"><div class="thai">ลูกทำการบ้านก่อน แล้วก็ดูทีวีทีหลังค่ะ</div><div class="roman">lûuk tham-gaan-bâan gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ duu thii-wii thii-lǎng khâ</div><div class="eng">The child does homework first, and then watches TV later.</div></div></td>
+          <td><div class="triad"><div class="thai">เราเช็กอินก่อน แล้วก็ค่อยไปกินข้าวทีหลังค่ะ</div><div class="roman">rao chék-in gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ khɔ̂i bpai gin khâao thii-lǎng khâ</div><div class="eng">We check in first, and then go eat later.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">V1 ก่อน แล้วค่อย V2</div><div class="roman">V1 gɔ̀ɔn, lɛ́ɛw khɔ̂i V2</div><div class="eng">Do V1 first, then V2.</div></div></td>
+          <td>更自然的曼谷口語版本。</td>
+          <td><div class="triad"><div class="thai">เรียนพูดก่อน แล้วก็เรียนเขียนทีหลังค่ะ</div><div class="roman">rian phûut gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ rian khǐan thii-lǎng khâ</div><div class="eng">Study speaking first, and then study writing later.</div></div></td>
+          <td><div class="triad"><div class="thai">กินข้าวก่อน แล้วค่อยไปเดินสยามค่ะ</div><div class="roman">gin khâao gɔ̀ɔn, lɛ́ɛw khɔ̂i bpai dəən sà-yǎam khâ</div><div class="eng">Eat first, then go walk around Siam.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>ฝาก｜一個字，多種真實用法</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Use</th>
+          <th>Pattern</th>
+          <th>Example</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>寄放物品在某地</td>
+          <td><div class="triad"><div class="thai">ฝาก + N + ไว้ที่ + Place</div><div class="roman">fàak + N + wái thîi + Place</div><div class="eng">leave N at a place</div></div></td>
+          <td><div class="triad"><div class="thai">ฝากกระเป๋าเดินทางไว้ที่โรงแรมค่ะ</div><div class="roman">fàak grà-bpǎo-dəən-thaang wái thîi rooŋ-rɛɛm khâ</div><div class="eng">Leave the luggage at the hotel.</div></div></td>
+          <td>飯店、櫃台、置物櫃情境很常用。</td>
+        </tr>
+
+        <tr>
+          <td>託人照顧 / 放在某人那裡</td>
+          <td><div class="triad"><div class="thai">ฝาก + N + ไว้กับ + Person</div><div class="roman">fàak + N + wái gàp + Person</div><div class="eng">leave N with a person</div></div></td>
+          <td><div class="triad"><div class="thai">ฝากลูกไว้กับพ่อแม่ค่ะ</div><div class="roman">fàak lûuk wái gàp phɔ̂ɔ-mɛ̂ɛ khâ</div><div class="eng">Leave the child with the parents.</div></div></td>
+          <td><span class="thai">กับ</span> 用在人身上；<span class="thai">ที่</span> 用在地點。</td>
+        </tr>
+
+        <tr>
+          <td>請人幫買</td>
+          <td><div class="triad"><div class="thai">A ฝาก B ซื้อ + N</div><div class="roman">A fàak B sʉ́ʉ + N</div><div class="eng">A asks B to buy N.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันฝากเพื่อนซื้อน้ำหอมค่ะ</div><div class="roman">chǎn fàak phʉ̂an sʉ́ʉ náam-hɔ̌ɔm khâ</div><div class="eng">I asked my friend to buy perfume.</div></div></td>
+          <td>很常用在 LINE 訊息、朋友出國、朋友去百貨公司。</td>
+        </tr>
+
+        <tr>
+          <td>拜託幫我買</td>
+          <td><div class="triad"><div class="thai">ช่วยซื้อ + N + ให้ + S + หน่อยค่ะ</div><div class="roman">chûai sʉ́ʉ + N + hâi + S + nòi khâ</div><div class="eng">Please buy N for me.</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยซื้อยาดมให้ฉันหน่อยค่ะ</div><div class="roman">chûai sʉ́ʉ yaa-dom hâi chǎn nòi khâ</div><div class="eng">Please buy Thai inhalers for me.</div></div></td>
+          <td>比 <span class="thai">ฝากซื้อ</span> 更直接、清楚。</td>
+        </tr>
+
+        <tr>
+          <td>買來送 / 帶回來給某人</td>
+          <td><div class="triad"><div class="thai">A ซื้อ + N + มา ฝาก + B</div><div class="roman">A sʉ́ʉ + N + maa fàak + B</div><div class="eng">A buys and brings N for B as a souvenir/gift.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันซื้อขนมมาฝากเพื่อนค่ะ</div><div class="roman">chǎn sʉ́ʉ khà-nǒm maa fàak phʉ̂an khâ</div><div class="eng">I bought snacks for my friend.</div></div></td>
+          <td>這個 <span class="thai">ฝาก</span> 有「帶給你、送你」的感覺。</td>
+        </tr>
+
+        <tr>
+          <td>請 A 把東西帶去給 C</td>
+          <td><div class="triad"><div class="thai">A ฝาก + N + ไปให้ + C + หน่อยค่ะ</div><div class="roman">A fàak + N + bpai hâi + C + nòi khâ</div><div class="eng">A asks someone to take N to C.</div></div></td>
+          <td><div class="triad"><div class="thai">ฝากขนมไปให้ลูกสาวหน่อยค่ะ</div><div class="roman">fàak khà-nǒm bpai hâi lûuk-sǎao nòi khâ</div><div class="eng">Please take the snacks to my daughter.</div></div></td>
+          <td>重點是物品從 A 經由 B 到 C；教材圖上也畫了 A、B、C 的關係。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>ของฝาก vs ของขวัญ｜伴手禮 vs 禮物</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Best Used When</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Souvenir / brought gift</td>
+          <td><div class="triad"><div class="thai">ของฝาก</div><div class="roman">khɔ̌ɔng-fàak</div><div class="eng">souvenir / something brought for someone</div></div></td>
+          <td>旅行、回國、從某地帶回來給別人。</td>
+          <td><div class="triad"><div class="thai">นี่ของฝากจากเชียงใหม่ค่ะ</div><div class="roman">nîi khɔ̌ɔng-fàak jàak chiiang-mài khâ</div><div class="eng">This is a souvenir from Chiang Mai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Gift / present</td>
+          <td><div class="triad"><div class="thai">ของขวัญ</div><div class="roman">khɔ̌ɔng-khwǎn</div><div class="eng">gift / present</div></div></td>
+          <td>生日、節日、紀念日等一般禮物。</td>
+          <td><div class="triad"><div class="thai">นี่ของขวัญวันเกิดให้คุณค่ะ</div><div class="roman">nîi khɔ̌ɔng-khwǎn wan-gə̀ət hâi khun khâ</div><div class="eng">This is a birthday present for you.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>曼谷購物提醒：</strong>
+      買給朋友/家人的泰國小物，像
+      <span class="thai">ยาดม</span> /
+      <span class="roman">yaa-dom</span> /
+      <span class="eng">Thai inhaler</span>、
+      <span class="thai">ยาหม่อง</span> /
+      <span class="roman">yaa-mɔ̀ɔng</span> /
+      <span class="eng">balm</span>、
+      <span class="thai">สบู่</span> /
+      <span class="roman">sà-bùu</span> /
+      <span class="eng">soap</span>
+      都很適合說成
+      <span class="thai">ของฝาก</span> /
+      <span class="roman">khɔ̌ɔng-fàak</span> /
+      <span class="eng">souvenir</span>。
+    </div>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>Structure｜S + V เวลา S + V：當……的時候</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">S + V1 + เวลา + S + V2</div>
+        <div class="roman">S + V1 + wee-laa + S + V2</div>
+        <div class="eng">S does V1 when/while S does V2.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ลูกดูทีวีเวลาลูกทำการบ้านค่ะ</div><div class="roman">lûuk duu thii-wii wee-laa lûuk tham-gaan-bâan khâ</div><div class="eng">The child watches TV while doing homework.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันฟังเพลงเวลาอาบน้ำค่ะ</div><div class="roman">chǎn fang-phleeng wee-laa àap-náam khâ</div><div class="eng">I listen to music while showering.</div></div>
+            <div class="triad"><div class="thai">อย่าเล่นมือถือเวลาขับรถค่ะ</div><div class="roman">yàa lên mʉʉ-thʉ̌ʉ wee-laa khàp-rót khâ</div><div class="eng">Don’t use your phone while driving.</div></div>
+            <div class="triad"><div class="thai">ฉันชอบคุยโทรศัพท์เวลาดูหนังไม่ได้ค่ะ</div><div class="roman">chǎn chɔ̂ɔp khui thoo-rá-sàp wee-laa duu nǎng mâi-dâai khâ</div><div class="eng">I can’t talk on the phone while watching a movie.</div></div>
+            <div class="triad"><div class="thai">ห้ามสูบบุหรี่เวลาเติมน้ำมันค่ะ</div><div class="roman">hâam sùup bù-rìi wee-laa dtəəm náam-man khâ</div><div class="eng">Smoking is prohibited while refueling.</div></div>
+          </td>
+          <td><span class="thai">เวลา</span> 接在兩個動作中間，表示「做某事的時候」。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜V1 ก่อน, แล้วก็ V2 ทีหลัง：先……，再……</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">S + V1 + ก่อน, แล้วก็ + V2 + ทีหลัง</div>
+        <div class="roman">S + V1 + gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ + V2 + thii-lǎng</div>
+        <div class="eng">S does V1 first, then does V2 later.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ลูกทำการบ้านก่อน แล้วก็ดูทีวีทีหลังค่ะ</div><div class="roman">lûuk tham-gaan-bâan gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ duu thii-wii thii-lǎng khâ</div><div class="eng">The child does homework first, then watches TV later.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">เรียนพูดก่อน แล้วก็เรียนเขียนทีหลังค่ะ</div><div class="roman">rian phûut gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ rian khǐan thii-lǎng khâ</div><div class="eng">Study speaking first, then study writing later.</div></div>
+            <div class="triad"><div class="thai">ฝากกระเป๋าก่อน แล้วค่อยไปกินข้าวค่ะ</div><div class="roman">fàak grà-bpǎo gɔ̀ɔn, lɛ́ɛw khɔ̂i bpai gin khâao khâ</div><div class="eng">Leave the luggage first, then go eat later.</div></div>
+            <div class="triad"><div class="thai">ซื้อของฝากก่อน แล้วค่อยกลับคอนโดค่ะ</div><div class="roman">sʉ́ʉ khɔ̌ɔng-fàak gɔ̀ɔn, lɛ́ɛw khɔ̂i glàp khɔɔn-doo khâ</div><div class="eng">Buy souvenirs first, then go back to the condo.</div></div>
+            <div class="triad"><div class="thai">โอนเงินก่อน แล้วก็ส่งสลิปทีหลังค่ะ</div><div class="roman">oon ngoen gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ sòng sà-líp thii-lǎng khâ</div><div class="eng">Transfer the money first, then send the slip later.</div></div>
+          </td>
+          <td><span class="thai">แล้วค่อย</span> 是更自然口語版，意思是「然後再……」。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜ฝาก + N + ไว้ที่ / ไว้กับ：寄放在某地 / 某人那裡</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">ฝาก + N + ไว้ที่ + Place / ฝาก + N + ไว้กับ + Person</div>
+        <div class="roman">fàak + N + wái thîi + Place / fàak + N + wái gàp + Person</div>
+        <div class="eng">leave N at a place / leave N with a person</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ฝากกระเป๋าเดินทางไว้ที่โรงแรมค่ะ</div><div class="roman">fàak grà-bpǎo-dəən-thaang wái thîi rooŋ-rɛɛm khâ</div><div class="eng">Leave the luggage at the hotel.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฝากของไว้ที่ล็อบบี้ได้ไหมคะ</div><div class="roman">fàak khɔ̌ɔng wái thîi lɔ́p-bîi dâai mái khá</div><div class="eng">Can I leave my things at the lobby?</div></div>
+            <div class="triad"><div class="thai">ฝากพัสดุไว้กับนิติได้ไหมคะ</div><div class="roman">fàak phát-sà-dù wái gàp ní-dtì dâai mái khá</div><div class="eng">Can I leave the parcel with the juristic office?</div></div>
+            <div class="triad"><div class="thai">ฝากกุญแจไว้กับเพื่อนได้ไหมคะ</div><div class="roman">fàak gun-jae wái gàp phʉ̂an dâai mái khá</div><div class="eng">Can I leave the key with my friend?</div></div>
+          </td>
+          <td><span class="thai">ที่</span> 接地點；<span class="thai">กับ</span> 接人或負責方。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜ฝากซื้อ / ช่วยซื้อ...ให้หน่อย：請人幫買</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">A ฝาก B ซื้อ + N / ช่วยซื้อ + N + ให้ + A + หน่อยค่ะ</div>
+        <div class="roman">A fàak B sʉ́ʉ + N / chûai sʉ́ʉ + N + hâi + A + nòi khâ</div>
+        <div class="eng">A asks B to buy N / Please buy N for A.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ฉันฝากเพื่อนซื้อน้ำหอมค่ะ</div><div class="roman">chǎn fàak phʉ̂an sʉ́ʉ náam-hɔ̌ɔm khâ</div><div class="eng">I asked my friend to buy perfume.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ช่วยซื้อยาดมให้ฉันหน่อยค่ะ</div><div class="roman">chûai sʉ́ʉ yaa-dom hâi chǎn nòi khâ</div><div class="eng">Please buy Thai inhalers for me.</div></div>
+            <div class="triad"><div class="thai">ฝากซื้อเครื่องสำอางที่สยามให้หน่อยค่ะ</div><div class="roman">fàak sʉ́ʉ khrʉ̂ang-sǎm-aang thîi sà-yǎam hâi nòi khâ</div><div class="eng">Please buy cosmetics at Siam for me.</div></div>
+            <div class="triad"><div class="thai">ฝากซื้อขนมไทยกลับมาหน่อยได้ไหมคะ</div><div class="roman">fàak sʉ́ʉ khà-nǒm thai glàp maa nòi dâai mái khá</div><div class="eng">Could you buy Thai snacks and bring them back?</div></div>
+          </td>
+          <td><span class="thai">ฝากซื้อ</span> 很像中文「託你買」。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜ซื้อ N มาฝาก B / ฝาก N ไปให้ C：買來送 / 幫帶給某人</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">A ซื้อ + N + มา ฝาก + B / A ฝาก + N + ไปให้ + C</div>
+        <div class="roman">A sʉ́ʉ + N + maa fàak + B / A fàak + N + bpai hâi + C</div>
+        <div class="eng">A buys N and brings it for B / A asks someone to take N to C.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ฉันซื้อขนมมาฝากเพื่อนค่ะ</div><div class="roman">chǎn sʉ́ʉ khà-nǒm maa fàak phʉ̂an khâ</div><div class="eng">I bought snacks for my friend.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันซื้อยาดมมาฝากแม่ค่ะ</div><div class="roman">chǎn sʉ́ʉ yaa-dom maa fàak mɛ̂ɛ khâ</div><div class="eng">I bought Thai inhalers for my mom.</div></div>
+            <div class="triad"><div class="thai">ฝากสบู่ไปให้เพื่อนที่ไต้หวันหน่อยค่ะ</div><div class="roman">fàak sà-bùu bpai hâi phʉ̂an thîi dtâi-wan nòi khâ</div><div class="eng">Please take the soap to my friend in Taiwan.</div></div>
+            <div class="triad"><div class="thai">ฝากของฝากถุงนี้ไปให้ลูกสาวหน่อยค่ะ</div><div class="roman">fàak khɔ̌ɔng-fàak thǔng níi bpai hâi lûuk-sǎao nòi khâ</div><div class="eng">Please take this bag of souvenirs to my daughter.</div></div>
+          </td>
+          <td><span class="thai">มาฝาก</span> 是買來給你；<span class="thai">ไปให้</span> 是帶去給第三人。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>寄放行李</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฝากกระเป๋าเดินทางไว้ที่โรงแรมได้ไหมคะ</div><div class="roman">fàak grà-bpǎo-dəən-thaang wái thîi rooŋ-rɛɛm dâai mái khá</div><div class="eng">Can I leave my luggage at the hotel?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ฝากกระเป๋าไว้ก่อนได้ไหมคะ</div><div class="roman">fàak grà-bpǎo wái gɔ̀ɔn dâai mái khá</div><div class="eng">Can I leave my bag here first?</div></div></td>
+          <td><span class="thai">ไว้ก่อน</span> 很常用，表示「先放著」。</td>
+        </tr>
+
+        <tr>
+          <td>請朋友幫買</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันฝากเพื่อนซื้อน้ำหอมค่ะ</div><div class="roman">chǎn fàak phʉ̂an sʉ́ʉ náam-hɔ̌ɔm khâ</div><div class="eng">I asked my friend to buy perfume.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ฝากซื้อยาดมหน่อยได้ไหม</div><div class="roman">fàak sʉ́ʉ yaa-dom nòi dâai mái</div><div class="eng">Can you buy Thai inhalers for me?</div></div></td>
+          <td>朋友間可省略主詞和 <span class="thai">ค่ะ</span>，但對不熟的人保留禮貌詞。</td>
+        </tr>
+
+        <tr>
+          <td>買來給你</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันซื้อขนมมาฝากคุณค่ะ</div><div class="roman">chǎn sʉ́ʉ khà-nǒm maa fàak khun khâ</div><div class="eng">I bought snacks for you.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">มีของฝากมาฝากค่ะ</div><div class="roman">mii khɔ̌ɔng-fàak maa fàak khâ</div><div class="eng">I brought you a souvenir.</div></div></td>
+          <td>泰國人常用 <span class="thai">มาฝาก</span> 表示「帶來給你」。</td>
+        </tr>
+
+        <tr>
+          <td>不要同時做危險事</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เล่นมือถือเวลาขับรถไม่ได้ค่ะ</div><div class="roman">lên mʉʉ-thʉ̌ʉ wee-laa khàp-rót mâi-dâai khâ</div><div class="eng">You cannot use your phone while driving.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขับรถอยู่ อย่าเล่นมือถือค่ะ</div><div class="roman">khàp-rót yùu, yàa lên mʉʉ-thʉ̌ʉ khâ</div><div class="eng">You’re driving. Don’t use your phone.</div></div></td>
+          <td>口語常把狀態放前面：<span class="thai">ขับรถอยู่</span>。</td>
+        </tr>
+
+        <tr>
+          <td>先做 A 再做 B</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ทำการบ้านก่อน แล้วก็ดูทีวีทีหลังค่ะ</div><div class="roman">tham-gaan-bâan gɔ̀ɔn, lɛ́ɛw-gɔ̂ɔ duu thii-wii thii-lǎng khâ</div><div class="eng">Do homework first, then watch TV later.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ทำการบ้านก่อน แล้วค่อยดูทีวีค่ะ</div><div class="roman">tham-gaan-bâan gɔ̀ɔn, lɛ́ɛw khɔ̂i duu thii-wii khâ</div><div class="eng">Do homework first, then watch TV.</div></div></td>
+          <td><span class="thai">แล้วค่อย</span> 是非常自然的日常說法。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bangkok" class="tab-content">
+    <h2>Bangkok Expansion｜Real-life Bangkok Situations</h2>
+
+    <h3>Hotel & Luggage｜飯店寄放行李</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問能不能寄放行李</td>
+          <td><div class="triad"><div class="thai">ฝากกระเป๋าไว้ก่อนได้ไหมคะ</div><div class="roman">fàak grà-bpǎo wái gɔ̀ɔn dâai mái khá</div><div class="eng">Can I leave my bag here first?</div></div></td>
+          <td>飯店、咖啡廳、按摩店都可能用。</td>
+        </tr>
+        <tr>
+          <td>說晚上回來拿</td>
+          <td><div class="triad"><div class="thai">เดี๋ยวตอนเย็นกลับมาเอาค่ะ</div><div class="roman">dǐao dtɔɔn-yen glàp maa ao khâ</div><div class="eng">I’ll come back to get it in the evening.</div></div></td>
+          <td><span class="thai">กลับมาเอา</span> = come back to get。</td>
+        </tr>
+        <tr>
+          <td>問放哪裡</td>
+          <td><div class="triad"><div class="thai">วางไว้ตรงไหนได้คะ</div><div class="roman">waang wái dtrong-nǎi dâai khá</div><div class="eng">Where can I put it?</div></div></td>
+          <td><span class="label review">Review</span> Day 8 的 <span class="thai">วางไว้</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Condo & Juristic Office｜公寓櫃台 / 管理室</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>請管理室代收包裹</td>
+          <td><div class="triad"><div class="thai">ฝากพัสดุไว้กับนิติได้ไหมคะ</div><div class="roman">fàak phát-sà-dù wái gàp ní-dtì dâai mái khá</div><div class="eng">Can I leave the parcel with the juristic office?</div></div></td>
+          <td><span class="thai">นิติ</span> 是公寓管理辦公室口語常用簡稱。</td>
+        </tr>
+        <tr>
+          <td>拜託鄰居看家</td>
+          <td><div class="triad"><div class="thai">ฝากดูบ้านหน่อยได้ไหมคะ</div><div class="roman">fàak duu bâan nòi dâai mái khá</div><div class="eng">Could you keep an eye on the house for me?</div></div></td>
+          <td>教材第 4 頁有 <span class="thai">ฝากเพื่อนบ้านดูบ้าน</span> 的概念。</td>
+        </tr>
+        <tr>
+          <td>請朋友保管鑰匙</td>
+          <td><div class="triad"><div class="thai">ฝากกุญแจไว้กับเธอได้ไหม</div><div class="roman">fàak gun-jae wái gàp thəə dâai mái</div><div class="eng">Can I leave the key with you?</div></div></td>
+          <td>朋友間自然說法。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Shopping for Souvenirs｜買泰國伴手禮</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>請朋友幫買ยาดม</td>
+          <td><div class="triad"><div class="thai">ฝากซื้อยาดมสองหลอดหน่อยได้ไหมคะ</div><div class="roman">fàak sʉ́ʉ yaa-dom sɔ̌ɔng lɔ̀ɔt nòi dâai mái khá</div><div class="eng">Could you buy two Thai inhalers for me?</div></div></td>
+          <td>超實用代購句。</td>
+        </tr>
+        <tr>
+          <td>問適合送朋友嗎</td>
+          <td><div class="triad"><div class="thai">อันนี้เหมาะเป็นของฝากไหมคะ</div><div class="roman">an níi mɔ̀ bpen khɔ̌ɔng-fàak mái khá</div><div class="eng">Is this suitable as a souvenir?</div></div></td>
+          <td><span class="thai">เหมาะ</span> = suitable。</td>
+        </tr>
+        <tr>
+          <td>買來送朋友</td>
+          <td><div class="triad"><div class="thai">ฉันซื้อสบู่มาฝากเพื่อนค่ะ</div><div class="roman">chǎn sʉ́ʉ sà-bùu maa fàak phʉ̂an khâ</div><div class="eng">I bought soap for my friend.</div></div></td>
+          <td><span class="thai">มาฝาก</span> = brought for someone。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Safety Warnings｜安全提醒</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>開車不要滑手機</td>
+          <td><div class="triad"><div class="thai">อย่าเล่นมือถือเวลาขับรถค่ะ</div><div class="roman">yàa lên mʉʉ-thʉ̌ʉ wee-laa khàp-rót khâ</div><div class="eng">Don’t use your phone while driving.</div></div></td>
+          <td>正式提醒。</td>
+        </tr>
+        <tr>
+          <td>加油時不要抽菸</td>
+          <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่เวลาเติมน้ำมันค่ะ</div><div class="roman">hâam sùup bù-rìi wee-laa dtəəm náam-man khâ</div><div class="eng">Smoking is prohibited while refueling.</div></div></td>
+          <td><span class="thai">ห้าม</span> = 禁止。</td>
+        </tr>
+        <tr>
+          <td>飛機起飛時不要用手機</td>
+          <td><div class="triad"><div class="thai">ห้ามใช้มือถือเวลาเครื่องบินกำลังขึ้นค่ะ</div><div class="roman">hâam chái mʉʉ-thʉ̌ʉ wee-laa khrʉ̂ang-bin gam-lang khʉ̂n khâ</div><div class="eng">Do not use your phone when the plane is taking off.</div></div></td>
+          <td>機上廣播情境。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>飯店櫃台：寄放行李</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอโทษค่ะ ฝากกระเป๋าไว้ก่อนได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, fàak grà-bpǎo wái gɔ̀ɔn dâai mái khá</div><div class="eng">Excuse me, can I leave my bag here first?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Receptionist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ จะกลับมาเอากี่โมงคะ</div><div class="roman">dâai khâ, jà glàp maa ao gìi moong khá</div><div class="eng">Yes. What time will you come back to get it?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ประมาณหกโมงเย็นค่ะ</div><div class="roman">bprà-maan hòk moong yen khâ</div><div class="eng">Around 6 p.m.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Receptionist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">โอเคค่ะ วางไว้ตรงนี้ได้เลยค่ะ</div><div class="roman">oo-khee khâ, waang wái dtrong-níi dâai ləəi khâ</div><div class="eng">Okay. You can put it right here.</div></div></div>
+    </div>
+
+    <h3>朋友去 Big C：請幫買伴手禮</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วันนี้ไปบิ๊กซีไหม</div><div class="roman">wan-níi bpai bík-sii mái</div><div class="eng">Are you going to Big C today?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไป ทำไมเหรอ</div><div class="roman">bpai, tham-mai rə̌ə</div><div class="eng">Yes. Why?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ฝากซื้อยาดมสองหลอดหน่อยได้ไหม</div><div class="roman">fàak sʉ́ʉ yaa-dom sɔ̌ɔng lɔ̀ɔt nòi dâai mái</div><div class="eng">Could you buy two Thai inhalers for me?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ เดี๋ยวซื้อให้</div><div class="roman">dâai, dǐao sʉ́ʉ hâi</div><div class="eng">Sure, I’ll buy them for you.</div></div></div>
+    </div>
+
+    <h3>帶伴手禮給朋友</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">นี่ของฝากจากกรุงเทพฯ ค่ะ</div><div class="roman">nîi khɔ̌ɔng-fàak jàak grung-thêep khâ</div><div class="eng">This is a souvenir from Bangkok.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอบคุณมากค่ะ อะไรคะ</div><div class="roman">khɔ̀ɔp-khun mâak khâ, à-rai khá</div><div class="eng">Thank you so much. What is it?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เป็นสบู่สมุนไพรกับยาดมค่ะ</div><div class="roman">bpen sà-bùu sà-mǔn-phrai gàp yaa-dom khâ</div><div class="eng">It’s herbal soap and Thai inhalers.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">น่ารักมากค่ะ</div><div class="roman">nâa-rák mâak khâ</div><div class="eng">That’s so sweet.</div></div></div>
+    </div>
+
+    <h3>公寓：請鄰居看家</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">พรุ่งนี้ฉันไม่อยู่บ้านค่ะ</div><div class="roman">phrûng-níi chǎn mâi yùu bâan khâ</div><div class="eng">Tomorrow I won’t be home.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Neighbor</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปต่างจังหวัดเหรอคะ</div><div class="roman">bpai dtàang-jang-wàt rə̌ə khá</div><div class="eng">Are you going out of town?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ใช่ค่ะ ฝากดูบ้านหน่อยได้ไหมคะ</div><div class="roman">châi khâ, fàak duu bâan nòi dâai mái khá</div><div class="eng">Yes. Could you keep an eye on the house for me?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Neighbor</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ ไม่ต้องห่วงค่ะ</div><div class="roman">dâai khâ, mâi dtɔ̂ng hùang khâ</div><div class="eng">Sure. Don’t worry.</div></div></div>
+    </div>
+
+    <h3>安全提醒：開車不要滑手機</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เดี๋ยวตอบไลน์ก่อน</div><div class="roman">dǐao dtɔ̀ɔp lai gɔ̀ɔn</div><div class="eng">Let me reply to LINE first.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขับรถอยู่ อย่าเล่นมือถือค่ะ</div><div class="roman">khàp-rót yùu, yàa lên mʉʉ-thʉ̌ʉ khâ</div><div class="eng">You’re driving. Don’t use your phone.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">โอเค เดี๋ยวจอดรถก่อน</div><div class="roman">oo-khee, dǐao jɔ̀ɔt-rót gɔ̀ɔn</div><div class="eng">Okay, I’ll park first.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ดีค่ะ ปลอดภัยกว่า</div><div class="roman">dii khâ, bplɔ̀ɔt-phai gwàa</div><div class="eng">Good. It’s safer.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เวลา 只理解成 clock time</div><div class="roman">wee-laa</div><div class="eng">time / when / while</div></div></td>
+          <td>本課的 <span class="thai">เวลา</span> 多半是「當……的時候」，不是幾點。</td>
+          <td><div class="triad"><div class="thai">อย่าเล่นมือถือเวลาขับรถค่ะ</div><div class="roman">yàa lên mʉʉ-thʉ̌ʉ wee-laa khàp-rót khâ</div><div class="eng">Don’t use your phone while driving.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ฝากไว้ที่ / ฝากไว้กับ 混用</div><div class="roman">fàak wái thîi / fàak wái gàp</div><div class="eng">leave at / leave with</div></div></td>
+          <td><span class="thai">ที่</span> 接地點；<span class="thai">กับ</span> 接人或負責方。</td>
+          <td>
+            <div class="triad"><div class="thai">ฝากกระเป๋าไว้ที่โรงแรมค่ะ</div><div class="roman">fàak grà-bpǎo wái thîi rooŋ-rɛɛm khâ</div><div class="eng">Leave the bag at the hotel.</div></div>
+            <div class="triad"><div class="thai">ฝากกุญแจไว้กับเพื่อนค่ะ</div><div class="roman">fàak gun-jae wái gàp phʉ̂an khâ</div><div class="eng">Leave the key with a friend.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ของฝาก / ของขวัญ 混用</div><div class="roman">khɔ̌ɔng-fàak / khɔ̌ɔng-khwǎn</div><div class="eng">souvenir / gift</div></div></td>
+          <td><span class="thai">ของฝาก</span> 是從某地帶回來的伴手禮；<span class="thai">ของขวัญ</span> 是一般禮物。</td>
+          <td>
+            <div class="triad"><div class="thai">นี่ของฝากจากไทยค่ะ</div><div class="roman">nîi khɔ̌ɔng-fàak jàak thai khâ</div><div class="eng">This is a souvenir from Thailand.</div></div>
+            <div class="triad"><div class="thai">นี่ของขวัญวันเกิดค่ะ</div><div class="roman">nîi khɔ̌ɔng-khwǎn wan-gə̀ət khâ</div><div class="eng">This is a birthday gift.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ฝากซื้อ / ซื้อมาฝาก 混用</div><div class="roman">fàak sʉ́ʉ / sʉ́ʉ maa fàak</div><div class="eng">ask someone to buy / buy and bring for someone</div></div></td>
+          <td><span class="thai">ฝากซื้อ</span> 是拜託別人買；<span class="thai">ซื้อมาฝาก</span> 是我買來送你。</td>
+          <td>
+            <div class="triad"><div class="thai">ฝากซื้อยาดมให้หน่อยค่ะ</div><div class="roman">fàak sʉ́ʉ yaa-dom hâi nòi khâ</div><div class="eng">Please buy Thai inhalers for me.</div></div>
+            <div class="triad"><div class="thai">ฉันซื้อยาดมมาฝากคุณค่ะ</div><div class="roman">chǎn sʉ́ʉ yaa-dom maa fàak khun khâ</div><div class="eng">I bought Thai inhalers for you.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ของฝาก量詞亂用</div><div class="roman">khɔ̌ɔng-fàak classifiers</div><div class="eng">souvenir classifiers</div></div></td>
+          <td>不同伴手禮有不同量詞：褲子、ยาดม、肥皂、布料都不一樣。</td>
+          <td>
+            <div class="triad"><div class="thai">กางเกงช้างหนึ่งตัว / ยาดมหนึ่งหลอด / สบู่หนึ่งก้อน / ผ้าไหมหนึ่งผืน</div><div class="roman">gaang-geeng cháang nʉ̀eng dtua / yaa-dom nʉ̀eng lɔ̀ɔt / sà-bùu nʉ̀eng gɔ̂ɔn / phâa-mǎi nʉ̀eng phʉ̌ʉn</div><div class="eng">one pair of elephant pants / one inhaler / one bar of soap / one piece of silk</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+    <details>
+      <summary>when / while / time</summary>
+      <div class="triad"><div class="thai">เวลา</div><div class="roman">wee-laa</div><div class="eng">when / while / time</div></div>
+      <p><strong>Chinese Explanation:</strong> 本課常當連接詞，用來說「當……的時候」。</p>
+    </details>
+
+    <details>
+      <summary>leave with / entrust / ask someone to buy or bring</summary>
+      <div class="triad"><div class="thai">ฝาก</div><div class="roman">fàak</div><div class="eng">to leave with / entrust / ask someone to buy or bring</div></div>
+      <p><strong>Chinese Explanation:</strong> 本課最重要多義詞。</p>
+    </details>
+
+    <details>
+      <summary>souvenir / gift</summary>
+      <div class="triad"><div class="thai">ของฝาก / ของขวัญ</div><div class="roman">khɔ̌ɔng-fàak / khɔ̌ɔng-khwǎn</div><div class="eng">souvenir / gift</div></div>
+      <p><strong>Chinese Explanation:</strong> 旅行帶回來的是 <span class="thai">ของฝาก</span>；一般禮物是 <span class="thai">ของขวัญ</span>。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+    <details>
+      <summary>one Thai inhaler</summary>
+      <div class="triad"><div class="thai">ยาดมหนึ่งหลอด</div><div class="roman">yaa-dom nʉ̀eng lɔ̀ɔt</div><div class="eng">one Thai inhaler</div></div>
+      <p><strong>Chinese Explanation:</strong> 管狀物用 <span class="thai">หลอด</span>。</p>
+    </details>
+
+    <details>
+      <summary>one pair of elephant pants</summary>
+      <div class="triad"><div class="thai">กางเกงช้างหนึ่งตัว</div><div class="roman">gaang-geeng cháang nʉ̀eng dtua</div><div class="eng">one pair of elephant pants</div></div>
+      <p><strong>Chinese Explanation:</strong> 衣物類用 <span class="thai">ตัว</span>。</p>
+    </details>
+
+    <details>
+      <summary>one bar of soap</summary>
+      <div class="triad"><div class="thai">สบู่หนึ่งก้อน</div><div class="roman">sà-bùu nʉ̀eng gɔ̂ɔn</div><div class="eng">one bar of soap</div></div>
+      <p><strong>Chinese Explanation:</strong> 肥皂一塊用 <span class="thai">ก้อน</span>。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+    <details>
+      <summary>開車時不要玩手機。</summary>
+      <div class="triad"><div class="thai">อย่าเล่นมือถือเวลาขับรถค่ะ</div><div class="roman">yàa lên mʉʉ-thʉ̌ʉ wee-laa khàp-rót khâ</div><div class="eng">Don’t use your phone while driving.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">เวลา</span> = while。</p>
+    </details>
+
+    <details>
+      <summary>我可以先寄放行李嗎？</summary>
+      <div class="triad"><div class="thai">ฝากกระเป๋าไว้ก่อนได้ไหมคะ</div><div class="roman">fàak grà-bpǎo wái gɔ̀ɔn dâai mái khá</div><div class="eng">Can I leave my bag here first?</div></div>
+      <p><strong>Chinese Explanation:</strong> 飯店/櫃台實用句。</p>
+    </details>
+
+    <details>
+      <summary>請幫我買兩支ยาดม。</summary>
+      <div class="triad"><div class="thai">ช่วยซื้อยาดมสองหลอดให้หน่อยค่ะ</div><div class="roman">chûai sʉ́ʉ yaa-dom sɔ̌ɔng lɔ̀ɔt hâi nòi khâ</div><div class="eng">Please buy two Thai inhalers for me.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ช่วยซื้อ...ให้หน่อย</span> 是請人幫買。</p>
+    </details>
+
+    <details>
+      <summary>這是從曼谷來的伴手禮。</summary>
+      <div class="triad"><div class="thai">นี่ของฝากจากกรุงเทพฯ ค่ะ</div><div class="roman">nîi khɔ̌ɔng-fàak jàak grung-thêep khâ</div><div class="eng">This is a souvenir from Bangkok.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">จาก</span> = from。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+    <details>
+      <summary>把「ฝากกระเป๋าเดินทางไว้ที่โรงแรมได้ไหมคะ」改成更自然口語。</summary>
+      <div class="triad"><div class="thai">ฝากกระเป๋าไว้ก่อนได้ไหมคะ</div><div class="roman">fàak grà-bpǎo wái gɔ̀ɔn dâai mái khá</div><div class="eng">Can I leave my bag here first?</div></div>
+      <p><strong>Chinese Explanation:</strong> 真實飯店櫃台更常這樣說。</p>
+    </details>
+
+    <details>
+      <summary>把「ทำการบ้านก่อน แล้วก็ดูทีวีทีหลัง」改成更自然。</summary>
+      <div class="triad"><div class="thai">ทำการบ้านก่อน แล้วค่อยดูทีวีค่ะ</div><div class="roman">tham-gaan-bâan gɔ̀ɔn, lɛ́ɛw khɔ̂i duu thii-wii khâ</div><div class="eng">Do homework first, then watch TV.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">แล้วค่อย</span> 很自然。</p>
+    </details>
+
+    <h3>Dialogue Completion</h3>
+    <details>
+      <summary>Receptionist: จะกลับมาเอากี่โมงคะ？You: ______</summary>
+      <div class="triad"><div class="thai">ประมาณหกโมงเย็นค่ะ</div><div class="roman">bprà-maan hòk moong yen khâ</div><div class="eng">Around 6 p.m.</div></div>
+      <p><strong>Chinese Explanation:</strong> 寄放行李時常被問回來拿的時間。</p>
+    </details>
+
+    <details>
+      <summary>Friend: ไปบิ๊กซี ทำไมเหรอ？You: ______</summary>
+      <div class="triad"><div class="thai">ฝากซื้อยาดมสองหลอดหน่อยได้ไหม</div><div class="roman">fàak sʉ́ʉ yaa-dom sɔ̌ɔng lɔ̀ɔt nòi dâai mái</div><div class="eng">Could you buy two Thai inhalers for me?</div></div>
+      <p><strong>Chinese Explanation:</strong> 朋友間可省略 <span class="thai">ค่ะ</span>。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="triad"><div class="thai">อย่าเล่นมือถือเวลาขับรถค่ะ</div><div class="roman">yàa lên mʉʉ-thʉ̌ʉ wee-laa khàp-rót khâ</div><div class="eng">Don’t use your phone while driving.</div></div></td><td>เวลา / 安全提醒</td></tr>
+        <tr><td>2</td><td><div class="triad"><div class="thai">ห้ามสูบบุหรี่เวลาเติมน้ำมันค่ะ</div><div class="roman">hâam sùup bù-rìi wee-laa dtəəm náam-man khâ</div><div class="eng">Smoking is prohibited while refueling.</div></div></td><td>禁止句</td></tr>
+        <tr><td>3</td><td><div class="triad"><div class="thai">ทำการบ้านก่อน แล้วค่อยดูทีวีค่ะ</div><div class="roman">tham-gaan-bâan gɔ̀ɔn, lɛ́ɛw khɔ̂i duu thii-wii khâ</div><div class="eng">Do homework first, then watch TV.</div></div></td><td>先後順序</td></tr>
+        <tr><td>4</td><td><div class="triad"><div class="thai">ฝากกระเป๋าไว้ก่อนได้ไหมคะ</div><div class="roman">fàak grà-bpǎo wái gɔ̀ɔn dâai mái khá</div><div class="eng">Can I leave my bag here first?</div></div></td><td>飯店寄放行李</td></tr>
+        <tr><td>5</td><td><div class="triad"><div class="thai">เดี๋ยวตอนเย็นกลับมาเอาค่ะ</div><div class="roman">dǐao dtɔɔn-yen glàp maa ao khâ</div><div class="eng">I’ll come back to get it in the evening.</div></div></td><td>寄放後補充</td></tr>
+        <tr><td>6</td><td><div class="triad"><div class="thai">ฝากซื้อยาดมสองหลอดหน่อยได้ไหมคะ</div><div class="roman">fàak sʉ́ʉ yaa-dom sɔ̌ɔng lɔ̀ɔt nòi dâai mái khá</div><div class="eng">Could you buy two Thai inhalers for me?</div></div></td><td>請人幫買</td></tr>
+        <tr><td>7</td><td><div class="triad"><div class="thai">ช่วยซื้อเครื่องสำอางให้ฉันหน่อยค่ะ</div><div class="roman">chûai sʉ́ʉ khrʉ̂ang-sǎm-aang hâi chǎn nòi khâ</div><div class="eng">Please buy cosmetics for me.</div></div></td><td>幫買東西</td></tr>
+        <tr><td>8</td><td><div class="triad"><div class="thai">ฉันซื้อขนมมาฝากเพื่อนค่ะ</div><div class="roman">chǎn sʉ́ʉ khà-nǒm maa fàak phʉ̂an khâ</div><div class="eng">I bought snacks for my friend.</div></div></td><td>買來送人</td></tr>
+        <tr><td>9</td><td><div class="triad"><div class="thai">นี่ของฝากจากกรุงเทพฯ ค่ะ</div><div class="roman">nîi khɔ̌ɔng-fàak jàak grung-thêep khâ</div><div class="eng">This is a souvenir from Bangkok.</div></div></td><td>伴手禮</td></tr>
+        <tr><td>10</td><td><div class="triad"><div class="thai">ฝากดูบ้านหน่อยได้ไหมคะ</div><div class="roman">fàak duu bâan nòi dâai mái khá</div><div class="eng">Could you keep an eye on the house for me?</div></div></td><td>拜託照看</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>今日背誦優先順序：</strong>
+      先背 4、5、6、8、9、10。這六句最接近真實曼谷生活：寄放行李、回來拿、託買東西、買來送朋友、介紹伴手禮、拜託鄰居看家。
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

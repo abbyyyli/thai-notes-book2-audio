@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 16 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: #9a3412;
+      border: .5px solid rgba(249,115,22,.35);
+      font-weight: 800;
+      margin-right: 6px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 16 學習指南</h1>
+    <p class="subtitle">主題：一樣/相似/不同、成為與能力、努力做到、會/能/撐得住、語言學習用語、流利與清楚</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Overview｜本課總覽</h2>
+
+    <div class="cards">
+      <div class="card">
+        <span class="label textbook">Textbook-based</span>
+        <h3>本課主要學什麼？</h3>
+        <ol>
+          <li>分辨 <strong>เหมือนกัน</strong>、<strong>คล้ายกัน</strong>、<strong>ต่างกัน</strong>：一樣、相似、不同。</li>
+          <li>用 <strong>S + V, [S] เป็น N</strong> 表達「做某事後變成某物」。</li>
+          <li>用 <strong>S + พยายาม + V + ให้ + Adj/Adv</strong> 表達「努力做到某種程度」。</li>
+          <li>分辨 <strong>เป็น</strong>、<strong>ได้</strong>、<strong>ไหว</strong>：會某技能、做得到、撐得住。</li>
+          <li>學語言學習必備詞：<strong>ออกเสียง</strong>、<strong>คำ</strong>、<strong>ประโยค</strong>、<strong>รูปประโยค</strong>、<strong>แต่งประโยค</strong>、<strong>ความหมาย</strong>。</li>
+          <li>學 <strong>คล่อง</strong> 與 <strong>ชัด</strong>：流利 vs 清楚。</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <span class="label local">Supplement / Local usage</span>
+        <h3>曼谷生活會怎麼用？</h3>
+        <p>
+          Day 16 很適合用在語言學校、上課、請老師解釋、問泰文字意思、說自己會不會騎車/開車、說今天累到做不動，以及練口說時請別人幫你確認「我講得清不清楚、流不流利」。
+        </p>
+      </div>
+    </div>
+
+    <h3>你學完後可以說什麼？</h3>
+
+    <div class="cards">
+      <div class="card">
+        <div class="triad">
+          <div class="thai">สองคำนี้ความหมายคล้ายกันค่ะ</div>
+          <div class="roman">sɔ̌ɔng kham níi khwaam-mǎai khláai-gan khâ</div>
+          <div class="eng">These two words have similar meanings.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ครูอธิบายภาษาไทยเป็นภาษาอังกฤษค่ะ</div>
+          <div class="roman">khruu à-thí-baai phaa-sǎa-thai bpen phaa-sǎa ang-grìt khâ</div>
+          <div class="eng">The teacher explains Thai in English.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันพยายามพูดภาษาไทยให้คล่องค่ะ</div>
+          <div class="roman">chǎn phá-yaa-yaam phûut phaa-sǎa-thai hâi khlɔ̂ng khâ</div>
+          <div class="eng">I try to speak Thai fluently.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันขับรถไม่เป็นค่ะ</div>
+          <div class="roman">chǎn khàp-rót mâi bpen khâ</div>
+          <div class="eng">I don’t know how to drive.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">วันนี้ฉันทำการบ้านไม่ไหวค่ะ</div>
+          <div class="roman">wan-níi chǎn tham gaan-bâan mâi wǎi khâ</div>
+          <div class="eng">Today I can’t handle doing homework.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">คำนี้หมายความว่าอะไรคะ</div>
+          <div class="roman">kham níi mǎai-khwaam wâa à-rai khá</div>
+          <div class="eng">What does this word mean?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <h3>本課 PDF 對應重點</h3>
+      <p>第 2 頁：用圖片說明 <strong>เหมือนกัน</strong> 是 100% 一樣、<strong>คล้ายกัน</strong> 是大約 80% 相似、<strong>ต่างกัน</strong> 是 0% 不同；同頁也出現 <strong>S+V, [S] เป็น N</strong> 與 <strong>S พยายาม V ให้ Adj/Adv</strong>。</p>
+      <p>第 3 頁：三個能力句型：<strong>เป็น</strong> 表示會某種技能，例如開車、騎機車；<strong>ได้</strong> 表示做得到、允許、能力可行；<strong>ไหว</strong> 表示體力/精神撐得住。</p>
+      <p>第 4 頁：語言學習詞彙：<strong>ออกเสียง</strong>、<strong>คำ</strong>、<strong>ประโยค</strong>、<strong>รูปประโยค</strong>、<strong>แต่งประโยค</strong>、<strong>ความหมาย</strong>，以及問意思的句型。</p>
+      <p>第 5 頁：補充 <strong>คล่อง</strong> 與 <strong>ชัด</strong>，常用在說話、發音、閱讀、解釋。</p>
+    </div>
+
+    <div class="tip orange">
+      <span class="label review">Review</span>
+      前面已經學過
+      <span class="thai">ได้</span> /
+      <span class="roman">dâai</span> /
+      <span class="eng">can / able to</span>
+      的基本用法。Day 16 會把它和
+      <span class="thai">เป็น</span> /
+      <span class="roman">bpen</span> /
+      <span class="eng">know how to do a skill</span>
+      以及
+      <span class="thai">ไหว</span> /
+      <span class="roman">wǎi</span> /
+      <span class="eng">can handle / have enough energy</span>
+      放在一起比較。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Similarity & Difference｜一樣、相似、不同</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เหมือนกัน</div><div class="roman">mʉ̌an-gan</div><div class="eng">same / identical / also</div></div></td>
+          <td>Adjective / phrase</td>
+          <td>—</td>
+          <td>教材用 100% 表示「一樣」。也常用作「也一樣」。</td>
+          <td><div class="triad"><div class="thai">เหมือนกันมาก / ไม่เหมือนกัน / ฉันก็เหมือนกัน</div><div class="roman">mʉ̌an-gan mâak / mâi mʉ̌an-gan / chǎn gɔ̂ɔ mʉ̌an-gan</div><div class="eng">very similar/same / not the same / me too</div></div></td>
+          <td><div class="triad"><div class="thai">สองร้านนี้ราคาเหมือนกันค่ะ</div><div class="roman">sɔ̌ɔng ráan níi raa-khaa mʉ̌an-gan khâ</div><div class="eng">These two shops have the same price.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คล้ายกัน</div><div class="roman">khláai-gan</div><div class="eng">similar / alike</div></div></td>
+          <td>Adjective phrase</td>
+          <td>—</td>
+          <td>教材用 80% 表示相似但不完全一樣。</td>
+          <td><div class="triad"><div class="thai">หน้าคล้ายกัน / เสียงคล้ายกัน / ความหมายคล้ายกัน</div><div class="roman">nâa khláai-gan / sǐang khláai-gan / khwaam-mǎai khláai-gan</div><div class="eng">faces are similar / sounds are similar / meanings are similar</div></div></td>
+          <td><div class="triad"><div class="thai">คำว่า ได้ กับ ไหว คล้ายกันนิดหน่อย แต่ใช้ไม่เหมือนกันค่ะ</div><div class="roman">kham wâa dâai gàp wǎi khláai-gan nít-nɔ̀i, dtɛ̀ɛ chái mâi mʉ̌an-gan khâ</div><div class="eng">The words dai and wai are a little similar, but they are not used the same way.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ต่างกัน</div><div class="roman">dtàang-gan</div><div class="eng">different</div></div></td>
+          <td>Adjective phrase</td>
+          <td>—</td>
+          <td>教材用 0% 表示不同。可用來比較字義、價格、口音、文化。</td>
+          <td><div class="triad"><div class="thai">ราคาแตกต่างกัน / ความหมายต่างกัน / สำเนียงต่างกัน</div><div class="roman">raa-khaa dtɛ̀ɛk-dtàang-gan / khwaam-mǎai dtàang-gan / sǎm-niang dtàang-gan</div><div class="eng">prices differ / meanings differ / accents differ</div></div></td>
+          <td><div class="triad"><div class="thai">ภาษาไทยกับภาษาจีนมีโครงสร้างประโยคต่างกันค่ะ</div><div class="roman">phaa-sǎa-thai gàp phaa-sǎa-jiin mii khroong-sâang bprà-yòok dtàang-gan khâ</div><div class="eng">Thai and Chinese have different sentence structures.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Language Learning Words｜語言學習用語</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">อธิบาย</div><div class="roman">à-thí-baai</div><div class="eng">to explain</div></div></td>
+          <td>Verb</td>
+          <td>ครั้ง</td>
+          <td>常用在上課、請老師解釋、說明規則。</td>
+          <td><div class="triad"><div class="thai">อธิบายคำศัพท์ / อธิบายไวยากรณ์ / อธิบายเป็นภาษาอังกฤษ</div><div class="roman">à-thí-baai kham-sàp / à-thí-baai wai-yaa-gɔɔn / à-thí-baai bpen phaa-sǎa ang-grìt</div><div class="eng">explain vocabulary / explain grammar / explain in English</div></div></td>
+          <td><div class="triad"><div class="thai">ครูช่วยอธิบายรูปประโยคนี้อีกครั้งได้ไหมคะ</div><div class="roman">khruu chûai à-thí-baai rûup bprà-yòok níi ìik khráng dâai mái khá</div><div class="eng">Teacher, could you explain this sentence pattern again?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ออกเสียง</div><div class="roman">ɔ̀ɔk-sǐang</div><div class="eng">to pronounce</div></div></td>
+          <td>Verb</td>
+          <td>ครั้ง</td>
+          <td>直譯是「發出聲音」。用於發音練習。</td>
+          <td><div class="triad"><div class="thai">ออกเสียงชัด / ออกเสียงไม่ชัด / ออกเสียงคำนี้</div><div class="roman">ɔ̀ɔk-sǐang chát / ɔ̀ɔk-sǐang mâi chát / ɔ̀ɔk-sǐang kham níi</div><div class="eng">pronounce clearly / pronounce unclearly / pronounce this word</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันออกเสียง ร เรือ ไม่ค่อยชัดค่ะ</div><div class="roman">chǎn ɔ̀ɔk-sǐang rɔɔ-rʉa mâi khɔ̂i chát khâ</div><div class="eng">I don’t pronounce the Thai r sound very clearly.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คำ</div><div class="roman">kham</div><div class="eng">word</div></div></td>
+          <td>Noun</td>
+          <td>คำ</td>
+          <td>「字、詞」。問單字意思時很常用。</td>
+          <td><div class="triad"><div class="thai">คำนี้ / คำศัพท์ / ความหมายของคำ</div><div class="roman">kham níi / kham-sàp / khwaam-mǎai khɔ̌ɔng kham</div><div class="eng">this word / vocabulary / meaning of a word</div></div></td>
+          <td><div class="triad"><div class="thai">คำนี้ออกเสียงยังไงคะ</div><div class="roman">kham níi ɔ̀ɔk-sǐang yang-ngai khá</div><div class="eng">How do you pronounce this word?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ประโยค</div><div class="roman">bprà-yòok</div><div class="eng">sentence</div></div></td>
+          <td>Noun</td>
+          <td>ประโยค</td>
+          <td>句子。學文法與造句時很重要。</td>
+          <td><div class="triad"><div class="thai">ประโยคนี้ / แต่งประโยค / แปลประโยค</div><div class="roman">bprà-yòok níi / dtɛ̀ng bprà-yòok / bplɛɛ bprà-yòok</div><div class="eng">this sentence / make a sentence / translate a sentence</div></div></td>
+          <td><div class="triad"><div class="thai">ประโยคนี้ยาว แต่ความหมายไม่ยากค่ะ</div><div class="roman">bprà-yòok níi yaao, dtɛ̀ɛ khwaam-mǎai mâi yâak khâ</div><div class="eng">This sentence is long, but the meaning is not difficult.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รูปประโยค</div><div class="roman">rûup bprà-yòok</div><div class="eng">sentence pattern / sentence form</div></div></td>
+          <td>Noun phrase</td>
+          <td>รูป / แบบ</td>
+          <td>句型、句子形式。適合上課討論文法。</td>
+          <td><div class="triad"><div class="thai">รูปประโยค S+V+O / รูปประโยคนี้ / เปลี่ยนรูปประโยค</div><div class="roman">rûup bprà-yòok S+V+O / rûup bprà-yòok níi / bplìan rûup bprà-yòok</div><div class="eng">SVO sentence pattern / this sentence pattern / change the sentence pattern</div></div></td>
+          <td><div class="triad"><div class="thai">รูปประโยคนี้ใช้บ่อยในชีวิตประจำวันค่ะ</div><div class="roman">rûup bprà-yòok níi chái bɔ̀i nai chii-wít bprà-jam-wan khâ</div><div class="eng">This sentence pattern is often used in daily life.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แต่งประโยค</div><div class="roman">dtɛ̀ng bprà-yòok</div><div class="eng">to make / compose a sentence</div></div></td>
+          <td>Verb phrase</td>
+          <td>ประโยค</td>
+          <td><span class="thai">แต่ง</span> 有創作、編寫的意思；<span class="thai">แต่งประโยค</span> 是造句。</td>
+          <td><div class="triad"><div class="thai">ฝึกแต่งประโยค / แต่งประโยคสั้น ๆ / แต่งประโยคเอง</div><div class="roman">fʉ̀k dtɛ̀ng bprà-yòok / dtɛ̀ng bprà-yòok sân-sân / dtɛ̀ng bprà-yòok eeng</div><div class="eng">practice making sentences / make short sentences / make sentences by yourself</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ครูให้แต่งประโยคจากคำว่า ไหว ค่ะ</div><div class="roman">wan-níi khruu hâi dtɛ̀ng bprà-yòok jàak kham wâa wǎi khâ</div><div class="eng">Today the teacher asked us to make a sentence using the word wai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ความหมาย</div><div class="roman">khwaam-mǎai</div><div class="eng">meaning</div></div></td>
+          <td>Noun</td>
+          <td>ความหมาย</td>
+          <td>名詞。問某詞意思時用 <span class="thai">มีความหมายอะไร</span> 或 <span class="thai">หมายความว่าอะไร</span>。</td>
+          <td><div class="triad"><div class="thai">ความหมายของคำ / มีความหมายว่า / หมายความว่า</div><div class="roman">khwaam-mǎai khɔ̌ɔng kham / mii khwaam-mǎai wâa / mǎai-khwaam wâa</div><div class="eng">meaning of a word / has the meaning that / means that</div></div></td>
+          <td><div class="triad"><div class="thai">คำว่า คล่อง มีความหมายว่า พูดได้เร็วและเป็นธรรมชาติค่ะ</div><div class="roman">kham wâa khlɔ̂ng mii khwaam-mǎai wâa phûut dâai rew lɛ́ bpen tham-má-châat khâ</div><div class="eng">The word khlong means being able to speak quickly and naturally.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฝึก</div><div class="roman">fʉ̀k</div><div class="eng">to practice / train</div></div></td>
+          <td>Verb</td>
+          <td>ครั้ง</td>
+          <td>可用於練語言、練發音、練開車、練運動。</td>
+          <td><div class="triad"><div class="thai">ฝึกพูด / ฝึกออกเสียง / ฝึกแต่งประโยค</div><div class="roman">fʉ̀k phûut / fʉ̀k ɔ̀ɔk-sǐang / fʉ̀k dtɛ̀ng bprà-yòok</div><div class="eng">practice speaking / practice pronunciation / practice making sentences</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันฝึกพูดภาษาไทยกับแม่ค้าทุกเช้าค่ะ</div><div class="roman">chǎn fʉ̀k phûut phaa-sǎa-thai gàp mɛ̂ɛ-kháa thúk cháo khâ</div><div class="eng">I practice speaking Thai with vendors every morning.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Ability & Effort｜能力、努力、撐得住</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เป็น</div><div class="roman">bpen</div><div class="eng">to be / to know how to do a skill</div></div></td>
+          <td>Verb / ability marker</td>
+          <td>—</td>
+          <td>本課重點是「會某技能」，例如會開車、會騎機車。不是一般的「可以」。</td>
+          <td><div class="triad"><div class="thai">ขับรถเป็น / ขี่มอเตอร์ไซค์เป็น / ว่ายน้ำเป็น</div><div class="roman">khàp-rót bpen / khìi mɔɔ-dtəə-sai bpen / wâai-náam bpen</div><div class="eng">know how to drive / know how to ride a motorcycle / know how to swim</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันขี่มอเตอร์ไซค์ไม่เป็นค่ะ แต่ขี่จักรยานเป็น</div><div class="roman">chǎn khìi mɔɔ-dtəə-sai mâi bpen khâ, dtɛ̀ɛ khìi jàk-grà-yaan bpen</div><div class="eng">I don’t know how to ride a motorcycle, but I know how to ride a bicycle.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ได้</div><div class="roman">dâai</div><div class="eng">can / able to / may</div></div></td>
+          <td>Ability / permission marker</td>
+          <td>—</td>
+          <td>表示做得到、可以做、被允許。不是技能本身，而是某次做得到。</td>
+          <td><div class="triad"><div class="thai">พูดได้ / เข้าได้ / ใส่ได้ / ทำได้</div><div class="roman">phûut dâai / khâo dâai / sài dâai / tham dâai</div><div class="eng">can speak / can enter / can wear / can do</div></div></td>
+          <td><div class="triad"><div class="thai">รองเท้าคู่นี้ใส่เข้าวัดได้ค่ะ</div><div class="roman">rɔɔng-tháao khûu níi sài khâo wát dâai khâ</div><div class="eng">These shoes can be worn into the temple.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไหว</div><div class="roman">wǎi</div><div class="eng">can handle / have enough energy</div></div></td>
+          <td>Capacity marker</td>
+          <td>—</td>
+          <td>重點是體力、精神、時間或狀態撐得住。常用 <span class="thai">ไม่ไหว</span>。</td>
+          <td><div class="triad"><div class="thai">ทำไม่ไหว / เดินไม่ไหว / กินไม่ไหว / รอไหว</div><div class="roman">tham mâi wǎi / dəən mâi wǎi / gin mâi wǎi / rɔɔ wǎi</div><div class="eng">can’t handle doing / can’t walk anymore / can’t eat anymore / can wait</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันเหนื่อยมาก เรียนต่อไม่ไหวค่ะ</div><div class="roman">wan-níi chǎn nʉ̀ai mâak, rian dtɔ̀ɔ mâi wǎi khâ</div><div class="eng">I’m very tired today. I can’t keep studying.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พยายาม</div><div class="roman">phá-yaa-yaam</div><div class="eng">to try / make an effort</div></div></td>
+          <td>Verb</td>
+          <td>ครั้ง</td>
+          <td>後面接動詞，表示努力做某事。常接 <span class="thai">ให้</span> 表示努力達到某結果。</td>
+          <td><div class="triad"><div class="thai">พยายามพูด / พยายามจำ / พยายามทำให้ดี</div><div class="roman">phá-yaa-yaam phûut / phá-yaa-yaam jam / phá-yaa-yaam tham hâi dii</div><div class="eng">try to speak / try to remember / try to do it well</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันพยายามจำวรรณยุกต์ให้แม่นค่ะ</div><div class="roman">chǎn phá-yaa-yaam jam wan-ná-yúk hâi mɛ̂n khâ</div><div class="eng">I try to memorize the tones accurately.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คล่อง</div><div class="roman">khlɔ̂ng</div><div class="eng">fluent / smoothly</div></div></td>
+          <td>Adjective / adverb</td>
+          <td>—</td>
+          <td>形容說話、閱讀、使用語言流暢自然。</td>
+          <td><div class="triad"><div class="thai">พูดคล่อง / อ่านคล่อง / ใช้ภาษาไทยคล่อง</div><div class="roman">phûut khlɔ̂ng / àan khlɔ̂ng / chái phaa-sǎa-thai khlɔ̂ng</div><div class="eng">speak fluently / read fluently / use Thai fluently</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าฝึกทุกวัน จะพูดภาษาไทยคล่องขึ้นค่ะ</div><div class="roman">thâa fʉ̀k thúk wan, jà phûut phaa-sǎa-thai khlɔ̂ng khʉ̂n khâ</div><div class="eng">If you practice every day, you will speak Thai more fluently.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ชัด</div><div class="roman">chát</div><div class="eng">clear / clearly</div></div></td>
+          <td>Adjective / adverb</td>
+          <td>—</td>
+          <td>形容聲音、發音、解釋、圖片、畫面清楚。</td>
+          <td><div class="triad"><div class="thai">พูดชัด / ออกเสียงชัด / อธิบายชัด / เห็นชัด</div><div class="roman">phûut chát / ɔ̀ɔk-sǐang chát / à-thí-baai chát / hěn chát</div><div class="eng">speak clearly / pronounce clearly / explain clearly / see clearly</div></div></td>
+          <td><div class="triad"><div class="thai">ครูอธิบายชัดมาก เลยเข้าใจง่ายค่ะ</div><div class="roman">khruu à-thí-baai chát mâak, ləəi khâo-jai ngâai khâ</div><div class="eng">The teacher explains very clearly, so it is easy to understand.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">คำ</span><div class="triad"><div class="thai">คำ</div><div class="roman">kham</div><div class="eng">word / classifier for words</div></div></td>
+          <td><div class="triad"><div class="thai">คำศัพท์ / คำใหม่ / คำยาก</div><div class="roman">kham-sàp / kham mài / kham yâak</div><div class="eng">vocabulary / new word / difficult word</div></div></td>
+          <td><span class="thai">คำ</span> 本身是「字詞」，也可直接當量詞。</td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันเรียนคำใหม่สิบคำค่ะ</div><div class="roman">wan-níi chǎn rian kham mài sìp kham khâ</div><div class="eng">Today I learned ten new words.</div></div></td>
+          <td>不要用 <span class="thai">อัน</span> 數單字；說 <span class="thai">สิบคำ</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ประโยค</span><div class="triad"><div class="thai">ประโยค</div><div class="roman">bprà-yòok</div><div class="eng">sentence / classifier for sentences</div></div></td>
+          <td><div class="triad"><div class="thai">ประโยคสั้น / ประโยคยาว / ประโยคตัวอย่าง</div><div class="roman">bprà-yòok sân / bprà-yòok yaao / bprà-yòok dtua-yàang</div><div class="eng">short sentence / long sentence / example sentence</div></div></td>
+          <td>句子用 <span class="thai">ประโยค</span> 數。</td>
+          <td><div class="triad"><div class="thai">ช่วยแต่งประโยคตัวอย่างสามประโยคได้ไหมคะ</div><div class="roman">chûai dtɛ̀ng bprà-yòok dtua-yàang sǎam bprà-yòok dâai mái khá</div><div class="eng">Could you make three example sentences?</div></div></td>
+          <td>「三個句子」不是 <span class="thai">สามอัน</span>，而是 <span class="thai">สามประโยค</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ครั้ง</span><div class="triad"><div class="thai">ครั้ง</div><div class="roman">khráng</div><div class="eng">time / occurrence</div></div></td>
+          <td><div class="triad"><div class="thai">อธิบาย / ฝึก / พูด / ออกเสียง</div><div class="roman">à-thí-baai / fʉ̀k / phûut / ɔ̀ɔk-sǐang</div><div class="eng">explain / practice / speak / pronounce</div></div></td>
+          <td>數動作發生幾次。</td>
+          <td><div class="triad"><div class="thai">ครูอธิบายสองครั้งแล้วค่ะ</div><div class="roman">khruu à-thí-baai sɔ̌ɔng khráng lɛ́ɛw khâ</div><div class="eng">The teacher has explained twice already.</div></div></td>
+          <td><span class="thai">อีกครั้ง</span> 是「再一次」，上課超常用。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ข้อ</span><div class="triad"><div class="thai">ข้อ</div><div class="roman">khɔ̂ɔ</div><div class="eng">item / question / point</div></div></td>
+          <td><div class="triad"><div class="thai">คำถาม / แบบฝึกหัด / ข้อสอบ / ปัญหา</div><div class="roman">kham-thǎam / bɛ̀ɛp-fʉ̀k-hàt / khɔ̂ɔ-sɔ̀ɔp / bpan-hǎa</div><div class="eng">question / exercise / exam question / problem</div></div></td>
+          <td>題目、問題、條列點常用 <span class="thai">ข้อ</span>。</td>
+          <td><div class="triad"><div class="thai">แบบฝึกหัดข้อนี้ยากค่ะ</div><div class="roman">bɛ̀ɛp-fʉ̀k-hàt khɔ̂ɔ níi yâak khâ</div><div class="eng">This exercise question is difficult.</div></div></td>
+          <td>「問題」若是題目可用 <span class="thai">ข้อ</span>；若是困難狀況可說 <span class="thai">ปัญหา</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คู่</span><div class="triad"><div class="thai">คู่</div><div class="roman">khûu</div><div class="eng">pair</div></div></td>
+          <td><div class="triad"><div class="thai">รองเท้า / ถุงเท้า / แว่นตา</div><div class="roman">rɔɔng-tháao / thǔng-tháo / wɛ̂ɛn-dtaa</div><div class="eng">shoes / socks / glasses</div></div></td>
+          <td>成雙成對物品用 <span class="thai">คู่</span>。</td>
+          <td><div class="triad"><div class="thai">รองเท้าคู่นี้ใส่เข้าวัดได้ไหมคะ</div><div class="roman">rɔɔng-tháao khûu níi sài khâo wát dâai mái khá</div><div class="eng">Can I wear this pair of shoes into the temple?</div></div></td>
+          <td><span class="label review">Review</span> Day 15 也用 <span class="thai">คู่</span> 數眼鏡、筷子、鞋。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜本課重點補充</h2>
+
+    <h3>เหมือนกัน / คล้ายกัน / ต่างกัน｜一樣、相似、不同</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Feeling</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>100% same</td>
+          <td><div class="triad"><div class="thai">เหมือนกัน</div><div class="roman">mʉ̌an-gan</div><div class="eng">same / identical / also</div></div></td>
+          <td>完全一樣，或「我也是」。</td>
+          <td>
+            <div class="triad"><div class="thai">เราสั่งกาแฟเหมือนกันค่ะ</div><div class="roman">rao sàng gaa-fɛɛ mʉ̌an-gan khâ</div><div class="eng">We ordered the same coffee.</div></div>
+            <div class="triad"><div class="thai">ฉันก็คิดเหมือนกันค่ะ</div><div class="roman">chǎn gɔ̂ɔ khít mʉ̌an-gan khâ</div><div class="eng">I think the same too.</div></div>
+            <div class="triad"><div class="thai">สองห้องนี้ราคาเหมือนกัน แต่วิวต่างกันค่ะ</div><div class="roman">sɔ̌ɔng hɔ̂ng níi raa-khaa mʉ̌an-gan, dtɛ̀ɛ wio dtàang-gan khâ</div><div class="eng">These two rooms have the same price, but different views.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Similar</td>
+          <td><div class="triad"><div class="thai">คล้ายกัน</div><div class="roman">khláai-gan</div><div class="eng">similar / alike</div></div></td>
+          <td>很像，但不是完全一樣。</td>
+          <td>
+            <div class="triad"><div class="thai">สำเนียงไทยกับลาวคล้ายกันบางคำค่ะ</div><div class="roman">sǎm-niang thai gàp laao khláai-gan baang kham khâ</div><div class="eng">Thai and Lao accents are similar in some words.</div></div>
+            <div class="triad"><div class="thai">ร้านนี้คล้ายร้านที่ฉันเคยไปที่เชียงใหม่ค่ะ</div><div class="roman">ráan níi khláai ráan thîi chǎn khəəi bpai thîi chiiang-mài khâ</div><div class="eng">This shop is similar to a shop I went to in Chiang Mai.</div></div>
+            <div class="triad"><div class="thai">คำว่า เป็น กับ ได้ คล้ายกันสำหรับคนต่างชาติค่ะ</div><div class="roman">kham wâa bpen gàp dâai khláai-gan sǎm-ràp khon dtàang-châat khâ</div><div class="eng">The words pen and dai seem similar for foreigners.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Different</td>
+          <td><div class="triad"><div class="thai">ต่างกัน</div><div class="roman">dtàang-gan</div><div class="eng">different</div></div></td>
+          <td>不同。可說語意、價格、習慣、文化不同。</td>
+          <td>
+            <div class="triad"><div class="thai">ภาษาไทยเขียนกับพูดต่างกันมากค่ะ</div><div class="roman">phaa-sǎa-thai khǐan gàp phûut dtàang-gan mâak khâ</div><div class="eng">Written Thai and spoken Thai are very different.</div></div>
+            <div class="triad"><div class="thai">ราคาหน้าร้านกับราคาในแอปต่างกันค่ะ</div><div class="roman">raa-khaa nâa-ráan gàp raa-khaa nai ɛ̀ɛp dtàang-gan khâ</div><div class="eng">The in-store price and app price are different.</div></div>
+            <div class="triad"><div class="thai">วัฒนธรรมการพูดตรง ๆ ของแต่ละประเทศต่างกันค่ะ</div><div class="roman">wát-thá-ná-tham gaan phûut dtrong-dtrong khɔ̌ɔng dtɛ̀ɛ-lá bprà-thêet dtàang-gan khâ</div><div class="eng">The culture of speaking directly differs by country.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>เป็น / ได้ / ไหว｜會、能、撐得住</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Core Meaning</th>
+          <th>Best Use</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เป็น</div><div class="roman">bpen</div><div class="eng">know how to do a learned skill</div></div></td>
+          <td>會某種需要學習的技能。</td>
+          <td>開車、騎車、游泳、煮飯、打字、使用工具。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันขับรถเป็น แต่ไม่ค่อยกล้าขับในกรุงเทพฯ ค่ะ</div><div class="roman">chǎn khàp-rót bpen, dtɛ̀ɛ mâi khɔ̂i glâa khàp nai grung-thêep khâ</div><div class="eng">I know how to drive, but I don’t really dare to drive in Bangkok.</div></div>
+            <div class="triad"><div class="thai">เขาทำอาหารไทยเป็นหลายอย่างค่ะ</div><div class="roman">khǎo tham aa-hǎan thai bpen lǎai yàang khâ</div><div class="eng">He knows how to make many Thai dishes.</div></div>
+            <div class="triad"><div class="thai">ฉันว่ายน้ำไม่เป็น เลยไม่กล้าลงทะเลลึกค่ะ</div><div class="roman">chǎn wâai-náam mâi bpen, ləəi mâi glâa long thá-lee lʉ́k khâ</div><div class="eng">I don’t know how to swim, so I don’t dare to go into deep sea.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ได้</div><div class="roman">dâai</div><div class="eng">can / able to / allowed to</div></div></td>
+          <td>做得到、可以、被允許。</td>
+          <td>說某語言、進入某場所、穿某衣服、完成某事。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันพูดภาษาไทยได้นิดหน่อยค่ะ</div><div class="roman">chǎn phûut phaa-sǎa-thai dâai nít-nɔ̀i khâ</div><div class="eng">I can speak a little Thai.</div></div>
+            <div class="triad"><div class="thai">เสื้อตัวนี้ใส่ไปสัมภาษณ์ได้ไหมคะ</div><div class="roman">sʉ̂a dtua níi sài bpai sǎm-phâat dâai mái khá</div><div class="eng">Can I wear this shirt to an interview?</div></div>
+            <div class="triad"><div class="thai">วันนี้ฉันทำการบ้านได้แค่ครึ่งเดียวค่ะ</div><div class="roman">wan-níi chǎn tham gaan-bâan dâai khɛ̂ɛ khrʉ̂ng-diao khâ</div><div class="eng">Today I could only finish half of the homework.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ไหว</div><div class="roman">wǎi</div><div class="eng">can handle / have energy to</div></div></td>
+          <td>身體、精神、時間撐得住。</td>
+          <td>累、病、太飽、太遠、太難、太忙時。</td>
+          <td>
+            <div class="triad"><div class="thai">วันนี้ฉันเรียนสามชั่วโมงไม่ไหวค่ะ</div><div class="roman">wan-níi chǎn rian sǎam chûa-moong mâi wǎi khâ</div><div class="eng">Today I can’t handle studying for three hours.</div></div>
+            <div class="triad"><div class="thai">เดินจากสถานีไปคอนโดไหวไหมคะ</div><div class="roman">dəən jàak sà-thǎa-nii bpai khɔɔn-doo wǎi mái khá</div><div class="eng">Can you handle walking from the station to the condo?</div></div>
+            <div class="triad"><div class="thai">อิ่มมากแล้ว กินของหวานไม่ไหวค่ะ</div><div class="roman">ìm mâak lɛ́ɛw, gin khɔ̌ɔng-wǎan mâi wǎi khâ</div><div class="eng">I’m already very full. I can’t handle dessert.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>最重要判斷法：</strong>
+      <span class="thai">เป็น</span> /
+      <span class="roman">bpen</span> /
+      <span class="eng">know how to</span>
+      是「技能會不會」；
+      <span class="thai">ได้</span> /
+      <span class="roman">dâai</span> /
+      <span class="eng">can / able to</span>
+      是「這件事做不做得到」；
+      <span class="thai">ไหว</span> /
+      <span class="roman">wǎi</span> /
+      <span class="eng">can handle</span>
+      是「體力精神撐不撐得住」。
+    </div>
+
+    <h3>คล่อง vs ชัด｜流利 vs 清楚</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>流利</td>
+          <td><div class="triad"><div class="thai">คล่อง</div><div class="roman">khlɔ̂ng</div><div class="eng">fluent / smooth</div></div></td>
+          <td>說得順、停頓少、反應快。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันอยากพูดภาษาไทยให้คล่องก่อนย้ายไปอยู่กรุงเทพฯ ค่ะ</div><div class="roman">chǎn yàak phûut phaa-sǎa-thai hâi khlɔ̂ng gɔ̀ɔn yáai bpai yùu grung-thêep khâ</div><div class="eng">I want to speak Thai fluently before moving to Bangkok.</div></div>
+            <div class="triad"><div class="thai">อ่านออกเสียงทุกวันช่วยให้อ่านคล่องขึ้นค่ะ</div><div class="roman">àan ɔ̀ɔk-sǐang thúk wan chûai hâi àan khlɔ̂ng khʉ̂n khâ</div><div class="eng">Reading aloud every day helps you read more fluently.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>清楚</td>
+          <td><div class="triad"><div class="thai">ชัด</div><div class="roman">chát</div><div class="eng">clear / clearly</div></div></td>
+          <td>發音清楚、解釋清楚、看得清楚。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันพูดไม่คล่อง แต่พยายามออกเสียงให้ชัดค่ะ</div><div class="roman">chǎn phûut mâi khlɔ̂ng, dtɛ̀ɛ phá-yaa-yaam ɔ̀ɔk-sǐang hâi chát khâ</div><div class="eng">I don’t speak fluently, but I try to pronounce clearly.</div></div>
+            <div class="triad"><div class="thai">ช่วยพูดช้า ๆ และชัด ๆ ได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa lɛ́ chát-chát dâai mái khá</div><div class="eng">Could you speak slowly and clearly?</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>คำนี้หมายความว่าอะไร?｜問意思的自然說法</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問單字意思</td>
+          <td><div class="triad"><div class="thai">คำนี้หมายความว่าอะไรคะ</div><div class="roman">kham níi mǎai-khwaam wâa à-rai khá</div><div class="eng">What does this word mean?</div></div></td>
+          <td>最常用、最自然。</td>
+        </tr>
+        <tr>
+          <td>問句子意思</td>
+          <td><div class="triad"><div class="thai">ประโยคนี้หมายความว่าอะไรคะ</div><div class="roman">bprà-yòok níi mǎai-khwaam wâa à-rai khá</div><div class="eng">What does this sentence mean?</div></div></td>
+          <td>看不懂整句時。</td>
+        </tr>
+        <tr>
+          <td>問老師能不能用中文解釋</td>
+          <td><div class="triad"><div class="thai">ช่วยอธิบายเป็นภาษาจีนได้ไหมคะ</div><div class="roman">chûai à-thí-baai bpen phaa-sǎa-jiin dâai mái khá</div><div class="eng">Could you explain it in Chinese?</div></div></td>
+          <td>在語言學校很實用。</td>
+        </tr>
+        <tr>
+          <td>問兩個字差別</td>
+          <td><div class="triad"><div class="thai">สองคำนี้ต่างกันยังไงคะ</div><div class="roman">sɔ̌ɔng kham níi dtàang-gan yang-ngai khá</div><div class="eng">How are these two words different?</div></div></td>
+          <td>比只問意思更深入。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Structures｜句型整理</h2>
+
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <h3>1. A + กับ + B + เหมือนกัน / คล้ายกัน / ต่างกัน</h3>
+      <div class="triad">
+        <div class="thai">A + กับ + B + เหมือนกัน / คล้ายกัน / ต่างกัน</div>
+        <div class="roman">A + gàp + B + mʉ̌an-gan / khláai-gan / dtàang-gan</div>
+        <div class="eng">A and B are the same / similar / different.</div>
+      </div>
+
+      <h4>Textbook-style concept</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">เหมือนกัน = 100%</div><div class="roman">mʉ̌an-gan = nʉ̀eng-rɔ́ɔi bper-sen</div><div class="eng">same = 100%</div></div></li>
+        <li><div class="triad"><div class="thai">คล้ายกัน = 80%</div><div class="roman">khláai-gan = bpɛ̀ɛt-sìp bper-sen</div><div class="eng">similar = 80%</div></div></li>
+        <li><div class="triad"><div class="thai">ต่างกัน = 0%</div><div class="roman">dtàang-gan = sǔun bper-sen</div><div class="eng">different = 0%</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">รสชาติร้านนี้กับร้านเมื่อวานคล้ายกันค่ะ</div><div class="roman">rót-châat ráan níi gàp ráan mʉ̂a-waan khláai-gan khâ</div><div class="eng">The taste of this shop and yesterday’s shop is similar.</div></div></li>
+        <li><div class="triad"><div class="thai">ห้องนี้กับห้องนั้นราคาเหมือนกัน แต่ขนาดต่างกันค่ะ</div><div class="roman">hɔ̂ng níi gàp hɔ̂ng nán raa-khaa mʉ̌an-gan, dtɛ̀ɛ khà-nàat dtàang-gan khâ</div><div class="eng">This room and that room have the same price, but different sizes.</div></div></li>
+        <li><div class="triad"><div class="thai">คำว่า ได้ กับ ไหว ใช้ต่างกันค่ะ</div><div class="roman">kham wâa dâai gàp wǎi chái dtàang-gan khâ</div><div class="eng">The words dai and wai are used differently.</div></div></li>
+        <li><div class="triad"><div class="thai">รูปประโยคนี้คล้ายกับภาษาอังกฤษนิดหน่อยค่ะ</div><div class="roman">rûup bprà-yòok níi khláai gàp phaa-sǎa ang-grìt nít-nɔ̀i khâ</div><div class="eng">This sentence pattern is a little similar to English.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>2. S + V, [S] เป็น + N</h3>
+      <div class="triad">
+        <div class="thai">Subject + Verb, Subject + เป็น + Noun</div>
+        <div class="roman">Subject + Verb, Subject + bpen + Noun</div>
+        <div class="eng">Subject does something, and it becomes Noun.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ครูอธิบายภาษาไทยเป็นภาษาอังกฤษค่ะ</div><div class="roman">khruu à-thí-baai phaa-sǎa-thai bpen phaa-sǎa ang-grìt khâ</div><div class="eng">The teacher explains Thai in English.</div></div></li>
+        <li><div class="triad"><div class="thai">เก็บน้ำในตู้เย็น น้ำเป็นน้ำแข็งค่ะ</div><div class="roman">gèp náam nai dtûu-yen, náam bpen náam-khɛ̌ng khâ</div><div class="eng">Keep water in the fridge/freezer; water becomes ice.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ครูแปลประโยคนี้เป็นภาษาจีนค่ะ</div><div class="roman">khruu bplɛɛ bprà-yòok níi bpen phaa-sǎa-jiin khâ</div><div class="eng">The teacher translates this sentence into Chinese.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันเขียนคำอ่านเป็นภาษาอังกฤษไว้ในสมุดค่ะ</div><div class="roman">chǎn khǐan kham-àan bpen phaa-sǎa ang-grìt wái nai sà-mùt khâ</div><div class="eng">I write the pronunciation in English in my notebook.</div></div></li>
+        <li><div class="triad"><div class="thai">เอามะม่วงไปปั่นเป็นสมูทตี้ค่ะ</div><div class="roman">ao má-mûang bpai bpàn bpen sà-muu-thîi khâ</div><div class="eng">Blend mango into a smoothie.</div></div></li>
+        <li><div class="triad"><div class="thai">พูดประโยคยาก ๆ ให้เป็นประโยคง่าย ๆ ได้ไหมคะ</div><div class="roman">phûut bprà-yòok yâak-yâak hâi bpen bprà-yòok ngâai-ngâai dâai mái khá</div><div class="eng">Could you say difficult sentences as simple sentences?</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>3. S + พยายาม + V + ให้ + Adj/Adv</h3>
+      <div class="triad">
+        <div class="thai">Subject + พยายาม + Verb + ให้ + Adjective / Adverb</div>
+        <div class="roman">Subject + phá-yaa-yaam + Verb + hâi + Adjective / Adverb</div>
+        <div class="eng">Subject tries to do something so that it becomes Adj/Adv.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ฉันพยายามพูดภาษาไทยให้คล่องค่ะ</div>
+        <div class="roman">chǎn phá-yaa-yaam phûut phaa-sǎa-thai hâi khlɔ̂ng khâ</div>
+        <div class="eng">I try to speak Thai fluently.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันพยายามออกเสียงให้ชัด เพราะคนไทยฟังไม่ค่อยเข้าใจค่ะ</div><div class="roman">chǎn phá-yaa-yaam ɔ̀ɔk-sǐang hâi chát, phrɔ́ khon thai fang mâi khɔ̂i khâo-jai khâ</div><div class="eng">I try to pronounce clearly because Thai people don’t always understand me.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันพยายามแต่งประโยคให้สั้นและธรรมชาติค่ะ</div><div class="roman">chǎn phá-yaa-yaam dtɛ̀ng bprà-yòok hâi sân lɛ́ tham-má-châat khâ</div><div class="eng">I try to make sentences short and natural.</div></div></li>
+        <li><div class="triad"><div class="thai">เขาพยายามจำคำศัพท์ให้ได้วันละสิบคำค่ะ</div><div class="roman">khǎo phá-yaa-yaam jam kham-sàp hâi dâai wan lá sìp kham khâ</div><div class="eng">He tries to memorize ten vocabulary words per day.</div></div></li>
+        <li><div class="triad"><div class="thai">ครูพยายามอธิบายให้เข้าใจง่ายค่ะ</div><div class="roman">khruu phá-yaa-yaam à-thí-baai hâi khâo-jai ngâai khâ</div><div class="eng">The teacher tries to explain it so it is easy to understand.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันพยายามพูดกับแม่ค้าให้กล้ามากขึ้นค่ะ</div><div class="roman">chǎn phá-yaa-yaam phûut gàp mɛ̂ɛ-kháa hâi glâa mâak khʉ̂n khâ</div><div class="eng">I try to talk to vendors so I become braver.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>4. S + V + เป็น / ไม่เป็น</h3>
+      <div class="triad">
+        <div class="thai">Subject + Verb + เป็น / ไม่เป็น</div>
+        <div class="roman">Subject + Verb + bpen / mâi bpen</div>
+        <div class="eng">Subject knows / does not know how to do a skill.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ครูขับรถเป็นค่ะ</div><div class="roman">khruu khàp-rót bpen khâ</div><div class="eng">The teacher knows how to drive.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันขี่มอเตอร์ไซค์ไม่เป็นค่ะ</div><div class="roman">chǎn khìi mɔɔ-dtəə-sai mâi bpen khâ</div><div class="eng">I don’t know how to ride a motorcycle.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันว่ายน้ำไม่เป็น เลยไม่ค่อยไปทะเลค่ะ</div><div class="roman">chǎn wâai-náam mâi bpen, ləəi mâi khɔ̂i bpai thá-lee khâ</div><div class="eng">I don’t know how to swim, so I don’t really go to the sea.</div></div></li>
+        <li><div class="triad"><div class="thai">เธอทำกับข้าวไทยเป็นไหมคะ</div><div class="roman">thəə tham gàp-khâao thai bpen mái khá</div><div class="eng">Do you know how to cook Thai food?</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันใช้แอปนี้ไม่เป็นค่ะ ช่วยสอนหน่อยได้ไหมคะ</div><div class="roman">chǎn chái ɛ̀ɛp níi mâi bpen khâ, chûai sɔ̌ɔn nòi dâai mái khá</div><div class="eng">I don’t know how to use this app. Could you teach me?</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>5. S + V + ได้ / ไม่ได้</h3>
+      <div class="triad">
+        <div class="thai">Subject + Verb + ได้ / ไม่ได้</div>
+        <div class="roman">Subject + Verb + dâai / mâi dâai</div>
+        <div class="eng">Subject can / cannot do something.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันใส่รองเท้าข้างในวัดได้ค่ะ</div><div class="roman">chǎn sài rɔɔng-tháao khâang-nai wát dâai khâ</div><div class="eng">I can wear shoes inside the temple.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันพูดภาษาอังกฤษได้ค่ะ</div><div class="roman">chǎn phûut phaa-sǎa ang-grìt dâai khâ</div><div class="eng">I can speak English.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">วันนี้ฉันไปเรียนไม่ได้ เพราะไม่สบายค่ะ</div><div class="roman">wan-níi chǎn bpai rian mâi dâai, phrɔ́ mâi sà-baai khâ</div><div class="eng">I can’t go to class today because I’m sick.</div></div></li>
+        <li><div class="triad"><div class="thai">ถ่ายรูปในวัดได้ไหมคะ</div><div class="roman">thàai-rûup nai wát dâai mái khá</div><div class="eng">Can I take photos inside the temple?</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันฟังภาษาไทยได้บ้าง แต่ยังตอบไม่ค่อยได้ค่ะ</div><div class="roman">chǎn fang phaa-sǎa-thai dâai bâang, dtɛ̀ɛ yang dtɔ̀ɔp mâi khɔ̂i dâai khâ</div><div class="eng">I can understand some Thai, but I still can’t really reply.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>6. S + V + ไหว / ไม่ไหว</h3>
+      <div class="triad">
+        <div class="thai">Subject + Verb + ไหว / ไม่ไหว</div>
+        <div class="roman">Subject + Verb + wǎi / mâi wǎi</div>
+        <div class="eng">Subject can / cannot handle doing something.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">วันนี้ฉันทำการบ้านไม่ไหวค่ะ</div>
+        <div class="roman">wan-níi chǎn tham gaan-bâan mâi wǎi khâ</div>
+        <div class="eng">Today I can’t handle doing homework.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">วันนี้เรียนต่อไม่ไหวค่ะ ปวดหัวมาก</div><div class="roman">wan-níi rian dtɔ̀ɔ mâi wǎi khâ, bpùat-hǔa mâak</div><div class="eng">I can’t keep studying today. I have a bad headache.</div></div></li>
+        <li><div class="triad"><div class="thai">เดินขึ้นบันไดห้าชั้นไหวไหมคะ</div><div class="roman">dəən khʉ̂n ban-dai hâa chán wǎi mái khá</div><div class="eng">Can you handle walking up five floors?</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันกินเผ็ดมากไม่ไหวค่ะ</div><div class="roman">chǎn gin phèt mâak mâi wǎi khâ</div><div class="eng">I can’t handle very spicy food.</div></div></li>
+        <li><div class="triad"><div class="thai">รออีกยี่สิบนาทีไหวไหมคะ</div><div class="roman">rɔɔ ìik yîi-sìp naa-thii wǎi mái khá</div><div class="eng">Can you wait another twenty minutes?</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>7. คำนี้ / ประโยคนี้ + หมายความว่าอะไรคะ?</h3>
+      <div class="triad">
+        <div class="thai">คำนี้ / ประโยคนี้ + หมายความว่าอะไรคะ?</div>
+        <div class="roman">kham níi / bprà-yòok níi + mǎai-khwaam wâa à-rai khá?</div>
+        <div class="eng">What does this word / sentence mean?</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">คำว่า ไหว หมายความว่าอะไรคะ</div><div class="roman">kham wâa wǎi mǎai-khwaam wâa à-rai khá</div><div class="eng">What does the word wai mean?</div></div></li>
+        <li><div class="triad"><div class="thai">ประโยคนี้หมายความว่าอะไรคะ อ่านแล้วงงค่ะ</div><div class="roman">bprà-yòok níi mǎai-khwaam wâa à-rai khá, àan lɛ́ɛw ngong khâ</div><div class="eng">What does this sentence mean? I read it and got confused.</div></div></li>
+        <li><div class="triad"><div class="thai">คำนี้ใช้กับคนหรือใช้กับของคะ</div><div class="roman">kham níi chái gàp khon rʉ̌ʉ chái gàp khɔ̌ɔng khá</div><div class="eng">Is this word used with people or things?</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問兩個詞差別</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สองคำนี้ต่างกันอย่างไรคะ</div><div class="roman">sɔ̌ɔng kham níi dtàang-gan yàang-rai khá</div><div class="eng">How are these two words different?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">สองคำนี้ต่างกันยังไงคะ</div><div class="roman">sɔ̌ɔng kham níi dtàang-gan yang-ngai khá</div><div class="eng">How are these two words different?</div></div></td>
+          <td><span class="thai">อย่างไร</span> 較正式，<span class="thai">ยังไง</span> 日常更常用。</td>
+        </tr>
+
+        <tr>
+          <td>問意思</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คำนี้มีความหมายอะไรคะ</div><div class="roman">kham níi mii khwaam-mǎai à-rai khá</div><div class="eng">What meaning does this word have?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">คำนี้แปลว่าอะไรคะ</div><div class="roman">kham níi bplɛɛ wâa à-rai khá</div><div class="eng">What does this word mean?</div></div></td>
+          <td><span class="thai">แปลว่าอะไร</span> 在學生問老師時非常自然。</td>
+        </tr>
+
+        <tr>
+          <td>說自己不會開車</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันขับรถไม่เป็นค่ะ</div><div class="roman">chǎn khàp-rót mâi bpen khâ</div><div class="eng">I don’t know how to drive.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขับรถไม่เป็นค่ะ เลยเรียก Grab ตลอด</div><div class="roman">khàp-rót mâi bpen khâ, ləəi rîak gráp dtà-lɔ̀ɔt</div><div class="eng">I don’t know how to drive, so I always call Grab.</div></div></td>
+          <td>在曼谷生活很自然：不會開車 → 叫 Grab / 搭 BTS。</td>
+        </tr>
+
+        <tr>
+          <td>說今天撐不住</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">วันนี้ฉันทำการบ้านไม่ไหวค่ะ</div><div class="roman">wan-níi chǎn tham gaan-bâan mâi wǎi khâ</div><div class="eng">Today I can’t handle doing homework.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วันนี้ไม่ไหวจริง ๆ ค่ะ เหนื่อยมาก</div><div class="roman">wan-níi mâi wǎi jing-jing khâ, nʉ̀ai mâak</div><div class="eng">I really can’t today. I’m very tired.</div></div></td>
+          <td><span class="thai">ไม่ไหวจริง ๆ</span> 很常用，表示真的撐不住。</td>
+        </tr>
+
+        <tr>
+          <td>請對方說清楚一點</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กรุณาพูดให้ชัดค่ะ</div><div class="roman">gà-rú-naa phûut hâi chát khâ</div><div class="eng">Please speak clearly.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ช่วยพูดช้า ๆ ชัด ๆ ได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa chát-chát dâai mái khá</div><div class="eng">Could you speak slowly and clearly?</div></div></td>
+          <td>真實對話中，請人放慢比只說「清楚」更有效。</td>
+        </tr>
+
+        <tr>
+          <td>說想練流利</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันพยายามพูดภาษาไทยให้คล่องค่ะ</div><div class="roman">chǎn phá-yaa-yaam phûut phaa-sǎa-thai hâi khlɔ̂ng khâ</div><div class="eng">I try to speak Thai fluently.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยากพูดไทยให้ลื่นกว่านี้ค่ะ</div><div class="roman">yàak phûut thai hâi lʉ̂ʉn gwàa níi khâ</div><div class="eng">I want to speak Thai more smoothly than this.</div></div></td>
+          <td><span class="thai">ลื่น</span> 字面是滑順，也可口語表示講話更順。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bangkok" class="tab-content">
+    <h2>Bangkok Expansion｜曼谷生活實用場景</h2>
+
+    <h3>1. Thai Class｜請老師解釋差別</h3>
+    <div class="cards">
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">สองคำนี้ต่างกันยังไงคะ</div><div class="roman">sɔ̌ɔng kham níi dtàang-gan yang-ngai khá</div><div class="eng">How are these two words different?</div></div>
+        <p>上課問老師最實用。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ช่วยยกตัวอย่างให้หน่อยได้ไหมคะ</div><div class="roman">chûai yók dtua-yàang hâi nòi dâai mái khá</div><div class="eng">Could you give me an example?</div></div>
+        <p>當你聽懂解釋但不會用時。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ขอประโยคที่ใช้จริงในชีวิตประจำวันได้ไหมคะ</div><div class="roman">khɔ̌ɔ bprà-yòok thîi chái jing nai chii-wít bprà-jam-wan dâai mái khá</div><div class="eng">Could I have a sentence that is actually used in daily life?</div></div>
+        <p>很符合你的學習需求。</p>
+      </div>
+    </div>
+
+    <h3>2. Speaking Practice｜請對方幫你聽發音</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันออกเสียงคำนี้ถูกไหมคะ</div><div class="roman">chǎn ɔ̀ɔk-sǐang kham níi thùuk mái khá</div><div class="eng">Am I pronouncing this word correctly?</div></div>
+        <p>問發音對不對。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันพูดชัดไหมคะ</div><div class="roman">chǎn phûut chát mái khá</div><div class="eng">Am I speaking clearly?</div></div>
+        <p>問清不清楚。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ถ้าฉันพูดผิด ช่วยแก้ให้หน่อยนะคะ</div><div class="roman">thâa chǎn phûut phìt, chûai gɛ̂ɛ hâi nòi ná khá</div><div class="eng">If I speak incorrectly, please correct me.</div></div>
+        <p>跟朋友、老師、語伴都可用。</p>
+      </div>
+    </div>
+
+    <h3>3. Daily Ability｜會不會開車、騎車、游泳</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ขับรถเป็นไหมคะ</div><div class="roman">khàp-rót bpen mái khá</div><div class="eng">Do you know how to drive?</div></div>
+        <p>問技能。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันขี่มอเตอร์ไซค์ไม่เป็นค่ะ</div><div class="roman">chǎn khìi mɔɔ-dtəə-sai mâi bpen khâ</div><div class="eng">I don’t know how to ride a motorcycle.</div></div>
+        <p>曼谷/外府生活常用。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ว่ายน้ำเป็น แต่ไม่ค่อยเก่งค่ะ</div><div class="roman">wâai-náam bpen, dtɛ̀ɛ mâi khɔ̂i gèng khâ</div><div class="eng">I know how to swim, but I’m not very good.</div></div>
+        <p>自然補充能力程度。</p>
+      </div>
+    </div>
+
+    <h3>4. Exhausted Day｜今天真的撐不住</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">วันนี้เรียนต่อไม่ไหวค่ะ</div><div class="roman">wan-níi rian dtɔ̀ɔ mâi wǎi khâ</div><div class="eng">I can’t keep studying today.</div></div>
+        <p>累到無法繼續。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ขอพักก่อนสิบ分钟ได้ไหมคะ</div><div class="roman">khɔ̌ɔ phák gɔ̀ɔn sìp naa-thii dâai mái khá</div><div class="eng">Can I rest for ten minutes first?</div></div>
+        <p>上課或運動都可用。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันยังไหวค่ะ แต่อยากพูดช้าลงหน่อย</div><div class="roman">chǎn yang wǎi khâ, dtɛ̀ɛ yàak phûut cháa long nòi</div><div class="eng">I can still handle it, but I want to speak a bit slower.</div></div>
+        <p>不是完全放棄，而是調整速度。</p>
+      </div>
+    </div>
+
+    <h3>5. Vocabulary Notebook｜整理單字與句型</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันจดคำศัพท์ใหม่ไว้ในสมุดค่ะ</div><div class="roman">chǎn jòt kham-sàp mài wái nai sà-mùt khâ</div><div class="eng">I write new vocabulary in my notebook.</div></div>
+        <p>學習習慣。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันพยายามแต่งประโยคเองทุกวันค่ะ</div><div class="roman">chǎn phá-yaa-yaam dtɛ̀ng bprà-yòok eeng thúk wan khâ</div><div class="eng">I try to make sentences by myself every day.</div></div>
+        <p>輸出練習。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ประโยคนี้ใช้จริงไหมคะ</div><div class="roman">bprà-yòok níi chái jing mái khá</div><div class="eng">Is this sentence actually used?</div></div>
+        <p>避免只學教科書句。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>語言學校：問老師兩個詞差在哪</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ครูคะ สองคำนี้ความหมายคล้ายกันไหมคะ</div><div class="roman">khruu khá, sɔ̌ɔng kham níi khwaam-mǎai khláai-gan mái khá</div><div class="eng">Teacher, are the meanings of these two words similar?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">คล้ายกันนิดหน่อยค่ะ แต่ใช้ต่างกัน</div><div class="roman">khláai-gan nít-nɔ̀i khâ, dtɛ̀ɛ chái dtàang-gan</div><div class="eng">They are a little similar, but used differently.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ช่วยยกตัวอย่างในชีวิตประจำวันได้ไหมคะ</div><div class="roman">chûai yók dtua-yàang nai chii-wít bprà-jam-wan dâai mái khá</div><div class="eng">Could you give an example from daily life?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ เช่น เป็น ใช้กับทักษะ แต่ ได้ ใช้กับความสามารถหรือการอนุญาตค่ะ</div><div class="roman">dâai khâ, chên bpen chái gàp thák-sà, dtɛ̀ɛ dâai chái gàp khwaam-sǎa-mâat rʉ̌ʉ gaan à-nú-yâat khâ</div><div class="eng">Sure. For example, pen is used with skills, but dai is used with ability or permission.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อ๋อ เข้าใจขึ้นแล้วค่ะ</div><div class="roman">ɔ̌ɔ, khâo-jai khʉ̂n lɛ́ɛw khâ</div><div class="eng">Oh, I understand better now.</div></div></div>
+    </div>
+
+    <h3>跟語伴練口說：請他幫你糾正</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">วันนี้ฉันอยากฝึกพูดภาษาไทยให้คล่องค่ะ</div><div class="roman">wan-níi chǎn yàak fʉ̀k phûut phaa-sǎa-thai hâi khlɔ̂ng khâ</div><div class="eng">Today I want to practice speaking Thai fluently.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Language Partner</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้เลย พูดเรื่องอะไรก็ได้</div><div class="roman">dâai ləəi, phûut rʉ̂ang à-rai gɔ̂ɔ dâai</div><div class="eng">Sure, you can talk about anything.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ถ้าฉันพูดผิด ช่วยแก้ให้หน่อยนะคะ</div><div class="roman">thâa chǎn phûut phìt, chûai gɛ̂ɛ hâi nòi ná khá</div><div class="eng">If I say something wrong, please correct me.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Language Partner</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">โอเค แต่เมื่อกี้เธอพูดชัดมากนะ</div><div class="roman">oo-khee, dtɛ̀ɛ mʉ̂a-gîi thəə phûut chát mâak ná</div><div class="eng">Okay, but just now you spoke very clearly.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">จริงเหรอคะ ฉันยังพูดไม่ค่อยคล่องค่ะ</div><div class="roman">jing rə̌ə khá, chǎn yang phûut mâi khɔ̂i khlɔ̂ng khâ</div><div class="eng">Really? I still don’t speak very fluently.</div></div></div>
+    </div>
+
+    <h3>朋友問你會不會騎機車</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เธอขี่มอเตอร์ไซค์เป็นไหม</div><div class="roman">thəə khìi mɔɔ-dtəə-sai bpen mái</div><div class="eng">Do you know how to ride a motorcycle?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไม่เป็นค่ะ ขับรถก็ไม่เป็น</div><div class="roman">mâi bpen khâ, khàp-rót gɔ̂ɔ mâi bpen</div><div class="eng">No, I don’t. I also don’t know how to drive.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">แล้วไปเรียนยังไง</div><div class="roman">lɛ́ɛw bpai rian yang-ngai</div><div class="eng">Then how do you go to class?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ฉันนั่ง BTS หรือเรียก Grab ค่ะ</div><div class="roman">chǎn nâng bii-thii-èet rʉ̌ʉ rîak gráp khâ</div><div class="eng">I take the BTS or call Grab.</div></div></div>
+    </div>
+
+    <h3>上課太累：今天做不動</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">วันนี้อยากฝึกแต่งประโยคต่อไหมคะ</div><div class="roman">wan-níi yàak fʉ̀k dtɛ̀ng bprà-yòok dtɔ̀ɔ mái khá</div><div class="eng">Do you want to continue practicing making sentences today?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">วันนี้ไม่ไหวจริง ๆ ค่ะ เหนื่อยมาก</div><div class="roman">wan-níi mâi wǎi jing-jing khâ, nʉ̀ai mâak</div><div class="eng">I really can’t today. I’m very tired.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">โอเค งั้นฝึกออกเสียงสั้น ๆ ก็พอค่ะ</div><div class="roman">oo-khee, ngán fʉ̀k ɔ̀ɔk-sǐang sân-sân gɔ̂ɔ phɔɔ khâ</div><div class="eng">Okay, then a short pronunciation practice is enough.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ได้ค่ะ ขอพูดช้า ๆ นะคะ</div><div class="roman">dâai khâ, khɔ̌ɔ phûut cháa-cháa ná khá</div><div class="eng">Okay. I’ll speak slowly.</div></div></div>
+    </div>
+
+    <h3>問店員：這兩個東西差在哪</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สองอันนี้ต่างกันยังไงคะ</div><div class="roman">sɔ̌ɔng an níi dtàang-gan yang-ngai khá</div><div class="eng">How are these two different?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อันนี้ใหญ่กว่า แต่อันนี้เบากว่าค่ะ</div><div class="roman">an níi yài gwàa, dtɛ̀ɛ an níi bao gwàa khâ</div><div class="eng">This one is bigger, but this one is lighter.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ราคาเหมือนกันไหมคะ</div><div class="roman">raa-khaa mʉ̌an-gan mái khá</div><div class="eng">Are the prices the same?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไม่เหมือนกันค่ะ อันใหญ่แพงกว่านิดหน่อย</div><div class="roman">mâi mʉ̌an-gan khâ, an yài phɛɛng gwàa nít-nɔ̀i</div><div class="eng">No, they are not the same. The bigger one is a little more expensive.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เป็น / ได้ 混用</div><div class="roman">bpen / dâai</div><div class="eng">know how to / can</div></div></td>
+          <td><span class="thai">เป็น</span> 是技能會不會；<span class="thai">ได้</span> 是做得到或被允許。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันขับรถเป็นค่ะ</div><div class="roman">chǎn khàp-rót bpen khâ</div><div class="eng">I know how to drive.</div></div>
+            <div class="triad"><div class="thai">วันนี้ฉันขับรถไปได้ค่ะ</div><div class="roman">wan-níi chǎn khàp-rót bpai dâai khâ</div><div class="eng">Today I can drive there.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ได้ / ไหว 混用</div><div class="roman">dâai / wǎi</div><div class="eng">can / can handle</div></div></td>
+          <td><span class="thai">ได้</span> 是能力或可行；<span class="thai">ไหว</span> 是體力精神撐得住。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันอ่านภาษาไทยได้ค่ะ</div><div class="roman">chǎn àan phaa-sǎa-thai dâai khâ</div><div class="eng">I can read Thai.</div></div>
+            <div class="triad"><div class="thai">วันนี้อ่านหนังสือต่อไม่ไหวค่ะ</div><div class="roman">wan-níi àan nǎng-sʉ̌ʉ dtɔ̀ɔ mâi wǎi khâ</div><div class="eng">Today I can’t handle continuing to read.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คล่อง / ชัด 混用</div><div class="roman">khlɔ̂ng / chát</div><div class="eng">fluent / clear</div></div></td>
+          <td><span class="thai">คล่อง</span> 是順、流利；<span class="thai">ชัด</span> 是清楚。</td>
+          <td>
+            <div class="triad"><div class="thai">เขาพูดภาษาไทยคล่องค่ะ</div><div class="roman">khǎo phûut phaa-sǎa-thai khlɔ̂ng khâ</div><div class="eng">He speaks Thai fluently.</div></div>
+            <div class="triad"><div class="thai">เขาออกเสียงชัดค่ะ</div><div class="roman">khǎo ɔ̀ɔk-sǐang chát khâ</div><div class="eng">He pronounces clearly.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เหมือนกัน / คล้ายกัน 太快說成一樣</div><div class="roman">mʉ̌an-gan / khláai-gan</div><div class="eng">same / similar</div></div></td>
+          <td>不是完全一樣時，說 <span class="thai">คล้ายกัน</span> 比較精準。</td>
+          <td>
+            <div class="triad"><div class="thai">สองคำนี้คล้ายกัน แต่ไม่เหมือนกันค่ะ</div><div class="roman">sɔ̌ɔng kham níi khláai-gan, dtɛ̀ɛ mâi mʉ̌an-gan khâ</div><div class="eng">These two words are similar, but not the same.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">พยายาม 後面忘記接動詞</div><div class="roman">phá-yaa-yaam</div><div class="eng">try / make effort</div></div></td>
+          <td><span class="thai">พยายาม</span> 後面通常接你努力做的事情。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันพยายามพูดภาษาไทยให้คล่องค่ะ</div><div class="roman">chǎn phá-yaa-yaam phûut phaa-sǎa-thai hâi khlɔ̂ng khâ</div><div class="eng">I try to speak Thai fluently.</div></div>
+            <div class="triad"><div class="thai">ฉันพยายามจำคำศัพท์ให้ได้ค่ะ</div><div class="roman">chǎn phá-yaa-yaam jam kham-sàp hâi dâai khâ</div><div class="eng">I try to memorize the vocabulary successfully.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คำนี้มีความหมายอะไร 太書面</div><div class="roman">kham níi mii khwaam-mǎai à-rai</div><div class="eng">what meaning does this word have?</div></div></td>
+          <td>可以說，但上課口語更常聽到 <span class="thai">แปลว่าอะไร</span> 或 <span class="thai">หมายความว่าอะไร</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">คำนี้แปลว่าอะไรคะ</div><div class="roman">kham níi bplɛɛ wâa à-rai khá</div><div class="eng">What does this word mean?</div></div>
+            <div class="triad"><div class="thai">คำนี้หมายความว่าอะไรคะ</div><div class="roman">kham níi mǎai-khwaam wâa à-rai khá</div><div class="eng">What does this word mean?</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+
+    <details>
+      <summary>same / similar / different</summary>
+      <div class="triad"><div class="thai">เหมือนกัน / คล้ายกัน / ต่างกัน</div><div class="roman">mʉ̌an-gan / khláai-gan / dtàang-gan</div><div class="eng">same / similar / different</div></div>
+      <p><strong>Chinese Explanation:</strong> 100% 一樣、80% 相似、0% 不同。</p>
+    </details>
+
+    <details>
+      <summary>know how to / can / can handle</summary>
+      <div class="triad"><div class="thai">เป็น / ได้ / ไหว</div><div class="roman">bpen / dâai / wǎi</div><div class="eng">know how to / can / can handle</div></div>
+      <p><strong>Chinese Explanation:</strong> Day 16 最重要能力三件套。</p>
+    </details>
+
+    <details>
+      <summary>pronounce / word / sentence / sentence pattern / meaning</summary>
+      <div class="triad"><div class="thai">ออกเสียง / คำ / ประโยค / รูปประโยค / ความหมาย</div><div class="roman">ɔ̀ɔk-sǐang / kham / bprà-yòok / rûup bprà-yòok / khwaam-mǎai</div><div class="eng">pronounce / word / sentence / sentence pattern / meaning</div></div>
+      <p><strong>Chinese Explanation:</strong> 語言學習必備詞。</p>
+    </details>
+
+    <details>
+      <summary>fluent / clear / try / explain / make a sentence</summary>
+      <div class="triad"><div class="thai">คล่อง / ชัด / พยายาม / อธิบาย / แต่งประโยค</div><div class="roman">khlɔ̂ng / chát / phá-yaa-yaam / à-thí-baai / dtɛ̀ng bprà-yòok</div><div class="eng">fluent / clear / try / explain / make a sentence</div></div>
+      <p><strong>Chinese Explanation:</strong> 上課互動高頻詞。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+
+    <details>
+      <summary>ten new words</summary>
+      <div class="triad"><div class="thai">คำใหม่สิบคำ</div><div class="roman">kham mài sìp kham</div><div class="eng">ten new words</div></div>
+      <p><strong>Chinese Explanation:</strong> 單字用 <span class="thai">คำ</span> 數。</p>
+    </details>
+
+    <details>
+      <summary>three example sentences</summary>
+      <div class="triad"><div class="thai">ประโยคตัวอย่างสามประโยค</div><div class="roman">bprà-yòok dtua-yàang sǎam bprà-yòok</div><div class="eng">three example sentences</div></div>
+      <p><strong>Chinese Explanation:</strong> 句子用 <span class="thai">ประโยค</span> 數。</p>
+    </details>
+
+    <details>
+      <summary>explain one more time</summary>
+      <div class="triad"><div class="thai">อธิบายอีกครั้ง</div><div class="roman">à-thí-baai ìik khráng</div><div class="eng">explain one more time</div></div>
+      <p><strong>Chinese Explanation:</strong> 動作次數用 <span class="thai">ครั้ง</span>。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+
+    <details>
+      <summary>這兩個詞意思很像，但用法不同。</summary>
+      <div class="triad"><div class="thai">สองคำนี้ความหมายคล้ายกันมาก แต่ใช้ต่างกันค่ะ</div><div class="roman">sɔ̌ɔng kham níi khwaam-mǎai khláai-gan mâak, dtɛ̀ɛ chái dtàang-gan khâ</div><div class="eng">These two words have very similar meanings, but are used differently.</div></div>
+      <p><strong>Chinese Explanation:</strong> 同時練 <span class="thai">คล้ายกัน</span> 和 <span class="thai">ต่างกัน</span>。</p>
+    </details>
+
+    <details>
+      <summary>我努力把泰文說得更流利。</summary>
+      <div class="triad"><div class="thai">ฉันพยายามพูดภาษาไทยให้คล่องขึ้นค่ะ</div><div class="roman">chǎn phá-yaa-yaam phûut phaa-sǎa-thai hâi khlɔ̂ng khʉ̂n khâ</div><div class="eng">I try to speak Thai more fluently.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ให้คล่องขึ้น</span> = 變得更流利。</p>
+    </details>
+
+    <details>
+      <summary>我不會騎機車。</summary>
+      <div class="triad"><div class="thai">ฉันขี่มอเตอร์ไซค์ไม่เป็นค่ะ</div><div class="roman">chǎn khìi mɔɔ-dtəə-sai mâi bpen khâ</div><div class="eng">I don’t know how to ride a motorcycle.</div></div>
+      <p><strong>Chinese Explanation:</strong> 技能會不會用 <span class="thai">เป็น</span>。</p>
+    </details>
+
+    <details>
+      <summary>今天我真的做不動功課。</summary>
+      <div class="triad"><div class="thai">วันนี้ฉันทำการบ้านไม่ไหวจริง ๆ ค่ะ</div><div class="roman">wan-níi chǎn tham gaan-bâan mâi wǎi jing-jing khâ</div><div class="eng">Today I really can’t handle doing homework.</div></div>
+      <p><strong>Chinese Explanation:</strong> 撐不住用 <span class="thai">ไม่ไหว</span>。</p>
+    </details>
+
+    <details>
+      <summary>這個字怎麼發音？</summary>
+      <div class="triad"><div class="thai">คำนี้ออกเสียงยังไงคะ</div><div class="roman">kham níi ɔ̀ɔk-sǐang yang-ngai khá</div><div class="eng">How do you pronounce this word?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ยังไง</span> 是口語「怎麼」。</p>
+    </details>
+
+    <details>
+      <summary>可以請你說慢一點、清楚一點嗎？</summary>
+      <div class="triad"><div class="thai">ช่วยพูดช้า ๆ และชัด ๆ หน่อยได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa lɛ́ chát-chát nòi dâai mái khá</div><div class="eng">Could you speak a bit slower and more clearly?</div></div>
+      <p><strong>Chinese Explanation:</strong> 生活中比「我聽不懂」更柔和。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+
+    <details>
+      <summary>把「สองคำนี้ต่างกันอย่างไรคะ」改成自然口語。</summary>
+      <div class="triad"><div class="thai">สองคำนี้ต่างกันยังไงคะ</div><div class="roman">sɔ̌ɔng kham níi dtàang-gan yang-ngai khá</div><div class="eng">How are these two words different?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ยังไง</span> 比 <span class="thai">อย่างไร</span> 口語。</p>
+    </details>
+
+    <details>
+      <summary>把「คำนี้มีความหมายอะไรคะ」改成學生常問老師的說法。</summary>
+      <div class="triad"><div class="thai">คำนี้แปลว่าอะไรคะ</div><div class="roman">kham níi bplɛɛ wâa à-rai khá</div><div class="eng">What does this word mean?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">แปลว่าอะไร</span> 上課非常常用。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>Top 10｜今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="priority">1</span></td>
+          <td><div class="triad"><div class="thai">สองคำนี้ต่างกันยังไงคะ</div><div class="roman">sɔ̌ɔng kham níi dtàang-gan yang-ngai khá</div><div class="eng">How are these two words different?</div></div></td>
+          <td>問差異</td>
+        </tr>
+        <tr>
+          <td><span class="priority">2</span></td>
+          <td><div class="triad"><div class="thai">คำนี้แปลว่าอะไรคะ</div><div class="roman">kham níi bplɛɛ wâa à-rai khá</div><div class="eng">What does this word mean?</div></div></td>
+          <td>問意思</td>
+        </tr>
+        <tr>
+          <td><span class="priority">3</span></td>
+          <td><div class="triad"><div class="thai">ช่วยอธิบายอีกครั้งได้ไหมคะ</div><div class="roman">chûai à-thí-baai ìik khráng dâai mái khá</div><div class="eng">Could you explain it one more time?</div></div></td>
+          <td>請老師再講一次</td>
+        </tr>
+        <tr>
+          <td><span class="priority">4</span></td>
+          <td><div class="triad"><div class="thai">ฉันพยายามพูดภาษาไทยให้คล่องค่ะ</div><div class="roman">chǎn phá-yaa-yaam phûut phaa-sǎa-thai hâi khlɔ̂ng khâ</div><div class="eng">I try to speak Thai fluently.</div></div></td>
+          <td>學習目標</td>
+        </tr>
+        <tr>
+          <td><span class="priority">5</span></td>
+          <td><div class="triad"><div class="thai">ฉันพยายามออกเสียงให้ชัดค่ะ</div><div class="roman">chǎn phá-yaa-yaam ɔ̀ɔk-sǐang hâi chát khâ</div><div class="eng">I try to pronounce clearly.</div></div></td>
+          <td>發音練習</td>
+        </tr>
+        <tr>
+          <td><span class="priority">6</span></td>
+          <td><div class="triad"><div class="thai">ฉันขับรถไม่เป็นค่ะ</div><div class="roman">chǎn khàp-rót mâi bpen khâ</div><div class="eng">I don’t know how to drive.</div></div></td>
+          <td>技能不會</td>
+        </tr>
+        <tr>
+          <td><span class="priority">7</span></td>
+          <td><div class="triad"><div class="thai">ฉันพูดภาษาไทยได้นิดหน่อยค่ะ</div><div class="roman">chǎn phûut phaa-sǎa-thai dâai nít-nɔ̀i khâ</div><div class="eng">I can speak a little Thai.</div></div></td>
+          <td>語言能力</td>
+        </tr>
+        <tr>
+          <td><span class="priority">8</span></td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันทำการบ้านไม่ไหวค่ะ</div><div class="roman">wan-níi chǎn tham gaan-bâan mâi wǎi khâ</div><div class="eng">Today I can’t handle doing homework.</div></div></td>
+          <td>撐不住</td>
+        </tr>
+        <tr>
+          <td><span class="priority">9</span></td>
+          <td><div class="triad"><div class="thai">ช่วยพูดช้า ๆ และชัด ๆ ได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa lɛ́ chát-chát dâai mái khá</div><div class="eng">Could you speak slowly and clearly?</div></div></td>
+          <td>請對方放慢</td>
+        </tr>
+        <tr>
+          <td><span class="priority">10</span></td>
+          <td><div class="triad"><div class="thai">ประโยคนี้ใช้จริงไหมคะ</div><div class="roman">bprà-yòok níi chái jing mái khá</div><div class="eng">Is this sentence actually used?</div></div></td>
+          <td>確認是否道地</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <h3>Day 16 核心記憶</h3>
+      <p>
+        這課最重要的是三組比較：
+        <span class="thai">เหมือนกัน / คล้ายกัน / ต่างกัน</span>、
+        <span class="thai">เป็น / ได้ / ไหว</span>、
+        <span class="thai">คล่อง / ชัด</span>。
+        你之後在語言學校、跟語伴練習、問老師文法時，會非常常用。
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function openTab(event,tabId){
+  const contents=document.querySelectorAll('.tab-content');
+  const buttons=document.querySelectorAll('.tab-btn');
+  contents.forEach(c=>c.classList.remove('active'));
+  buttons.forEach(b=>b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

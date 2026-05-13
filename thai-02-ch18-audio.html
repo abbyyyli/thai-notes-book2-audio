@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 18 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: #9a3412;
+      border: .5px solid rgba(249,115,22,.35);
+      font-weight: 800;
+      margin-right: 6px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 18 學習指南</h1>
+    <p class="subtitle">主題：持續多久、學習感受、情緒詞、決心與希望、不確定、原因結果</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Overview｜本課總覽</h2>
+
+    <div class="cards">
+      <div class="card">
+        <span class="label textbook">Textbook-based</span>
+        <h3>本課主要學什麼？</h3>
+        <ol>
+          <li>用 <strong>S + V + [มา] + time + แล้ว</strong> 表達「已經做某事多久了」。</li>
+          <li>用 <strong>เวลา...ทำให้...รู้สึก...</strong> 表達「做某事讓我感覺……」。</li>
+          <li>學情緒詞：開心、難過、驚訝、害怕、不安、可惜、擔心、壓力大、無聊、想念、生氣、不爽。</li>
+          <li>用 <strong>รู้สึก + emotion + ที่จะ...</strong> 表達「想到即將做某事而感到……」。</li>
+          <li>用 <strong>ตั้งใจ + V</strong> 表達「下定決心、認真打算做某事」。</li>
+          <li>用 <strong>ไม่แน่ใจว่าจะ...</strong> 表達「不確定會不會……」。</li>
+          <li>用 <strong>หวังว่า...จะไม่...</strong> 表達「希望不會……」。</li>
+          <li>用 <strong>เพราะว่า...</strong> 與 <strong>ก็เลย...</strong> 做原因結果轉換。</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <span class="label local">Supplement / Local usage</span>
+        <h3>曼谷生活會怎麼用？</h3>
+        <p>
+          Day 18 很像「把心裡話說出來」的一課。你可以說自己來泰國多久了、學泰文多久了、搬來曼谷讓你感覺怎樣、對下個月計畫不確定、希望明天不要下雨、因為想講泰文更好所以認真學。這些句子很適合跟老師、朋友、語伴、男友聊天。
+        </p>
+      </div>
+    </div>
+
+    <h3>你學完後可以說什麼？</h3>
+
+    <div class="cards">
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันเรียนภาษาไทยมาสองเดือนแล้วค่ะ</div>
+          <div class="roman">chǎn rian phaa-sǎa-thai maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div>
+          <div class="eng">I have been studying Thai for two months.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">เวลาเรียนภาษาไทยทำให้ฉันรู้สึกสนุกค่ะ</div>
+          <div class="roman">wee-laa rian phaa-sǎa-thai tham-hâi chǎn rúu-sʉ̀k sà-nùk khâ</div>
+          <div class="eng">Studying Thai makes me feel happy/fun.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันรู้สึกดีใจที่จะเรียนเล่มสองเสร็จแล้วค่ะ</div>
+          <div class="roman">chǎn rúu-sʉ̀k dii-jai thîi jà rian lêm sɔ̌ɔng sèt lɛ́ɛw khâ</div>
+          <div class="eng">I feel happy that I’m going to finish Book 2.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันตั้งใจเรียนภาษาไทยให้เก่งค่ะ</div>
+          <div class="roman">chǎn dtâng-jai rian phaa-sǎa-thai hâi gèng khâ</div>
+          <div class="eng">I’m determined to study Thai well.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันไม่แน่ใจว่าจะเรียนภาษาไทยเดือนหน้าค่ะ</div>
+          <div class="roman">chǎn mâi nɛ̂ɛ-jai wâa jà rian phaa-sǎa-thai dʉan nâa khâ</div>
+          <div class="eng">I’m not sure if I will study Thai next month.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันหวังว่าพรุ่งนี้ฝนจะไม่ตกค่ะ</div>
+          <div class="roman">chǎn wǎng wâa phrûng-níi fǒn jà mâi dtòk khâ</div>
+          <div class="eng">I hope it won’t rain tomorrow.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <h3>本課 PDF 對應重點</h3>
+      <p>第 2 頁：核心句型 <strong>S+V [มา] + time + แล้ว</strong>，例如老師在 RTL 工作 2 年、Paul 在泰國住 5 個月、學生學泰文 2 個月；同頁也有問答：<strong>เวลาเรียนภาษาไทยทำให้...รู้สึกยังไง?</strong></p>
+      <p>第 3 頁：情緒詞彙集中整理，包含 <strong>รู้สึกดีใจ</strong> 與 <strong>รู้สึกเสียใจ</strong> 的對比，以及驚訝、害怕、不安心、可惜、擔心、壓力、無聊、想念、生氣、不爽。</p>
+      <p>第 4 頁：句型 <strong>ตั้งใจ + V</strong>、<strong>ไม่แน่ใจว่าจะ...</strong>、<strong>หวังว่า...จะไม่...</strong>，用於計畫、決心與希望。</p>
+      <p>第 5 頁：原因結果轉換：<strong>1 เพราะว่า 2</strong> 與 <strong>2 ก็เลย 1</strong>，例如「因為想把泰文說好，所以學泰文」。</p>
+    </div>
+
+    <div class="tip orange">
+      <span class="label review">Review</span>
+      Day 16 學過
+      <span class="thai">คล่อง / ชัด / พยายาม</span> /
+      <span class="roman">khlɔ̂ng / chát / phá-yaa-yaam</span> /
+      <span class="eng">fluent / clear / try</span>。
+      Day 18 會把它升級成更像真實學習動機：
+      <div class="triad">
+        <div class="thai">ฉันเรียนภาษาไทย เพราะว่าอยากพูดภาษาไทยให้คล่องขึ้นค่ะ</div>
+        <div class="roman">chǎn rian phaa-sǎa-thai phrɔ́-wâa yàak phûut phaa-sǎa-thai hâi khlɔ̂ng khʉ̂n khâ</div>
+        <div class="eng">I study Thai because I want to speak Thai more fluently.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Time & Study Progress｜時間與學習進度</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มา...แล้ว</div><div class="roman">maa...lɛ́ɛw</div><div class="eng">for ... already / have been ... for</div></div></td>
+          <td>Duration pattern</td>
+          <td>—</td>
+          <td>放在動詞後，表示從過去持續到現在。<span class="thai">มา</span> 可強調「一路到現在」。</td>
+          <td><div class="triad"><div class="thai">เรียนมา...แล้ว / อยู่มา...แล้ว / ทำงานมา...แล้ว</div><div class="roman">rian maa...lɛ́ɛw / yùu maa...lɛ́ɛw / tham-ngaan maa...lɛ́ɛw</div><div class="eng">have studied for / have lived for / have worked for</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยู่กรุงเทพฯ มาสองเดือนแล้วค่ะ</div><div class="roman">chǎn yùu grung-thêep maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I have lived in Bangkok for two months already.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ปี</div><div class="roman">bpii</div><div class="eng">year</div></div></td>
+          <td>Time noun</td>
+          <td>ปี</td>
+          <td>可當名詞也可當時間量詞。</td>
+          <td><div class="triad"><div class="thai">สองปี / ปีหน้า / ปีนี้ / หลายปี</div><div class="roman">sɔ̌ɔng bpii / bpii nâa / bpii níi / lǎai bpii</div><div class="eng">two years / next year / this year / many years</div></div></td>
+          <td><div class="triad"><div class="thai">ครูทำงานที่โรงเรียนนี้มาห้าปีแล้วค่ะ</div><div class="roman">khruu tham-ngaan thîi rooŋ-rian níi maa hâa bpii lɛ́ɛw khâ</div><div class="eng">The teacher has worked at this school for five years.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เดือน</div><div class="roman">dʉan</div><div class="eng">month</div></div></td>
+          <td>Time noun</td>
+          <td>เดือน</td>
+          <td>月份與持續幾個月都用。</td>
+          <td><div class="triad"><div class="thai">สองเดือน / เดือนหน้า / เดือนที่แล้ว / ทุกเดือน</div><div class="roman">sɔ̌ɔng dʉan / dʉan nâa / dʉan thîi lɛ́ɛw / thúk dʉan</div><div class="eng">two months / next month / last month / every month</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเรียนภาษาไทยมาสองเดือนแล้ว แต่ยังพูดไม่ค่อยคล่องค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai maa sɔ̌ɔng dʉan lɛ́ɛw, dtɛ̀ɛ yang phûut mâi khɔ̂i khlɔ̂ng khâ</div><div class="eng">I’ve studied Thai for two months, but I still don’t speak very fluently.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รู้สึก</div><div class="roman">rúu-sʉ̀k</div><div class="eng">to feel</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>後面接情緒或感受。可說 <span class="thai">รู้สึก + Adj</span>。</td>
+          <td><div class="triad"><div class="thai">รู้สึกดีใจ / รู้สึกเครียด / รู้สึกไม่สบายใจ</div><div class="roman">rúu-sʉ̀k dii-jai / rúu-sʉ̀k khrîat / rúu-sʉ̀k mâi sà-baai-jai</div><div class="eng">feel happy / feel stressed / feel uneasy</div></div></td>
+          <td><div class="triad"><div class="thai">เวลาได้พูดไทยกับคนไทย ฉันรู้สึกภูมิใจค่ะ</div><div class="roman">wee-laa dâai phûut thai gàp khon thai, chǎn rúu-sʉ̀k phuum-jai khâ</div><div class="eng">When I get to speak Thai with Thai people, I feel proud.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Emotion Words｜情緒詞</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ดีใจ</div><div class="roman">dii-jai</div><div class="eng">happy / glad</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>開心、很高興。常用 <span class="thai">ดีใจที่...</span> 表示「很高興……」。</td>
+          <td><div class="triad"><div class="thai">รู้สึกดีใจ / ดีใจมาก / ดีใจที่ได้เจอ</div><div class="roman">rúu-sʉ̀k dii-jai / dii-jai mâak / dii-jai thîi dâai jəə</div><div class="eng">feel happy / very happy / happy to meet</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันดีใจที่เริ่มเข้าใจคนไทยพูดมากขึ้นค่ะ</div><div class="roman">chǎn dii-jai thîi rə̂əm khâo-jai khon thai phûut mâak khʉ̂n khâ</div><div class="eng">I’m happy that I’m starting to understand Thai people more.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เสียใจ</div><div class="roman">sǐa-jai</div><div class="eng">sad / sorry / regretful</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>可表示難過，也可表示抱歉、遺憾。和 <span class="thai">ดีใจ</span> 相反。</td>
+          <td><div class="triad"><div class="thai">รู้สึกเสียใจ / เสียใจมาก / เสียใจที่ไม่ได้ไป</div><div class="roman">rúu-sʉ̀k sǐa-jai / sǐa-jai mâak / sǐa-jai thîi mâi dâai bpai</div><div class="eng">feel sad / very sad / regret not going</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเสียใจที่เมื่อวานไม่ได้ไปเรียนค่ะ</div><div class="roman">chǎn sǐa-jai thîi mʉ̂a-waan mâi dâai bpai rian khâ</div><div class="eng">I’m sad/regretful that I couldn’t go to class yesterday.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตกใจ</div><div class="roman">dtòk-jai</div><div class="eng">shocked / startled</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>突然被嚇到、驚訝到。比一般 surprise 更像瞬間反應。</td>
+          <td><div class="triad"><div class="thai">ตกใจมาก / ทำให้ตกใจ / เสียงดังจนตกใจ</div><div class="roman">dtòk-jai mâak / tham-hâi dtòk-jai / sǐang dang jon dtòk-jai</div><div class="eng">very shocked / make startled / startled by loud sound</div></div></td>
+          <td><div class="triad"><div class="thai">เสียงฟ้าร้องดังมาก ทำให้ฉันตกใจค่ะ</div><div class="roman">sǐang fáa-rɔ́ɔng dang mâak, tham-hâi chǎn dtòk-jai khâ</div><div class="eng">The thunder was very loud and startled me.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กลัว</div><div class="roman">glua</div><div class="eng">afraid / scared</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>害怕。可接名詞，也可接句子。</td>
+          <td><div class="triad"><div class="thai">กลัวผี / กลัวเข็ม / กลัวว่าจะลืม</div><div class="roman">glua phǐi / glua khěm / glua wâa jà lʉʉm</div><div class="eng">afraid of ghosts / afraid of needles / afraid that one will forget</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันกลัวว่าจะพูดผิดเวลาคุยกับแม่ค้าค่ะ</div><div class="roman">chǎn glua wâa jà phûut phìt wee-laa khui gàp mɛ̂ɛ-kháa khâ</div><div class="eng">I’m afraid I’ll say something wrong when talking to vendors.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไม่สบายใจ</div><div class="roman">mâi sà-baai-jai</div><div class="eng">uneasy / uncomfortable emotionally</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>不是身體不舒服，而是心裡不舒服、不安。</td>
+          <td><div class="triad"><div class="thai">รู้สึกไม่สบายใจ / ทำให้ไม่สบายใจ / ไม่สบายใจเรื่องเงิน</div><div class="roman">rúu-sʉ̀k mâi sà-baai-jai / tham-hâi mâi sà-baai-jai / mâi sà-baai-jai rʉ̂ang ngən</div><div class="eng">feel uneasy / make uneasy / uneasy about money</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันไม่สบายใจเวลาต้องตัดสินใจเรื่องใหญ่คนเดียวค่ะ</div><div class="roman">chǎn mâi sà-baai-jai wee-laa dtɔ̂ng dtàt-sǐn-jai rʉ̂ang yài khon-diao khâ</div><div class="eng">I feel uneasy when I have to make a big decision alone.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เสียดาย</div><div class="roman">sǐa-daai</div><div class="eng">what a pity / regret missing something</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>可惜、捨不得、錯過覺得可惜。跟 <span class="thai">เสียใจ</span> 不一樣。</td>
+          <td><div class="triad"><div class="thai">เสียดายเงิน / เสียดายเวลา / เสียดายที่ไม่ได้ไป</div><div class="roman">sǐa-daai ngən / sǐa-daai wee-laa / sǐa-daai thîi mâi dâai bpai</div><div class="eng">pity about money / pity about time / regret not going</div></div></td>
+          <td><div class="triad"><div class="thai">เสียดายมากที่ร้านนั้นปิดก่อนที่ฉันจะไปถึงค่ะ</div><div class="roman">sǐa-daai mâak thîi ráan nán bpìt gɔ̀ɔn thîi chǎn jà bpai thʉ̌ng khâ</div><div class="eng">It’s such a pity that the shop closed before I arrived.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กลุ้มใจ</div><div class="roman">glûm-jai</div><div class="eng">worried / troubled / distressed</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>心裡煩、煩惱較重，常是事情解不開。</td>
+          <td><div class="triad"><div class="thai">กลุ้มใจเรื่องงาน / กลุ้มใจเรื่องเรียน / ทำให้กลุ้มใจ</div><div class="roman">glûm-jai rʉ̂ang ngaan / glûm-jai rʉ̂ang rian / tham-hâi glûm-jai</div><div class="eng">troubled about work / troubled about study / make distressed</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันกลุ้มใจเรื่องค่าใช้จ่ายตอนอยู่กรุงเทพฯ ค่ะ</div><div class="roman">chǎn glûm-jai rʉ̂ang khâa-chái-jàai dtɔɔn yùu grung-thêep khâ</div><div class="eng">I’m worried about expenses while living in Bangkok.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เครียด</div><div class="roman">khrîat</div><div class="eng">stressed</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>壓力大。現代口語非常常用。</td>
+          <td><div class="triad"><div class="thai">เครียดมาก / เครียดเรื่องสอบ / เครียดจนปวดหัว</div><div class="roman">khrîat mâak / khrîat rʉ̂ang sɔ̀ɔp / khrîat jon bpùat-hǔa</div><div class="eng">very stressed / stressed about exams / so stressed that one gets a headache</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วงนี้ฉันเครียดเรื่องอนาคต เลยนอนไม่ค่อยหลับค่ะ</div><div class="roman">chûang níi chǎn khrîat rʉ̂ang à-naa-khót, ləəi nɔɔn mâi khɔ̂i làp khâ</div><div class="eng">Recently I’m stressed about the future, so I don’t sleep very well.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เบื่อ</div><div class="roman">bʉ̀a</div><div class="eng">bored / fed up with</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>無聊，也可表示膩了、受夠了。</td>
+          <td><div class="triad"><div class="thai">เบื่อมาก / เบื่องาน / เบื่ออาหารเดิม ๆ</div><div class="roman">bʉ̀a mâak / bʉ̀a ngaan / bʉ̀a aa-hǎan dəəm-dəəm</div><div class="eng">very bored / fed up with work / bored of the same food</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเบื่ออยู่ห้องทั้งวัน เลยออกไปเดินเล่นที่ห้างค่ะ</div><div class="roman">chǎn bʉ̀a yùu hɔ̂ng tháng wan, ləəi ɔ̀ɔk bpai dəən-lên thîi hâang khâ</div><div class="eng">I was bored staying in the room all day, so I went for a walk at the mall.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เป็นห่วง</div><div class="roman">bpen-hùang</div><div class="eng">worried about / concerned about</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>擔心某人，帶有關心、愛護。和 <span class="thai">คิดถึง</span> 不同。</td>
+          <td><div class="triad"><div class="thai">เป็นห่วงแม่ / เป็นห่วงแฟน / ไม่ต้องเป็นห่วง</div><div class="roman">bpen-hùang mɛ̂ɛ / bpen-hùang fɛɛn / mâi dtɔ̂ng bpen-hùang</div><div class="eng">worried about mom / worried about partner / don’t worry</div></div></td>
+          <td><div class="triad"><div class="thai">ฝนตกหนัก ฉันเป็นห่วงว่าเขาจะกลับบ้านลำบากค่ะ</div><div class="roman">fǒn-dtòk nàk, chǎn bpen-hùang wâa khǎo jà glàp bâan lam-bàak khâ</div><div class="eng">It’s raining heavily, and I’m worried he’ll have trouble going home.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คิดถึง</div><div class="roman">khít-thʉ̌ng</div><div class="eng">miss / think of</div></div></td>
+          <td>Emotion / verb</td>
+          <td>—</td>
+          <td>想念某人或某地。和 <span class="thai">เป็นห่วง</span> 不同，不一定有擔心。</td>
+          <td><div class="triad"><div class="thai">คิดถึงบ้าน / คิดถึงเธอ / คิดถึงอาหารไทย</div><div class="roman">khít-thʉ̌ng bâan / khít-thʉ̌ng thəə / khít-thʉ̌ng aa-hǎan thai</div><div class="eng">miss home / miss you / miss Thai food</div></div></td>
+          <td><div class="triad"><div class="thai">เวลาอยู่ไทยนาน ๆ ฉันคิดถึงครอบครัวที่ไต้หวันค่ะ</div><div class="roman">wee-laa yùu thai naan-naan, chǎn khít-thʉ̌ng khrɔ̂ɔp-khrua thîi dtâi-wǎn khâ</div><div class="eng">When I stay in Thailand for a long time, I miss my family in Taiwan.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">โมโห</div><div class="roman">moo-hǒo</div><div class="eng">angry / lose temper</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>較口語、情緒上來、生氣到有火氣。</td>
+          <td><div class="triad"><div class="thai">โมโหมาก / โมโหง่าย / ทำให้โมโห</div><div class="roman">moo-hǒo mâak / moo-hǒo ngâai / tham-hâi moo-hǒo</div><div class="eng">very angry / easily angered / make angry</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันโมโหตอน Grab ยกเลิกงานตอนฝนตกค่ะ</div><div class="roman">chǎn moo-hǒo dtɔɔn gráp yók-lə̂ək ngaan dtɔɔn fǒn-dtòk khâ</div><div class="eng">I got angry when the Grab driver canceled during the rain.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">โกรธ</div><div class="roman">gròot</div><div class="eng">angry</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>比較中性、標準的「生氣」。比 <span class="thai">โมโห</span> 沒那麼爆發感。</td>
+          <td><div class="triad"><div class="thai">โกรธเขา / โกรธมาก / อย่าโกรธนะ</div><div class="roman">gròot khǎo / gròot mâak / yàa gròot ná</div><div class="eng">angry at him/her / very angry / don’t be angry</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันไม่ได้โกรธ แค่รู้สึกไม่สบายใจค่ะ</div><div class="roman">chǎn mâi dâai gròot, khɛ̂ɛ rúu-sʉ̀k mâi sà-baai-jai khâ</div><div class="eng">I’m not angry; I just feel uneasy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">งุดงิด</div><div class="roman">ngùt-ngìt</div><div class="eng">irritated / annoyed</div></div></td>
+          <td>Emotion</td>
+          <td>—</td>
+          <td>煩躁、不爽、小事累積的惱怒。比 <span class="thai">โกรธ</span> 輕。</td>
+          <td><div class="triad"><div class="thai">งุดงิดนิดหน่อย / งุดงิดเพราะรถติด / ทำให้งุดงิด</div><div class="roman">ngùt-ngìt nít-nɔ̀i / ngùt-ngìt phrɔ́ rót-dtìt / tham-hâi ngùt-ngìt</div><div class="eng">a bit annoyed / annoyed because of traffic / make annoyed</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันงุดงิดเพราะรออาหารนานมากค่ะ</div><div class="roman">chǎn ngùt-ngìt phrɔ́ rɔɔ aa-hǎan naan mâak khâ</div><div class="eng">I’m annoyed because I waited for the food for a long time.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Plans, Hope & Cause-Result｜計畫、希望、原因結果</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตั้งใจ</div><div class="roman">dtâng-jai</div><div class="eng">to intend / be determined / pay attention</div></div></td>
+          <td>Verb / mental state</td>
+          <td>—</td>
+          <td>可表示「下定決心做」或「專心」。本課是下定決心。</td>
+          <td><div class="triad"><div class="thai">ตั้งใจเรียน / ตั้งใจทำงาน / ตั้งใจเก็บเงิน</div><div class="roman">dtâng-jai rian / dtâng-jai tham-ngaan / dtâng-jai gèp ngən</div><div class="eng">study seriously / work seriously / intentionally save money</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันตั้งใจเก็บเงินเพื่อเรียนภาษาไทยที่กรุงเทพฯ ค่ะ</div><div class="roman">chǎn dtâng-jai gèp ngən phʉ̂a rian phaa-sǎa-thai thîi grung-thêep khâ</div><div class="eng">I’m determined to save money to study Thai in Bangkok.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไม่แน่ใจ</div><div class="roman">mâi nɛ̂ɛ-jai</div><div class="eng">not sure</div></div></td>
+          <td>Phrase</td>
+          <td>—</td>
+          <td>常接 <span class="thai">ว่า...</span> 表達不確定某件事。</td>
+          <td><div class="triad"><div class="thai">ไม่แน่ใจว่า... / ยังไม่แน่ใจ / ไม่ค่อยแน่ใจ</div><div class="roman">mâi nɛ̂ɛ-jai wâa... / yang mâi nɛ̂ɛ-jai / mâi khɔ̂i nɛ̂ɛ-jai</div><div class="eng">not sure that... / still not sure / not really sure</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันยังไม่แน่ใจว่าจะอยู่ไทยต่อไหมค่ะ</div><div class="roman">chǎn yang mâi nɛ̂ɛ-jai wâa jà yùu thai dtɔ̀ɔ mái khâ</div><div class="eng">I’m still not sure whether I’ll stay in Thailand longer.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หวังว่า</div><div class="roman">wǎng wâa</div><div class="eng">hope that</div></div></td>
+          <td>Phrase</td>
+          <td>—</td>
+          <td>後面接希望發生或不要發生的事。</td>
+          <td><div class="triad"><div class="thai">หวังว่าจะดีขึ้น / หวังว่าจะไม่ลืม / หวังว่าฝนจะไม่ตก</div><div class="roman">wǎng wâa jà dii khʉ̂n / wǎng wâa jà mâi lʉʉm / wǎng wâa fǒn jà mâi dtòk</div><div class="eng">hope it gets better / hope I won’t forget / hope it won’t rain</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันหวังว่าสัปดาห์หน้าจะพูดไทยได้มั่นใจขึ้นค่ะ</div><div class="roman">chǎn wǎng wâa sàp-daa nâa jà phûut thai dâai mân-jai khʉ̂n khâ</div><div class="eng">I hope next week I can speak Thai more confidently.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เพราะว่า</div><div class="roman">phrɔ́-wâa</div><div class="eng">because</div></div></td>
+          <td>Conjunction</td>
+          <td>—</td>
+          <td>接原因。句型：結果 + <span class="thai">เพราะว่า</span> + 原因。</td>
+          <td><div class="triad"><div class="thai">เพราะว่าอยาก... / เพราะว่าฝนตก / เพราะว่าไม่สบาย</div><div class="roman">phrɔ́-wâa yàak... / phrɔ́-wâa fǒn-dtòk / phrɔ́-wâa mâi sà-baai</div><div class="eng">because I want to... / because it rains / because sick</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเรียนภาษาไทย เพราะว่าอยากคุยกับคนไทยให้ธรรมชาติค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai phrɔ́-wâa yàak khui gàp khon thai hâi tham-má-châat khâ</div><div class="eng">I study Thai because I want to talk with Thai people naturally.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ก็เลย</div><div class="roman">gɔ̂ɔ ləəi</div><div class="eng">so / therefore</div></div></td>
+          <td>Connector</td>
+          <td>—</td>
+          <td>接結果。句型：原因 + <span class="thai">ก็เลย</span> + 結果。口語非常常用。</td>
+          <td><div class="triad"><div class="thai">ฝนตกก็เลยรถติด / เหนื่อยก็เลยกลับบ้าน / อยากพูดเก่งก็เลยเรียน</div><div class="roman">fǒn-dtòk gɔ̂ɔ ləəi rót-dtìt / nʉ̀ai gɔ̂ɔ ləəi glàp bâan / yàak phûut gèng gɔ̂ɔ ləəi rian</div><div class="eng">it rains so traffic / tired so go home / want to speak well so study</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยากฟังคนไทยเข้าใจ ก็เลยฝึกฟังทุกวันค่ะ</div><div class="roman">chǎn yàak fang khon thai khâo-jai, gɔ̂ɔ ləəi fʉ̀k fang thúk wan khâ</div><div class="eng">I want to understand Thai people, so I practice listening every day.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ปี</span><div class="triad"><div class="thai">ปี</div><div class="roman">bpii</div><div class="eng">year</div></div></td>
+          <td><div class="triad"><div class="thai">ทำงาน / เรียน / อยู่</div><div class="roman">tham-ngaan / rian / yùu</div><div class="eng">work / study / live</div></div></td>
+          <td>時間長度「幾年」用 <span class="thai">ปี</span>。</td>
+          <td><div class="triad"><div class="thai">เขาทำงานที่นี่มาสองปีแล้วค่ะ</div><div class="roman">khǎo tham-ngaan thîi-nîi maa sɔ̌ɔng bpii lɛ́ɛw khâ</div><div class="eng">He has worked here for two years.</div></div></td>
+          <td>不要把「兩年」說成 <span class="thai">สองเดือน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เดือน</span><div class="triad"><div class="thai">เดือน</div><div class="roman">dʉan</div><div class="eng">month</div></div></td>
+          <td><div class="triad"><div class="thai">เรียน / อยู่ไทย / ฝึกพูด</div><div class="roman">rian / yùu thai / fʉ̀k phûut</div><div class="eng">study / stay in Thailand / practice speaking</div></div></td>
+          <td>時間長度「幾個月」用 <span class="thai">เดือน</span>。</td>
+          <td><div class="triad"><div class="thai">ฉันเรียนภาษาไทยมาสองเดือนแล้วค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve studied Thai for two months already.</div></div></td>
+          <td>時間長度放在動詞後，不是中文順序「我兩個月學泰文」。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เล่ม</span><div class="triad"><div class="thai">เล่ม</div><div class="roman">lêm</div><div class="eng">book / volume classifier</div></div></td>
+          <td><div class="triad"><div class="thai">หนังสือ / แบบเรียน / เล่มสอง</div><div class="roman">nǎng-sʉ̌ʉ / bɛ̀ɛp-rian / lêm sɔ̌ɔng</div><div class="eng">book / textbook / Book 2</div></div></td>
+          <td>書本、教材冊數用 <span class="thai">เล่ม</span>。</td>
+          <td><div class="triad"><div class="thai">ฉันดีใจที่จะเรียนเล่มสองเสร็จแล้วค่ะ</div><div class="roman">chǎn dii-jai thîi jà rian lêm sɔ̌ɔng sèt lɛ́ɛw khâ</div><div class="eng">I’m happy that I’m going to finish Book 2.</div></div></td>
+          <td><span class="label review">Review</span> Day 15 學過 <span class="thai">เล่ม</span> 可用於針、書、刀；這裡用在教材冊數。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คำ</span><div class="triad"><div class="thai">คำ</div><div class="roman">kham</div><div class="eng">word</div></div></td>
+          <td><div class="triad"><div class="thai">คำศัพท์ / คำใหม่ / คำจากเล่มสอง</div><div class="roman">kham-sàp / kham mài / kham jàak lêm sɔ̌ɔng</div><div class="eng">vocabulary / new words / words from Book 2</div></div></td>
+          <td>單字用 <span class="thai">คำ</span> 數。</td>
+          <td><div class="triad"><div class="thai">หวังว่าจะไม่ลืมคำศัพท์เล่มสองค่ะ</div><div class="roman">wǎng wâa jà mâi lʉʉm kham-sàp lêm sɔ̌ɔng khâ</div><div class="eng">I hope I won’t forget the vocabulary from Book 2.</div></div></td>
+          <td><span class="label review">Review</span> Day 16 已學單字量詞 <span class="thai">คำ</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ประโยค</span><div class="triad"><div class="thai">ประโยค</div><div class="roman">bprà-yòok</div><div class="eng">sentence</div></div></td>
+          <td><div class="triad"><div class="thai">ประโยคตัวอย่าง / ประโยคยาว / ประโยคจากบทเรียน</div><div class="roman">bprà-yòok dtua-yàang / bprà-yòok yaao / bprà-yòok jàak bòt-rian</div><div class="eng">example sentence / long sentence / sentence from the lesson</div></div></td>
+          <td>句子用 <span class="thai">ประโยค</span> 數。</td>
+          <td><div class="triad"><div class="thai">ฉันตั้งใจแต่งประโยคใหม่ห้าประโยคทุกวันค่ะ</div><div class="roman">chǎn dtâng-jai dtɛ̀ng bprà-yòok mài hâa bprà-yòok thúk wan khâ</div><div class="eng">I’m determined to make five new sentences every day.</div></div></td>
+          <td>不要說 <span class="thai">ห้าอัน</span> 數句子。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜相似/相反詞與在地用法補充</h2>
+
+    <h3>ดีใจ vs เสียใจ｜開心 vs 難過/遺憾</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Pair</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage Difference</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>開心</td>
+          <td><div class="triad"><div class="thai">ดีใจ</div><div class="roman">dii-jai</div><div class="eng">happy / glad</div></div></td>
+          <td>通常是因為好事發生而開心。</td>
+          <td>
+            <div class="triad"><div class="thai">ดีใจที่ได้เจอครูอีกครั้งค่ะ</div><div class="roman">dii-jai thîi dâai jəə khruu ìik khráng khâ</div><div class="eng">I’m happy to see the teacher again.</div></div>
+            <div class="triad"><div class="thai">ฉันดีใจที่สั่งกาแฟเป็นภาษาไทยได้ค่ะ</div><div class="roman">chǎn dii-jai thîi sàng gaa-fɛɛ bpen phaa-sǎa-thai dâai khâ</div><div class="eng">I’m happy that I could order coffee in Thai.</div></div>
+            <div class="triad"><div class="thai">เขาดีใจมากที่สอบผ่านค่ะ</div><div class="roman">khǎo dii-jai mâak thîi sɔ̀ɔp phàan khâ</div><div class="eng">He/she is very happy to pass the exam.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>難過/遺憾</td>
+          <td><div class="triad"><div class="thai">เสียใจ</div><div class="roman">sǐa-jai</div><div class="eng">sad / sorry / regretful</div></div></td>
+          <td>因壞事、失去、沒做到而難過；也可用於道歉語氣。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเสียใจที่พูดแรงเกินไปค่ะ</div><div class="roman">chǎn sǐa-jai thîi phûut rɛɛng gəən bpai khâ</div><div class="eng">I’m sorry that I spoke too harshly.</div></div>
+            <div class="triad"><div class="thai">เสียใจที่ไม่ได้ไปงานวันเกิดเพื่อนค่ะ</div><div class="roman">sǐa-jai thîi mâi dâai bpai ngaan wan-gə̀ət phʉ̂an khâ</div><div class="eng">I’m sad/regretful that I couldn’t go to my friend’s birthday party.</div></div>
+            <div class="triad"><div class="thai">เขาเสียใจมากหลังจากเลิกกับแฟนค่ะ</div><div class="roman">khǎo sǐa-jai mâak lǎng-jàak lə̂ək gàp fɛɛn khâ</div><div class="eng">He/she was very sad after breaking up with their partner.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>เสียใจ vs เสียดาย｜難過/抱歉 vs 可惜/捨不得</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Core Feeling</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>難過/抱歉</td>
+          <td><div class="triad"><div class="thai">เสียใจ</div><div class="roman">sǐa-jai</div><div class="eng">sad / sorry</div></div></td>
+          <td>情緒更深，跟失落、道歉、難過有關。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเสียใจที่ทำให้คุณไม่สบายใจค่ะ</div><div class="roman">chǎn sǐa-jai thîi tham-hâi khun mâi sà-baai-jai khâ</div><div class="eng">I’m sorry that I made you feel uneasy.</div></div>
+            <div class="triad"><div class="thai">เธอเสียใจเพราะไม่ได้งานที่อยากได้ค่ะ</div><div class="roman">thəə sǐa-jai phrɔ́ mâi dâai ngaan thîi yàak dâai khâ</div><div class="eng">She is sad because she didn’t get the job she wanted.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>可惜/捨不得</td>
+          <td><div class="triad"><div class="thai">เสียดาย</div><div class="roman">sǐa-daai</div><div class="eng">what a pity / regret wasting or missing</div></div></td>
+          <td>不是深層悲傷，是「啊好可惜、浪費了、錯過了」。</td>
+          <td>
+            <div class="triad"><div class="thai">เสียดายเงินที่ซื้อของแล้วไม่ได้ใช้ค่ะ</div><div class="roman">sǐa-daai ngən thîi sʉ́ʉ khɔ̌ɔng lɛ́ɛw mâi dâai chái khâ</div><div class="eng">It’s a pity to spend money on something and not use it.</div></div>
+            <div class="triad"><div class="thai">เสียดายที่วันนี้ร้านข้าวมันไก่ขายหมดแล้วค่ะ</div><div class="roman">sǐa-daai thîi wan-níi ráan khâao-man-gài khǎai mòt lɛ́ɛw khâ</div><div class="eng">It’s a pity that the chicken rice shop is sold out today.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>เป็นห่วง vs คิดถึง｜擔心 vs 想念</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage Difference</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>擔心、關心</td>
+          <td><div class="triad"><div class="thai">เป็นห่วง</div><div class="roman">bpen-hùang</div><div class="eng">worried about / concerned about</div></div></td>
+          <td>你在意對方狀況，怕對方不好。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเป็นห่วงคุณ เพราะวันนี้ฝนตกหนักค่ะ</div><div class="roman">chǎn bpen-hùang khun phrɔ́ wan-níi fǒn-dtòk nàk khâ</div><div class="eng">I’m worried about you because it’s raining heavily today.</div></div>
+            <div class="triad"><div class="thai">แม่เป็นห่วงที่ฉันอยู่ต่างประเทศคนเดียวค่ะ</div><div class="roman">mɛ̂ɛ bpen-hùang thîi chǎn yùu dtàang-bprà-thêet khon-diao khâ</div><div class="eng">My mom is worried that I live abroad alone.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>想念</td>
+          <td><div class="triad"><div class="thai">คิดถึง</div><div class="roman">khít-thʉ̌ng</div><div class="eng">miss</div></div></td>
+          <td>你想見對方、想起對方，不一定擔心。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันคิดถึงอาหารไทยเวลาที่กลับไต้หวันค่ะ</div><div class="roman">chǎn khít-thʉ̌ng aa-hǎan thai wee-laa thîi glàp dtâi-wǎn khâ</div><div class="eng">I miss Thai food when I go back to Taiwan.</div></div>
+            <div class="triad"><div class="thai">คิดถึงคุณนะ แต่ไม่อยากรบกวนเวลาทำงานค่ะ</div><div class="roman">khít-thʉ̌ng khun ná, dtɛ̀ɛ mâi yàak róp-guan wee-laa tham-ngaan khâ</div><div class="eng">I miss you, but I don’t want to disturb you while you work.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>โกรธ / โมโห / งุดงิด｜生氣程度差異</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Thai / Romanization / English</th>
+          <th>Feeling</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>中性生氣</td>
+          <td><div class="triad"><div class="thai">โกรธ</div><div class="roman">gròot</div><div class="eng">angry</div></div></td>
+          <td>標準「生氣」。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันโกรธเพราะเขาผิดสัญญาค่ะ</div><div class="roman">chǎn gròot phrɔ́ khǎo phìt sǎn-yaa khâ</div><div class="eng">I’m angry because he broke his promise.</div></div>
+            <div class="triad"><div class="thai">อย่าโกรธนะ ฉันแค่ลืมตอบข้อความค่ะ</div><div class="roman">yàa gròot ná, chǎn khɛ̂ɛ lʉʉm dtɔ̀ɔp khɔ̂ɔ-khwaam khâ</div><div class="eng">Don’t be angry; I just forgot to reply to the message.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>火大、情緒爆</td>
+          <td><div class="triad"><div class="thai">โมโห</div><div class="roman">moo-hǒo</div><div class="eng">angry / lose temper</div></div></td>
+          <td>比 <span class="thai">โกรธ</span> 更像火上來。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันโมโหตอนแท็กซี่ไม่ยอมเปิดมิเตอร์ค่ะ</div><div class="roman">chǎn moo-hǒo dtɔɔn thɛ́k-sîi mâi yɔɔm bpə̀ət mí-dtə̂ə khâ</div><div class="eng">I got angry when the taxi driver refused to turn on the meter.</div></div>
+            <div class="triad"><div class="thai">เขาโมโหง่ายเวลาหิวค่ะ</div><div class="roman">khǎo moo-hǒo ngâai wee-laa hǐw khâ</div><div class="eng">He gets angry easily when hungry.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>煩躁、不爽</td>
+          <td><div class="triad"><div class="thai">งุดงิด</div><div class="roman">ngùt-ngìt</div><div class="eng">annoyed / irritated</div></div></td>
+          <td>比生氣輕，常是熱、餓、塞車、等太久造成的煩。</td>
+          <td>
+            <div class="triad"><div class="thai">รถติดนานมาก ทำให้ฉันงุดงิดค่ะ</div><div class="roman">rót-dtìt naan mâak, tham-hâi chǎn ngùt-ngìt khâ</div><div class="eng">The traffic jam was so long that it made me annoyed.</div></div>
+            <div class="triad"><div class="thai">อากาศร้อนจนทุกคนงุดงิดค่ะ</div><div class="roman">aa-gàat rɔ́ɔn jon thúk khon ngùt-ngìt khâ</div><div class="eng">The weather was so hot that everyone got irritated.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>ตั้งใจ / พยายาม / อยาก｜決心、努力、想要</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Difference</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>想要</td>
+          <td><div class="triad"><div class="thai">อยาก</div><div class="roman">yàak</div><div class="eng">want to</div></div></td>
+          <td>有願望，但不一定已經行動。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันอยากพูดภาษาไทยเก่งค่ะ</div><div class="roman">chǎn yàak phûut phaa-sǎa-thai gèng khâ</div><div class="eng">I want to speak Thai well.</div></div>
+            <div class="triad"><div class="thai">เขาอยากย้ายไปอยู่กรุงเทพฯ ค่ะ</div><div class="roman">khǎo yàak yáai bpai yùu grung-thêep khâ</div><div class="eng">He/she wants to move to Bangkok.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>努力</td>
+          <td><div class="triad"><div class="thai">พยายาม</div><div class="roman">phá-yaa-yaam</div><div class="eng">try / make effort</div></div></td>
+          <td>有開始努力，但不一定有強烈決心。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันพยายามฟังภาษาไทยทุกวันค่ะ</div><div class="roman">chǎn phá-yaa-yaam fang phaa-sǎa-thai thúk wan khâ</div><div class="eng">I try to listen to Thai every day.</div></div>
+            <div class="triad"><div class="thai">เขาพยายามลดค่าใช้จ่ายช่วงนี้ค่ะ</div><div class="roman">khǎo phá-yaa-yaam lót khâa-chái-jàai chûang níi khâ</div><div class="eng">He/she is trying to reduce expenses these days.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>下定決心/認真</td>
+          <td><div class="triad"><div class="thai">ตั้งใจ</div><div class="roman">dtâng-jai</div><div class="eng">intend / be determined / pay attention</div></div></td>
+          <td>比 <span class="thai">พยายาม</span> 更有「我決定要好好做」。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันตั้งใจเรียนภาษาไทยให้เก่งก่อนกลับไต้หวันค่ะ</div><div class="roman">chǎn dtâng-jai rian phaa-sǎa-thai hâi gèng gɔ̀ɔn glàp dtâi-wǎn khâ</div><div class="eng">I’m determined to study Thai well before going back to Taiwan.</div></div>
+            <div class="triad"><div class="thai">ครูตั้งใจสอนมาก เลยทำให้ฉันมีกำลังใจค่ะ</div><div class="roman">khruu dtâng-jai sɔ̌ɔn mâak, ləəi tham-hâi chǎn mii gam-lang-jai khâ</div><div class="eng">The teacher teaches very attentively, so it gives me encouragement.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>เพราะว่า vs ก็เลย｜因為 vs 所以</h3>
+    <div class="tip yellow">
+      <strong>本課超重要轉換：</strong>
+      <div class="triad">
+        <div class="thai">ฉันเรียนภาษาไทย เพราะว่าอยากพูดภาษาไทยเก่งค่ะ</div>
+        <div class="roman">chǎn rian phaa-sǎa-thai phrɔ́-wâa yàak phûut phaa-sǎa-thai gèng khâ</div>
+        <div class="eng">I study Thai because I want to speak Thai well.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">ฉันอยากพูดภาษาไทยเก่ง ก็เลยเรียนภาษาไทยค่ะ</div>
+        <div class="roman">chǎn yàak phûut phaa-sǎa-thai gèng, gɔ̂ɔ ləəi rian phaa-sǎa-thai khâ</div>
+        <div class="eng">I want to speak Thai well, so I study Thai.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Structures｜句型整理</h2>
+
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <h3>1. S + V + [มา] + Time + แล้ว</h3>
+      <div class="triad">
+        <div class="thai">Subject + Verb + [มา] + Time + แล้ว</div>
+        <div class="roman">Subject + Verb + [maa] + Time + lɛ́ɛw</div>
+        <div class="eng">Subject has been Verb-ing for Time already.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ครูทำงานที่ RTL มาสองปีแล้วค่ะ</div><div class="roman">khruu tham-ngaan thîi RTL maa sɔ̌ɔng bpii lɛ́ɛw khâ</div><div class="eng">The teacher has worked at RTL for two years.</div></div></li>
+        <li><div class="triad"><div class="thai">พอลอยู่ที่เมืองไทยมาห้าเดือนแล้วค่ะ</div><div class="roman">Paul yùu thîi mʉang-thai maa hâa dʉan lɛ́ɛw khâ</div><div class="eng">Paul has lived in Thailand for five months.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันเรียนภาษาไทยมาสองเดือนแล้วค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I have studied Thai for two months.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันใช้แอปนี้มาสามเดือนแล้วค่ะ</div><div class="roman">chǎn chái ɛ̀ɛp níi maa sǎam dʉan lɛ́ɛw khâ</div><div class="eng">I’ve used this app for three months.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันคบกับแฟนมาสองปีกว่าแล้วค่ะ</div><div class="roman">chǎn khóp gàp fɛɛn maa sɔ̌ɔng bpii gwàa lɛ́ɛw khâ</div><div class="eng">I’ve been with my boyfriend for over two years.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันอยู่คอนโดนี้มาเกือบสองเดือนแล้วค่ะ</div><div class="roman">chǎn yùu khɔɔn-doo níi maa gʉ̀ap sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve lived in this condo for almost two months.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันฝึกฟังภาษาไทยทุกวันมาหนึ่งเดือนแล้วค่ะ</div><div class="roman">chǎn fʉ̀k fang phaa-sǎa-thai thúk wan maa nʉ̀eng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve practiced listening to Thai every day for one month.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>2. เวลา + S + V + ทำให้ + S + รู้สึก + Emotion</h3>
+      <div class="triad">
+        <div class="thai">เวลา + Subject + Verb + ทำให้ + Subject + รู้สึก + Emotion</div>
+        <div class="roman">wee-laa + Subject + Verb + tham-hâi + Subject + rúu-sʉ̀k + Emotion</div>
+        <div class="eng">When Subject Verb, it makes Subject feel Emotion.</div>
+      </div>
+
+      <h4>Textbook-style question</h4>
+      <div class="triad">
+        <div class="thai">เวลาเรียนภาษาไทยทำให้คุณรู้สึกยังไงคะ</div>
+        <div class="roman">wee-laa rian phaa-sǎa-thai tham-hâi khun rúu-sʉ̀k yang-ngai khá</div>
+        <div class="eng">How does studying Thai make you feel?</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">เวลาเข้าใจคนไทยพูด ทำให้ฉันรู้สึกดีใจมากค่ะ</div><div class="roman">wee-laa khâo-jai khon thai phûut, tham-hâi chǎn rúu-sʉ̀k dii-jai mâak khâ</div><div class="eng">When I understand Thai people speaking, it makes me feel very happy.</div></div></li>
+        <li><div class="triad"><div class="thai">เวลาฟังไม่ออก ทำให้ฉันรู้สึกเครียดนิดหน่อยค่ะ</div><div class="roman">wee-laa fang mâi ɔ̀ɔk, tham-hâi chǎn rúu-sʉ̀k khrîat nít-nɔ̀i khâ</div><div class="eng">When I can’t understand what I hear, it makes me feel a bit stressed.</div></div></li>
+        <li><div class="triad"><div class="thai">เวลาอยู่คนเดียวที่ต่างประเทศ ทำให้ฉันคิดถึงบ้านค่ะ</div><div class="roman">wee-laa yùu khon-diao thîi dtàang-bprà-thêet, tham-hâi chǎn khít-thʉ̌ng bâan khâ</div><div class="eng">When I’m alone abroad, it makes me miss home.</div></div></li>
+        <li><div class="triad"><div class="thai">เวลารถติดนาน ๆ ทำให้ฉันงุดงิดค่ะ</div><div class="roman">wee-laa rót-dtìt naan-naan, tham-hâi chǎn ngùt-ngìt khâ</div><div class="eng">When traffic is bad for a long time, it makes me annoyed.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>3. S + รู้สึก + Emotion + ที่จะ + V</h3>
+      <div class="triad">
+        <div class="thai">Subject + รู้สึก + Emotion + ที่จะ + Verb</div>
+        <div class="roman">Subject + rúu-sʉ̀k + Emotion + thîi jà + Verb</div>
+        <div class="eng">Subject feels Emotion about going to Verb.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ฉันรู้สึกดีใจที่จะเรียนเล่มสองเสร็จแล้วค่ะ</div>
+        <div class="roman">chǎn rúu-sʉ̀k dii-jai thîi jà rian lêm sɔ̌ɔng sèt lɛ́ɛw khâ</div>
+        <div class="eng">I feel happy that I’m going to finish Book 2.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันรู้สึกตื่นเต้นที่จะเริ่มเรียนเล่มสามค่ะ</div><div class="roman">chǎn rúu-sʉ̀k dtʉ̀ʉn-dtên thîi jà rə̂əm rian lêm sǎam khâ</div><div class="eng">I feel excited to start Book 3.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันรู้สึกกลัวนิดหน่อยที่จะพูดไทยกับคนแปลกหน้าค่ะ</div><div class="roman">chǎn rúu-sʉ̀k glua nít-nɔ̀i thîi jà phûut thai gàp khon bplɛ̀ɛk-nâa khâ</div><div class="eng">I feel a little scared to speak Thai with strangers.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันรู้สึกเสียดายที่จะกลับไต้หวันเร็วเกินไปค่ะ</div><div class="roman">chǎn rúu-sʉ̀k sǐa-daai thîi jà glàp dtâi-wǎn rew gəən bpai khâ</div><div class="eng">I feel it’s a pity to go back to Taiwan too soon.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันรู้สึกไม่สบายใจที่จะตัดสินใจเร็ว ๆ ค่ะ</div><div class="roman">chǎn rúu-sʉ̀k mâi sà-baai-jai thîi jà dtàt-sǐn-jai rew-rew khâ</div><div class="eng">I feel uneasy about making a decision quickly.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>4. S + ตั้งใจ + V</h3>
+      <div class="triad">
+        <div class="thai">Subject + ตั้งใจ + Verb</div>
+        <div class="roman">Subject + dtâng-jai + Verb</div>
+        <div class="eng">Subject intends / is determined to Verb.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">พอลตั้งใจเรียนภาษาไทยค่ะ</div><div class="roman">Paul dtâng-jai rian phaa-sǎa-thai khâ</div><div class="eng">Paul is determined to study Thai.</div></div></li>
+        <li><div class="triad"><div class="thai">ครูตั้งใจเก็บสตางค์ซื้อมอเตอร์ไซค์ค่ะ</div><div class="roman">khruu dtâng-jai gèp sà-dtaang sʉ́ʉ mɔɔ-dtəə-sai khâ</div><div class="eng">The teacher intends to save money to buy a motorcycle.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันตั้งใจพูดไทยกับแม่ค้าทุกครั้งที่ซื้อของค่ะ</div><div class="roman">chǎn dtâng-jai phûut thai gàp mɛ̂ɛ-kháa thúk khráng thîi sʉ́ʉ khɔ̌ɔng khâ</div><div class="eng">I intentionally speak Thai with vendors every time I shop.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันตั้งใจลดค่าใช้จ่ายเดือนนี้ค่ะ</div><div class="roman">chǎn dtâng-jai lót khâa-chái-jàai dʉan níi khâ</div><div class="eng">I’m determined to reduce expenses this month.</div></div></li>
+        <li><div class="triad"><div class="thai">เขาตั้งใจเรียนต่อที่ไทย เพราะว่าอยากเข้าใจวัฒนธรรมไทยมากขึ้นค่ะ</div><div class="roman">khǎo dtâng-jai rian dtɔ̀ɔ thîi thai phrɔ́-wâa yàak khâo-jai wát-thá-ná-tham thai mâak khʉ̂n khâ</div><div class="eng">He/she is determined to continue studying in Thailand because they want to understand Thai culture more.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>5. S + ไม่แน่ใจว่า + จะ + V</h3>
+      <div class="triad">
+        <div class="thai">Subject + ไม่แน่ใจว่า + จะ + Verb</div>
+        <div class="roman">Subject + mâi nɛ̂ɛ-jai wâa + jà + Verb</div>
+        <div class="eng">Subject is not sure whether Subject will Verb.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ฉันไม่แน่ใจว่าจะเรียนภาษาไทยเดือนหน้าค่ะ</div>
+        <div class="roman">chǎn mâi nɛ̂ɛ-jai wâa jà rian phaa-sǎa-thai dʉan nâa khâ</div>
+        <div class="eng">I’m not sure if I’ll study Thai next month.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันยังไม่แน่ใจว่าจะอยู่กรุงเทพฯ ต่อไหมค่ะ</div><div class="roman">chǎn yang mâi nɛ̂ɛ-jai wâa jà yùu grung-thêep dtɔ̀ɔ mái khâ</div><div class="eng">I’m still not sure whether I’ll stay in Bangkok longer.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันไม่แน่ใจว่าจะสอบผ่านไหม แต่จะพยายามค่ะ</div><div class="roman">chǎn mâi nɛ̂ɛ-jai wâa jà sɔ̀ɔp phàan mái, dtɛ̀ɛ jà phá-yaa-yaam khâ</div><div class="eng">I’m not sure whether I’ll pass the exam, but I’ll try.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันไม่แน่ใจว่าจะจำคำศัพท์ทั้งหมดได้ไหมค่ะ</div><div class="roman">chǎn mâi nɛ̂ɛ-jai wâa jà jam kham-sàp tháng-mòt dâai mái khâ</div><div class="eng">I’m not sure whether I can remember all the vocabulary.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>6. S + หวังว่า + S + จะไม่ + V</h3>
+      <div class="triad">
+        <div class="thai">Subject + หวังว่า + Subject + จะไม่ + Verb</div>
+        <div class="roman">Subject + wǎng wâa + Subject + jà mâi + Verb</div>
+        <div class="eng">Subject hopes that Subject will not Verb.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันหวังว่าพรุ่งนี้ฝนจะไม่ตกค่ะ</div><div class="roman">chǎn wǎng wâa phrûng-níi fǒn jà mâi dtòk khâ</div><div class="eng">I hope it won’t rain tomorrow.</div></div></li>
+        <li><div class="triad"><div class="thai">เวลาเรียนเล่มสาม หวังว่าจะไม่ลืมคำและประโยคเล่มสองนะคะ</div><div class="roman">wee-laa rian lêm sǎam, wǎng wâa jà mâi lʉʉm kham lɛ́ bprà-yòok lêm sɔ̌ɔng ná khá</div><div class="eng">When studying Book 3, I hope I won’t forget the words and sentences from Book 2.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันหวังว่าพรุ่งนี้รถจะไม่ติดมากค่ะ</div><div class="roman">chǎn wǎng wâa phrûng-níi rót jà mâi dtìt mâak khâ</div><div class="eng">I hope traffic won’t be too bad tomorrow.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันหวังว่าจะไม่ตื่นสายวันสอบค่ะ</div><div class="roman">chǎn wǎng wâa jà mâi dtʉ̀ʉn sǎai wan sɔ̀ɔp khâ</div><div class="eng">I hope I won’t wake up late on exam day.</div></div></li>
+        <li><div class="triad"><div class="thai">หวังว่าครั้งหน้าจะกล้าพูดไทยมากขึ้นค่ะ</div><div class="roman">wǎng wâa khráng nâa jà glâa phûut thai mâak khʉ̂n khâ</div><div class="eng">I hope next time I’ll dare to speak Thai more.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>7. Result + เพราะว่า + Reason / Reason + ก็เลย + Result</h3>
+      <div class="triad">
+        <div class="thai">Result + เพราะว่า + Reason</div>
+        <div class="roman">Result + phrɔ́-wâa + Reason</div>
+        <div class="eng">Result because Reason.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">Reason + ก็เลย + Result</div>
+        <div class="roman">Reason + gɔ̂ɔ ləəi + Result</div>
+        <div class="eng">Reason, so Result.</div>
+      </div>
+
+      <h4>Textbook-style pair</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันเรียนภาษาไทย เพราะว่าอยากพูดภาษาไทยเก่งค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai phrɔ́-wâa yàak phûut phaa-sǎa-thai gèng khâ</div><div class="eng">I study Thai because I want to speak Thai well.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันอยากพูดภาษาไทยเก่ง ก็เลยเรียนภาษาไทยค่ะ</div><div class="roman">chǎn yàak phûut phaa-sǎa-thai gèng, gɔ̂ɔ ləəi rian phaa-sǎa-thai khâ</div><div class="eng">I want to speak Thai well, so I study Thai.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันอยู่แถว BTS เพราะว่าเดินทางสะดวกค่ะ</div><div class="roman">chǎn yùu thɛ̌ɛo bii-thii-èet phrɔ́-wâa dəən-thaang sà-dùak khâ</div><div class="eng">I live near the BTS because transportation is convenient.</div></div></li>
+        <li><div class="triad"><div class="thai">ฝนตกหนัก ก็เลยเรียก Grab กลับบ้านค่ะ</div><div class="roman">fǒn-dtòk nàk, gɔ̂ɔ ləəi rîak gráp glàp bâan khâ</div><div class="eng">It rained heavily, so I called Grab to go home.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันอยากจำคำศัพท์ให้ได้ ก็เลยทำ flashcards ทุกวันค่ะ</div><div class="roman">chǎn yàak jam kham-sàp hâi dâai, gɔ̂ɔ ləəi tham flashcards thúk wan khâ</div><div class="eng">I want to memorize vocabulary successfully, so I make flashcards every day.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันเครียด เพราะว่ายังไม่แน่ใจเรื่องอนาคตค่ะ</div><div class="roman">chǎn khrîat phrɔ́-wâa yang mâi nɛ̂ɛ-jai rʉ̂ang à-naa-khót khâ</div><div class="eng">I’m stressed because I’m still not sure about the future.</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>說學泰文多久了</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันเรียนภาษาไทยมาสองเดือนแล้วค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve studied Thai for two months.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เรียนไทยมาประมาณสองเดือนแล้วค่ะ</div><div class="roman">rian thai maa bprà-maan sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve studied Thai for about two months.</div></div></td>
+          <td>口語常省略 <span class="thai">ภาษา</span>，直接說 <span class="thai">เรียนไทย</span>。</td>
+        </tr>
+
+        <tr>
+          <td>問對方感覺怎樣</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คุณรู้สึกอย่างไรคะ</div><div class="roman">khun rúu-sʉ̀k yàang-rai khá</div><div class="eng">How do you feel?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">รู้สึกยังไงบ้างคะ</div><div class="roman">rúu-sʉ̀k yang-ngai bâang khá</div><div class="eng">How do you feel about it?</div></div></td>
+          <td><span class="thai">อย่างไร</span> 較正式，<span class="thai">ยังไง</span> 比較日常。</td>
+        </tr>
+
+        <tr>
+          <td>說壓力大</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันรู้สึกเครียดค่ะ</div><div class="roman">chǎn rúu-sʉ̀k khrîat khâ</div><div class="eng">I feel stressed.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ช่วงนี้เครียดมากเลยค่ะ</div><div class="roman">chûang níi khrîat mâak ləəi khâ</div><div class="eng">I’ve been really stressed lately.</div></div></td>
+          <td>自然聊天中常說 <span class="thai">ช่วงนี้...</span>，表示最近狀態。</td>
+        </tr>
+
+        <tr>
+          <td>說想念</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันคิดถึงบ้านค่ะ</div><div class="roman">chǎn khít-thʉ̌ng bâan khâ</div><div class="eng">I miss home.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">คิดถึงบ้านนิดหน่อยค่ะ โดยเฉพาะตอนอยู่คนเดียว</div><div class="roman">khít-thʉ̌ng bâan nít-nɔ̀i khâ, dooi-chà-phɔ́ dtɔɔn yùu khon-diao</div><div class="eng">I miss home a little, especially when I’m alone.</div></div></td>
+          <td>加 <span class="thai">นิดหน่อย</span>、<span class="thai">โดยเฉพาะ...</span> 會更真實。</td>
+        </tr>
+
+        <tr>
+          <td>說不確定</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันไม่แน่ใจว่าจะเรียนภาษาไทยเดือนหน้าค่ะ</div><div class="roman">chǎn mâi nɛ̂ɛ-jai wâa jà rian phaa-sǎa-thai dʉan nâa khâ</div><div class="eng">I’m not sure if I’ll study Thai next month.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เดือนหน้ายังไม่แน่ใจค่ะ อาจจะต้องดูตารางก่อน</div><div class="roman">dʉan nâa yang mâi nɛ̂ɛ-jai khâ, àat-jà dtɔ̂ng duu dtaa-raang gɔ̀ɔn</div><div class="eng">I’m still not sure about next month. I may need to check my schedule first.</div></div></td>
+          <td>口語常先講時間，再說不確定。</td>
+        </tr>
+
+        <tr>
+          <td>說原因結果</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันเรียนภาษาไทย เพราะว่าอยากพูดภาษาไทยเก่งค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai phrɔ́-wâa yàak phûut phaa-sǎa-thai gèng khâ</div><div class="eng">I study Thai because I want to speak Thai well.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยากพูดไทยได้ดีขึ้น ก็เลยตั้งใจเรียนค่ะ</div><div class="roman">yàak phûut thai dâai dii khʉ̂n, gɔ̂ɔ ləəi dtâng-jai rian khâ</div><div class="eng">I want to speak Thai better, so I’m studying seriously.</div></div></td>
+          <td><span class="thai">ก็เลย</span> 是日常口語超常用的「所以」。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bangkok" class="tab-content">
+    <h2>Bangkok Expansion｜曼谷生活實用場景</h2>
+
+    <h3>1. Thai Class｜跟老師聊學習感受</h3>
+    <div class="cards">
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">เรียนไทยมาสองเดือนแล้ว แต่ยังกลัวพูดผิดค่ะ</div><div class="roman">rian thai maa sɔ̌ɔng dʉan lɛ́ɛw, dtɛ̀ɛ yang glua phûut phìt khâ</div><div class="eng">I’ve studied Thai for two months, but I’m still afraid of speaking incorrectly.</div></div>
+        <p>跟老師說學習卡點。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">เวลาเข้าใจบทสนทนา ทำให้ฉันรู้สึกมีกำลังใจค่ะ</div><div class="roman">wee-laa khâo-jai bòt-sǒn-thá-naa, tham-hâi chǎn rúu-sʉ̀k mii gam-lang-jai khâ</div><div class="eng">When I understand a conversation, it makes me feel encouraged.</div></div>
+        <p>比只說開心更細緻。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">หวังว่าครั้งหน้าจะกล้าพูดมากขึ้นค่ะ</div><div class="roman">wǎng wâa khráng nâa jà glâa phûut mâak khʉ̂n khâ</div><div class="eng">I hope next time I’ll dare to speak more.</div></div>
+        <p>很適合課後反思。</p>
+      </div>
+    </div>
+
+    <h3>2. Life in Bangkok｜搬來曼谷後的心情</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">อยู่กรุงเทพฯ มาสองเดือนแล้วค่ะ</div><div class="roman">yùu grung-thêep maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve lived in Bangkok for two months already.</div></div>
+        <p>簡單介紹自己在曼谷多久。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">บางวันสนุกมาก แต่บางวันก็เครียดค่ะ</div><div class="roman">baang wan sà-nùk mâak, dtɛ̀ɛ baang wan gɔ̂ɔ khrîat khâ</div><div class="eng">Some days are very fun, but some days are stressful.</div></div>
+        <p>真實生活不是只有單一情緒。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันคิดถึงบ้าน แต่ก็อยากอยู่ไทยต่อค่ะ</div><div class="roman">chǎn khít-thʉ̌ng bâan, dtɛ̀ɛ gɔ̂ɔ yàak yùu thai dtɔ̀ɔ khâ</div><div class="eng">I miss home, but I also want to stay in Thailand longer.</div></div>
+        <p>很貼近長住/留學心情。</p>
+      </div>
+    </div>
+
+    <h3>3. Relationship / Friend Talk｜表達擔心、想念、不安</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันไม่ได้โกรธ แค่รู้สึกไม่สบายใจค่ะ</div><div class="roman">chǎn mâi dâai gròot, khɛ̂ɛ rúu-sʉ̀k mâi sà-baai-jai khâ</div><div class="eng">I’m not angry; I just feel uneasy.</div></div>
+        <p>比直接說生氣更精準。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันเป็นห่วงคุณ เพราะวันนี้กลับบ้านดึกค่ะ</div><div class="roman">chǎn bpen-hùang khun phrɔ́ wan-níi glàp bâan dʉ̀k khâ</div><div class="eng">I’m worried about you because you’re going home late today.</div></div>
+        <p>關心對方安全。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">คิดถึงนะ แต่ไม่อยากกดดันคุณค่ะ</div><div class="roman">khít-thʉ̌ng ná, dtɛ̀ɛ mâi yàak gòt-dan khun khâ</div><div class="eng">I miss you, but I don’t want to pressure you.</div></div>
+        <p>很自然的情感表達。</p>
+      </div>
+    </div>
+
+    <h3>4. Planning｜下個月還要不要繼續學</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">เดือนหน้ายังไม่แน่ใจค่ะ ต้องดูงบก่อน</div><div class="roman">dʉan nâa yang mâi nɛ̂ɛ-jai khâ, dtɔ̂ng duu ngóp gɔ̀ɔn</div><div class="eng">I’m still not sure about next month. I need to check my budget first.</div></div>
+        <p>在曼谷生活很實際。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ถ้ามีเวลา ฉันตั้งใจเรียนต่อค่ะ</div><div class="roman">thâa mii wee-laa, chǎn dtâng-jai rian dtɔ̀ɔ khâ</div><div class="eng">If I have time, I’m determined to continue studying.</div></div>
+        <p>保留條件但表達意願。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">หวังว่าจะจัดตารางได้ค่ะ</div><div class="roman">wǎng wâa jà jàt dtaa-raang dâai khâ</div><div class="eng">I hope I can arrange my schedule.</div></div>
+        <p>很好用的生活句。</p>
+      </div>
+    </div>
+
+    <h3>5. Motivation｜說明為什麼學泰文</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันเรียนไทย เพราะว่าอยากใช้ชีวิตที่กรุงเทพฯ ง่ายขึ้นค่ะ</div><div class="roman">chǎn rian thai phrɔ́-wâa yàak chái chii-wít thîi grung-thêep ngâai khʉ̂n khâ</div><div class="eng">I study Thai because I want life in Bangkok to become easier.</div></div>
+        <p>比「我喜歡泰國」更具體。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">อยากคุยกับคนท้องถิ่นได้ ก็เลยตั้งใจเรียนค่ะ</div><div class="roman">yàak khui gàp khon thɔ́ɔng-thìn dâai, gɔ̂ɔ ləəi dtâng-jai rian khâ</div><div class="eng">I want to talk with locals, so I study seriously.</div></div>
+        <p>很適合你的學習目標。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันอยากฟังแม่ค้าพูดรู้เรื่องมากขึ้นค่ะ</div><div class="roman">chǎn yàak fang mɛ̂ɛ-kháa phûut rúu-rʉ̂ang mâak khʉ̂n khâ</div><div class="eng">I want to understand vendors more when they speak.</div></div>
+        <p>真實曼谷場景。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>語言學校：老師問你學泰文的感受</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เรียนภาษาไทยมานานเท่าไหร่แล้วคะ</div><div class="roman">rian phaa-sǎa-thai maa naan thâo-rài lɛ́ɛw khá</div><div class="eng">How long have you been studying Thai?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เรียนไทยมาประมาณสองเดือนแล้วค่ะ</div><div class="roman">rian thai maa bprà-maan sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve studied Thai for about two months.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เวลาเรียนภาษาไทยทำให้คุณรู้สึกยังไงคะ</div><div class="roman">wee-laa rian phaa-sǎa-thai tham-hâi khun rúu-sʉ̀k yang-ngai khá</div><div class="eng">How does studying Thai make you feel?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">บางครั้งรู้สึกดีใจ แต่บางครั้งก็เครียดค่ะ</div><div class="roman">baang khráng rúu-sʉ̀k dii-jai, dtɛ̀ɛ baang khráng gɔ̂ɔ khrîat khâ</div><div class="eng">Sometimes I feel happy, but sometimes I also feel stressed.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">แต่ฉันตั้งใจเรียนต่อค่ะ เพราะว่าอยากพูดไทยให้คล่องขึ้น</div><div class="roman">dtɛ̀ɛ chǎn dtâng-jai rian dtɔ̀ɔ khâ, phrɔ́-wâa yàak phûut thai hâi khlɔ̂ng khʉ̂n</div><div class="eng">But I’m determined to keep studying because I want to speak Thai more fluently.</div></div></div>
+    </div>
+
+    <h3>跟朋友聊天：在曼谷住多久了</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยู่ไทยมานานยัง</div><div class="roman">yùu thai maa naan yang</div><div class="eng">Have you been in Thailand long?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อยู่มาประมาณสองเดือนแล้วค่ะ</div><div class="roman">yùu maa bprà-maan sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve been here for about two months.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">รู้สึกยังไงบ้าง ชอบไหม</div><div class="roman">rúu-sʉ̀k yang-ngai bâang, chɔ̂ɔp mái</div><div class="eng">How do you feel? Do you like it?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ชอบค่ะ แต่บางวันก็คิดถึงบ้านนิดหน่อย</div><div class="roman">chɔ̂ɔp khâ, dtɛ̀ɛ baang wan gɔ̂ɔ khít-thʉ̌ng bâan nít-nɔ̀i</div><div class="eng">I like it, but some days I miss home a little.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">หวังว่าจะปรับตัวได้ดีขึ้นค่ะ</div><div class="roman">wǎng wâa jà bpràp-dtua dâai dii khʉ̂n khâ</div><div class="eng">I hope I can adjust better.</div></div></div>
+    </div>
+
+    <h3>跟老師討論下個月課程</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เดือนหน้าจะเรียนต่อไหมคะ</div><div class="roman">dʉan nâa jà rian dtɔ̀ɔ mái khá</div><div class="eng">Will you continue studying next month?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ยังไม่แน่ใจค่ะ ต้องดูงบกับตารางก่อน</div><div class="roman">yang mâi nɛ̂ɛ-jai khâ, dtɔ̂ng duu ngóp gàp dtaa-raang gɔ̀ɔn</div><div class="eng">I’m still not sure. I need to check my budget and schedule first.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไม่เป็นไรค่ะ ค่อยบอกครูก็ได้</div><div class="roman">mâi bpen rai khâ, khɔ̂i bɔ̀ɔk khruu gɔ̂ɔ dâai</div><div class="eng">No problem. You can tell me later.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอบคุณค่ะ ฉันตั้งใจเรียนต่อ ถ้าจัดตารางได้ค่ะ</div><div class="roman">khɔ̀ɔp-khun khâ, chǎn dtâng-jai rian dtɔ̀ɔ, thâa jàt dtaa-raang dâai khâ</div><div class="eng">Thank you. I intend to continue studying if I can arrange my schedule.</div></div></div>
+    </div>
+
+    <h3>朋友問你為什麼這麼認真學泰文</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ทำไมช่วงนี้ตั้งใจเรียนไทยจัง</div><div class="roman">tham-mai chûang níi dtâng-jai rian thai jang</div><div class="eng">Why are you studying Thai so seriously lately?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เพราะว่าอยากใช้ชีวิตที่กรุงเทพฯ ง่ายขึ้นค่ะ</div><div class="roman">phrɔ́-wâa yàak chái chii-wít thîi grung-thêep ngâai khʉ̂n khâ</div><div class="eng">Because I want life in Bangkok to become easier.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อยากคุยกับคนท้องถิ่นได้ ก็เลยฝึกทุกวันค่ะ</div><div class="roman">yàak khui gàp khon thɔ́ɔng-thìn dâai, gɔ̂ɔ ləəi fʉ̀k thúk wan khâ</div><div class="eng">I want to talk with locals, so I practice every day.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ดีมาก พูดผิดก็ไม่เป็นไรนะ</div><div class="roman">dii mâak, phûut phìt gɔ̂ɔ mâi bpen rai ná</div><div class="eng">Very good. It’s okay if you speak incorrectly.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอบคุณค่ะ ได้ยินแบบนี้แล้วรู้สึกมีกำลังใจค่ะ</div><div class="roman">khɔ̀ɔp-khun khâ, dâai-yin bɛ̀ɛp níi lɛ́ɛw rúu-sʉ̀k mii gam-lang-jai khâ</div><div class="eng">Thank you. Hearing that makes me feel encouraged.</div></div></div>
+    </div>
+
+    <h3>情緒表達：不是生氣，是不安</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Partner/Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เธอโกรธเหรอ</div><div class="roman">thəə gròot rə̌ə</div><div class="eng">Are you angry?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไม่ได้โกรธค่ะ แค่รู้สึกไม่สบายใจ</div><div class="roman">mâi dâai gròot khâ, khɛ̂ɛ rúu-sʉ̀k mâi sà-baai-jai</div><div class="eng">I’m not angry. I just feel uneasy.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เพราะว่าเรื่องนี้สำคัญกับฉันมากค่ะ</div><div class="roman">phrɔ́-wâa rʉ̂ang níi sǎm-khan gàp chǎn mâak khâ</div><div class="eng">Because this matter is very important to me.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Partner/Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เข้าใจแล้ว ขอโทษนะ</div><div class="roman">khâo-jai lɛ́ɛw, khɔ̌ɔ-thôot ná</div><div class="eng">I understand now. I’m sorry.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไม่เป็นไรค่ะ ฉันแค่อยากคุยให้เข้าใจกันค่ะ</div><div class="roman">mâi bpen rai khâ, chǎn khɛ̂ɛ yàak khui hâi khâo-jai gan khâ</div><div class="eng">It’s okay. I just want us to talk and understand each other.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">忘記用 แล้ว 表示已經多久</div><div class="roman">lɛ́ɛw</div><div class="eng">already</div></div></td>
+          <td>說「學了兩個月」需要 <span class="thai">แล้ว</span>，不然不像完整的「到現在已經」。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเรียนภาษาไทยมาสองเดือนแล้วค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve studied Thai for two months already.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เสียใจ / เสียดาย 混淆</div><div class="roman">sǐa-jai / sǐa-daai</div><div class="eng">sad or sorry / what a pity</div></div></td>
+          <td><span class="thai">เสียใจ</span> 是難過或抱歉；<span class="thai">เสียดาย</span> 是可惜、捨不得。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเสียใจที่ทำให้คุณไม่สบายใจค่ะ</div><div class="roman">chǎn sǐa-jai thîi tham-hâi khun mâi sà-baai-jai khâ</div><div class="eng">I’m sorry that I made you feel uneasy.</div></div>
+            <div class="triad"><div class="thai">เสียดายที่ร้านปิดแล้วค่ะ</div><div class="roman">sǐa-daai thîi ráan bpìt lɛ́ɛw khâ</div><div class="eng">It’s a pity that the shop is closed already.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คิดถึง / เป็นห่วง 混淆</div><div class="roman">khít-thʉ̌ng / bpen-hùang</div><div class="eng">miss / worried about</div></div></td>
+          <td>想念不等於擔心。<span class="thai">คิดถึง</span> 是 miss；<span class="thai">เป็นห่วง</span> 是擔心對方狀況。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันคิดถึงคุณค่ะ</div><div class="roman">chǎn khít-thʉ̌ng khun khâ</div><div class="eng">I miss you.</div></div>
+            <div class="triad"><div class="thai">ฉันเป็นห่วงคุณค่ะ</div><div class="roman">chǎn bpen-hùang khun khâ</div><div class="eng">I’m worried about you.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">โกรธ / งุดงิด 程度混淆</div><div class="roman">gròot / ngùt-ngìt</div><div class="eng">angry / annoyed</div></div></td>
+          <td><span class="thai">งุดงิด</span> 是煩躁、不爽，通常比 <span class="thai">โกรธ</span> 輕。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันไม่ได้โกรธ แค่งุดงิดนิดหน่อยค่ะ</div><div class="roman">chǎn mâi dâai gròot, khɛ̂ɛ ngùt-ngìt nít-nɔ̀i khâ</div><div class="eng">I’m not angry, just a little annoyed.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เพราะว่า / ก็เลย 順序錯</div><div class="roman">phrɔ́-wâa / gɔ̂ɔ ləəi</div><div class="eng">because / so</div></div></td>
+          <td><span class="thai">เพราะว่า</span> 後面接原因；<span class="thai">ก็เลย</span> 前面通常先放原因。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเรียนไทย เพราะว่าอยากพูดกับคนไทยค่ะ</div><div class="roman">chǎn rian thai phrɔ́-wâa yàak phûut gàp khon thai khâ</div><div class="eng">I study Thai because I want to speak with Thai people.</div></div>
+            <div class="triad"><div class="thai">ฉันอยากพูดกับคนไทย ก็เลยเรียนไทยค่ะ</div><div class="roman">chǎn yàak phûut gàp khon thai, gɔ̂ɔ ləəi rian thai khâ</div><div class="eng">I want to speak with Thai people, so I study Thai.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ตั้งใจ / อยาก 混用</div><div class="roman">dtâng-jai / yàak</div><div class="eng">intend seriously / want</div></div></td>
+          <td><span class="thai">อยาก</span> 只是想要；<span class="thai">ตั้งใจ</span> 表示下定決心、認真要做。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันอยากพูดไทยเก่งค่ะ</div><div class="roman">chǎn yàak phûut thai gèng khâ</div><div class="eng">I want to speak Thai well.</div></div>
+            <div class="triad"><div class="thai">ฉันตั้งใจเรียนไทยให้เก่งค่ะ</div><div class="roman">chǎn dtâng-jai rian thai hâi gèng khâ</div><div class="eng">I’m determined to study Thai well.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+
+    <details>
+      <summary>happy / sad / shocked / scared</summary>
+      <div class="triad"><div class="thai">ดีใจ / เสียใจ / ตกใจ / กลัว</div><div class="roman">dii-jai / sǐa-jai / dtòk-jai / glua</div><div class="eng">happy / sad or sorry / shocked / scared</div></div>
+      <p><strong>Chinese Explanation:</strong> 基本情緒組。</p>
+    </details>
+
+    <details>
+      <summary>uneasy / pity / troubled / stressed / bored</summary>
+      <div class="triad"><div class="thai">ไม่สบายใจ / เสียดาย / กลุ้มใจ / เครียด / เบื่อ</div><div class="roman">mâi sà-baai-jai / sǐa-daai / glûm-jai / khrîat / bʉ̀a</div><div class="eng">uneasy / what a pity / troubled / stressed / bored</div></div>
+      <p><strong>Chinese Explanation:</strong> 較細膩的情緒組。</p>
+    </details>
+
+    <details>
+      <summary>worried about / miss / angry / lose temper / annoyed</summary>
+      <div class="triad"><div class="thai">เป็นห่วง / คิดถึง / โกรธ / โมโห / งุดงิด</div><div class="roman">bpen-hùang / khít-thʉ̌ng / gròot / moo-hǒo / ngùt-ngìt</div><div class="eng">worried about / miss / angry / lose temper / annoyed</div></div>
+      <p><strong>Chinese Explanation:</strong> 人際情緒高頻詞。</p>
+    </details>
+
+    <details>
+      <summary>intend / not sure / hope that / because / so</summary>
+      <div class="triad"><div class="thai">ตั้งใจ / ไม่แน่ใจ / หวังว่า / เพราะว่า / ก็เลย</div><div class="roman">dtâng-jai / mâi nɛ̂ɛ-jai / wǎng wâa / phrɔ́-wâa / gɔ̂ɔ ləəi</div><div class="eng">intend / not sure / hope that / because / so</div></div>
+      <p><strong>Chinese Explanation:</strong> 計畫與原因結果組。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+
+    <details>
+      <summary>我學泰文已經兩個月了。</summary>
+      <div class="triad"><div class="thai">ฉันเรียนภาษาไทยมาสองเดือนแล้วค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I have studied Thai for two months already.</div></div>
+      <p><strong>Chinese Explanation:</strong> 持續多久用 <span class="thai">มา + time + แล้ว</span>。</p>
+    </details>
+
+    <details>
+      <summary>學泰文讓我覺得很開心，但有時候也有壓力。</summary>
+      <div class="triad"><div class="thai">การเรียนภาษาไทยทำให้ฉันรู้สึกดีใจมาก แต่บางครั้งก็เครียดค่ะ</div><div class="roman">gaan rian phaa-sǎa-thai tham-hâi chǎn rúu-sʉ̀k dii-jai mâak, dtɛ̀ɛ baang khráng gɔ̂ɔ khrîat khâ</div><div class="eng">Studying Thai makes me feel very happy, but sometimes also stressed.</div></div>
+      <p><strong>Chinese Explanation:</strong> 用 <span class="thai">ทำให้...รู้สึก...</span> 表達感受。</p>
+    </details>
+
+    <details>
+      <summary>我不確定下個月會不會繼續學。</summary>
+      <div class="triad"><div class="thai">ฉันไม่แน่ใจว่าจะเรียนต่อเดือนหน้าไหมค่ะ</div><div class="roman">chǎn mâi nɛ̂ɛ-jai wâa jà rian dtɔ̀ɔ dʉan nâa mái khâ</div><div class="eng">I’m not sure whether I’ll continue studying next month.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">เรียนต่อ</span> = 繼續學。</p>
+    </details>
+
+    <details>
+      <summary>我希望明天不要下雨。</summary>
+      <div class="triad"><div class="thai">ฉันหวังว่าพรุ่งนี้ฝนจะไม่ตกค่ะ</div><div class="roman">chǎn wǎng wâa phrûng-níi fǒn jà mâi dtòk khâ</div><div class="eng">I hope it won’t rain tomorrow.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">หวังว่า...จะไม่...</span> = 希望不會。</p>
+    </details>
+
+    <details>
+      <summary>我想把泰文說好，所以認真學。</summary>
+      <div class="triad"><div class="thai">ฉันอยากพูดภาษาไทยเก่ง ก็เลยตั้งใจเรียนค่ะ</div><div class="roman">chǎn yàak phûut phaa-sǎa-thai gèng, gɔ̂ɔ ləəi dtâng-jai rian khâ</div><div class="eng">I want to speak Thai well, so I study seriously.</div></div>
+      <p><strong>Chinese Explanation:</strong> 原因在前，用 <span class="thai">ก็เลย</span> 接結果。</p>
+    </details>
+
+    <details>
+      <summary>我不是生氣，只是有點不安。</summary>
+      <div class="triad"><div class="thai">ฉันไม่ได้โกรธค่ะ แค่รู้สึกไม่สบายใจนิดหน่อย</div><div class="roman">chǎn mâi dâai gròot khâ, khɛ̂ɛ rúu-sʉ̀k mâi sà-baai-jai nít-nɔ̀i</div><div class="eng">I’m not angry, just feel a little uneasy.</div></div>
+      <p><strong>Chinese Explanation:</strong> 很適合真實人際溝通。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+
+    <details>
+      <summary>把「คุณรู้สึกอย่างไรคะ」改成自然口語。</summary>
+      <div class="triad"><div class="thai">รู้สึกยังไงบ้างคะ</div><div class="roman">rúu-sʉ̀k yang-ngai bâang khá</div><div class="eng">How do you feel about it?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ยังไงบ้าง</span> 更像聊天。</p>
+    </details>
+
+    <details>
+      <summary>把「ฉันเรียนภาษาไทยมาสองเดือนแล้วค่ะ」改成更口語。</summary>
+      <div class="triad"><div class="thai">เรียนไทยมาประมาณสองเดือนแล้วค่ะ</div><div class="roman">rian thai maa bprà-maan sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve studied Thai for about two months.</div></div>
+      <p><strong>Chinese Explanation:</strong> 口語可省略主詞與 <span class="thai">ภาษา</span>。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>Top 10｜今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="priority">1</span></td>
+          <td><div class="triad"><div class="thai">ฉันเรียนภาษาไทยมาสองเดือนแล้วค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I have studied Thai for two months already.</div></div></td>
+          <td>說持續多久</td>
+        </tr>
+        <tr>
+          <td><span class="priority">2</span></td>
+          <td><div class="triad"><div class="thai">อยู่ไทยมาประมาณสองเดือนแล้วค่ะ</div><div class="roman">yùu thai maa bprà-maan sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I’ve been in Thailand for about two months.</div></div></td>
+          <td>生活自我介紹</td>
+        </tr>
+        <tr>
+          <td><span class="priority">3</span></td>
+          <td><div class="triad"><div class="thai">เวลาเรียนภาษาไทยทำให้ฉันรู้สึกดีใจค่ะ</div><div class="roman">wee-laa rian phaa-sǎa-thai tham-hâi chǎn rúu-sʉ̀k dii-jai khâ</div><div class="eng">Studying Thai makes me feel happy.</div></div></td>
+          <td>說感受</td>
+        </tr>
+        <tr>
+          <td><span class="priority">4</span></td>
+          <td><div class="triad"><div class="thai">บางครั้งรู้สึกดีใจ แต่บางครั้งก็เครียดค่ะ</div><div class="roman">baang khráng rúu-sʉ̀k dii-jai, dtɛ̀ɛ baang khráng gɔ̂ɔ khrîat khâ</div><div class="eng">Sometimes I feel happy, but sometimes also stressed.</div></div></td>
+          <td>真實複合情緒</td>
+        </tr>
+        <tr>
+          <td><span class="priority">5</span></td>
+          <td><div class="triad"><div class="thai">ฉันดีใจที่จะเรียนเล่มสองเสร็จแล้วค่ะ</div><div class="roman">chǎn dii-jai thîi jà rian lêm sɔ̌ɔng sèt lɛ́ɛw khâ</div><div class="eng">I’m happy that I’m going to finish Book 2.</div></div></td>
+          <td>即將完成</td>
+        </tr>
+        <tr>
+          <td><span class="priority">6</span></td>
+          <td><div class="triad"><div class="thai">ฉันตั้งใจเรียนไทยให้เก่งค่ะ</div><div class="roman">chǎn dtâng-jai rian thai hâi gèng khâ</div><div class="eng">I’m determined to study Thai well.</div></div></td>
+          <td>表達決心</td>
+        </tr>
+        <tr>
+          <td><span class="priority">7</span></td>
+          <td><div class="triad"><div class="thai">ฉันไม่แน่ใจว่าจะเรียนต่อเดือนหน้าไหมค่ะ</div><div class="roman">chǎn mâi nɛ̂ɛ-jai wâa jà rian dtɔ̀ɔ dʉan nâa mái khâ</div><div class="eng">I’m not sure whether I’ll continue studying next month.</div></div></td>
+          <td>不確定計畫</td>
+        </tr>
+        <tr>
+          <td><span class="priority">8</span></td>
+          <td><div class="triad"><div class="thai">ฉันหวังว่าพรุ่งนี้ฝนจะไม่ตกค่ะ</div><div class="roman">chǎn wǎng wâa phrûng-níi fǒn jà mâi dtòk khâ</div><div class="eng">I hope it won’t rain tomorrow.</div></div></td>
+          <td>希望不會</td>
+        </tr>
+        <tr>
+          <td><span class="priority">9</span></td>
+          <td><div class="triad"><div class="thai">ฉันอยากพูดภาษาไทยเก่ง ก็เลยตั้งใจเรียนค่ะ</div><div class="roman">chǎn yàak phûut phaa-sǎa-thai gèng, gɔ̂ɔ ləəi dtâng-jai rian khâ</div><div class="eng">I want to speak Thai well, so I study seriously.</div></div></td>
+          <td>原因結果</td>
+        </tr>
+        <tr>
+          <td><span class="priority">10</span></td>
+          <td><div class="triad"><div class="thai">ฉันไม่ได้โกรธ แค่รู้สึกไม่สบายใจค่ะ</div><div class="roman">chǎn mâi dâai gròot, khɛ̂ɛ rúu-sʉ̀k mâi sà-baai-jai khâ</div><div class="eng">I’m not angry; I just feel uneasy.</div></div></td>
+          <td>情緒澄清</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<script>
+function openTab(event,tabId){
+  const contents=document.querySelectorAll('.tab-content');
+  const buttons=document.querySelectorAll('.tab-btn');
+  contents.forEach(c=>c.classList.remove('active'));
+  buttons.forEach(b=>b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

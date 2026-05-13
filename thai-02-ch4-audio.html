@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 4 Study Guide</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 18px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: #eab308; background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Thai Book 2｜Day 4 學習指南</h1>
+    <p class="subtitle">主題：請進/進出方向、裡面外面、鑰匙/錢包不見、敲門按鈴、不用客氣、是否需要、禁止與不要、當……的時候、第幾次</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'inside')">Inside / Outside</button>
+    <button class="tab-btn" onclick="openTab(event, 'polite')">Door & Politeness</button>
+    <button class="tab-btn" onclick="openTab(event, 'must')">Need / Don't</button>
+    <button class="tab-btn" onclick="openTab(event, 'when')">When / Time Focus</button>
+    <button class="tab-btn" onclick="openTab(event, 'synonyms')">Synonyms & Opposites</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'usage')">Practical Usage Bank</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Real-life Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 4 的第一個重點是「空間方向」：
+      <span class="thai">ข้างใน</span> / <span class="roman">khâang-nai</span> / <span class="eng">inside</span>、
+      <span class="thai">ข้างนอก</span> / <span class="roman">khâang-nɔ̂ɔk</span> / <span class="eng">outside</span>，
+      以及
+      <span class="thai">เข้ามา</span> / <span class="roman">khâo maa</span> / <span class="eng">come in</span>、
+      <span class="thai">ออกไป</span> / <span class="roman">ɔ̀ɔk bpai</span> / <span class="eng">go out</span>。
+      第二個重點是生活禮貌：請進、敲門、按門鈴、不用客氣、隨便。第三個重點是規則與禁止：要不要脫鞋、不要說英文、禁止吸菸。最後是 <span class="thai">พอ...</span> / <span class="roman">phɔɔ...</span> / <span class="eng">when...</span>、<span class="thai">เมื่อ...</span> / <span class="roman">mʉ̂a...</span> / <span class="eng">when...</span>、<span class="thai">ตอนที่...</span> / <span class="roman">dtɔɔn-thîi...</span> / <span class="eng">when / at the time that...</span> 的時間句型。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Invitation</div>
+        <div class="triad">
+          <div class="thai">เชิญเข้ามาข้างในสิคะ</div>
+          <div class="roman">chəən khâo maa khâang-nai sì khá</div>
+          <div class="eng">Please come inside.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Lost item</div>
+        <div class="triad">
+          <div class="thai">กุญแจหายค่ะ</div>
+          <div class="roman">gun-jae hǎai khâ</div>
+          <div class="eng">The key is missing.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">No need</div>
+        <div class="triad">
+          <div class="thai">ไม่ต้องถอดรองเท้าหรอกค่ะ</div>
+          <div class="roman">mâi dtɔ̂ng thɔ̀ɔt rɔɔng-tháao rɔ̀ɔk khâ</div>
+          <div class="eng">You don’t have to take off your shoes.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">When sick</div>
+        <div class="triad">
+          <div class="thai">พอฉันไม่สบาย ฉันกินยาค่ะ</div>
+          <div class="roman">phɔɔ chǎn mâi sà-baai, chǎn gin yaa khâ</div>
+          <div class="eng">When I feel sick, I take medicine.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 1 已學 <span class="thai">เข้า</span> / <span class="roman">khâo</span> / <span class="eng">enter</span> 和
+      <span class="thai">ออก</span> / <span class="roman">ɔ̀ɔk</span> / <span class="eng">exit</span>。Day 4 要更精準分辨：
+      <span class="thai">เข้ามา</span> / <span class="roman">khâo maa</span> / <span class="eng">come in toward speaker</span>、
+      <span class="thai">เข้าไป</span> / <span class="roman">khâo bpai</span> / <span class="eng">go in away from speaker</span>、
+      <span class="thai">ออกมา</span> / <span class="roman">ɔ̀ɔk maa</span> / <span class="eng">come out toward speaker</span>、
+      <span class="thai">ออกไป</span> / <span class="roman">ɔ̀ɔk bpai</span> / <span class="eng">go out away from speaker</span>。
+    </div>
+
+    <div class="tip">
+      <strong>Bangkok Practical Focus：</strong>
+      這課很像你真的在曼谷生活會用到的話：朋友來家裡，請他進來；去別人家問要不要脫鞋；住公寓找不到鑰匙；飯店房卡不見；到店門口按門鈴；在加油站看到「禁止吸菸」；第一次來泰國時做了什麼。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Space, Direction & Lost Items</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ข้างใน</div><div class="roman">khâang-nai</div><div class="eng">inside</div></div></td>
+          <td>Place / direction</td>
+          <td>表示裡面。常和 <span class="thai">เข้า</span> 搭配。</td>
+          <td><div class="triad"><div class="thai">เข้ามาข้างใน / อยู่ข้างใน</div><div class="roman">khâo maa khâang-nai / yùu khâang-nai</div><div class="eng">come inside / be inside</div></div></td>
+          <td><div class="triad"><div class="thai">เชิญเข้ามาข้างในสิคะ</div><div class="roman">chəən khâo maa khâang-nai sì khá</div><div class="eng">Please come inside.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ข้างนอก</div><div class="roman">khâang-nɔ̂ɔk</div><div class="eng">outside</div></div></td>
+          <td>Place / direction</td>
+          <td>表示外面。常和 <span class="thai">ออก</span> 搭配。</td>
+          <td><div class="triad"><div class="thai">ออกไปข้างนอก / รอข้างนอก</div><div class="roman">ɔ̀ɔk bpai khâang-nɔ̂ɔk / rɔɔ khâang-nɔ̂ɔk</div><div class="eng">go outside / wait outside</div></div></td>
+          <td><div class="triad"><div class="thai">เพื่อนรออยู่ข้างนอกค่ะ</div><div class="roman">phʉ̂an rɔɔ yùu khâang-nɔ̂ɔk khâ</div><div class="eng">My friend is waiting outside.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">กุญแจ</div><div class="roman">gun-jae</div><div class="eng">key</div></div></td>
+          <td>Object</td>
+          <td>鑰匙。可搭配 <span class="thai">หาย</span> 表示不見。</td>
+          <td><div class="triad"><div class="thai">กุญแจหาย / ลืมกุญแจ / หากุญแจ</div><div class="roman">gun-jae hǎai / lʉʉm gun-jae / hǎa gun-jae</div><div class="eng">key is missing / forget the key / look for the key</div></div></td>
+          <td><div class="triad"><div class="thai">กุญแจหายค่ะ เข้าไม่ได้ค่ะ</div><div class="roman">gun-jae hǎai khâ, khâo mâi dâai khâ</div><div class="eng">My key is missing. I can’t get in.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">กระเป๋าสตางค์</div><div class="roman">grà-bpǎo sà-dtaang</div><div class="eng">wallet</div></div></td>
+          <td>Object</td>
+          <td>錢包。口語也常說 <span class="thai">กระเป๋าตังค์</span>。</td>
+          <td><div class="triad"><div class="thai">กระเป๋าสตางค์หาย / ลืมกระเป๋าสตางค์</div><div class="roman">grà-bpǎo sà-dtaang hǎai / lʉʉm grà-bpǎo sà-dtaang</div><div class="eng">wallet is missing / forget wallet</div></div></td>
+          <td><div class="triad"><div class="thai">กระเป๋าสตางค์หายที่ตลาดค่ะ</div><div class="roman">grà-bpǎo sà-dtaang hǎai thîi dtà-làat khâ</div><div class="eng">My wallet went missing at the market.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ขโมย</div><div class="roman">khà-mooi</div><div class="eng">thief / steal</div></div></td>
+          <td>Noun / verb</td>
+          <td>可當名詞「小偷」，也可當動詞「偷」。</td>
+          <td><div class="triad"><div class="thai">ถูกขโมย / ขโมยกระเป๋า</div><div class="roman">thùuk khà-mooi / khà-mooi grà-bpǎo</div><div class="eng">be stolen / steal a bag</div></div></td>
+          <td><div class="triad"><div class="thai">โทรศัพท์ถูกขโมยค่ะ</div><div class="roman">thoo-rá-sàp thùuk khà-mooi khâ</div><div class="eng">My phone was stolen.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หาย</div><div class="roman">hǎai</div><div class="eng">disappear / be missing / recover</div></div></td>
+          <td>Verb / state</td>
+          <td>物品不見可以用；病好了也可以用。</td>
+          <td><div class="triad"><div class="thai">ของหาย / ป่วยหายแล้ว</div><div class="roman">khɔ̌ɔng hǎai / bpùai hǎai lɛ́ɛw</div><div class="eng">thing is missing / recovered from illness</div></div></td>
+          <td><div class="triad"><div class="thai">บัตรหายค่ะ ต้องทำยังไงคะ</div><div class="roman">bàt hǎai khâ, dtɔ̂ng tham yang-ngai khá</div><div class="eng">My card is missing. What should I do?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Door, Permission & Courtesy</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เชิญ</div><div class="roman">chəən</div><div class="eng">please / invite</div></div></td>
+          <td>Polite verb</td>
+          <td>很禮貌的「請」。常用於請進、請坐。</td>
+          <td><div class="triad"><div class="thai">เชิญเข้ามา / เชิญนั่ง / เชิญค่ะ</div><div class="roman">chəən khâo maa / chəən nâng / chəən khâ</div><div class="eng">please come in / please sit / please go ahead</div></div></td>
+          <td><div class="triad"><div class="thai">เชิญนั่งก่อนค่ะ</div><div class="roman">chəən nâng gɔ̀ɔn khâ</div><div class="eng">Please have a seat first.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">สิ</div><div class="roman">sì</div><div class="eng">encouraging particle / go ahead</div></div></td>
+          <td>Particle</td>
+          <td>放句尾，讓邀請或建議更有「來嘛、做吧」的感覺。對不熟的人要小心，可能略直接。</td>
+          <td><div class="triad"><div class="thai">เข้ามาสิคะ / กินสิคะ</div><div class="roman">khâo maa sì khá / gin sì khá</div><div class="eng">come in / eat, go ahead</div></div></td>
+          <td><div class="triad"><div class="thai">เข้ามาสิคะ ไม่ต้องเกรงใจค่ะ</div><div class="roman">khâo maa sì khá, mâi dtɔ̂ng greeng-jai khâ</div><div class="eng">Come in, don’t be shy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">กดกริ่ง</div><div class="roman">gòt grìng</div><div class="eng">press the doorbell</div></div></td>
+          <td>Action</td>
+          <td><span class="thai">กด</span> = press；<span class="thai">กริ่ง</span> = bell。</td>
+          <td><div class="triad"><div class="thai">กดกริ่งก่อน / กดกริ่งหน้าห้อง</div><div class="roman">gòt grìng gɔ̀ɔn / gòt grìng nâa hɔ̂ng</div><div class="eng">press the bell first / press the bell in front of the room</div></div></td>
+          <td><div class="triad"><div class="thai">ถึงแล้วกดกริ่งนะคะ</div><div class="roman">thʉ̌ng lɛ́ɛw gòt grìng ná khá</div><div class="eng">When you arrive, press the bell.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เคาะประตู</div><div class="roman">khɔ́ bprà-dtuu</div><div class="eng">knock on the door</div></div></td>
+          <td>Action</td>
+          <td><span class="thai">เคาะ</span> = knock；<span class="thai">ประตู</span> = door。</td>
+          <td><div class="triad"><div class="thai">เคาะประตูก่อน / เคาะเบา ๆ</div><div class="roman">khɔ́ bprà-dtuu gɔ̀ɔn / khɔ́ bao-bao</div><div class="eng">knock first / knock softly</div></div></td>
+          <td><div class="triad"><div class="thai">ก่อนเข้าห้อง ต้องเคาะประตูก่อนค่ะ</div><div class="roman">gɔ̀ɔn khâo hɔ̂ng, dtɔ̂ng khɔ́ bprà-dtuu gɔ̀ɔn khâ</div><div class="eng">Before entering the room, you must knock first.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เกรงใจ</div><div class="roman">greeng-jai</div><div class="eng">feel considerate / feel reluctant to impose</div></div></td>
+          <td>Culture word</td>
+          <td>非常泰式文化詞，表示怕麻煩別人、覺得不好意思。</td>
+          <td><div class="triad"><div class="thai">ไม่ต้องเกรงใจ / เกรงใจมาก</div><div class="roman">mâi dtɔ̂ng greeng-jai / greeng-jai mâak</div><div class="eng">don’t be shy / feel very considerate</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่ต้องเกรงใจนะคะ</div><div class="roman">mâi dtɔ̂ng greeng-jai ná khá</div><div class="eng">Please don’t feel shy / don’t worry about imposing.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ตามสบาย</div><div class="roman">dtaam sà-baai</div><div class="eng">make yourself comfortable / as you like</div></div></td>
+          <td>Courtesy phrase</td>
+          <td>讓對方放鬆，像「你隨意、自在一點」。</td>
+          <td><div class="triad"><div class="thai">ตามสบายค่ะ / นั่งตามสบาย</div><div class="roman">dtaam sà-baai khâ / nâng dtaam sà-baai</div><div class="eng">make yourself comfortable / sit comfortably</div></div></td>
+          <td><div class="triad"><div class="thai">เข้ามาแล้วนั่งตามสบายค่ะ</div><div class="roman">khâo maa lɛ́ɛw nâng dtaam sà-baai khâ</div><div class="eng">Come in and make yourself comfortable.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อะไรก็ได้</div><div class="roman">à-rai gɔ̂ɔ dâai</div><div class="eng">anything is fine</div></div></td>
+          <td>Choice phrase</td>
+          <td>回答選擇時超常用。</td>
+          <td><div class="triad"><div class="thai">กินอะไรก็ได้ / ไปไหนก็ได้</div><div class="roman">gin à-rai gɔ̂ɔ dâai / bpai nǎi gɔ̂ɔ dâai</div><div class="eng">anything to eat is fine / anywhere is fine</div></div></td>
+          <td><div class="triad"><div class="thai">เย็นนี้กินอะไรก็ได้ค่ะ</div><div class="roman">yen níi gin à-rai gɔ̂ɔ dâai khâ</div><div class="eng">Anything is fine for dinner tonight.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Rules, Prohibition & Health</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ต้อง</div><div class="roman">dtɔ̂ng</div><div class="eng">must / have to</div></div></td>
+          <td>Modal verb</td>
+          <td>表示必須。否定是 <span class="thai">ไม่ต้อง</span> = 不用。</td>
+          <td><div class="triad"><div class="thai">ต้องถอดรองเท้า / ไม่ต้องถอดรองเท้า</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao / mâi dtɔ̂ng thɔ̀ɔt rɔɔng-tháao</div><div class="eng">must take off shoes / don’t have to take off shoes</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องเคาะประตูก่อนไหมคะ</div><div class="roman">dtɔ̂ng khɔ́ bprà-dtuu gɔ̀ɔn mái khá</div><div class="eng">Do I have to knock first?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ถอดรองเท้า</div><div class="roman">thɔ̀ɔt rɔɔng-tháao</div><div class="eng">take off shoes</div></div></td>
+          <td>Action</td>
+          <td><span class="thai">ถอด</span> = take off；<span class="thai">รองเท้า</span> = shoes。</td>
+          <td><div class="triad"><div class="thai">ถอดรองเท้าก่อน / ใส่รองเท้า</div><div class="roman">thɔ̀ɔt rɔɔng-tháao gɔ̀ɔn / sài rɔɔng-tháao</div><div class="eng">take off shoes first / wear shoes</div></div></td>
+          <td><div class="triad"><div class="thai">เข้าบ้านต้องถอดรองเท้าค่ะ</div><div class="roman">khâo bâan dtɔ̂ng thɔ̀ɔt rɔɔng-tháao khâ</div><div class="eng">You have to take off shoes when entering the house.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อย่า</div><div class="roman">yàa</div><div class="eng">don’t</div></div></td>
+          <td>Negative command</td>
+          <td>放動詞前，表示不要做。比 <span class="thai">ห้าม</span> 生活化。</td>
+          <td><div class="triad"><div class="thai">อย่าพูด / อย่าสูบบุหรี่ / อย่าเข้าไป</div><div class="roman">yàa phûut / yàa sùup bù-rìi / yàa khâo bpai</div><div class="eng">don’t speak / don’t smoke / don’t go in</div></div></td>
+          <td><div class="triad"><div class="thai">อย่าพูดภาษาอังกฤษนะคะ</div><div class="roman">yàa phûut phaa-sǎa ang-grìt ná khá</div><div class="eng">Don’t speak English, okay?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ห้าม</div><div class="roman">hâam</div><div class="eng">forbidden / prohibit</div></div></td>
+          <td>Prohibition</td>
+          <td>常見於標語、規則，比 <span class="thai">อย่า</span> 更正式。</td>
+          <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ / ห้ามเข้า</div><div class="roman">hâam sùup bù-rìi / hâam khâo</div><div class="eng">no smoking / no entry</div></div></td>
+          <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ที่ปั๊มน้ำมันค่ะ</div><div class="roman">hâam sùup bù-rìi thîi bpám-nám-man khâ</div><div class="eng">Smoking is prohibited at the gas station.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">สูบบุหรี่</div><div class="roman">sùup bù-rìi</div><div class="eng">smoke cigarettes</div></div></td>
+          <td>Action</td>
+          <td><span class="thai">สูบ</span> = smoke/suck；<span class="thai">บุหรี่</span> = cigarette。</td>
+          <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ / ไม่สูบบุหรี่</div><div class="roman">hâam sùup bù-rìi / mâi sùup bù-rìi</div><div class="eng">no smoking / don’t smoke</div></div></td>
+          <td><div class="triad"><div class="thai">ในห้องห้ามสูบบุหรี่ค่ะ</div><div class="roman">nai hɔ̂ng hâam sùup bù-rìi khâ</div><div class="eng">Smoking is prohibited in the room.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ไม่สบาย</div><div class="roman">mâi sà-baai</div><div class="eng">not feeling well / sick</div></div></td>
+          <td>Health</td>
+          <td>泰文很常用，不一定很嚴重。</td>
+          <td><div class="triad"><div class="thai">รู้สึกไม่สบาย / ไม่สบายมาก</div><div class="roman">rúu-sʉ̀k mâi sà-baai / mâi sà-baai mâak</div><div class="eng">feel unwell / very sick</div></div></td>
+          <td><div class="triad"><div class="thai">พอฉันไม่สบาย ฉันไปหาหมอค่ะ</div><div class="roman">phɔɔ chǎn mâi sà-baai, chǎn bpai hǎa mɔ̌ɔ khâ</div><div class="eng">When I feel sick, I go see a doctor.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">กินยา</div><div class="roman">gin yaa</div><div class="eng">take medicine</div></div></td>
+          <td>Health</td>
+          <td>泰文說「吃藥」用 <span class="thai">กิน</span>。</td>
+          <td><div class="triad"><div class="thai">กินยาก่อนนอน / กินยาหลังอาหาร</div><div class="roman">gin yaa gɔ̀ɔn nɔɔn / gin yaa lǎng aa-hǎan</div><div class="eng">take medicine before bed / take medicine after meals</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องกินยาวันละสองครั้งค่ะ</div><div class="roman">dtɔ̂ng gin yaa wan lá sɔ̌ɔng khráng khâ</div><div class="eng">You have to take medicine twice a day.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ไปหาหมอ</div><div class="roman">bpai hǎa mɔ̌ɔ</div><div class="eng">go see a doctor</div></div></td>
+          <td>Health</td>
+          <td><span class="thai">หา</span> 在這裡是「找/去見」。</td>
+          <td><div class="triad"><div class="thai">ไปหาหมอ / ไปโรงพยาบาล</div><div class="roman">bpai hǎa mɔ̌ɔ / bpai roong-phá-yaa-baan</div><div class="eng">go see a doctor / go to hospital</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าไม่สบายมาก ควรไปหาหมอนะคะ</div><div class="roman">thâa mâi sà-baai mâak, khuan bpai hǎa mɔ̌ɔ ná khá</div><div class="eng">If you feel very sick, you should go see a doctor.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="inside" class="tab-content">
+    <h2>Inside / Outside｜進出方向</h2>
+
+    <h3>Direction System</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Meaning</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>come in toward speaker</td>
+          <td><div class="triad"><div class="thai">เข้ามา</div><div class="roman">khâo maa</div><div class="eng">come in</div></div></td>
+          <td>人往說話者所在的裡面進來。</td>
+          <td><div class="triad"><div class="thai">เชิญเข้ามาค่ะ</div><div class="roman">chəən khâo maa khâ</div><div class="eng">Please come in.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>go in away from speaker</td>
+          <td><div class="triad"><div class="thai">เข้าไป</div><div class="roman">khâo bpai</div><div class="eng">go in</div></div></td>
+          <td>人往不是說話者所在的裡面進去。</td>
+          <td><div class="triad"><div class="thai">อย่าเข้าไปข้างในนะคะ</div><div class="roman">yàa khâo bpai khâang-nai ná khá</div><div class="eng">Don’t go inside.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>come out toward speaker</td>
+          <td><div class="triad"><div class="thai">ออกมา</div><div class="roman">ɔ̀ɔk maa</div><div class="eng">come out</div></div></td>
+          <td>從裡面往說話者這邊出來。</td>
+          <td><div class="triad"><div class="thai">ออกมาข้างนอกหน่อยค่ะ</div><div class="roman">ɔ̀ɔk maa khâang-nɔ̂ɔk nɔ̀i khâ</div><div class="eng">Please come outside for a moment.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>go out away from speaker</td>
+          <td><div class="triad"><div class="thai">ออกไป</div><div class="roman">ɔ̀ɔk bpai</div><div class="eng">go out</div></div></td>
+          <td>從說話者這邊往外出去。</td>
+          <td><div class="triad"><div class="thai">เขาออกไปข้างนอกแล้วค่ะ</div><div class="roman">khǎo ɔ̀ɔk bpai khâang-nɔ̂ɔk lɛ́ɛw khâ</div><div class="eng">He/she already went outside.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>核心邏輯：</strong>
+      <span class="thai">มา</span> / <span class="roman">maa</span> / <span class="eng">come toward speaker</span>；
+      <span class="thai">ไป</span> / <span class="roman">bpai</span> / <span class="eng">go away from speaker</span>。
+      所以不是只有「進/出」，還要看方向是往你這裡還是離你遠。
+    </div>
+
+    <h3>Practical Examples</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>朋友在你家門口</td>
+          <td><div class="triad"><div class="thai">เข้ามาข้างในสิคะ</div><div class="roman">khâo maa khâang-nai sì khá</div><div class="eng">Come inside.</div></div></td>
+          <td>你人在裡面，所以叫朋友「進來」。</td>
+        </tr>
+        <tr>
+          <td>提醒小孩不要進房間</td>
+          <td><div class="triad"><div class="thai">อย่าเข้าไปในห้องนะคะ</div><div class="roman">yàa khâo bpai nai hɔ̂ng ná khá</div><div class="eng">Don’t go into the room.</div></div></td>
+          <td>房間不是你和聽者當下共同所在，所以用 <span class="thai">เข้าไป</span>。</td>
+        </tr>
+        <tr>
+          <td>叫貓從箱子裡出來</td>
+          <td><div class="triad"><div class="thai">ออกมาสิคะ</div><div class="roman">ɔ̀ɔk maa sì khá</div><div class="eng">Come out.</div></div></td>
+          <td>貓往你這邊出來。</td>
+        </tr>
+        <tr>
+          <td>朋友出去買東西</td>
+          <td><div class="triad"><div class="thai">เพื่อนออกไปซื้อของค่ะ</div><div class="roman">phʉ̂an ɔ̀ɔk bpai sʉ́ʉ khɔ̌ɔng khâ</div><div class="eng">My friend went out to buy things.</div></div></td>
+          <td>離開現在所在位置往外去。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="polite" class="tab-content">
+    <h2>Door & Politeness｜敲門、按鈴、請進、不用客氣</h2>
+
+    <h3>Polite Home Visit Phrases</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage Note</th>
+          <th>Extra Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>請進</td>
+          <td><div class="triad"><div class="thai">เชิญเข้ามาค่ะ</div><div class="roman">chəən khâo maa khâ</div><div class="eng">Please come in.</div></div></td>
+          <td>最標準、禮貌。</td>
+          <td><div class="triad"><div class="thai">เชิญเข้ามาข้างในสิคะ</div><div class="roman">chəən khâo maa khâang-nai sì khá</div><div class="eng">Please come inside.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>請坐</td>
+          <td><div class="triad"><div class="thai">เชิญนั่งค่ะ</div><div class="roman">chəən nâng khâ</div><div class="eng">Please sit.</div></div></td>
+          <td>比 <span class="thai">นั่งค่ะ</span> 禮貌。</td>
+          <td><div class="triad"><div class="thai">เชิญนั่งก่อนค่ะ</div><div class="roman">chəən nâng gɔ̀ɔn khâ</div><div class="eng">Please have a seat first.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>不用客氣/不用不好意思</td>
+          <td><div class="triad"><div class="thai">ไม่ต้องเกรงใจค่ะ</div><div class="roman">mâi dtɔ̂ng greeng-jai khâ</div><div class="eng">Don’t be shy / don’t worry about imposing.</div></div></td>
+          <td>泰國文化關鍵詞。</td>
+          <td><div class="triad"><div class="thai">กินได้เลยค่ะ ไม่ต้องเกรงใจนะคะ</div><div class="roman">gin dâai ləəi khâ, mâi dtɔ̂ng greeng-jai ná khá</div><div class="eng">You can eat right away. Don’t be shy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>隨便/自在一點</td>
+          <td><div class="triad"><div class="thai">ตามสบายค่ะ</div><div class="roman">dtaam sà-baai khâ</div><div class="eng">Make yourself comfortable.</div></div></td>
+          <td>請客人放鬆。</td>
+          <td><div class="triad"><div class="thai">นั่งตามสบายค่ะ</div><div class="roman">nâng dtaam sà-baai khâ</div><div class="eng">Sit comfortably / make yourself comfortable.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>沒關係</td>
+          <td><div class="triad"><div class="thai">ไม่เป็นไรค่ะ</div><div class="roman">mâi bpen rai khâ</div><div class="eng">It’s okay / no problem.</div></div></td>
+          <td><span class="label review">Review</span> 以前已學過，這裡放進禮貌回應。</td>
+          <td><div class="triad"><div class="thai">ไม่เป็นไรค่ะ อะไรก็ได้ค่ะ</div><div class="roman">mâi bpen rai khâ, à-rai gɔ̂ɔ dâai khâ</div><div class="eng">It’s okay. Anything is fine.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>什麼都可以</td>
+          <td><div class="triad"><div class="thai">อะไรก็ได้ค่ะ</div><div class="roman">à-rai gɔ̂ɔ dâai khâ</div><div class="eng">Anything is fine.</div></div></td>
+          <td>選餐廳、飲料、活動都能用。</td>
+          <td><div class="triad"><div class="thai">ร้านไหนก็ได้ค่ะ</div><div class="roman">ráan nǎi gɔ̂ɔ dâai khâ</div><div class="eng">Any restaurant is fine.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Door Actions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example 1</th>
+          <th>Example 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>press</td>
+          <td><div class="triad"><div class="thai">กด</div><div class="roman">gòt</div><div class="eng">press</div></div></td>
+          <td><div class="triad"><div class="thai">กดกริ่งก่อนนะคะ</div><div class="roman">gòt grìng gɔ̀ɔn ná khá</div><div class="eng">Press the doorbell first.</div></div></td>
+          <td><div class="triad"><div class="thai">กดลิฟต์ชั้นสิบค่ะ</div><div class="roman">gòt líp chán sìp khâ</div><div class="eng">Press floor 10 in the elevator.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>knock</td>
+          <td><div class="triad"><div class="thai">เคาะ</div><div class="roman">khɔ́</div><div class="eng">knock</div></div></td>
+          <td><div class="triad"><div class="thai">เคาะประตูเบา ๆ ค่ะ</div><div class="roman">khɔ́ bprà-dtuu bao-bao khâ</div><div class="eng">Knock softly on the door.</div></div></td>
+          <td><div class="triad"><div class="thai">อย่าเคาะแรงเกินไปนะคะ</div><div class="roman">yàa khɔ́ rɛɛng gəən-bpai ná khá</div><div class="eng">Don’t knock too hard.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="must" class="tab-content">
+    <h2>Need / Don't｜ต้อง、ไม่ต้อง、อย่า、ห้าม</h2>
+
+    <h3>Core Pattern</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Subject + ต้อง + Verb + ไหมคะ</div>
+        <div class="roman">Subject + dtɔ̂ng + Verb + mái khá</div>
+        <div class="eng">Does subject have to do verb?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">Subject + ไม่ต้อง + Verb + ค่ะ</div>
+        <div class="roman">Subject + mâi dtɔ̂ng + Verb + khâ</div>
+        <div class="eng">Subject does not have to do verb.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">อย่า + Verb + นะคะ / ห้าม + Verb</div>
+        <div class="roman">yàa + Verb + ná khá / hâam + Verb</div>
+        <div class="eng">Don’t do verb / Verb is prohibited.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問要不要脫鞋</td>
+          <td><div class="triad"><div class="thai">ต้องถอดรองเท้าไหมคะ</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao mái khá</div><div class="eng">Do I have to take off my shoes?</div></div></td>
+          <td>去別人家、按摩店、診所、寺廟都實用。</td>
+        </tr>
+
+        <tr>
+          <td>不用脫鞋</td>
+          <td><div class="triad"><div class="thai">ไม่ต้องถอดรองเท้าค่ะ</div><div class="roman">mâi dtɔ̂ng thɔ̀ɔt rɔɔng-tháao khâ</div><div class="eng">You don’t have to take off your shoes.</div></div></td>
+          <td>中性回答。</td>
+        </tr>
+
+        <tr>
+          <td>柔和說不用啦</td>
+          <td><div class="triad"><div class="thai">ไม่ต้องถอดรองเท้าหรอกค่ะ</div><div class="roman">mâi dtɔ̂ng thɔ̀ɔt rɔɔng-tháao rɔ̀ɔk khâ</div><div class="eng">You really don’t have to take off your shoes.</div></div></td>
+          <td><span class="thai">หรอก</span> 有「不用啦、真的不用」的語氣。</td>
+        </tr>
+
+        <tr>
+          <td>不要說英文</td>
+          <td><div class="triad"><div class="thai">อย่าพูดภาษาอังกฤษนะคะ</div><div class="roman">yàa phûut phaa-sǎa ang-grìt ná khá</div><div class="eng">Don’t speak English, okay?</div></div></td>
+          <td>上泰文課時可以要求自己練泰文。</td>
+        </tr>
+
+        <tr>
+          <td>正式禁止</td>
+          <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ค่ะ</div><div class="roman">hâam sùup bù-rìi khâ</div><div class="eng">Smoking is prohibited.</div></div></td>
+          <td>標語、規則、公共場所。</td>
+        </tr>
+
+        <tr>
+          <td>加油站禁止吸菸</td>
+          <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ที่ปั๊มน้ำมันค่ะ</div><div class="roman">hâam sùup bù-rìi thîi bpám-nám-man khâ</div><div class="eng">Smoking is prohibited at the gas station.</div></div></td>
+          <td>教材第 4 頁情境。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>重要差異：</strong>
+      <p><span class="thai">ไม่ต้อง</span> / <span class="roman">mâi dtɔ̂ng</span> / <span class="eng">don’t have to</span>：沒有必要，不是禁止。</p>
+      <p><span class="thai">อย่า</span> / <span class="roman">yàa</span> / <span class="eng">don’t</span>：直接叫對方不要做。</p>
+      <p><span class="thai">ห้าม</span> / <span class="roman">hâam</span> / <span class="eng">prohibited</span>：規則性禁止，比較正式。</p>
+    </div>
+  </section>
+
+  <section id="when" class="tab-content">
+    <h2>When / Time Focus｜พอ、เมื่อ、ตอนที่、第幾次</h2>
+
+    <h3>1. พอ...｜when / once...</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">พอ + Subject + Verb, Subject + Verb</div>
+        <div class="roman">phɔɔ + Subject + Verb, Subject + Verb</div>
+        <div class="eng">When / once subject does verb, subject does verb.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>生病時吃藥</td>
+          <td><div class="triad"><div class="thai">พอฉันไม่สบาย ฉันกินยาค่ะ</div><div class="roman">phɔɔ chǎn mâi sà-baai, chǎn gin yaa khâ</div><div class="eng">When I feel sick, I take medicine.</div></div></td>
+          <td>教材第 5 頁核心句型。</td>
+        </tr>
+
+        <tr>
+          <td>生病時看醫生</td>
+          <td><div class="triad"><div class="thai">พอฉันไม่สบายมาก ฉันไปหาหมอค่ะ</div><div class="roman">phɔɔ chǎn mâi sà-baai mâak, chǎn bpai hǎa mɔ̌ɔ khâ</div><div class="eng">When I feel very sick, I go see a doctor.</div></div></td>
+          <td>自然生活句。</td>
+        </tr>
+
+        <tr>
+          <td>到家後洗澡</td>
+          <td><div class="triad"><div class="thai">พอกลับถึงบ้าน ฉันอาบน้ำค่ะ</div><div class="roman">phɔɔ glàp thʉ̌ng bâan, chǎn àap náam khâ</div><div class="eng">When I get home, I take a shower.</div></div></td>
+          <td>曼谷天氣熱，很常用。</td>
+        </tr>
+
+        <tr>
+          <td>到站後打電話</td>
+          <td><div class="triad"><div class="thai">พอถึงสถานี ฉันโทรหาคุณค่ะ</div><div class="roman">phɔɔ thʉ̌ng sà-thǎa-nii, chǎn thoo hǎa khun khâ</div><div class="eng">When I arrive at the station, I’ll call you.</div></div></td>
+          <td>約朋友見面實用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. เมื่อ...｜when / when I was...</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เมื่อ + Subject + เป็น + Noun, Subject + ชอบ + Verb/Noun + มากที่สุด</div>
+        <div class="roman">mʉ̂a + Subject + bpen + Noun, Subject + chɔ̂ɔp + Verb/Noun + mâak thîi-sùt</div>
+        <div class="eng">When subject was noun, subject liked doing noun the most.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Question / Answer</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>小時候最喜歡做什麼？</td>
+          <td>
+            <div class="triad"><div class="thai">เมื่อคุณเป็นเด็ก คุณชอบทำอะไรมากที่สุดคะ</div><div class="roman">mʉ̂a khun bpen dèk, khun chɔ̂ɔp tham à-rai mâak thîi-sùt khá</div><div class="eng">When you were a child, what did you like doing the most?</div></div>
+            <div class="triad"><div class="thai">เมื่อฉันเป็นเด็ก ฉันชอบดูการ์ตูนมากที่สุดค่ะ</div><div class="roman">mʉ̂a chǎn bpen dèk, chǎn chɔ̂ɔp duu gaa-tuun mâak thîi-sùt khâ</div><div class="eng">When I was a child, I liked watching cartoons the most.</div></div>
+          </td>
+          <td>教材第 5 頁主題，用來聊童年。</td>
+        </tr>
+
+        <tr>
+          <td>學生時代讀什麼？</td>
+          <td>
+            <div class="triad"><div class="thai">เมื่อคุณเป็นนักศึกษา คุณเรียนอะไรคะ</div><div class="roman">mʉ̂a khun bpen nák-sʉ̀k-sǎa, khun rian à-rai khá</div><div class="eng">When you were a university student, what did you study?</div></div>
+            <div class="triad"><div class="thai">เมื่อฉันเป็นนักศึกษา ฉันเรียนเศรษฐศาสตร์ค่ะ</div><div class="roman">mʉ̂a chǎn bpen nák-sʉ̀k-sǎa, chǎn rian sèet-thà-sàat khâ</div><div class="eng">When I was a university student, I studied economics.</div></div>
+          </td>
+          <td><span class="thai">นักเรียน</span> 是中小學生；<span class="thai">นักศึกษา</span> 是大學生。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. ตอนที่...｜at the time when...</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ตอนที่ + Subject + Verb, Subject + Verb</div>
+        <div class="roman">dtɔɔn-thîi + Subject + Verb, Subject + Verb</div>
+        <div class="eng">At the time when subject did verb, subject did verb.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Focus</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第一次來泰國</td>
+          <td>
+            <div class="triad"><div class="thai">ตอนที่คุณมาเมืองไทยครั้งแรก คุณมาทำอะไรคะ</div><div class="roman">dtɔɔn-thîi khun maa mʉang-thai khráng-rɛ̂ɛk, khun maa tham à-rai khá</div><div class="eng">When you came to Thailand for the first time, what did you come to do?</div></div>
+            <div class="triad"><div class="thai">ตอนที่ฉันมาเมืองไทยครั้งแรก ฉันมาเที่ยวค่ะ</div><div class="roman">dtɔɔn-thîi chǎn maa mʉang-thai khráng-rɛ̂ɛk, chǎn maa thîao khâ</div><div class="eng">When I came to Thailand for the first time, I came to travel.</div></div>
+          </td>
+          <td>教材第 6 頁句型。</td>
+        </tr>
+
+        <tr>
+          <td>幾歲時在哪裡做什麼</td>
+          <td>
+            <div class="triad"><div class="thai">ตอนที่คุณอายุยี่สิบปี คุณทำงานอยู่ที่ไหนคะ</div><div class="roman">dtɔɔn-thîi khun aa-yú yîi-sìp bpii, khun tham-ngaan yùu thîi-nǎi khá</div><div class="eng">When you were twenty, where were you working?</div></div>
+            <div class="triad"><div class="thai">ตอนที่ฉันอายุยี่สิบปี ฉันเรียนอยู่ที่มหาวิทยาลัยค่ะ</div><div class="roman">dtɔɔn-thîi chǎn aa-yú yîi-sìp bpii, chǎn rian yùu thîi má-hǎa-wít-thá-yaa-lai khâ</div><div class="eng">When I was twenty, I was studying at university.</div></div>
+          </td>
+          <td>適合自我介紹、面試聊天、語言交換。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. ครั้งแรก / ครั้งที่... / ครั้งสุดท้าย</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Meaning</th>
+          <th>Example 1</th>
+          <th>Example 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ครั้งแรก</div><div class="roman">khráng-rɛ̂ɛk</div><div class="eng">the first time</div></div></td>
+          <td>第一次</td>
+          <td><div class="triad"><div class="thai">นี่เป็นครั้งแรกที่ฉันมาเมืองไทยค่ะ</div><div class="roman">nîi bpen khráng-rɛ̂ɛk thîi chǎn maa mʉang-thai khâ</div><div class="eng">This is the first time I came to Thailand.</div></div></td>
+          <td><div class="triad"><div class="thai">ครั้งแรกฉันมาเที่ยวค่ะ</div><div class="roman">khráng-rɛ̂ɛk chǎn maa thîao khâ</div><div class="eng">The first time, I came to travel.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ครั้งที่สอง / ครั้งที่สาม</div><div class="roman">khráng-thîi sɔ̌ɔng / khráng-thîi sǎam</div><div class="eng">the second time / the third time</div></div></td>
+          <td>第幾次</td>
+          <td><div class="triad"><div class="thai">ครั้งที่สองฉันมาเรียนภาษาไทยค่ะ</div><div class="roman">khráng-thîi sɔ̌ɔng chǎn maa rian phaa-sǎa thai khâ</div><div class="eng">The second time, I came to study Thai.</div></div></td>
+          <td><div class="triad"><div class="thai">ครั้งที่สามฉันมาเยี่ยมแฟนค่ะ</div><div class="roman">khráng-thîi sǎam chǎn maa yîam fɛɛn khâ</div><div class="eng">The third time, I came to visit my partner.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ครั้งสุดท้าย</div><div class="roman">khráng-sùt-tháai</div><div class="eng">the last time</div></div></td>
+          <td>最後一次 / 上一次，要靠上下文判斷</td>
+          <td><div class="triad"><div class="thai">ครั้งสุดท้ายที่มาเมืองไทย ฉันอยู่สองเดือนค่ะ</div><div class="roman">khráng-sùt-tháai thîi maa mʉang-thai, chǎn yùu sɔ̌ɔng dʉan khâ</div><div class="eng">The last time I came to Thailand, I stayed for two months.</div></div></td>
+          <td><div class="triad"><div class="thai">ครั้งสุดท้ายเราไปเชียงใหม่ค่ะ</div><div class="roman">khráng-sùt-tháai rao bpai chiang-mài khâ</div><div class="eng">Last time, we went to Chiang Mai.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="synonyms" class="tab-content">
+    <h2>Synonyms & Opposites｜同義詞 / 反義詞例句加強</h2>
+
+    <div class="tip blue">
+      <strong>本課開始的新規則：</strong>
+      如果有同義詞或反義詞，不只列出來，兩邊都給例句，而且例句情境盡量不同，讓你可以從更多生活場景記住用法。
+    </div>
+
+    <h3>Direction Opposites</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Pair</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example for A</th>
+          <th>Example for B</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>裡面 / 外面</td>
+          <td>
+            <div class="triad"><div class="thai">ข้างใน</div><div class="roman">khâang-nai</div><div class="eng">inside</div></div>
+            <div class="triad"><div class="thai">ข้างนอก</div><div class="roman">khâang-nɔ̂ɔk</div><div class="eng">outside</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ข้างในมีแอร์ค่ะ</div><div class="roman">khâang-nai mii ɛɛ khâ</div><div class="eng">There is air conditioning inside.</div></div></td>
+          <td><div class="triad"><div class="thai">ข้างนอกร้อนมากค่ะ</div><div class="roman">khâang-nɔ̂ɔk rɔ́ɔn mâak khâ</div><div class="eng">It is very hot outside.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>進來 / 出去</td>
+          <td>
+            <div class="triad"><div class="thai">เข้ามา</div><div class="roman">khâo maa</div><div class="eng">come in</div></div>
+            <div class="triad"><div class="thai">ออกไป</div><div class="roman">ɔ̀ɔk bpai</div><div class="eng">go out</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">เข้ามารอข้างในก่อนค่ะ</div><div class="roman">khâo maa rɔɔ khâang-nai gɔ̀ɔn khâ</div><div class="eng">Come in and wait inside first.</div></div></td>
+          <td><div class="triad"><div class="thai">เขาออกไปซื้อกาแฟค่ะ</div><div class="roman">khǎo ɔ̀ɔk bpai sʉ́ʉ gaa-fɛɛ khâ</div><div class="eng">He/she went out to buy coffee.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>進去 / 出來</td>
+          <td>
+            <div class="triad"><div class="thai">เข้าไป</div><div class="roman">khâo bpai</div><div class="eng">go in</div></div>
+            <div class="triad"><div class="thai">ออกมา</div><div class="roman">ɔ̀ɔk maa</div><div class="eng">come out</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">อย่าเข้าไปในห้องนั้นค่ะ</div><div class="roman">yàa khâo bpai nai hɔ̂ng nán khâ</div><div class="eng">Don’t go into that room.</div></div></td>
+          <td><div class="triad"><div class="thai">ออกมาคุยกันข้างนอกได้ไหมคะ</div><div class="roman">ɔ̀ɔk maa khui gan khâang-nɔ̂ɔk dâai mái khá</div><div class="eng">Can you come out and talk outside?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Polite Phrase Synonyms / Near Synonyms</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Meaning</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example 1</th>
+          <th>Example 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>不用客氣 / 放輕鬆</td>
+          <td>
+            <div class="triad"><div class="thai">ไม่ต้องเกรงใจ</div><div class="roman">mâi dtɔ̂ng greeng-jai</div><div class="eng">don’t feel shy / don’t worry about imposing</div></div>
+            <div class="triad"><div class="thai">ตามสบาย</div><div class="roman">dtaam sà-baai</div><div class="eng">make yourself comfortable / as you like</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">กินได้เลยค่ะ ไม่ต้องเกรงใจค่ะ</div><div class="roman">gin dâai ləəi khâ, mâi dtɔ̂ng greeng-jai khâ</div><div class="eng">You can eat now. Don’t be shy.</div></div></td>
+          <td><div class="triad"><div class="thai">นั่งตามสบายค่ะ ฉันไปเอาน้ำก่อน</div><div class="roman">nâng dtaam sà-baai khâ, chǎn bpai ao náam gɔ̀ɔn</div><div class="eng">Make yourself comfortable. I’ll go get water first.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>沒關係 / 都可以</td>
+          <td>
+            <div class="triad"><div class="thai">ไม่เป็นไร</div><div class="roman">mâi bpen rai</div><div class="eng">it’s okay / no problem</div></div>
+            <div class="triad"><div class="thai">อะไรก็ได้</div><div class="roman">à-rai gɔ̂ɔ dâai</div><div class="eng">anything is fine</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ไม่เป็นไรค่ะ เดี๋ยวฉันทำเอง</div><div class="roman">mâi bpen rai khâ, dǐao chǎn tham eeng</div><div class="eng">It’s okay. I’ll do it myself.</div></div></td>
+          <td><div class="triad"><div class="thai">เย็นนี้กินอะไรก็ได้ค่ะ</div><div class="roman">yen níi gin à-rai gɔ̂ɔ dâai khâ</div><div class="eng">Anything is fine for dinner tonight.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>正式請 / 口語叫對方做</td>
+          <td>
+            <div class="triad"><div class="thai">เชิญ</div><div class="roman">chəən</div><div class="eng">please / invite</div></div>
+            <div class="triad"><div class="thai">...สิ</div><div class="roman">...sì</div><div class="eng">go ahead / do it</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">เชิญเข้ามาค่ะ</div><div class="roman">chəən khâo maa khâ</div><div class="eng">Please come in.</div></div></td>
+          <td><div class="triad"><div class="thai">เข้ามาสิคะ รอข้างในได้ค่ะ</div><div class="roman">khâo maa sì khá, rɔɔ khâang-nai dâai khâ</div><div class="eng">Come in. You can wait inside.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Rule / Prohibition Near Synonyms</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Meaning</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example 1</th>
+          <th>Example 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>不用 / 不要 / 禁止</td>
+          <td>
+            <div class="triad"><div class="thai">ไม่ต้อง</div><div class="roman">mâi dtɔ̂ng</div><div class="eng">don’t have to</div></div>
+            <div class="triad"><div class="thai">อย่า</div><div class="roman">yàa</div><div class="eng">don’t</div></div>
+            <div class="triad"><div class="thai">ห้าม</div><div class="roman">hâam</div><div class="eng">forbidden / prohibited</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ไม่ต้องรอฉันค่ะ</div><div class="roman">mâi dtɔ̂ng rɔɔ chǎn khâ</div><div class="eng">You don’t have to wait for me.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">อย่าลืมกุญแจนะคะ</div><div class="roman">yàa lʉʉm gun-jae ná khá</div><div class="eng">Don’t forget the key.</div></div>
+            <div class="triad"><div class="thai">ห้ามเข้าไปข้างในค่ะ</div><div class="roman">hâam khâo bpai khâang-nai khâ</div><div class="eng">Entering inside is prohibited.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Time Connector Near Synonyms</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Meaning</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example 1</th>
+          <th>Example 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>當……時</td>
+          <td>
+            <div class="triad"><div class="thai">พอ</div><div class="roman">phɔɔ</div><div class="eng">when / once</div></div>
+            <div class="triad"><div class="thai">เมื่อ</div><div class="roman">mʉ̂a</div><div class="eng">when</div></div>
+            <div class="triad"><div class="thai">ตอนที่</div><div class="roman">dtɔɔn-thîi</div><div class="eng">at the time when</div></div>
+          </td>
+          <td>
+            <div class="triad"><div class="thai">พอถึงบ้าน ฉันโทรหาแม่ค่ะ</div><div class="roman">phɔɔ thʉ̌ng bâan, chǎn thoo hǎa mɛ̂ɛ khâ</div><div class="eng">When I get home, I call my mom.</div></div>
+            <div class="triad"><div class="thai">เมื่อฉันเป็นเด็ก ฉันชอบวาดรูปค่ะ</div><div class="roman">mʉ̂a chǎn bpen dèk, chǎn chɔ̂ɔp wâat rûup khâ</div><div class="eng">When I was a child, I liked drawing.</div></div>
+          </td>
+          <td>
+            <div class="triad"><div class="thai">ตอนที่ฉันมาไทยครั้งแรก ฉันพูดไทยไม่ได้ค่ะ</div><div class="roman">dtɔɔn-thîi chǎn maa thai khráng-rɛ̂ɛk, chǎn phûut thai mâi dâai khâ</div><div class="eng">When I came to Thailand for the first time, I couldn’t speak Thai.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>1. Please come in</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เชิญ + Verb + Place + สิคะ</div>
+        <div class="roman">chəən + Verb + Place + sì khá</div>
+        <div class="eng">Please go ahead and verb into place.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Textbook Example</th><th>Variations</th><th>Chinese Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เชิญเข้ามาข้างในสิคะ</div><div class="roman">chəən khâo maa khâang-nai sì khá</div><div class="eng">Please come inside.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">เชิญนั่งข้างในก่อนค่ะ</div><div class="roman">chəən nâng khâang-nai gɔ̀ɔn khâ</div><div class="eng">Please sit inside first.</div></div>
+            <div class="triad"><div class="thai">เชิญรอข้างในค่ะ</div><div class="roman">chəən rɔɔ khâang-nai khâ</div><div class="eng">Please wait inside.</div></div>
+            <div class="triad"><div class="thai">เข้ามาก่อนสิคะ ฝนตกค่ะ</div><div class="roman">khâo maa gɔ̀ɔn sì khá, fǒn dtòk khâ</div><div class="eng">Come in first. It’s raining.</div></div>
+          </td>
+          <td><span class="thai">เชิญ</span> 禮貌；<span class="thai">สิ</span> 有鼓勵對方做的感覺。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Do I have to...?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Subject + ต้อง + Verb + ไหมคะ</div>
+        <div class="roman">Subject + dtɔ̂ng + Verb + mái khá</div>
+        <div class="eng">Does subject have to verb?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answers</th><th>Chinese Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ต้องถอดรองเท้าไหมคะ</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao mái khá</div><div class="eng">Do I have to take off my shoes?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ต้องถอดรองเท้าค่ะ</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao khâ</div><div class="eng">You have to take off your shoes.</div></div>
+            <div class="triad"><div class="thai">ไม่ต้องถอดรองเท้าค่ะ</div><div class="roman">mâi dtɔ̂ng thɔ̀ɔt rɔɔng-tháao khâ</div><div class="eng">You don’t have to take off your shoes.</div></div>
+            <div class="triad"><div class="thai">ไม่ต้องถอดรองเท้าหรอกค่ะ</div><div class="roman">mâi dtɔ̂ng thɔ̀ɔt rɔɔng-tháao rɔ̀ɔk khâ</div><div class="eng">You really don’t need to take off your shoes.</div></div>
+          </td>
+          <td><span class="thai">หรอก</span> 讓否定語氣更自然、更柔和。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. Don’t / Prohibited</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">อย่า + Verb + นะคะ / อย่า + Verb + เลยค่ะ</div>
+        <div class="roman">yàa + Verb + ná khá / yàa + Verb + ləəi khâ</div>
+        <div class="eng">Don’t verb, okay / please don’t verb.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">ห้าม + Verb</div>
+        <div class="roman">hâam + Verb</div>
+        <div class="eng">Verb is prohibited.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Sentence</th><th>Use</th><th>Chinese Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">อย่าพูดภาษาอังกฤษนะคะ</div><div class="roman">yàa phûut phaa-sǎa ang-grìt ná khá</div><div class="eng">Don’t speak English, okay?</div></div></td>
+          <td>泰文課、語言交換。</td>
+          <td><span class="thai">นะคะ</span> 讓命令柔和。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อย่าเข้าไปข้างในเลยค่ะ</div><div class="roman">yàa khâo bpai khâang-nai ləəi khâ</div><div class="eng">Please don’t go inside.</div></div></td>
+          <td>阻止對方進入。</td>
+          <td><span class="thai">เลย</span> 可加強「不要做比較好」。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ที่ปั๊มน้ำมันค่ะ</div><div class="roman">hâam sùup bù-rìi thîi bpám-nám-man khâ</div><div class="eng">Smoking is prohibited at the gas station.</div></div></td>
+          <td>公共規則。</td>
+          <td><span class="thai">ห้าม</span> 比 <span class="thai">อย่า</span> 正式。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. When I feel sick...</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">พอ + Subject + ไม่สบาย, Subject + Verb</div>
+        <div class="roman">phɔɔ + Subject + mâi sà-baai, Subject + Verb</div>
+        <div class="eng">When subject feels sick, subject verbs.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answers</th><th>Chinese Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">พอคุณไม่สบาย คุณทำยังไงคะ</div><div class="roman">phɔɔ khun mâi sà-baai, khun tham yang-ngai khá</div><div class="eng">When you feel sick, what do you do?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">พอฉันไม่สบาย ฉันกินยาค่ะ</div><div class="roman">phɔɔ chǎn mâi sà-baai, chǎn gin yaa khâ</div><div class="eng">When I feel sick, I take medicine.</div></div>
+            <div class="triad"><div class="thai">พอฉันไม่สบายมาก ฉันไปหาหมอค่ะ</div><div class="roman">phɔɔ chǎn mâi sà-baai mâak, chǎn bpai hǎa mɔ̌ɔ khâ</div><div class="eng">When I feel very sick, I go see a doctor.</div></div>
+            <div class="triad"><div class="thai">พอฉันไม่สบาย ฉันนอนพักค่ะ</div><div class="roman">phɔɔ chǎn mâi sà-baai, chǎn nɔɔn phák khâ</div><div class="eng">When I feel sick, I rest.</div></div>
+          </td>
+          <td>這個句型可以直接延伸到各種生活習慣。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>請進</td>
+          <td><div class="triad"><div class="thai">เชิญเข้ามาข้างในสิคะ</div><div class="roman">chəən khâo maa khâang-nai sì khá</div><div class="eng">Please come inside.</div></div></td>
+          <td><div class="triad"><div class="thai">เข้ามาก่อนค่ะ</div><div class="roman">khâo maa gɔ̀ɔn khâ</div><div class="eng">Come in first.</div></div></td>
+          <td>教材句很完整；朋友間可說短一點。</td>
+        </tr>
+
+        <tr>
+          <td>不用客氣</td>
+          <td><div class="triad"><div class="thai">ไม่ต้องเกรงใจค่ะ</div><div class="roman">mâi dtɔ̂ng greeng-jai khâ</div><div class="eng">Don’t feel shy / don’t worry about imposing.</div></div></td>
+          <td><div class="triad"><div class="thai">กินได้เลยค่ะ ตามสบายค่ะ</div><div class="roman">gin dâai ləəi khâ, dtaam sà-baai khâ</div><div class="eng">Go ahead and eat. Make yourself comfortable.</div></div></td>
+          <td><span class="thai">เกรงใจ</span> 是文化詞；<span class="thai">ตามสบาย</span> 更像招待客人。</td>
+        </tr>
+
+        <tr>
+          <td>問要不要脫鞋</td>
+          <td><div class="triad"><div class="thai">ต้องถอดรองเท้าไหมคะ</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao mái khá</div><div class="eng">Do I have to take off my shoes?</div></div></td>
+          <td><div class="triad"><div class="thai">ถอดรองเท้าไหมคะ</div><div class="roman">thɔ̀ɔt rɔɔng-tháao mái khá</div><div class="eng">Should I take off my shoes?</div></div></td>
+          <td>口語可省略 <span class="thai">ต้อง</span>，但初學者用完整句比較清楚。</td>
+        </tr>
+
+        <tr>
+          <td>不用脫鞋啦</td>
+          <td><div class="triad"><div class="thai">ไม่ต้องถอดรองเท้าหรอกค่ะ</div><div class="roman">mâi dtɔ̂ng thɔ̀ɔt rɔɔng-tháao rɔ̀ɔk khâ</div><div class="eng">You don’t need to take off your shoes.</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่ต้องค่ะ ใส่ได้ค่ะ</div><div class="roman">mâi dtɔ̂ng khâ, sài dâai khâ</div><div class="eng">No need. You can keep them on.</div></div></td>
+          <td>泰國口語常直接省略重複的動詞。</td>
+        </tr>
+
+        <tr>
+          <td>不要說英文</td>
+          <td><div class="triad"><div class="thai">อย่าพูดภาษาอังกฤษนะคะ</div><div class="roman">yàa phûut phaa-sǎa ang-grìt ná khá</div><div class="eng">Don’t speak English, okay?</div></div></td>
+          <td><div class="triad"><div class="thai">พูดไทยได้ไหมคะ อย่าพูดอังกฤษนะคะ</div><div class="roman">phûut thai dâai mái khá, yàa phûut ang-grìt ná khá</div><div class="eng">Can we speak Thai? Please don’t speak English.</div></div></td>
+          <td>語言交換時這樣說比較自然。</td>
+        </tr>
+
+        <tr>
+          <td>生病時怎麼辦</td>
+          <td><div class="triad"><div class="thai">พอคุณไม่สบาย คุณทำยังไงคะ</div><div class="roman">phɔɔ khun mâi sà-baai, khun tham yang-ngai khá</div><div class="eng">When you feel sick, what do you do?</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าไม่สบาย ปกติทำยังไงคะ</div><div class="roman">thâa mâi sà-baai, bpòk-gà-dtì tham yang-ngai khá</div><div class="eng">If you feel sick, what do you usually do?</div></div></td>
+          <td>日常聊天更常用 <span class="thai">ถ้า</span> = if。</td>
+        </tr>
+
+        <tr>
+          <td>第一次來泰國</td>
+          <td><div class="triad"><div class="thai">ตอนที่คุณมาเมืองไทยครั้งแรก คุณมาทำอะไรคะ</div><div class="roman">dtɔɔn-thîi khun maa mʉang-thai khráng-rɛ̂ɛk, khun maa tham à-rai khá</div><div class="eng">When you came to Thailand for the first time, what did you come to do?</div></div></td>
+          <td><div class="triad"><div class="thai">มาไทยครั้งแรกมาทำอะไรคะ</div><div class="roman">maa thai khráng-rɛ̂ɛk maa tham à-rai khá</div><div class="eng">The first time you came to Thailand, what did you come to do?</div></div></td>
+          <td>教材句完整；口語可省略 <span class="thai">ตอนที่</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="usage" class="tab-content">
+    <h2>Practical Usage Bank｜實戰用法補充</h2>
+
+    <h3>1. Visiting a Friend’s Condo｜去朋友家</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>到了要按鈴</td>
+          <td><div class="triad"><div class="thai">ถึงแล้วกดกริ่งนะคะ</div><div class="roman">thʉ̌ng lɛ́ɛw gòt grìng ná khá</div><div class="eng">When you arrive, press the bell.</div></div></td>
+          <td>朋友來公寓時可傳訊息。</td>
+        </tr>
+        <tr>
+          <td>叫朋友進來</td>
+          <td><div class="triad"><div class="thai">เข้ามาก่อนค่ะ ข้างนอกร้อนค่ะ</div><div class="roman">khâo maa gɔ̀ɔn khâ, khâang-nɔ̂ɔk rɔ́ɔn khâ</div><div class="eng">Come in first. It’s hot outside.</div></div></td>
+          <td>非常曼谷生活。</td>
+        </tr>
+        <tr>
+          <td>問要不要脫鞋</td>
+          <td><div class="triad"><div class="thai">ต้องถอดรองเท้าไหมคะ</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao mái khá</div><div class="eng">Do I have to take off my shoes?</div></div></td>
+          <td>去別人家一定實用。</td>
+        </tr>
+        <tr>
+          <td>主人說不用</td>
+          <td><div class="triad"><div class="thai">ไม่ต้องค่ะ ใส่ได้ค่ะ</div><div class="roman">mâi dtɔ̂ng khâ, sài dâai khâ</div><div class="eng">No need. You can keep them on.</div></div></td>
+          <td>口語自然。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Lost Things｜鑰匙/錢包/手機不見</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>鑰匙不見</td>
+          <td><div class="triad"><div class="thai">กุญแจหายค่ะ เข้าไม่ได้ค่ะ</div><div class="roman">gun-jae hǎai khâ, khâo mâi dâai khâ</div><div class="eng">My key is missing. I can’t get in.</div></div></td>
+          <td>住公寓實用。</td>
+        </tr>
+        <tr>
+          <td>錢包不見</td>
+          <td><div class="triad"><div class="thai">กระเป๋าสตางค์หายค่ะ</div><div class="roman">grà-bpǎo sà-dtaang hǎai khâ</div><div class="eng">My wallet is missing.</div></div></td>
+          <td>可報警/問店員。</td>
+        </tr>
+        <tr>
+          <td>手機被偷</td>
+          <td><div class="triad"><div class="thai">โทรศัพท์ถูกขโมยค่ะ</div><div class="roman">thoo-rá-sàp thùuk khà-mooi khâ</div><div class="eng">My phone was stolen.</div></div></td>
+          <td><span class="thai">ถูก + Verb</span> = 被……。</td>
+        </tr>
+        <tr>
+          <td>問怎麼辦</td>
+          <td><div class="triad"><div class="thai">ต้องทำยังไงคะ</div><div class="roman">dtɔ̂ng tham yang-ngai khá</div><div class="eng">What should I do?</div></div></td>
+          <td>遇到問題時萬用句。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. Thai-only Practice｜語言交換 / 上課</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>請對方說泰文</td>
+          <td><div class="triad"><div class="thai">พูดภาษาไทยได้ไหมคะ</div><div class="roman">phûut phaa-sǎa thai dâai mái khá</div><div class="eng">Can you speak Thai?</div></div></td>
+          <td>開啟泰文練習。</td>
+        </tr>
+        <tr>
+          <td>請不要說英文</td>
+          <td><div class="triad"><div class="thai">อย่าพูดภาษาอังกฤษนะคะ</div><div class="roman">yàa phûut phaa-sǎa ang-grìt ná khá</div><div class="eng">Don’t speak English, okay?</div></div></td>
+          <td>教材第 4 頁核心。</td>
+        </tr>
+        <tr>
+          <td>請慢慢說</td>
+          <td><div class="triad"><div class="thai">พูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Could you speak slowly?</div></div></td>
+          <td>實戰補充。</td>
+        </tr>
+        <tr>
+          <td>聽不懂</td>
+          <td><div class="triad"><div class="thai">ฟังไม่เข้าใจค่ะ</div><div class="roman">fang mâi khâo-jai khâ</div><div class="eng">I don’t understand what I heard.</div></div></td>
+          <td>比只說不知道更精準。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. First Time in Thailand｜第一次來泰國</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問第一次來做什麼</td>
+          <td><div class="triad"><div class="thai">มาไทยครั้งแรกมาทำอะไรคะ</div><div class="roman">maa thai khráng-rɛ̂ɛk maa tham à-rai khá</div><div class="eng">The first time you came to Thailand, what did you come to do?</div></div></td>
+          <td>口語版。</td>
+        </tr>
+        <tr>
+          <td>來旅遊</td>
+          <td><div class="triad"><div class="thai">ครั้งแรกฉันมาเที่ยวค่ะ</div><div class="roman">khráng-rɛ̂ɛk chǎn maa thîao khâ</div><div class="eng">The first time, I came to travel.</div></div></td>
+          <td>最常見回答。</td>
+        </tr>
+        <tr>
+          <td>來學泰文</td>
+          <td><div class="triad"><div class="thai">ครั้งที่สองฉันมาเรียนภาษาไทยค่ะ</div><div class="roman">khráng-thîi sɔ̌ɔng chǎn maa rian phaa-sǎa thai khâ</div><div class="eng">The second time, I came to study Thai.</div></div></td>
+          <td>很符合你的情境。</td>
+        </tr>
+        <tr>
+          <td>來找男友/女友</td>
+          <td><div class="triad"><div class="thai">ครั้งนี้ฉันมาเยี่ยมแฟนค่ะ</div><div class="roman">khráng níi chǎn maa yîam fɛɛn khâ</div><div class="eng">This time, I came to visit my partner.</div></div></td>
+          <td><span class="thai">เยี่ยม</span> = visit。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>1. 朋友來家裡：請進、不用客氣</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label local">Supplement / Local usage</span></p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ถึงแล้วค่ะ อยู่ข้างนอกค่ะ</div><div class="roman">thʉ̌ng lɛ́ɛw khâ, yùu khâang-nɔ̂ɔk khâ</div><div class="eng">I’ve arrived. I’m outside.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">เข้ามาข้างในสิคะ</div><div class="roman">khâo maa khâang-nai sì khá</div><div class="eng">Come inside.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ต้องถอดรองเท้าไหมคะ</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao mái khá</div><div class="eng">Do I have to take off my shoes?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ไม่ต้องค่ะ ตามสบายค่ะ</div><div class="roman">mâi dtɔ̂ng khâ, dtaam sà-baai khâ</div><div class="eng">No need. Make yourself comfortable.</div></div></div>
+    </div>
+
+    <h3>2. 公寓：鑰匙不見，進不去</h3>
+    <p><span class="label practical">Practical Usage</span> 住曼谷公寓實用。</p>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ขอโทษค่ะ กุญแจหายค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, gun-jae hǎai khâ</div><div class="eng">Excuse me, my key is missing.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">หายที่ไหนคะ</div><div class="roman">hǎai thîi-nǎi khá</div><div class="eng">Where did it go missing?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ไม่แน่ใจค่ะ ตอนนี้เข้าไม่ได้ค่ะ</div><div class="roman">mâi nɛ̂ɛ-jai khâ, dtɔɔn-níi khâo mâi dâai khâ</div><div class="eng">I’m not sure. Right now I can’t get in.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></div>
+    </div>
+
+    <h3>3. 語言交換：不要說英文，請說泰文</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label practical">Practical Usage</span></p>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">วันนี้พูดภาษาไทยได้ไหมคะ</div><div class="roman">wan-níi phûut phaa-sǎa thai dâai mái khá</div><div class="eng">Can we speak Thai today?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ได้ค่ะ แต่ถ้าคุณไม่เข้าใจล่ะคะ</div><div class="roman">dâai khâ, dtɛ̀ɛ thâa khun mâi khâo-jai lâ khá</div><div class="eng">Sure, but what if you don’t understand?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">พูดช้า ๆ หน่อยค่ะ อย่าพูดภาษาอังกฤษนะคะ</div><div class="roman">phûut cháa-cháa nɔ̀i khâ, yàa phûut phaa-sǎa ang-grìt ná khá</div><div class="eng">Please speak slowly. Don’t speak English, okay?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">โอเคค่ะ ไม่เป็นไรค่ะ</div><div class="roman">oo-khee khâ, mâi bpen rai khâ</div><div class="eng">Okay, no problem.</div></div></div>
+    </div>
+
+    <h3>4. 小吃店/餐廳：外面等還是裡面等？</h3>
+    <p><span class="label local">Supplement / Local usage</span> 店員常用方向詞。</p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">รอข้างนอกก่อนนะคะ</div><div class="roman">rɔɔ khâang-nɔ̂ɔk gɔ̀ɔn ná khá</div><div class="eng">Please wait outside first.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ข้างในมีที่นั่งไหมคะ</div><div class="roman">khâang-nai mii thîi-nâng mái khá</div><div class="eng">Are there seats inside?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ตอนนี้ข้างในเต็มค่ะ</div><div class="roman">dtɔɔn-níi khâang-nai dtem khâ</div><div class="eng">Right now inside is full.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">โอเคค่ะ รอข้างนอกได้ค่ะ</div><div class="roman">oo-khee khâ, rɔɔ khâang-nɔ̂ɔk dâai khâ</div><div class="eng">Okay, I can wait outside.</div></div></div>
+    </div>
+
+    <h3>5. 加油站：禁止吸菸</h3>
+    <p><span class="label textbook">Textbook-based</span> 第 4 頁禁止句型。</p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ที่นี่ห้ามสูบบุหรี่นะคะ</div><div class="roman">thîi-nîi hâam sùup bù-rìi ná khá</div><div class="eng">Smoking is prohibited here.</div></div></div>
+      <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">ขอโทษค่ะ ไม่รู้ค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, mâi rúu khâ</div><div class="eng">Sorry, I didn’t know.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ไม่เป็นไรค่ะ แต่อย่าสูบที่ปั๊มน้ำมันนะคะ</div><div class="roman">mâi bpen rai khâ, dtɛ̀ɛ yàa sùup thîi bpám-nám-man ná khá</div><div class="eng">It’s okay, but don’t smoke at the gas station.</div></div></div>
+    </div>
+
+    <h3>6. 生病時怎麼辦？</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label practical">Practical Usage</span></p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">พอคุณไม่สบาย คุณทำยังไงคะ</div><div class="roman">phɔɔ khun mâi sà-baai, khun tham yang-ngai khá</div><div class="eng">When you feel sick, what do you do?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ถ้าไม่สบายเล็กน้อย ฉันกินยาค่ะ</div><div class="roman">thâa mâi sà-baai lék-nɔ́ɔi, chǎn gin yaa khâ</div><div class="eng">If I feel a little sick, I take medicine.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">แต่ถ้าไม่สบายมาก ฉันไปหาหมอค่ะ</div><div class="roman">dtɛ̀ɛ thâa mâi sà-baai mâak, chǎn bpai hǎa mɔ̌ɔ khâ</div><div class="eng">But if I feel very sick, I go see a doctor.</div></div></div>
+    </div>
+
+    <h3>7. 第一次來泰國：你來做什麼？</h3>
+    <p><span class="label textbook">Textbook-based</span> 第 6–7 頁 ครั้งแรก / ครั้งที่ / ครั้งสุดท้าย。</p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><div class="triad"><div class="thai">ตอนที่คุณมาเมืองไทยครั้งแรก คุณมาทำอะไรคะ</div><div class="roman">dtɔɔn-thîi khun maa mʉang-thai khráng-rɛ̂ɛk, khun maa tham à-rai khá</div><div class="eng">When you came to Thailand for the first time, what did you come to do?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ครั้งแรกฉันมาเที่ยวค่ะ</div><div class="roman">khráng-rɛ̂ɛk chǎn maa thîao khâ</div><div class="eng">The first time, I came to travel.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><div class="triad"><div class="thai">แล้วครั้งนี้ล่ะคะ</div><div class="roman">lɛ́ɛw khráng níi lâ khá</div><div class="eng">And what about this time?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ครั้งนี้ฉันมาเรียนภาษาไทยค่ะ</div><div class="roman">khráng níi chǎn maa rian phaa-sǎa thai khâ</div><div class="eng">This time, I came to study Thai.</div></div></div>
+    </div>
+
+    <h3>8. 童年聊天：小時候最喜歡做什麼？</h3>
+    <p><span class="label practical">Practical Usage</span> 語言交換 / 約會聊天都很好用。</p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">เมื่อคุณเป็นเด็ก คุณชอบทำอะไรมากที่สุดคะ</div><div class="roman">mʉ̂a khun bpen dèk, khun chɔ̂ɔp tham à-rai mâak thîi-sùt khá</div><div class="eng">When you were a child, what did you like doing the most?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ฉันชอบดูการ์ตูนมากที่สุดค่ะ</div><div class="roman">chǎn chɔ̂ɔp duu gaa-tuun mâak thîi-sùt khâ</div><div class="eng">I liked watching cartoons the most.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ตอนนี้ยังชอบไหมคะ</div><div class="roman">dtɔɔn-níi yang chɔ̂ɔp mái khá</div><div class="eng">Do you still like it now?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ยังชอบค่ะ แต่น้อยกว่าเมื่อก่อนค่ะ</div><div class="roman">yang chɔ̂ɔp khâ, dtɛ̀ɛ nɔ́ɔi gwàa mʉ̂a-gɔ̀ɔn khâ</div><div class="eng">I still like it, but less than before.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why It’s Wrong / Risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เข้ามา / เข้าไป 混用</div><div class="roman">khâo maa / khâo bpai</div><div class="eng">come in / go in</div></div></td>
+          <td>差別不只是「進」，還要看方向是否往說話者這裡。</td>
+          <td>
+            <div class="triad"><div class="thai">เข้ามาข้างในสิคะ</div><div class="roman">khâo maa khâang-nai sì khá</div><div class="eng">Come inside.</div></div>
+            <div class="triad"><div class="thai">อย่าเข้าไปข้างในนะคะ</div><div class="roman">yàa khâo bpai khâang-nai ná khá</div><div class="eng">Don’t go inside.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ไม่ต้อง / อย่า / ห้าม 混用</div><div class="roman">mâi dtɔ̂ng / yàa / hâam</div><div class="eng">don’t have to / don’t / prohibited</div></div></td>
+          <td><span class="thai">ไม่ต้อง</span> 是不用；<span class="thai">อย่า</span> 是不要；<span class="thai">ห้าม</span> 是禁止。</td>
+          <td>
+            <div class="triad"><div class="thai">ไม่ต้องรอค่ะ</div><div class="roman">mâi dtɔ̂ng rɔɔ khâ</div><div class="eng">You don’t have to wait.</div></div>
+            <div class="triad"><div class="thai">อย่ารอค่ะ</div><div class="roman">yàa rɔɔ khâ</div><div class="eng">Don’t wait.</div></div>
+            <div class="triad"><div class="thai">ห้ามสูบบุหรี่ค่ะ</div><div class="roman">hâam sùup bù-rìi khâ</div><div class="eng">Smoking is prohibited.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หาย 只記成不見</div><div class="roman">hǎai</div><div class="eng">missing / recover</div></div></td>
+          <td><span class="thai">หาย</span> 可表示物品不見，也可表示病好了。</td>
+          <td>
+            <div class="triad"><div class="thai">กุญแจหายค่ะ</div><div class="roman">gun-jae hǎai khâ</div><div class="eng">The key is missing.</div></div>
+            <div class="triad"><div class="thai">หายป่วยแล้วค่ะ</div><div class="roman">hǎai bpùai lɛ́ɛw khâ</div><div class="eng">I have recovered from illness.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เกรงใจ 直接翻成 embarrassed</div><div class="roman">greeng-jai</div><div class="eng">considerate / reluctant to impose</div></div></td>
+          <td>它不是單純害羞或尷尬，而是「怕麻煩別人、不好意思接受」。</td>
+          <td><div class="triad"><div class="thai">ไม่ต้องเกรงใจนะคะ กินได้เลยค่ะ</div><div class="roman">mâi dtɔ̂ng greeng-jai ná khá, gin dâai ləəi khâ</div><div class="eng">Don’t feel shy about imposing. You can eat now.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">นักเรียน / นักศึกษา 混用</div><div class="roman">nák-rian / nák-sʉ̀k-sǎa</div><div class="eng">school student / university student</div></div></td>
+          <td><span class="thai">นักเรียน</span> 通常是中小學生；<span class="thai">นักศึกษา</span> 是大學生。</td>
+          <td>
+            <div class="triad"><div class="thai">เมื่อฉันเป็นนักเรียน ฉันเรียนที่โรงเรียนนี้ค่ะ</div><div class="roman">mʉ̂a chǎn bpen nák-rian, chǎn rian thîi roong-rian níi khâ</div><div class="eng">When I was a school student, I studied at this school.</div></div>
+            <div class="triad"><div class="thai">เมื่อฉันเป็นนักศึกษา ฉันเรียนที่มหาวิทยาลัยค่ะ</div><div class="roman">mʉ̂a chǎn bpen nák-sʉ̀k-sǎa, chǎn rian thîi má-hǎa-wít-thá-yaa-lai khâ</div><div class="eng">When I was a university student, I studied at a university.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ครั้งแรก / ครั้งที่ / ครั้งสุดท้าย 順序混亂</div><div class="roman">khráng-rɛ̂ɛk / khráng-thîi / khráng-sùt-tháai</div><div class="eng">first time / nth time / last time</div></div></td>
+          <td>第 7 頁用線圖說明：1 是 <span class="thai">ครั้งแรก</span>，2/3 是 <span class="thai">ครั้งที่สอง/สาม</span>，最後一個是 <span class="thai">ครั้งสุดท้าย</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">ครั้งแรกฉันมาเที่ยวค่ะ</div><div class="roman">khráng-rɛ̂ɛk chǎn maa thîao khâ</div><div class="eng">The first time, I came to travel.</div></div>
+            <div class="triad"><div class="thai">ครั้งที่สองฉันมาเรียนค่ะ</div><div class="roman">khráng-thîi sɔ̌ɔng chǎn maa rian khâ</div><div class="eng">The second time, I came to study.</div></div>
+            <div class="triad"><div class="thai">ครั้งสุดท้ายฉันอยู่นานมากค่ะ</div><div class="roman">khráng-sùt-tháai chǎn yùu naan mâak khâ</div><div class="eng">The last time, I stayed for a very long time.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>本課最重要記憶點：</strong>
+      <p>1. <span class="thai">ข้างใน / ข้างนอก</span> / <span class="roman">khâang-nai / khâang-nɔ̂ɔk</span> / <span class="eng">inside / outside</span></p>
+      <p>2. <span class="thai">เข้ามา / เข้าไป / ออกมา / ออกไป</span> / <span class="roman">khâo maa / khâo bpai / ɔ̀ɔk maa / ɔ̀ɔk bpai</span> / <span class="eng">come in / go in / come out / go out</span></p>
+      <p>3. <span class="thai">ไม่ต้อง / อย่า / ห้าม</span> / <span class="roman">mâi dtɔ̂ng / yàa / hâam</span> / <span class="eng">don’t have to / don’t / prohibited</span></p>
+      <p>4. <span class="thai">พอ... / เมื่อ... / ตอนที่...</span> / <span class="roman">phɔɔ... / mʉ̂a... / dtɔɔn-thîi...</span> / <span class="eng">when / when / at the time when</span></p>
+      <p>5. <span class="thai">ครั้งแรก / ครั้งที่สอง / ครั้งสุดท้าย</span> / <span class="roman">khráng-rɛ̂ɛk / khráng-thîi sɔ̌ɔng / khráng-sùt-tháai</span> / <span class="eng">first time / second time / last time</span></p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Vocabulary Recall</h3>
+
+    <details>
+      <summary>1. inside / outside</summary>
+      <div class="triad"><div class="thai">ข้างใน / ข้างนอก</div><div class="roman">khâang-nai / khâang-nɔ̂ɔk</div><div class="eng">inside / outside</div></div>
+      <p>Chinese Explanation: 方向反義詞，記得兩邊都要會造句。</p>
+    </details>
+
+    <details>
+      <summary>2. key / wallet</summary>
+      <div class="triad"><div class="thai">กุญแจ / กระเป๋าสตางค์</div><div class="roman">gun-jae / grà-bpǎo sà-dtaang</div><div class="eng">key / wallet</div></div>
+      <p>Chinese Explanation: 常搭配 <span class="thai">หาย</span> 表示不見。</p>
+    </details>
+
+    <details>
+      <summary>3. press the doorbell / knock on the door</summary>
+      <div class="triad"><div class="thai">กดกริ่ง / เคาะประตู</div><div class="roman">gòt grìng / khɔ́ bprà-dtuu</div><div class="eng">press the doorbell / knock on the door</div></div>
+      <p>Chinese Explanation: <span class="thai">กด</span> 是按；<span class="thai">เคาะ</span> 是敲。</p>
+    </details>
+
+    <details>
+      <summary>4. don’t have to / don’t / prohibited</summary>
+      <div class="triad"><div class="thai">ไม่ต้อง / อย่า / ห้าม</div><div class="roman">mâi dtɔ̂ng / yàa / hâam</div><div class="eng">don’t have to / don’t / prohibited</div></div>
+      <p>Chinese Explanation: 三個不是同義詞，語氣和功能不同。</p>
+    </details>
+
+    <details>
+      <summary>5. first time / second time / last time</summary>
+      <div class="triad"><div class="thai">ครั้งแรก / ครั้งที่สอง / ครั้งสุดท้าย</div><div class="roman">khráng-rɛ̂ɛk / khráng-thîi sɔ̌ɔng / khráng-sùt-tháai</div><div class="eng">first time / second time / last time</div></div>
+      <p>Chinese Explanation: 第幾次用 <span class="thai">ครั้งที่ + number</span>。</p>
+    </details>
+
+    <h3>B. Translation Practice</h3>
+
+    <details>
+      <summary>1. Please come inside.</summary>
+      <div class="triad"><div class="thai">เชิญเข้ามาข้างในสิคะ</div><div class="roman">chəən khâo maa khâang-nai sì khá</div><div class="eng">Please come inside.</div></div>
+      <p>Chinese Explanation: 你人在裡面，叫對方進來，所以用 <span class="thai">เข้ามา</span>。</p>
+    </details>
+
+    <details>
+      <summary>2. My key is missing. I can’t get in.</summary>
+      <div class="triad"><div class="thai">กุญแจหายค่ะ เข้าไม่ได้ค่ะ</div><div class="roman">gun-jae hǎai khâ, khâo mâi dâai khâ</div><div class="eng">My key is missing. I can’t get in.</div></div>
+      <p>Chinese Explanation: 公寓生活超實用句。</p>
+    </details>
+
+    <details>
+      <summary>3. Do I have to take off my shoes?</summary>
+      <div class="triad"><div class="thai">ต้องถอดรองเท้าไหมคะ</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao mái khá</div><div class="eng">Do I have to take off my shoes?</div></div>
+      <p>Chinese Explanation: 去別人家、按摩店、寺廟都實用。</p>
+    </details>
+
+    <details>
+      <summary>4. You don’t have to take off your shoes.</summary>
+      <div class="triad"><div class="thai">ไม่ต้องถอดรองเท้าค่ะ</div><div class="roman">mâi dtɔ̂ng thɔ̀ɔt rɔɔng-tháao khâ</div><div class="eng">You don’t have to take off your shoes.</div></div>
+      <p>Chinese Explanation: <span class="thai">ไม่ต้อง</span> 是不必，不是禁止。</p>
+    </details>
+
+    <details>
+      <summary>5. Don’t speak English, okay?</summary>
+      <div class="triad"><div class="thai">อย่าพูดภาษาอังกฤษนะคะ</div><div class="roman">yàa phûut phaa-sǎa ang-grìt ná khá</div><div class="eng">Don’t speak English, okay?</div></div>
+      <p>Chinese Explanation: <span class="thai">อย่า</span> 是不要做某事。</p>
+    </details>
+
+    <details>
+      <summary>6. Smoking is prohibited at the gas station.</summary>
+      <div class="triad"><div class="thai">ห้ามสูบบุหรี่ที่ปั๊มน้ำมันค่ะ</div><div class="roman">hâam sùup bù-rìi thîi bpám-nám-man khâ</div><div class="eng">Smoking is prohibited at the gas station.</div></div>
+      <p>Chinese Explanation: <span class="thai">ห้าม</span> 是正式禁止。</p>
+    </details>
+
+    <details>
+      <summary>7. When I feel sick, I take medicine.</summary>
+      <div class="triad"><div class="thai">พอฉันไม่สบาย ฉันกินยาค่ะ</div><div class="roman">phɔɔ chǎn mâi sà-baai, chǎn gin yaa khâ</div><div class="eng">When I feel sick, I take medicine.</div></div>
+      <p>Chinese Explanation: <span class="thai">พอ</span> 表示一發生某狀況，就做後面的事。</p>
+    </details>
+
+    <details>
+      <summary>8. When I came to Thailand for the first time, I came to travel.</summary>
+      <div class="triad"><div class="thai">ตอนที่ฉันมาเมืองไทยครั้งแรก ฉันมาเที่ยวค่ะ</div><div class="roman">dtɔɔn-thîi chǎn maa mʉang-thai khráng-rɛ̂ɛk, chǎn maa thîao khâ</div><div class="eng">When I came to Thailand for the first time, I came to travel.</div></div>
+      <p>Chinese Explanation: <span class="thai">ครั้งแรก</span> = 第一次。</p>
+    </details>
+
+    <h3>C. Synonym / Opposite Practice</h3>
+
+    <details>
+      <summary>1. 請用「ข้างใน / ข้างนอก」各造一句。</summary>
+      <div class="triad"><div class="thai">ข้างในมีแอร์ค่ะ</div><div class="roman">khâang-nai mii ɛɛ khâ</div><div class="eng">There is air conditioning inside.</div></div>
+      <div class="triad"><div class="thai">ข้างนอกร้อนมากค่ะ</div><div class="roman">khâang-nɔ̂ɔk rɔ́ɔn mâak khâ</div><div class="eng">It is very hot outside.</div></div>
+      <p>Chinese Explanation: 一個講室內冷氣，一個講外面天氣，情境不同更好記。</p>
+    </details>
+
+    <details>
+      <summary>2. 請用「ไม่ต้อง / อย่า / ห้าม」各造一句。</summary>
+      <div class="triad"><div class="thai">ไม่ต้องรอฉันค่ะ</div><div class="roman">mâi dtɔ̂ng rɔɔ chǎn khâ</div><div class="eng">You don’t have to wait for me.</div></div>
+      <div class="triad"><div class="thai">อย่าลืมกุญแจนะคะ</div><div class="roman">yàa lʉʉm gun-jae ná khá</div><div class="eng">Don’t forget the key.</div></div>
+      <div class="triad"><div class="thai">ห้ามสูบบุหรี่ค่ะ</div><div class="roman">hâam sùup bù-rìi khâ</div><div class="eng">Smoking is prohibited.</div></div>
+      <p>Chinese Explanation: 不必 / 不要 / 禁止，語氣不同。</p>
+    </details>
+
+    <details>
+      <summary>3. 請用「ครั้งแรก / ครั้งที่สอง / ครั้งสุดท้าย」各造一句。</summary>
+      <div class="triad"><div class="thai">ครั้งแรกฉันมาเที่ยวค่ะ</div><div class="roman">khráng-rɛ̂ɛk chǎn maa thîao khâ</div><div class="eng">The first time, I came to travel.</div></div>
+      <div class="triad"><div class="thai">ครั้งที่สองฉันมาเรียนภาษาไทยค่ะ</div><div class="roman">khráng-thîi sɔ̌ɔng chǎn maa rian phaa-sǎa thai khâ</div><div class="eng">The second time, I came to study Thai.</div></div>
+      <div class="triad"><div class="thai">ครั้งสุดท้ายฉันอยู่กรุงเทพฯ สองเดือนค่ะ</div><div class="roman">khráng-sùt-tháai chǎn yùu grung-thêep sɔ̌ɔng dʉan khâ</div><div class="eng">The last time, I stayed in Bangkok for two months.</div></div>
+      <p>Chinese Explanation: 用自己的泰國經驗練會很有記憶點。</p>
+    </details>
+
+    <h3>D. Mini Role-play</h3>
+
+    <div class="tip blue">
+      情境：你去朋友家，朋友請你進去。你問要不要脫鞋，朋友說不用，叫你自在一點。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">เชิญเข้ามาข้างในสิคะ</div><div class="roman">chəən khâo maa khâang-nai sì khá</div><div class="eng">Please come inside.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ต้องถอดรองเท้าไหมคะ</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao mái khá</div><div class="eng">Do I have to take off my shoes?</div></div></div>
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ไม่ต้องค่ะ ตามสบายค่ะ</div><div class="roman">mâi dtɔ̂ng khâ, dtaam sà-baai khâ</div><div class="eng">No need. Make yourself comfortable.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ขอบคุณค่ะ</div><div class="roman">khɔ̀ɔp-khun khâ</div><div class="eng">Thank you.</div></div></div>
+      </div>
+    </details>
+
+    <div class="tip blue">
+      情境：你第一次來泰國是旅遊，第二次來學泰文，這次來住一段時間。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble a"><span class="speaker a">Thai Friend</span><div class="triad"><div class="thai">ครั้งแรกคุณมาไทยทำอะไรคะ</div><div class="roman">khráng-rɛ̂ɛk khun maa thai tham à-rai khá</div><div class="eng">The first time you came to Thailand, what did you do?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ครั้งแรกฉันมาเที่ยวค่ะ</div><div class="roman">khráng-rɛ̂ɛk chǎn maa thîao khâ</div><div class="eng">The first time, I came to travel.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ครั้งที่สองฉันมาเรียนภาษาไทยค่ะ</div><div class="roman">khráng-thîi sɔ̌ɔng chǎn maa rian phaa-sǎa thai khâ</div><div class="eng">The second time, I came to study Thai.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ครั้งนี้ฉันมาอยู่กรุงเทพฯ สองเดือนค่ะ</div><div class="roman">khráng níi chǎn maa yùu grung-thêep sɔ̌ɔng dʉan khâ</div><div class="eng">This time, I came to stay in Bangkok for two months.</div></div></div>
+      </div>
+    </details>
+
+    <h3>今日最重要 10 句</h3>
+    <table>
+      <thead><tr><th>#</th><th>Thai / Romanization / English</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><div class="triad"><div class="thai">เชิญเข้ามาข้างในสิคะ</div><div class="roman">chəən khâo maa khâang-nai sì khá</div><div class="eng">Please come inside.</div></div></td><td>請進</td></tr>
+        <tr><td>2</td><td><div class="triad"><div class="thai">ข้างนอกร้อนมากค่ะ</div><div class="roman">khâang-nɔ̂ɔk rɔ́ɔn mâak khâ</div><div class="eng">It is very hot outside.</div></div></td><td>外面很熱</td></tr>
+        <tr><td>3</td><td><div class="triad"><div class="thai">กุญแจหายค่ะ เข้าไม่ได้ค่ะ</div><div class="roman">gun-jae hǎai khâ, khâo mâi dâai khâ</div><div class="eng">My key is missing. I can’t get in.</div></div></td><td>公寓問題</td></tr>
+        <tr><td>4</td><td><div class="triad"><div class="thai">ถึงแล้วกดกริ่งนะคะ</div><div class="roman">thʉ̌ng lɛ́ɛw gòt grìng ná khá</div><div class="eng">When you arrive, press the bell.</div></div></td><td>朋友來家裡</td></tr>
+        <tr><td>5</td><td><div class="triad"><div class="thai">ต้องถอดรองเท้าไหมคะ</div><div class="roman">dtɔ̂ng thɔ̀ɔt rɔɔng-tháao mái khá</div><div class="eng">Do I have to take off my shoes?</div></div></td><td>去別人家</td></tr>
+        <tr><td>6</td><td><div class="triad"><div class="thai">ไม่ต้องเกรงใจนะคะ</div><div class="roman">mâi dtɔ̂ng greeng-jai ná khá</div><div class="eng">Don’t feel shy / don’t worry about imposing.</div></div></td><td>招待朋友</td></tr>
+        <tr><td>7</td><td><div class="triad"><div class="thai">อย่าพูดภาษาอังกฤษนะคะ</div><div class="roman">yàa phûut phaa-sǎa ang-grìt ná khá</div><div class="eng">Don’t speak English, okay?</div></div></td><td>泰文練習</td></tr>
+        <tr><td>8</td><td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ที่ปั๊มน้ำมันค่ะ</div><div class="roman">hâam sùup bù-rìi thîi bpám-nám-man khâ</div><div class="eng">Smoking is prohibited at the gas station.</div></div></td><td>禁止規則</td></tr>
+        <tr><td>9</td><td><div class="triad"><div class="thai">พอฉันไม่สบาย ฉันกินยาค่ะ</div><div class="roman">phɔɔ chǎn mâi sà-baai, chǎn gin yaa khâ</div><div class="eng">When I feel sick, I take medicine.</div></div></td><td>健康習慣</td></tr>
+        <tr><td>10</td><td><div class="triad"><div class="thai">ตอนที่ฉันมาเมืองไทยครั้งแรก ฉันมาเที่ยวค่ะ</div><div class="roman">dtɔɔn-thîi chǎn maa mʉang-thai khráng-rɛ̂ɛk, chǎn maa thîao khâ</div><div class="eng">When I came to Thailand for the first time, I came to travel.</div></div></td><td>自我介紹</td></tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

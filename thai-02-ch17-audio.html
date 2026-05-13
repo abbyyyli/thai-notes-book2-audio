@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 17 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: #9a3412;
+      border: .5px solid rgba(249,115,22,.35);
+      font-weight: 800;
+      margin-right: 6px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 17 學習指南</h1>
+    <p class="subtitle">主題：吃藥指示、醫院/藥局、感冒與腸胃症狀、過敏、量血壓、藥品種類、打針與醫療情境</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Overview｜本課總覽</h2>
+
+    <div class="cards">
+      <div class="card">
+        <span class="label textbook">Textbook-based</span>
+        <h3>本課主要學什麼？</h3>
+        <ol>
+          <li>用吃藥指示句：<strong>ต้อง + V + นะคะ</strong>，例如「要吃藥喔」。</li>
+          <li>學用藥時間：早上、中午、晚上、睡前、飯前、飯後、飯後馬上、隨餐。</li>
+          <li>分辨禁止與建議：<strong>อย่า...</strong>、<strong>ห้าม...</strong>、<strong>น่าจะ...</strong>、<strong>ควรจะ...</strong>。</li>
+          <li>學醫療場景人物：醫生、護士、醫院、病人。</li>
+          <li>學感冒、發燒、喉嚨痛、咳嗽、流鼻水、痰、頭痛、腸胃不舒服、過敏。</li>
+          <li>學藥品種類：含片、鼻通、藥丸、咳嗽藥水、眼藥水、藥膏。</li>
+          <li>學藥局與治療：藥局、藥師、止痛藥、打針、針筒、接種疫苗。</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <span class="label local">Supplement / Local usage</span>
+        <h3>曼谷生活會怎麼用？</h3>
+        <p>
+          Day 17 是非常實用的生活課。你在曼谷可能會去藥局買感冒藥、跟藥師說喉嚨痛或過敏、到診所量血壓、跟護士說肚子痛、問藥要飯前還飯後吃。這一課的重點不是自己診斷，而是能把症狀講清楚、聽懂基本醫囑。
+        </p>
+      </div>
+    </div>
+
+    <div class="tip red">
+      <strong>安全提醒：</strong> 本篇是泰語學習筆記，不是醫療建議。真正用藥、劑量、孕婦用藥、過敏反應、嚴重腹痛、高燒、呼吸困難、胸痛、昏倒等情況，請直接詢問醫師或藥師。
+    </div>
+
+    <h3>你學完後可以說什麼？</h3>
+
+    <div class="cards">
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันเจ็บคอและมีน้ำมูกค่ะ</div>
+          <div class="roman">chǎn jèp-khɔɔ lɛ́ mii náam-mûuk khâ</div>
+          <div class="eng">I have a sore throat and a runny nose.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">กินยาวันละครั้งก่อนนอนนะคะ</div>
+          <div class="roman">gin yaa wan lá khráng gɔ̀ɔn nɔɔn ná khá</div>
+          <div class="eng">Take the medicine once a day before bed.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ห้ามสูบบุหรี่ในโรงพยาบาลค่ะ</div>
+          <div class="roman">hâam sùup bù-rìi nai rooŋ-phá-yaa-baan khâ</div>
+          <div class="eng">Smoking is prohibited in the hospital.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันแพ้อาหารทะเลค่ะ</div>
+          <div class="roman">chǎn phɛ́ɛ aa-hǎan thá-lee khâ</div>
+          <div class="eng">I am allergic to seafood.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ขอยาแก้ปวดหัวหน่อยค่ะ</div>
+          <div class="roman">khɔ̌ɔ yaa-gɛ̂ɛ bpùat-hǔa nòi khâ</div>
+          <div class="eng">I’d like medicine for a headache, please.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">อาการดีขึ้นหรือแย่ลงคะ</div>
+          <div class="roman">aa-gaan dii khʉ̂n rʉ̌ʉ yɛ̂ɛ long khá</div>
+          <div class="eng">Are the symptoms getting better or worse?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <h3>本課 PDF 對應重點</h3>
+      <p>第 2 頁：吃藥指示與禁止標語，包含「一天一次」、「早中晚睡前」、「飯前/飯後/飯後馬上/隨餐」，以及「不要……」、「禁止……」、「應該/不應該……」。</p>
+      <p>第 3 頁：醫療人物與地點：醫生、護士、醫院、病人。</p>
+      <p>第 4–7 頁：常見症狀：沒有發燒、發燒、高燒、喉嚨痛、咳嗽、打噴嚏、流鼻水、有痰、頭痛、身體發熱、感冒、腹瀉、便秘、肚子咕嚕叫、肚子脹、打嗝/放屁、頭暈、噁心、嘔吐、昏倒、懷孕/害喜、海鮮過敏、花粉/花過敏、皮膚癢。</p>
+      <p>第 8–10 頁：藥品與醫療行為：藥、含片、鼻通、藥丸、咳嗽藥水、眼藥水、藥膏、變嚴重/變好、藥局、止痛藥、藥師、打針、針筒、接種疫苗、手術、自然產、剖腹產、血、傷口、疤痕。</p>
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Medical Places & People｜醫療地點與人物</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">โรงพยาบาล</div><div class="roman">rooŋ-phá-yaa-baan</div><div class="eng">hospital</div></div></td>
+          <td>Place</td>
+          <td>แห่ง</td>
+          <td>正式醫院。口語常直接說去醫院。</td>
+          <td><div class="triad"><div class="thai">ไปโรงพยาบาล / อยู่โรงพยาบาล / โรงพยาบาลเอกชน</div><div class="roman">bpai rooŋ-phá-yaa-baan / yùu rooŋ-phá-yaa-baan / rooŋ-phá-yaa-baan èek-gà-chon</div><div class="eng">go to hospital / stay in hospital / private hospital</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้ามีไข้สูง ควรไปโรงพยาบาลค่ะ</div><div class="roman">thâa mii khâi sǔung, khuan bpai rooŋ-phá-yaa-baan khâ</div><div class="eng">If you have a high fever, you should go to the hospital.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หมอ</div><div class="roman">mɔ̌ɔ</div><div class="eng">doctor</div></div></td>
+          <td>Person</td>
+          <td>คน</td>
+          <td>日常常說 <span class="thai">หมอ</span>。正式可說 <span class="thai">แพทย์</span>。</td>
+          <td><div class="triad"><div class="thai">หาหมอ / หมอฟัน / หมอตรวจ</div><div class="roman">hǎa mɔ̌ɔ / mɔ̌ɔ-fan / mɔ̌ɔ dtrùat</div><div class="eng">see a doctor / dentist / doctor examines</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยากหาหมอเพราะเจ็บคอมาหลายวันค่ะ</div><div class="roman">chǎn yàak hǎa mɔ̌ɔ phrɔ́ jèp-khɔɔ maa lǎai wan khâ</div><div class="eng">I want to see a doctor because I’ve had a sore throat for many days.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พยาบาล</div><div class="roman">phá-yaa-baan</div><div class="eng">nurse</div></div></td>
+          <td>Person</td>
+          <td>คน</td>
+          <td>護士。可幫忙量血壓、量身高體重、打針、說明流程。</td>
+          <td><div class="triad"><div class="thai">พยาบาลวัดความดัน / พยาบาลฉีดยา / พยาบาลเรียกชื่อ</div><div class="roman">phá-yaa-baan wát khwaam-dan / phá-yaa-baan chìit-yaa / phá-yaa-baan rîak chʉ̂ʉ</div><div class="eng">nurse measures blood pressure / nurse gives an injection / nurse calls the name</div></div></td>
+          <td><div class="triad"><div class="thai">พยาบาลบอกให้ฉันชั่งน้ำหนักก่อนค่ะ</div><div class="roman">phá-yaa-baan bɔ̀ɔk hâi chǎn châng náam-nàk gɔ̀ɔn khâ</div><div class="eng">The nurse told me to weigh myself first.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คนไข้ / คนป่วย</div><div class="roman">khon-khâi / khon-bpùai</div><div class="eng">patient / sick person</div></div></td>
+          <td>Person</td>
+          <td>คน</td>
+          <td><span class="thai">คนไข้</span> 偏醫療場景的病人；<span class="thai">คนป่วย</span> 是生病的人。</td>
+          <td><div class="triad"><div class="thai">คนไข้รอหมอ / คนป่วยมีไข้ / ห้องคนไข้</div><div class="roman">khon-khâi rɔɔ mɔ̌ɔ / khon-bpùai mii khâi / hɔ̂ng khon-khâi</div><div class="eng">patient waits for the doctor / sick person has a fever / patient room</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้คนไข้เยอะมาก ต้องรอนานค่ะ</div><div class="roman">wan-níi khon-khâi yə́ mâak, dtɔ̂ng rɔɔ naan khâ</div><div class="eng">There are many patients today, so I have to wait long.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ร้านขายยา</div><div class="roman">ráan-khǎai-yaa</div><div class="eng">pharmacy / drugstore</div></div></td>
+          <td>Place</td>
+          <td>ร้าน</td>
+          <td>泰國很多藥局可直接諮詢藥師，但要清楚說症狀與過敏史。</td>
+          <td><div class="triad"><div class="thai">ไปร้านขายยา / ซื้อยา / ถามเภสัช</div><div class="roman">bpai ráan-khǎai-yaa / sʉ́ʉ yaa / thǎam phêe-sàt</div><div class="eng">go to a pharmacy / buy medicine / ask the pharmacist</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจะไปร้านขายยาใกล้คอนโดค่ะ</div><div class="roman">chǎn jà bpai ráan-khǎai-yaa glâi khɔɔn-doo khâ</div><div class="eng">I will go to the pharmacy near my condo.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เภสัชกร / เภสัช</div><div class="roman">phee-sàt-chá-gɔɔn / phee-sàt</div><div class="eng">pharmacist</div></div></td>
+          <td>Person</td>
+          <td>คน</td>
+          <td><span class="thai">เภสัชกร</span> 正式；口語常簡短說 <span class="thai">เภสัช</span>。</td>
+          <td><div class="triad"><div class="thai">ถามเภสัช / เภสัชแนะนำยา / เภสัชบอกวิธีกินยา</div><div class="roman">thǎam phee-sàt / phee-sàt nɛ́-nam yaa / phee-sàt bɔ̀ɔk wí-thii gin yaa</div><div class="eng">ask the pharmacist / pharmacist recommends medicine / pharmacist tells how to take medicine</div></div></td>
+          <td><div class="triad"><div class="thai">เภสัชบอกว่าต้องกินยาหลังอาหารค่ะ</div><div class="roman">phee-sàt bɔ̀ɔk wâa dtɔ̂ng gin yaa lǎng aa-hǎan khâ</div><div class="eng">The pharmacist said I have to take the medicine after meals.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Cold & Fever Symptoms｜感冒與發燒症狀</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีไข้</div><div class="roman">mii khâi</div><div class="eng">to have a fever</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td>泰文常說「有 fever」。否定是 <span class="thai">ไม่มีไข้</span>。</td>
+          <td><div class="triad"><div class="thai">มีไข้สูง / ไม่มีไข้ / วัดไข้</div><div class="roman">mii khâi sǔung / mâi mii khâi / wát khâi</div><div class="eng">have high fever / no fever / measure temperature</div></div></td>
+          <td><div class="triad"><div class="thai">เมื่อคืนฉันมีไข้ แต่วันนี้ดีขึ้นค่ะ</div><div class="roman">mʉ̂a-khʉʉn chǎn mii khâi, dtɛ̀ɛ wan-níi dii khʉ̂n khâ</div><div class="eng">Last night I had a fever, but today I’m better.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีไข้สูง</div><div class="roman">mii khâi sǔung</div><div class="eng">to have a high fever</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td>教材第 4 頁用於體溫高。嚴重時應就醫。</td>
+          <td><div class="triad"><div class="thai">เด็กมีไข้สูง / มีไข้สูงทั้งคืน / ไข้ไม่ลด</div><div class="roman">dèk mii khâi sǔung / mii khâi sǔung tháng khʉʉn / khâi mâi lót</div><div class="eng">child has high fever / had high fever all night / fever doesn’t go down</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้ามีไข้สูงทั้งคืน ควรไปหาหมอค่ะ</div><div class="roman">thâa mii khâi sǔung tháng khʉʉn, khuan bpai hǎa mɔ̌ɔ khâ</div><div class="eng">If you have a high fever all night, you should see a doctor.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เจ็บคอ</div><div class="roman">jèp-khɔɔ</div><div class="eng">sore throat</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td><span class="thai">เจ็บ</span> 是痛，<span class="thai">คอ</span> 是喉嚨/脖子。</td>
+          <td><div class="triad"><div class="thai">เจ็บคอมาก / เจ็บคอตอนกลืน / ยาอมแก้เจ็บคอ</div><div class="roman">jèp-khɔɔ mâak / jèp-khɔɔ dtɔɔn glʉʉn / yaa-om gɛ̂ɛ jèp-khɔɔ</div><div class="eng">very sore throat / throat hurts when swallowing / lozenge for sore throat</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเจ็บคอเพราะพูดเยอะเมื่อวานค่ะ</div><div class="roman">chǎn jèp-khɔɔ phrɔ́ phûut yə́ mʉ̂a-waan khâ</div><div class="eng">I have a sore throat because I talked a lot yesterday.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไอ</div><div class="roman">ai</div><div class="eng">to cough</div></div></td>
+          <td>Symptom / verb</td>
+          <td>—</td>
+          <td>咳嗽。可以說咳得很厲害。</td>
+          <td><div class="triad"><div class="thai">ไอแห้ง / ไอมีเสมหะ / ไอทั้งคืน</div><div class="roman">ai hɛ̂ɛng / ai mii sěem-hà / ai tháng khʉʉn</div><div class="eng">dry cough / cough with phlegm / cough all night</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันไอทั้งคืน เลยนอนไม่ค่อยหลับค่ะ</div><div class="roman">chǎn ai tháng khʉʉn, ləəi nɔɔn mâi khɔ̂i làp khâ</div><div class="eng">I coughed all night, so I couldn’t sleep well.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">จาม</div><div class="roman">jaam</div><div class="eng">to sneeze</div></div></td>
+          <td>Symptom / verb</td>
+          <td>ครั้ง</td>
+          <td>打噴嚏。過敏、感冒都可能。</td>
+          <td><div class="triad"><div class="thai">จามบ่อย / จามทั้งวัน / จามเพราะแพ้ฝุ่น</div><div class="roman">jaam bɔ̀i / jaam tháng wan / jaam phrɔ́ phɛ́ɛ fùn</div><div class="eng">sneeze often / sneeze all day / sneeze because of dust allergy</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจามบ่อยเวลาเปิดแอร์ค่ะ</div><div class="roman">chǎn jaam bɔ̀i wee-laa bpə̀ət ɛɛ khâ</div><div class="eng">I sneeze often when the air conditioner is on.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีน้ำมูก</div><div class="roman">mii náam-mûuk</div><div class="eng">to have a runny nose</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td>直譯「有鼻涕」。</td>
+          <td><div class="triad"><div class="thai">น้ำมูกไหล / มีน้ำมูกใส / คัดจมูก</div><div class="roman">náam-mûuk lǎi / mii náam-mûuk sǎi / khát jà-mùuk</div><div class="eng">runny nose / clear mucus / stuffy nose</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมีน้ำมูกตั้งแต่เช้า แต่ไม่มีไข้ค่ะ</div><div class="roman">chǎn mii náam-mûuk dtâng-dtɛ̀ɛ cháo, dtɛ̀ɛ mâi mii khâi khâ</div><div class="eng">I’ve had a runny nose since morning, but no fever.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีเสมหะ</div><div class="roman">mii sěem-hà</div><div class="eng">to have phlegm</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td>痰。和咳嗽常一起說。</td>
+          <td><div class="triad"><div class="thai">ไอมีเสมหะ / เสมหะเยอะ / ยาละลายเสมหะ</div><div class="roman">ai mii sěem-hà / sěem-hà yə́ / yaa lá-laai sěem-hà</div><div class="eng">cough with phlegm / lots of phlegm / phlegm-dissolving medicine</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันไอมีเสมหะ เลยอยากถามเภสัชก่อนซื้อยา</div><div class="roman">chǎn ai mii sěem-hà, ləəi yàak thǎam phee-sàt gɔ̀ɔn sʉ́ʉ yaa</div><div class="eng">I have a cough with phlegm, so I want to ask the pharmacist before buying medicine.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ปวดหัว</div><div class="roman">bpùat-hǔa</div><div class="eng">headache</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td><span class="thai">ปวด</span> 是痠痛、疼痛；頭痛用 <span class="thai">ปวดหัว</span>。</td>
+          <td><div class="triad"><div class="thai">ปวดหัวมาก / หายปวดหัว / ยาแก้ปวดหัว</div><div class="roman">bpùat-hǔa mâak / hǎai bpùat-hǔa / yaa-gɛ̂ɛ bpùat-hǔa</div><div class="eng">bad headache / headache is gone / headache medicine</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้แดดแรงมาก ทำให้ฉันปวดหัวค่ะ</div><div class="roman">wan-níi dɛ̀ɛt rɛɛng mâak, tham-hâi chǎn bpùat-hǔa khâ</div><div class="eng">The sun is very strong today, and it gave me a headache.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เป็นไข้หวัด / หวัด</div><div class="roman">bpen khâi-wàt / wàt</div><div class="eng">to have a cold / cold</div></div></td>
+          <td>Illness</td>
+          <td>—</td>
+          <td>口語常簡短說 <span class="thai">เป็นหวัด</span>。教材也出現 <span class="thai">หวัดไข้</span>。</td>
+          <td><div class="triad"><div class="thai">เป็นหวัด / หวัดลงคอ / หวัดธรรมดา</div><div class="roman">bpen wàt / wàt long khɔɔ / wàt tham-má-daa</div><div class="eng">have a cold / cold affecting throat / common cold</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเป็นหวัดนิดหน่อย เลยใส่หน้ากากค่ะ</div><div class="roman">chǎn bpen wàt nít-nɔ̀i, ləəi sài nâa-gàak khâ</div><div class="eng">I have a slight cold, so I’m wearing a mask.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Stomach, Allergy & Emergency Symptoms｜腸胃、過敏與急症</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ท้องเสีย</div><div class="roman">thɔ́ɔng-sǐa</div><div class="eng">diarrhea / upset stomach with loose stool</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td>非常常用。旅遊吃壞肚子時必備。</td>
+          <td><div class="triad"><div class="thai">ท้องเสียทั้งคืน / ยาแก้ท้องเสีย / ท้องเสียเพราะอาหารไม่สะอาด</div><div class="roman">thɔ́ɔng-sǐa tháng khʉʉn / yaa-gɛ̂ɛ thɔ́ɔng-sǐa / thɔ́ɔng-sǐa phrɔ́ aa-hǎan mâi sà-àat</div><div class="eng">diarrhea all night / diarrhea medicine / diarrhea from unclean food</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันท้องเสียหลังจากกินอาหารทะเลค่ะ</div><div class="roman">chǎn thɔ́ɔng-sǐa lǎng-jàak gin aa-hǎan thá-lee khâ</div><div class="eng">I had diarrhea after eating seafood.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ท้องผูก</div><div class="roman">thɔ́ɔng-phùuk</div><div class="eng">constipation</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td>和 <span class="thai">ท้องเสีย</span> 相反。</td>
+          <td><div class="triad"><div class="thai">เป็นท้องผูก / ยาแก้ท้องผูก / ดื่มน้ำน้อยทำให้ท้องผูก</div><div class="roman">bpen thɔ́ɔng-phùuk / yaa-gɛ̂ɛ thɔ́ɔng-phùuk / dʉ̀ʉm náam nɔ́ɔi tham-hâi thɔ́ɔng-phùuk</div><div class="eng">be constipated / constipation medicine / drinking little water causes constipation</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วงเดินทางฉันท้องผูกบ่อยค่ะ</div><div class="roman">chûang dəən-thaang chǎn thɔ́ɔng-phùuk bɔ̀i khâ</div><div class="eng">I often get constipated when traveling.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ท้องร้อง</div><div class="roman">thɔ́ɔng-rɔ́ɔng</div><div class="eng">stomach growling</div></div></td>
+          <td>Symptom / body reaction</td>
+          <td>—</td>
+          <td>肚子叫。可因餓或腸胃蠕動。</td>
+          <td><div class="triad"><div class="thai">ท้องร้องดัง / ท้องร้องเพราะหิว / ท้องร้องในห้องเรียน</div><div class="roman">thɔ́ɔng-rɔ́ɔng dang / thɔ́ɔng-rɔ́ɔng phrɔ́ hǐw / thɔ́ɔng-rɔ́ɔng nai hɔ̂ng-rian</div><div class="eng">stomach growls loudly / stomach growls from hunger / stomach growls in class</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันยังไม่ได้กินข้าว ท้องเลยร้องค่ะ</div><div class="roman">chǎn yang mâi dâai gin khâao, thɔ́ɔng ləəi rɔ́ɔng khâ</div><div class="eng">I haven’t eaten yet, so my stomach is growling.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ท้องอืด</div><div class="roman">thɔ́ɔng-ʉ̀ʉt</div><div class="eng">bloated</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td>肚子脹氣、不舒服。</td>
+          <td><div class="triad"><div class="thai">ท้องอืดหลังอาหาร / ยาแก้ท้องอืด / อาหารทำให้ท้องอืด</div><div class="roman">thɔ́ɔng-ʉ̀ʉt lǎng aa-hǎan / yaa-gɛ̂ɛ thɔ́ɔng-ʉ̀ʉt / aa-hǎan tham-hâi thɔ́ɔng-ʉ̀ʉt</div><div class="eng">bloated after food / medicine for bloating / food causes bloating</div></div></td>
+          <td><div class="triad"><div class="thai">กินเร็วเกินไปทำให้ฉันท้องอืดค่ะ</div><div class="roman">gin rew gəən bpai tham-hâi chǎn thɔ́ɔng-ʉ̀ʉt khâ</div><div class="eng">Eating too fast makes me bloated.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เรอ / ผายลม</div><div class="roman">rəə / phǎai-lom</div><div class="eng">to burp / to pass gas</div></div></td>
+          <td>Body reaction</td>
+          <td>ครั้ง</td>
+          <td><span class="thai">ผายลม</span> 比較正式；日常可能聽到較口語說法，但教材用正式詞。</td>
+          <td><div class="triad"><div class="thai">เรอบ่อย / ผายลมบ่อย / ท้องอืดแล้วเรอ</div><div class="roman">rəə bɔ̀i / phǎai-lom bɔ̀i / thɔ́ɔng-ʉ̀ʉt lɛ́ɛw rəə</div><div class="eng">burp often / pass gas often / bloated and burping</div></div></td>
+          <td><div class="triad"><div class="thai">หลังดื่มน้ำอัดลม ฉันเรอบ่อยค่ะ</div><div class="roman">lǎng dʉ̀ʉm náam-àt-lom, chǎn rəə bɔ̀i khâ</div><div class="eng">After drinking soda, I burp often.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เวียนหัว</div><div class="roman">wian-hǔa</div><div class="eng">dizzy</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td>頭暈。可因暈車、低血糖、疲勞等。</td>
+          <td><div class="triad"><div class="thai">เวียนหัวมาก / เวียนหัวตอนลุก / เวียนหัวจะเป็นลม</div><div class="roman">wian-hǔa mâak / wian-hǔa dtɔɔn lúk / wian-hǔa jà bpen-lom</div><div class="eng">very dizzy / dizzy when standing up / dizzy and about to faint</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเวียนหัวหลังจากนั่งเรือนานค่ะ</div><div class="roman">chǎn wian-hǔa lǎng-jàak nâng rʉa naan khâ</div><div class="eng">I felt dizzy after sitting on the boat for a long time.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คลื่นไส้</div><div class="roman">khlʉ̂ʉn-sâi</div><div class="eng">nauseous</div></div></td>
+          <td>Symptom</td>
+          <td>—</td>
+          <td>想吐、噁心。常和 <span class="thai">อาเจียน</span> 搭配。</td>
+          <td><div class="triad"><div class="thai">คลื่นไส้จะอาเจียน / เมารถแล้วคลื่นไส้ / ยาแก้คลื่นไส้</div><div class="roman">khlʉ̂ʉn-sâi jà aa-jian / mao-rót lɛ́ɛw khlʉ̂ʉn-sâi / yaa-gɛ̂ɛ khlʉ̂ʉn-sâi</div><div class="eng">nauseous and about to vomit / carsick and nauseous / anti-nausea medicine</div></div></td>
+          <td><div class="triad"><div class="thai">กลิ่นอาหารแรงทำให้ฉันคลื่นไส้ค่ะ</div><div class="roman">glìn aa-hǎan rɛɛng tham-hâi chǎn khlʉ̂ʉn-sâi khâ</div><div class="eng">Strong food smells make me nauseous.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">อาเจียน</div><div class="roman">aa-jian</div><div class="eng">to vomit</div></div></td>
+          <td>Symptom / verb</td>
+          <td>ครั้ง</td>
+          <td>比較正式，醫療場景常用。口語也常聽到 <span class="thai">อ้วก</span>。</td>
+          <td><div class="triad"><div class="thai">อาเจียนหลายครั้ง / คลื่นไส้และอาเจียน / อาเจียนหลังอาหาร</div><div class="roman">aa-jian lǎai khráng / khlʉ̂ʉn-sâi lɛ́ aa-jian / aa-jian lǎng aa-hǎan</div><div class="eng">vomit many times / nausea and vomiting / vomit after food</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าอาเจียนหลายครั้ง ควรดื่มน้ำเกลือแร่และพบแพทย์ค่ะ</div><div class="roman">thâa aa-jian lǎai khráng, khuan dʉ̀ʉm náam-glʉa-rɛ̂ɛ lɛ́ phóp phɛ̂ɛt khâ</div><div class="eng">If you vomit many times, you should drink oral rehydration solution and see a doctor.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เป็นลม</div><div class="roman">bpen-lom</div><div class="eng">to faint</div></div></td>
+          <td>Emergency symptom</td>
+          <td>ครั้ง</td>
+          <td>昏倒。常見於天氣熱、人多、血糖低等情境。</td>
+          <td><div class="triad"><div class="thai">จะเป็นลม / เป็นลมใน BTS / ช่วยคนเป็นลม</div><div class="roman">jà bpen-lom / bpen-lom nai bii-thii-èet / chûai khon bpen-lom</div><div class="eng">about to faint / faint on BTS / help someone who fainted</div></div></td>
+          <td><div class="triad"><div class="thai">อากาศร้อนมากจนฉันเกือบเป็นลมค่ะ</div><div class="roman">aa-gàat rɔ́ɔn mâak jon chǎn gʉ̀ap bpen-lom khâ</div><div class="eng">The weather was so hot that I almost fainted.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แพ้</div><div class="roman">phɛ́ɛ</div><div class="eng">to be allergic to / lose to</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>本課是「過敏」。另有「輸給」的意思，靠語境分辨。</td>
+          <td><div class="triad"><div class="thai">แพ้อาหารทะเล / แพ้ยา / แพ้ดอกไม้ / ผื่นขึ้น</div><div class="roman">phɛ́ɛ aa-hǎan thá-lee / phɛ́ɛ yaa / phɛ́ɛ dɔ̀ɔk-máai / phʉ̀ʉn khʉ̂n</div><div class="eng">allergic to seafood / allergic to medicine / allergic to flowers / rash appears</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันแพ้อาหารทะเล กินกุ้งแล้วผื่นขึ้นค่ะ</div><div class="roman">chǎn phɛ́ɛ aa-hǎan thá-lee, gin gûng lɛ́ɛw phʉ̀ʉn khʉ̂n khâ</div><div class="eng">I’m allergic to seafood. I get a rash after eating shrimp.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Medicine & Treatment｜藥品與治療</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยา</div><div class="roman">yaa</div><div class="eng">medicine</div></div></td>
+          <td>Noun</td>
+          <td>เม็ด / ขวด / หลอด / กล่อง</td>
+          <td>泛稱藥。實際量詞看藥品形式。</td>
+          <td><div class="triad"><div class="thai">กินยา / ซื้อยา / ยาแก้ปวด / แพ้ยา</div><div class="roman">gin yaa / sʉ́ʉ yaa / yaa-gɛ̂ɛ-bpùat / phɛ́ɛ yaa</div><div class="eng">take medicine / buy medicine / painkiller / allergic to medicine</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันแพ้ยาบางชนิด ต้องบอกเภสัชก่อนค่ะ</div><div class="roman">chǎn phɛ́ɛ yaa baang chá-nít, dtɔ̂ng bɔ̀ɔk phee-sàt gɔ̀ɔn khâ</div><div class="eng">I’m allergic to some medicines, so I have to tell the pharmacist first.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยาอม</div><div class="roman">yaa-om</div><div class="eng">lozenge</div></div></td>
+          <td>Medicine</td>
+          <td>เม็ด / แผง</td>
+          <td><span class="thai">อม</span> 是含在嘴裡，不是吞。</td>
+          <td><div class="triad"><div class="thai">อมยาอม / ยาอมแก้เจ็บคอ / ยาอมรสมินต์</div><div class="roman">om yaa-om / yaa-om gɛ̂ɛ jèp-khɔɔ / yaa-om rót min</div><div class="eng">suck a lozenge / lozenge for sore throat / mint lozenge</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าเจ็บคอมาก อาจอมยาอมก่อนนอนค่ะ</div><div class="roman">thâa jèp-khɔɔ mâak, àat om yaa-om gɔ̀ɔn nɔɔn khâ</div><div class="eng">If your throat hurts a lot, you might use a lozenge before bed.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยาดม</div><div class="roman">yaa-dom</div><div class="eng">Thai inhaler</div></div></td>
+          <td>Medicine / daily item</td>
+          <td>อัน / หลอด</td>
+          <td>泰國常見鼻通/嗅聞型清涼用品。頭暈、鼻塞時常有人用。</td>
+          <td><div class="triad"><div class="thai">ดมยาดม / ยาดมโป๊ยเซียน / เวียนหัวใช้ยาดม</div><div class="roman">dom yaa-dom / yaa-dom bpóoi-sian / wian-hǔa chái yaa-dom</div><div class="eng">smell an inhaler / Poy-Sian inhaler / use inhaler when dizzy</div></div></td>
+          <td><div class="triad"><div class="thai">คนไทยหลายคนพกยาดมในกระเป๋าค่ะ</div><div class="roman">khon thai lǎai khon phók yaa-dom nai grà-bpǎo khâ</div><div class="eng">Many Thai people carry inhalers in their bags.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยาเม็ด</div><div class="roman">yaa-mét</div><div class="eng">tablet / pill</div></div></td>
+          <td>Medicine</td>
+          <td>เม็ด</td>
+          <td><span class="thai">เม็ด</span> 是粒狀、顆狀量詞。</td>
+          <td><div class="triad"><div class="thai">กินยาเม็ด / ยาเม็ดสีขาว / ครั้งละหนึ่งเม็ด</div><div class="roman">gin yaa-mét / yaa-mét sǐi khǎao / khráng lá nʉ̀eng mét</div><div class="eng">take a pill / white pill / one tablet per time</div></div></td>
+          <td><div class="triad"><div class="thai">ยานี้กินครั้งละหนึ่งเม็ดหลังอาหารค่ะ</div><div class="roman">yaa níi gin khráng lá nʉ̀eng mét lǎng aa-hǎan khâ</div><div class="eng">Take this medicine one tablet at a time after meals.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยาแก้ไอ</div><div class="roman">yaa-gɛ̂ɛ-ai</div><div class="eng">cough medicine</div></div></td>
+          <td>Medicine</td>
+          <td>ขวด / เม็ด</td>
+          <td><span class="thai">แก้</span> 在藥名中是「治、緩解」。</td>
+          <td><div class="triad"><div class="thai">ยาแก้ไอน้ำ / ยาแก้ไอเม็ด / กินยาแก้ไอก่อนนอน</div><div class="roman">yaa-gɛ̂ɛ-ai náam / yaa-gɛ̂ɛ-ai mét / gin yaa-gɛ̂ɛ-ai gɔ̀ɔn nɔɔn</div><div class="eng">liquid cough medicine / cough tablets / take cough medicine before bed</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันไอทั้งคืน เลยอยากซื้อยาแก้ไอค่ะ</div><div class="roman">chǎn ai tháng khʉʉn, ləəi yàak sʉ́ʉ yaa-gɛ̂ɛ-ai khâ</div><div class="eng">I coughed all night, so I want to buy cough medicine.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยาหยอดตา</div><div class="roman">yaa-yɔ̀ɔt-dtaa</div><div class="eng">eye drops</div></div></td>
+          <td>Medicine</td>
+          <td>ขวด</td>
+          <td><span class="thai">หยอด</span> 是滴。眼藥水用滴的。</td>
+          <td><div class="triad"><div class="thai">หยอดตา / ตาแห้ง / ยาหยอดตาแก้แพ้</div><div class="roman">yɔ̀ɔt-dtaa / dtaa hɛ̂ɛng / yaa-yɔ̀ɔt-dtaa gɛ̂ɛ phɛ́ɛ</div><div class="eng">put in eye drops / dry eyes / allergy eye drops</div></div></td>
+          <td><div class="triad"><div class="thai">อยู่ห้องแอร์ทั้งวันทำให้ตาแห้ง ต้องใช้ยาหยอดตาค่ะ</div><div class="roman">yùu hɔ̂ng-ɛɛ tháng wan tham-hâi dtaa hɛ̂ɛng, dtɔ̂ng chái yaa-yɔ̀ɔt-dtaa khâ</div><div class="eng">Being in an air-conditioned room all day makes my eyes dry, so I need eye drops.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยาทา</div><div class="roman">yaa-thaa</div><div class="eng">topical medicine / ointment</div></div></td>
+          <td>Medicine</td>
+          <td>หลอด / กระปุก</td>
+          <td><span class="thai">ทา</span> 是塗抹。皮膚癢、傷口、痠痛可能用外用藥。</td>
+          <td><div class="triad"><div class="thai">ทายา / ยาทาแก้คัน / ยาทาแผล</div><div class="roman">thaa yaa / yaa-thaa gɛ̂ɛ khan / yaa-thaa phlɛ̌ɛ</div><div class="eng">apply medicine / anti-itch ointment / wound ointment</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าผื่นคัน เภสัชอาจให้ยาทาค่ะ</div><div class="roman">thâa phʉ̀ʉn khan, phee-sàt àat hâi yaa-thaa khâ</div><div class="eng">If the rash is itchy, the pharmacist may give an ointment.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยาแก้ปวด</div><div class="roman">yaa-gɛ̂ɛ-bpùat</div><div class="eng">painkiller</div></div></td>
+          <td>Medicine</td>
+          <td>เม็ด / แผง</td>
+          <td>泛指止痛藥。也可具體說頭痛、牙痛、肚子痛。</td>
+          <td><div class="triad"><div class="thai">ยาแก้ปวดหัว / ยาแก้ปวดฟัน / ยาแก้ปวดท้อง</div><div class="roman">yaa-gɛ̂ɛ bpùat-hǔa / yaa-gɛ̂ɛ bpùat-fan / yaa-gɛ̂ɛ bpùat-thɔ́ɔng</div><div class="eng">headache medicine / toothache medicine / stomachache medicine</div></div></td>
+          <td><div class="triad"><div class="thai">ขอยาแก้ปวดฟันหน่อยค่ะ ปวดตั้งแต่เมื่อคืน</div><div class="roman">khɔ̌ɔ yaa-gɛ̂ɛ bpùat-fan nòi khâ, bpùat dtâng-dtɛ̀ɛ mʉ̂a-khʉʉn</div><div class="eng">I’d like toothache medicine. It has hurt since last night.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉีดยา</div><div class="roman">chìit-yaa</div><div class="eng">to give/get an injection</div></div></td>
+          <td>Medical action</td>
+          <td>เข็ม / ครั้ง</td>
+          <td><span class="thai">ฉีด</span> 是注射。可由醫護打，也可說自己去打針。</td>
+          <td><div class="triad"><div class="thai">กลัวฉีดยา / ฉีดยาแล้วเจ็บ / ฉีดวัคซีน</div><div class="roman">glua chìit-yaa / chìit-yaa lɛ́ɛw jèp / chìit wák-siin</div><div class="eng">afraid of injections / injection hurts / get vaccinated</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันกลัวเข็ม แต่ต้องฉีดวัคซีนค่ะ</div><div class="roman">chǎn glua khěm, dtɛ̀ɛ dtɔ̂ng chìit wák-siin khâ</div><div class="eng">I’m afraid of needles, but I have to get vaccinated.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">เม็ด</span><div class="triad"><div class="thai">เม็ด</div><div class="roman">mét</div><div class="eng">tablet / small round item classifier</div></div></td>
+          <td><div class="triad"><div class="thai">ยาเม็ด / วิตามิน / ลูกอม</div><div class="roman">yaa-mét / wí-dtaa-min / lûuk-om</div><div class="eng">tablet / vitamin / candy</div></div></td>
+          <td>顆粒狀、錠狀藥品用 <span class="thai">เม็ด</span>。</td>
+          <td><div class="triad"><div class="thai">กินครั้งละสองเม็ดค่ะ</div><div class="roman">gin khráng lá sɔ̌ɔng mét khâ</div><div class="eng">Take two tablets at a time.</div></div></td>
+          <td>不要把藥丸說成 <span class="thai">สองอัน</span>；醫囑用 <span class="thai">เม็ด</span> 更正確。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ครั้ง</span><div class="triad"><div class="thai">ครั้ง</div><div class="roman">khráng</div><div class="eng">time / occurrence</div></div></td>
+          <td><div class="triad"><div class="thai">กินยา / ฉีดยา / วัดไข้ / อาเจียน</div><div class="roman">gin yaa / chìit-yaa / wát khâi / aa-jian</div><div class="eng">take medicine / injection / measure temperature / vomit</div></div></td>
+          <td>動作發生次數。</td>
+          <td><div class="triad"><div class="thai">กินยาวันละสามครั้งค่ะ</div><div class="roman">gin yaa wan lá sǎam khráng khâ</div><div class="eng">Take medicine three times a day.</div></div></td>
+          <td><span class="label review">Review</span> Day 16 也用 <span class="thai">ครั้ง</span> 數解釋、練習等動作。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ขวด</span><div class="triad"><div class="thai">ขวด</div><div class="roman">khùat</div><div class="eng">bottle</div></div></td>
+          <td><div class="triad"><div class="thai">ยาแก้ไอ / ยาหยอดตา / น้ำเกลือ</div><div class="roman">yaa-gɛ̂ɛ-ai / yaa-yɔ̀ɔt-dtaa / náam-glʉa</div><div class="eng">cough syrup / eye drops / saline</div></div></td>
+          <td>瓶裝液體用 <span class="thai">ขวด</span>。</td>
+          <td><div class="triad"><div class="thai">ขอยาแก้ไอหนึ่งขวดค่ะ</div><div class="roman">khɔ̌ɔ yaa-gɛ̂ɛ-ai nʉ̀eng khùat khâ</div><div class="eng">One bottle of cough medicine, please.</div></div></td>
+          <td>藥水、眼藥水通常不要用 <span class="thai">เม็ด</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">หลอด</span><div class="triad"><div class="thai">หลอด</div><div class="roman">lɔ̀ɔt</div><div class="eng">tube / stick</div></div></td>
+          <td><div class="triad"><div class="thai">ยาทา / ยาดมบางชนิด</div><div class="roman">yaa-thaa / yaa-dom baang chá-nít</div><div class="eng">ointment / some inhalers</div></div></td>
+          <td>管狀包裝用 <span class="thai">หลอด</span>。</td>
+          <td><div class="triad"><div class="thai">ยาทาหลอดนี้ใช้วันละสองครั้งค่ะ</div><div class="roman">yaa-thaa lɔ̀ɔt níi chái wan lá sɔ̌ɔng khráng khâ</div><div class="eng">Use this tube of ointment twice a day.</div></div></td>
+          <td><span class="thai">หลอด</span> 也可指吸管，靠語境判斷。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เข็ม</span><div class="triad"><div class="thai">เข็ม</div><div class="roman">khěm</div><div class="eng">needle / shot classifier</div></div></td>
+          <td><div class="triad"><div class="thai">เข็มฉีดยา / ฉีดวัคซีน</div><div class="roman">khěm-chìit-yaa / chìit wák-siin</div><div class="eng">syringe needle / vaccination shot</div></div></td>
+          <td>針、打一針可用 <span class="thai">เข็ม</span>。</td>
+          <td><div class="triad"><div class="thai">ต้องฉีดวัคซีนสองเข็มค่ะ</div><div class="roman">dtɔ̂ng chìit wák-siin sɔ̌ɔng khěm khâ</div><div class="eng">I have to get two vaccine shots.</div></div></td>
+          <td><span class="label review">Review</span> Day 15 學過 <span class="thai">เข็ม</span> 作縫衣針；Day 17 是注射針。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คน</span><div class="triad"><div class="thai">คน</div><div class="roman">khon</div><div class="eng">person classifier</div></div></td>
+          <td><div class="triad"><div class="thai">หมอ / พยาบาล / คนไข้ / เภสัช</div><div class="roman">mɔ̌ɔ / phá-yaa-baan / khon-khâi / phee-sàt</div><div class="eng">doctor / nurse / patient / pharmacist</div></div></td>
+          <td>人用 <span class="thai">คน</span>。</td>
+          <td><div class="triad"><div class="thai">วันนี้มีหมอสองคนค่ะ</div><div class="roman">wan-níi mii mɔ̌ɔ sɔ̌ɔng khon khâ</div><div class="eng">There are two doctors today.</div></div></td>
+          <td>職業是人，不要用 <span class="thai">อัน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ร้าน</span><div class="triad"><div class="thai">ร้าน</div><div class="roman">ráan</div><div class="eng">shop classifier</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านขายยา / คลินิกบาง情境</div><div class="roman">ráan-khǎai-yaa / khlí-nìk baang sà-thǎa-ná-gaan</div><div class="eng">pharmacy / clinic in some contexts</div></div></td>
+          <td>店家用 <span class="thai">ร้าน</span>。</td>
+          <td><div class="triad"><div class="thai">แถวนี้มีร้านขายยากี่ร้านคะ</div><div class="roman">thɛ̌ɛo níi mii ráan-khǎai-yaa gìi ráan khá</div><div class="eng">How many pharmacies are around here?</div></div></td>
+          <td>藥局是商店時用 <span class="thai">ร้าน</span>，醫院用 <span class="thai">แห่ง</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">แห่ง</span><div class="triad"><div class="thai">แห่ง</div><div class="roman">hɛ̀ɛng</div><div class="eng">place / institution classifier</div></div></td>
+          <td><div class="triad"><div class="thai">โรงพยาบาล / คลินิก / สถานพยาบาล</div><div class="roman">rooŋ-phá-yaa-baan / khlí-nìk / sà-thǎan-phá-yaa-baan</div><div class="eng">hospital / clinic / medical facility</div></div></td>
+          <td>正式地點、機構常用。</td>
+          <td><div class="triad"><div class="thai">ใกล้คอนโดมีโรงพยาบาลหนึ่งแห่งค่ะ</div><div class="roman">glâi khɔɔn-doo mii rooŋ-phá-yaa-baan nʉ̀eng hɛ̀ɛng khâ</div><div class="eng">There is one hospital near the condo.</div></div></td>
+          <td>日常可以不特別數，但正式介紹地點時很好用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜本課重點補充</h2>
+
+    <h3>กินยา時間｜飯前、飯後、睡前、隨餐</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Time Phrase</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage Feeling</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>一天幾次</td>
+          <td><div class="triad"><div class="thai">วันละครั้ง / วันละสองครั้ง / วันละสามครั้ง</div><div class="roman">wan lá khráng / wan lá sɔ̌ɔng khráng / wan lá sǎam khráng</div><div class="eng">once a day / twice a day / three times a day</div></div></td>
+          <td>醫囑高頻句。</td>
+          <td>
+            <div class="triad"><div class="thai">ยานี้กินวันละสองครั้ง เช้าและเย็นค่ะ</div><div class="roman">yaa níi gin wan lá sɔ̌ɔng khráng, cháo lɛ́ yen khâ</div><div class="eng">Take this medicine twice a day, morning and evening.</div></div>
+            <div class="triad"><div class="thai">ถ้าลืมกินยา ห้ามกินซ้ำเองนะคะ</div><div class="roman">thâa lʉʉm gin yaa, hâam gin sám eeng ná khá</div><div class="eng">If you forget to take the medicine, don’t double the dose by yourself.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>飯前</td>
+          <td><div class="triad"><div class="thai">ก่อนอาหาร</div><div class="roman">gɔ̀ɔn aa-hǎan</div><div class="eng">before meals</div></div></td>
+          <td>通常是吃飯前一段時間；實際多久要聽醫師/藥師說明。</td>
+          <td>
+            <div class="triad"><div class="thai">ยานี้ต้องกินก่อนอาหารเช้าค่ะ</div><div class="roman">yaa níi dtɔ̂ng gin gɔ̀ɔn aa-hǎan cháo khâ</div><div class="eng">This medicine must be taken before breakfast.</div></div>
+            <div class="triad"><div class="thai">ถ้าไม่แน่ใจว่าก่อนอาหารกี่นาที ให้ถามเภสัชค่ะ</div><div class="roman">thâa mâi nɛ̂ɛ-jai wâa gɔ̀ɔn aa-hǎan gìi naa-thii, hâi thǎam phee-sàt khâ</div><div class="eng">If you’re not sure how many minutes before meals, ask the pharmacist.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>飯後</td>
+          <td><div class="triad"><div class="thai">หลังอาหาร</div><div class="roman">lǎng aa-hǎan</div><div class="eng">after meals</div></div></td>
+          <td>最常見醫囑之一。</td>
+          <td>
+            <div class="triad"><div class="thai">ยาแก้ปวดตัวนี้ควรกินหลังอาหารค่ะ</div><div class="roman">yaa-gɛ̂ɛ-bpùat dtua níi khuan gin lǎng aa-hǎan khâ</div><div class="eng">This painkiller should be taken after meals.</div></div>
+            <div class="triad"><div class="thai">ฉันกินยาหลังอาหารแล้ว แต่ง่วงมากค่ะ</div><div class="roman">chǎn gin yaa lǎng aa-hǎan lɛ́ɛw, dtɛ̀ɛ ngûang mâak khâ</div><div class="eng">I took the medicine after meals, but I’m very sleepy.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>飯後馬上</td>
+          <td><div class="triad"><div class="thai">หลังอาหารทันที</div><div class="roman">lǎng aa-hǎan than-thii</div><div class="eng">immediately after meals</div></div></td>
+          <td><span class="thai">ทันที</span> 是馬上、立刻。</td>
+          <td>
+            <div class="triad"><div class="thai">หมอบอกให้กินยาหลังอาหารทันทีค่ะ</div><div class="roman">mɔ̌ɔ bɔ̀ɔk hâi gin yaa lǎng aa-hǎan than-thii khâ</div><div class="eng">The doctor said to take the medicine immediately after meals.</div></div>
+            <div class="triad"><div class="thai">ฉันกลัวลืมยา เลยตั้งเตือนหลังกินข้าวทันทีค่ะ</div><div class="roman">chǎn glua lʉʉm yaa, ləəi dtâng dtʉan lǎng gin khâao than-thii khâ</div><div class="eng">I’m afraid of forgetting the medicine, so I set a reminder right after eating.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>隨餐</td>
+          <td><div class="triad"><div class="thai">พร้อมอาหาร</div><div class="roman">phrɔ́ɔm aa-hǎan</div><div class="eng">with food / together with a meal</div></div></td>
+          <td>和食物一起吃。</td>
+          <td>
+            <div class="triad"><div class="thai">ยาบางตัวต้องกินพร้อมอาหารค่ะ</div><div class="roman">yaa baang dtua dtɔ̂ng gin phrɔ́ɔm aa-hǎan khâ</div><div class="eng">Some medicines must be taken with food.</div></div>
+            <div class="triad"><div class="thai">กินยาพร้อมอาหารช่วยให้ไม่ปวดท้องค่ะ</div><div class="roman">gin yaa phrɔ́ɔm aa-hǎan chûai hâi mâi bpùat-thɔ́ɔng khâ</div><div class="eng">Taking medicine with food helps prevent stomach pain.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>睡前</td>
+          <td><div class="triad"><div class="thai">ก่อนนอน</div><div class="roman">gɔ̀ɔn nɔɔn</div><div class="eng">before bed</div></div></td>
+          <td>睡前用藥、咳嗽藥、某些過敏藥可能出現。</td>
+          <td>
+            <div class="triad"><div class="thai">กินยานี้ก่อนนอน เพราะอาจทำให้ง่วงค่ะ</div><div class="roman">gin yaa níi gɔ̀ɔn nɔɔn, phrɔ́ àat tham-hâi ngûang khâ</div><div class="eng">Take this medicine before bed because it may make you sleepy.</div></div>
+            <div class="triad"><div class="thai">ก่อนนอนอย่าลืมดื่มน้ำเยอะ ๆ ค่ะ</div><div class="roman">gɔ̀ɔn nɔɔn yàa lʉʉm dʉ̀ʉm náam yə́-yə́ khâ</div><div class="eng">Before bed, don’t forget to drink plenty of water.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>อย่า / ห้าม / ควรจะ / น่าจะ｜不要、禁止、應該、可能應該</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Feeling</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>不要做</td>
+          <td><div class="triad"><div class="thai">อย่า + V + นะคะ</div><div class="roman">yàa + V + ná khá</div><div class="eng">Don’t + V.</div></div></td>
+          <td>提醒、勸告，比 <span class="thai">ห้าม</span> 柔和。</td>
+          <td>
+            <div class="triad"><div class="thai">อย่ากินยาเกินขนาดนะคะ</div><div class="roman">yàa gin yaa gəən khà-nàat ná khá</div><div class="eng">Don’t take more than the dosage.</div></div>
+            <div class="triad"><div class="thai">อย่าเกาแรง ๆ นะคะ เดี๋ยวเป็นแผล</div><div class="roman">yàa gao rɛɛng-rɛɛng ná khá, dǐao bpen phlɛ̌ɛ</div><div class="eng">Don’t scratch hard; it may become a wound.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>禁止做</td>
+          <td><div class="triad"><div class="thai">ห้าม + V</div><div class="roman">hâam + V</div><div class="eng">It is prohibited to + V.</div></div></td>
+          <td>規定、標語、醫囑禁止。</td>
+          <td>
+            <div class="triad"><div class="thai">ห้ามสูบบุหรี่ในโรงพยาบาลค่ะ</div><div class="roman">hâam sùup bù-rìi nai rooŋ-phá-yaa-baan khâ</div><div class="eng">Smoking is prohibited in the hospital.</div></div>
+            <div class="triad"><div class="thai">หลังฉีดวัคซีน ห้ามดื่มแอลกอฮอล์ตามที่หมอบอกค่ะ</div><div class="roman">lǎng chìit wák-siin, hâam dʉ̀ʉm ɛɛn-gɔɔ-hɔɔ dtaam thîi mɔ̌ɔ bɔ̀ɔk khâ</div><div class="eng">After vaccination, don’t drink alcohol as the doctor instructed.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>應該</td>
+          <td><div class="triad"><div class="thai">ควรจะ + V</div><div class="roman">khuan jà + V</div><div class="eng">should + V</div></div></td>
+          <td>比較正式、明確的建議。</td>
+          <td>
+            <div class="triad"><div class="thai">ถ้าท้องเสียหลายวัน ควรจะไปหาหมอค่ะ</div><div class="roman">thâa thɔ́ɔng-sǐa lǎai wan, khuan jà bpai hǎa mɔ̌ɔ khâ</div><div class="eng">If you have diarrhea for many days, you should see a doctor.</div></div>
+            <div class="triad"><div class="thai">ถ้าแพ้ยา ควรจะบอกเภสัชทุกครั้งค่ะ</div><div class="roman">thâa phɛ́ɛ yaa, khuan jà bɔ̀ɔk phee-sàt thúk khráng khâ</div><div class="eng">If you are allergic to medicine, you should tell the pharmacist every time.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>可能應該 / 應該會</td>
+          <td><div class="triad"><div class="thai">น่าจะ + V</div><div class="roman">nâa jà + V</div><div class="eng">probably should / likely to</div></div></td>
+          <td>語氣比 <span class="thai">ควรจะ</span> 軟，也可表示推測。</td>
+          <td>
+            <div class="triad"><div class="thai">วันนี้คนไข้เยอะ น่าจะรอนานค่ะ</div><div class="roman">wan-níi khon-khâi yə́, nâa jà rɔɔ naan khâ</div><div class="eng">There are many patients today, so we’ll probably wait long.</div></div>
+            <div class="triad"><div class="thai">ถ้าไม่ดีขึ้น น่าจะไปคลินิกใกล้บ้านค่ะ</div><div class="roman">thâa mâi dii khʉ̂n, nâa jà bpai khlí-nìk glâi bâan khâ</div><div class="eng">If it doesn’t get better, you should probably go to a nearby clinic.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>ดีขึ้น vs แย่ลง vs หาย｜變好、變糟、痊癒</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage</th>
+          <th>Diverse Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>變好</td>
+          <td><div class="triad"><div class="thai">ดีขึ้น</div><div class="roman">dii khʉ̂n</div><div class="eng">get better</div></div></td>
+          <td>症狀改善，但不一定完全好了。</td>
+          <td>
+            <div class="triad"><div class="thai">กินยาแล้วอาการดีขึ้นไหมคะ</div><div class="roman">gin yaa lɛ́ɛw aa-gaan dii khʉ̂n mái khá</div><div class="eng">After taking medicine, are the symptoms better?</div></div>
+            <div class="triad"><div class="thai">วันนี้เจ็บคอน้อยลง แต่ยังไม่หายค่ะ</div><div class="roman">wan-níi jèp-khɔɔ nɔ́ɔi long, dtɛ̀ɛ yang mâi hǎai khâ</div><div class="eng">Today my sore throat is less severe, but it hasn’t gone away yet.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>變糟</td>
+          <td><div class="triad"><div class="thai">แย่ลง</div><div class="roman">yɛ̂ɛ long</div><div class="eng">get worse</div></div></td>
+          <td>症狀惡化。</td>
+          <td>
+            <div class="triad"><div class="thai">ถ้าอาการแย่ลง ต้องรีบไปโรงพยาบาลค่ะ</div><div class="roman">thâa aa-gaan yɛ̂ɛ long, dtɔ̂ng rîip bpai rooŋ-phá-yaa-baan khâ</div><div class="eng">If the symptoms get worse, you must hurry to the hospital.</div></div>
+            <div class="triad"><div class="thai">เมื่อวานแค่ไอ แต่วันนี้แย่ลง มีไข้ด้วยค่ะ</div><div class="roman">mʉ̂a-waan khɛ̂ɛ ai, dtɛ̀ɛ wan-níi yɛ̂ɛ long, mii khâi dûai khâ</div><div class="eng">Yesterday I only coughed, but today it got worse; I also have a fever.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>好了 / 不痛了</td>
+          <td><div class="triad"><div class="thai">หาย</div><div class="roman">hǎai</div><div class="eng">recover / disappear / be gone</div></div></td>
+          <td>症狀消失或病好了。</td>
+          <td>
+            <div class="triad"><div class="thai">ปวดหัวหายแล้วค่ะ แต่ยังเวียนหัวนิดหน่อย</div><div class="roman">bpùat-hǔa hǎai lɛ́ɛw khâ, dtɛ̀ɛ yang wian-hǔa nít-nɔ̀i</div><div class="eng">The headache is gone, but I’m still a little dizzy.</div></div>
+            <div class="triad"><div class="thai">เป็นหวัดมาห้าวันแล้ว ยังไม่หายค่ะ</div><div class="roman">bpen wàt maa hâa wan lɛ́ɛw, yang mâi hǎai khâ</div><div class="eng">I’ve had a cold for five days, and it still hasn’t gone away.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>แพ้｜過敏與「輸」的雙重意思</h3>
+
+    <div class="tip yellow">
+      <strong>小心：</strong>
+      <span class="thai">แพ้</span> /
+      <span class="roman">phɛ́ɛ</span> /
+      <span class="eng">allergic to / lose to</span>
+      有兩個意思。本課是「過敏」，但比賽輸了也用同一個字。
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Meaning</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>過敏</td>
+          <td><div class="triad"><div class="thai">แพ้อาหารทะเล</div><div class="roman">phɛ́ɛ aa-hǎan thá-lee</div><div class="eng">allergic to seafood</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันแพ้อาหารทะเล กินแล้วผื่นขึ้นค่ะ</div><div class="roman">chǎn phɛ́ɛ aa-hǎan thá-lee, gin lɛ́ɛw phʉ̀ʉn khʉ̂n khâ</div><div class="eng">I’m allergic to seafood; I get a rash after eating it.</div></div></td>
+        </tr>
+        <tr>
+          <td>藥物過敏</td>
+          <td><div class="triad"><div class="thai">แพ้ยา</div><div class="roman">phɛ́ɛ yaa</div><div class="eng">allergic to medicine</div></div></td>
+          <td><div class="triad"><div class="thai">ก่อนซื้อยา ต้องบอกเภสัชว่าฉันแพ้ยาค่ะ</div><div class="roman">gɔ̀ɔn sʉ́ʉ yaa, dtɔ̂ng bɔ̀ɔk phee-sàt wâa chǎn phɛ́ɛ yaa khâ</div><div class="eng">Before buying medicine, I have to tell the pharmacist that I’m allergic to medicine.</div></div></td>
+        </tr>
+        <tr>
+          <td>輸給</td>
+          <td><div class="triad"><div class="thai">แพ้เกม</div><div class="roman">phɛ́ɛ geem</div><div class="eng">lose a game</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันเล่นเกมแพ้อีกแล้วค่ะ</div><div class="roman">wan-níi chǎn lên geem phɛ́ɛ ìik lɛ́ɛw khâ</div><div class="eng">Today I lost the game again.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Structures｜句型整理</h2>
+
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <h3>1. S + ต้อง + V + นะคะ</h3>
+      <div class="triad">
+        <div class="thai">Subject + ต้อง + Verb + นะคะ</div>
+        <div class="roman">Subject + dtɔ̂ng + Verb + ná khá</div>
+        <div class="eng">Subject must / has to Verb.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ต้องกินยานะคะ</div>
+        <div class="roman">dtɔ̂ng gin yaa ná khá</div>
+        <div class="eng">You have to take medicine.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ต้องกินยาหลังอาหารนะคะ</div><div class="roman">dtɔ̂ng gin yaa lǎng aa-hǎan ná khá</div><div class="eng">You have to take the medicine after meals.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องดื่มน้ำเยอะ ๆ นะคะ เพราะมีไข้</div><div class="roman">dtɔ̂ng dʉ̀ʉm náam yə́-yə́ ná khá, phrɔ́ mii khâi</div><div class="eng">You have to drink plenty of water because you have a fever.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องพักผ่อนให้พอนะคะ ไม่งั้นอาการอาจแย่ลง</div><div class="roman">dtɔ̂ng phák-phɔ̀ɔn hâi phɔɔ ná khá, mâi-ngán aa-gaan àat yɛ̂ɛ long</div><div class="eng">You have to get enough rest, otherwise the symptoms may get worse.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องบอกหมอว่าคุณแพ้ยาอะไรนะคะ</div><div class="roman">dtɔ̂ng bɔ̀ɔk mɔ̌ɔ wâa khun phɛ́ɛ yaa à-rai ná khá</div><div class="eng">You have to tell the doctor what medicine you are allergic to.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>2. กินยา + วันละ + Number + ครั้ง</h3>
+      <div class="triad">
+        <div class="thai">กินยา + วันละ + Number + ครั้ง</div>
+        <div class="roman">gin yaa + wan lá + Number + khráng</div>
+        <div class="eng">Take medicine Number times a day.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">กินยาวันละครั้งค่ะ</div>
+        <div class="roman">gin yaa wan lá khráng khâ</div>
+        <div class="eng">Take medicine once a day.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">กินยาวันละสองครั้ง เช้าและก่อนนอนค่ะ</div><div class="roman">gin yaa wan lá sɔ̌ɔng khráng, cháo lɛ́ gɔ̀ɔn nɔɔn khâ</div><div class="eng">Take medicine twice a day, morning and before bed.</div></div></li>
+        <li><div class="triad"><div class="thai">ยาแก้ไอกินวันละสามครั้งหลังอาหารค่ะ</div><div class="roman">yaa-gɛ̂ɛ-ai gin wan lá sǎam khráng lǎng aa-hǎan khâ</div><div class="eng">Take the cough medicine three times a day after meals.</div></div></li>
+        <li><div class="triad"><div class="thai">ยาทาทาวันละสองครั้ง เช้าเย็นค่ะ</div><div class="roman">yaa-thaa thaa wan lá sɔ̌ɔng khráng, cháo-yen khâ</div><div class="eng">Apply the ointment twice a day, morning and evening.</div></div></li>
+        <li><div class="triad"><div class="thai">ยาหยอดตาใช้วันละสี่ครั้ง แต่ต้องอ่านฉลากก่อนค่ะ</div><div class="roman">yaa-yɔ̀ɔt-dtaa chái wan lá sìi khráng, dtɛ̀ɛ dtɔ̂ng àan chà-làak gɔ̀ɔn khâ</div><div class="eng">Use the eye drops four times a day, but read the label first.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>3. อย่า + V + นะคะ / ห้าม + V</h3>
+      <div class="triad">
+        <div class="thai">อย่า + Verb + นะคะ / ห้าม + Verb</div>
+        <div class="roman">yàa + Verb + ná khá / hâam + Verb</div>
+        <div class="eng">Don’t Verb / Verb is prohibited.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">อย่าถ่ายรูปนะคะ</div><div class="roman">yàa thàai-rûup ná khá</div><div class="eng">Don’t take photos.</div></div></li>
+        <li><div class="triad"><div class="thai">ห้ามสูบบุหรี่ค่ะ</div><div class="roman">hâam sùup bù-rìi khâ</div><div class="eng">Smoking is prohibited.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">อย่ากินยาเองถ้าไม่แน่ใจนะคะ</div><div class="roman">yàa gin yaa eeng thâa mâi nɛ̂ɛ-jai ná khá</div><div class="eng">Don’t take medicine by yourself if you’re not sure.</div></div></li>
+        <li><div class="triad"><div class="thai">ห้ามกินยานี้พร้อมแอลกอฮอล์ค่ะ</div><div class="roman">hâam gin yaa níi phrɔ́ɔm ɛɛn-gɔɔ-hɔɔ khâ</div><div class="eng">Do not take this medicine with alcohol.</div></div></li>
+        <li><div class="triad"><div class="thai">อย่าเกาผื่นนะคะ เดี๋ยวเป็นแผล</div><div class="roman">yàa gao phʉ̀ʉn ná khá, dǐao bpen phlɛ̌ɛ</div><div class="eng">Don’t scratch the rash; it may become a wound.</div></div></li>
+        <li><div class="triad"><div class="thai">ห้ามเข้าเยี่ยมคนไข้หลังสามทุ่มค่ะ</div><div class="roman">hâam khâo yîam khon-khâi lǎng sǎam thûm khâ</div><div class="eng">Visiting patients after 9 p.m. is prohibited.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>4. S + ควรจะ / น่าจะ + V</h3>
+      <div class="triad">
+        <div class="thai">Subject + ควรจะ / น่าจะ + Verb</div>
+        <div class="roman">Subject + khuan jà / nâa jà + Verb</div>
+        <div class="eng">Subject should / probably should Verb.</div>
+      </div>
+
+      <h4>Textbook-style pattern</h4>
+      <div class="triad">
+        <div class="thai">คุณควรจะไปหาหมอค่ะ</div>
+        <div class="roman">khun khuan jà bpai hǎa mɔ̌ɔ khâ</div>
+        <div class="eng">You should go see a doctor.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ถ้ามีไข้สูง คุณควรจะพักผ่อนและไปหาหมอค่ะ</div><div class="roman">thâa mii khâi sǔung, khun khuan jà phák-phɔ̀ɔn lɛ́ bpai hǎa mɔ̌ɔ khâ</div><div class="eng">If you have a high fever, you should rest and see a doctor.</div></div></li>
+        <li><div class="triad"><div class="thai">ถ้าท้องเสียไม่หยุด น่าจะไปคลินิกใกล้บ้านค่ะ</div><div class="roman">thâa thɔ́ɔng-sǐa mâi yùt, nâa jà bpai khlí-nìk glâi bâan khâ</div><div class="eng">If the diarrhea doesn’t stop, you should probably go to a nearby clinic.</div></div></li>
+        <li><div class="triad"><div class="thai">ถ้าแพ้อาหารทะเล คุณไม่ควรจะกินกุ้งค่ะ</div><div class="roman">thâa phɛ́ɛ aa-hǎan thá-lee, khun mâi khuan jà gin gûng khâ</div><div class="eng">If you’re allergic to seafood, you shouldn’t eat shrimp.</div></div></li>
+        <li><div class="triad"><div class="thai">ถ้าอาการดีขึ้นแล้ว น่าจะยังต้องกินยาให้ครบค่ะ</div><div class="roman">thâa aa-gaan dii khʉ̂n lɛ́ɛw, nâa jà yang dtɔ̂ng gin yaa hâi khróp khâ</div><div class="eng">Even if the symptoms have improved, you probably still need to finish the medicine.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>5. S + มี / เป็น / ปวด + Symptom</h3>
+      <div class="triad">
+        <div class="thai">Subject + มี / เป็น / ปวด + Symptom</div>
+        <div class="roman">Subject + mii / bpen / bpùat + Symptom</div>
+        <div class="eng">Subject has / is sick with / hurts.</div>
+      </div>
+
+      <h4>Common symptom patterns</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันมีไข้ค่ะ</div><div class="roman">chǎn mii khâi khâ</div><div class="eng">I have a fever.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันเป็นหวัดค่ะ</div><div class="roman">chǎn bpen wàt khâ</div><div class="eng">I have a cold.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันปวดหัวค่ะ</div><div class="roman">chǎn bpùat-hǔa khâ</div><div class="eng">I have a headache.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันไม่มีไข้ แต่เจ็บคอและมีน้ำมูกค่ะ</div><div class="roman">chǎn mâi mii khâi, dtɛ̀ɛ jèp-khɔɔ lɛ́ mii náam-mûuk khâ</div><div class="eng">I don’t have a fever, but I have a sore throat and a runny nose.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันปวดท้องหลังดื่มกาแฟเย็นค่ะ</div><div class="roman">chǎn bpùat-thɔ́ɔng lǎng dʉ̀ʉm gaa-fɛɛ-yen khâ</div><div class="eng">My stomach hurts after drinking iced coffee.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันมีผื่นขึ้นหลังจากใช้ครีมใหม่ค่ะ</div><div class="roman">chǎn mii phʉ̀ʉn khʉ̂n lǎng-jàak chái khriim mài khâ</div><div class="eng">I got a rash after using a new cream.</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>去藥局說症狀</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันเจ็บคอและมีน้ำมูกค่ะ</div><div class="roman">chǎn jèp-khɔɔ lɛ́ mii náam-mûuk khâ</div><div class="eng">I have a sore throat and a runny nose.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เจ็บคอ มีน้ำมูกนิดหน่อยค่ะ</div><div class="roman">jèp-khɔɔ, mii náam-mûuk nít-nɔ̀i khâ</div><div class="eng">Sore throat, a little runny nose.</div></div></td>
+          <td>口語去藥局常省略主詞，直接說症狀。</td>
+        </tr>
+
+        <tr>
+          <td>問藥怎麼吃</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยานี้ต้องกินอย่างไรคะ</div><div class="roman">yaa níi dtɔ̂ng gin yàang-rai khá</div><div class="eng">How should I take this medicine?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ยานี้กินยังไงคะ ก่อนอาหารหรือหลังอาหาร</div><div class="roman">yaa níi gin yang-ngai khá, gɔ̀ɔn aa-hǎan rʉ̌ʉ lǎng aa-hǎan</div><div class="eng">How do I take this medicine, before or after meals?</div></div></td>
+          <td><span class="thai">ยังไง</span> 比 <span class="thai">อย่างไร</span> 更口語。</td>
+        </tr>
+
+        <tr>
+          <td>說變好了</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">อาการดีขึ้นแล้วค่ะ</div><div class="roman">aa-gaan dii khʉ̂n lɛ́ɛw khâ</div><div class="eng">The symptoms have improved.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ดีขึ้นเยอะแล้วค่ะ แต่ยังไอนิดหน่อย</div><div class="roman">dii khʉ̂n yə́ lɛ́ɛw khâ, dtɛ̀ɛ yang ai nít-nɔ̀i</div><div class="eng">Much better now, but I still cough a little.</div></div></td>
+          <td>真實回答常補「但還有一點……」。</td>
+        </tr>
+
+        <tr>
+          <td>說吃壞肚子</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันท้องเสียค่ะ</div><div class="roman">chǎn thɔ́ɔng-sǐa khâ</div><div class="eng">I have diarrhea.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">กินอะไรไม่รู้แล้วท้องเสียค่ะ</div><div class="roman">gin à-rai mâi rúu lɛ́ɛw thɔ́ɔng-sǐa khâ</div><div class="eng">I ate something, not sure what, and got diarrhea.</div></div></td>
+          <td>曼谷旅行或外食後很實用，但嚴重或持續要看醫生。</td>
+        </tr>
+
+        <tr>
+          <td>說自己快昏倒</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันเวียนหัวและจะเป็นลมค่ะ</div><div class="roman">chǎn wian-hǔa lɛ́ jà bpen-lom khâ</div><div class="eng">I’m dizzy and about to faint.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เวียนหัวมาก เหมือนจะเป็นลมค่ะ</div><div class="roman">wian-hǔa mâak, mʉ̌an jà bpen-lom khâ</div><div class="eng">I’m very dizzy; it feels like I’m going to faint.</div></div></td>
+          <td><span class="thai">เหมือนจะ...</span> 很自然，表示「感覺快要……」。</td>
+        </tr>
+
+        <tr>
+          <td>說過敏</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันแพ้อาหารทะเลค่ะ</div><div class="roman">chǎn phɛ́ɛ aa-hǎan thá-lee khâ</div><div class="eng">I am allergic to seafood.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">กินกุ้งแล้วผื่นขึ้นค่ะ น่าจะแพ้อาหารทะเล</div><div class="roman">gin gûng lɛ́ɛw phʉ̀ʉn khʉ̂n khâ, nâa jà phɛ́ɛ aa-hǎan thá-lee</div><div class="eng">I got a rash after eating shrimp. I’m probably allergic to seafood.</div></div></td>
+          <td>不知道是不是過敏時，可以用 <span class="thai">น่าจะ</span> 軟化推測。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bangkok" class="tab-content">
+    <h2>Bangkok Expansion｜曼谷生活實用場景</h2>
+
+    <h3>1. Pharmacy｜去藥局買感冒藥</h3>
+    <div class="cards">
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">เจ็บคอ มีน้ำมูก แต่ไม่มีไข้ค่ะ</div><div class="roman">jèp-khɔɔ, mii náam-mûuk, dtɛ̀ɛ mâi mii khâi khâ</div><div class="eng">I have a sore throat and a runny nose, but no fever.</div></div>
+        <p>去藥局說症狀很自然。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ขอยาแก้เจ็บคอหน่อยค่ะ</div><div class="roman">khɔ̌ɔ yaa-gɛ̂ɛ jèp-khɔɔ nòi khâ</div><div class="eng">I’d like medicine for a sore throat, please.</div></div>
+        <p>可以再說有沒有發燒、咳嗽。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ยานี้ทำให้ง่วงไหมคะ</div><div class="roman">yaa níi tham-hâi ngûang mái khá</div><div class="eng">Does this medicine make you sleepy?</div></div>
+        <p>過敏藥、感冒藥常需要問。</p>
+      </div>
+    </div>
+
+    <h3>2. Clinic｜到診所量血壓與說明症狀</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ต้องวัดความดันก่อนพบหมอค่ะ</div><div class="roman">dtɔ̂ng wát khwaam-dan gɔ̀ɔn phóp mɔ̌ɔ khâ</div><div class="eng">You need to measure blood pressure before seeing the doctor.</div></div>
+        <p>診所常見流程。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันเวียนหัวตั้งแต่เช้าค่ะ</div><div class="roman">chǎn wian-hǔa dtâng-dtɛ̀ɛ cháo khâ</div><div class="eng">I’ve been dizzy since morning.</div></div>
+        <p>用 <span class="thai">ตั้งแต่เช้า</span> 說症狀開始時間。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ช่วงนี้นอนน้อยมากค่ะ</div><div class="roman">chûang níi nɔɔn nɔ́ɔi mâak khâ</div><div class="eng">Recently I’ve been sleeping very little.</div></div>
+        <p>補充生活狀況給醫師。</p>
+      </div>
+    </div>
+
+    <h3>3. Food Poisoning｜外食後腸胃不舒服</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">กินอาหารข้างทางแล้วท้องเสียค่ะ</div><div class="roman">gin aa-hǎan khâang-thaang lɛ́ɛw thɔ́ɔng-sǐa khâ</div><div class="eng">I ate street food and then had diarrhea.</div></div>
+        <p>描述可能原因，不是自我診斷。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ปวดท้องและคลื่นไส้ค่ะ</div><div class="roman">bpùat-thɔ́ɔng lɛ́ khlʉ̂ʉn-sâi khâ</div><div class="eng">I have stomach pain and nausea.</div></div>
+        <p>腸胃症狀組合句。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ควรไปหาหมอไหมคะ</div><div class="roman">khuan bpai hǎa mɔ̌ɔ mái khá</div><div class="eng">Should I see a doctor?</div></div>
+        <p>不確定時直接問專業人員。</p>
+      </div>
+    </div>
+
+    <h3>4. Allergy｜過敏與皮膚癢</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันแพ้อาหารทะเลค่ะ</div><div class="roman">chǎn phɛ́ɛ aa-hǎan thá-lee khâ</div><div class="eng">I’m allergic to seafood.</div></div>
+        <p>點餐、買藥、看醫生都要會說。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">กินแล้วผื่นขึ้นและคันมากค่ะ</div><div class="roman">gin lɛ́ɛw phʉ̀ʉn khʉ̂n lɛ́ khan mâak khâ</div><div class="eng">After eating it, I got a rash and it was very itchy.</div></div>
+        <p>描述反應。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันไม่แน่ใจว่าแพ้ยาไหมค่ะ</div><div class="roman">chǎn mâi nɛ̂ɛ-jai wâa phɛ́ɛ yaa mái khâ</div><div class="eng">I’m not sure whether I’m allergic to the medicine.</div></div>
+        <p>不確定也要說。</p>
+      </div>
+    </div>
+
+    <h3>5. Hospital Signs｜醫院裡常見禁止標語</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ห้ามถ่ายรูป</div><div class="roman">hâam thàai-rûup</div><div class="eng">No photography.</div></div>
+        <p>教材第 2 頁出現的標語類型。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ห้ามสูบบุหรี่</div><div class="roman">hâam sùup bù-rìi</div><div class="eng">No smoking.</div></div>
+        <p>醫院、餐廳、公共場所常見。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">กรุณาปิดเสียงโทรศัพท์</div><div class="roman">gà-rú-naa bpìt sǐang thoo-rá-sàp</div><div class="eng">Please turn off / silence your phone.</div></div>
+        <p>補充實用標語。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>藥局：買喉嚨痛和流鼻水的藥</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สวัสดีค่ะ เจ็บคอ มีน้ำมูก แต่ไม่มีไข้ค่ะ</div><div class="roman">sà-wàt-dii khâ, jèp-khɔɔ, mii náam-mûuk, dtɛ̀ɛ mâi mii khâi khâ</div><div class="eng">Hello, I have a sore throat and a runny nose, but no fever.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Pharmacist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไอด้วยไหมคะ</div><div class="roman">ai dûai mái khá</div><div class="eng">Do you also cough?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไอนิดหน่อยค่ะ แต่ไม่มีเสมหะ</div><div class="roman">ai nít-nɔ̀i khâ, dtɛ̀ɛ mâi mii sěem-hà</div><div class="eng">I cough a little, but I don’t have phlegm.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Pharmacist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ยานี้กินหลังอาหารวันละสามครั้งนะคะ</div><div class="roman">yaa níi gin lǎng aa-hǎan wan lá sǎam khráng ná khá</div><div class="eng">Take this medicine after meals three times a day.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ยานี้ทำให้ง่วงไหมคะ</div><div class="roman">yaa níi tham-hâi ngûang mái khá</div><div class="eng">Does this medicine make you sleepy?</div></div></div>
+    </div>
+
+    <h3>診所：護士量血壓、身高體重</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Nurse</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เชิญชั่งน้ำหนักก่อนนะคะ</div><div class="roman">chəən châng náam-nàk gɔ̀ɔn ná khá</div><div class="eng">Please weigh yourself first.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ต้องวัดความดันด้วยไหมคะ</div><div class="roman">dtɔ̂ng wát khwaam-dan dûai mái khá</div><div class="eng">Do I also need to measure blood pressure?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Nurse</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ต้องค่ะ แล้วนั่งรอหมอเรียกชื่อนะคะ</div><div class="roman">dtɔ̂ng khâ, lɛ́ɛw nâng rɔɔ mɔ̌ɔ rîak chʉ̂ʉ ná khá</div><div class="eng">Yes. Then sit and wait for the doctor to call your name.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">วันนี้คนไข้เยอะไหมคะ</div><div class="roman">wan-níi khon-khâi yə́ mái khá</div><div class="eng">Are there many patients today?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Nurse</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ค่อนข้างเยอะค่ะ น่าจะรอนานนิดหน่อย</div><div class="roman">khɔ̂ɔn-khâang yə́ khâ, nâa jà rɔɔ naan nít-nɔ̀i</div><div class="eng">Quite a lot. You’ll probably wait a little long.</div></div></div>
+    </div>
+
+    <h3>醫生問診：感冒症狀</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Doctor</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีอาการอะไรบ้างคะ</div><div class="roman">mii aa-gaan à-rai bâang khá</div><div class="eng">What symptoms do you have?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เจ็บคอ ไอ และมีน้ำมูกค่ะ</div><div class="roman">jèp-khɔɔ, ai, lɛ́ mii náam-mûuk khâ</div><div class="eng">I have a sore throat, cough, and runny nose.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Doctor</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีไข้ไหมคะ</div><div class="roman">mii khâi mái khá</div><div class="eng">Do you have a fever?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เมื่อคืนมีไข้นิดหน่อย แต่วันนี้ไม่มีไข้ค่ะ</div><div class="roman">mʉ̂a-khʉʉn mii khâi nít-nɔ̀i, dtɛ̀ɛ wan-níi mâi mii khâi khâ</div><div class="eng">Last night I had a slight fever, but today I don’t have one.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Doctor</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">งั้นกินยาหลังอาหารและพักผ่อนเยอะ ๆ นะคะ</div><div class="roman">ngán gin yaa lǎng aa-hǎan lɛ́ phák-phɔ̀ɔn yə́-yə́ ná khá</div><div class="eng">Then take medicine after meals and get plenty of rest.</div></div></div>
+    </div>
+
+    <h3>藥局：吃壞肚子</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สวัสดีค่ะ ฉันท้องเสียตั้งแต่เมื่อคืนค่ะ</div><div class="roman">sà-wàt-dii khâ, chǎn thɔ́ɔng-sǐa dtâng-dtɛ̀ɛ mʉ̂a-khʉʉn khâ</div><div class="eng">Hello, I’ve had diarrhea since last night.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Pharmacist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">มีไข้หรืออาเจียนไหมคะ</div><div class="roman">mii khâi rʉ̌ʉ aa-jian mái khá</div><div class="eng">Do you have a fever or vomiting?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไม่มีไข้ค่ะ แต่คลื่นไส้นิดหน่อย</div><div class="roman">mâi mii khâi khâ, dtɛ̀ɛ khlʉ̂ʉn-sâi nít-nɔ̀i</div><div class="eng">No fever, but I feel a little nauseous.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Pharmacist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ควรดื่มน้ำเกลือแร่ และถ้าไม่ดีขึ้นควรไปหาหมอนะคะ</div><div class="roman">khuan dʉ̀ʉm náam-glʉa-rɛ̂ɛ, lɛ́ thâa mâi dii khʉ̂n khuan bpai hǎa mɔ̌ɔ ná khá</div><div class="eng">You should drink oral rehydration solution, and if it doesn’t get better, you should see a doctor.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ต้องกินยาก่อนอาหารหรือหลังอาหารคะ</div><div class="roman">dtɔ̂ng gin yaa gɔ̀ɔn aa-hǎan rʉ̌ʉ lǎng aa-hǎan khá</div><div class="eng">Should I take the medicine before meals or after meals?</div></div></div>
+    </div>
+
+    <h3>餐廳：告訴店員自己海鮮過敏</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอโทษค่ะ ฉันแพ้อาหารทะเลค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, chǎn phɛ́ɛ aa-hǎan thá-lee khâ</div><div class="eng">Excuse me, I’m allergic to seafood.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">แพ้กุ้งด้วยไหมคะ</div><div class="roman">phɛ́ɛ gûng dûai mái khá</div><div class="eng">Are you allergic to shrimp too?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ใช่ค่ะ กินกุ้งแล้วผื่นขึ้นค่ะ</div><div class="roman">châi khâ, gin gûng lɛ́ɛw phʉ̀ʉn khʉ̂n khâ</div><div class="eng">Yes. I get a rash after eating shrimp.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">งั้นเมนูนี้ไม่แนะนำนะคะ มีน้ำปลาและกุ้งแห้ง</div><div class="roman">ngán mee-nuu níi mâi nɛ́-nam ná khá, mii náam-bplaa lɛ́ gûng-hɛ̂ɛng</div><div class="eng">Then I don’t recommend this dish. It has fish sauce and dried shrimp.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอบคุณมากค่ะ ขอเมนูที่ไม่มีอาหารทะเลนะคะ</div><div class="roman">khɔ̀ɔp-khun mâak khâ, khɔ̌ɔ mee-nuu thîi mâi mii aa-hǎan thá-lee ná khá</div><div class="eng">Thank you very much. I’d like a menu item without seafood.</div></div></div>
+    </div>
+
+    <h3>朋友快昏倒：幫忙求助</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ฉันเวียนหัวมาก เหมือนจะเป็นลม</div><div class="roman">chǎn wian-hǔa mâak, mʉ̌an jà bpen-lom</div><div class="eng">I’m very dizzy. I feel like I’m going to faint.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">นั่งก่อนนะคะ เดี๋ยวฉันเรียกพยาบาลให้</div><div class="roman">nâng gɔ̀ɔn ná khá, dǐao chǎn rîak phá-yaa-baan hâi</div><div class="eng">Sit down first. I’ll call a nurse for you.</div></div></div>
+      <div class="bubble c"><span class="speaker c">You to Staff</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ช่วยด้วยค่ะ เพื่อนฉันจะเป็นลมค่ะ</div><div class="roman">chûai dûai khâ, phʉ̂an chǎn jà bpen-lom khâ</div><div class="eng">Please help. My friend is about to faint.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ให้เขานั่งพักก่อนนะคะ เดี๋ยวเรียกพยาบาลให้ค่ะ</div><div class="roman">hâi khǎo nâng phák gɔ̀ɔn ná khá, dǐao rîak phá-yaa-baan hâi khâ</div><div class="eng">Let them sit and rest first. I’ll call a nurse.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">กินยา vs ทายา vs หยอดตา</div><div class="roman">gin yaa / thaa yaa / yɔ̀ɔt-dtaa</div><div class="eng">take medicine / apply medicine / put in eye drops</div></div></td>
+          <td>不同藥品用不同動詞：藥丸/藥水吃，藥膏塗，眼藥水滴。</td>
+          <td>
+            <div class="triad"><div class="thai">กินยาเม็ดหลังอาหารค่ะ</div><div class="roman">gin yaa-mét lǎng aa-hǎan khâ</div><div class="eng">Take the tablet after meals.</div></div>
+            <div class="triad"><div class="thai">ทายาที่ผื่นวันละสองครั้งค่ะ</div><div class="roman">thaa yaa thîi phʉ̀ʉn wan lá sɔ̌ɔng khráng khâ</div><div class="eng">Apply the ointment on the rash twice a day.</div></div>
+            <div class="triad"><div class="thai">หยอดตาข้างละหนึ่งหยดค่ะ</div><div class="roman">yɔ̀ɔt-dtaa khâang lá nʉ̀eng yòt khâ</div><div class="eng">Put one drop in each eye.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ก่อนอาหาร / หลังอาหาร / พร้อมอาหาร 混淆</div><div class="roman">gɔ̀ɔn aa-hǎan / lǎng aa-hǎan / phrɔ́ɔm aa-hǎan</div><div class="eng">before meals / after meals / with food</div></div></td>
+          <td>吃錯時間可能影響藥效或胃不舒服。務必聽醫師藥師說明。</td>
+          <td>
+            <div class="triad"><div class="thai">ยานี้กินก่อนอาหารค่ะ</div><div class="roman">yaa níi gin gɔ̀ɔn aa-hǎan khâ</div><div class="eng">Take this medicine before meals.</div></div>
+            <div class="triad"><div class="thai">ยานี้กินหลังอาหารทันทีค่ะ</div><div class="roman">yaa níi gin lǎng aa-hǎan than-thii khâ</div><div class="eng">Take this medicine immediately after meals.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ปวด / เจ็บ 混用</div><div class="roman">bpùat / jèp</div><div class="eng">ache / hurt</div></div></td>
+          <td><span class="thai">ปวด</span> 常用於頭、肚子、牙、背等痠痛；<span class="thai">เจ็บ</span> 常用於喉嚨、傷口、局部痛。</td>
+          <td>
+            <div class="triad"><div class="thai">ปวดหัว / ปวดท้อง / ปวดฟัน</div><div class="roman">bpùat-hǔa / bpùat-thɔ́ɔng / bpùat-fan</div><div class="eng">headache / stomachache / toothache</div></div>
+            <div class="triad"><div class="thai">เจ็บคอ / เจ็บแผล / เจ็บตรงนี้</div><div class="roman">jèp-khɔɔ / jèp phlɛ̌ɛ / jèp dtrong níi</div><div class="eng">sore throat / wound hurts / hurts here</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ท้องเสีย / ท้องผูก / ท้องอืด 混淆</div><div class="roman">thɔ́ɔng-sǐa / thɔ́ɔng-phùuk / thɔ́ɔng-ʉ̀ʉt</div><div class="eng">diarrhea / constipation / bloating</div></div></td>
+          <td>三個都是腸胃，但意思完全不同。</td>
+          <td>
+            <div class="triad"><div class="thai">ท้องเสียหลังอาหารทะเลค่ะ</div><div class="roman">thɔ́ɔng-sǐa lǎng aa-hǎan thá-lee khâ</div><div class="eng">I had diarrhea after seafood.</div></div>
+            <div class="triad"><div class="thai">ท้องผูกเพราะดื่มน้ำน้อยค่ะ</div><div class="roman">thɔ́ɔng-phùuk phrɔ́ dʉ̀ʉm náam nɔ́ɔi khâ</div><div class="eng">I’m constipated because I drink little water.</div></div>
+            <div class="triad"><div class="thai">ท้องอืดหลังดื่มน้ำอัดลมค่ะ</div><div class="roman">thɔ́ɔng-ʉ̀ʉt lǎng dʉ̀ʉm náam-àt-lom khâ</div><div class="eng">I’m bloated after drinking soda.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แพ้ 忘記說過敏源</div><div class="roman">phɛ́ɛ</div><div class="eng">allergic to</div></div></td>
+          <td>只說「我過敏」資訊不夠，最好說明對什麼過敏。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันแพ้อาหารทะเลค่ะ</div><div class="roman">chǎn phɛ́ɛ aa-hǎan thá-lee khâ</div><div class="eng">I’m allergic to seafood.</div></div>
+            <div class="triad"><div class="thai">ฉันแพ้ยาบางชนิดค่ะ</div><div class="roman">chǎn phɛ́ɛ yaa baang chá-nít khâ</div><div class="eng">I’m allergic to some medicines.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ห้าม vs อย่า 語氣混淆</div><div class="roman">hâam / yàa</div><div class="eng">prohibit / don’t</div></div></td>
+          <td><span class="thai">ห้าม</span> 是規定禁止；<span class="thai">อย่า</span> 是提醒不要。</td>
+          <td>
+            <div class="triad"><div class="thai">ห้ามสูบบุหรี่ในโรงพยาบาลค่ะ</div><div class="roman">hâam sùup bù-rìi nai rooŋ-phá-yaa-baan khâ</div><div class="eng">Smoking is prohibited in the hospital.</div></div>
+            <div class="triad"><div class="thai">อย่าลืมกินยานะคะ</div><div class="roman">yàa lʉʉm gin yaa ná khá</div><div class="eng">Don’t forget to take the medicine.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+
+    <details>
+      <summary>doctor / nurse / hospital / patient / pharmacy / pharmacist</summary>
+      <div class="triad"><div class="thai">หมอ / พยาบาล / โรงพยาบาล / คนไข้ / ร้านขายยา / เภสัช</div><div class="roman">mɔ̌ɔ / phá-yaa-baan / rooŋ-phá-yaa-baan / khon-khâi / ráan-khǎai-yaa / phee-sàt</div><div class="eng">doctor / nurse / hospital / patient / pharmacy / pharmacist</div></div>
+      <p><strong>Chinese Explanation:</strong> 醫療場景人物與地點。</p>
+    </details>
+
+    <details>
+      <summary>fever / high fever / sore throat / cough / sneeze / runny nose / phlegm</summary>
+      <div class="triad"><div class="thai">มีไข้ / มีไข้สูง / เจ็บคอ / ไอ / จาม / มีน้ำมูก / มีเสมหะ</div><div class="roman">mii khâi / mii khâi sǔung / jèp-khɔɔ / ai / jaam / mii náam-mûuk / mii sěem-hà</div><div class="eng">have a fever / have high fever / sore throat / cough / sneeze / runny nose / phlegm</div></div>
+      <p><strong>Chinese Explanation:</strong> 感冒症狀組。</p>
+    </details>
+
+    <details>
+      <summary>diarrhea / constipation / bloated / dizzy / nauseous / vomit / faint</summary>
+      <div class="triad"><div class="thai">ท้องเสีย / ท้องผูก / ท้องอืด / เวียนหัว / คลื่นไส้ / อาเจียน / เป็นลม</div><div class="roman">thɔ́ɔng-sǐa / thɔ́ɔng-phùuk / thɔ́ɔng-ʉ̀ʉt / wian-hǔa / khlʉ̂ʉn-sâi / aa-jian / bpen-lom</div><div class="eng">diarrhea / constipation / bloated / dizzy / nauseous / vomit / faint</div></div>
+      <p><strong>Chinese Explanation:</strong> 腸胃與急症組。</p>
+    </details>
+
+    <details>
+      <summary>lozenge / inhaler / tablet / cough medicine / eye drops / ointment</summary>
+      <div class="triad"><div class="thai">ยาอม / ยาดม / ยาเม็ด / ยาแก้ไอ / ยาหยอดตา / ยาทา</div><div class="roman">yaa-om / yaa-dom / yaa-mét / yaa-gɛ̂ɛ-ai / yaa-yɔ̀ɔt-dtaa / yaa-thaa</div><div class="eng">lozenge / inhaler / tablet / cough medicine / eye drops / ointment</div></div>
+      <p><strong>Chinese Explanation:</strong> 藥品種類。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+
+    <details>
+      <summary>Take two tablets at a time.</summary>
+      <div class="triad"><div class="thai">กินครั้งละสองเม็ดค่ะ</div><div class="roman">gin khráng lá sɔ̌ɔng mét khâ</div><div class="eng">Take two tablets at a time.</div></div>
+      <p><strong>Chinese Explanation:</strong> 藥丸用 <span class="thai">เม็ด</span>。</p>
+    </details>
+
+    <details>
+      <summary>Take medicine three times a day.</summary>
+      <div class="triad"><div class="thai">กินยาวันละสามครั้งค่ะ</div><div class="roman">gin yaa wan lá sǎam khráng khâ</div><div class="eng">Take medicine three times a day.</div></div>
+      <p><strong>Chinese Explanation:</strong> 動作次數用 <span class="thai">ครั้ง</span>。</p>
+    </details>
+
+    <details>
+      <summary>One bottle of cough medicine.</summary>
+      <div class="triad"><div class="thai">ยาแก้ไอหนึ่งขวด</div><div class="roman">yaa-gɛ̂ɛ-ai nʉ̀eng khùat</div><div class="eng">one bottle of cough medicine</div></div>
+      <p><strong>Chinese Explanation:</strong> 瓶裝藥水用 <span class="thai">ขวด</span>。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+
+    <details>
+      <summary>我喉嚨痛、流鼻水，但沒有發燒。</summary>
+      <div class="triad"><div class="thai">ฉันเจ็บคอ มีน้ำมูก แต่ไม่มีไข้ค่ะ</div><div class="roman">chǎn jèp-khɔɔ, mii náam-mûuk, dtɛ̀ɛ mâi mii khâi khâ</div><div class="eng">I have a sore throat and a runny nose, but no fever.</div></div>
+      <p><strong>Chinese Explanation:</strong> 去藥局說症狀很好用。</p>
+    </details>
+
+    <details>
+      <summary>這個藥要飯前吃還是飯後吃？</summary>
+      <div class="triad"><div class="thai">ยานี้ต้องกินก่อนอาหารหรือหลังอาหารคะ</div><div class="roman">yaa níi dtɔ̂ng gin gɔ̀ɔn aa-hǎan rʉ̌ʉ lǎng aa-hǎan khá</div><div class="eng">Should this medicine be taken before meals or after meals?</div></div>
+      <p><strong>Chinese Explanation:</strong> 用藥時間必問。</p>
+    </details>
+
+    <details>
+      <summary>我海鮮過敏。</summary>
+      <div class="triad"><div class="thai">ฉันแพ้อาหารทะเลค่ะ</div><div class="roman">chǎn phɛ́ɛ aa-hǎan thá-lee khâ</div><div class="eng">I am allergic to seafood.</div></div>
+      <p><strong>Chinese Explanation:</strong> 點餐、看醫生、買藥都要會。</p>
+    </details>
+
+    <details>
+      <summary>我吃完東西後肚子痛又想吐。</summary>
+      <div class="triad"><div class="thai">ฉันปวดท้องและคลื่นไส้หลังอาหารค่ะ</div><div class="roman">chǎn bpùat-thɔ́ɔng lɛ́ khlʉ̂ʉn-sâi lǎng aa-hǎan khâ</div><div class="eng">I have stomach pain and nausea after eating.</div></div>
+      <p><strong>Chinese Explanation:</strong> 腸胃症狀組合句。</p>
+    </details>
+
+    <details>
+      <summary>症狀變嚴重的話，應該去醫院。</summary>
+      <div class="triad"><div class="thai">ถ้าอาการแย่ลง ควรไปโรงพยาบาลค่ะ</div><div class="roman">thâa aa-gaan yɛ̂ɛ long, khuan bpai rooŋ-phá-yaa-baan khâ</div><div class="eng">If the symptoms get worse, you should go to the hospital.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">แย่ลง</span> = 變糟。</p>
+    </details>
+
+    <details>
+      <summary>禁止拍照。</summary>
+      <div class="triad"><div class="thai">ห้ามถ่ายรูปค่ะ</div><div class="roman">hâam thàai-rûup khâ</div><div class="eng">Taking photos is prohibited.</div></div>
+      <p><strong>Chinese Explanation:</strong> 標語常見 <span class="thai">ห้าม + V</span>。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+
+    <details>
+      <summary>把「ยานี้ต้องกินอย่างไรคะ」改成更口語。</summary>
+      <div class="triad"><div class="thai">ยานี้กินยังไงคะ</div><div class="roman">yaa níi gin yang-ngai khá</div><div class="eng">How do I take this medicine?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ยังไง</span> 比 <span class="thai">อย่างไร</span> 口語。</p>
+    </details>
+
+    <details>
+      <summary>把「ฉันมีอาการท้องเสีย」改成藥局口語。</summary>
+      <div class="triad"><div class="thai">ท้องเสียตั้งแต่เมื่อคืนค่ะ</div><div class="roman">thɔ́ɔng-sǐa dtâng-dtɛ̀ɛ mʉ̂a-khʉʉn khâ</div><div class="eng">I’ve had diarrhea since last night.</div></div>
+      <p><strong>Chinese Explanation:</strong> 口語可省主詞，直接說症狀＋開始時間。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>Top 10｜今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="priority">1</span></td>
+          <td><div class="triad"><div class="thai">ฉันเจ็บคอ มีน้ำมูก แต่ไม่มีไข้ค่ะ</div><div class="roman">chǎn jèp-khɔɔ, mii náam-mûuk, dtɛ̀ɛ mâi mii khâi khâ</div><div class="eng">I have a sore throat and a runny nose, but no fever.</div></div></td>
+          <td>藥局說症狀</td>
+        </tr>
+        <tr>
+          <td><span class="priority">2</span></td>
+          <td><div class="triad"><div class="thai">ยานี้กินยังไงคะ</div><div class="roman">yaa níi gin yang-ngai khá</div><div class="eng">How do I take this medicine?</div></div></td>
+          <td>問藥怎麼吃</td>
+        </tr>
+        <tr>
+          <td><span class="priority">3</span></td>
+          <td><div class="triad"><div class="thai">ต้องกินก่อนอาหารหรือหลังอาหารคะ</div><div class="roman">dtɔ̂ng gin gɔ̀ɔn aa-hǎan rʉ̌ʉ lǎng aa-hǎan khá</div><div class="eng">Should I take it before meals or after meals?</div></div></td>
+          <td>問吃藥時間</td>
+        </tr>
+        <tr>
+          <td><span class="priority">4</span></td>
+          <td><div class="triad"><div class="thai">ยานี้ทำให้ง่วงไหมคะ</div><div class="roman">yaa níi tham-hâi ngûang mái khá</div><div class="eng">Does this medicine make you sleepy?</div></div></td>
+          <td>問副作用</td>
+        </tr>
+        <tr>
+          <td><span class="priority">5</span></td>
+          <td><div class="triad"><div class="thai">ฉันแพ้อาหารทะเลค่ะ</div><div class="roman">chǎn phɛ́ɛ aa-hǎan thá-lee khâ</div><div class="eng">I’m allergic to seafood.</div></div></td>
+          <td>說過敏</td>
+        </tr>
+        <tr>
+          <td><span class="priority">6</span></td>
+          <td><div class="triad"><div class="thai">ฉันท้องเสียตั้งแต่เมื่อคืนค่ะ</div><div class="roman">chǎn thɔ́ɔng-sǐa dtâng-dtɛ̀ɛ mʉ̂a-khʉʉn khâ</div><div class="eng">I’ve had diarrhea since last night.</div></div></td>
+          <td>腸胃不舒服</td>
+        </tr>
+        <tr>
+          <td><span class="priority">7</span></td>
+          <td><div class="triad"><div class="thai">ฉันเวียนหัว เหมือนจะเป็นลมค่ะ</div><div class="roman">chǎn wian-hǔa, mʉ̌an jà bpen-lom khâ</div><div class="eng">I’m dizzy; it feels like I’m going to faint.</div></div></td>
+          <td>急症求助</td>
+        </tr>
+        <tr>
+          <td><span class="priority">8</span></td>
+          <td><div class="triad"><div class="thai">ขอยาแก้ปวดหัวหน่อยค่ะ</div><div class="roman">khɔ̌ɔ yaa-gɛ̂ɛ bpùat-hǔa nòi khâ</div><div class="eng">I’d like headache medicine, please.</div></div></td>
+          <td>買止痛藥</td>
+        </tr>
+        <tr>
+          <td><span class="priority">9</span></td>
+          <td><div class="triad"><div class="thai">ถ้าอาการแย่ลง ควรไปโรงพยาบาลค่ะ</div><div class="roman">thâa aa-gaan yɛ̂ɛ long, khuan bpai rooŋ-phá-yaa-baan khâ</div><div class="eng">If the symptoms get worse, you should go to the hospital.</div></div></td>
+          <td>建議就醫</td>
+        </tr>
+        <tr>
+          <td><span class="priority">10</span></td>
+          <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ในโรงพยาบาลค่ะ</div><div class="roman">hâam sùup bù-rìi nai rooŋ-phá-yaa-baan khâ</div><div class="eng">Smoking is prohibited in the hospital.</div></div></td>
+          <td>禁止標語</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<script>
+function openTab(event,tabId){
+  const contents=document.querySelectorAll('.tab-content');
+  const buttons=document.querySelectorAll('.tab-btn');
+  contents.forEach(c=>c.classList.remove('active'));
+  buttons.forEach(b=>b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

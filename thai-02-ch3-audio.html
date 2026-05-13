@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 3 Revised Study Guide</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 18px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: #eab308; background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Thai Book 2｜Day 3 Revised 學習指南</h1>
+    <p class="subtitle">主題：นะคะ 柔和確認、หรือคะ 表達不同看法、程度副詞、價格/費用/押金/合約、借還、有效期、大量反義詞與同義詞例句</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'opinion')">Opinion</button>
+    <button class="tab-btn" onclick="openTab(event, 'degree')">Degree Scale</button>
+    <button class="tab-btn" onclick="openTab(event, 'money')">Money & Contract</button>
+    <button class="tab-btn" onclick="openTab(event, 'synonyms')">Synonyms</button>
+    <button class="tab-btn" onclick="openTab(event, 'opposites')">Opposites</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'usage')">Practical Usage</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 3 主要在學「怎麼用比較自然的方式表達意見、不同意、程度、價格與反義詞」。教材第 2 頁出現：
+      <span class="thai">เมืองไทยร้อนนะคะ</span> / <span class="roman">mʉang-thai rɔ́ɔn ná khá</span> / <span class="eng">Thailand is hot, you know.</span>
+      這種 <span class="thai">นะคะ</span> / <span class="roman">ná khá</span> / <span class="eng">soft confirmation particle</span> 不是單純問句，而是像中文「欸，泰國很熱耶 / 對吧」。
+    </p>
+
+    <p>
+      如果你不同意，可以用比較柔和的開頭：
+      <span class="thai">หรือคะ ฉันคิดว่า...</span> / <span class="roman">rʉ̌ʉ khá, chǎn khít wâa...</span> / <span class="eng">Really? I think that...</span>
+      這比直接說 <span class="thai">ไม่ใช่</span> / <span class="roman">mâi châi</span> / <span class="eng">No, that’s not true</span> 更自然、更禮貌。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Soft statement</div>
+        <div class="triad">
+          <div class="thai">ภาษาไทยยากนะคะ</div>
+          <div class="roman">phaa-sǎa thai yâak ná khá</div>
+          <div class="eng">Thai is difficult, you know.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Soft disagreement</div>
+        <div class="triad">
+          <div class="thai">จริงเหรอคะ ฉันว่าไม่ค่อยยากค่ะ</div>
+          <div class="roman">jing rʉ̌ə khá, chǎn wâa mâi khɔ̂i yâak khâ</div>
+          <div class="eng">Really? I think it’s not very difficult.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Degree answer</div>
+        <div class="triad">
+          <div class="thai">ไม่แพงเท่าไรค่ะ</div>
+          <div class="roman">mâi phɛɛng thâo-rai khâ</div>
+          <div class="eng">It’s not that expensive.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Contract</div>
+        <div class="triad">
+          <div class="thai">สัญญาหมดอายุเดือนหน้าค่ะ</div>
+          <div class="roman">sǎn-yaa mòt aa-yú dʉan nâa khâ</div>
+          <div class="eng">The contract expires next month.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 2 已經學過比較級 <span class="thai">กว่า</span> / <span class="roman">gwàa</span> / <span class="eng">more than</span>。Day 3 會用更多形容詞與反義詞來造句，例如：
+      <span class="thai">แพงกว่า</span> / <span class="roman">phɛɛng gwàa</span> / <span class="eng">more expensive than</span>、
+      <span class="thai">ถูกกว่า</span> / <span class="roman">thùuk gwàa</span> / <span class="eng">cheaper than</span>。
+    </div>
+
+    <div class="tip blue">
+      <strong>本版加強規則：</strong>
+      同義詞與反義詞不只做表格，兩邊都會給例句，而且例句會放進不同生活情境，例如租屋、交通、點餐、聊天、語言交換、買東西、曼谷生活。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Opinion & Conversation</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">นะคะ</div><div class="roman">ná khá</div><div class="eng">soft confirmation particle</div></div></td>
+          <td>Particle</td>
+          <td>放句尾，語氣像「喔、嘛、你看吧」。不是一般 yes/no 問句。</td>
+          <td><div class="triad"><div class="thai">ร้อนนะคะ / ยากนะคะ / แพงนะคะ</div><div class="roman">rɔ́ɔn ná khá / yâak ná khá / phɛɛng ná khá</div><div class="eng">It’s hot / difficult / expensive, you know.</div></div></td>
+          <td><div class="triad"><div class="thai">กรุงเทพฯ ร้อนนะคะ</div><div class="roman">grung-thêep rɔ́ɔn ná khá</div><div class="eng">Bangkok is hot, you know.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หรือคะ</div><div class="roman">rʉ̌ʉ khá</div><div class="eng">Really? Is that so?</div></div></td>
+          <td>Reaction</td>
+          <td>柔和反應，可接自己的想法，比直接否定更禮貌。</td>
+          <td><div class="triad"><div class="thai">หรือคะ ฉันคิดว่า...</div><div class="roman">rʉ̌ʉ khá, chǎn khít wâa...</div><div class="eng">Really? I think that...</div></div></td>
+          <td><div class="triad"><div class="thai">หรือคะ ฉันคิดว่าไม่แพงหรอกค่ะ</div><div class="roman">rʉ̌ʉ khá, chǎn khít wâa mâi phɛɛng rɔ̀ɔk khâ</div><div class="eng">Really? I think it’s not expensive, actually.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คิดว่า</div><div class="roman">khít wâa</div><div class="eng">think that</div></div></td>
+          <td>Opinion</td>
+          <td>後面接完整句。正式一點可用 <span class="thai">ดิฉันคิดว่า</span>，口語常用 <span class="thai">ฉันว่า</span>。</td>
+          <td><div class="triad"><div class="thai">ฉันคิดว่า / ฉันว่า / ผมคิดว่า</div><div class="roman">chǎn khít wâa / chǎn wâa / phǒm khít wâa</div><div class="eng">I think that / I feel that / I think that</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันคิดว่าภาษาไทยสนุกค่ะ</div><div class="roman">chǎn khít wâa phaa-sǎa thai sà-nùk khâ</div><div class="eng">I think Thai is fun.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หรอก</div><div class="roman">rɔ̀ɔk</div><div class="eng">soft contradiction particle</div></div></td>
+          <td>Particle</td>
+          <td>常和否定一起用，語氣像「沒有啦、其實不是啦」。</td>
+          <td><div class="triad"><div class="thai">ไม่...หรอก</div><div class="roman">mâi...rɔ̀ɔk</div><div class="eng">not really...</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่ยากหรอกค่ะ แค่ต้องฝึกบ่อย ๆ</div><div class="roman">mâi yâak rɔ̀ɔk khâ, khɛ̂ɛ dtɔ̂ng fʉ̀k bɔ̀i-bɔ̀i</div><div class="eng">It’s not difficult, really. You just have to practice often.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คุย</div><div class="roman">khui</div><div class="eng">talk / chat</div></div></td>
+          <td>Verb</td>
+          <td>第 2、4 頁都有出現概念，可用於聊天、談價格、談合約。</td>
+          <td><div class="triad"><div class="thai">คุยกับเพื่อน / คุยเรื่องราคา / คุยกับเจ้าของห้อง</div><div class="roman">khui gàp phʉ̂an / khui rʉ̂ang raa-khaa / khui gàp jâo-khɔ̌ɔng hɔ̂ng</div><div class="eng">talk with a friend / talk about price / talk with the room owner</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยากคุยเรื่องสัญญาค่ะ</div><div class="roman">chǎn yàak khui rʉ̂ang sǎn-yaa khâ</div><div class="eng">I want to talk about the contract.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Money, Fee & Contract</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ราคา</div><div class="roman">raa-khaa</div><div class="eng">price</div></div></td>
+          <td>Money</td>
+          <td>名詞，問價格可說 <span class="thai">ราคาเท่าไร</span>。</td>
+          <td><div class="triad"><div class="thai">ราคาห้อง / ราคาอาหาร / ราคาถูก / ราคาแพง</div><div class="roman">raa-khaa hɔ̂ng / raa-khaa aa-hǎan / raa-khaa thùuk / raa-khaa phɛɛng</div><div class="eng">room price / food price / cheap price / expensive price</div></div></td>
+          <td><div class="triad"><div class="thai">ราคาห้องนี้แพงไปหน่อยค่ะ</div><div class="roman">raa-khaa hɔ̂ng níi phɛɛng bpai nɔ̀i khâ</div><div class="eng">The price of this room is a little too expensive.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">จ่ายสตางค์</div><div class="roman">jàai sà-dtaang</div><div class="eng">pay money</div></div></td>
+          <td>Payment</td>
+          <td><span class="thai">จ่าย</span> 是付；<span class="thai">สตางค์</span> 是錢。日常更常說 <span class="thai">จ่ายเงิน</span>。</td>
+          <td><div class="triad"><div class="thai">จ่ายเงิน / จ่ายค่าเช่า / จ่ายค่าน้ำค่าไฟ</div><div class="roman">jàai ngoen / jàai khâa-châo / jàai khâa náam khâa fai</div><div class="eng">pay money / pay rent / pay water and electricity bills</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องจ่ายค่าเช่าก่อนวันที่ห้าค่ะ</div><div class="roman">dtɔ̂ng jàai khâa-châo gɔ̀ɔn wan thîi hâa khâ</div><div class="eng">I have to pay rent before the 5th.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ค่า...</div><div class="roman">khâa...</div><div class="eng">fee / cost of...</div></div></td>
+          <td>Fee prefix</td>
+          <td>放名詞前面，表示「……費」。</td>
+          <td><div class="triad"><div class="thai">ค่าอาหาร / ค่าเรียน / ค่าน้ำ / ค่าไฟ / ค่าเช่า</div><div class="roman">khâa aa-hǎan / khâa rian / khâa náam / khâa fai / khâa-châo</div><div class="eng">food cost / tuition / water bill / electricity bill / rent</div></div></td>
+          <td><div class="triad"><div class="thai">ค่าน้ำค่าไฟรวมในค่าเช่าไหมคะ</div><div class="roman">khâa náam khâa fai ruam nai khâa-châo mái khá</div><div class="eng">Are water and electricity included in the rent?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เงินทอน</div><div class="roman">ngoen-thɔɔn</div><div class="eng">change</div></div></td>
+          <td>Payment</td>
+          <td>買東西找零。也可說動詞 <span class="thai">ทอน</span> = give change。</td>
+          <td><div class="triad"><div class="thai">รับเงินทอน / ไม่ต้องทอน / ไม่มีเงินทอน</div><div class="roman">ráp ngoen-thɔɔn / mâi dtɔ̂ng thɔɔn / mâi mii ngoen-thɔɔn</div><div class="eng">receive change / no need to give change / have no change</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่ต้องทอนค่ะ</div><div class="roman">mâi dtɔ̂ng thɔɔn khâ</div><div class="eng">No need to give change.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ค่ามัดจำ</div><div class="roman">khâa-mát-jam</div><div class="eng">deposit</div></div></td>
+          <td>Rental / contract</td>
+          <td>租屋、預約、租車都常用。口語也常聽 <span class="thai">มัดจำ</span>。</td>
+          <td><div class="triad"><div class="thai">จ่ายค่ามัดจำ / วางมัดจำ / คืนค่ามัดจำ</div><div class="roman">jàai khâa-mát-jam / waang mát-jam / khʉʉn khâa-mát-jam</div><div class="eng">pay deposit / put down a deposit / return deposit</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องวางมัดจำสองเดือนค่ะ</div><div class="roman">dtɔ̂ng waang mát-jam sɔ̌ɔng dʉan khâ</div><div class="eng">I have to put down a two-month deposit.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เซ็นสัญญา</div><div class="roman">sen sǎn-yaa</div><div class="eng">sign a contract</div></div></td>
+          <td>Contract</td>
+          <td><span class="thai">เซ็น</span> 是簽；<span class="thai">สัญญา</span> 是合約，可當名詞也可進入動詞片語。</td>
+          <td><div class="triad"><div class="thai">ก่อนเซ็นสัญญา / หลังเซ็นสัญญา / อ่านสัญญา</div><div class="roman">gɔ̀ɔn sen sǎn-yaa / lǎng sen sǎn-yaa / àan sǎn-yaa</div><div class="eng">before signing / after signing / read the contract</div></div></td>
+          <td><div class="triad"><div class="thai">ขออ่านสัญญาก่อนเซ็นได้ไหมคะ</div><div class="roman">khɔ̌ɔ àan sǎn-yaa gɔ̀ɔn sen dâai mái khá</div><div class="eng">Can I read the contract before signing?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ยืม</div><div class="roman">yʉʉm</div><div class="eng">borrow</div></div></td>
+          <td>Verb</td>
+          <td>借來。反義詞是 <span class="thai">คืน</span>。</td>
+          <td><div class="triad"><div class="thai">ยืมเงิน / ยืมรถ / ยืมหนังสือ</div><div class="roman">yʉʉm ngoen / yʉʉm rót / yʉʉm nǎng-sʉ̌ʉ</div><div class="eng">borrow money / borrow a car / borrow a book</div></div></td>
+          <td><div class="triad"><div class="thai">ขอยืมปากกาหน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ yʉʉm bpàak-gaa nɔ̀i dâai mái khá</div><div class="eng">Can I borrow a pen?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คืน</div><div class="roman">khʉʉn</div><div class="eng">return / give back</div></div></td>
+          <td>Verb</td>
+          <td>還回去。可用於還錢、還東西、退押金。</td>
+          <td><div class="triad"><div class="thai">คืนเงิน / คืนรถ / คืนค่ามัดจำ</div><div class="roman">khʉʉn ngoen / khʉʉn rót / khʉʉn khâa-mát-jam</div><div class="eng">return money / return car / return deposit</div></div></td>
+          <td><div class="triad"><div class="thai">เจ้าของห้องจะคืนค่ามัดจำเมื่อไรคะ</div><div class="roman">jâo-khɔ̌ɔng hɔ̂ng jà khʉʉn khâa-mát-jam mʉ̂a-rai khá</div><div class="eng">When will the room owner return the deposit?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="opinion" class="tab-content">
+    <h2>Opinion｜นะคะ、หรือคะ、คิดว่า、หรอก</h2>
+
+    <h3>1. N + Adj + นะคะ</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Noun + Adjective + นะคะ</div>
+        <div class="roman">Noun + Adjective + ná khá</div>
+        <div class="eng">Noun is adjective, you know / right?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Sentence</th>
+          <th>English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เมืองไทยร้อนนะคะ</div><div class="roman">mʉang-thai rɔ́ɔn ná khá</div><div class="eng">Thailand is hot, you know.</div></div></td>
+          <td>Textbook example</td>
+          <td>說話者覺得這件事對方應該也能感受到。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ภาษาไทยยากนะคะ</div><div class="roman">phaa-sǎa thai yâak ná khá</div><div class="eng">Thai is difficult, you know.</div></div></td>
+          <td>Textbook example</td>
+          <td>語氣像「泰文真的蠻難的耶」。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ค่าเช่าห้องนี้แพงนะคะ</div><div class="roman">khâa-châo hɔ̂ng níi phɛɛng ná khá</div><div class="eng">The rent for this room is expensive, you know.</div></div></td>
+          <td>Rental</td>
+          <td>看房時可以和朋友討論。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">รถติดมากนะคะ</div><div class="roman">rót dtìt mâak ná khá</div><div class="eng">The traffic is really bad, you know.</div></div></td>
+          <td>Bangkok life</td>
+          <td>曼谷生活高頻句。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Soft disagreement</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">หรือคะ + ฉัน/ผม + คิดว่า + Noun + ไม่ + Adj + หรอกค่ะ/ครับ</div>
+        <div class="roman">rʉ̌ʉ khá + chǎn/phǒm + khít wâa + Noun + mâi + Adj + rɔ̀ɔk khâ/khráp</div>
+        <div class="eng">Really? I think noun is not adjective, actually.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Original Statement</th>
+          <th>Soft Disagreement</th>
+          <th>Local Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เมืองไทยร้อนนะคะ</div><div class="roman">mʉang-thai rɔ́ɔn ná khá</div><div class="eng">Thailand is hot, you know.</div></div></td>
+          <td><div class="triad"><div class="thai">หรือคะ ฉันคิดว่าเมืองไทยไม่ร้อนหรอกค่ะ</div><div class="roman">rʉ̌ʉ khá, chǎn khít wâa mʉang-thai mâi rɔ́ɔn rɔ̀ɔk khâ</div><div class="eng">Really? I think Thailand is not hot, actually.</div></div></td>
+          <td><div class="triad"><div class="thai">จริงเหรอคะ ฉันว่าไม่ค่อยร้อนค่ะ</div><div class="roman">jing rʉ̌ə khá, chǎn wâa mâi khɔ̂i rɔ́ɔn khâ</div><div class="eng">Really? I feel it’s not very hot.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ภาษาไทยยากนะคะ</div><div class="roman">phaa-sǎa thai yâak ná khá</div><div class="eng">Thai is difficult, you know.</div></div></td>
+          <td><div class="triad"><div class="thai">หรือคะ ฉันคิดว่าภาษาไทยไม่ยากหรอกค่ะ</div><div class="roman">rʉ̌ʉ khá, chǎn khít wâa phaa-sǎa thai mâi yâak rɔ̀ɔk khâ</div><div class="eng">Really? I think Thai is not difficult, actually.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันว่าไม่ยากมากค่ะ แต่เสียงยากค่ะ</div><div class="roman">chǎn wâa mâi yâak mâak khâ, dtɛ̀ɛ sǐang yâak khâ</div><div class="eng">I think it’s not very difficult, but the tones are difficult.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ห้องนี้เล็กนะคะ</div><div class="roman">hɔ̂ng níi lék ná khá</div><div class="eng">This room is small, you know.</div></div></td>
+          <td><div class="triad"><div class="thai">หรือคะ ฉันคิดว่าไม่เล็กหรอกค่ะ</div><div class="roman">rʉ̌ʉ khá, chǎn khít wâa mâi lék rɔ̀ɔk khâ</div><div class="eng">Really? I think it’s not small, actually.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันว่าโอเคนะคะ อยู่คนเดียวพอดีค่ะ</div><div class="roman">chǎn wâa oo-khee ná khá, yùu khon-diao phɔɔ-dii khâ</div><div class="eng">I think it’s okay. It’s just right for living alone.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>曼谷口語小撇步：</strong>
+      教材的 <span class="thai">ดิฉันคิดว่า</span> / <span class="roman">dì-chǎn khít wâa</span> / <span class="eng">I think that</span> 比較正式；日常更常聽到
+      <span class="thai">ฉันว่า</span> / <span class="roman">chǎn wâa</span> / <span class="eng">I feel / I think</span>。
+    </div>
+  </section>
+
+  <section id="degree" class="tab-content">
+    <h2>Degree Scale｜程度副詞 0% → 100%+++</h2>
+
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Noun + Adjective + ไหมคะ</div>
+        <div class="roman">Noun + Adjective + mái khá</div>
+        <div class="eng">Is noun adjective?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Degree</th>
+          <th>Thai / Romanization / English</th>
+          <th>Feeling</th>
+          <th>Example 1</th>
+          <th>Example 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0%</td>
+          <td><div class="triad"><div class="thai">ไม่ + Adj + เลย</div><div class="roman">mâi + Adj + ləəi</div><div class="eng">not adjective at all</div></div></td>
+          <td>完全不。</td>
+          <td><div class="triad"><div class="thai">ไม่แพงเลยค่ะ</div><div class="roman">mâi phɛɛng ləəi khâ</div><div class="eng">It is not expensive at all.</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่เผ็ดเลยค่ะ</div><div class="roman">mâi phèt ləəi khâ</div><div class="eng">It is not spicy at all.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>10%</td>
+          <td><div class="triad"><div class="thai">ไม่ + Adj</div><div class="roman">mâi + Adj</div><div class="eng">not adjective</div></div></td>
+          <td>一般否定。</td>
+          <td><div class="triad"><div class="thai">ไม่ยากค่ะ</div><div class="roman">mâi yâak khâ</div><div class="eng">It is not difficult.</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องนี้ไม่เล็กค่ะ</div><div class="roman">hɔ̂ng níi mâi lék khâ</div><div class="eng">This room is not small.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>20–30%</td>
+          <td><div class="triad"><div class="thai">ไม่ค่อย + Adj</div><div class="roman">mâi khɔ̂i + Adj</div><div class="eng">not very adjective</div></div></td>
+          <td>不太……。</td>
+          <td><div class="triad"><div class="thai">ไม่ค่อยไกลค่ะ</div><div class="roman">mâi khɔ̂i glai khâ</div><div class="eng">It is not very far.</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่ค่อยหิวค่ะ</div><div class="roman">mâi khɔ̂i hǐw khâ</div><div class="eng">I’m not very hungry.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>20–30%</td>
+          <td><div class="triad"><div class="thai">ไม่ + Adj + เท่าไร</div><div class="roman">mâi + Adj + thâo-rai</div><div class="eng">not that adjective</div></div></td>
+          <td>不怎麼……，很口語。</td>
+          <td><div class="triad"><div class="thai">ไม่แพงเท่าไรค่ะ</div><div class="roman">mâi phɛɛng thâo-rai khâ</div><div class="eng">It is not that expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่สนุกเท่าไรค่ะ</div><div class="roman">mâi sà-nùk thâo-rai khâ</div><div class="eng">It is not that fun.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>40–50%</td>
+          <td><div class="triad"><div class="thai">Adj + นิดหน่อย</div><div class="roman">Adj + nít-nɔ̀i</div><div class="eng">a little adjective</div></div></td>
+          <td>有一點點。</td>
+          <td><div class="triad"><div class="thai">เผ็ดนิดหน่อยค่ะ</div><div class="roman">phèt nít-nɔ̀i khâ</div><div class="eng">It is a little spicy.</div></div></td>
+          <td><div class="triad"><div class="thai">เหนื่อยนิดหน่อยค่ะ</div><div class="roman">nʉ̀ai nít-nɔ̀i khâ</div><div class="eng">I’m a little tired.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>100%</td>
+          <td><div class="triad"><div class="thai">Adj</div><div class="roman">Adj</div><div class="eng">adjective</div></div></td>
+          <td>普通肯定。</td>
+          <td><div class="triad"><div class="thai">ร้อนค่ะ</div><div class="roman">rɔ́ɔn khâ</div><div class="eng">It is hot.</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องนี้สะอาดค่ะ</div><div class="roman">hɔ̂ng níi sà-àat khâ</div><div class="eng">This room is clean.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>100%+</td>
+          <td><div class="triad"><div class="thai">Adj + มาก / จัง / จังเลย</div><div class="roman">Adj + mâak / jang / jang ləəi</div><div class="eng">very / so adjective</div></div></td>
+          <td><span class="thai">มาก</span> 中性；<span class="thai">จังเลย</span> 感嘆口語。</td>
+          <td><div class="triad"><div class="thai">สวยมากค่ะ</div><div class="roman">sǔai mâak khâ</div><div class="eng">Very beautiful.</div></div></td>
+          <td><div class="triad"><div class="thai">ร้อนจังเลยค่ะ</div><div class="roman">rɔ́ɔn jang ləəi khâ</div><div class="eng">It is so hot!</div></div></td>
+        </tr>
+
+        <tr>
+          <td>100%+++ negative</td>
+          <td><div class="triad"><div class="thai">Adj + เกินไป / ไป</div><div class="roman">Adj + gəən-bpai / bpai</div><div class="eng">too adjective</div></div></td>
+          <td>太……了，偏負面。</td>
+          <td><div class="triad"><div class="thai">แพงเกินไปค่ะ</div><div class="roman">phɛɛng gəən-bpai khâ</div><div class="eng">It is too expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">หวานไปค่ะ</div><div class="roman">wǎan bpai khâ</div><div class="eng">It is too sweet.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>100%+++ positive</td>
+          <td><div class="triad"><div class="thai">Adj + เหลือเกิน</div><div class="roman">Adj + lʉ̌a-gəən</div><div class="eng">extremely adjective</div></div></td>
+          <td>比較感嘆、書面/戲劇感高。</td>
+          <td><div class="triad"><div class="thai">สวยเหลือเกินค่ะ</div><div class="roman">sǔai lʉ̌a-gəən khâ</div><div class="eng">It is extremely beautiful.</div></div></td>
+          <td><div class="triad"><div class="thai">ดีใจเหลือเกินค่ะ</div><div class="roman">dii-jai lʉ̌a-gəən khâ</div><div class="eng">I’m extremely happy.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="money" class="tab-content">
+    <h2>Money & Contract｜錢、費用、押金、簽約、有效期</h2>
+
+    <h3>ค่า...｜費用前綴</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Meaning</th>
+          <th>Example 1</th>
+          <th>Example 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ค่าอาหาร</div><div class="roman">khâa aa-hǎan</div><div class="eng">food cost / meal cost</div></div></td>
+          <td>餐費</td>
+          <td><div class="triad"><div class="thai">ค่าอาหารเท่าไรคะ</div><div class="roman">khâa aa-hǎan thâo-rai khá</div><div class="eng">How much is the food cost?</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันจ่ายค่าอาหารค่ะ</div><div class="roman">wan-níi chǎn jàai khâa aa-hǎan khâ</div><div class="eng">Today I’ll pay for the meal.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ค่าเรียน</div><div class="roman">khâa rian</div><div class="eng">tuition / class fee</div></div></td>
+          <td>學費</td>
+          <td><div class="triad"><div class="thai">ค่าเรียนภาษาไทยแพงไหมคะ</div><div class="roman">khâa rian phaa-sǎa thai phɛɛng mái khá</div><div class="eng">Is Thai tuition expensive?</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องจ่ายค่าเรียนวันนี้ค่ะ</div><div class="roman">dtɔ̂ng jàai khâa rian wan-níi khâ</div><div class="eng">I have to pay tuition today.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ค่าน้ำ</div><div class="roman">khâa náam</div><div class="eng">water bill</div></div></td>
+          <td>水費</td>
+          <td><div class="triad"><div class="thai">ค่าน้ำเดือนละเท่าไรคะ</div><div class="roman">khâa náam dʉan lá thâo-rai khá</div><div class="eng">How much is the water bill per month?</div></div></td>
+          <td><div class="triad"><div class="thai">ค่าน้ำรวมในค่าเช่าไหมคะ</div><div class="roman">khâa náam ruam nai khâa-châo mái khá</div><div class="eng">Is the water bill included in the rent?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ค่าไฟ</div><div class="roman">khâa fai</div><div class="eng">electricity bill</div></div></td>
+          <td>電費</td>
+          <td><div class="triad"><div class="thai">ค่าไฟแพงมากค่ะ</div><div class="roman">khâa fai phɛɛng mâak khâ</div><div class="eng">The electricity bill is very expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">ค่าไฟหน่วยละเท่าไรคะ</div><div class="roman">khâa fai nùai lá thâo-rai khá</div><div class="eng">How much is electricity per unit?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ค่าเช่า</div><div class="roman">khâa-châo</div><div class="eng">rent</div></div></td>
+          <td>租金</td>
+          <td><div class="triad"><div class="thai">ค่าเช่าเดือนละหนึ่งหมื่นบาทค่ะ</div><div class="roman">khâa-châo dʉan lá nʉ̀eng mʉ̀ʉn bàat khâ</div><div class="eng">The rent is 10,000 baht per month.</div></div></td>
+          <td><div class="triad"><div class="thai">ค่าเช่าห้องนี้ถูกกว่าห้องนั้นค่ะ</div><div class="roman">khâa-châo hɔ̂ng níi thùuk gwàa hɔ̂ng nán khâ</div><div class="eng">This room’s rent is cheaper than that room’s.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Contract Validity</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">Noun + มีอายุ + Time</div>
+        <div class="roman">Noun + mii aa-yú + Time</div>
+        <div class="eng">Noun is valid for time.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">Noun + หมดอายุ + Time</div>
+        <div class="roman">Noun + mòt aa-yú + Time</div>
+        <div class="eng">Noun expires at time.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">ต่ออายุ + Noun</div>
+        <div class="roman">dtɔ̀ɔ aa-yú + Noun</div>
+        <div class="eng">renew noun.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Thai / Romanization / English</th>
+          <th>Real-life Context</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>有效期一年</td>
+          <td><div class="triad"><div class="thai">สัญญามีอายุหนึ่งปีค่ะ</div><div class="roman">sǎn-yaa mii aa-yú nʉ̀eng bpii khâ</div><div class="eng">The contract is valid for one year.</div></div></td>
+          <td>租約、會員、保險。</td>
+        </tr>
+
+        <tr>
+          <td>下個月到期</td>
+          <td><div class="triad"><div class="thai">สัญญาหมดอายุเดือนหน้าค่ะ</div><div class="roman">sǎn-yaa mòt aa-yú dʉan nâa khâ</div><div class="eng">The contract expires next month.</div></div></td>
+          <td>租屋續約前。</td>
+        </tr>
+
+        <tr>
+          <td>續約</td>
+          <td><div class="triad"><div class="thai">ต่ออายุสัญญาได้ไหมคะ</div><div class="roman">dtɔ̀ɔ aa-yú sǎn-yaa dâai mái khá</div><div class="eng">Can I renew the contract?</div></div></td>
+          <td>問房東或 agent。</td>
+        </tr>
+
+        <tr>
+          <td>簽證續期</td>
+          <td><div class="triad"><div class="thai">ต้องต่ออายุวีซ่าค่ะ</div><div class="roman">dtɔ̂ng dtɔ̀ɔ aa-yú wii-sâa khâ</div><div class="eng">I have to renew my visa.</div></div></td>
+          <td>外國人在泰國生活很實用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Number Units</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Value</th>
+          <th>Money Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><div class="triad"><div class="thai">สิบ</div><div class="roman">sìp</div><div class="eng">ten</div></div></td><td>10</td><td><div class="triad"><div class="thai">สิบบาท</div><div class="roman">sìp bàat</div><div class="eng">10 baht</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">ร้อย</div><div class="roman">rɔ́ɔi</div><div class="eng">hundred</div></div></td><td>100</td><td><div class="triad"><div class="thai">สองร้อยบาท</div><div class="roman">sɔ̌ɔng rɔ́ɔi bàat</div><div class="eng">200 baht</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">พัน</div><div class="roman">phan</div><div class="eng">thousand</div></div></td><td>1,000</td><td><div class="triad"><div class="thai">สามพันบาท</div><div class="roman">sǎam phan bàat</div><div class="eng">3,000 baht</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">หมื่น</div><div class="roman">mʉ̀ʉn</div><div class="eng">ten thousand</div></div></td><td>10,000</td><td><div class="triad"><div class="thai">หนึ่งหมื่นบาท</div><div class="roman">nʉ̀eng mʉ̀ʉn bàat</div><div class="eng">10,000 baht</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">แสน</div><div class="roman">sɛ̌ɛn</div><div class="eng">hundred thousand</div></div></td><td>100,000</td><td><div class="triad"><div class="thai">หนึ่งแสนบาท</div><div class="roman">nʉ̀eng sɛ̌ɛn bàat</div><div class="eng">100,000 baht</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">ล้าน</div><div class="roman">láan</div><div class="eng">million</div></div></td><td>1,000,000</td><td><div class="triad"><div class="thai">หนึ่งล้านบาท</div><div class="roman">nʉ̀eng láan bàat</div><div class="eng">1,000,000 baht</div></div></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="synonyms" class="tab-content">
+    <h2>Synonyms｜同義詞 / 近義詞補充</h2>
+
+    <div class="tip blue">
+      <strong>學習方式：</strong>
+      近義詞不是完全一樣。這裡會用「語氣、正式度、常用場合」區分，並且每個都給例句。
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Meaning</th>
+          <th>Words</th>
+          <th>Example A</th>
+          <th>Example B</th>
+          <th>Usage Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>我覺得</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันคิดว่า</div><div class="roman">chǎn khít wâa</div><div class="eng">I think that</div></div>
+            <div class="triad"><div class="thai">ฉันว่า</div><div class="roman">chǎn wâa</div><div class="eng">I feel / I think</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ฉันคิดว่าภาษาไทยสนุกค่ะ</div><div class="roman">chǎn khít wâa phaa-sǎa thai sà-nùk khâ</div><div class="eng">I think Thai is fun.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันว่าร้านนี้อร่อยค่ะ</div><div class="roman">chǎn wâa ráan níi à-rɔ̀i khâ</div><div class="eng">I think this restaurant is delicious.</div></div></td>
+          <td><span class="thai">ฉันคิดว่า</span> 較完整；<span class="thai">ฉันว่า</span> 更口語。</td>
+        </tr>
+
+        <tr>
+          <td>真的嗎？</td>
+          <td>
+            <div class="triad"><div class="thai">หรือคะ</div><div class="roman">rʉ̌ʉ khá</div><div class="eng">Really? Is that so?</div></div>
+            <div class="triad"><div class="thai">จริงเหรอคะ</div><div class="roman">jing rʉ̌ə khá</div><div class="eng">Really?</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">หรือคะ ฉันคิดว่าไม่แพงค่ะ</div><div class="roman">rʉ̌ʉ khá, chǎn khít wâa mâi phɛɛng khâ</div><div class="eng">Really? I think it’s not expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">จริงเหรอคะ ฉันไม่รู้เลยค่ะ</div><div class="roman">jing rʉ̌ə khá, chǎn mâi rúu ləəi khâ</div><div class="eng">Really? I didn’t know at all.</div></div></td>
+          <td><span class="thai">จริงเหรอ</span> 比較口語自然。</td>
+        </tr>
+
+        <tr>
+          <td>不太</td>
+          <td>
+            <div class="triad"><div class="thai">ไม่ค่อย...</div><div class="roman">mâi khɔ̂i...</div><div class="eng">not very...</div></div>
+            <div class="triad"><div class="thai">ไม่...เท่าไร</div><div class="roman">mâi...thâo-rai</div><div class="eng">not that...</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ไม่ค่อยหิวค่ะ</div><div class="roman">mâi khɔ̂i hǐw khâ</div><div class="eng">I’m not very hungry.</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่อร่อยเท่าไรค่ะ</div><div class="roman">mâi à-rɔ̀i thâo-rai khâ</div><div class="eng">It’s not that delicious.</div></div></td>
+          <td>兩個都常用；<span class="thai">ไม่...เท่าไร</span> 評價食物/價格時很自然。</td>
+        </tr>
+
+        <tr>
+          <td>太……了</td>
+          <td>
+            <div class="triad"><div class="thai">...เกินไป</div><div class="roman">...gəən-bpai</div><div class="eng">too...</div></div>
+            <div class="triad"><div class="thai">...ไปหน่อย</div><div class="roman">...bpai nɔ̀i</div><div class="eng">a little too...</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ห้องนี้มืดเกินไปค่ะ</div><div class="roman">hɔ̂ng níi mʉ̂ʉt gəən-bpai khâ</div><div class="eng">This room is too dark.</div></div></td>
+          <td><div class="triad"><div class="thai">ราคานี้แพงไปหน่อยค่ะ</div><div class="roman">raa-khaa níi phɛɛng bpai nɔ̀i khâ</div><div class="eng">This price is a little too expensive.</div></div></td>
+          <td><span class="thai">ไปหน่อย</span> 比 <span class="thai">เกินไป</span> 更柔和。</td>
+        </tr>
+
+        <tr>
+          <td>合約到期</td>
+          <td>
+            <div class="triad"><div class="thai">หมดอายุ</div><div class="roman">mòt aa-yú</div><div class="eng">expire</div></div>
+            <div class="triad"><div class="thai">ครบ</div><div class="roman">khróp</div><div class="eng">complete / reach the end</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">สัญญาหมดอายุเดือนหน้าค่ะ</div><div class="roman">sǎn-yaa mòt aa-yú dʉan nâa khâ</div><div class="eng">The contract expires next month.</div></div></td>
+          <td><div class="triad"><div class="thai">สัญญาครบเดือนหน้าค่ะ</div><div class="roman">sǎn-yaa khróp dʉan nâa khâ</div><div class="eng">The contract ends next month.</div></div></td>
+          <td><span class="thai">หมดอายุ</span> 是有效期到期；<span class="thai">ครบ</span> 租屋口語常聽。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="opposites" class="tab-content">
+    <h2>Opposites｜反義詞大量例句</h2>
+
+    <div class="tip orange">
+      <strong>重點：</strong>
+      反義詞不要只背 pair。每一組都要能放進不同生活場景：看房、交通、吃飯、聊天、情緒、學習、購物。
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pair</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example for A</th>
+          <th>Example for B</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>高 / 矮</td>
+          <td><div class="triad"><div class="thai">สูง / เตี้ย</div><div class="roman">sǔung / dtîa</div><div class="eng">tall, high / short in height</div></div></td>
+          <td><div class="triad"><div class="thai">คอนโดนี้สูงมากค่ะ</div><div class="roman">khɔɔn-doo níi sǔung mâak khâ</div><div class="eng">This condo is very tall.</div></div></td>
+          <td><div class="triad"><div class="thai">โต๊ะนี้เตี้ยไปหน่อยค่ะ</div><div class="roman">dtó níi dtîa bpai nɔ̀i khâ</div><div class="eng">This table is a little too low.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>小 / 大</td>
+          <td><div class="triad"><div class="thai">เล็ก / ใหญ่</div><div class="roman">lék / yài</div><div class="eng">small / big</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องนี้เล็กแต่สะอาดค่ะ</div><div class="roman">hɔ̂ng níi lék dtɛ̀ɛ sà-àat khâ</div><div class="eng">This room is small but clean.</div></div></td>
+          <td><div class="triad"><div class="thai">ห้างนี้ใหญ่มาก เดินเหนื่อยค่ะ</div><div class="roman">hâang níi yài mâak, dəən nʉ̀ai khâ</div><div class="eng">This mall is very big. Walking is tiring.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>近 / 遠</td>
+          <td><div class="triad"><div class="thai">ใกล้ / ไกล</div><div class="roman">glâi / glai</div><div class="eng">near / far</div></div></td>
+          <td><div class="triad"><div class="thai">คอนโดนี้ใกล้บีทีเอสค่ะ</div><div class="roman">khɔɔn-doo níi glâi bii-thii-ét khâ</div><div class="eng">This condo is near the BTS.</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านนี้ไกลจากบ้านฉันค่ะ</div><div class="roman">ráan níi glai jàak bâan chǎn khâ</div><div class="eng">This restaurant is far from my home.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>快 / 慢</td>
+          <td><div class="triad"><div class="thai">เร็ว / ช้า</div><div class="roman">reo / cháa</div><div class="eng">fast / slow, late</div></div></td>
+          <td><div class="triad"><div class="thai">บีทีเอสเร็วมากค่ะ</div><div class="roman">bii-thii-ét reo mâak khâ</div><div class="eng">The BTS is very fast.</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้รถเมล์ช้ามากค่ะ</div><div class="roman">wan-níi rót-mee cháa mâak khâ</div><div class="eng">The bus is very slow today.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>輕/小聲 / 重/大聲/強</td>
+          <td><div class="triad"><div class="thai">เบา / หนัก / ดัง / แรง</div><div class="roman">bao / nàk / dang / rɛɛng</div><div class="eng">light, soft / heavy / loud / strong</div></div></td>
+          <td><div class="triad"><div class="thai">กระเป๋าใบนี้เบาค่ะ</div><div class="roman">grà-bpǎo bai níi bao khâ</div><div class="eng">This bag is light.</div></div></td>
+          <td><div class="triad"><div class="thai">แอร์แรงเกินไปค่ะ</div><div class="roman">ɛɛ rɛɛng gəən-bpai khâ</div><div class="eng">The air conditioner is too strong.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>多 / 少</td>
+          <td><div class="triad"><div class="thai">มาก / น้อย</div><div class="roman">mâak / nɔ́ɔi</div><div class="eng">much, many, very / little, few</div></div></td>
+          <td><div class="triad"><div class="thai">คนเยอะมากค่ะ</div><div class="roman">khon yə́ mâak khâ</div><div class="eng">There are a lot of people.</div></div></td>
+          <td><div class="triad"><div class="thai">ขอน้ำตาลน้อยค่ะ</div><div class="roman">khɔ̌ɔ nám-dtaan nɔ́ɔi khâ</div><div class="eng">Less sugar, please.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>味道組 / 淡</td>
+          <td><div class="triad"><div class="thai">เปรี้ยว / หวาน / เค็ม / เผ็ด / ขม / จืด</div><div class="roman">bprîao / wǎan / khem / phèt / khǒm / jʉ̀ʉt</div><div class="eng">sour / sweet / salty / spicy / bitter / bland</div></div></td>
+          <td><div class="triad"><div class="thai">ต้มยำร้านนี้เปรี้ยวเผ็ด อร่อยมากค่ะ</div><div class="roman">dtôm-yam ráan níi bprîao phèt, à-rɔ̀i mâak khâ</div><div class="eng">This shop’s tom yum is sour and spicy, very delicious.</div></div></td>
+          <td><div class="triad"><div class="thai">ซุปนี้จืดไปหน่อยค่ะ</div><div class="roman">súp níi jʉ̀ʉt bpai nɔ̀i khâ</div><div class="eng">This soup is a little too bland.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>簡單 / 難</td>
+          <td><div class="triad"><div class="thai">ง่าย / ยาก</div><div class="roman">ngâai / yâak</div><div class="eng">easy / difficult</div></div></td>
+          <td><div class="triad"><div class="thai">บทนี้ง่ายกว่าบทที่แล้วค่ะ</div><div class="roman">bòt níi ngâai gwàa bòt thîi lɛ́ɛw khâ</div><div class="eng">This lesson is easier than the previous lesson.</div></div></td>
+          <td><div class="triad"><div class="thai">เสียงวรรณยุกต์ยากที่สุดค่ะ</div><div class="roman">sǐang wan-ná-yúk yâak thîi-sùt khâ</div><div class="eng">Tones are the most difficult.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>勤勞 / 懶惰</td>
+          <td><div class="triad"><div class="thai">ขยัน / ขี้เกียจ</div><div class="roman">khà-yǎn / khîi-gìat</div><div class="eng">hardworking / lazy</div></div></td>
+          <td><div class="triad"><div class="thai">เธอขยันเรียนภาษาไทยมากค่ะ</div><div class="roman">thəə khà-yǎn rian phaa-sǎa thai mâak khâ</div><div class="eng">She studies Thai very diligently.</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันขี้เกียจทำงานบ้านค่ะ</div><div class="roman">wan-níi chǎn khîi-gìat tham-ngaan-bâan khâ</div><div class="eng">Today I’m too lazy to do housework.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>乾淨 / 髒</td>
+          <td><div class="triad"><div class="thai">สะอาด / สกปรก</div><div class="roman">sà-àat / sòk-gà-bpròk</div><div class="eng">clean / dirty</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องน้ำสะอาดมากค่ะ</div><div class="roman">hɔ̂ng-náam sà-àat mâak khâ</div><div class="eng">The bathroom is very clean.</div></div></td>
+          <td><div class="triad"><div class="thai">พื้นสกปรกนิดหน่อยค่ะ</div><div class="roman">phʉ́ʉn sòk-gà-bpròk nít-nɔ̀i khâ</div><div class="eng">The floor is a little dirty.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>熱 / 涼 / 冷 / 溫</td>
+          <td><div class="triad"><div class="thai">ร้อน / เย็น / หนาว / อุ่น</div><div class="roman">rɔ́ɔn / yen / nǎao / ùn</div><div class="eng">hot / cool or cold drink / cold weather / warm</div></div></td>
+          <td><div class="triad"><div class="thai">กาแฟร้อนแก้วหนึ่งค่ะ</div><div class="roman">gaa-fɛɛ rɔ́ɔn gɛ̂ɛw nʉ̀eng khâ</div><div class="eng">One hot coffee, please.</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ห้องเรียนหนาวมากค่ะ</div><div class="roman">wan-níi hɔ̂ng-rian nǎao mâak khâ</div><div class="eng">The classroom is very cold today.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>醒 / 睡著 / 起身</td>
+          <td><div class="triad"><div class="thai">ตื่น / หลับ / ลุก</div><div class="roman">dtʉ̀ʉn / làp / lúk</div><div class="eng">wake up / sleep, fall asleep / get up physically</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันตื่นเจ็ดโมงเช้าค่ะ</div><div class="roman">chǎn dtʉ̀ʉn jèt moong cháo khâ</div><div class="eng">I wake up at 7 a.m.</div></div></td>
+          <td><div class="triad"><div class="thai">ตื่นแล้วแต่ยังไม่ลุกค่ะ</div><div class="roman">dtʉ̀ʉn lɛ́ɛw dtɛ̀ɛ yang mâi lúk khâ</div><div class="eng">I’m awake but haven’t gotten up yet.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>貴 / 便宜 / 正確 / 錯</td>
+          <td><div class="triad"><div class="thai">แพง / ถูก / ผิด</div><div class="roman">phɛɛng / thùuk / phìt</div><div class="eng">expensive / cheap or correct / wrong</div></div></td>
+          <td><div class="triad"><div class="thai">ชุดแต่งงานแพงมากค่ะ</div><div class="roman">chút-dtɛ̀ng-ngaan phɛɛng mâak khâ</div><div class="eng">The wedding dress is very expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">คำตอบนี้ถูก แต่คำตอบนั้นผิดค่ะ</div><div class="roman">kham-dtɔ̀ɔp níi thùuk, dtɛ̀ɛ kham-dtɔ̀ɔp nán phìt khâ</div><div class="eng">This answer is correct, but that answer is wrong.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>借 / 還</td>
+          <td><div class="triad"><div class="thai">ยืม / คืน</div><div class="roman">yʉʉm / khʉʉn</div><div class="eng">borrow / return</div></div></td>
+          <td><div class="triad"><div class="thai">ขอยืมโทรศัพท์หน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ yʉʉm thoo-rá-sàp nɔ̀i dâai mái khá</div><div class="eng">Can I borrow your phone?</div></div></td>
+          <td><div class="triad"><div class="thai">พรุ่งนี้ฉันจะคืนหนังสือค่ะ</div><div class="roman">phrûng-níi chǎn jà khʉʉn nǎng-sʉ̌ʉ khâ</div><div class="eng">Tomorrow I will return the book.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>上 / 下</td>
+          <td><div class="triad"><div class="thai">ขึ้น / ลง</div><div class="roman">khʉ̂n / long</div><div class="eng">go up, get on / go down, get off</div></div></td>
+          <td><div class="triad"><div class="thai">ขึ้นบีทีเอสที่สถานีโพธิ์นิมิตรค่ะ</div><div class="roman">khʉ̂n bii-thii-ét thîi sà-thǎa-nii phoo-ní-mít khâ</div><div class="eng">Get on the BTS at Pho Nimit station.</div></div></td>
+          <td><div class="triad"><div class="thai">ลงที่สถานีสยามค่ะ</div><div class="roman">long thîi sà-thǎa-nii sà-yǎam khâ</div><div class="eng">Get off at Siam station.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>去 / 來</td>
+          <td><div class="triad"><div class="thai">ไป / มา</div><div class="roman">bpai / maa</div><div class="eng">go / come</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันไปโรงเรียนตอนเช้าค่ะ</div><div class="roman">chǎn bpai roong-rian dtɔɔn cháo khâ</div><div class="eng">I go to school in the morning.</div></div></td>
+          <td><div class="triad"><div class="thai">เพื่อนมาหาฉันที่คอนโดค่ะ</div><div class="roman">phʉ̂an maa hǎa chǎn thîi khɔɔn-doo khâ</div><div class="eng">My friend came to see me at the condo.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>暗 / 亮</td>
+          <td><div class="triad"><div class="thai">มืด / สว่าง</div><div class="roman">mʉ̂ʉt / sà-wàang</div><div class="eng">dark / bright</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องนี้มืดเกินไปค่ะ</div><div class="roman">hɔ̂ng níi mʉ̂ʉt gəən-bpai khâ</div><div class="eng">This room is too dark.</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องนี้สว่างและน่าอยู่ค่ะ</div><div class="roman">hɔ̂ng níi sà-wàang lɛ́ nâa-yùu khâ</div><div class="eng">This room is bright and nice to live in.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>餓 / 飽</td>
+          <td><div class="triad"><div class="thai">หิว / อิ่ม</div><div class="roman">hǐw / ìm</div><div class="eng">hungry / full</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันหิวมาก อยากกินข้าวค่ะ</div><div class="roman">chǎn hǐw mâak, yàak gin khâao khâ</div><div class="eng">I’m very hungry. I want to eat.</div></div></td>
+          <td><div class="triad"><div class="thai">อิ่มแล้วค่ะ กินไม่ไหวแล้ว</div><div class="roman">ìm lɛ́ɛw khâ, gin mâi wǎi lɛ́ɛw</div><div class="eng">I’m full already. I can’t eat anymore.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>帥/美 / 醜</td>
+          <td><div class="triad"><div class="thai">หล่อ / สวย / ขี้เหร่</div><div class="roman">lɔ̀ɔ / sǔai / khîi-rèe</div><div class="eng">handsome / beautiful / ugly</div></div></td>
+          <td><div class="triad"><div class="thai">แฟนเธอหล่อมากค่ะ</div><div class="roman">fɛɛn thəə lɔ̀ɔ mâak khâ</div><div class="eng">Her boyfriend is very handsome.</div></div></td>
+          <td><div class="triad"><div class="thai">คำนี้แรงไป อย่าพูดว่าเขาขี้เหร่ค่ะ</div><div class="roman">kham níi rɛɛng bpai, yàa phûut wâa khǎo khîi-rèe khâ</div><div class="eng">This word is too harsh. Don’t say that they are ugly.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>有趣 / 無聊</td>
+          <td><div class="triad"><div class="thai">สนุก / เบื่อ</div><div class="roman">sà-nùk / bʉ̀a</div><div class="eng">fun / bored</div></div></td>
+          <td><div class="triad"><div class="thai">เรียนกับครูคนนี้สนุกมากค่ะ</div><div class="roman">rian gàp khruu khon níi sà-nùk mâak khâ</div><div class="eng">Studying with this teacher is very fun.</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันเบื่อ ไม่อยากออกไปไหนค่ะ</div><div class="roman">wan-níi chǎn bʉ̀a, mâi yàak ɔ̀ɔk bpai nǎi khâ</div><div class="eng">Today I’m bored. I don’t want to go anywhere.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>開心 / 難過</td>
+          <td><div class="triad"><div class="thai">ดีใจ / เสียใจ</div><div class="roman">dii-jai / sǐa-jai</div><div class="eng">glad, happy / sad, sorry</div></div></td>
+          <td><div class="triad"><div class="thai">ดีใจที่ได้เจอคุณค่ะ</div><div class="roman">dii-jai thîi dâai jəə khun khâ</div><div class="eng">I’m glad to meet you.</div></div></td>
+          <td><div class="triad"><div class="thai">เสียใจที่ไปไม่ได้ค่ะ</div><div class="roman">sǐa-jai thîi bpai mâi dâai khâ</div><div class="eng">I’m sorry that I can’t go.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>好 / 糟</td>
+          <td><div class="triad"><div class="thai">ดี / แย่</div><div class="roman">dii / yɛ̂ɛ</div><div class="eng">good / bad, terrible</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้อากาศดีค่ะ</div><div class="roman">wan-níi aa-gàat dii khâ</div><div class="eng">The weather is good today.</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้รถติดแย่มากค่ะ</div><div class="roman">wan-níi rót dtìt yɛ̂ɛ mâak khâ</div><div class="eng">The traffic is terrible today.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>聰明 / 笨</td>
+          <td><div class="triad"><div class="thai">ฉลาด / โง่</div><div class="roman">chà-làat / ngôo</div><div class="eng">smart / stupid</div></div></td>
+          <td><div class="triad"><div class="thai">เด็กคนนี้ฉลาดมากค่ะ</div><div class="roman">dèk khon níi chà-làat mâak khâ</div><div class="eng">This child is very smart.</div></div></td>
+          <td><div class="triad"><div class="thai">คำว่าโง่แรงมาก อย่าใช้กับคนอื่นค่ะ</div><div class="roman">kham wâa ngôo rɛɛng mâak, yàa chái gàp khon ʉ̀ʉn khâ</div><div class="eng">The word stupid is very harsh. Don’t use it with others.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>冷靜 / 急躁</td>
+          <td><div class="triad"><div class="thai">ใจเย็น / ใจร้อน</div><div class="roman">jai-yen / jai-rɔ́ɔn</div><div class="eng">calm / impatient, hot-headed</div></div></td>
+          <td><div class="triad"><div class="thai">ครูคนนี้ใจเย็นมากค่ะ</div><div class="roman">khruu khon níi jai-yen mâak khâ</div><div class="eng">This teacher is very patient and calm.</div></div></td>
+          <td><div class="triad"><div class="thai">เวลาหิว ฉันใจร้อนนิดหน่อยค่ะ</div><div class="roman">wee-laa hǐw, chǎn jai-rɔ́ɔn nít-nɔ̀i khâ</div><div class="eng">When I’m hungry, I get a little impatient.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>開 / 關</td>
+          <td><div class="triad"><div class="thai">เปิด / ปิด</div><div class="roman">bpə̀ət / bpìt</div><div class="eng">open, turn on / close, turn off</div></div></td>
+          <td><div class="triad"><div class="thai">เปิดไฟหน่อยได้ไหมคะ</div><div class="roman">bpə̀ət fai nɔ̀i dâai mái khá</div><div class="eng">Could you turn on the light?</div></div></td>
+          <td><div class="triad"><div class="thai">ปิดแอร์ก่อนออกจากห้องนะคะ</div><div class="roman">bpìt ɛɛ gɔ̀ɔn ɔ̀ɔk jàak hɔ̂ng ná khá</div><div class="eng">Turn off the air conditioner before leaving the room.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>第一個 / 最後一個</td>
+          <td><div class="triad"><div class="thai">คนแรก / อันแรก / ครั้งแรก / คนสุดท้าย / อันสุดท้าย / ครั้งสุดท้าย</div><div class="roman">khon rɛ̂ɛk / an rɛ̂ɛk / khráng rɛ̂ɛk / khon sùt-tháai / an sùt-tháai / khráng sùt-tháai</div><div class="eng">first person / first item / first time / last person / last item / last time</div></div></td>
+          <td><div class="triad"><div class="thai">นี่เป็นครั้งแรกที่ฉันมาไทยค่ะ</div><div class="roman">nîi bpen khráng rɛ̂ɛk thîi chǎn maa thai khâ</div><div class="eng">This is the first time I came to Thailand.</div></div></td>
+          <td><div class="triad"><div class="thai">ครั้งสุดท้ายที่มาไทย ฉันอยู่สองเดือนค่ะ</div><div class="roman">khráng sùt-tháai thîi maa thai, chǎn yùu sɔ̌ɔng dʉan khâ</div><div class="eng">The last time I came to Thailand, I stayed for two months.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>1. Soft statement</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Noun + Adjective + นะคะ</div>
+        <div class="roman">Noun + Adjective + ná khá</div>
+        <div class="eng">Noun is adjective, you know.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Additional Variations</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เมืองไทยร้อนนะคะ</div><div class="roman">mʉang-thai rɔ́ɔn ná khá</div><div class="eng">Thailand is hot, you know.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">กรุงเทพฯ รถติดนะคะ</div><div class="roman">grung-thêep rót dtìt ná khá</div><div class="eng">Bangkok has heavy traffic, you know.</div></div>
+            <div class="triad"><div class="thai">ร้านนี้อร่อยนะคะ</div><div class="roman">ráan níi à-rɔ̀i ná khá</div><div class="eng">This restaurant is good, you know.</div></div>
+            <div class="triad"><div class="thai">ห้องนี้มืดนะคะ</div><div class="roman">hɔ̂ng níi mʉ̂ʉt ná khá</div><div class="eng">This room is dark, you know.</div></div>
+          </td>
+          <td>不是問句，是帶提醒/共感的陳述。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Soft disagreement</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">หรือคะ / จริงเหรอคะ + ฉันคิดว่า / ฉันว่า + Sentence</div>
+        <div class="roman">rʉ̌ʉ khá / jing rʉ̌ə khá + chǎn khít wâa / chǎn wâa + Sentence</div>
+        <div class="eng">Really? I think / I feel that...</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Sentence</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>不同意「太貴」</td>
+          <td><div class="triad"><div class="thai">จริงเหรอคะ ฉันว่าไม่แพงเท่าไรค่ะ</div><div class="roman">jing rʉ̌ə khá, chǎn wâa mâi phɛɛng thâo-rai khâ</div><div class="eng">Really? I think it’s not that expensive.</div></div></td>
+          <td>買東西、看房時好用。</td>
+        </tr>
+        <tr>
+          <td>不同意「不好吃」</td>
+          <td><div class="triad"><div class="thai">หรือคะ ฉันคิดว่าอร่อยนะคะ</div><div class="roman">rʉ̌ʉ khá, chǎn khít wâa à-rɔ̀i ná khá</div><div class="eng">Really? I think it’s delicious.</div></div></td>
+          <td>保留禮貌，不直接反駁。</td>
+        </tr>
+        <tr>
+          <td>不同意「太遠」</td>
+          <td><div class="triad"><div class="thai">ฉันว่าไม่ค่อยไกลค่ะ เดินได้ค่ะ</div><div class="roman">chǎn wâa mâi khɔ̂i glai khâ, dəən dâai khâ</div><div class="eng">I think it’s not very far. We can walk.</div></div></td>
+          <td>曼谷交通/約朋友見面。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. Degree answer</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Noun + Adjective + ไหมคะ</div>
+        <div class="roman">Noun + Adjective + mái khá</div>
+        <div class="eng">Is noun adjective?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Natural Answers</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ภาษาไทยยากไหมคะ</div><div class="roman">phaa-sǎa thai yâak mái khá</div><div class="eng">Is Thai difficult?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ไม่ยากเลยค่ะ</div><div class="roman">mâi yâak ləəi khâ</div><div class="eng">Not difficult at all.</div></div>
+            <div class="triad"><div class="thai">ยากนิดหน่อยค่ะ</div><div class="roman">yâak nít-nɔ̀i khâ</div><div class="eng">A little difficult.</div></div>
+            <div class="triad"><div class="thai">เสียงยากเกินไปค่ะ</div><div class="roman">sǐang yâak gəən-bpai khâ</div><div class="eng">The tones are too difficult.</div></div>
+          </td>
+          <td>練習把程度副詞放進真實回答。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>我覺得</td>
+          <td><div class="triad"><div class="thai">ดิฉันคิดว่า...</div><div class="roman">dì-chǎn khít wâa...</div><div class="eng">I think that...</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันว่า...</div><div class="roman">chǎn wâa...</div><div class="eng">I feel / I think...</div></div></td>
+          <td>和朋友聊天用 <span class="thai">ฉันว่า</span> 更自然。</td>
+        </tr>
+
+        <tr>
+          <td>柔和不同意</td>
+          <td><div class="triad"><div class="thai">หรือคะ ฉันคิดว่าไม่แพงหรอกค่ะ</div><div class="roman">rʉ̌ʉ khá, chǎn khít wâa mâi phɛɛng rɔ̀ɔk khâ</div><div class="eng">Really? I think it’s not expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">จริงเหรอคะ ฉันว่าไม่แพงเท่าไรค่ะ</div><div class="roman">jing rʉ̌ə khá, chǎn wâa mâi phɛɛng thâo-rai khâ</div><div class="eng">Really? I feel it’s not that expensive.</div></div></td>
+          <td>口語中 <span class="thai">ไม่...เท่าไร</span> 很自然。</td>
+        </tr>
+
+        <tr>
+          <td>太貴了</td>
+          <td><div class="triad"><div class="thai">แพงเกินไปค่ะ</div><div class="roman">phɛɛng gəən-bpai khâ</div><div class="eng">It’s too expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">แพงไปหน่อยค่ะ</div><div class="roman">phɛɛng bpai nɔ̀i khâ</div><div class="eng">It’s a little too expensive.</div></div></td>
+          <td>買東西或談房租時，<span class="thai">ไปหน่อย</span> 比較不衝。</td>
+        </tr>
+
+        <tr>
+          <td>押金多少</td>
+          <td><div class="triad"><div class="thai">ค่ามัดจำเท่าไรคะ</div><div class="roman">khâa-mát-jam thâo-rai khá</div><div class="eng">How much is the deposit?</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องวางมัดจำเท่าไรคะ</div><div class="roman">dtɔ̂ng waang mát-jam thâo-rai khá</div><div class="eng">How much deposit do I need to put down?</div></div></td>
+          <td>租屋現場常聽 <span class="thai">วางมัดจำ</span>。</td>
+        </tr>
+
+        <tr>
+          <td>合約到期</td>
+          <td><div class="triad"><div class="thai">สัญญาหมดอายุเมื่อไรคะ</div><div class="roman">sǎn-yaa mòt aa-yú mʉ̂a-rai khá</div><div class="eng">When does the contract expire?</div></div></td>
+          <td><div class="triad"><div class="thai">สัญญาครบเมื่อไรคะ</div><div class="roman">sǎn-yaa khróp mʉ̂a-rai khá</div><div class="eng">When does the contract end?</div></div></td>
+          <td><span class="thai">ครบ</span> 在租屋合約很常見。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="usage" class="tab-content">
+    <h2>Practical Usage Bank｜曼谷實戰句庫</h2>
+
+    <h3>Renting in Bangkok</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問租金</td>
+          <td><div class="triad"><div class="thai">ค่าเช่าเดือนละเท่าไรคะ</div><div class="roman">khâa-châo dʉan lá thâo-rai khá</div><div class="eng">How much is the rent per month?</div></div></td>
+          <td>看房第一句。</td>
+        </tr>
+        <tr>
+          <td>問水電</td>
+          <td><div class="triad"><div class="thai">ค่าน้ำค่าไฟรวมไหมคะ</div><div class="roman">khâa náam khâa fai ruam mái khá</div><div class="eng">Are water and electricity included?</div></div></td>
+          <td><span class="thai">รวม</span> = included。</td>
+        </tr>
+        <tr>
+          <td>問押金</td>
+          <td><div class="triad"><div class="thai">ต้องวางมัดจำเท่าไรคะ</div><div class="roman">dtɔ̂ng waang mát-jam thâo-rai khá</div><div class="eng">How much deposit do I need to put down?</div></div></td>
+          <td>比單純問 <span class="thai">ค่ามัดจำเท่าไร</span> 更像租屋現場。</td>
+        </tr>
+        <tr>
+          <td>覺得太暗</td>
+          <td><div class="triad"><div class="thai">ห้องนี้มืดเกินไปค่ะ</div><div class="roman">hɔ̂ng níi mʉ̂ʉt gəən-bpai khâ</div><div class="eng">This room is too dark.</div></div></td>
+          <td>看房評價。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Shopping / Food</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問價格</td>
+          <td><div class="triad"><div class="thai">ราคาเท่าไรคะ</div><div class="roman">raa-khaa thâo-rai khá</div><div class="eng">How much is it?</div></div></td>
+          <td>店面/市場都可用。</td>
+        </tr>
+        <tr>
+          <td>有點貴</td>
+          <td><div class="triad"><div class="thai">แพงไปหน่อยค่ะ</div><div class="roman">phɛɛng bpai nɔ̀i khâ</div><div class="eng">It’s a little too expensive.</div></div></td>
+          <td>不會太直接。</td>
+        </tr>
+        <tr>
+          <td>太甜</td>
+          <td><div class="triad"><div class="thai">หวานเกินไปค่ะ</div><div class="roman">wǎan gəən-bpai khâ</div><div class="eng">It’s too sweet.</div></div></td>
+          <td><span class="label review">Review</span> 點飲料甜度。</td>
+        </tr>
+        <tr>
+          <td>不辣</td>
+          <td><div class="triad"><div class="thai">ไม่เผ็ดเลยค่ะ</div><div class="roman">mâi phèt ləəi khâ</div><div class="eng">It’s not spicy at all.</div></div></td>
+          <td>吃飯評價。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Conversation Reactions</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>同意天氣熱</td>
+          <td><div class="triad"><div class="thai">ใช่ค่ะ ร้อนมากเลยค่ะ</div><div class="roman">châi khâ, rɔ́ɔn mâak ləəi khâ</div><div class="eng">Yes, it’s really hot.</div></div></td>
+          <td>自然回應。</td>
+        </tr>
+        <tr>
+          <td>不同意太貴</td>
+          <td><div class="triad"><div class="thai">จริงเหรอคะ ฉันว่าไม่แพงเท่าไรค่ะ</div><div class="roman">jing rʉ̌ə khá, chǎn wâa mâi phɛɛng thâo-rai khâ</div><div class="eng">Really? I think it’s not that expensive.</div></div></td>
+          <td>柔和不同意。</td>
+        </tr>
+        <tr>
+          <td>覺得還可以</td>
+          <td><div class="triad"><div class="thai">ก็โอเคนะคะ</div><div class="roman">gɔ̂ɔ oo-khee ná khá</div><div class="eng">It’s okay, I think.</div></div></td>
+          <td>口語高頻。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>1. 朋友聊天：泰國很熱吧？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><div class="triad"><div class="thai">เมืองไทยร้อนนะคะ</div><div class="roman">mʉang-thai rɔ́ɔn ná khá</div><div class="eng">Thailand is hot, you know.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ใช่ค่ะ กรุงเทพฯ ร้อนมากเลยค่ะ</div><div class="roman">châi khâ, grung-thêep rɔ́ɔn mâak ləəi khâ</div><div class="eng">Yes, Bangkok is really hot.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><div class="triad"><div class="thai">แต่ตอนเย็นไม่ค่อยร้อนนะคะ</div><div class="roman">dtɛ̀ɛ dtɔɔn yen mâi khɔ̂i rɔ́ɔn ná khá</div><div class="eng">But in the evening it’s not very hot, you know.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">จริงค่ะ ตอนเย็นอากาศดีค่ะ</div><div class="roman">jing khâ, dtɔɔn yen aa-gàat dii khâ</div><div class="eng">True. The weather is nice in the evening.</div></div></div>
+    </div>
+
+    <h3>2. 柔和不同意：泰文難不難？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Teacher</span><div class="triad"><div class="thai">ภาษาไทยยากนะคะ</div><div class="roman">phaa-sǎa thai yâak ná khá</div><div class="eng">Thai is difficult, you know.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">จริงเหรอคะ ฉันว่าไม่ยากมากค่ะ</div><div class="roman">jing rʉ̌ə khá, chǎn wâa mâi yâak mâak khâ</div><div class="eng">Really? I think it’s not very difficult.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">แต่เสียงวรรณยุกต์ยากนิดหน่อยค่ะ</div><div class="roman">dtɛ̀ɛ sǐang wan-ná-yúk yâak nít-nɔ̀i khâ</div><div class="eng">But the tones are a little difficult.</div></div></div>
+    </div>
+
+    <h3>3. 看房：房租、押金、水電費</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ค่าเช่าเดือนละเท่าไรคะ</div><div class="roman">khâa-châo dʉan lá thâo-rai khá</div><div class="eng">How much is the rent per month?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Agent</span><div class="triad"><div class="thai">เดือนละหนึ่งหมื่นสองพันบาทค่ะ</div><div class="roman">dʉan lá nʉ̀eng mʉ̀ʉn sɔ̌ɔng phan bàat khâ</div><div class="eng">12,000 baht per month.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ค่าน้ำค่าไฟรวมไหมคะ</div><div class="roman">khâa náam khâa fai ruam mái khá</div><div class="eng">Are water and electricity included?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Agent</span><div class="triad"><div class="thai">ไม่รวมค่ะ</div><div class="roman">mâi ruam khâ</div><div class="eng">Not included.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ฉันว่าแพงไปหน่อยค่ะ</div><div class="roman">chǎn wâa phɛɛng bpai nɔ̀i khâ</div><div class="eng">I think it’s a little too expensive.</div></div></div>
+    </div>
+
+    <h3>4. 合約：簽約、到期、續約</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ขออ่านสัญญาก่อนเซ็นได้ไหมคะ</div><div class="roman">khɔ̌ɔ àan sǎn-yaa gɔ̀ɔn sen dâai mái khá</div><div class="eng">Can I read the contract before signing?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Agent</span><div class="triad"><div class="thai">ได้ค่ะ สัญญามีอายุหนึ่งปีค่ะ</div><div class="roman">dâai khâ, sǎn-yaa mii aa-yú nʉ̀eng bpii khâ</div><div class="eng">Yes. The contract is valid for one year.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ถ้าอยู่ต่อ ต่ออายุสัญญาได้ไหมคะ</div><div class="roman">thâa yùu dtɔ̀ɔ, dtɔ̀ɔ aa-yú sǎn-yaa dâai mái khá</div><div class="eng">If I stay longer, can I renew the contract?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Agent</span><div class="triad"><div class="thai">ได้ค่ะ คุยกันก่อนได้ค่ะ</div><div class="roman">dâai khâ, khui gan gɔ̀ɔn dâai khâ</div><div class="eng">Yes, we can discuss it first.</div></div></div>
+    </div>
+
+    <h3>5. 點飲料：甜度、太甜、不太甜</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ชาไทยหวานไหมคะ</div><div class="roman">chaa thai wǎan mái khá</div><div class="eng">Is Thai tea sweet?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">บางร้านหวานเกินไปค่ะ</div><div class="roman">baang ráan wǎan gəən-bpai khâ</div><div class="eng">Some shops make it too sweet.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">แล้วคุณสั่งยังไงคะ</div><div class="roman">lɛ́ɛw khun sàng yang-ngai khá</div><div class="eng">Then how do you order?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สั่งหวานน้อยค่ะ</div><div class="roman">sàng wǎan nɔ́ɔi khâ</div><div class="eng">I order it less sweet.</div></div></div>
+    </div>
+
+    <h3>6. 借東西與還東西</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ขอยืมปากกาหน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ yʉʉm bpàak-gaa nɔ̀i dâai mái khá</div><div class="eng">Can I borrow a pen?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ได้ค่ะ แต่คืนพรุ่งนี้นะคะ</div><div class="roman">dâai khâ, dtɛ̀ɛ khʉʉn phrûng-níi ná khá</div><div class="eng">Sure, but please return it tomorrow.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ได้ค่ะ ขอบคุณค่ะ</div><div class="roman">dâai khâ, khɔ̀ɔp-khun khâ</div><div class="eng">Okay, thank you.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why It’s Wrong / Risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">把 นะคะ 當成ไหมคะ</div><div class="roman">ná khá vs mái khá</div><div class="eng">soft particle vs question particle</div></div></td>
+          <td><span class="thai">นะคะ</span> 是柔和確認；<span class="thai">ไหมคะ</span> 才是 yes/no question。</td>
+          <td>
+            <div class="triad"><div class="thai">เมืองไทยร้อนนะคะ</div><div class="roman">mʉang-thai rɔ́ɔn ná khá</div><div class="eng">Thailand is hot, you know.</div></div>
+            <div class="triad"><div class="thai">เมืองไทยร้อนไหมคะ</div><div class="roman">mʉang-thai rɔ́ɔn mái khá</div><div class="eng">Is Thailand hot?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">不同意時太直接</div><div class="roman">mâi châi</div><div class="eng">No / not true</div></div></td>
+          <td>直接說 <span class="thai">ไม่ใช่</span> 有時很硬。可以先說 <span class="thai">จริงเหรอคะ</span>。</td>
+          <td><div class="triad"><div class="thai">จริงเหรอคะ ฉันว่าไม่ค่อยแพงค่ะ</div><div class="roman">jing rʉ̌ə khá, chǎn wâa mâi khɔ̂i phɛɛng khâ</div><div class="eng">Really? I think it’s not very expensive.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ถูก 的意思搞混</div><div class="roman">thùuk</div><div class="eng">cheap / correct</div></div></td>
+          <td><span class="thai">ถูก</span> 可以是便宜，也可以是正確，要看上下文。</td>
+          <td>
+            <div class="triad"><div class="thai">ราคาถูกค่ะ</div><div class="roman">raa-khaa thùuk khâ</div><div class="eng">The price is cheap.</div></div>
+            <div class="triad"><div class="thai">คำตอบถูกค่ะ</div><div class="roman">kham-dtɔ̀ɔp thùuk khâ</div><div class="eng">The answer is correct.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แพงเกินไป 用太重</div><div class="roman">phɛɛng gəən-bpai</div><div class="eng">too expensive</div></div></td>
+          <td><span class="thai">เกินไป</span> 比較直接、負面；談價格可用 <span class="thai">ไปหน่อย</span> 柔和。</td>
+          <td>
+            <div class="triad"><div class="thai">แพงไปหน่อยค่ะ</div><div class="roman">phɛɛng bpai nɔ̀i khâ</div><div class="eng">It’s a little too expensive.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ยืม / คืน 方向相反</div><div class="roman">yʉʉm / khʉʉn</div><div class="eng">borrow / return</div></div></td>
+          <td><span class="thai">ยืม</span> 是借來；<span class="thai">คืน</span> 是還回去。</td>
+          <td>
+            <div class="triad"><div class="thai">ขอยืมหนังสือค่ะ</div><div class="roman">khɔ̌ɔ yʉʉm nǎng-sʉ̌ʉ khâ</div><div class="eng">I’d like to borrow the book.</div></div>
+            <div class="triad"><div class="thai">พรุ่งนี้คืนหนังสือค่ะ</div><div class="roman">phrûng-níi khʉʉn nǎng-sʉ̌ʉ khâ</div><div class="eng">I’ll return the book tomorrow.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>本課最重要記憶點：</strong>
+      <p>1. <span class="thai">เมืองไทยร้อนนะคะ</span> / <span class="roman">mʉang-thai rɔ́ɔn ná khá</span> / <span class="eng">Thailand is hot, you know.</span></p>
+      <p>2. <span class="thai">จริงเหรอคะ ฉันว่าไม่ค่อยแพงค่ะ</span> / <span class="roman">jing rʉ̌ə khá, chǎn wâa mâi khɔ̂i phɛɛng khâ</span> / <span class="eng">Really? I think it’s not very expensive.</span></p>
+      <p>3. <span class="thai">แพงไปหน่อยค่ะ</span> / <span class="roman">phɛɛng bpai nɔ̀i khâ</span> / <span class="eng">It’s a little too expensive.</span></p>
+      <p>4. <span class="thai">ต้องวางมัดจำเท่าไรคะ</span> / <span class="roman">dtɔ̂ng waang mát-jam thâo-rai khá</span> / <span class="eng">How much deposit do I need to put down?</span></p>
+      <p>5. <span class="thai">สัญญาหมดอายุเดือนหน้าค่ะ</span> / <span class="roman">sǎn-yaa mòt aa-yú dʉan nâa khâ</span> / <span class="eng">The contract expires next month.</span></p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Vocabulary Recall</h3>
+    <details>
+      <summary>1. price / deposit / contract</summary>
+      <div class="triad"><div class="thai">ราคา / ค่ามัดจำ / สัญญา</div><div class="roman">raa-khaa / khâa-mát-jam / sǎn-yaa</div><div class="eng">price / deposit / contract</div></div>
+    </details>
+
+    <details>
+      <summary>2. borrow / return</summary>
+      <div class="triad"><div class="thai">ยืม / คืน</div><div class="roman">yʉʉm / khʉʉn</div><div class="eng">borrow / return</div></div>
+    </details>
+
+    <details>
+      <summary>3. expire / renew</summary>
+      <div class="triad"><div class="thai">หมดอายุ / ต่ออายุ</div><div class="roman">mòt aa-yú / dtɔ̀ɔ aa-yú</div><div class="eng">expire / renew</div></div>
+    </details>
+
+    <h3>B. Translation Practice</h3>
+    <details>
+      <summary>1. Thailand is hot, you know.</summary>
+      <div class="triad"><div class="thai">เมืองไทยร้อนนะคะ</div><div class="roman">mʉang-thai rɔ́ɔn ná khá</div><div class="eng">Thailand is hot, you know.</div></div>
+    </details>
+
+    <details>
+      <summary>2. Really? I think it’s not that expensive.</summary>
+      <div class="triad"><div class="thai">จริงเหรอคะ ฉันว่าไม่แพงเท่าไรค่ะ</div><div class="roman">jing rʉ̌ə khá, chǎn wâa mâi phɛɛng thâo-rai khâ</div><div class="eng">Really? I think it’s not that expensive.</div></div>
+    </details>
+
+    <details>
+      <summary>3. How much deposit do I need to put down?</summary>
+      <div class="triad"><div class="thai">ต้องวางมัดจำเท่าไรคะ</div><div class="roman">dtɔ̂ng waang mát-jam thâo-rai khá</div><div class="eng">How much deposit do I need to put down?</div></div>
+    </details>
+
+    <details>
+      <summary>4. This room is too dark.</summary>
+      <div class="triad"><div class="thai">ห้องนี้มืดเกินไปค่ะ</div><div class="roman">hɔ̂ng níi mʉ̂ʉt gəən-bpai khâ</div><div class="eng">This room is too dark.</div></div>
+    </details>
+
+    <details>
+      <summary>5. Can I renew the contract?</summary>
+      <div class="triad"><div class="thai">ต่ออายุสัญญาได้ไหมคะ</div><div class="roman">dtɔ̀ɔ aa-yú sǎn-yaa dâai mái khá</div><div class="eng">Can I renew the contract?</div></div>
+    </details>
+
+    <h3>C. Opposite Practice</h3>
+
+    <details>
+      <summary>1. ใกล้ / glâi / near 的相反詞是？請造句。</summary>
+      <div class="triad"><div class="thai">ไกล</div><div class="roman">glai</div><div class="eng">far</div></div>
+      <div class="triad"><div class="thai">บ้านฉันไกลจากโรงเรียนค่ะ</div><div class="roman">bâan chǎn glai jàak roong-rian khâ</div><div class="eng">My home is far from school.</div></div>
+    </details>
+
+    <details>
+      <summary>2. แพง / phɛɛng / expensive 的相反詞是？請造句。</summary>
+      <div class="triad"><div class="thai">ถูก</div><div class="roman">thùuk</div><div class="eng">cheap / correct</div></div>
+      <div class="triad"><div class="thai">ร้านนี้ราคาถูกค่ะ</div><div class="roman">ráan níi raa-khaa thùuk khâ</div><div class="eng">This shop is cheap.</div></div>
+    </details>
+
+    <details>
+      <summary>3. มืด / mʉ̂ʉt / dark 的相反詞是？請造句。</summary>
+      <div class="triad"><div class="thai">สว่าง</div><div class="roman">sà-wàang</div><div class="eng">bright</div></div>
+      <div class="triad"><div class="thai">คาเฟ่นี้สว่างและสวยค่ะ</div><div class="roman">khaa-fêe níi sà-wàang lɛ́ sǔai khâ</div><div class="eng">This café is bright and beautiful.</div></div>
+    </details>
+
+    <h3>D. Mini Role-play</h3>
+
+    <div class="tip blue">
+      情境：你在曼谷看房，要問租金、押金、水電費、合約多久，最後柔和說有點貴。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ค่าเช่าเดือนละเท่าไรคะ</div><div class="roman">khâa-châo dʉan lá thâo-rai khá</div><div class="eng">How much is the rent per month?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ต้องวางมัดจำเท่าไรคะ</div><div class="roman">dtɔ̂ng waang mát-jam thâo-rai khá</div><div class="eng">How much deposit do I need to put down?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ค่าน้ำค่าไฟรวมไหมคะ</div><div class="roman">khâa náam khâa fai ruam mái khá</div><div class="eng">Are water and electricity included?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สัญญามีอายุกี่เดือนคะ</div><div class="roman">sǎn-yaa mii aa-yú gìi dʉan khá</div><div class="eng">How many months is the contract valid for?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ฉันว่าแพงไปหน่อยค่ะ</div><div class="roman">chǎn wâa phɛɛng bpai nɔ̀i khâ</div><div class="eng">I think it is a little too expensive.</div></div></div>
+      </div>
+    </details>
+
+    <h3>今日最重要 10 句</h3>
+    <table>
+      <thead><tr><th>#</th><th>Thai / Romanization / English</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><div class="triad"><div class="thai">เมืองไทยร้อนนะคะ</div><div class="roman">mʉang-thai rɔ́ɔn ná khá</div><div class="eng">Thailand is hot, you know.</div></div></td><td>柔和陳述</td></tr>
+        <tr><td>2</td><td><div class="triad"><div class="thai">จริงเหรอคะ ฉันว่าไม่ค่อยร้อนค่ะ</div><div class="roman">jing rʉ̌ə khá, chǎn wâa mâi khɔ̂i rɔ́ɔn khâ</div><div class="eng">Really? I think it’s not very hot.</div></div></td><td>柔和不同意</td></tr>
+        <tr><td>3</td><td><div class="triad"><div class="thai">ไม่แพงเท่าไรค่ะ</div><div class="roman">mâi phɛɛng thâo-rai khâ</div><div class="eng">It’s not that expensive.</div></div></td><td>價格評價</td></tr>
+        <tr><td>4</td><td><div class="triad"><div class="thai">แพงไปหน่อยค่ะ</div><div class="roman">phɛɛng bpai nɔ̀i khâ</div><div class="eng">It’s a little too expensive.</div></div></td><td>柔和說太貴</td></tr>
+        <tr><td>5</td><td><div class="triad"><div class="thai">ต้องวางมัดจำเท่าไรคะ</div><div class="roman">dtɔ̂ng waang mát-jam thâo-rai khá</div><div class="eng">How much deposit do I need to put down?</div></div></td><td>租屋押金</td></tr>
+        <tr><td>6</td><td><div class="triad"><div class="thai">ขออ่านสัญญาก่อนเซ็นได้ไหมคะ</div><div class="roman">khɔ̌ɔ àan sǎn-yaa gɔ̀ɔn sen dâai mái khá</div><div class="eng">Can I read the contract before signing?</div></div></td><td>簽約</td></tr>
+        <tr><td>7</td><td><div class="triad"><div class="thai">ต่ออายุสัญญาได้ไหมคะ</div><div class="roman">dtɔ̀ɔ aa-yú sǎn-yaa dâai mái khá</div><div class="eng">Can I renew the contract?</div></div></td><td>續約</td></tr>
+        <tr><td>8</td><td><div class="triad"><div class="thai">ขอยืมปากกาหน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ yʉʉm bpàak-gaa nɔ̀i dâai mái khá</div><div class="eng">Can I borrow a pen?</div></div></td><td>借東西</td></tr>
+        <tr><td>9</td><td><div class="triad"><div class="thai">พรุ่งนี้คืนหนังสือค่ะ</div><div class="roman">phrûng-níi khʉʉn nǎng-sʉ̌ʉ khâ</div><div class="eng">I’ll return the book tomorrow.</div></div></td><td>還東西</td></tr>
+        <tr><td>10</td><td><div class="triad"><div class="thai">ห้องนี้มืดเกินไปค่ะ</div><div class="roman">hɔ̂ng níi mʉ̂ʉt gəən-bpai khâ</div><div class="eng">This room is too dark.</div></div></td><td>看房評價</td></tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

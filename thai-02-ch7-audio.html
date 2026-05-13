@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 7 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 18px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 7 學習指南</h1>
+    <p class="subtitle">主題：地址、郵局與文件、行政區、國家與首都、方向與地區、從哪裡來、哪裡有名、第一次來/去的時間</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'address')">Address Format</button>
+    <button class="tab-btn" onclick="openTab(event, 'geo')">Country & Capital</button>
+    <button class="tab-btn" onclick="openTab(event, 'regions')">Regions & Directions</button>
+    <button class="tab-btn" onclick="openTab(event, 'from')">มาจากที่ไหน</button>
+    <button class="tab-btn" onclick="openTab(event, 'famous')">มีชื่อเสียง</button>
+    <button class="tab-btn" onclick="openTab(event, 'firsttime')">ครั้งแรกเมื่อไร</button>
+    <button class="tab-btn" onclick="openTab(event, 'synonyms')">Synonyms & Opposites</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'usage')">Practical Usage</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 7 的核心是「地點資訊」。這課先從郵件、文件、地址欄開始，學會看懂泰國地址裡常出現的詞，例如：
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Address</div>
+        <div class="triad">
+          <div class="thai">ที่อยู่</div>
+          <div class="roman">thîi-yùu</div>
+          <div class="eng">address</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Document</div>
+        <div class="triad">
+          <div class="thai">เอกสาร</div>
+          <div class="roman">èek-gà-sǎan</div>
+          <div class="eng">document</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Country / Capital</div>
+        <div class="triad">
+          <div class="thai">ประเทศ / เมืองหลวง</div>
+          <div class="roman">prà-thêet / mʉang-lǔang</div>
+          <div class="eng">country / capital city</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">From where?</div>
+        <div class="triad">
+          <div class="thai">มาจากที่ไหนคะ</div>
+          <div class="roman">maa jàak thîi-nǎi khá</div>
+          <div class="eng">Where are you from?</div>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      之後教材進入地理詞：國家、首都、省、城市、地區、方向。你會開始能說：
+    </p>
+
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">ฉันมาจากไต้หวันค่ะ</div>
+        <div class="roman">chǎn maa jàak tâai-wǎn khâ</div>
+        <div class="eng">I am from Taiwan.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">กรุงเทพฯ เป็นเมืองหลวงของประเทศไทยค่ะ</div>
+        <div class="roman">grung-thêep bpen mʉang-lǔang khɔ̌ɔng prà-thêet-thai khâ</div>
+        <div class="eng">Bangkok is the capital of Thailand.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">เชียงใหม่อยู่ภาคเหนือค่ะ</div>
+        <div class="roman">chiiang-mài yùu phâak nʉ̌a khâ</div>
+        <div class="eng">Chiang Mai is in the northern region.</div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 6 已經學過
+      <span class="thai">มาจาก</span> /
+      <span class="roman">maa jàak</span> /
+      <span class="eng">come from</span>
+      的方向感。Day 7 把它用在「你是哪裡人？」、「從哪個國家/城市來？」。
+    </div>
+
+    <div class="tip blue">
+      <strong>曼谷生活連結：</strong>
+      這課非常適合用在填表、收包裹、問地址、跟房仲確認公寓地址、跟朋友聊天問來自哪裡、介紹台灣/曼谷/清邁，以及聽懂泰國人說「這個地方在哪一區、哪一省、哪個地區」。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Mail, Address & Documents</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">จดหมาย</div><div class="roman">jòt-mǎai</div><div class="eng">letter / mail</div></div></td>
+          <td>Mail</td>
+          <td><span class="classifier-chip">ฉบับ</span><div class="roman">chà-bàp</div><div class="eng">copy / piece of written document</div></td>
+          <td>信件類常用 <span class="thai">ฉบับ</span>。口語如果只是說「有信」，不一定要加量詞。</td>
+          <td><div class="triad"><div class="thai">ส่งจดหมาย / ได้รับจดหมาย / จดหมายสองฉบับ</div><div class="roman">sòng jòt-mǎai / dâai-ráp jòt-mǎai / jòt-mǎai sɔ̌ɔng chà-bàp</div><div class="eng">send a letter / receive a letter / two letters</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันได้รับจดหมายจากมหาวิทยาลัยค่ะ</div><div class="roman">chǎn dâai-ráp jòt-mǎai jàak má-hǎa-wít-thá-yaa-lai khâ</div><div class="eng">I received a letter from the university.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ซองจดหมาย</div><div class="roman">sɔɔng jòt-mǎai</div><div class="eng">envelope</div></div></td>
+          <td>Mail</td>
+          <td><span class="classifier-chip">ซอง</span><div class="roman">sɔɔng</div><div class="eng">envelope / classifier for envelopes</div></td>
+          <td><span class="thai">ซอง</span> 本身可以是「信封」，也可以當信封類的量詞。</td>
+          <td><div class="triad"><div class="thai">ใส่ซองจดหมาย / ซองจดหมายหนึ่งซอง</div><div class="roman">sài sɔɔng jòt-mǎai / sɔɔng jòt-mǎai nʉ̀eng sɔɔng</div><div class="eng">put in an envelope / one envelope</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยใส่เอกสารในซองจดหมายให้หน่อยค่ะ</div><div class="roman">chûai sài èek-gà-sǎan nai sɔɔng jòt-mǎai hâi nòi khâ</div><div class="eng">Please help put the documents in the envelope.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เอกสาร</div><div class="roman">èek-gà-sǎan</div><div class="eng">document</div></div></td>
+          <td>Document</td>
+          <td><span class="classifier-chip">ฉบับ / ชุด</span><div class="roman">chà-bàp / chút</div><div class="eng">copy / set</div></td>
+          <td><span class="label review">Review</span> Day 6 已學。單份文件用 <span class="thai">ฉบับ</span>；一套文件用 <span class="thai">ชุด</span>。</td>
+          <td><div class="triad"><div class="thai">เตรียมเอกสาร / เอกสารครบ / เอกสารไม่ครบ</div><div class="roman">dtriam èek-gà-sǎan / èek-gà-sǎan khróp / èek-gà-sǎan mâi khróp</div><div class="eng">prepare documents / documents complete / documents incomplete</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องกรอกที่อยู่ในเอกสารค่ะ</div><div class="roman">dtɔ̂ng grɔ̀ɔk thîi-yùu nai èek-gà-sǎan khâ</div><div class="eng">You have to fill in the address on the document.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไปรษณีย์</div><div class="roman">bprai-sà-nii</div><div class="eng">post office / postal service</div></div></td>
+          <td>Place / service</td>
+          <td>—</td>
+          <td>可以指「郵局」或「郵政」。郵局完整可說 <span class="thai">ที่ทำการไปรษณีย์</span>。</td>
+          <td><div class="triad"><div class="thai">ส่งไปรษณีย์ / ไปไปรษณีย์ / รหัสไปรษณีย์</div><div class="roman">sòng bprai-sà-nii / bpai bprai-sà-nii / rá-hàt bprai-sà-nii</div><div class="eng">send by post / go to the post office / postal code</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจะไปไปรษณีย์เพื่อส่งเอกสารค่ะ</div><div class="roman">chǎn jà bpai bprai-sà-nii phʉ̂a sòng èek-gà-sǎan khâ</div><div class="eng">I will go to the post office to send documents.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ชื่อ-นามสกุล</div><div class="roman">chʉ̂ʉ naam-sà-gun</div><div class="eng">first name and last name</div></div></td>
+          <td>Form / identity</td>
+          <td>—</td>
+          <td><span class="thai">ชื่อ</span> 是名字；<span class="thai">นามสกุล</span> 是姓氏。填表很常見。</td>
+          <td><div class="triad"><div class="thai">กรอกชื่อ-นามสกุล / เขียนชื่อ-นามสกุล</div><div class="roman">grɔ̀ɔk chʉ̂ʉ naam-sà-gun / khǐan chʉ̂ʉ naam-sà-gun</div><div class="eng">fill in full name / write full name</div></div></td>
+          <td><div class="triad"><div class="thai">กรุณาเขียนชื่อ-นามสกุลให้ชัดเจนค่ะ</div><div class="roman">gà-rú-naa khǐan chʉ̂ʉ naam-sà-gun hâi chát-jeen khâ</div><div class="eng">Please write your full name clearly.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ที่อยู่</div><div class="roman">thîi-yùu</div><div class="eng">address</div></div></td>
+          <td>Address</td>
+          <td>—</td>
+          <td>字面是「居住的地方」。填表、叫外送、收包裹都會用。</td>
+          <td><div class="triad"><div class="thai">กรอกที่อยู่ / ขอที่อยู่ / ส่งของไปที่อยู่</div><div class="roman">grɔ̀ɔk thîi-yùu / khɔ̌ɔ thîi-yùu / sòng khɔ̌ɔng bpai thîi-yùu</div><div class="eng">fill in address / ask for address / send items to an address</div></div></td>
+          <td><div class="triad"><div class="thai">ขอที่อยู่ภาษาไทยได้ไหมคะ</div><div class="roman">khɔ̌ɔ thîi-yùu phaa-sǎa-thai dâai mái khá</div><div class="eng">Can I have the address in Thai?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รหัสไปรษณีย์</div><div class="roman">rá-hàt bprai-sà-nii</div><div class="eng">postal code / zip code</div></div></td>
+          <td>Address</td>
+          <td>—</td>
+          <td><span class="thai">รหัส</span> 是 code；常在地址最後一格。</td>
+          <td><div class="triad"><div class="thai">ใส่รหัสไปรษณีย์ / รหัสไปรษณีย์อะไร</div><div class="roman">sài rá-hàt bprai-sà-nii / rá-hàt bprai-sà-nii à-rai</div><div class="eng">enter postal code / what postal code</div></div></td>
+          <td><div class="triad"><div class="thai">รหัสไปรษณีย์ของเขตนี้คืออะไรคะ</div><div class="roman">rá-hàt bprai-sà-nii khɔ̌ɔng khèet níi khʉʉ à-rai khá</div><div class="eng">What is the postal code of this district?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Administrative Divisions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">บ้านเลขที่</div><div class="roman">bâan-lêek-thîi</div><div class="eng">house number</div></div></td>
+          <td>Address</td>
+          <td>—</td>
+          <td>填地址第一層常見欄位，例如 888/104。</td>
+          <td><div class="triad"><div class="thai">บ้านเลขที่อะไร / เขียนบ้านเลขที่</div><div class="roman">bâan-lêek-thîi à-rai / khǐan bâan-lêek-thîi</div><div class="eng">what house number / write house number</div></div></td>
+          <td><div class="triad"><div class="thai">บ้านเลขที่ของคอนโดคือ 888/104 ค่ะ</div><div class="roman">bâan-lêek-thîi khɔ̌ɔng khɔɔn-doo khʉʉ bpɛ̀ɛt-rɔ́ɔi-bpɛ̀ɛt-sìp-sìi khâ</div><div class="eng">The condo’s house number is 888/104.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หมู่บ้าน</div><div class="roman">mùu-bâan</div><div class="eng">village / housing estate</div></div></td>
+          <td>Address / place</td>
+          <td>—</td>
+          <td>可以是鄉村的村，也可指住宅社區。</td>
+          <td><div class="triad"><div class="thai">อยู่หมู่บ้านไหน / ชื่อหมู่บ้าน</div><div class="roman">yùu mùu-bâan nǎi / chʉ̂ʉ mùu-bâan</div><div class="eng">which village/estate do you live in / village name</div></div></td>
+          <td><div class="triad"><div class="thai">เขาอยู่หมู่บ้านใกล้สถานีรถไฟฟ้าค่ะ</div><div class="roman">khǎo yùu mùu-bâan glâi sà-thǎa-nii rót-fai-fáa khâ</div><div class="eng">He lives in a housing estate near the BTS station.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตำบล</div><div class="roman">dtam-bon</div><div class="eng">subdistrict outside Bangkok</div></div></td>
+          <td>Administrative area</td>
+          <td>—</td>
+          <td>曼谷以外常用；曼谷通常用 <span class="thai">แขวง</span>。</td>
+          <td><div class="triad"><div class="thai">ตำบลอะไร / อยู่ตำบลไหน</div><div class="roman">dtam-bon à-rai / yùu dtam-bon nǎi</div><div class="eng">which subdistrict / in which subdistrict</div></div></td>
+          <td><div class="triad"><div class="thai">บ้านคุณยายอยู่ตำบลเล็ก ๆ ในเชียงใหม่ค่ะ</div><div class="roman">bâan khun-yaai yùu dtam-bon lék-lék nai chiiang-mài khâ</div><div class="eng">Grandma’s house is in a small subdistrict in Chiang Mai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แขวง</div><div class="roman">khwɛ̌ɛng</div><div class="eng">subdistrict in Bangkok</div></div></td>
+          <td>Bangkok address</td>
+          <td>—</td>
+          <td>曼谷地址常用，對應外府的 <span class="thai">ตำบล</span>。</td>
+          <td><div class="triad"><div class="thai">แขวงอะไร / แขวงคลองตัน / แขวงปทุมวัน</div><div class="roman">khwɛ̌ɛng à-rai / khwɛ̌ɛng khlɔɔng-dtan / khwɛ̌ɛng bpà-thum-wan</div><div class="eng">which Bangkok subdistrict / Khlong Tan subdistrict / Pathum Wan subdistrict</div></div></td>
+          <td><div class="triad"><div class="thai">คอนโดนี้อยู่แขวงคลองตันค่ะ</div><div class="roman">khɔɔn-doo níi yùu khwɛ̌ɛng khlɔɔng-dtan khâ</div><div class="eng">This condo is in Khlong Tan subdistrict.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">อำเภอ</div><div class="roman">am-phəə</div><div class="eng">district outside Bangkok</div></div></td>
+          <td>Administrative area</td>
+          <td>—</td>
+          <td>曼谷以外常用；曼谷通常用 <span class="thai">เขต</span>。</td>
+          <td><div class="triad"><div class="thai">อำเภออะไร / อยู่ อำเภอเมือง</div><div class="roman">am-phəə à-rai / yùu am-phəə mʉang</div><div class="eng">which district / in Mueang district</div></div></td>
+          <td><div class="triad"><div class="thai">โรงแรมนี้อยู่อำเภอเมืองเชียงใหม่ค่ะ</div><div class="roman">rooŋ-rɛɛm níi yùu am-phəə mʉang chiiang-mài khâ</div><div class="eng">This hotel is in Mueang Chiang Mai district.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เขต</div><div class="roman">khèet</div><div class="eng">district in Bangkok</div></div></td>
+          <td>Bangkok address</td>
+          <td>—</td>
+          <td>曼谷地址常用，對應外府的 <span class="thai">อำเภอ</span>。</td>
+          <td><div class="triad"><div class="thai">เขตอะไร / เขตปทุมวัน / เขตคลองเตย</div><div class="roman">khèet à-rai / khèet bpà-thum-wan / khèet khlɔɔng-dtəəi</div><div class="eng">which Bangkok district / Pathum Wan district / Khlong Toei district</div></div></td>
+          <td><div class="triad"><div class="thai">ห้างนี้อยู่เขตปทุมวันค่ะ</div><div class="roman">hâang níi yùu khèet bpà-thum-wan khâ</div><div class="eng">This mall is in Pathum Wan district.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">จังหวัด</div><div class="roman">jang-wàt</div><div class="eng">province</div></div></td>
+          <td>Administrative area</td>
+          <td>—</td>
+          <td>泰國省份，例如清邁府、普吉府。</td>
+          <td><div class="triad"><div class="thai">จังหวัดอะไร / จังหวัดเชียงใหม่ / จังหวัดภูเก็ต</div><div class="roman">jang-wàt à-rai / jang-wàt chiiang-mài / jang-wàt phuu-gèt</div><div class="eng">which province / Chiang Mai Province / Phuket Province</div></div></td>
+          <td><div class="triad"><div class="thai">เชียงใหม่เป็นจังหวัดทางภาคเหนือค่ะ</div><div class="roman">chiiang-mài bpen jang-wàt thaang phâak nʉ̌a khâ</div><div class="eng">Chiang Mai is a province in the northern region.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Country, Capital, Region & Direction</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เมืองหลวง</div><div class="roman">mʉang-lǔang</div><div class="eng">capital city</div></div></td>
+          <td>Geography</td>
+          <td>—</td>
+          <td><span class="thai">เมือง</span> 是城市，<span class="thai">หลวง</span> 有「主要、官方」感。</td>
+          <td><div class="triad"><div class="thai">เมืองหลวงของประเทศ / กรุงเทพฯ เป็นเมืองหลวง</div><div class="roman">mʉang-lǔang khɔ̌ɔng prà-thêet / grung-thêep bpen mʉang-lǔang</div><div class="eng">capital of a country / Bangkok is the capital</div></div></td>
+          <td><div class="triad"><div class="thai">ไทเปเป็นเมืองหลวงของไต้หวันค่ะ</div><div class="roman">thai-bpèe bpen mʉang-lǔang khɔ̌ɔng tâai-wǎn khâ</div><div class="eng">Taipei is the capital of Taiwan.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ประเทศ</div><div class="roman">prà-thêet</div><div class="eng">country</div></div></td>
+          <td>Geography</td>
+          <td>—</td>
+          <td>常用於國名，例如 <span class="thai">ประเทศไทย</span>。</td>
+          <td><div class="triad"><div class="thai">ประเทศอะไร / ประเทศไทย / ประเทศญี่ปุ่น</div><div class="roman">prà-thêet à-rai / prà-thêet-thai / prà-thêet yîi-bpùn</div><div class="eng">which country / Thailand / Japan</div></div></td>
+          <td><div class="triad"><div class="thai">คุณมาจากประเทศอะไรคะ</div><div class="roman">khun maa jàak prà-thêet à-rai khá</div><div class="eng">What country are you from?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เมือง</div><div class="roman">mʉang</div><div class="eng">city / town</div></div></td>
+          <td>Geography</td>
+          <td>—</td>
+          <td>可以指城市，也常出現在行政區名。</td>
+          <td><div class="triad"><div class="thai">เมืองอะไร / เมืองใหญ่ / เมืองหลวง</div><div class="roman">mʉang à-rai / mʉang yài / mʉang-lǔang</div><div class="eng">what city / big city / capital city</div></div></td>
+          <td><div class="triad"><div class="thai">กรุงเทพฯ เป็นเมืองใหญ่มากค่ะ</div><div class="roman">grung-thêep bpen mʉang yài mâak khâ</div><div class="eng">Bangkok is a very big city.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ภาค</div><div class="roman">phâak</div><div class="eng">region</div></div></td>
+          <td>Geography</td>
+          <td>—</td>
+          <td>泰國地理區域，例如北部、中部、南部。</td>
+          <td><div class="triad"><div class="thai">ภาคเหนือ / ภาคกลาง / ภาคใต้</div><div class="roman">phâak nʉ̌a / phâak glaang / phâak dtâai</div><div class="eng">northern region / central region / southern region</div></div></td>
+          <td><div class="triad"><div class="thai">ภูเก็ตอยู่ภาคใต้ค่ะ</div><div class="roman">phuu-gèt yùu phâak dtâai khâ</div><div class="eng">Phuket is in the southern region.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ทิศ</div><div class="roman">thít</div><div class="eng">direction</div></div></td>
+          <td>Direction</td>
+          <td>—</td>
+          <td>方位詞前常有 <span class="thai">ทิศ</span>，例如北方、南方。</td>
+          <td><div class="triad"><div class="thai">ทิศเหนือ / ทิศใต้ / ทิศตะวันออก</div><div class="roman">thít nʉ̌a / thít dtâai / thít dtà-wan-ɔ̀ɔk</div><div class="eng">north / south / east</div></div></td>
+          <td><div class="triad"><div class="thai">เชียงใหม่อยู่ทางทิศเหนือของประเทศไทยค่ะ</div><div class="roman">chiiang-mài yùu thaang thít nʉ̌a khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Chiang Mai is in the north of Thailand.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <p>
+      Day 7 本課沒有大量全新的日常物品量詞，但出現了很多「文件、信件、地址」相關內容，因此這裡整理本課最容易用到的量詞。
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ฉบับ</span><div class="triad"><div class="thai">ฉบับ</div><div class="roman">chà-bàp</div><div class="eng">copy / piece of written document</div></div></td>
+          <td><div class="triad"><div class="thai">จดหมาย / เอกสาร / สัญญา</div><div class="roman">jòt-mǎai / èek-gà-sǎan / sǎn-yaa</div><div class="eng">letter / document / contract</div></div></td>
+          <td>正式或書面文件常用。</td>
+          <td><div class="triad"><div class="thai">จดหมายหนึ่งฉบับ</div><div class="roman">jòt-mǎai nʉ̀eng chà-bàp</div><div class="eng">one letter</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要全部用 <span class="thai">อัน</span> / <span class="roman">an</span> / <span class="eng">general object classifier</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ชุด</span><div class="triad"><div class="thai">ชุด</div><div class="roman">chút</div><div class="eng">set</div></div></td>
+          <td><div class="triad"><div class="thai">เอกสาร / แบบฟอร์ม</div><div class="roman">èek-gà-sǎan / bɛ̀ɛp-fɔɔm</div><div class="eng">documents / forms</div></div></td>
+          <td>多份文件合在一起稱「一套」。</td>
+          <td><div class="triad"><div class="thai">เอกสารหนึ่งชุด</div><div class="roman">èek-gà-sǎan nʉ̀eng chút</div><div class="eng">one set of documents</div></div></td>
+          <td>如果是單張文件，不一定要用 <span class="thai">ชุด</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ซอง</span><div class="triad"><div class="thai">ซอง</div><div class="roman">sɔɔng</div><div class="eng">envelope / classifier for envelopes</div></div></td>
+          <td><div class="triad"><div class="thai">ซองจดหมาย / ซองเอกสาร</div><div class="roman">sɔɔng jòt-mǎai / sɔɔng èek-gà-sǎan</div><div class="eng">envelope / document envelope</div></div></td>
+          <td>信封類用。</td>
+          <td><div class="triad"><div class="thai">ซองจดหมายสองซอง</div><div class="roman">sɔɔng jòt-mǎai sɔ̌ɔng sɔɔng</div><div class="eng">two envelopes</div></div></td>
+          <td>不要把 <span class="thai">ซอง</span> 跟 <span class="thai">สอง</span> 搞混：前者是信封，後者是數字二。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ใบ</span><div class="triad"><div class="thai">ใบ</div><div class="roman">bai</div><div class="eng">classifier for cards, papers, bags</div></div></td>
+          <td><div class="triad"><div class="thai">บัตร / ใบเสร็จ / กระเป๋า</div><div class="roman">bàt / bai-sèt / grà-bpǎo</div><div class="eng">card / receipt / bag</div></div></td>
+          <td><span class="label review">Review</span> Day 5–6 學過包包用 <span class="thai">ใบ</span>。文件生活場景中，卡片、收據也常用。</td>
+          <td><div class="triad"><div class="thai">บัตรประชาชนหนึ่งใบ</div><div class="roman">bàt bprà-chaa-chon nʉ̀eng bai</div><div class="eng">one ID card</div></div></td>
+          <td>護照不要用 <span class="thai">ใบ</span>，護照用 <span class="thai">เล่ม</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เล่ม</span><div class="triad"><div class="thai">เล่ม</div><div class="roman">lêm</div><div class="eng">classifier for books/passports</div></div></td>
+          <td><div class="triad"><div class="thai">หนังสือ / หนังสือเดินทาง</div><div class="roman">nǎng-sʉ̌ʉ / nǎng-sʉ̌ʉ-dəən-thaang</div><div class="eng">book / passport</div></div></td>
+          <td><span class="label review">Review</span> Day 6 已學，地址/文件場景仍常用。</td>
+          <td><div class="triad"><div class="thai">หนังสือเดินทางหนึ่งเล่ม</div><div class="roman">nǎng-sʉ̌ʉ-dəən-thaang nʉ̀eng lêm</div><div class="eng">one passport</div></div></td>
+          <td>填表時「護照」不要誤用一般物品量詞。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="address" class="tab-content">
+    <h2>Address Format｜泰國地址寫法</h2>
+
+    <h3>Address Components</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Order</th>
+          <th>Thai / Romanization / English</th>
+          <th>Meaning</th>
+          <th>Bangkok vs Outside Bangkok</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Recipient</td>
+          <td><div class="triad"><div class="thai">ชื่อ-นามสกุล</div><div class="roman">chʉ̂ʉ naam-sà-gun</div><div class="eng">first name and last name</div></div></td>
+          <td>收件人姓名</td>
+          <td>全泰國都用。</td>
+        </tr>
+        <tr>
+          <td>House number</td>
+          <td><div class="triad"><div class="thai">บ้านเลขที่</div><div class="roman">bâan-lêek-thîi</div><div class="eng">house number</div></div></td>
+          <td>門牌號碼</td>
+          <td>全泰國都用。</td>
+        </tr>
+        <tr>
+          <td>Village / estate</td>
+          <td><div class="triad"><div class="thai">หมู่บ้าน</div><div class="roman">mùu-bâan</div><div class="eng">village / housing estate</div></div></td>
+          <td>村 / 住宅社區</td>
+          <td>公寓地址不一定有。</td>
+        </tr>
+        <tr>
+          <td>Building</td>
+          <td><div class="triad"><div class="thai">อาคาร / ตึก</div><div class="roman">aa-khaan / dtʉ̀k</div><div class="eng">building</div></div></td>
+          <td>大樓 / 棟</td>
+          <td><span class="thai">อาคาร</span> 較正式；<span class="thai">ตึก</span> 較口語。</td>
+        </tr>
+        <tr>
+          <td>Lane / road</td>
+          <td><div class="triad"><div class="thai">ซอย / ถนน</div><div class="roman">sɔɔi / thà-nǒn</div><div class="eng">soi / road</div></div></td>
+          <td>巷 / 路</td>
+          <td>曼谷地址非常常見。</td>
+        </tr>
+        <tr>
+          <td>Subdistrict</td>
+          <td><div class="triad"><div class="thai">ตำบล / แขวง</div><div class="roman">dtam-bon / khwɛ̌ɛng</div><div class="eng">subdistrict / Bangkok subdistrict</div></div></td>
+          <td>次級行政區</td>
+          <td>曼谷用 <span class="thai">แขวง</span>；外府用 <span class="thai">ตำบล</span>。</td>
+        </tr>
+        <tr>
+          <td>District</td>
+          <td><div class="triad"><div class="thai">อำเภอ / เขต</div><div class="roman">am-phəə / khèet</div><div class="eng">district / Bangkok district</div></div></td>
+          <td>區 / 縣級行政區</td>
+          <td>曼谷用 <span class="thai">เขต</span>；外府用 <span class="thai">อำเภอ</span>。</td>
+        </tr>
+        <tr>
+          <td>Province</td>
+          <td><div class="triad"><div class="thai">จังหวัด</div><div class="roman">jang-wàt</div><div class="eng">province</div></div></td>
+          <td>府 / 省</td>
+          <td>曼谷本身也可視為省級行政區。</td>
+        </tr>
+        <tr>
+          <td>Postal code</td>
+          <td><div class="triad"><div class="thai">รหัสไปรษณีย์</div><div class="roman">rá-hàt bprai-sà-nii</div><div class="eng">postal code</div></div></td>
+          <td>郵遞區號</td>
+          <td>通常放最後。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Useful Address Questions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>請對方給地址</td>
+          <td><div class="triad"><div class="thai">ขอที่อยู่ภาษาไทยได้ไหมคะ</div><div class="roman">khɔ̌ɔ thîi-yùu phaa-sǎa-thai dâai mái khá</div><div class="eng">Can I have the address in Thai?</div></div></td>
+          <td>叫車、收包裹、填資料很實用。</td>
+        </tr>
+        <tr>
+          <td>問郵遞區號</td>
+          <td><div class="triad"><div class="thai">รหัสไปรษณีย์อะไรคะ</div><div class="roman">rá-hàt bprai-sà-nii à-rai khá</div><div class="eng">What is the postal code?</div></div></td>
+          <td>表格或寄件常用。</td>
+        </tr>
+        <tr>
+          <td>問在哪個區</td>
+          <td><div class="triad"><div class="thai">อยู่เขตอะไรคะ</div><div class="roman">yùu khèet à-rai khá</div><div class="eng">Which district is it in?</div></div></td>
+          <td>曼谷地址用 <span class="thai">เขต</span>。</td>
+        </tr>
+        <tr>
+          <td>問在哪個省</td>
+          <td><div class="triad"><div class="thai">อยู่จังหวัดอะไรคะ</div><div class="roman">yùu jang-wàt à-rai khá</div><div class="eng">Which province is it in?</div></div></td>
+          <td>外府地址或旅遊時常用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>曼谷實用提醒：</strong>
+      曼谷地址常見組合是：
+      <span class="thai">แขวง + เขต + กรุงเทพฯ + รหัสไปรษณีย์</span> /
+      <span class="roman">khwɛ̌ɛng + khèet + grung-thêep + rá-hàt bprai-sà-nii</span> /
+      <span class="eng">subdistrict + district + Bangkok + postal code</span>。
+      不要把曼谷地址硬套成 <span class="thai">ตำบล / อำเภอ</span>。
+    </div>
+  </section>
+
+  <section id="geo" class="tab-content">
+    <h2>Country & Capital｜國家與首都</h2>
+
+    <h3>Textbook Pattern</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เมืองหลวง + ประเทศ + คือ + เมือง</div>
+        <div class="roman">mʉang-lǔang + prà-thêet + khʉʉ + mʉang</div>
+        <div class="eng">The capital of the country is the city.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Capital</th>
+          <th>Sentence</th>
+          <th>Life Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ประเทศไทย</div><div class="roman">prà-thêet-thai</div><div class="eng">Thailand</div></div></td>
+          <td><div class="triad"><div class="thai">กรุงเทพฯ</div><div class="roman">grung-thêep</div><div class="eng">Bangkok</div></div></td>
+          <td><div class="triad"><div class="thai">กรุงเทพฯ เป็นเมืองหลวงของประเทศไทยค่ะ</div><div class="roman">grung-thêep bpen mʉang-lǔang khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Bangkok is the capital of Thailand.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยู่กรุงเทพฯ ตอนนี้ค่ะ</div><div class="roman">chǎn yùu grung-thêep dtɔɔn-níi khâ</div><div class="eng">I am in Bangkok now.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">จีน</div><div class="roman">jiin</div><div class="eng">China</div></div></td>
+          <td><div class="triad"><div class="thai">ปักกิ่ง</div><div class="roman">bpàk-gìng</div><div class="eng">Beijing</div></div></td>
+          <td><div class="triad"><div class="thai">ปักกิ่งเป็นเมืองหลวงของจีนค่ะ</div><div class="roman">bpàk-gìng bpen mʉang-lǔang khɔ̌ɔng jiin khâ</div><div class="eng">Beijing is the capital of China.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยากไปปักกิ่งช่วงฤดูหนาวค่ะ</div><div class="roman">chǎn yàak bpai bpàk-gìng chûang rʉ́-duu nǎao khâ</div><div class="eng">I want to go to Beijing during winter.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ไต้หวัน</div><div class="roman">tâai-wǎn</div><div class="eng">Taiwan</div></div></td>
+          <td><div class="triad"><div class="thai">ไทเป</div><div class="roman">thai-bpèe</div><div class="eng">Taipei</div></div></td>
+          <td><div class="triad"><div class="thai">ไทเปเป็นเมืองหลวงของไต้หวันค่ะ</div><div class="roman">thai-bpèe bpen mʉang-lǔang khɔ̌ɔng tâai-wǎn khâ</div><div class="eng">Taipei is the capital of Taiwan.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมาจากไต้หวัน แต่ตอนนี้อยู่กรุงเทพฯ ค่ะ</div><div class="roman">chǎn maa jàak tâai-wǎn, dtɛ̀ɛ dtɔɔn-níi yùu grung-thêep khâ</div><div class="eng">I am from Taiwan, but now I live in Bangkok.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ญี่ปุ่น</div><div class="roman">yîi-bpùn</div><div class="eng">Japan</div></div></td>
+          <td><div class="triad"><div class="thai">โตเกียว</div><div class="roman">too-giao</div><div class="eng">Tokyo</div></div></td>
+          <td><div class="triad"><div class="thai">โตเกียวเป็นเมืองหลวงของญี่ปุ่นค่ะ</div><div class="roman">too-giao bpen mʉang-lǔang khɔ̌ɔng yîi-bpùn khâ</div><div class="eng">Tokyo is the capital of Japan.</div></div></td>
+          <td><div class="triad"><div class="thai">เพื่อนฉันเคยเรียนที่โตเกียวค่ะ</div><div class="roman">phʉ̂an chǎn khəəi rian thîi too-giao khâ</div><div class="eng">My friend used to study in Tokyo.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เกาหลี</div><div class="roman">gao-lǐi</div><div class="eng">Korea</div></div></td>
+          <td><div class="triad"><div class="thai">โซล</div><div class="roman">soon</div><div class="eng">Seoul</div></div></td>
+          <td><div class="triad"><div class="thai">โซลเป็นเมืองหลวงของเกาหลีค่ะ</div><div class="roman">soon bpen mʉang-lǔang khɔ̌ɔng gao-lǐi khâ</div><div class="eng">Seoul is the capital of Korea.</div></div></td>
+          <td><div class="triad"><div class="thai">โซลมีชื่อเสียงเรื่องแฟชั่นค่ะ</div><div class="roman">soon mii chʉ̂ʉ-sǐang rʉ̂ang fɛɛ-chân khâ</div><div class="eng">Seoul is famous for fashion.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อเมริกา</div><div class="roman">à-mee-rí-gaa</div><div class="eng">America / the United States</div></div></td>
+          <td><div class="triad"><div class="thai">วอชิงตัน ดี.ซี.</div><div class="roman">wɔɔ-ching-dtan dii-sii</div><div class="eng">Washington, D.C.</div></div></td>
+          <td><div class="triad"><div class="thai">วอชิงตัน ดี.ซี. เป็นเมืองหลวงของอเมริกาค่ะ</div><div class="roman">wɔɔ-ching-dtan dii-sii bpen mʉang-lǔang khɔ̌ɔng à-mee-rí-gaa khâ</div><div class="eng">Washington, D.C. is the capital of the United States.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเคยไปอเมริกาครั้งแรกเมื่อหลายปีก่อนค่ะ</div><div class="roman">chǎn khəəi bpai à-mee-rí-gaa khráng-rɛ̂ɛk mʉ̂a lǎai bpii gɔ̀ɔn khâ</div><div class="eng">I first went to the U.S. many years ago.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>小撇步：</strong>
+      教材使用
+      <span class="thai">เมืองหลวง ประเทศไทย กรุงเทพฯ</span> /
+      <span class="roman">mʉang-lǔang prà-thêet-thai grung-thêep</span> /
+      <span class="eng">capital, Thailand, Bangkok</span>
+      的邏輯。實際聊天時，最自然的句型是：
+      <span class="thai">กรุงเทพฯ เป็นเมืองหลวงของประเทศไทยค่ะ</span> /
+      <span class="roman">grung-thêep bpen mʉang-lǔang khɔ̌ɔng prà-thêet-thai khâ</span> /
+      <span class="eng">Bangkok is the capital of Thailand.</span>
+    </div>
+  </section>
+
+  <section id="regions" class="tab-content">
+    <h2>Regions & Directions｜地區與方向</h2>
+
+    <h3>Compass Directions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Direction</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example Sentence</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>North</td>
+          <td><div class="triad"><div class="thai">ทิศเหนือ</div><div class="roman">thít nʉ̌a</div><div class="eng">north</div></div></td>
+          <td><div class="triad"><div class="thai">เชียงใหม่อยู่ทางทิศเหนือของประเทศไทยค่ะ</div><div class="roman">chiiang-mài yùu thaang thít nʉ̌a khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Chiang Mai is in the north of Thailand.</div></div></td>
+          <td>方向方位，偏地圖感。</td>
+        </tr>
+
+        <tr>
+          <td>South</td>
+          <td><div class="triad"><div class="thai">ทิศใต้</div><div class="roman">thít dtâai</div><div class="eng">south</div></div></td>
+          <td><div class="triad"><div class="thai">ภูเก็ตอยู่ทางทิศใต้ของประเทศไทยค่ะ</div><div class="roman">phuu-gèt yùu thaang thít dtâai khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Phuket is in the south of Thailand.</div></div></td>
+          <td>可用在地理介紹。</td>
+        </tr>
+
+        <tr>
+          <td>East</td>
+          <td><div class="triad"><div class="thai">ทิศตะวันออก</div><div class="roman">thít dtà-wan-ɔ̀ɔk</div><div class="eng">east</div></div></td>
+          <td><div class="triad"><div class="thai">พัทยาอยู่ทางทิศตะวันออกของกรุงเทพฯ ค่ะ</div><div class="roman">phát-thá-yaa yùu thaang thít dtà-wan-ɔ̀ɔk khɔ̌ɔng grung-thêep khâ</div><div class="eng">Pattaya is east of Bangkok.</div></div></td>
+          <td><span class="thai">ตะวันออก</span> 字面接近「太陽出來」。</td>
+        </tr>
+
+        <tr>
+          <td>West</td>
+          <td><div class="triad"><div class="thai">ทิศตะวันตก</div><div class="roman">thít dtà-wan-dtòk</div><div class="eng">west</div></div></td>
+          <td><div class="triad"><div class="thai">กาญจนบุรีอยู่ทางทิศตะวันตกของกรุงเทพฯ ค่ะ</div><div class="roman">gaan-jà-ná-bù-rii yùu thaang thít dtà-wan-dtòk khɔ̌ɔng grung-thêep khâ</div><div class="eng">Kanchanaburi is west of Bangkok.</div></div></td>
+          <td><span class="thai">ตก</span> 有「落下」的感覺，太陽落下是西方。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Regions of Thailand</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example Sentence</th>
+          <th>Useful Context</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Northern region</td>
+          <td><div class="triad"><div class="thai">ภาคเหนือ</div><div class="roman">phâak nʉ̌a</div><div class="eng">northern region</div></div></td>
+          <td><div class="triad"><div class="thai">เชียงใหม่อยู่ภาคเหนือค่ะ</div><div class="roman">chiiang-mài yùu phâak nʉ̌a khâ</div><div class="eng">Chiang Mai is in the northern region.</div></div></td>
+          <td>清邁、清萊常放在北部。</td>
+        </tr>
+
+        <tr>
+          <td>Central region</td>
+          <td><div class="triad"><div class="thai">ภาคกลาง</div><div class="roman">phâak glaang</div><div class="eng">central region</div></div></td>
+          <td><div class="triad"><div class="thai">กรุงเทพฯ อยู่ภาคกลางค่ะ</div><div class="roman">grung-thêep yùu phâak glaang khâ</div><div class="eng">Bangkok is in the central region.</div></div></td>
+          <td>地理課或介紹泰國時會用。</td>
+        </tr>
+
+        <tr>
+          <td>Southern region</td>
+          <td><div class="triad"><div class="thai">ภาคใต้</div><div class="roman">phâak dtâai</div><div class="eng">southern region</div></div></td>
+          <td><div class="triad"><div class="thai">กระบี่อยู่ภาคใต้ค่ะ</div><div class="roman">grà-bìi yùu phâak dtâai khâ</div><div class="eng">Krabi is in the southern region.</div></div></td>
+          <td>海島、海邊旅遊常用。</td>
+        </tr>
+
+        <tr>
+          <td>Northeastern region</td>
+          <td><div class="triad"><div class="thai">ภาคตะวันออกเฉียงเหนือ / ภาคอีสาน</div><div class="roman">phâak dtà-wan-ɔ̀ɔk chǐang-nʉ̌a / phâak ii-sǎan</div><div class="eng">northeastern region / Isan</div></div></td>
+          <td><div class="triad"><div class="thai">ขอนแก่นอยู่ภาคอีสานค่ะ</div><div class="roman">khɔ̌ɔn-gɛ̀ɛn yùu phâak ii-sǎan khâ</div><div class="eng">Khon Kaen is in Isan.</div></div></td>
+          <td><span class="thai">อีสาน</span> 是更常見的日常說法。</td>
+        </tr>
+
+        <tr>
+          <td>Eastern region</td>
+          <td><div class="triad"><div class="thai">ภาคตะวันออก</div><div class="roman">phâak dtà-wan-ɔ̀ɔk</div><div class="eng">eastern region</div></div></td>
+          <td><div class="triad"><div class="thai">ชลบุรีอยู่ภาคตะวันออกค่ะ</div><div class="roman">chon-bù-rii yùu phâak dtà-wan-ɔ̀ɔk khâ</div><div class="eng">Chonburi is in the eastern region.</div></div></td>
+          <td>芭達雅、春武里常用。</td>
+        </tr>
+
+        <tr>
+          <td>Western region</td>
+          <td><div class="triad"><div class="thai">ภาคตะวันตก</div><div class="roman">phâak dtà-wan-dtòk</div><div class="eng">western region</div></div></td>
+          <td><div class="triad"><div class="thai">กาญจนบุรีอยู่ภาคตะวันตกค่ะ</div><div class="roman">gaan-jà-ná-bù-rii yùu phâak dtà-wan-dtòk khâ</div><div class="eng">Kanchanaburi is in the western region.</div></div></td>
+          <td>旅遊介紹會用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="from" class="tab-content">
+    <h2>มาจากที่ไหน｜從哪裡來</h2>
+
+    <h3>Core Questions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Question Type</th>
+          <th>Thai / Romanization / English</th>
+          <th>Natural Answer</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>General</td>
+          <td><div class="triad"><div class="thai">คุณมาจากที่ไหนคะ</div><div class="roman">khun maa jàak thîi-nǎi khá</div><div class="eng">Where are you from?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมาจากไต้หวันค่ะ</div><div class="roman">chǎn maa jàak tâai-wǎn khâ</div><div class="eng">I am from Taiwan.</div></div></td>
+          <td>最通用。</td>
+        </tr>
+
+        <tr>
+          <td>Country</td>
+          <td><div class="triad"><div class="thai">คุณมาจากประเทศอะไรคะ</div><div class="roman">khun maa jàak prà-thêet à-rai khá</div><div class="eng">What country are you from?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมาจากประเทศญี่ปุ่นค่ะ</div><div class="roman">chǎn maa jàak prà-thêet yîi-bpùn khâ</div><div class="eng">I am from Japan.</div></div></td>
+          <td>比 <span class="thai">ที่ไหน</span> 更明確問國家。</td>
+        </tr>
+
+        <tr>
+          <td>Province</td>
+          <td><div class="triad"><div class="thai">คุณมาจากจังหวัดอะไรคะ</div><div class="roman">khun maa jàak jang-wàt à-rai khá</div><div class="eng">Which province are you from?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมาจากจังหวัดเชียงใหม่ค่ะ</div><div class="roman">chǎn maa jàak jang-wàt chiiang-mài khâ</div><div class="eng">I am from Chiang Mai Province.</div></div></td>
+          <td>問泰國人是哪一府人時常用。</td>
+        </tr>
+
+        <tr>
+          <td>City</td>
+          <td><div class="triad"><div class="thai">คุณมาจากเมืองอะไรคะ</div><div class="roman">khun maa jàak mʉang à-rai khá</div><div class="eng">What city are you from?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมาจากเมืองไทเปค่ะ</div><div class="roman">chǎn maa jàak mʉang thai-bpèe khâ</div><div class="eng">I am from Taipei.</div></div></td>
+          <td>外國城市可以這樣說。</td>
+        </tr>
+
+        <tr>
+          <td>Region</td>
+          <td><div class="triad"><div class="thai">คุณมาจากภาคอะไรคะ</div><div class="roman">khun maa jàak phâak à-rai khá</div><div class="eng">Which region are you from?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมาจากภาคเหนือค่ะ</div><div class="roman">chǎn maa jàak phâak nʉ̌a khâ</div><div class="eng">I am from the northern region.</div></div></td>
+          <td>問泰國地區背景時用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip green">
+      <strong>曼谷聊天自然版：</strong>
+      朋友之間也常聽到：
+      <div class="triad">
+        <div class="thai">เป็นคนที่ไหนคะ</div>
+        <div class="roman">bpen khon thîi-nǎi khá</div>
+        <div class="eng">Where are you from? / What place are you a person from?</div>
+      </div>
+      這比 <span class="thai">คุณมาจากที่ไหนคะ</span> 更像在問「你是哪裡人？」。
+    </div>
+  </section>
+
+  <section id="famous" class="tab-content">
+    <h2>มีชื่อเสียง｜哪裡有名 / 以什麼聞名</h2>
+
+    <h3>Core Pattern</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ที่ + Place + มีชื่อเสียง</div>
+        <div class="roman">thîi + Place + mii chʉ̂ʉ-sǐang</div>
+        <div class="eng">Place is famous.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Answer Pattern</th>
+          <th>Examples</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ที่ไหนมีชื่อเสียงคะ</div><div class="roman">thîi-nǎi mii chʉ̂ʉ-sǐang khá</div><div class="eng">Which place is famous?</div></div></td>
+          <td><div class="triad"><div class="thai">ที่ + place + มีชื่อเสียงค่ะ</div><div class="roman">thîi + place + mii chʉ̂ʉ-sǐang khâ</div><div class="eng">The place is famous.</div></div></td>
+          <td><div class="triad"><div class="thai">ที่เชียงใหม่มีชื่อเสียงค่ะ</div><div class="roman">thîi chiiang-mài mii chʉ̂ʉ-sǐang khâ</div><div class="eng">Chiang Mai is famous.</div></div></td>
+          <td>可以直接說某地有名，但最好補「因為什麼」。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">จังหวัดอะไรมีชื่อเสียงคะ</div><div class="roman">jang-wàt à-rai mii chʉ̂ʉ-sǐang khá</div><div class="eng">Which province is famous?</div></div></td>
+          <td><div class="triad"><div class="thai">จังหวัด + place + มีชื่อเสียงค่ะ</div><div class="roman">jang-wàt + place + mii chʉ̂ʉ-sǐang khâ</div><div class="eng">The province is famous.</div></div></td>
+          <td><div class="triad"><div class="thai">จังหวัดภูเก็ตมีชื่อเสียงเรื่องทะเลค่ะ</div><div class="roman">jang-wàt phuu-gèt mii chʉ̂ʉ-sǐang rʉ̂ang thá-lee khâ</div><div class="eng">Phuket Province is famous for the sea.</div></div></td>
+          <td><span class="thai">เรื่อง</span> = about / regarding，可接有名的主題。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ประเทศอะไรมีชื่อเสียงคะ</div><div class="roman">prà-thêet à-rai mii chʉ̂ʉ-sǐang khá</div><div class="eng">Which country is famous?</div></div></td>
+          <td><div class="triad"><div class="thai">ประเทศ + country + มีชื่อเสียงเรื่อง...</div><div class="roman">prà-thêet + country + mii chʉ̂ʉ-sǐang rʉ̂ang...</div><div class="eng">The country is famous for...</div></div></td>
+          <td><div class="triad"><div class="thai">ประเทศไทยมีชื่อเสียงเรื่องอาหารค่ะ</div><div class="roman">prà-thêet-thai mii chʉ̂ʉ-sǐang rʉ̂ang aa-hǎan khâ</div><div class="eng">Thailand is famous for food.</div></div></td>
+          <td>聊天、介紹國家都實用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Natural Expansions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Place</th>
+          <th>Thai / Romanization / English</th>
+          <th>Why useful</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bangkok</td>
+          <td><div class="triad"><div class="thai">กรุงเทพฯ มีชื่อเสียงเรื่องอาหาร คาเฟ่ และห้างค่ะ</div><div class="roman">grung-thêep mii chʉ̂ʉ-sǐang rʉ̂ang aa-hǎan, khaa-fêe, lɛ́ hâang khâ</div><div class="eng">Bangkok is famous for food, cafés, and malls.</div></div></td>
+          <td>最貼近你的曼谷生活。</td>
+        </tr>
+
+        <tr>
+          <td>Chiang Mai</td>
+          <td><div class="triad"><div class="thai">เชียงใหม่มีชื่อเสียงเรื่องวัดและธรรมชาติค่ะ</div><div class="roman">chiiang-mài mii chʉ̂ʉ-sǐang rʉ̂ang wát lɛ́ tham-má-châat khâ</div><div class="eng">Chiang Mai is famous for temples and nature.</div></div></td>
+          <td>旅遊聊天很常用。</td>
+        </tr>
+
+        <tr>
+          <td>Taiwan</td>
+          <td><div class="triad"><div class="thai">ไต้หวันมีชื่อเสียงเรื่องชานมไข่มุกค่ะ</div><div class="roman">tâai-wǎn mii chʉ̂ʉ-sǐang rʉ̂ang chaa-nom khài-múk khâ</div><div class="eng">Taiwan is famous for bubble milk tea.</div></div></td>
+          <td>介紹台灣時非常好用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="firsttime" class="tab-content">
+    <h2>ครั้งแรกเมื่อไร｜第一次是什麼時候？</h2>
+
+    <h3>Core Pattern</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Subject + Verb + ครั้งแรก + เมื่อไร</div>
+        <div class="roman">Subject + Verb + khráng-rɛ̂ɛk + mʉ̂a-rai</div>
+        <div class="eng">When did subject first do something?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Question / Answer Type</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Question</td>
+          <td><div class="triad"><div class="thai">คุณมาเมืองไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first come to Thailand?</div></div></td>
+          <td><span class="thai">ครั้งแรก</span> = 第一次；<span class="thai">เมื่อไร</span> = 什麼時候。</td>
+        </tr>
+
+        <tr>
+          <td>Four years ago</td>
+          <td><div class="triad"><div class="thai">ฉันมาเมืองไทยครั้งแรกเมื่อสี่ปีก่อนค่ะ</div><div class="roman">chǎn maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a sìi bpii gɔ̀ɔn khâ</div><div class="eng">I first came to Thailand four years ago.</div></div></td>
+          <td><span class="thai">เมื่อ + time + ก่อน</span> = 在……以前。</td>
+        </tr>
+
+        <tr>
+          <td>Last year</td>
+          <td><div class="triad"><div class="thai">ฉันมาเมืองไทยครั้งแรกเมื่อปีที่แล้วค่ะ</div><div class="roman">chǎn maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a bpii thîi lɛ́ɛw khâ</div><div class="eng">I first came to Thailand last year.</div></div></td>
+          <td><span class="thai">ปีที่แล้ว</span> = 去年。</td>
+        </tr>
+
+        <tr>
+          <td>In 2018</td>
+          <td><div class="triad"><div class="thai">ฉันมาเมืองไทยครั้งแรกเมื่อปี 2018 ค่ะ</div><div class="roman">chǎn maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a bpii sɔ̌ɔng-phan-sìp-bpɛ̀ɛt khâ</div><div class="eng">I first came to Thailand in 2018.</div></div></td>
+          <td>年份可直接放在 <span class="thai">เมื่อปี</span> 後面。</td>
+        </tr>
+
+        <tr>
+          <td>At age 21</td>
+          <td><div class="triad"><div class="thai">ฉันมาเมืองไทยครั้งแรกเมื่ออายุยี่สิบเอ็ดค่ะ</div><div class="roman">chǎn maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a aa-yú yîi-sìp-èt khâ</div><div class="eng">I first came to Thailand when I was 21.</div></div></td>
+          <td><span class="thai">เมื่ออายุ...</span> = 在……歲的時候。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Real-life Variations</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第一次去清邁</td>
+          <td><div class="triad"><div class="thai">คุณไปเชียงใหม่ครั้งแรกเมื่อไรคะ</div><div class="roman">khun bpai chiiang-mài khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first go to Chiang Mai?</div></div></td>
+          <td>旅遊聊天。</td>
+        </tr>
+        <tr>
+          <td>第一次學泰文</td>
+          <td><div class="triad"><div class="thai">คุณเรียนภาษาไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun rian phaa-sǎa-thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first study Thai?</div></div></td>
+          <td>語言交換 / 語言學校聊天。</td>
+        </tr>
+        <tr>
+          <td>第一次吃泰國菜</td>
+          <td><div class="triad"><div class="thai">คุณกินอาหารไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun gin aa-hǎan-thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first eat Thai food?</div></div></td>
+          <td>日常聊天很好用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="synonyms" class="tab-content">
+    <h2>Synonyms & Opposites｜同義詞 / 反義詞 / 對比詞</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pair / Contrast</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example A</th>
+          <th>Example B</th>
+          <th>Usage Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>地址 / 居住的地方</td>
+          <td>
+            <div class="triad"><div class="thai">ที่อยู่</div><div class="roman">thîi-yùu</div><div class="eng">address</div></div>
+            <div class="triad"><div class="thai">บ้าน</div><div class="roman">bâan</div><div class="eng">house / home</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">กรุณากรอกที่อยู่ค่ะ</div><div class="roman">gà-rú-naa grɔ̀ɔk thîi-yùu khâ</div><div class="eng">Please fill in the address.</div></div></td>
+          <td><div class="triad"><div class="thai">บ้านฉันอยู่ใกล้สถานีรถไฟฟ้าค่ะ</div><div class="roman">bâan chǎn yùu glâi sà-thǎa-nii rót-fai-fáa khâ</div><div class="eng">My home is near the BTS station.</div></div></td>
+          <td><span class="thai">ที่อยู่</span> 是表格/地址；<span class="thai">บ้าน</span> 是家或房子。</td>
+        </tr>
+
+        <tr>
+          <td>曼谷外府 / 曼谷內部</td>
+          <td>
+            <div class="triad"><div class="thai">ตำบล / อำเภอ</div><div class="roman">dtam-bon / am-phəə</div><div class="eng">subdistrict / district outside Bangkok</div></div>
+            <div class="triad"><div class="thai">แขวง / เขต</div><div class="roman">khwɛ̌ɛng / khèet</div><div class="eng">subdistrict / district in Bangkok</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">โรงแรมอยู่ตำบลเล็ก ๆ ในจังหวัดเชียงใหม่ค่ะ</div><div class="roman">rooŋ-rɛɛm yùu dtam-bon lék-lék nai jang-wàt chiiang-mài khâ</div><div class="eng">The hotel is in a small subdistrict in Chiang Mai Province.</div></div></td>
+          <td><div class="triad"><div class="thai">คอนโดอยู่แขวงคลองตัน เขตคลองเตยค่ะ</div><div class="roman">khɔɔn-doo yùu khwɛ̌ɛng khlɔɔng-dtan khèet khlɔɔng-dtəəi khâ</div><div class="eng">The condo is in Khlong Tan subdistrict, Khlong Toei district.</div></div></td>
+          <td>曼谷用 <span class="thai">แขวง/เขต</span>；外府多用 <span class="thai">ตำบล/อำเภอ</span>。</td>
+        </tr>
+
+        <tr>
+          <td>城市 / 省 / 國家</td>
+          <td>
+            <div class="triad"><div class="thai">เมือง</div><div class="roman">mʉang</div><div class="eng">city</div></div>
+            <div class="triad"><div class="thai">จังหวัด</div><div class="roman">jang-wàt</div><div class="eng">province</div></div>
+            <div class="triad"><div class="thai">ประเทศ</div><div class="roman">prà-thêet</div><div class="eng">country</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ฉันมาจากเมืองไทเปค่ะ</div><div class="roman">chǎn maa jàak mʉang thai-bpèe khâ</div><div class="eng">I am from Taipei City.</div></div></td>
+          <td><div class="triad"><div class="thai">เขามาจากจังหวัดภูเก็ต ประเทศไทยค่ะ</div><div class="roman">khǎo maa jàak jang-wàt phuu-gèt prà-thêet-thai khâ</div><div class="eng">He is from Phuket Province, Thailand.</div></div></td>
+          <td>層級不同：城市 < 省 < 國家。</td>
+        </tr>
+
+        <tr>
+          <td>地區 / 方向</td>
+          <td>
+            <div class="triad"><div class="thai">ภาคเหนือ</div><div class="roman">phâak nʉ̌a</div><div class="eng">northern region</div></div>
+            <div class="triad"><div class="thai">ทิศเหนือ</div><div class="roman">thít nʉ̌a</div><div class="eng">north direction</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">เชียงใหม่อยู่ภาคเหนือค่ะ</div><div class="roman">chiiang-mài yùu phâak nʉ̌a khâ</div><div class="eng">Chiang Mai is in the northern region.</div></div></td>
+          <td><div class="triad"><div class="thai">เชียงใหม่อยู่ทางทิศเหนือของประเทศไทยค่ะ</div><div class="roman">chiiang-mài yùu thaang thít nʉ̌a khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Chiang Mai is in the north of Thailand.</div></div></td>
+          <td><span class="thai">ภาค</span> 是行政/地理區域；<span class="thai">ทิศ</span> 是方向。</td>
+        </tr>
+
+        <tr>
+          <td>第一次 / 上次 / 下一次</td>
+          <td>
+            <div class="triad"><div class="thai">ครั้งแรก</div><div class="roman">khráng-rɛ̂ɛk</div><div class="eng">first time</div></div>
+            <div class="triad"><div class="thai">ครั้งที่แล้ว</div><div class="roman">khráng thîi lɛ́ɛw</div><div class="eng">last time</div></div>
+            <div class="triad"><div class="thai">ครั้งหน้า</div><div class="roman">khráng nâa</div><div class="eng">next time</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ฉันมาไทยครั้งแรกเมื่อปีที่แล้วค่ะ</div><div class="roman">chǎn maa thai khráng-rɛ̂ɛk mʉ̂a bpii thîi lɛ́ɛw khâ</div><div class="eng">I first came to Thailand last year.</div></div></td>
+          <td><div class="triad"><div class="thai">ครั้งหน้าฉันอยากไปเชียงใหม่ค่ะ</div><div class="roman">khráng nâa chǎn yàak bpai chiiang-mài khâ</div><div class="eng">Next time, I want to go to Chiang Mai.</div></div></td>
+          <td>旅遊聊天很常用，三個都要記。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>Structure｜Where are you from?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Subject + มาจาก + Place</div>
+        <div class="roman">Subject + maa jàak + Place</div>
+        <div class="eng">Subject comes/is from a place.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">มาจากที่ไหน</div><div class="roman">maa jàak thîi-nǎi</div><div class="eng">come from where</div></div></td>
+          <td><div class="triad"><div class="thai">คุณมาจากที่ไหนคะ</div><div class="roman">khun maa jàak thîi-nǎi khá</div><div class="eng">Where are you from?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันมาจากไต้หวันค่ะ</div><div class="roman">chǎn maa jàak tâai-wǎn khâ</div><div class="eng">I am from Taiwan.</div></div>
+            <div class="triad"><div class="thai">เขามาจากเกาหลีค่ะ</div><div class="roman">khǎo maa jàak gao-lǐi khâ</div><div class="eng">He is from Korea.</div></div>
+            <div class="triad"><div class="thai">เพื่อนฉันมาจากอเมริกาค่ะ</div><div class="roman">phʉ̂an chǎn maa jàak à-mee-rí-gaa khâ</div><div class="eng">My friend is from America.</div></div>
+          </td>
+          <td>問出生/來源地最基本句。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">มาจากจังหวัดอะไร</div><div class="roman">maa jàak jang-wàt à-rai</div><div class="eng">from which province</div></div></td>
+          <td><div class="triad"><div class="thai">คุณมาจากจังหวัดอะไรคะ</div><div class="roman">khun maa jàak jang-wàt à-rai khá</div><div class="eng">Which province are you from?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันมาจากจังหวัดเชียงใหม่ค่ะ</div><div class="roman">chǎn maa jàak jang-wàt chiiang-mài khâ</div><div class="eng">I am from Chiang Mai Province.</div></div>
+            <div class="triad"><div class="thai">แฟนฉันมาจากจังหวัดชลบุรีค่ะ</div><div class="roman">fɛɛn chǎn maa jàak jang-wàt chon-bù-rii khâ</div><div class="eng">My partner is from Chonburi Province.</div></div>
+            <div class="triad"><div class="thai">ครูมาจากจังหวัดภูเก็ตค่ะ</div><div class="roman">khruu maa jàak jang-wàt phuu-gèt khâ</div><div class="eng">The teacher is from Phuket Province.</div></div>
+          </td>
+          <td>問泰國人常見，因為泰國人常用府/省分辨家鄉。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜Where is it famous?</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">Place + มีชื่อเสียง + เรื่อง + Topic</div>
+        <div class="roman">Place + mii chʉ̂ʉ-sǐang + rʉ̂ang + Topic</div>
+        <div class="eng">Place is famous for Topic.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Example</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>介紹泰國</td>
+          <td><div class="triad"><div class="thai">ประเทศไทยมีชื่อเสียงเรื่องอาหารค่ะ</div><div class="roman">prà-thêet-thai mii chʉ̂ʉ-sǐang rʉ̂ang aa-hǎan khâ</div><div class="eng">Thailand is famous for food.</div></div></td>
+          <td><span class="thai">เรื่อง</span> 後面接有名的主題。</td>
+        </tr>
+        <tr>
+          <td>介紹台灣</td>
+          <td><div class="triad"><div class="thai">ไต้หวันมีชื่อเสียงเรื่องชานมไข่มุกค่ะ</div><div class="roman">tâai-wǎn mii chʉ̂ʉ-sǐang rʉ̂ang chaa-nom khài-múk khâ</div><div class="eng">Taiwan is famous for bubble milk tea.</div></div></td>
+          <td>很適合語言交換自我介紹。</td>
+        </tr>
+        <tr>
+          <td>介紹清邁</td>
+          <td><div class="triad"><div class="thai">เชียงใหม่มีชื่อเสียงเรื่องวัดและธรรมชาติค่ะ</div><div class="roman">chiiang-mài mii chʉ̂ʉ-sǐang rʉ̂ang wát lɛ́ tham-má-châat khâ</div><div class="eng">Chiang Mai is famous for temples and nature.</div></div></td>
+          <td>旅遊聊天很常用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜First time when?</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">Subject + Verb + ครั้งแรก + เมื่อไร</div>
+        <div class="roman">Subject + Verb + khráng-rɛ̂ɛk + mʉ̂a-rai</div>
+        <div class="eng">When did subject first do something?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณมาเมืองไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first come to Thailand?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">คุณเรียนภาษาไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun rian phaa-sǎa-thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first study Thai?</div></div>
+            <div class="triad"><div class="thai">คุณไปเชียงใหม่ครั้งแรกเมื่อไรคะ</div><div class="roman">khun bpai chiiang-mài khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first go to Chiang Mai?</div></div>
+            <div class="triad"><div class="thai">คุณกินอาหารไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun gin aa-hǎan-thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first eat Thai food?</div></div>
+          </td>
+          <td>把動詞換掉就能問很多人生經驗。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問你從哪裡來</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คุณมาจากที่ไหนคะ</div><div class="roman">khun maa jàak thîi-nǎi khá</div><div class="eng">Where are you from?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เป็นคนที่ไหนคะ</div><div class="roman">bpen khon thîi-nǎi khá</div><div class="eng">Where are you from? / What place are you a person from?</div></div></td>
+          <td>朋友聊天問家鄉，<span class="thai">เป็นคนที่ไหน</span> 很自然。</td>
+        </tr>
+
+        <tr>
+          <td>問地址</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ที่อยู่ของคุณคืออะไรคะ</div><div class="roman">thîi-yùu khɔ̌ɔng khun khʉʉ à-rai khá</div><div class="eng">What is your address?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอที่อยู่หน่อยค่ะ</div><div class="roman">khɔ̌ɔ thîi-yùu nòi khâ</div><div class="eng">May I have the address?</div></div></td>
+          <td><span class="thai">ขอ...หน่อยค่ะ</span> 是已學過的實用請求句型。<span class="label review">Review</span></td>
+        </tr>
+
+        <tr>
+          <td>問在哪個區</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">อยู่เขตอะไรคะ</div><div class="roman">yùu khèet à-rai khá</div><div class="eng">Which district is it in?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">แถวไหนคะ</div><div class="roman">thɛ̌ɛo nǎi khá</div><div class="eng">Around which area?</div></div></td>
+          <td>曼谷日常更常先問大概區域：<span class="thai">แถวไหน</span>。</td>
+        </tr>
+
+        <tr>
+          <td>問首都</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เมืองหลวงของประเทศไทยคืออะไรคะ</div><div class="roman">mʉang-lǔang khɔ̌ɔng prà-thêet-thai khʉʉ à-rai khá</div><div class="eng">What is the capital of Thailand?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เมืองหลวงของไทยคือกรุงเทพฯ ค่ะ</div><div class="roman">mʉang-lǔang khɔ̌ɔng thai khʉʉ grung-thêep khâ</div><div class="eng">The capital of Thailand is Bangkok.</div></div></td>
+          <td>口語常把 <span class="thai">ประเทศไทย</span> 簡化成 <span class="thai">ไทย</span>。</td>
+        </tr>
+
+        <tr>
+          <td>說某地有名</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ที่ไหนมีชื่อเสียงคะ</div><div class="roman">thîi-nǎi mii chʉ̂ʉ-sǐang khá</div><div class="eng">Which place is famous?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ที่นี่ดังเรื่องอะไรคะ</div><div class="roman">thîi-nîi dang rʉ̂ang à-rai khá</div><div class="eng">What is this place famous for?</div></div></td>
+          <td><span class="thai">ดัง</span> 比 <span class="thai">มีชื่อเสียง</span> 更口語，意思是 famous。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="usage" class="tab-content">
+    <h2>Practical Usage Bank｜曼谷實戰句庫</h2>
+
+    <h3>Filling Forms｜填表</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>不知道欄位怎麼填</td>
+          <td><div class="triad"><div class="thai">ช่องนี้ต้องกรอกอะไรคะ</div><div class="roman">chɔ̂ng níi dtɔ̂ng grɔ̀ɔk à-rai khá</div><div class="eng">What do I have to fill in this field?</div></div></td>
+          <td>銀行、學校、移民局都能用。</td>
+        </tr>
+        <tr>
+          <td>問名字欄</td>
+          <td><div class="triad"><div class="thai">ต้องเขียนชื่อ-นามสกุลเป็นภาษาอังกฤษไหมคะ</div><div class="roman">dtɔ̂ng khǐan chʉ̂ʉ naam-sà-gun bpen phaa-sǎa ang-grìt mái khá</div><div class="eng">Do I have to write my full name in English?</div></div></td>
+          <td>填泰國文件時常問。</td>
+        </tr>
+        <tr>
+          <td>問地址語言</td>
+          <td><div class="triad"><div class="thai">ที่อยู่ต้องเขียนเป็นภาษาไทยไหมคะ</div><div class="roman">thîi-yùu dtɔ̂ng khǐan bpen phaa-sǎa-thai mái khá</div><div class="eng">Does the address have to be written in Thai?</div></div></td>
+          <td>寄件、簽約、申請時實用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Receiving Delivery｜收包裹 / 外送</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>傳地址給司機</td>
+          <td><div class="triad"><div class="thai">เดี๋ยวฉันส่งที่อยู่ให้ค่ะ</div><div class="roman">dǐao chǎn sòng thîi-yùu hâi khâ</div><div class="eng">I’ll send you the address in a moment.</div></div></td>
+          <td>Grab / 外送 / 包裹都可用。</td>
+        </tr>
+        <tr>
+          <td>問對方到哪裡了</td>
+          <td><div class="triad"><div class="thai">ตอนนี้อยู่แถวไหนคะ</div><div class="roman">dtɔɔn-níi yùu thɛ̌ɛo nǎi khá</div><div class="eng">Where around are you now?</div></div></td>
+          <td>比問精確地址更口語。</td>
+        </tr>
+        <tr>
+          <td>說公寓位置</td>
+          <td><div class="triad"><div class="thai">คอนโดอยู่ใกล้ BTS โพธิ์นิมิตรค่ะ</div><div class="roman">khɔɔn-doo yùu glâi bii-thii-ɛ́t phoo-ní-mít khâ</div><div class="eng">The condo is near BTS Pho Nimit.</div></div></td>
+          <td>用地標說位置很自然。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Travel Chat｜旅遊聊天</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問來自哪裡</td>
+          <td><div class="triad"><div class="thai">คุณเป็นคนที่ไหนคะ</div><div class="roman">khun bpen khon thîi-nǎi khá</div><div class="eng">Where are you from?</div></div></td>
+          <td>比課本句更聊天。</td>
+        </tr>
+        <tr>
+          <td>介紹台灣</td>
+          <td><div class="triad"><div class="thai">ฉันมาจากไต้หวัน ไทเปเป็นเมืองหลวงค่ะ</div><div class="roman">chǎn maa jàak tâai-wǎn, thai-bpèe bpen mʉang-lǔang khâ</div><div class="eng">I am from Taiwan. Taipei is the capital.</div></div></td>
+          <td>自我介紹可直接用。</td>
+        </tr>
+        <tr>
+          <td>說泰國哪裡有名</td>
+          <td><div class="triad"><div class="thai">เชียงใหม่มีชื่อเสียงเรื่องวัดและธรรมชาติค่ะ</div><div class="roman">chiiang-mài mii chʉ̂ʉ-sǐang rʉ̂ang wát lɛ́ tham-má-châat khâ</div><div class="eng">Chiang Mai is famous for temples and nature.</div></div></td>
+          <td>旅遊聊天實用句。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>Dialogue｜語言交換：你是哪裡人？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">คุณเป็นคนที่ไหนคะ</div><div class="roman">khun bpen khon thîi-nǎi khá</div><div class="eng">Where are you from?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันมาจากไต้หวันค่ะ</div><div class="roman">chǎn maa jàak tâai-wǎn khâ</div><div class="eng">I am from Taiwan.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไต้หวันมีชื่อเสียงเรื่องอะไรคะ</div><div class="roman">tâai-wǎn mii chʉ̂ʉ-sǐang rʉ̂ang à-rai khá</div><div class="eng">What is Taiwan famous for?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไต้หวันมีชื่อเสียงเรื่องชานมไข่มุกค่ะ</div><div class="roman">tâai-wǎn mii chʉ̂ʉ-sǐang rʉ̂ang chaa-nom khài-múk khâ</div><div class="eng">Taiwan is famous for bubble milk tea.</div></div></div>
+    </div>
+
+    <h3>Dialogue｜填表：地址欄怎麼填？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอโทษค่ะ ช่องนี้ต้องกรอกอะไรคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, chɔ̂ng níi dtɔ̂ng grɔ̀ɔk à-rai khá</div><div class="eng">Excuse me, what do I have to fill in this field?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">กรอกที่อยู่ค่ะ</div><div class="roman">grɔ̀ɔk thîi-yùu khâ</div><div class="eng">Fill in your address.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ต้องเขียนเป็นภาษาไทยไหมคะ</div><div class="roman">dtɔ̂ng khǐan bpen phaa-sǎa-thai mái khá</div><div class="eng">Does it have to be written in Thai?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ถ้ามีที่อยู่ภาษาไทย จะดีกว่าค่ะ</div><div class="roman">thâa mii thîi-yùu phaa-sǎa-thai, jà dii gwàa khâ</div><div class="eng">If you have the address in Thai, it would be better.</div></div></div>
+    </div>
+
+    <h3>Dialogue｜外送司機：你住在哪一區？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">คอนโดอยู่แถวไหนครับ</div><div class="roman">khɔɔn-doo yùu thɛ̌ɛo nǎi khráp</div><div class="eng">Around which area is the condo?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยู่ใกล้ BTS โพธิ์นิมิตรค่ะ</div><div class="roman">yùu glâi bii-thii-ɛ́t phoo-ní-mít khâ</div><div class="eng">It is near BTS Pho Nimit.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอที่อยู่หน่อยครับ</div><div class="roman">khɔ̌ɔ thîi-yùu nòi khráp</div><div class="eng">May I have the address?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เดี๋ยวฉันส่งที่อยู่ให้ค่ะ</div><div class="roman">dǐao chǎn sòng thîi-yùu hâi khâ</div><div class="eng">I’ll send you the address in a moment.</div></div></div>
+    </div>
+
+    <h3>Dialogue｜旅遊聊天：第一次來泰國</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คุณมาเมืองไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first come to Thailand?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันมาเมืองไทยครั้งแรกเมื่อสี่ปีก่อนค่ะ</div><div class="roman">chǎn maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a sìi bpii gɔ̀ɔn khâ</div><div class="eng">I first came to Thailand four years ago.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Thai Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ตอนนั้นไปที่ไหนบ้างคะ</div><div class="roman">dtɔɔn-nán bpai thîi-nǎi bâang khá</div><div class="eng">Where did you go at that time?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปกรุงเทพฯ กับพัทยาค่ะ</div><div class="roman">bpai grung-thêep gàp phát-thá-yaa khâ</div><div class="eng">I went to Bangkok and Pattaya.</div></div></div>
+    </div>
+
+    <h3>Dialogue｜介紹泰國地區</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เชียงใหม่อยู่ภาคอะไรคะ</div><div class="roman">chiiang-mài yùu phâak à-rai khá</div><div class="eng">Which region is Chiang Mai in?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เชียงใหม่อยู่ภาคเหนือค่ะ</div><div class="roman">chiiang-mài yùu phâak nʉ̌a khâ</div><div class="eng">Chiang Mai is in the northern region.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">แล้วภูเก็ตอยู่ภาคอะไรคะ</div><div class="roman">lɛ́ɛw phuu-gèt yùu phâak à-rai khá</div><div class="eng">And which region is Phuket in?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Teacher</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ภูเก็ตอยู่ภาคใต้ค่ะ</div><div class="roman">phuu-gèt yùu phâak dtâai khâ</div><div class="eng">Phuket is in the southern region.</div></div></div>
+    </div>
+
+    <h3>Dialogue｜郵局寄文件</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยากส่งเอกสารไปไต้หวันค่ะ</div><div class="roman">yàak sòng èek-gà-sǎan bpai tâai-wǎn khâ</div><div class="eng">I want to send documents to Taiwan.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Post Office Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอที่อยู่ปลายทางหน่อยค่ะ</div><div class="roman">khɔ̌ɔ thîi-yùu bplaai-thaang nòi khâ</div><div class="eng">May I have the destination address?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">นี่ค่ะ ที่อยู่ภาษาอังกฤษได้ไหมคะ</div><div class="roman">nîi khâ, thîi-yùu phaa-sǎa ang-grìt dâai mái khá</div><div class="eng">Here it is. Is an English address okay?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Post Office Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ แต่ต้องมีรหัสไปรษณีย์ค่ะ</div><div class="roman">dâai khâ, dtɛ̀ɛ dtɔ̂ng mii rá-hàt bprai-sà-nii khâ</div><div class="eng">Yes, but it must have a postal code.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ตำบล / แขวง 混用</div><div class="roman">dtam-bon / khwɛ̌ɛng</div><div class="eng">outside-Bangkok subdistrict / Bangkok subdistrict</div></div></td>
+          <td>曼谷地址通常用 <span class="thai">แขวง</span>；外府地址通常用 <span class="thai">ตำบล</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">คอนโดอยู่แขวงคลองตันค่ะ</div><div class="roman">khɔɔn-doo yùu khwɛ̌ɛng khlɔɔng-dtan khâ</div><div class="eng">The condo is in Khlong Tan subdistrict.</div></div>
+            <div class="triad"><div class="thai">บ้านอยู่ตำบลเล็ก ๆ ในเชียงใหม่ค่ะ</div><div class="roman">bâan yùu dtam-bon lék-lék nai chiiang-mài khâ</div><div class="eng">The house is in a small subdistrict in Chiang Mai.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อำเภอ / เขต 混用</div><div class="roman">am-phəə / khèet</div><div class="eng">outside-Bangkok district / Bangkok district</div></div></td>
+          <td>曼谷用 <span class="thai">เขต</span>；外府用 <span class="thai">อำเภอ</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">ห้างนี้อยู่เขตปทุมวันค่ะ</div><div class="roman">hâang níi yùu khèet bpà-thum-wan khâ</div><div class="eng">This mall is in Pathum Wan district.</div></div>
+            <div class="triad"><div class="thai">โรงแรมอยู่ อำเภอเมืองเชียงใหม่ค่ะ</div><div class="roman">rooŋ-rɛɛm yùu am-phəə mʉang chiiang-mài khâ</div><div class="eng">The hotel is in Mueang Chiang Mai district.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ภาค / ทิศ 混用</div><div class="roman">phâak / thít</div><div class="eng">region / direction</div></div></td>
+          <td><span class="thai">ภาค</span> 是地區；<span class="thai">ทิศ</span> 是方向。</td>
+          <td>
+            <div class="triad"><div class="thai">เชียงใหม่อยู่ภาคเหนือค่ะ</div><div class="roman">chiiang-mài yùu phâak nʉ̌a khâ</div><div class="eng">Chiang Mai is in the northern region.</div></div>
+            <div class="triad"><div class="thai">เชียงใหม่อยู่ทางทิศเหนือของประเทศไทยค่ะ</div><div class="roman">chiiang-mài yùu thaang thít nʉ̌a khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Chiang Mai is in the north of Thailand.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ที่ไหน / ประเทศอะไร 問法不清楚</div><div class="roman">thîi-nǎi / prà-thêet à-rai</div><div class="eng">where / what country</div></div></td>
+          <td><span class="thai">ที่ไหน</span> 很廣；如果要問國家，用 <span class="thai">ประเทศอะไร</span> 更清楚。</td>
+          <td>
+            <div class="triad"><div class="thai">คุณมาจากที่ไหนคะ</div><div class="roman">khun maa jàak thîi-nǎi khá</div><div class="eng">Where are you from?</div></div>
+            <div class="triad"><div class="thai">คุณมาจากประเทศอะไรคะ</div><div class="roman">khun maa jàak prà-thêet à-rai khá</div><div class="eng">What country are you from?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">มีชื่อเสียง / ดัง 場合不同</div><div class="roman">mii chʉ̂ʉ-sǐang / dang</div><div class="eng">be famous / famous</div></div></td>
+          <td><span class="thai">มีชื่อเสียง</span> 較正式；<span class="thai">ดัง</span> 比較口語。</td>
+          <td>
+            <div class="triad"><div class="thai">ประเทศไทยมีชื่อเสียงเรื่องอาหารค่ะ</div><div class="roman">prà-thêet-thai mii chʉ̂ʉ-sǐang rʉ̂ang aa-hǎan khâ</div><div class="eng">Thailand is famous for food.</div></div>
+            <div class="triad"><div class="thai">ร้านนี้ดังมากค่ะ</div><div class="roman">ráan níi dang mâak khâ</div><div class="eng">This restaurant is very famous.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เมื่อไร / เมื่อ + 時間</div><div class="roman">mʉ̂a-rai / mʉ̂a + time</div><div class="eng">when? / when + time</div></div></td>
+          <td><span class="thai">เมื่อไร</span> 是問「何時？」；回答時用 <span class="thai">เมื่อ + 時間</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">คุณมาไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun maa thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first come to Thailand?</div></div>
+            <div class="triad"><div class="thai">ฉันมาไทยครั้งแรกเมื่อปีที่แล้วค่ะ</div><div class="roman">chǎn maa thai khráng-rɛ̂ɛk mʉ̂a bpii thîi lɛ́ɛw khâ</div><div class="eng">I first came to Thailand last year.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+    <details>
+      <summary>address / postal code / full name</summary>
+      <div class="triad"><div class="thai">ที่อยู่ / รหัสไปรษณีย์ / ชื่อ-นามสกุล</div><div class="roman">thîi-yùu / rá-hàt bprai-sà-nii / chʉ̂ʉ naam-sà-gun</div><div class="eng">address / postal code / full name</div></div>
+      <p><strong>Chinese Explanation:</strong> 這三個是填表、寄件、收包裹最重要的欄位。</p>
+    </details>
+
+    <details>
+      <summary>country / capital city / province / region</summary>
+      <div class="triad"><div class="thai">ประเทศ / เมืองหลวง / จังหวัด / ภาค</div><div class="roman">prà-thêet / mʉang-lǔang / jang-wàt / phâak</div><div class="eng">country / capital city / province / region</div></div>
+      <p><strong>Chinese Explanation:</strong> 這組是地理介紹核心字。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+    <details>
+      <summary>one letter</summary>
+      <div class="triad"><div class="thai">จดหมายหนึ่งฉบับ</div><div class="roman">jòt-mǎai nʉ̀eng chà-bàp</div><div class="eng">one letter</div></div>
+      <p><strong>Chinese Explanation:</strong> 信件、文件類常用 <span class="thai">ฉบับ</span>。</p>
+    </details>
+
+    <details>
+      <summary>one envelope</summary>
+      <div class="triad"><div class="thai">ซองจดหมายหนึ่งซอง</div><div class="roman">sɔɔng jòt-mǎai nʉ̀eng sɔɔng</div><div class="eng">one envelope</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ซอง</span> 可當「信封」，也可當量詞。</p>
+    </details>
+
+    <details>
+      <summary>one set of documents</summary>
+      <div class="triad"><div class="thai">เอกสารหนึ่งชุด</div><div class="roman">èek-gà-sǎan nʉ̀eng chút</div><div class="eng">one set of documents</div></div>
+      <p><strong>Chinese Explanation:</strong> 一套文件用 <span class="thai">ชุด</span>。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+    <details>
+      <summary>你從哪裡來？</summary>
+      <div class="triad"><div class="thai">คุณมาจากที่ไหนคะ</div><div class="roman">khun maa jàak thîi-nǎi khá</div><div class="eng">Where are you from?</div></div>
+      <p><strong>Chinese Explanation:</strong> 通用正式問法。</p>
+    </details>
+
+    <details>
+      <summary>我來自台灣。</summary>
+      <div class="triad"><div class="thai">ฉันมาจากไต้หวันค่ะ</div><div class="roman">chǎn maa jàak tâai-wǎn khâ</div><div class="eng">I am from Taiwan.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">มาจาก</span> = come from。</p>
+    </details>
+
+    <details>
+      <summary>台北是台灣的首都。</summary>
+      <div class="triad"><div class="thai">ไทเปเป็นเมืองหลวงของไต้หวันค่ะ</div><div class="roman">thai-bpèe bpen mʉang-lǔang khɔ̌ɔng tâai-wǎn khâ</div><div class="eng">Taipei is the capital of Taiwan.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ของ</span> = of。</p>
+    </details>
+
+    <details>
+      <summary>清邁在泰國北部。</summary>
+      <div class="triad"><div class="thai">เชียงใหม่อยู่ภาคเหนือของประเทศไทยค่ะ</div><div class="roman">chiiang-mài yùu phâak nʉ̌a khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Chiang Mai is in the northern region of Thailand.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ภาคเหนือ</span> = northern region。</p>
+    </details>
+
+    <h3>Translation English → Thai</h3>
+    <details>
+      <summary>What is the postal code?</summary>
+      <div class="triad"><div class="thai">รหัสไปรษณีย์อะไรคะ</div><div class="roman">rá-hàt bprai-sà-nii à-rai khá</div><div class="eng">What is the postal code?</div></div>
+      <p><strong>Chinese Explanation:</strong> 寄件和填表常用。</p>
+    </details>
+
+    <details>
+      <summary>Bangkok is the capital of Thailand.</summary>
+      <div class="triad"><div class="thai">กรุงเทพฯ เป็นเมืองหลวงของประเทศไทยค่ะ</div><div class="roman">grung-thêep bpen mʉang-lǔang khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Bangkok is the capital of Thailand.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">เป็น</span> = is / be。</p>
+    </details>
+
+    <details>
+      <summary>When did you first come to Thailand?</summary>
+      <div class="triad"><div class="thai">คุณมาเมืองไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first come to Thailand?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ครั้งแรก</span> = first time。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+    <details>
+      <summary>把「คุณมาจากที่ไหนคะ」改成更像聊天問家鄉的版本。</summary>
+      <div class="triad"><div class="thai">เป็นคนที่ไหนคะ</div><div class="roman">bpen khon thîi-nǎi khá</div><div class="eng">Where are you from?</div></div>
+      <p><strong>Chinese Explanation:</strong> 朋友聊天或語言交換時非常自然。</p>
+    </details>
+
+    <details>
+      <summary>把「ที่นี่มีชื่อเสียงเรื่องอะไรคะ」改成更口語。</summary>
+      <div class="triad"><div class="thai">ที่นี่ดังเรื่องอะไรคะ</div><div class="roman">thîi-nîi dang rʉ̂ang à-rai khá</div><div class="eng">What is this place famous for?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ดัง</span> 比 <span class="thai">มีชื่อเสียง</span> 更口語。</p>
+    </details>
+
+    <h3>Dialogue Completion</h3>
+    <details>
+      <summary>Staff: กรอกที่อยู่ค่ะ。You: ______</summary>
+      <div class="triad"><div class="thai">ต้องเขียนเป็นภาษาไทยไหมคะ</div><div class="roman">dtɔ̂ng khǐan bpen phaa-sǎa-thai mái khá</div><div class="eng">Does it have to be written in Thai?</div></div>
+      <p><strong>Chinese Explanation:</strong> 填表時很實用。</p>
+    </details>
+
+    <details>
+      <summary>Friend: ไต้หวันมีชื่อเสียงเรื่องอะไรคะ？You: ______</summary>
+      <div class="triad"><div class="thai">ไต้หวันมีชื่อเสียงเรื่องชานมไข่มุกค่ะ</div><div class="roman">tâai-wǎn mii chʉ̂ʉ-sǐang rʉ̂ang chaa-nom khài-múk khâ</div><div class="eng">Taiwan is famous for bubble milk tea.</div></div>
+      <p><strong>Chinese Explanation:</strong> 很適合介紹台灣。</p>
+    </details>
+
+    <h3>Mini Role-play</h3>
+    <details>
+      <summary>情境：你在語言交換介紹自己來自台灣，並說台北是首都。</summary>
+      <div class="bubble-wrap">
+        <div class="bubble a"><span class="speaker a">Thai Friend</span><div class="triad"><div class="thai">คุณเป็นคนที่ไหนคะ</div><div class="roman">khun bpen khon thîi-nǎi khá</div><div class="eng">Where are you from?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ฉันมาจากไต้หวันค่ะ ไทเปเป็นเมืองหลวงของไต้หวันค่ะ</div><div class="roman">chǎn maa jàak tâai-wǎn khâ, thai-bpèe bpen mʉang-lǔang khɔ̌ɔng tâai-wǎn khâ</div><div class="eng">I am from Taiwan. Taipei is the capital of Taiwan.</div></div></div>
+      </div>
+      <p><strong>Chinese Explanation:</strong> 練習 <span class="thai">มาจาก</span> 和 <span class="thai">เมืองหลวงของ...</span>。</p>
+    </details>
+
+    <h3>Synonyms / Opposites Practice</h3>
+    <details>
+      <summary>ตำบล / แขวง 和 อำเภอ / เขต 差在哪裡？</summary>
+      <div class="triad"><div class="thai">ตำบล / อำเภอ ใช้นอกกรุงเทพฯ ค่ะ</div><div class="roman">dtam-bon / am-phəə chái nɔ̂ɔk grung-thêep khâ</div><div class="eng">Tambon and amphoe are used outside Bangkok.</div></div>
+      <div class="triad"><div class="thai">แขวง / เขต ใช้ในกรุงเทพฯ ค่ะ</div><div class="roman">khwɛ̌ɛng / khèet chái nai grung-thêep khâ</div><div class="eng">Khwaeng and khet are used in Bangkok.</div></div>
+      <p><strong>Chinese Explanation:</strong> 曼谷地址和外府地址行政詞不同。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="triad"><div class="thai">คุณมาจากที่ไหนคะ</div><div class="roman">khun maa jàak thîi-nǎi khá</div><div class="eng">Where are you from?</div></div></td><td>問對方從哪裡來</td></tr>
+        <tr><td>2</td><td><div class="triad"><div class="thai">ฉันมาจากไต้หวันค่ะ</div><div class="roman">chǎn maa jàak tâai-wǎn khâ</div><div class="eng">I am from Taiwan.</div></div></td><td>自我介紹</td></tr>
+        <tr><td>3</td><td><div class="triad"><div class="thai">คุณเป็นคนที่ไหนคะ</div><div class="roman">khun bpen khon thîi-nǎi khá</div><div class="eng">Where are you from?</div></div></td><td>聊天問家鄉</td></tr>
+        <tr><td>4</td><td><div class="triad"><div class="thai">ขอที่อยู่ภาษาไทยได้ไหมคะ</div><div class="roman">khɔ̌ɔ thîi-yùu phaa-sǎa-thai dâai mái khá</div><div class="eng">Can I have the address in Thai?</div></div></td><td>問地址</td></tr>
+        <tr><td>5</td><td><div class="triad"><div class="thai">รหัสไปรษณีย์อะไรคะ</div><div class="roman">rá-hàt bprai-sà-nii à-rai khá</div><div class="eng">What is the postal code?</div></div></td><td>寄件 / 填表</td></tr>
+        <tr><td>6</td><td><div class="triad"><div class="thai">คอนโดอยู่เขตอะไรคะ</div><div class="roman">khɔɔn-doo yùu khèet à-rai khá</div><div class="eng">Which district is the condo in?</div></div></td><td>看房 / 問地址</td></tr>
+        <tr><td>7</td><td><div class="triad"><div class="thai">กรุงเทพฯ เป็นเมืองหลวงของประเทศไทยค่ะ</div><div class="roman">grung-thêep bpen mʉang-lǔang khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Bangkok is the capital of Thailand.</div></div></td><td>介紹國家</td></tr>
+        <tr><td>8</td><td><div class="triad"><div class="thai">เชียงใหม่อยู่ภาคเหนือค่ะ</div><div class="roman">chiiang-mài yùu phâak nʉ̌a khâ</div><div class="eng">Chiang Mai is in the northern region.</div></div></td><td>介紹地區</td></tr>
+        <tr><td>9</td><td><div class="triad"><div class="thai">ไต้หวันมีชื่อเสียงเรื่องชานมไข่มุกค่ะ</div><div class="roman">tâai-wǎn mii chʉ̂ʉ-sǐang rʉ̂ang chaa-nom khài-múk khâ</div><div class="eng">Taiwan is famous for bubble milk tea.</div></div></td><td>介紹台灣</td></tr>
+        <tr><td>10</td><td><div class="triad"><div class="thai">คุณมาเมืองไทยครั้งแรกเมื่อไรคะ</div><div class="roman">khun maa mʉang-thai khráng-rɛ̂ɛk mʉ̂a-rai khá</div><div class="eng">When did you first come to Thailand?</div></div></td><td>旅遊聊天</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>今日背誦優先順序：</strong>
+      先背 1、2、3、4、10。這五句最容易在曼谷生活中直接用到：問家鄉、自我介紹、要地址、聊第一次來泰國。
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

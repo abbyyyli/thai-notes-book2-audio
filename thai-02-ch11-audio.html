@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 11 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: #9a3412;
+      border: .5px solid rgba(249,115,22,.35);
+      font-weight: 800;
+      margin-right: 6px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 11 學習指南</h1>
+    <p class="subtitle">主題：月份、จนถึง / ตลอด、ที่ 修飾名詞、ก่อน...ก็ต้อง...、ต้อง...ก่อน...、ควร / ไม่ควร、แนะนำ</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+<section id="overview" class="tab-content active">
+<h2>Overview｜本課總覽</h2>
+<div class="cards">
+<div class="card"><span class="label textbook">Textbook-based</span><h3>本課主要學什麼？</h3><ol><li>12 個月份與每月天數：30 天、31 天、2 月 28 / 29 天。</li><li>問「會一直做到什麼時候？」：<strong>จะ...จนถึงเมื่อไร</strong>。</li><li>用 <strong>ที่</strong> 把「媽媽煮的食物」、「他買的衣服」接成一句。</li><li>用 <strong>ก่อน...ก็ต้อง...</strong> / <strong>ต้อง...ก่อน...</strong> 說「在……之前必須先……」。</li><li>用 <strong>ควรจะ</strong> / <strong>ไม่ควรจะ</strong> 給建議。</li></ol></div>
+<div class="card"><span class="label local">Supplement / Local usage</span><h3>曼谷生活會怎麼用？</h3><p>Day 11 很適合用在學校櫃台、簽證文件、租屋合約、飯店住宿、看醫生、藥局與健身建議。</p></div>
+</div>
+<h3>你學完後可以說什麼？</h3>
+<div class="cards">
+<div class="card"><div class="triad"><div class="thai">คอร์สนี้เรียนจนถึงเมื่อไรคะ</div><div class="roman">khɔ̂ɔt níi rian jon-thʉ̌ng mʉ̂a-rài khá</div><div class="eng">Until when does this course run?</div></div></div>
+<div class="card"><div class="triad"><div class="thai">ฉันจะอยู่เมืองไทยจนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">chǎn jà yùu mʉang-thai jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">I will stay in Thailand until May.</div></div></div>
+<div class="card"><div class="triad"><div class="thai">อาหารที่แม่ครัวทำอร่อยค่ะ</div><div class="roman">aa-hǎan thîi mɛ̂ɛ-khrua tham à-rɔ̀i khâ</div><div class="eng">The food that the cook made is delicious.</div></div></div>
+<div class="card"><div class="triad"><div class="thai">ก่อนมาเมืองไทย ก็ต้องมีหนังสือเดินทางค่ะ</div><div class="roman">gɔ̀ɔn maa mʉang-thai gɔ̂ɔ dtɔ̂ng mii nǎng-sʉ̌ʉ-dəən-thaang khâ</div><div class="eng">Before coming to Thailand, you must have a passport.</div></div></div>
+<div class="card"><div class="triad"><div class="thai">คุณควรจะออกกำลังกายมากขึ้นค่ะ</div><div class="roman">khun khuan jà ɔ̀ɔk-gam-lang-gaai mâak khʉ̂n khâ</div><div class="eng">You should exercise more.</div></div></div>
+<div class="card"><div class="triad"><div class="thai">ไม่ควรจะกินอาหารหวานบ่อยค่ะ</div><div class="roman">mâi khuan jà gin aa-hǎan wǎan bɔ̀i khâ</div><div class="eng">You should not eat sweet food often.</div></div></div>
+</div>
+<div class="tip blue"><h3>本課 PDF 對應重點</h3><p>第 2 頁：12 個月份，依字尾分成 31 天、30 天，以及 2 月 28 / 29 天。</p><p>第 3 頁：<strong>จะ V จนถึงเมื่อไร</strong> 與回答到時間、情況、副詞、<strong>ตลอดชีวิต</strong>。</p><p>第 4 頁：用 <strong>ที่</strong> 合併句子，例如「媽媽煮的食物很好吃」、「他買的衣服不太貴」。</p><p>第 5 頁：<strong>ก่อน...ก็ต้อง...</strong> 與 <strong>ต้อง...ก่อน...</strong>。</p><p>第 6 頁：<strong>ควรจะ / ไม่ควรจะ</strong> 給健康建議。</p></div>
+<div class="tip orange"><span class="label review">Review</span> Day 9 已學過 <div class="triad"><div class="thai">ก่อน</div><div class="roman">gɔ̀ɔn</div><div class="eng">before / first</div></div>本課升級成：<div class="triad"><div class="thai">ก่อนสอบ ก็ต้องทบทวนค่ะ</div><div class="roman">gɔ̀ɔn sɔ̀ɔp gɔ̂ɔ dtɔ̂ng thóp-thuan khâ</div><div class="eng">Before an exam, you must review.</div></div></div>
+</section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Months｜月份</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มกราคม</div><div class="roman">má-gà-raa-khom</div><div class="eng">January</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td>結尾 <span class="thai">-คม</span> 的月份通常有 31 天。</td>
+          <td><div class="triad"><div class="thai">เดือนมกราคม / วันที่หนึ่งมกราคม</div><div class="roman">dʉan má-gà-raa-khom / wan-thîi nʉ̀eng má-gà-raa-khom</div><div class="eng">January / January 1st</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจะเริ่มเรียนภาษาไทยเดือนมกราคมค่ะ</div><div class="roman">chǎn jà rə̂əm rian phaa-sǎa-thai dʉan má-gà-raa-khom khâ</div><div class="eng">I will start studying Thai in January.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กุมภาพันธ์</div><div class="roman">gum-phaa-phan</div><div class="eng">February</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td>二月有 28 天，閏年 29 天。</td>
+          <td><div class="triad"><div class="thai">เดือนกุมภาพันธ์ / ทุก 4 ปี มี 29 วัน</div><div class="roman">dʉan gum-phaa-phan / thúk sìi bpii mii yîi-sìp-gâo wan</div><div class="eng">February / every 4 years has 29 days</div></div></td>
+          <td><div class="triad"><div class="thai">เดือนกุมภาพันธ์มี 28 หรือ 29 วันค่ะ</div><div class="roman">dʉan gum-phaa-phan mii yîi-sìp-bpɛ̀ɛt rʉ̌ʉ yîi-sìp-gâo wan khâ</div><div class="eng">February has 28 or 29 days.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีนาคม</div><div class="roman">mii-naa-khom</div><div class="eng">March</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td><span class="thai">-คม</span> 月，31 天。</td>
+          <td><div class="triad"><div class="thai">เดือนมีนาคม / กลางเดือนมีนาคม</div><div class="roman">dʉan mii-naa-khom / glaang dʉan mii-naa-khom</div><div class="eng">March / mid-March</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมาเมืองไทยเดือนมีนาคมค่ะ</div><div class="roman">chǎn maa mʉang-thai dʉan mii-naa-khom khâ</div><div class="eng">I came to Thailand in March.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เมษายน</div><div class="roman">mee-sǎa-yǒn</div><div class="eng">April</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td>結尾 <span class="thai">-ยน</span> 的月份通常有 30 天。</td>
+          <td><div class="triad"><div class="thai">เดือนเมษายน / สงกรานต์เดือนเมษายน</div><div class="roman">dʉan mee-sǎa-yǒn / sǒng-graan dʉan mee-sǎa-yǒn</div><div class="eng">April / Songkran in April</div></div></td>
+          <td><div class="triad"><div class="thai">สงกรานต์อยู่เดือนเมษายนค่ะ</div><div class="roman">sǒng-graan yùu dʉan mee-sǎa-yǒn khâ</div><div class="eng">Songkran is in April.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พฤษภาคม</div><div class="roman">phrʉ́t-sà-phaa-khom</div><div class="eng">May</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td><span class="thai">-คม</span> 月，31 天。</td>
+          <td><div class="triad"><div class="thai">เดือนพฤษภาคม / ปลายเดือนพฤษภาคม</div><div class="roman">dʉan phrʉ́t-sà-phaa-khom / bplaai dʉan phrʉ́t-sà-phaa-khom</div><div class="eng">May / late May</div></div></td>
+          <td><div class="triad"><div class="thai">คอร์สนี้เรียนจนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">khɔ̂ɔt níi rian jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">This course runs until May.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มิถุนายน</div><div class="roman">mí-thù-naa-yǒn</div><div class="eng">June</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td><span class="thai">-ยน</span> 月，30 天。</td>
+          <td><div class="triad"><div class="thai">เดือนมิถุนายน / ต้นเดือนมิถุนายน</div><div class="roman">dʉan mí-thù-naa-yǒn / dtôn dʉan mí-thù-naa-yǒn</div><div class="eng">June / early June</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมีสอบเดือนมิถุนายนค่ะ</div><div class="roman">chǎn mii sɔ̀ɔp dʉan mí-thù-naa-yǒn khâ</div><div class="eng">I have an exam in June.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กรกฎาคม</div><div class="roman">gà-rá-gà-daa-khom</div><div class="eng">July</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td><span class="thai">-คม</span> 月，31 天。</td>
+          <td><div class="triad"><div class="thai">เดือนกรกฎาคม / วันหยุดเดือนกรกฎาคม</div><div class="roman">dʉan gà-rá-gà-daa-khom / wan-yùt dʉan gà-rá-gà-daa-khom</div><div class="eng">July / holiday in July</div></div></td>
+          <td><div class="triad"><div class="thai">เดือนกรกฎาคมกรุงเทพฯ ฝนตกบ่อยค่ะ</div><div class="roman">dʉan gà-rá-gà-daa-khom grung-thêep fǒn-dtòk bɔ̀i khâ</div><div class="eng">In July, it rains often in Bangkok.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สิงหาคม</div><div class="roman">sǐng-hǎa-khom</div><div class="eng">August</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td><span class="thai">-คม</span> 月，31 天。</td>
+          <td><div class="triad"><div class="thai">เดือนสิงหาคม / วันแม่เดือนสิงหาคม</div><div class="roman">dʉan sǐng-hǎa-khom / wan-mɛ̂ɛ dʉan sǐng-hǎa-khom</div><div class="eng">August / Mother’s Day in August</div></div></td>
+          <td><div class="triad"><div class="thai">วันแม่ของไทยอยู่เดือนสิงหาคมค่ะ</div><div class="roman">wan-mɛ̂ɛ khɔ̌ɔng thai yùu dʉan sǐng-hǎa-khom khâ</div><div class="eng">Thai Mother’s Day is in August.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กันยายน</div><div class="roman">gan-yaa-yǒn</div><div class="eng">September</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td><span class="thai">-ยน</span> 月，30 天。</td>
+          <td><div class="triad"><div class="thai">เดือนกันยายน / เปิดเทอมเดือนกันยายน</div><div class="roman">dʉan gan-yaa-yǒn / bpə̀ət-thəəm dʉan gan-yaa-yǒn</div><div class="eng">September / semester starts in September</div></div></td>
+          <td><div class="triad"><div class="thai">มหาวิทยาลัยเปิดเทอมเดือนกันยายนค่ะ</div><div class="roman">má-hǎa-wít-thá-yaa-lai bpə̀ət-thəəm dʉan gan-yaa-yǒn khâ</div><div class="eng">The university semester starts in September.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตุลาคม</div><div class="roman">dtù-laa-khom</div><div class="eng">October</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td><span class="thai">-คม</span> 月，31 天。</td>
+          <td><div class="triad"><div class="thai">เดือนตุลาคม / กลางเดือนตุลาคม</div><div class="roman">dʉan dtù-laa-khom / glaang dʉan dtù-laa-khom</div><div class="eng">October / mid-October</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยากไปเที่ยวเชียงใหม่เดือนตุลาคมค่ะ</div><div class="roman">chǎn yàak bpai thîao chiiang-mài dʉan dtù-laa-khom khâ</div><div class="eng">I want to travel to Chiang Mai in October.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พฤศจิกายน</div><div class="roman">phrʉ́t-sà-jì-gaa-yǒn</div><div class="eng">November</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td><span class="thai">-ยน</span> 月，30 天。</td>
+          <td><div class="triad"><div class="thai">เดือนพฤศจิกายน / ลอยกระทงเดือนพฤศจิกายน</div><div class="roman">dʉan phrʉ́t-sà-jì-gaa-yǒn / lɔɔi-grà-thong dʉan phrʉ́t-sà-jì-gaa-yǒn</div><div class="eng">November / Loy Krathong in November</div></div></td>
+          <td><div class="triad"><div class="thai">ลอยกระทงมักอยู่เดือนพฤศจิกายนค่ะ</div><div class="roman">lɔɔi-grà-thong mák yùu dʉan phrʉ́t-sà-jì-gaa-yǒn khâ</div><div class="eng">Loy Krathong is often in November.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ธันวาคม</div><div class="roman">than-waa-khom</div><div class="eng">December</div></div></td>
+          <td>Month</td>
+          <td>เดือน</td>
+          <td><span class="thai">-คม</span> 月，31 天。</td>
+          <td><div class="triad"><div class="thai">เดือนธันวาคม / สิ้นปีเดือนธันวาคม</div><div class="roman">dʉan than-waa-khom / sîn-bpii dʉan than-waa-khom</div><div class="eng">December / year-end in December</div></div></td>
+          <td><div class="triad"><div class="thai">เดือนธันวาคมคนไปเที่ยวเยอะค่ะ</div><div class="roman">dʉan than-waa-khom khon bpai thîao yə́ khâ</div><div class="eng">In December, many people travel.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Time Duration & Grammar Words｜時間長度與文法詞</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">จนถึง</div><div class="roman">jon-thʉ̌ng</div><div class="eng">until</div></div></td>
+          <td>Time connector</td>
+          <td>—</td>
+          <td>表示動作或狀態持續到某個時間點。</td>
+          <td><div class="triad"><div class="thai">จนถึงเดือนหน้า / จนถึงพรุ่งนี้ / จนถึงสิ้นปี</div><div class="roman">jon-thʉ̌ng dʉan-nâa / jon-thʉ̌ng phrûng-níi / jon-thʉ̌ng sîn-bpii</div><div class="eng">until next month / until tomorrow / until year-end</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจะอยู่กรุงเทพฯ จนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">chǎn jà yùu grung-thêep jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">I will stay in Bangkok until May.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตลอด</div><div class="roman">dtà-lɔ̀ɔt</div><div class="eng">throughout / all along</div></div></td>
+          <td>Duration word</td>
+          <td>—</td>
+          <td>表示整段時間都如此。</td>
+          <td><div class="triad"><div class="thai">ตลอดวัน / ตลอดคืน / ตลอดชีวิต</div><div class="roman">dtà-lɔ̀ɔt wan / dtà-lɔ̀ɔt khʉʉn / dtà-lɔ̀ɔt chii-wít</div><div class="eng">all day / all night / all life</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยากเรียนภาษาไปตลอดชีวิตค่ะ</div><div class="roman">chǎn yàak rian phaa-sǎa bpai dtà-lɔ̀ɔt chii-wít khâ</div><div class="eng">I want to keep learning languages for my whole life.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">วัน / กลางวัน</div><div class="roman">wan / glaang-wan</div><div class="eng">day / daytime</div></div></td>
+          <td>Time noun</td>
+          <td>วัน</td>
+          <td><span class="thai">วัน</span> 是天；<span class="thai">กลางวัน</span> 是白天。</td>
+          <td><div class="triad"><div class="thai">ตลอดวัน / กลางวันร้อนมาก</div><div class="roman">dtà-lɔ̀ɔt wan / glaang-wan rɔ́ɔn mâak</div><div class="eng">all day / daytime is very hot</div></div></td>
+          <td><div class="triad"><div class="thai">กลางวันกรุงเทพฯ ร้อนมากค่ะ</div><div class="roman">glaang-wan grung-thêep rɔ́ɔn mâak khâ</div><div class="eng">Bangkok is very hot during the day.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คืน / กลางคืน</div><div class="roman">khʉʉn / glaang-khʉʉn</div><div class="eng">night / nighttime</div></div></td>
+          <td>Time noun</td>
+          <td>คืน</td>
+          <td><span class="thai">คืน</span> 作量詞可表示「晚」。</td>
+          <td><div class="triad"><div class="thai">สามคืน / ตลอดคืน / กลางคืนไม่ร้อนมาก</div><div class="roman">sǎam khʉʉn / dtà-lɔ̀ɔt khʉʉn / glaang-khʉʉn mâi rɔ́ɔn mâak</div><div class="eng">three nights / all night / nighttime is not very hot</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันพักที่โรงแรมนี้สามคืนค่ะ</div><div class="roman">chǎn phák thîi rooŋ-rɛɛm níi sǎam khʉʉn khâ</div><div class="eng">I stay at this hotel for three nights.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ที่</div><div class="roman">thîi</div><div class="eng">that / which / who / at</div></div></td>
+          <td>Relative marker / place marker</td>
+          <td>—</td>
+          <td>本課重點是修飾名詞：N + ที่ + clause。也可表示「在某地」。</td>
+          <td><div class="triad"><div class="thai">อาหารที่... / เสื้อที่... / ร้านที่...</div><div class="roman">aa-hǎan thîi... / sʉ̂a thîi... / ráan thîi...</div><div class="eng">food that... / shirt that... / shop that...</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านที่ฉันไปเมื่อวานอร่อยมากค่ะ</div><div class="roman">ráan thîi chǎn bpai mʉ̂a-waan à-rɔ̀i mâak khâ</div><div class="eng">The restaurant that I went to yesterday was very delicious.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ควร</div><div class="roman">khuan</div><div class="eng">should</div></div></td>
+          <td>Modal verb</td>
+          <td>—</td>
+          <td>比較正式/中性地給建議。否定是 <span class="thai">ไม่ควร</span>。</td>
+          <td><div class="triad"><div class="thai">ควรออกกำลัง / ควรกินผัก / ควรพักผ่อน</div><div class="roman">khuan ɔ̀ɔk-gam-lang / khuan gin phàk / khuan phák-phɔ̀ɔn</div><div class="eng">should exercise / should eat vegetables / should rest</div></div></td>
+          <td><div class="triad"><div class="thai">คุณควรออกกำลังกายทุกวันค่ะ</div><div class="roman">khun khuan ɔ̀ɔk-gam-lang-gaai thúk wan khâ</div><div class="eng">You should exercise every day.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไม่ควร</div><div class="roman">mâi khuan</div><div class="eng">should not</div></div></td>
+          <td>Negative modal verb</td>
+          <td>—</td>
+          <td>比 <span class="thai">ห้าม</span> 柔和；是建議不要做，不是嚴格禁止。</td>
+          <td><div class="triad"><div class="thai">ไม่ควรกินหวาน / ไม่ควรกินเบียร์เหล้า / ไม่ควรนอนดึก</div><div class="roman">mâi khuan gin wǎan / mâi khuan gin bia lâo / mâi khuan nɔɔn dʉ̀k</div><div class="eng">should not eat sweets / should not drink beer or liquor / should not sleep late</div></div></td>
+          <td><div class="triad"><div class="thai">คุณไม่ควรกินอาหารหวานมากค่ะ</div><div class="roman">khun mâi khuan gin aa-hǎan wǎan mâak khâ</div><div class="eng">You should not eat very sweet food.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แนะนำ</div><div class="roman">náe-nam</div><div class="eng">to recommend / suggest</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>可用於推薦食物、地方、醫生、課程，也可用在給建議。</td>
+          <td><div class="triad"><div class="thai">แนะนำร้านอาหาร / แนะนำให้... / มีอะไรแนะนำไหม</div><div class="roman">náe-nam ráan aa-hǎan / náe-nam hâi... / mii à-rai náe-nam mái</div><div class="eng">recommend a restaurant / recommend that... / any recommendations?</div></div></td>
+          <td><div class="triad"><div class="thai">หมอแนะนำให้ฉันกินผักมากขึ้นค่ะ</div><div class="roman">mɔ̌ɔ náe-nam hâi chǎn gin phàk mâak khʉ̂n khâ</div><div class="eng">The doctor recommends that I eat more vegetables.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">เดือน</span><div class="triad"><div class="thai">เดือน</div><div class="roman">dʉan</div><div class="eng">month</div></div></td>
+          <td><div class="triad"><div class="thai">มกราคม / กุมภาพันธ์ / มีนาคม</div><div class="roman">má-gà-raa-khom / gum-phaa-phan / mii-naa-khom</div><div class="eng">January / February / March</div></div></td>
+          <td>月份前常加 <span class="thai">เดือน</span>，尤其初學者說日期、月份時更清楚。</td>
+          <td><div class="triad"><div class="thai">เดือนเมษายนมี 30 วันค่ะ</div><div class="roman">dʉan mee-sǎa-yǒn mii sǎam-sìp wan khâ</div><div class="eng">April has 30 days.</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要把 <span class="thai">เดือน</span> 跟 <span class="thai">วัน</span> 混用；月是 <span class="thai">เดือน</span>，天是 <span class="thai">วัน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">วัน</span><div class="triad"><div class="thai">วัน</div><div class="roman">wan</div><div class="eng">day</div></div></td>
+          <td><div class="triad"><div class="thai">30 วัน / 31 วัน / ทุกวัน</div><div class="roman">sǎam-sìp wan / sǎam-sìp-èt wan / thúk wan</div><div class="eng">30 days / 31 days / every day</div></div></td>
+          <td>數天數時用。</td>
+          <td><div class="triad"><div class="thai">เดือนธันวาคมมี 31 วันค่ะ</div><div class="roman">dʉan than-waa-khom mii sǎam-sìp-èt wan khâ</div><div class="eng">December has 31 days.</div></div></td>
+          <td><span class="label warn">Common mistake</span> <span class="thai">วัน</span> 可是 day，也可在日期裡表示「日」。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คืน</span><div class="triad"><div class="thai">คืน</div><div class="roman">khʉʉn</div><div class="eng">night</div></div></td>
+          <td><div class="triad"><div class="thai">พักโรงแรม / จองห้อง / นอนค้าง</div><div class="roman">phák rooŋ-rɛɛm / jɔɔng hɔ̂ng / nɔɔn kháang</div><div class="eng">hotel stay / room booking / overnight stay</div></div></td>
+          <td>訂飯店、住宿幾晚用。</td>
+          <td><div class="triad"><div class="thai">ฉันจองโรงแรมสองคืนค่ะ</div><div class="roman">chǎn jɔɔng rooŋ-rɛɛm sɔ̌ɔng khʉʉn khâ</div><div class="eng">I booked a hotel for two nights.</div></div></td>
+          <td>不要說 <span class="thai">สองวัน</span> 來表示兩晚住宿；住宿常用 <span class="thai">คืน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ชั่วโมง</span><div class="triad"><div class="thai">ชั่วโมง</div><div class="roman">chûa-moong</div><div class="eng">hour</div></div></td>
+          <td><div class="triad"><div class="thai">เรียน / ทำงาน / รอ</div><div class="roman">rian / tham-ngaan / rɔɔ</div><div class="eng">study / work / wait</div></div></td>
+          <td>時間長度「幾小時」。</td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันเรียนภาษาไทยสามชั่วโมงค่ะ</div><div class="roman">wan-níi chǎn rian phaa-sǎa-thai sǎam chûa-moong khâ</div><div class="eng">Today I studied Thai for three hours.</div></div></td>
+          <td><span class="thai">โมง</span> 是幾點，<span class="thai">ชั่วโมง</span> 是幾小時。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ปี</span><div class="triad"><div class="thai">ปี</div><div class="roman">bpii</div><div class="eng">year</div></div></td>
+          <td><div class="triad"><div class="thai">อายุ / ระยะเวลา / ทุก 4 ปี</div><div class="roman">aa-yú / rá-yá wee-laa / thúk sìi bpii</div><div class="eng">age / duration / every 4 years</div></div></td>
+          <td>數年數、年齡、閏年都用。</td>
+          <td><div class="triad"><div class="thai">ทุก 4 ปี เดือนกุมภาพันธ์มี 29 วันค่ะ</div><div class="roman">thúk sìi bpii dʉan gum-phaa-phan mii yîi-sìp-gâo wan khâ</div><div class="eng">Every four years, February has 29 days.</div></div></td>
+          <td>「幾歲」也用 <span class="thai">ปี</span>，但結構是 <span class="thai">อายุ...ปี</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜本課重點補充</h2>
+
+    <h3>Month Ending Rule｜-คม / -ยน / February</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Group</th>
+          <th>Thai / Romanization / English</th>
+          <th>Days</th>
+          <th>Memory Tip</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>31-day months</td>
+          <td>
+            <div class="triad"><div class="thai">มกราคม / มีนาคม / พฤษภาคม / กรกฎาคม / สิงหาคม / ตุลาคม / ธันวาคม</div><div class="roman">má-gà-raa-khom / mii-naa-khom / phrʉ́t-sà-phaa-khom / gà-rá-gà-daa-khom / sǐng-hǎa-khom / dtù-laa-khom / than-waa-khom</div><div class="eng">January / March / May / July / August / October / December</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">มี 31 วัน</div><div class="roman">mii sǎam-sìp-èt wan</div><div class="eng">has 31 days</div></div></td>
+          <td>結尾 <span class="thai">-คม</span> 通常是 31 天。</td>
+        </tr>
+
+        <tr>
+          <td>30-day months</td>
+          <td>
+            <div class="triad"><div class="thai">เมษายน / มิถุนายน / กันยายน / พฤศจิกายน</div><div class="roman">mee-sǎa-yǒn / mí-thù-naa-yǒn / gan-yaa-yǒn / phrʉ́t-sà-jì-gaa-yǒn</div><div class="eng">April / June / September / November</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">มี 30 วัน</div><div class="roman">mii sǎam-sìp wan</div><div class="eng">has 30 days</div></div></td>
+          <td>結尾 <span class="thai">-ยน</span> 通常是 30 天。</td>
+        </tr>
+
+        <tr>
+          <td>February</td>
+          <td>
+            <div class="triad"><div class="thai">กุมภาพันธ์</div><div class="roman">gum-phaa-phan</div><div class="eng">February</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">มี 28 หรือ 29 วัน</div><div class="roman">mii yîi-sìp-bpɛ̀ɛt rʉ̌ʉ yîi-sìp-gâo wan</div><div class="eng">has 28 or 29 days</div></div></td>
+          <td><span class="thai">ทุก 4 ปี มี 29 วัน</span> / <span class="roman">thúk sìi bpii mii yîi-sìp-gâo wan</span> / <span class="eng">every 4 years has 29 days</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>จนถึง vs ถึง vs ตลอด｜直到 / 到 / 整段時間</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Meaning</th>
+          <th>Different Life Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Until</td>
+          <td><div class="triad"><div class="thai">จนถึง</div><div class="roman">jon-thʉ̌ng</div><div class="eng">until</div></div></td>
+          <td>某事持續到某個時間點。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันอยู่ไทยจนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">chǎn yùu thai jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">I stay in Thailand until May.</div></div>
+            <div class="triad"><div class="thai">โปรโมชันนี้มีจนถึงสิ้นเดือนค่ะ</div><div class="roman">bproo-moo-chân níi mii jon-thʉ̌ng sîn dʉan khâ</div><div class="eng">This promotion lasts until the end of the month.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>To / arrive</td>
+          <td><div class="triad"><div class="thai">ถึง</div><div class="roman">thʉ̌ng</div><div class="eng">to / arrive / reach</div></div></td>
+          <td>可以表示到達，也可以表示到某時間點。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันถึงโรงเรียนแล้วค่ะ</div><div class="roman">chǎn thʉ̌ng rooŋ-rian lɛ́ɛw khâ</div><div class="eng">I have arrived at school.</div></div>
+            <div class="triad"><div class="thai">ร้านเปิดถึงสามทุ่มค่ะ</div><div class="roman">ráan bpə̀ət thʉ̌ng sǎam thûm khâ</div><div class="eng">The shop is open until 9 p.m.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Throughout</td>
+          <td><div class="triad"><div class="thai">ตลอด</div><div class="roman">dtà-lɔ̀ɔt</div><div class="eng">throughout / all along</div></div></td>
+          <td>整段時間都如此。</td>
+          <td>
+            <div class="triad"><div class="thai">เมื่อคืนฝนตกตลอดคืนค่ะ</div><div class="roman">mʉ̂a-khʉʉn fǒn-dtòk dtà-lɔ̀ɔt khʉʉn khâ</div><div class="eng">Last night, it rained all night.</div></div>
+            <div class="triad"><div class="thai">ฉันยุ่งตลอดวันค่ะ</div><div class="roman">chǎn yûng dtà-lɔ̀ɔt wan khâ</div><div class="eng">I was busy all day.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>ที่｜Relative Clause：把兩句合成一句</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Original A</th>
+          <th>Original B</th>
+          <th>Combined Sentence</th>
+          <th>中文邏輯</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">แม่ครัวทำอาหาร</div><div class="roman">mɛ̂ɛ-khrua tham aa-hǎan</div><div class="eng">The cook makes food.</div></div></td>
+          <td><div class="triad"><div class="thai">อาหารอร่อย</div><div class="roman">aa-hǎan à-rɔ̀i</div><div class="eng">The food is delicious.</div></div></td>
+          <td><div class="triad"><div class="thai">อาหารที่แม่ครัวทำอร่อยค่ะ</div><div class="roman">aa-hǎan thîi mɛ̂ɛ-khrua tham à-rɔ̀i khâ</div><div class="eng">The food that the cook makes is delicious.</div></div></td>
+          <td>被修飾的名詞放前面：<span class="thai">อาหารที่...</span>。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เขาซื้อเสื้อ</div><div class="roman">khǎo sʉ́ʉ sʉ̂a</div><div class="eng">He bought a shirt.</div></div></td>
+          <td><div class="triad"><div class="thai">เสื้อไม่ค่อยแพง</div><div class="roman">sʉ̂a mâi khɔ̂i phɛɛng</div><div class="eng">The shirt is not very expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">เสื้อที่เขาซื้อไม่ค่อยแพงค่ะ</div><div class="roman">sʉ̂a thîi khǎo sʉ́ʉ mâi khɔ̂i phɛɛng khâ</div><div class="eng">The shirt that he bought is not very expensive.</div></div></td>
+          <td>英文像 that/which，但泰文不需要變動詞型。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ฉันกินอาหารที่ร้านนี้เมื่อวานนี้</div><div class="roman">chǎn gin aa-hǎan thîi ráan níi mʉ̂a-waan-níi</div><div class="eng">I ate food at this restaurant yesterday.</div></div></td>
+          <td><div class="triad"><div class="thai">อาหารอร่อย</div><div class="roman">aa-hǎan à-rɔ̀i</div><div class="eng">The food is delicious.</div></div></td>
+          <td><div class="triad"><div class="thai">อาหารที่ฉันกินที่ร้านนี้เมื่อวานนี้อร่อยค่ะ</div><div class="roman">aa-hǎan thîi chǎn gin thîi ráan níi mʉ̂a-waan-níi à-rɔ̀i khâ</div><div class="eng">The food that I ate at this restaurant yesterday was delicious.</div></div></td>
+          <td>第一個 <span class="thai">ที่</span> 是修飾；第二個 <span class="thai">ที่ร้าน</span> 是地點。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>最容易混淆：</strong>
+      <span class="thai">ที่</span> 有兩種常見功能。<br>
+      1. <span class="thai">อาหารที่ฉันกิน</span> /
+      <span class="roman">aa-hǎan thîi chǎn gin</span> /
+      <span class="eng">the food that I ate</span>：修飾名詞。<br>
+      2. <span class="thai">ที่ร้านนี้</span> /
+      <span class="roman">thîi ráan níi</span> /
+      <span class="eng">at this restaurant</span>：表示地點。
+    </div>
+
+    <h3>ก่อน...ก็ต้อง... vs ต้อง...ก่อน...｜做之前必須先做</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Meaning</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ก่อน V2 ก็ต้อง V1</td>
+          <td><div class="triad"><div class="thai">ก่อน + V2 + ก็ต้อง + V1</div><div class="roman">gɔ̀ɔn + V2 + gɔ̂ɔ dtɔ̂ng + V1</div><div class="eng">Before doing V2, one must do V1.</div></div></td>
+          <td>先講目標，再講前置條件。</td>
+          <td><div class="triad"><div class="thai">ก่อนมาเมืองไทย ก็ต้องมีหนังสือเดินทางค่ะ</div><div class="roman">gɔ̀ɔn maa mʉang-thai gɔ̂ɔ dtɔ̂ng mii nǎng-sʉ̌ʉ-dəən-thaang khâ</div><div class="eng">Before coming to Thailand, you must have a passport.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>ต้อง V1 ก่อน V2</td>
+          <td><div class="triad"><div class="thai">ต้อง + V1 + ก่อน + V2</div><div class="roman">dtɔ̂ng + V1 + gɔ̀ɔn + V2</div><div class="eng">Must do V1 before doing V2.</div></div></td>
+          <td>先講必須做的事，再講目標。</td>
+          <td><div class="triad"><div class="thai">ต้องมีหนังสือเดินทางก่อนมาเมืองไทยค่ะ</div><div class="roman">dtɔ̂ng mii nǎng-sʉ̌ʉ-dəən-thaang gɔ̀ɔn maa mʉang-thai khâ</div><div class="eng">You must have a passport before coming to Thailand.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>ควร / ไม่ควร / ต้อง / ห้าม｜建議強度比較</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Strength</th>
+          <th>Thai / Romanization / English</th>
+          <th>Feeling</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Soft suggestion</td>
+          <td><div class="triad"><div class="thai">น่าจะ</div><div class="roman">nâa-jà</div><div class="eng">probably should / likely</div></div></td>
+          <td>比較柔和、像建議或推測。</td>
+          <td><div class="triad"><div class="thai">วันนี้น่าจะพักผ่อนเยอะ ๆ ค่ะ</div><div class="roman">wan-níi nâa-jà phák-phɔ̀ɔn yə́-yə́ khâ</div><div class="eng">Today you should probably rest a lot.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Should</td>
+          <td><div class="triad"><div class="thai">ควร</div><div class="roman">khuan</div><div class="eng">should</div></div></td>
+          <td>正式、清楚建議。</td>
+          <td><div class="triad"><div class="thai">คุณควรกินผักมาก ๆ ค่ะ</div><div class="roman">khun khuan gin phàk mâak-mâak khâ</div><div class="eng">You should eat a lot of vegetables.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Should not</td>
+          <td><div class="triad"><div class="thai">ไม่ควร</div><div class="roman">mâi khuan</div><div class="eng">should not</div></div></td>
+          <td>建議不要做。</td>
+          <td><div class="triad"><div class="thai">คุณไม่ควรกินอาหารหวานมากค่ะ</div><div class="roman">khun mâi khuan gin aa-hǎan wǎan mâak khâ</div><div class="eng">You should not eat very sweet food.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Must</td>
+          <td><div class="triad"><div class="thai">ต้อง</div><div class="roman">dtɔ̂ng</div><div class="eng">must / have to</div></div></td>
+          <td>必要、規則、條件。</td>
+          <td><div class="triad"><div class="thai">ต้องมีหนังสือเดินทางก่อนเดินทางค่ะ</div><div class="roman">dtɔ̂ng mii nǎng-sʉ̌ʉ-dəən-thaang gɔ̀ɔn dəən-thaang khâ</div><div class="eng">You must have a passport before traveling.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Forbidden</td>
+          <td><div class="triad"><div class="thai">ห้าม</div><div class="roman">hâam</div><div class="eng">must not / prohibited</div></div></td>
+          <td>禁止，語氣最強。</td>
+          <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ในห้องค่ะ</div><div class="roman">hâam sùup bù-rìi nai hɔ̂ng khâ</div><div class="eng">Smoking is prohibited in the room.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+<section id="structures" class="tab-content">
+<h2>Structures｜句型整理</h2>
+
+<div class="pattern"><span class="label textbook">Textbook-based</span><h3>1. S + จะ + V + จนถึง + เมื่อไรคะ?</h3><div class="triad"><div class="thai">Subject + จะ + Verb + จนถึง + เมื่อไรคะ</div><div class="roman">Subject + jà + Verb + jon-thʉ̌ng + mʉ̂a-rài khá</div><div class="eng">Until when will Subject do Verb?</div></div><h4>Textbook-style example</h4><div class="triad"><div class="thai">คุณจะเรียนจนถึงเมื่อไรคะ</div><div class="roman">khun jà rian jon-thʉ̌ng mʉ̂a-rài khá</div><div class="eng">Until when will you study?</div></div><h4>Life variations</h4><ul><li><div class="triad"><div class="thai">คอร์สนี้เรียนจนถึงเมื่อไรคะ</div><div class="roman">khɔ̂ɔt níi rian jon-thʉ̌ng mʉ̂a-rài khá</div><div class="eng">Until when does this course run?</div></div></li><li><div class="triad"><div class="thai">วีซ่านี้อยู่ได้จนถึงเมื่อไรคะ</div><div class="roman">wii-sâa níi yùu dâai jon-thʉ̌ng mʉ̂a-rài khá</div><div class="eng">Until when can I stay with this visa?</div></div></li><li><div class="triad"><div class="thai">โปรโมชั่นนี้ใช้ได้จนถึงเมื่อไรคะ</div><div class="roman">phroo-moo-chân níi chái dâai jon-thʉ̌ng mʉ̂a-rài khá</div><div class="eng">Until when can this promotion be used?</div></div></li><li><div class="triad"><div class="thai">สัญญาเช่านี้ถึงเมื่อไรคะ</div><div class="roman">sǎn-yaa châo níi thʉ̌ng mʉ̂a-rài khá</div><div class="eng">Until when is this rental contract?</div></div></li></ul></div>
+
+<div class="pattern"><h3>2. S + จะ + V + จนถึง + Time</h3><div class="triad"><div class="thai">Subject + จะ + Verb + จนถึง + Time</div><div class="roman">Subject + jà + Verb + jon-thʉ̌ng + Time</div><div class="eng">Subject will do Verb until Time.</div></div><ul><li><div class="triad"><div class="thai">ฉันจะอยู่เมืองไทยจนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">chǎn jà yùu mʉang-thai jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">I will stay in Thailand until May.</div></div></li><li><div class="triad"><div class="thai">ร้านเปิดจนถึงสี่ทุ่มค่ะ</div><div class="roman">ráan bpə̀ət jon-thʉ̌ng sìi thûm khâ</div><div class="eng">The shop is open until 10 p.m.</div></div></li><li><div class="triad"><div class="thai">ฉันจะเรียนภาษาไทยจนถึงปลายเดือนมิถุนายนค่ะ</div><div class="roman">chǎn jà rian phaa-sǎa-thai jon-thʉ̌ng bplaai dʉan mí-thù-naa-yon khâ</div><div class="eng">I will study Thai until late June.</div></div></li></ul></div>
+
+<div class="pattern"><h3>3. N + ที่ + S + V + adjective</h3><div class="triad"><div class="thai">Noun + ที่ + Subject + Verb + Adjective</div><div class="roman">Noun + thîi + Subject + Verb + Adjective</div><div class="eng">The noun that Subject verbs is adjective.</div></div><h4>Textbook examples</h4><div class="triad"><div class="thai">อาหารที่แม่ครัวทำอร่อยค่ะ</div><div class="roman">aa-hǎan thîi mɛ̂ɛ-khrua tham à-rɔ̀i khâ</div><div class="eng">The food that the cook made is delicious.</div></div><div class="triad"><div class="thai">เสื้อที่เขาซื้อไม่ค่อยแพงค่ะ</div><div class="roman">sʉ̂a thîi khǎo sʉ́ʉ mâi khɔ̂i phɛɛng khâ</div><div class="eng">The shirt that he bought is not very expensive.</div></div><h4>Life variations</h4><ul><li><div class="triad"><div class="thai">ร้านที่เพื่อนแนะนำดีมากค่ะ</div><div class="roman">ráan thîi phʉ̂an náe-nam dii mâak khâ</div><div class="eng">The shop that my friend recommended is very good.</div></div></li><li><div class="triad"><div class="thai">คาเฟ่ที่เราไปเมื่อวานน่ารักมากค่ะ</div><div class="roman">khaa-fêe thîi rao bpai mʉ̂a-waan nâa-rák mâak khâ</div><div class="eng">The café that we went to yesterday was very cute.</div></div></li><li><div class="triad"><div class="thai">เอกสารที่โรงเรียนขอสำคัญมากค่ะ</div><div class="roman">èek-gà-sǎan thîi roong-rian khɔ̌ɔ sǎm-khan mâak khâ</div><div class="eng">The document that the school asked for is very important.</div></div></li></ul></div>
+
+<div class="pattern"><h3>4. ก่อน + V2, ก็ต้อง + V1</h3><div class="triad"><div class="thai">ก่อน + Verb 2, ก็ต้อง + Verb 1</div><div class="roman">gɔ̀ɔn + Verb 2, gɔ̂ɔ dtɔ̂ng + Verb 1</div><div class="eng">Before doing V2, one must do V1.</div></div><ul><li><div class="triad"><div class="thai">ก่อนมาเมืองไทย ก็ต้องมีหนังสือเดินทางค่ะ</div><div class="roman">gɔ̀ɔn maa mʉang-thai gɔ̂ɔ dtɔ̂ng mii nǎng-sʉ̌ʉ-dəən-thaang khâ</div><div class="eng">Before coming to Thailand, you must have a passport.</div></div></li><li><div class="triad"><div class="thai">ก่อนลูกไปโรงเรียน ก็ต้องล้างหน้าแปรงฟันค่ะ</div><div class="roman">gɔ̀ɔn lûuk bpai roong-rian gɔ̂ɔ dtɔ̂ng láang-nâa bprɛɛng-fan khâ</div><div class="eng">Before the child goes to school, they must wash their face and brush their teeth.</div></div></li><li><div class="triad"><div class="thai">ก่อนสอบ ก็ต้องทบทวนค่ะ</div><div class="roman">gɔ̀ɔn sɔ̀ɔp gɔ̂ɔ dtɔ̂ng thóp-thuan khâ</div><div class="eng">Before an exam, you must review.</div></div></li><li><div class="triad"><div class="thai">ก่อนเซ็นสัญญา ก็ต้องอ่านให้ละเอียดค่ะ</div><div class="roman">gɔ̀ɔn sen sǎn-yaa gɔ̂ɔ dtɔ̂ng àan hâi lá-ìat khâ</div><div class="eng">Before signing a contract, you must read carefully.</div></div></li></ul></div>
+
+<div class="pattern"><h3>5. ต้อง + V1 + ก่อน + V2</h3><div class="triad"><div class="thai">ต้อง + Verb 1 + ก่อน + Verb 2</div><div class="roman">dtɔ̂ng + Verb 1 + gɔ̀ɔn + Verb 2</div><div class="eng">Must do V1 before doing V2.</div></div><ul><li><div class="triad"><div class="thai">ต้องมีหนังสือเดินทางก่อนมาเมืองไทยค่ะ</div><div class="roman">dtɔ̂ng mii nǎng-sʉ̌ʉ-dəən-thaang gɔ̀ɔn maa mʉang-thai khâ</div><div class="eng">You must have a passport before coming to Thailand.</div></div></li><li><div class="triad"><div class="thai">ต้องจ่ายเงินก่อนเข้าคลาสค่ะ</div><div class="roman">dtɔ̂ng jàai ngoen gɔ̀ɔn khâo khlâat khâ</div><div class="eng">You must pay before entering the class.</div></div></li><li><div class="triad"><div class="thai">ต้องกรอกแบบฟอร์มก่อนยื่นเอกสารค่ะ</div><div class="roman">dtɔ̂ng grɔ̀ɔk bɛ̀ɛp-fɔɔm gɔ̀ɔn yʉ̂ʉn èek-gà-sǎan khâ</div><div class="eng">You must fill out the form before submitting documents.</div></div></li></ul></div>
+
+<div class="pattern"><h3>6. S + ควรจะ / ไม่ควรจะ + V</h3><div class="triad"><div class="thai">Subject + ควรจะ / ไม่ควรจะ + Verb</div><div class="roman">Subject + khuan jà / mâi khuan jà + Verb</div><div class="eng">Subject should / should not Verb.</div></div><ul><li><div class="triad"><div class="thai">คุณควรจะออกกำลังกายค่ะ</div><div class="roman">khun khuan jà ɔ̀ɔk-gam-lang-gaai khâ</div><div class="eng">You should exercise.</div></div></li><li><div class="triad"><div class="thai">คุณควรจะกินผักมาก ๆ ค่ะ</div><div class="roman">khun khuan jà gin phàk mâak-mâak khâ</div><div class="eng">You should eat a lot of vegetables.</div></div></li><li><div class="triad"><div class="thai">ไม่ควรจะกินเบียร์เหล้าก่อนนอนค่ะ</div><div class="roman">mâi khuan jà gin bia lâo gɔ̀ɔn nɔɔn khâ</div><div class="eng">You should not drink beer or liquor before sleeping.</div></div></li><li><div class="triad"><div class="thai">ไม่ควรจะเซ็นเอกสารก่อนอ่านค่ะ</div><div class="roman">mâi khuan jà sen èek-gà-sǎan gɔ̀ɔn àan khâ</div><div class="eng">You should not sign documents before reading.</div></div></li></ul></div>
+</section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>說月份</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เดือนพฤษภาคม</div><div class="roman">dʉan phrʉ́t-sà-phaa-khom</div><div class="eng">May</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">พฤษภา</div><div class="roman">phrʉ́t-sà-phaa</div><div class="eng">May, shortened form</div></div></td>
+          <td>口語/訊息常把月份縮短，但正式學習先背完整月份。</td>
+        </tr>
+
+        <tr>
+          <td>說「到五月」</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">จนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">until May</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ถึงพฤษภาค่ะ</div><div class="roman">thʉ̌ng phrʉ́t-sà-phaa khâ</div><div class="eng">until May</div></div></td>
+          <td>口語可以更短；但如果怕不清楚，加 <span class="thai">เดือน</span> 比較穩。</td>
+        </tr>
+
+        <tr>
+          <td>給健康建議</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คุณควรกินผักมาก ๆ ค่ะ</div><div class="roman">khun khuan gin phàk mâak-mâak khâ</div><div class="eng">You should eat a lot of vegetables.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">กินผักเยอะ ๆ นะคะ</div><div class="roman">gin phàk yə́-yə́ ná khá</div><div class="eng">Eat lots of vegetables, okay?</div></div></td>
+          <td>朋友/家人間常用 <span class="thai">...นะ</span> 柔化建議。</td>
+        </tr>
+
+        <tr>
+          <td>不應該喝酒</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คุณไม่ควรกินเบียร์เหล้าค่ะ</div><div class="roman">khun mâi khuan gin bia lâo khâ</div><div class="eng">You should not drink beer or liquor.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ช่วงนี้อย่าเพิ่งดื่มแอลกอฮอล์นะคะ</div><div class="roman">chûang-níi yàa phə̂ng dʉ̀ʉm ɛɛn-gɔɔ-hɔɔ ná khá</div><div class="eng">Don’t drink alcohol for now, okay?</div></div></td>
+          <td><span class="thai">อย่าเพิ่ง</span> = 先不要，醫生/朋友都常用。</td>
+        </tr>
+
+        <tr>
+          <td>推薦餐廳</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ร้านที่ฉันไปเมื่อวานอร่อยค่ะ</div><div class="roman">ráan thîi chǎn bpai mʉ̂a-waan à-rɔ̀i khâ</div><div class="eng">The restaurant I went to yesterday is delicious.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ร้านเมื่อวานอร่อยมาก แนะนำค่ะ</div><div class="roman">ráan mʉ̂a-waan à-rɔ̀i mâak, náe-nam khâ</div><div class="eng">Yesterday’s restaurant was very good. I recommend it.</div></div></td>
+          <td>口語常簡化，但正式表達用 <span class="thai">ที่</span> 更完整。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+<section id="bangkok" class="tab-content">
+<h2>Bangkok Expansion｜曼谷生活實用場景</h2>
+<h3>1. 語言學校 / 課程行政</h3>
+<div class="cards">
+<div class="card"><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">คอร์สนี้เรียนจนถึงเมื่อไรคะ</div><div class="roman">khɔ̂ɔt níi rian jon-thʉ̌ng mʉ̂a-rài khá</div><div class="eng">Until when does this course run?</div></div><p>問學校課程結束日期時最實用。</p></div>
+<div class="card"><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ต้องจ่ายเงินก่อนเริ่มเรียนไหมคะ</div><div class="roman">dtɔ̂ng jàai ngoen gɔ̀ɔn rə̂əm rian mái khá</div><div class="eng">Do I have to pay before starting class?</div></div><p>報名、續課、試聽後很常用。</p></div>
+<div class="card"><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เอกสารที่ต้องใช้มีอะไรบ้างคะ</div><div class="roman">èek-gà-sǎan thîi dtɔ̂ng chái mii à-rai bâang khá</div><div class="eng">What documents are needed?</div></div><p>ที่ + ต้องใช้ = 需要使用的。</p></div>
+</div>
+
+<h3>2. 簽證 / 入境 / 文件</h3>
+<div class="cards">
+<div class="card"><div class="triad"><div class="thai">วีซ่านี้อยู่ได้จนถึงวันไหนคะ</div><div class="roman">wii-sâa níi yùu dâai jon-thʉ̌ng wan nǎi khá</div><div class="eng">Until which day can I stay with this visa?</div></div><p>問合法停留期限。</p></div>
+<div class="card"><div class="triad"><div class="thai">ก่อนยื่นเอกสาร ต้องกรอกแบบฟอร์มก่อนค่ะ</div><div class="roman">gɔ̀ɔn yʉ̂ʉn èek-gà-sǎan dtɔ̂ng grɔ̀ɔk bɛ̀ɛp-fɔɔm gɔ̀ɔn khâ</div><div class="eng">Before submitting documents, you must fill out the form first.</div></div><p>行政流程必備。</p></div>
+<div class="card"><div class="triad"><div class="thai">หนังสือเดินทางเล่มนี้หมดอายุเมื่อไรคะ</div><div class="roman">nǎng-sʉ̌ʉ-dəən-thaang lêm níi mòt aa-yú mʉ̂a-rài khá</div><div class="eng">When does this passport expire?</div></div><p>หมดอายุ = expire。</p></div>
+</div>
+
+<h3>3. 醫院 / 藥局 / 健康建議</h3>
+<div class="cards">
+<div class="card"><div class="triad"><div class="thai">คุณควรจะพักผ่อนให้มากขึ้นค่ะ</div><div class="roman">khun khuan jà phák-phɔ̀ɔn hâi mâak khʉ̂n khâ</div><div class="eng">You should rest more.</div></div><p>醫生、藥師、朋友都能用。</p></div>
+<div class="card"><div class="triad"><div class="thai">ไม่ควรจะกินเบียร์เหล้าหลังกินยาค่ะ</div><div class="roman">mâi khuan jà gin bia lâo lǎng gin yaa khâ</div><div class="eng">You should not drink beer or liquor after taking medicine.</div></div><p>非常實用的健康警告句。</p></div>
+<div class="card"><div class="triad"><div class="thai">ยาที่หมอให้ต้องกินหลังอาหารค่ะ</div><div class="roman">yaa thîi mɔ̌ɔ hâi dtɔ̂ng gin lǎng aa-hǎan khâ</div><div class="eng">The medicine that the doctor gave must be taken after meals.</div></div><p>ที่ + หมอให้ = 醫生給的。</p></div>
+</div>
+
+<h3>4. 飯店 / 租屋 / Condo</h3>
+<div class="cards">
+<div class="card"><div class="triad"><div class="thai">ฉันพักที่นี่จนถึงวันศุกร์ค่ะ</div><div class="roman">chǎn phák thîi-nîi jon-thʉ̌ng wan-sùk khâ</div><div class="eng">I will stay here until Friday.</div></div><p>飯店櫃台問入住時間時可用。</p></div>
+<div class="card"><div class="triad"><div class="thai">สัญญาเช่าที่ฉันเซ็นอยู่ได้ถึงเดือนธันวาคมค่ะ</div><div class="roman">sǎn-yaa châo thîi chǎn sen yùu dâai thʉ̌ng dʉan than-waa-khom khâ</div><div class="eng">The rental contract that I signed is valid until December.</div></div><p>合約、租屋、行政溝通實用句。</p></div>
+<div class="card"><div class="triad"><div class="thai">ก่อนย้ายเข้า ต้องจ่ายค่ามัดจำก่อนค่ะ</div><div class="roman">gɔ̀ɔn yáai khâo dtɔ̂ng jàai khâa-mát-jam gɔ̀ɔn khâ</div><div class="eng">Before moving in, you must pay the deposit first.</div></div><p>ค่ามัดจำ = deposit。</p></div>
+</div>
+
+<h3>5. 市場 / 餐廳 / 推薦店家</h3>
+<div class="cards">
+<div class="card"><div class="triad"><div class="thai">ร้านที่เพื่อนแนะนำอยู่ใกล้บีทีเอสค่ะ</div><div class="roman">ráan thîi phʉ̂an náe-nam yùu glâi bii-thii-ées khâ</div><div class="eng">The shop that my friend recommended is near the BTS.</div></div><p>把推薦來源說清楚。</p></div>
+<div class="card"><div class="triad"><div class="thai">อาหารที่ฉันกินเมื่อวานอร่อยมากค่ะ</div><div class="roman">aa-hǎan thîi chǎn gin mʉ̂a-waan à-rɔ̀i mâak khâ</div><div class="eng">The food that I ate yesterday was very delicious.</div></div><p>日常聊天很自然。</p></div>
+<div class="card"><div class="triad"><div class="thai">ของหวานร้านนี้ไม่ค่อยหวานค่ะ</div><div class="roman">khɔ̌ɔng-wǎan ráan níi mâi khɔ̂i wǎan khâ</div><div class="eng">The dessert at this shop is not very sweet.</div></div><p>不想太甜時可以這樣評價。</p></div>
+</div>
+</section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>語言學校：課程到什麼時候？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">คอร์สนี้เรียนจนถึงเดือนไหนคะ</div><div class="roman">khɔ̂ɔt níi rian jon-thʉ̌ng dʉan nǎi khá</div><div class="eng">Until which month does this course run?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เรียนจนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">rian jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">It runs until May.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เรียนอาทิตย์ละกี่วันคะ</div><div class="roman">rian aa-thít lá gìi wan khá</div><div class="eng">How many days per week do we study?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เรียนอาทิตย์ละห้าวัน วันละสามชั่วโมงค่ะ</div><div class="roman">rian aa-thít lá hâa wan, wan lá sǎam chûa-moong khâ</div><div class="eng">Five days a week, three hours a day.</div></div></div>
+    </div>
+
+    <h3>朋友推薦餐廳：昨天吃的那家很好吃</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">มีร้านอาหารแนะนำไหม</div><div class="roman">mii ráan aa-hǎan náe-nam mái</div><div class="eng">Do you have any restaurant recommendations?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ร้านที่ฉันไปเมื่อวานอร่อยมากค่ะ</div><div class="roman">ráan thîi chǎn bpai mʉ̂a-waan à-rɔ̀i mâak khâ</div><div class="eng">The restaurant I went to yesterday was very delicious.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">แพงไหม</div><div class="roman">phɛɛng mái</div><div class="eng">Is it expensive?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไม่ค่อยแพงค่ะ อาหารที่แม่ครัวทำอร่อยมาก</div><div class="roman">mâi khɔ̂i phɛɛng khâ, aa-hǎan thîi mɛ̂ɛ-khrua tham à-rɔ̀i mâak</div><div class="eng">Not very expensive. The food that the cook makes is very delicious.</div></div></div>
+    </div>
+
+    <h3>診所：醫生給健康建議</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Doctor</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คุณควรออกกำลังกายค่ะ</div><div class="roman">khun khuan ɔ̀ɔk-gam-lang-gaai khâ</div><div class="eng">You should exercise.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ต้องออกกำลังกายทุกวันไหมคะ</div><div class="roman">dtɔ̂ng ɔ̀ɔk-gam-lang-gaai thúk wan mái khá</div><div class="eng">Do I have to exercise every day?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Doctor</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ควรออกกำลังกายอาทิตย์ละสามครั้งค่ะ</div><div class="roman">khuan ɔ̀ɔk-gam-lang-gaai aa-thít lá sǎam khráng khâ</div><div class="eng">You should exercise three times a week.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Doctor</span><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แล้วก็ไม่ควรกินอาหารหวานมากค่ะ</div><div class="roman">lɛ́ɛw-gɔ̂ɔ mâi khuan gin aa-hǎan wǎan mâak khâ</div><div class="eng">And you should not eat very sweet food.</div></div></div>
+    </div>
+
+    <h3>來泰國前：護照、考試、準備</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ก่อนมาเมืองไทย ต้องเตรียมอะไรบ้าง</div><div class="roman">gɔ̀ɔn maa mʉang-thai dtɔ̂ng dtriam à-rai bâang</div><div class="eng">Before coming to Thailand, what do I need to prepare?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label textbook">Textbook-based + Supplement</span><div class="triad"><div class="thai">ก่อนมาเมืองไทย ก็ต้องมีหนังสือเดินทางค่ะ</div><div class="roman">gɔ̀ɔn maa mʉang-thai gɔ̂ɔ dtɔ̂ng mii nǎng-sʉ̌ʉ-dəən-thaang khâ</div><div class="eng">Before coming to Thailand, you must have a passport.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">แล้วถ้าจะเรียนต่อล่ะ</div><div class="roman">lɛ́ɛw thâa jà rian-dtɔ̀ɔ lâ</div><div class="eng">And if I want to continue studying?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ก่อนสมัครเรียน ก็ต้องเตรียมเอกสารก่อนค่ะ</div><div class="roman">gɔ̀ɔn sà-màk rian gɔ̂ɔ dtɔ̂ng dtriam èek-gà-sǎan gɔ̀ɔn khâ</div><div class="eng">Before applying to study, you must prepare documents first.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ที่ 的兩種功能混淆</div><div class="roman">thîi</div><div class="eng">that/which vs at</div></div></td>
+          <td><span class="thai">ที่</span> 可以修飾名詞，也可以表示地點。</td>
+          <td>
+            <div class="triad"><div class="thai">อาหารที่ฉันกินอร่อยค่ะ</div><div class="roman">aa-hǎan thîi chǎn gin à-rɔ̀i khâ</div><div class="eng">The food that I ate is delicious.</div></div>
+            <div class="triad"><div class="thai">ฉันกินข้าวที่ร้านนี้ค่ะ</div><div class="roman">chǎn gin khâao thîi ráan níi khâ</div><div class="eng">I eat at this restaurant.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">จนถึง / ตลอด 混用</div><div class="roman">jon-thʉ̌ng / dtà-lɔ̀ɔt</div><div class="eng">until / throughout</div></div></td>
+          <td><span class="thai">จนถึง</span> 是到某個結束點；<span class="thai">ตลอด</span> 是整段時間都如此。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันอยู่ไทยจนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">chǎn yùu thai jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">I stay in Thailand until May.</div></div>
+            <div class="triad"><div class="thai">เมื่อคืนฝนตกตลอดคืนค่ะ</div><div class="roman">mʉ̂a-khʉʉn fǒn-dtòk dtà-lɔ̀ɔt khʉʉn khâ</div><div class="eng">It rained all night last night.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ควร / ต้อง / ห้าม 語氣混淆</div><div class="roman">khuan / dtɔ̂ng / hâam</div><div class="eng">should / must / must not</div></div></td>
+          <td><span class="thai">ควร</span> 是建議；<span class="thai">ต้อง</span> 是必須；<span class="thai">ห้าม</span> 是禁止。</td>
+          <td>
+            <div class="triad"><div class="thai">คุณควรพักผ่อนค่ะ</div><div class="roman">khun khuan phák-phɔ̀ɔn khâ</div><div class="eng">You should rest.</div></div>
+            <div class="triad"><div class="thai">ต้องมีพาสปอร์ตก่อนเดินทางค่ะ</div><div class="roman">dtɔ̂ng mii pháat-bpɔ̀ɔt gɔ̀ɔn dəən-thaang khâ</div><div class="eng">You must have a passport before traveling.</div></div>
+            <div class="triad"><div class="thai">ห้ามสูบบุหรี่ค่ะ</div><div class="roman">hâam sùup bù-rìi khâ</div><div class="eng">Smoking is prohibited.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ก่อน...ก็ต้อง... 順序搞反</div><div class="roman">gɔ̀ɔn...gɔ̂ɔ dtɔ̂ng...</div><div class="eng">before...then must...</div></div></td>
+          <td><span class="thai">ก่อน V2 ก็ต้อง V1</span> 的意思是「做 V2 前，必須先做 V1」。</td>
+          <td>
+            <div class="triad"><div class="thai">ก่อนสอบ ก็ต้องทบทวนค่ะ</div><div class="roman">gɔ̀ɔn sɔ̀ɔp gɔ̂ɔ dtɔ̂ng thóp-thuan khâ</div><div class="eng">Before the exam, you must review.</div></div>
+            <div class="triad"><div class="thai">ต้องทบทวนก่อนสอบค่ะ</div><div class="roman">dtɔ̂ng thóp-thuan gɔ̀ɔn sɔ̀ɔp khâ</div><div class="eng">You must review before the exam.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+
+    <details>
+      <summary>January / February / March / April</summary>
+      <div class="triad"><div class="thai">มกราคม / กุมภาพันธ์ / มีนาคม / เมษายน</div><div class="roman">má-gà-raa-khom / gum-phaa-phan / mii-naa-khom / mee-sǎa-yǒn</div><div class="eng">January / February / March / April</div></div>
+      <p><strong>Chinese Explanation:</strong> 前四個月份。</p>
+    </details>
+
+    <details>
+      <summary>until / throughout / should / should not / recommend</summary>
+      <div class="triad"><div class="thai">จนถึง / ตลอด / ควร / ไม่ควร / แนะนำ</div><div class="roman">jon-thʉ̌ng / dtà-lɔ̀ɔt / khuan / mâi khuan / náe-nam</div><div class="eng">until / throughout / should / should not / recommend</div></div>
+      <p><strong>Chinese Explanation:</strong> 本課核心文法詞。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+
+    <details>
+      <summary>31 days</summary>
+      <div class="triad"><div class="thai">สามสิบเอ็ดวัน</div><div class="roman">sǎam-sìp-èt wan</div><div class="eng">31 days</div></div>
+      <p><strong>Chinese Explanation:</strong> 數天數用 <span class="thai">วัน</span>。</p>
+    </details>
+
+    <details>
+      <summary>three hours</summary>
+      <div class="triad"><div class="thai">สามชั่วโมง</div><div class="roman">sǎam chûa-moong</div><div class="eng">three hours</div></div>
+      <p><strong>Chinese Explanation:</strong> 幾小時用 <span class="thai">ชั่วโมง</span>，不要跟幾點 <span class="thai">โมง</span> 混淆。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+
+    <details>
+      <summary>我會待在泰國到五月。</summary>
+      <div class="triad"><div class="thai">ฉันจะอยู่ไทยจนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">chǎn jà yùu thai jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">I will stay in Thailand until May.</div></div>
+      <p><strong>Chinese Explanation:</strong> 用 <span class="thai">จนถึง</span> 表示 until。</p>
+    </details>
+
+    <details>
+      <summary>我昨天去的餐廳很好吃。</summary>
+      <div class="triad"><div class="thai">ร้านที่ฉันไปเมื่อวานอร่อยมากค่ะ</div><div class="roman">ráan thîi chǎn bpai mʉ̂a-waan à-rɔ̀i mâak khâ</div><div class="eng">The restaurant that I went to yesterday was very delicious.</div></div>
+      <p><strong>Chinese Explanation:</strong> 用 <span class="thai">ที่</span> 修飾 <span class="thai">ร้าน</span>。</p>
+    </details>
+
+    <details>
+      <summary>考試前必須複習。</summary>
+      <div class="triad"><div class="thai">ก่อนสอบ ก็ต้องทบทวนค่ะ</div><div class="roman">gɔ̀ɔn sɔ̀ɔp gɔ̂ɔ dtɔ̂ng thóp-thuan khâ</div><div class="eng">Before the exam, you must review.</div></div>
+      <p><strong>Chinese Explanation:</strong> 也可以說 <span class="thai">ต้องทบทวนก่อนสอบค่ะ</span>。</p>
+    </details>
+
+    <details>
+      <summary>你應該多吃蔬菜。</summary>
+      <div class="triad"><div class="thai">คุณควรกินผักมาก ๆ ค่ะ</div><div class="roman">khun khuan gin phàk mâak-mâak khâ</div><div class="eng">You should eat a lot of vegetables.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ควร + V</span> = should。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+
+    <details>
+      <summary>把「คุณควรกินผักมาก ๆ ค่ะ」改成朋友口語。</summary>
+      <div class="triad"><div class="thai">กินผักเยอะ ๆ นะ</div><div class="roman">gin phàk yə́-yə́ ná</div><div class="eng">Eat lots of vegetables, okay?</div></div>
+      <p><strong>Chinese Explanation:</strong> 朋友之間不用一直說 <span class="thai">คุณควร</span>，會有點像醫生或老師。</p>
+    </details>
+
+    <details>
+      <summary>把「เดือนพฤษภาคม」改成口語縮短版。</summary>
+      <div class="triad"><div class="thai">พฤษภา</div><div class="roman">phrʉ́t-sà-phaa</div><div class="eng">May, shortened form</div></div>
+      <p><strong>Chinese Explanation:</strong> 月份口語常縮短，但正式先用完整版本。</p>
+    </details>
+  </section>
+
+<section id="top10" class="tab-content">
+<h2>Top 10｜今日最重要 10 句</h2>
+<table><thead><tr><th>#</th><th>Thai / Romanization / English</th><th>Use</th></tr></thead><tbody>
+<tr><td><span class="priority">1</span></td><td><div class="triad"><div class="thai">คอร์สนี้เรียนจนถึงเมื่อไรคะ</div><div class="roman">khɔ̂ɔt níi rian jon-thʉ̌ng mʉ̂a-rài khá</div><div class="eng">Until when does this course run?</div></div></td><td>問課程期限。</td></tr>
+<tr><td><span class="priority">2</span></td><td><div class="triad"><div class="thai">ฉันจะอยู่ไทยจนถึงเดือนมิถุนายนค่ะ</div><div class="roman">chǎn jà yùu thai jon-thʉ̌ng dʉan mí-thù-naa-yon khâ</div><div class="eng">I will stay in Thailand until June.</div></div></td><td>說停留時間。</td></tr>
+<tr><td><span class="priority">3</span></td><td><div class="triad"><div class="thai">วีซ่านี้อยู่ได้จนถึงวันไหนคะ</div><div class="roman">wii-sâa níi yùu dâai jon-thʉ̌ng wan nǎi khá</div><div class="eng">Until which day can I stay with this visa?</div></div></td><td>簽證 / 入境。</td></tr>
+<tr><td><span class="priority">4</span></td><td><div class="triad"><div class="thai">เอกสารที่ต้องใช้มีอะไรบ้างคะ</div><div class="roman">èek-gà-sǎan thîi dtɔ̂ng chái mii à-rai bâang khá</div><div class="eng">What documents are needed?</div></div></td><td>行政 / 學校 / 簽證。</td></tr>
+<tr><td><span class="priority">5</span></td><td><div class="triad"><div class="thai">อาหารที่แม่ครัวทำอร่อยค่ะ</div><div class="roman">aa-hǎan thîi mɛ̂ɛ-khrua tham à-rɔ̀i khâ</div><div class="eng">The food that the cook made is delicious.</div></div></td><td>ที่ 關係子句。</td></tr>
+<tr><td><span class="priority">6</span></td><td><div class="triad"><div class="thai">ร้านที่เพื่อนแนะนำอร่อยมากค่ะ</div><div class="roman">ráan thîi phʉ̂an náe-nam à-rɔ̀i mâak khâ</div><div class="eng">The shop my friend recommended is very delicious.</div></div></td><td>日常聊天。</td></tr>
+<tr><td><span class="priority">7</span></td><td><div class="triad"><div class="thai">ก่อนมาเมืองไทย ก็ต้องมีหนังสือเดินทางค่ะ</div><div class="roman">gɔ̀ɔn maa mʉang-thai gɔ̂ɔ dtɔ̂ng mii nǎng-sʉ̌ʉ-dəən-thaang khâ</div><div class="eng">Before coming to Thailand, you must have a passport.</div></div></td><td>旅行 / 入境。</td></tr>
+<tr><td><span class="priority">8</span></td><td><div class="triad"><div class="thai">ต้องกรอกแบบฟอร์มก่อนยื่นเอกสารค่ะ</div><div class="roman">dtɔ̂ng grɔ̀ɔk bɛ̀ɛp-fɔɔm gɔ̀ɔn yʉ̂ʉn èek-gà-sǎan khâ</div><div class="eng">You must fill out the form before submitting documents.</div></div></td><td>行政流程。</td></tr>
+<tr><td><span class="priority">9</span></td><td><div class="triad"><div class="thai">คุณควรจะกินผักมากขึ้นค่ะ</div><div class="roman">khun khuan jà gin phàk mâak khʉ̂n khâ</div><div class="eng">You should eat more vegetables.</div></div></td><td>健康建議。</td></tr>
+<tr><td><span class="priority">10</span></td><td><div class="triad"><div class="thai">ไม่ควรจะกินอาหารหวานบ่อยค่ะ</div><div class="roman">mâi khuan jà gin aa-hǎan wǎan bɔ̀i khâ</div><div class="eng">You should not eat sweet food often.</div></div></td><td>健康提醒。</td></tr>
+</tbody></table>
+<div class="tip yellow"><h3>今日背誦優先順序</h3><p>最實用的 6 句建議先背：</p><ol><li><div class="triad"><div class="thai">คอร์สนี้เรียนจนถึงเมื่อไรคะ</div><div class="roman">khɔ̂ɔt níi rian jon-thʉ̌ng mʉ̂a-rài khá</div><div class="eng">Until when does this course run?</div></div></li><li><div class="triad"><div class="thai">เอกสารที่ต้องใช้มีอะไรบ้างคะ</div><div class="roman">èek-gà-sǎan thîi dtɔ̂ng chái mii à-rai bâang khá</div><div class="eng">What documents are needed?</div></div></li><li><div class="triad"><div class="thai">วีซ่านี้อยู่ได้จนถึงวันไหนคะ</div><div class="roman">wii-sâa níi yùu dâai jon-thʉ̌ng wan nǎi khá</div><div class="eng">Until which day can I stay with this visa?</div></div></li><li><div class="triad"><div class="thai">ต้องกรอกแบบฟอร์มก่อนยื่นเอกสารค่ะ</div><div class="roman">dtɔ̂ng grɔ̀ɔk bɛ̀ɛp-fɔɔm gɔ̀ɔn yʉ̂ʉn èek-gà-sǎan khâ</div><div class="eng">You must fill out the form before submitting documents.</div></div></li><li><div class="triad"><div class="thai">ร้านที่เพื่อนแนะนำอร่อยมากค่ะ</div><div class="roman">ráan thîi phʉ̂an náe-nam à-rɔ̀i mâak khâ</div><div class="eng">The shop my friend recommended is very delicious.</div></div></li><li><div class="triad"><div class="thai">คุณควรจะพักผ่อนให้พอค่ะ</div><div class="roman">khun khuan jà phák-phɔ̀ɔn hâi phɔɔ khâ</div><div class="eng">You should get enough rest.</div></div></li></ol><p>Day 11 的核心是「期限、修飾句、流程先後、建議」。這四個能力很生活化：可以問學校、問簽證、填文件、問飯店、看醫生，也可以自然描述「朋友推薦的店」、「我昨天吃的食物」。</p></div>
+</section>
+
+</div>
+<script>
+function openTab(event,tabId){const contents=document.querySelectorAll('.tab-content');const buttons=document.querySelectorAll('.tab-btn');contents.forEach(c=>c.classList.remove('active'));buttons.forEach(b=>b.classList.remove('active'));document.getElementById(tabId).classList.add('active');event.currentTarget.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

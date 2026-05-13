@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 13 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: #9a3412;
+      border: .5px solid rgba(249,115,22,.35);
+      font-weight: 800;
+      margin-right: 6px;
+    }
+
+    .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text {
+      flex: 1;
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 13 學習指南</h1>
+    <p class="subtitle">主題：拿東西去某處、請人來拿、提醒與禁止、服裝修改、洗衣店、裁縫店、理髮店與髮廊</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Overview｜本課總覽</h2>
+
+    <div class="cards">
+      <div class="card">
+        <span class="label textbook">Textbook-based</span>
+        <h3>本課主要學什麼？</h3>
+        <ol>
+          <li>用 <strong>เอา + N + ไปที่ + place</strong> 表達「把某物拿去某地」。</li>
+          <li>用 <strong>มาเอา + N + ที่ + place</strong> 表達「來某地拿某物」。</li>
+          <li>用 <strong>ช่วยมาเอา...หน่อย</strong> 請店員或服務人員幫忙來拿東西。</li>
+          <li>用 <strong>V + adj + นะคะ</strong> / <strong>V + ให้ + adj + นะคะ</strong> 做提醒或要求。</li>
+          <li>用 <strong>อย่า + V + adj</strong> / <strong>อย่า + V + ให้ + adj + นัก</strong> 表達「不要太……」。</li>
+          <li>學服裝修改、洗衣、裁縫、修車、理髮與做頭髮相關生活詞彙。</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <span class="label local">Supplement / Local usage</span>
+        <h3>曼谷生活會怎麼用？</h3>
+        <p>
+          Day 13 很生活化：在曼谷你會需要拿衣服去洗、去改褲長、請洗衣店來取衣服、去髮廊洗頭剪髮染髮、叫司機慢一點、提醒朋友不要喝太多。這一課不是只背單字，而是要學會「怎麼跟服務人員說需求」。
+        </p>
+      </div>
+    </div>
+
+    <h3>你學完後可以說什麼？</h3>
+
+    <div class="cards">
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ฉันเอาเสื้อผ้าไปที่ร้านซักรีดค่ะ</div>
+          <div class="roman">chǎn ao sʉ̂a-phâa bpai thîi ráan sák-rîit khâ</div>
+          <div class="eng">I take clothes to the laundry shop.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ช่วยมาเอาเสื้อผ้าที่ห้องหน่อยค่ะ</div>
+          <div class="roman">chûai maa ao sʉ̂a-phâa thîi hɔ̂ng nòi khâ</div>
+          <div class="eng">Please come pick up the clothes from my room.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ขับรถช้า ๆ นะคะ</div>
+          <div class="roman">khàp-rót cháa-cháa ná khá</div>
+          <div class="eng">Please drive slowly.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">อย่ากินเหล้าเยอะนะคะ</div>
+          <div class="roman">yàa gin lâo yə́ ná khá</div>
+          <div class="eng">Don’t drink too much alcohol.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">อยากตัดผมให้สั้นลงนิดหน่อยค่ะ</div>
+          <div class="roman">yàak dtàt-phǒm hâi sân long nít-nɔ̀i khâ</div>
+          <div class="eng">I want to cut my hair a little shorter.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">กางเกงตัวนี้ยาวไป ช่วยแก้ให้หน่อยค่ะ</div>
+          <div class="roman">gaang-geeng dtua níi yaao bpai, chûai gɛ̂ɛ hâi nòi khâ</div>
+          <div class="eng">These pants are too long. Please alter them for me.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <h3>本課 PDF 對應重點</h3>
+      <p>第 2 頁：<strong>S + ไปเอา + N + ที่ + place</strong>、<strong>มาเอา...กลับ</strong>，例句是拿衣服去洗衣店，以及請店員來拿衣服。</p>
+      <p>第 3 頁：<strong>V + adj + นะคะ</strong>、<strong>V + ให้ + adj + นะคะ</strong>，以及 <strong>อย่า...</strong> 禁止句，例如開車慢一點、不要喝太多。</p>
+      <p>第 4–5 頁：服裝、選擇、量身、剪、修改、裁縫店、修車、試穿、合身、調整。</p>
+      <p>第 6–8 頁：理髮店與髮廊：洗頭、剃鬍子、剪頭髮、染頭髮、燙頭髮、拉直、接髮、剪瀏海、包保鮮膜/蒸頭髮。</p>
+    </div>
+
+    <div class="tip orange">
+      <span class="label review">Review</span>
+      Day 5 學過
+      <span class="thai">ขอ...หน่อยค่ะ</span> /
+      <span class="roman">khɔ̌ɔ...nòi khâ</span> /
+      <span class="eng">please...</span>。
+      Day 13 會延伸成更服務業自然的：
+      <div class="triad">
+        <div class="thai">ช่วยมาเอาเสื้อผ้าที่ห้องหน่อยค่ะ</div>
+        <div class="roman">chûai maa ao sʉ̂a-phâa thîi hɔ̂ng nòi khâ</div>
+        <div class="eng">Please come pick up the clothes from my room.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Taking / Bringing / Pickup｜拿去、拿來、取件</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เอา</div><div class="roman">ao</div><div class="eng">to take / to want / to get</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>本課重點是「拿某物」。也可用於點餐「我要」。</td>
+          <td><div class="triad"><div class="thai">เอาเสื้อผ้า / เอากลับ / เอาไป</div><div class="roman">ao sʉ̂a-phâa / ao glàp / ao bpai</div><div class="eng">take clothes / take back / take to</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเอาเสื้อผ้าไปที่ร้านซักรีดค่ะ</div><div class="roman">chǎn ao sʉ̂a-phâa bpai thîi ráan sák-rîit khâ</div><div class="eng">I take clothes to the laundry shop.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เอาไป</div><div class="roman">ao bpai</div><div class="eng">to take something away / take to</div></div></td>
+          <td>Verb phrase</td>
+          <td>—</td>
+          <td><span class="thai">ไป</span> 表示離開說話者的位置、拿去某處。</td>
+          <td><div class="triad"><div class="thai">เอาไปซัก / เอาไปแก้ / เอาไปที่ร้าน</div><div class="roman">ao bpai sák / ao bpai gɛ̂ɛ / ao bpai thîi ráan</div><div class="eng">take to wash / take to alter / take to the shop</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจะเอากางเกงไปแก้ที่ร้านค่ะ</div><div class="roman">chǎn jà ao gaang-geeng bpai gɛ̂ɛ thîi ráan khâ</div><div class="eng">I will take the pants to the shop to alter them.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มาเอา</div><div class="roman">maa ao</div><div class="eng">to come get / come pick up</div></div></td>
+          <td>Verb phrase</td>
+          <td>—</td>
+          <td><span class="thai">มา</span> 表示朝說話者/指定地點來。</td>
+          <td><div class="triad"><div class="thai">มาเอาเสื้อผ้า / มาเอาของ / มาเอาที่ห้อง</div><div class="roman">maa ao sʉ̂a-phâa / maa ao khɔ̌ɔng / maa ao thîi hɔ̂ng</div><div class="eng">come pick up clothes / come get things / come pick up at the room</div></div></td>
+          <td><div class="triad"><div class="thai">พนักงานจะมาเอาเสื้อผ้าที่ห้องค่ะ</div><div class="roman">phá-nák-ngaan jà maa ao sʉ̂a-phâa thîi hɔ̂ng khâ</div><div class="eng">The staff will come pick up the clothes at the room.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">กลับ</div><div class="roman">glàp</div><div class="eng">back / to return</div></div></td>
+          <td>Verb / direction</td>
+          <td>—</td>
+          <td>搭配 <span class="thai">เอากลับ</span> 表示拿回去；也可表示回家。</td>
+          <td><div class="triad"><div class="thai">เอากลับ / กลับบ้าน / กลับมา</div><div class="roman">ao glàp / glàp bâan / glàp maa</div><div class="eng">take back / go home / come back</div></div></td>
+          <td><div class="triad"><div class="thai">พรุ่งนี้ฉันจะมาเอาเสื้อผ้ากลับค่ะ</div><div class="roman">phrûng-níi chǎn jà maa ao sʉ̂a-phâa glàp khâ</div><div class="eng">Tomorrow I will come pick up the clothes and take them back.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ช่วย</div><div class="roman">chûai</div><div class="eng">to help / please</div></div></td>
+          <td>Polite request verb</td>
+          <td>—</td>
+          <td>放句首可柔化請求，比直接命令禮貌。</td>
+          <td><div class="triad"><div class="thai">ช่วย...หน่อย / ช่วยมาเอา / ช่วยแก้ให้</div><div class="roman">chûai...nòi / chûai maa ao / chûai gɛ̂ɛ hâi</div><div class="eng">please help... / please come pick up / please alter for me</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยมาเอาเสื้อผ้าที่ห้องหน่อยค่ะ</div><div class="roman">chûai maa ao sʉ̂a-phâa thîi hɔ̂ng nòi khâ</div><div class="eng">Please come pick up the clothes at my room.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Clothes / Laundry / Tailoring｜衣服、洗衣、修改</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เสื้อผ้า</div><div class="roman">sʉ̂a-phâa</div><div class="eng">clothes</div></div></td>
+          <td>Noun</td>
+          <td>ชุด / ตัว / ชิ้น</td>
+          <td>泛指衣服，不一定是一件；單件上衣/褲子常用 <span class="thai">ตัว</span>。</td>
+          <td><div class="triad"><div class="thai">ซักเสื้อผ้า / เอาเสื้อผ้าไปซัก / เสื้อผ้าสกปรก</div><div class="roman">sák sʉ̂a-phâa / ao sʉ̂a-phâa bpai sák / sʉ̂a-phâa sòk-gà-bpròk</div><div class="eng">wash clothes / take clothes to wash / dirty clothes</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันต้องเอาเสื้อผ้าไปซักค่ะ</div><div class="roman">chǎn dtɔ̂ng ao sʉ̂a-phâa bpai sák khâ</div><div class="eng">I have to take my clothes to be washed.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ร้านซักรีด</div><div class="roman">ráan sák-rîit</div><div class="eng">laundry / laundry and ironing shop</div></div></td>
+          <td>Place</td>
+          <td>ร้าน</td>
+          <td><span class="thai">ซัก</span> 是洗；<span class="thai">รีด</span> 是燙衣服。</td>
+          <td><div class="triad"><div class="thai">เอาไปที่ร้านซักรีด / ร้านซักรีดใกล้คอนโด</div><div class="roman">ao bpai thîi ráan sák-rîit / ráan sák-rîit glâi khɔɔn-doo</div><div class="eng">take to the laundry shop / laundry shop near the condo</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านซักรีดแถวนี้เปิดกี่โมงคะ</div><div class="roman">ráan sák-rîit thɛ̌ɛo níi bpə̀ət gìi moong khá</div><div class="eng">What time does the laundry shop around here open?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ซัก</div><div class="roman">sák</div><div class="eng">to wash clothes</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>洗衣服用 <span class="thai">ซัก</span>；洗手/洗臉用 <span class="thai">ล้าง</span>。</td>
+          <td><div class="triad"><div class="thai">ซักผ้า / ซักแห้ง / ซักรีด</div><div class="roman">sák phâa / sák hɛ̂ɛng / sák-rîit</div><div class="eng">wash clothes / dry clean / laundry and ironing</div></div></td>
+          <td><div class="triad"><div class="thai">เสื้อตัวนี้ซักแห้งได้ไหมคะ</div><div class="roman">sʉ̂a dtua níi sák hɛ̂ɛng dâai mái khá</div><div class="eng">Can this shirt be dry-cleaned?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รีด</div><div class="roman">rîit</div><div class="eng">to iron</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>燙衣服、熨衣服。</td>
+          <td><div class="triad"><div class="thai">รีดเสื้อ / รีดกางเกง / ซักรีด</div><div class="roman">rîit sʉ̂a / rîit gaang-geeng / sák-rîit</div><div class="eng">iron a shirt / iron pants / laundry and ironing</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยรีดเสื้อเชิ้ตตัวนี้ให้หน่อยค่ะ</div><div class="roman">chûai rîit sʉ̂a-chə́ət dtua níi hâi nòi khâ</div><div class="eng">Please iron this shirt for me.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เลือก</div><div class="roman">lʉ̂ak</div><div class="eng">to choose</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>選衣服、選顏色、選尺寸都可用。</td>
+          <td><div class="triad"><div class="thai">เลือกเสื้อ / เลือกแบบ / เลือกสี</div><div class="roman">lʉ̂ak sʉ̂a / lʉ̂ak bɛ̀ɛp / lʉ̂ak sǐi</div><div class="eng">choose a shirt / choose a style / choose a color</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันยังเลือกแบบไม่ได้ค่ะ</div><div class="roman">chǎn yang lʉ̂ak bɛ̀ɛp mâi dâai khâ</div><div class="eng">I still cannot choose the style.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แบบ</div><div class="roman">bɛ̀ɛp</div><div class="eng">style / type / pattern</div></div></td>
+          <td>Noun</td>
+          <td>แบบ</td>
+          <td>用在髮型、衣服款式、設計樣式。</td>
+          <td><div class="triad"><div class="thai">แบบเสื้อ / แบบผม / แบบนี้</div><div class="roman">bɛ̀ɛp sʉ̂a / bɛ̀ɛp phǒm / bɛ̀ɛp níi</div><div class="eng">clothing style / hairstyle / this style</div></div></td>
+          <td><div class="triad"><div class="thai">อยากได้ผมแบบนี้ค่ะ</div><div class="roman">yàak dâai phǒm bɛ̀ɛp níi khâ</div><div class="eng">I want my hair like this style.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">วัดตัว</div><div class="roman">wát-dtua</div><div class="eng">to measure body size</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>裁縫店量身體尺寸。</td>
+          <td><div class="triad"><div class="thai">วัดตัวตัดชุด / วัดเอว / วัดความยาว</div><div class="roman">wát-dtua dtàt chút / wát eeo / wát khwaam-yaao</div><div class="eng">measure body to tailor clothes / measure waist / measure length</div></div></td>
+          <td><div class="triad"><div class="thai">ช่างต้องวัดตัวก่อนตัดชุดค่ะ</div><div class="roman">châang dtɔ̂ng wát-dtua gɔ̀ɔn dtàt chút khâ</div><div class="eng">The tailor must measure the body before tailoring the outfit.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตัดเสื้อ</div><div class="roman">dtàt-sʉ̂a</div><div class="eng">to tailor clothes / make clothes</div></div></td>
+          <td>Verb</td>
+          <td>ตัว / ชุด</td>
+          <td>不是剪破衣服，而是「裁製衣服」。</td>
+          <td><div class="triad"><div class="thai">ร้านตัดเสื้อ / ช่างตัดเสื้อ / ตัดชุด</div><div class="roman">ráan dtàt-sʉ̂a / châang dtàt-sʉ̂a / dtàt chút</div><div class="eng">tailor shop / tailor / tailor an outfit</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านนี้ตัดเสื้อผู้หญิงสวยค่ะ</div><div class="roman">ráan níi dtàt-sʉ̂a phûu-yǐng sǔai khâ</div><div class="eng">This shop tailors women’s clothes beautifully.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">แก้เสื้อ</div><div class="roman">gɛ̂ɛ-sʉ̂a</div><div class="eng">to alter / fix clothes</div></div></td>
+          <td>Verb</td>
+          <td>ตัว</td>
+          <td><span class="thai">แก้</span> 有修正、修改意思。衣服太長太寬可用。</td>
+          <td><div class="triad"><div class="thai">แก้กางเกง / แก้เอว / แก้ความยาว</div><div class="roman">gɛ̂ɛ gaang-geeng / gɛ̂ɛ eeo / gɛ̂ɛ khwaam-yaao</div><div class="eng">alter pants / alter the waist / alter the length</div></div></td>
+          <td><div class="triad"><div class="thai">กางเกงตัวนี้ยาวไป ช่วยแก้ให้หน่อยค่ะ</div><div class="roman">gaang-geeng dtua níi yaao bpai, chûai gɛ̂ɛ hâi nòi khâ</div><div class="eng">These pants are too long. Please alter them for me.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พอดี</div><div class="roman">phɔɔ-dii</div><div class="eng">just right / fits well</div></div></td>
+          <td>Adjective / adverb</td>
+          <td>—</td>
+          <td>尺寸剛好、時間剛好、程度剛好都能用。</td>
+          <td><div class="triad"><div class="thai">พอดีตัว / ใส่พอดี / ขนาดพอดี</div><div class="roman">phɔɔ-dii dtua / sài phɔɔ-dii / khà-nàat phɔɔ-dii</div><div class="eng">fits the body / fits well / just the right size</div></div></td>
+          <td><div class="triad"><div class="thai">ชุดนี้ใส่พอดีค่ะ</div><div class="roman">chút níi sài phɔɔ-dii khâ</div><div class="eng">This outfit fits well.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Hair Salon / Barbershop｜理髮店、髮廊</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ร้านตัดผม</div><div class="roman">ráan dtàt-phǒm</div><div class="eng">barbershop / hair salon</div></div></td>
+          <td>Place</td>
+          <td>ร้าน</td>
+          <td>可泛指剪髮店；男生傳統理髮店也常這樣說。</td>
+          <td><div class="triad"><div class="thai">ไปร้านตัดผม / ร้านตัดผมใกล้บ้าน</div><div class="roman">bpai ráan dtàt-phǒm / ráan dtàt-phǒm glâi bâan</div><div class="eng">go to a barbershop / barbershop near home</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันจะไปร้านตัดผมค่ะ</div><div class="roman">wan-níi chǎn jà bpai ráan dtàt-phǒm khâ</div><div class="eng">Today I will go to the hair salon.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ช่างตัดผม</div><div class="roman">châang dtàt-phǒm</div><div class="eng">barber / hairdresser</div></div></td>
+          <td>Person / profession</td>
+          <td>คน</td>
+          <td><span class="thai">ช่าง</span> 是技師、師傅；可用於修車、裁縫、理髮。</td>
+          <td><div class="triad"><div class="thai">ช่างตัดผม / ช่างทำผม / ช่างซ่อมรถ</div><div class="roman">châang dtàt-phǒm / châang tham-phǒm / châang sɔ̂ɔm-rót</div><div class="eng">barber / hair stylist / mechanic</div></div></td>
+          <td><div class="triad"><div class="thai">ช่างตัดผมคนนี้ตัดดีมากค่ะ</div><div class="roman">châang dtàt-phǒm khon níi dtàt dii mâak khâ</div><div class="eng">This hairdresser cuts hair very well.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ทำผม</div><div class="roman">tham-phǒm</div><div class="eng">to do hair / get hair done</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td>泛指做頭髮：洗、剪、染、燙、造型都可能包含。</td>
+          <td><div class="triad"><div class="thai">ร้านทำผม / ช่างทำผม / ไปทำผม</div><div class="roman">ráan tham-phǒm / châang tham-phǒm / bpai tham-phǒm</div><div class="eng">hair salon / hair stylist / go get hair done</div></div></td>
+          <td><div class="triad"><div class="thai">เสาร์นี้ฉันจะไปทำผมค่ะ</div><div class="roman">sǎo níi chǎn jà bpai tham-phǒm khâ</div><div class="eng">This Saturday I will go get my hair done.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตัดผม</div><div class="roman">dtàt-phǒm</div><div class="eng">to cut hair / get a haircut</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td><span class="thai">ตัด</span> 是剪；<span class="thai">ผม</span> 是頭髮。</td>
+          <td><div class="triad"><div class="thai">ตัดผมสั้น / ตัดผมให้สั้นลง / ตัดหน้าม้า</div><div class="roman">dtàt-phǒm sân / dtàt-phǒm hâi sân long / dtàt nâa-máa</div><div class="eng">cut hair short / cut hair shorter / cut bangs</div></div></td>
+          <td><div class="triad"><div class="thai">อยากตัดผมให้สั้นลงนิดหน่อยค่ะ</div><div class="roman">yàak dtàt-phǒm hâi sân long nít-nɔ̀i khâ</div><div class="eng">I want to cut my hair a little shorter.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สระผม</div><div class="roman">sà-phǒm</div><div class="eng">to wash hair / shampoo hair</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td>洗頭髮專用，不用 <span class="thai">ล้างผม</span>。</td>
+          <td><div class="triad"><div class="thai">สระผม / สระไดร์ / สระผมอย่างเดียว</div><div class="roman">sà-phǒm / sà-drai / sà-phǒm yàang-diao</div><div class="eng">wash hair / wash and blow-dry / wash hair only</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ขอสระผมอย่างเดียวค่ะ</div><div class="roman">wan-níi khɔ̌ɔ sà-phǒm yàang-diao khâ</div><div class="eng">Today I’d like only a hair wash.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ทำสีผม</div><div class="roman">tham-sǐi-phǒm</div><div class="eng">to dye hair / color hair</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td><span class="thai">ทำสี</span> 是染色；<span class="thai">ย้อมผม</span> 也可表示染髮。</td>
+          <td><div class="triad"><div class="thai">ทำสีผม / ย้อมผม / สีผมน้ำตาล</div><div class="roman">tham-sǐi-phǒm / yɔ́ɔm-phǒm / sǐi-phǒm náam-dtaan</div><div class="eng">dye hair / dye hair / brown hair color</div></div></td>
+          <td><div class="triad"><div class="thai">อยากทำสีผมสีน้ำตาลเข้มค่ะ</div><div class="roman">yàak tham-sǐi-phǒm sǐi náam-dtaan khêm khâ</div><div class="eng">I want to dye my hair dark brown.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยืดผม</div><div class="roman">yʉ̂ʉt-phǒm</div><div class="eng">to straighten hair</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง</td>
+          <td>讓頭髮變直，通常是化學或熱工具處理。</td>
+          <td><div class="triad"><div class="thai">ยืดผมตรง / ผมตรง / ผมหยิก</div><div class="roman">yʉ̂ʉt-phǒm dtrong / phǒm dtrong / phǒm yìk</div><div class="eng">straighten hair / straight hair / curly hair</div></div></td>
+          <td><div class="triad"><div class="thai">ผมหยิกมาก อยากยืดผมค่ะ</div><div class="roman">phǒm yìk mâak, yàak yʉ̂ʉt-phǒm khâ</div><div class="eng">My hair is very curly; I want to straighten it.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ต่อผม</div><div class="roman">dtɔ̀ɔ-phǒm</div><div class="eng">to get hair extensions</div></div></td>
+          <td>Verb phrase</td>
+          <td>ครั้ง / ช่อ</td>
+          <td><span class="thai">ต่อ</span> 有接上、延長意思。</td>
+          <td><div class="triad"><div class="thai">ต่อผมยาว / ต่อผมธรรมชาติ / ต่อผมกี่ช่อ</div><div class="roman">dtɔ̀ɔ-phǒm yaao / dtɔ̀ɔ-phǒm tham-má-châat / dtɔ̀ɔ-phǒm gìi chɔ̂ɔ</div><div class="eng">get long extensions / natural hair extensions / how many bunches of extensions</div></div></td>
+          <td><div class="triad"><div class="thai">อยากต่อผมให้ยาวขึ้นค่ะ</div><div class="roman">yàak dtɔ̀ɔ-phǒm hâi yaao khʉ̂n khâ</div><div class="eng">I want to get extensions to make my hair longer.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หน้าม้า</div><div class="roman">nâa-máa</div><div class="eng">bangs / fringe</div></div></td>
+          <td>Hair noun</td>
+          <td>—</td>
+          <td>瀏海；不是馬臉。<span class="thai">ผมหน้าม้า</span> 是有瀏海的髮型。</td>
+          <td><div class="triad"><div class="thai">ตัดหน้าม้า / ผมหน้าม้า / หน้าม้าบาง</div><div class="roman">dtàt nâa-máa / phǒm nâa-máa / nâa-máa baang</div><div class="eng">cut bangs / bangs hairstyle / thin bangs</div></div></td>
+          <td><div class="triad"><div class="thai">อยากตัดหน้าม้าบาง ๆ ค่ะ</div><div class="roman">yàak dtàt nâa-máa baang-baang khâ</div><div class="eng">I want to cut light/thin bangs.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ตัว</span><div class="triad"><div class="thai">ตัว</div><div class="roman">dtua</div><div class="eng">classifier for clothing / body-shaped things</div></div></td>
+          <td><div class="triad"><div class="thai">เสื้อ / กางเกง / ชุดบาง情境</div><div class="roman">sʉ̂a / gaang-geeng / chút baang sà-thǎa-ná-gaan</div><div class="eng">shirt / pants / some outfits</div></div></td>
+          <td>衣服穿在身上，有「一件」的概念，很多衣物可用 <span class="thai">ตัว</span>。</td>
+          <td><div class="triad"><div class="thai">เสื้อตัวนี้เล็กไปค่ะ</div><div class="roman">sʉ̂a dtua níi lék bpai khâ</div><div class="eng">This shirt is too small.</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要看到衣服就都用 <span class="thai">อัน</span>；衣服常用 <span class="thai">ตัว</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ชุด</span><div class="triad"><div class="thai">ชุด</div><div class="roman">chút</div><div class="eng">set / outfit</div></div></td>
+          <td><div class="triad"><div class="thai">ชุดเดรส / ชุดนักเรียน / ชุดสูท</div><div class="roman">chút drêet / chút nák-rian / chút sùut</div><div class="eng">dress / school uniform / suit</div></div></td>
+          <td>表示一整套衣服或套裝。</td>
+          <td><div class="triad"><div class="thai">ชุดนี้ใส่พอดีค่ะ</div><div class="roman">chút níi sài phɔɔ-dii khâ</div><div class="eng">This outfit fits well.</div></div></td>
+          <td><span class="thai">ชุด</span> 也是名詞「套裝」，不是只能當量詞。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ร้าน</span><div class="triad"><div class="thai">ร้าน</div><div class="roman">ráan</div><div class="eng">shop / store classifier</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านซักรีด / ร้านตัดเสื้อ / ร้านตัดผม</div><div class="roman">ráan sák-rîit / ráan dtàt-sʉ̂a / ráan dtàt-phǒm</div><div class="eng">laundry shop / tailor shop / hair salon</div></div></td>
+          <td>店家、商店都用。</td>
+          <td><div class="triad"><div class="thai">แถวนี้มีร้านซักรีดไหมคะ</div><div class="roman">thɛ̌ɛo níi mii ráan sák-rîit mái khá</div><div class="eng">Is there a laundry shop around here?</div></div></td>
+          <td>不要把 <span class="thai">ร้าน</span> 跟 <span class="thai">บ้าน</span> 混淆；<span class="thai">ร้าน</span> 是店。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คน</span><div class="triad"><div class="thai">คน</div><div class="roman">khon</div><div class="eng">person classifier</div></div></td>
+          <td><div class="triad"><div class="thai">ช่างตัดผม / ช่างตัดเสื้อ / พนักงาน</div><div class="roman">châang dtàt-phǒm / châang dtàt-sʉ̂a / phá-nák-ngaan</div><div class="eng">hairdresser / tailor / staff</div></div></td>
+          <td>職業人士、店員、技師都算人。</td>
+          <td><div class="triad"><div class="thai">ช่างตัดผมคนนี้ใจดีมากค่ะ</div><div class="roman">châang dtàt-phǒm khon níi jai-dii mâak khâ</div><div class="eng">This hairdresser is very kind.</div></div></td>
+          <td><span class="thai">ช่าง</span> 是職業詞，不是量詞；量詞仍是 <span class="thai">คน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คัน</span><div class="triad"><div class="thai">คัน</div><div class="roman">khan</div><div class="eng">classifier for cars / vehicles</div></div></td>
+          <td><div class="triad"><div class="thai">รถ / รถยนต์ / มอเตอร์ไซค์</div><div class="roman">rót / rót-yon / mɔɔ-dtə̂ə-sai</div><div class="eng">car / automobile / motorcycle</div></div></td>
+          <td>車輛量詞。</td>
+          <td><div class="triad"><div class="thai">รถคันนี้ต้องซ่อมค่ะ</div><div class="roman">rót khan níi dtɔ̂ng sɔ̂ɔm khâ</div><div class="eng">This car needs to be repaired.</div></div></td>
+          <td><span class="label review">Review</span> Day 12 船用 <span class="thai">ลำ</span>，車用 <span class="thai">คัน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ครั้ง</span><div class="triad"><div class="thai">ครั้ง</div><div class="roman">khráng</div><div class="eng">time / occurrence</div></div></td>
+          <td><div class="triad"><div class="thai">ตัดผม / ทำผม / ซักผ้า / แก้เสื้อ</div><div class="roman">dtàt-phǒm / tham-phǒm / sák phâa / gɛ̂ɛ sʉ̂a</div><div class="eng">haircut / hair service / laundry / clothing alteration</div></div></td>
+          <td>數服務或動作發生幾次。</td>
+          <td><div class="triad"><div class="thai">เดือนนี้ฉันตัดผมสองครั้งค่ะ</div><div class="roman">dʉan níi chǎn dtàt-phǒm sɔ̌ɔng khráng khâ</div><div class="eng">This month I got a haircut twice.</div></div></td>
+          <td><span class="thai">ครั้ง</span> 是次數，不是件數。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ชิ้น</span><div class="triad"><div class="thai">ชิ้น</div><div class="roman">chín</div><div class="eng">piece</div></div></td>
+          <td><div class="triad"><div class="thai">ผ้า / เสื้อผ้าบางชิ้น / ของชิ้นเล็ก</div><div class="roman">phâa / sʉ̂a-phâa baang chín / khɔ̌ɔng chín lék</div><div class="eng">fabric / some clothing pieces / small items</div></div></td>
+          <td>泛指一件物品、一片、一塊。</td>
+          <td><div class="triad"><div class="thai">เสื้อผ้าชิ้นนี้แพงมากค่ะ</div><div class="roman">sʉ̂a-phâa chín níi phɛɛng mâak khâ</div><div class="eng">This piece of clothing is very expensive.</div></div></td>
+          <td>衣服更常用 <span class="thai">ตัว</span>；但講「單品」時可用 <span class="thai">ชิ้น</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜本課重點補充</h2>
+
+    <h3>เอาไป / มาเอา / เอากลับ｜方向感整理</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Feeling</th>
+          <th>Different Life Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Take to somewhere</td>
+          <td><div class="triad"><div class="thai">เอา + N + ไปที่ + place</div><div class="roman">ao + N + bpai thîi + place</div><div class="eng">take N to a place</div></div></td>
+          <td>東西從你這裡離開，拿去某處。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเอาเสื้อผ้าไปที่ร้านซักรีดค่ะ</div><div class="roman">chǎn ao sʉ̂a-phâa bpai thîi ráan sák-rîit khâ</div><div class="eng">I take clothes to the laundry shop.</div></div>
+            <div class="triad"><div class="thai">ฉันจะเอากางเกงไปแก้ที่ร้านตัดเสื้อค่ะ</div><div class="roman">chǎn jà ao gaang-geeng bpai gɛ̂ɛ thîi ráan dtàt-sʉ̂a khâ</div><div class="eng">I will take the pants to alter at the tailor shop.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Come pick up</td>
+          <td><div class="triad"><div class="thai">มาเอา + N + ที่ + place</div><div class="roman">maa ao + N + thîi + place</div><div class="eng">come pick up N at a place</div></div></td>
+          <td>對方朝你或指定地點來拿。</td>
+          <td>
+            <div class="triad"><div class="thai">พนักงานจะมาเอาเสื้อผ้าที่ห้องค่ะ</div><div class="roman">phá-nák-ngaan jà maa ao sʉ̂a-phâa thîi hɔ̂ng khâ</div><div class="eng">The staff will come pick up the clothes at the room.</div></div>
+            <div class="triad"><div class="thai">คุณช่วยมาเอาของที่ล็อบบี้ได้ไหมคะ</div><div class="roman">khun chûai maa ao khɔ̌ɔng thîi lɔ́p-bîi dâai mái khá</div><div class="eng">Could you please come pick up the things at the lobby?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Take back</td>
+          <td><div class="triad"><div class="thai">เอา + N + กลับ</div><div class="roman">ao + N + glàp</div><div class="eng">take N back</div></div></td>
+          <td>拿回去、帶回家。</td>
+          <td>
+            <div class="triad"><div class="thai">พรุ่งนี้ฉันจะมาเอาเสื้อผ้ากลับค่ะ</div><div class="roman">phrûng-níi chǎn jà maa ao sʉ̂a-phâa glàp khâ</div><div class="eng">Tomorrow I will come pick up the clothes and take them back.</div></div>
+            <div class="triad"><div class="thai">ถ้าซ่อมเสร็จแล้ว โทรหาฉันนะคะ ฉันจะมาเอากลับค่ะ</div><div class="roman">thâa sɔ̂ɔm sèt lɛ́ɛw, thoo hǎa chǎn ná khá, chǎn jà maa ao glàp khâ</div><div class="eng">If the repair is finished, please call me. I will come pick it up.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>方向感小撇步：</strong>
+      <span class="thai">ไป</span> /
+      <span class="roman">bpai</span> /
+      <span class="eng">go away from here</span>
+      是離開你的位置；
+      <span class="thai">มา</span> /
+      <span class="roman">maa</span> /
+      <span class="eng">come toward here</span>
+      是朝你或說話中心過來。這跟中文「拿去 / 來拿」很像。
+    </div>
+
+    <h3>V + adj vs V + ให้ + adj｜慢慢開 vs 開得慢一點</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage</th>
+          <th>Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V + adj + นะคะ</td>
+          <td><div class="triad"><div class="thai">ขับรถช้า ๆ นะคะ</div><div class="roman">khàp-rót cháa-cháa ná khá</div><div class="eng">Please drive slowly.</div></div></td>
+          <td>直接提醒對方動作方式。</td>
+          <td>
+            <div class="triad"><div class="thai">พูดช้า ๆ นะคะ</div><div class="roman">phûut cháa-cháa ná khá</div><div class="eng">Please speak slowly.</div></div>
+            <div class="triad"><div class="thai">เดินดี ๆ นะคะ</div><div class="roman">dəən dii-dii ná khá</div><div class="eng">Walk carefully, okay?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>V + ให้ + adj + นะคะ</td>
+          <td><div class="triad"><div class="thai">ขับรถให้ช้านะคะ</div><div class="roman">khàp-rót hâi cháa ná khá</div><div class="eng">Please make sure to drive slowly.</div></div></td>
+          <td>有「做到某種結果」的感覺，比較像要求成果。</td>
+          <td>
+            <div class="triad"><div class="thai">ตัดผมให้สั้นลงนิดหน่อยนะคะ</div><div class="roman">dtàt-phǒm hâi sân long nít-nɔ̀i ná khá</div><div class="eng">Please cut my hair a little shorter.</div></div>
+            <div class="triad"><div class="thai">แก้กางเกงให้พอดีนะคะ</div><div class="roman">gɛ̂ɛ gaang-geeng hâi phɔɔ-dii ná khá</div><div class="eng">Please alter the pants so they fit well.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>อย่า...｜不要太…… / 禁止提醒</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Feeling</th>
+          <th>Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>อย่า + V + adj + นะคะ</td>
+          <td><div class="triad"><div class="thai">อย่าขับรถเร็วนะคะ</div><div class="roman">yàa khàp-rót rew ná khá</div><div class="eng">Don’t drive fast.</div></div></td>
+          <td>直接提醒，常用於安全或關心。</td>
+          <td>
+            <div class="triad"><div class="thai">อย่ากินเหล้าเยอะนะคะ</div><div class="roman">yàa gin lâo yə́ ná khá</div><div class="eng">Don’t drink too much alcohol.</div></div>
+            <div class="triad"><div class="thai">อย่านอนดึกนะคะ</div><div class="roman">yàa nɔɔn dʉ̀k ná khá</div><div class="eng">Don’t sleep late.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>อย่า + V + ให้ + adj + นัก</td>
+          <td><div class="triad"><div class="thai">อย่าขับรถให้เร็วนักนะคะ</div><div class="roman">yàa khàp-rót hâi rew nák ná khá</div><div class="eng">Don’t drive too fast.</div></div></td>
+          <td><span class="thai">นัก</span> 加強「太……」的感覺，較書面/正式一點。</td>
+          <td>
+            <div class="triad"><div class="thai">อย่าตัดผมให้สั้นนักนะคะ</div><div class="roman">yàa dtàt-phǒm hâi sân nák ná khá</div><div class="eng">Don’t cut my hair too short.</div></div>
+            <div class="triad"><div class="thai">อย่าแก้เอวให้เล็กนักนะคะ</div><div class="roman">yàa gɛ̂ɛ eeo hâi lék nák ná khá</div><div class="eng">Don’t alter the waist too small.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Hair Salon Practical Bank｜髮廊實用句庫</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Need</th>
+          <th>Thai / Romanization / English</th>
+          <th>Local Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>只洗頭</td>
+          <td><div class="triad"><div class="thai">ขอสระผมอย่างเดียวค่ะ</div><div class="roman">khɔ̌ɔ sà-phǒm yàang-diao khâ</div><div class="eng">I’d like only a hair wash.</div></div></td>
+          <td>在泰國髮廊洗頭按摩很常見。</td>
+        </tr>
+        <tr>
+          <td>剪短一點</td>
+          <td><div class="triad"><div class="thai">ตัดให้สั้นลงนิดหน่อยค่ะ</div><div class="roman">dtàt hâi sân long nít-nɔ̀i khâ</div><div class="eng">Please cut it a little shorter.</div></div></td>
+          <td><span class="thai">นิดหน่อย</span> 很重要，不然可能剪太多。</td>
+        </tr>
+        <tr>
+          <td>不要剪太短</td>
+          <td><div class="triad"><div class="thai">อย่าตัดสั้นเกินไปนะคะ</div><div class="roman">yàa dtàt sân gəən bpai ná khá</div><div class="eng">Don’t cut it too short.</div></div></td>
+          <td><span class="thai">เกินไป</span> = too much。</td>
+        </tr>
+        <tr>
+          <td>修瀏海</td>
+          <td><div class="triad"><div class="thai">ช่วยตัดหน้าม้าให้หน่อยค่ะ</div><div class="roman">chûai dtàt nâa-máa hâi nòi khâ</div><div class="eng">Please cut my bangs for me.</div></div></td>
+          <td>瀏海是 <span class="thai">หน้าม้า</span>。</td>
+        </tr>
+        <tr>
+          <td>染深咖啡</td>
+          <td><div class="triad"><div class="thai">อยากทำสีผมสีน้ำตาลเข้มค่ะ</div><div class="roman">yàak tham-sǐi-phǒm sǐi náam-dtaan khêm khâ</div><div class="eng">I want to dye my hair dark brown.</div></div></td>
+          <td>泰國店員可能會拿色卡給你看。</td>
+        </tr>
+        <tr>
+          <td>拉直</td>
+          <td><div class="triad"><div class="thai">อยากยืดผมให้ตรงค่ะ</div><div class="roman">yàak yʉ̂ʉt-phǒm hâi dtrong khâ</div><div class="eng">I want to straighten my hair.</div></div></td>
+          <td><span class="thai">ตรง</span> = straight。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Tailor Practical Bank｜裁縫店實用句庫</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Need</th>
+          <th>Thai / Romanization / English</th>
+          <th>Local Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>褲子太長</td>
+          <td><div class="triad"><div class="thai">กางเกงตัวนี้ยาวไปค่ะ</div><div class="roman">gaang-geeng dtua níi yaao bpai khâ</div><div class="eng">These pants are too long.</div></div></td>
+          <td><span class="thai">ไป</span> 在形容詞後可表示「太……」。</td>
+        </tr>
+        <tr>
+          <td>改短</td>
+          <td><div class="triad"><div class="thai">ช่วยแก้ให้สั้นลงหน่อยค่ะ</div><div class="roman">chûai gɛ̂ɛ hâi sân long nòi khâ</div><div class="eng">Please alter it to be shorter.</div></div></td>
+          <td>很實用，適合褲長、裙長。</td>
+        </tr>
+        <tr>
+          <td>腰太鬆</td>
+          <td><div class="triad"><div class="thai">เอวหลวมไปค่ะ</div><div class="roman">eeo lǔam bpai khâ</div><div class="eng">The waist is too loose.</div></div></td>
+          <td><span class="thai">หลวม</span> = loose。</td>
+        </tr>
+        <tr>
+          <td>不要改太緊</td>
+          <td><div class="triad"><div class="thai">อย่าแก้ให้คับเกินไปนะคะ</div><div class="roman">yàa gɛ̂ɛ hâi kháp gəən bpai ná khá</div><div class="eng">Don’t alter it too tight.</div></div></td>
+          <td><span class="thai">คับ</span> = tight。</td>
+        </tr>
+        <tr>
+          <td>要剛好</td>
+          <td><div class="triad"><div class="thai">แก้ให้พอดีตัวนะคะ</div><div class="roman">gɛ̂ɛ hâi phɔɔ-dii dtua ná khá</div><div class="eng">Please alter it so it fits well.</div></div></td>
+          <td><span class="thai">พอดีตัว</span> = fits the body。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Structures｜句型整理</h2>
+
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <h3>1. S + เอา + N + ไปที่ + Place</h3>
+      <div class="triad">
+        <div class="thai">Subject + เอา + Noun + ไปที่ + Place</div>
+        <div class="roman">Subject + ao + Noun + bpai thîi + Place</div>
+        <div class="eng">Subject takes Noun to Place.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ฉันเอาเสื้อผ้าไปที่ร้านซักรีดค่ะ</div>
+        <div class="roman">chǎn ao sʉ̂a-phâa bpai thîi ráan sák-rîit khâ</div>
+        <div class="eng">I take clothes to the laundry shop.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ฉันจะเอากางเกงไปแก้ที่ร้านตัดเสื้อค่ะ</div><div class="roman">chǎn jà ao gaang-geeng bpai gɛ̂ɛ thîi ráan dtàt-sʉ̂a khâ</div><div class="eng">I will take the pants to the tailor shop to alter them.</div></div></li>
+        <li><div class="triad"><div class="thai">เขาเอารถไปซ่อมที่อู่ค่ะ</div><div class="roman">khǎo ao rót bpai sɔ̂ɔm thîi ùu khâ</div><div class="eng">He took the car to the garage to repair it.</div></div></li>
+        <li><div class="triad"><div class="thai">ฉันเอารองเท้าไปซ่อมที่ร้านค่ะ</div><div class="roman">chǎn ao rɔɔng-tháao bpai sɔ̂ɔm thîi ráan khâ</div><div class="eng">I took the shoes to the shop to repair them.</div></div></li>
+        <li><div class="triad"><div class="thai">พรุ่งนี้จะเอาชุดไปซักแห้งค่ะ</div><div class="roman">phrûng-níi jà ao chút bpai sák hɛ̂ɛng khâ</div><div class="eng">Tomorrow I will take the outfit to be dry-cleaned.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>2. ช่วย + มาเอา + N + ที่ + Place + หน่อยค่ะ</h3>
+      <div class="triad">
+        <div class="thai">ช่วย + มาเอา + Noun + ที่ + Place + หน่อยค่ะ</div>
+        <div class="roman">chûai + maa ao + Noun + thîi + Place + nòi khâ</div>
+        <div class="eng">Please come pick up Noun at Place.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ช่วยมาเอาเสื้อผ้าที่ร้านหน่อยค่ะ</div>
+        <div class="roman">chûai maa ao sʉ̂a-phâa thîi ráan nòi khâ</div>
+        <div class="eng">Please come pick up the clothes at the shop.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ช่วยมาเอาเสื้อผ้าที่คอนโดหน่อยค่ะ</div><div class="roman">chûai maa ao sʉ̂a-phâa thîi khɔɔn-doo nòi khâ</div><div class="eng">Please come pick up the clothes at my condo.</div></div></li>
+        <li><div class="triad"><div class="thai">ช่วยมาเอาของที่ล็อบบี้หน่อยค่ะ</div><div class="roman">chûai maa ao khɔ̌ɔng thîi lɔ́p-bîi nòi khâ</div><div class="eng">Please come pick up the things at the lobby.</div></div></li>
+        <li><div class="triad"><div class="thai">ช่วยมาเอาผ้าที่ห้อง 1208 หน่อยค่ะ</div><div class="roman">chûai maa ao phâa thîi hɔ̂ng sìp-sɔ̌ɔng-sǔun-bpɛ̀ɛt nòi khâ</div><div class="eng">Please come pick up the laundry at room 1208.</div></div></li>
+        <li><div class="triad"><div class="thai">ถ้าซักเสร็จแล้ว ช่วยโทรหาฉันหน่อยค่ะ</div><div class="roman">thâa sák sèt lɛ́ɛw, chûai thoo hǎa chǎn nòi khâ</div><div class="eng">When the laundry is done, please call me.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>3. V + adj + นะคะ / V + ให้ + adj + นะคะ</h3>
+      <div class="triad">
+        <div class="thai">Verb + Adjective + นะคะ / Verb + ให้ + Adjective + นะคะ</div>
+        <div class="roman">Verb + Adjective + ná khá / Verb + hâi + Adjective + ná khá</div>
+        <div class="eng">Please do Verb in an Adj way / Please make it Adj.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ขับรถช้า ๆ นะคะ</div><div class="roman">khàp-rót cháa-cháa ná khá</div><div class="eng">Please drive slowly.</div></div></li>
+        <li><div class="triad"><div class="thai">ขับรถให้ช้านะคะ</div><div class="roman">khàp-rót hâi cháa ná khá</div><div class="eng">Please make sure to drive slowly.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ตัดผมให้สั้นลงนิดหน่อยนะคะ</div><div class="roman">dtàt-phǒm hâi sân long nít-nɔ̀i ná khá</div><div class="eng">Please cut my hair a little shorter.</div></div></li>
+        <li><div class="triad"><div class="thai">แก้กางเกงให้พอดีนะคะ</div><div class="roman">gɛ̂ɛ gaang-geeng hâi phɔɔ-dii ná khá</div><div class="eng">Please alter the pants so they fit well.</div></div></li>
+        <li><div class="triad"><div class="thai">พูดช้า ๆ หน่อยนะคะ</div><div class="roman">phûut cháa-cháa nòi ná khá</div><div class="eng">Please speak a little slowly.</div></div></li>
+        <li><div class="triad"><div class="thai">ทำสีให้เข้มขึ้นนิดหน่อยนะคะ</div><div class="roman">tham-sǐi hâi khêm khʉ̂n nít-nɔ̀i ná khá</div><div class="eng">Please make the color a little darker.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>4. อย่า + V + adj + นะคะ</h3>
+      <div class="triad">
+        <div class="thai">อย่า + Verb + Adjective + นะคะ</div>
+        <div class="roman">yàa + Verb + Adjective + ná khá</div>
+        <div class="eng">Don’t Verb too Adj / Don’t do it in an Adj way.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">อย่ากินเหล้าเยอะนะคะ</div>
+        <div class="roman">yàa gin lâo yə́ ná khá</div>
+        <div class="eng">Don’t drink too much alcohol.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">อย่าขับรถเร็วนะคะ</div><div class="roman">yàa khàp-rót rew ná khá</div><div class="eng">Don’t drive fast.</div></div></li>
+        <li><div class="triad"><div class="thai">อย่าตัดสั้นเกินไปนะคะ</div><div class="roman">yàa dtàt sân gəən bpai ná khá</div><div class="eng">Don’t cut it too short.</div></div></li>
+        <li><div class="triad"><div class="thai">อย่าแก้เอวให้เล็กเกินไปนะคะ</div><div class="roman">yàa gɛ̂ɛ eeo hâi lék gəən bpai ná khá</div><div class="eng">Don’t alter the waist too small.</div></div></li>
+        <li><div class="triad"><div class="thai">อย่าทำสีผมสว่างเกินไปนะคะ</div><div class="roman">yàa tham-sǐi-phǒm sà-wàang gəən bpai ná khá</div><div class="eng">Don’t make the hair color too light.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>5. อยาก + V / อยากให้ + S + V</h3>
+      <div class="triad">
+        <div class="thai">อยาก + Verb / อยากให้ + Subject + Verb</div>
+        <div class="roman">yàak + Verb / yàak hâi + Subject + Verb</div>
+        <div class="eng">want to Verb / want someone to Verb</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">อยากตัดผมค่ะ</div><div class="roman">yàak dtàt-phǒm khâ</div><div class="eng">I want to get a haircut.</div></div></li>
+        <li><div class="triad"><div class="thai">อยากให้ช่างตัดสั้นลงนิดหน่อยค่ะ</div><div class="roman">yàak hâi châang dtàt sân long nít-nɔ̀i khâ</div><div class="eng">I want the hairdresser to cut it a little shorter.</div></div></li>
+        <li><div class="triad"><div class="thai">อยากให้ร้านซักรีดมารับผ้าที่คอนโดค่ะ</div><div class="roman">yàak hâi ráan sák-rîit maa ráp phâa thîi khɔɔn-doo khâ</div><div class="eng">I want the laundry shop to pick up the laundry at the condo.</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>拿衣服去洗衣店</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันเอาเสื้อผ้าไปที่ร้านซักรีดค่ะ</div><div class="roman">chǎn ao sʉ̂a-phâa bpai thîi ráan sák-rîit khâ</div><div class="eng">I take clothes to the laundry shop.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เอาผ้าไปซักค่ะ</div><div class="roman">ao phâa bpai sák khâ</div><div class="eng">I’m taking laundry to wash.</div></div></td>
+          <td>口語常把 <span class="thai">เสื้อผ้า</span> 簡化成 <span class="thai">ผ้า</span>，但初學者用完整句比較安全。</td>
+        </tr>
+
+        <tr>
+          <td>請人來取衣服</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ช่วยมาเอาเสื้อผ้าที่ร้านหน่อยค่ะ</div><div class="roman">chûai maa ao sʉ̂a-phâa thîi ráan nòi khâ</div><div class="eng">Please come pick up the clothes at the shop.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">มารับผ้าที่คอนโดได้ไหมคะ</div><div class="roman">maa ráp phâa thîi khɔɔn-doo dâai mái khá</div><div class="eng">Can you pick up the laundry at the condo?</div></div></td>
+          <td>服務業更常用 <span class="thai">รับ</span> = pick up / receive。</td>
+        </tr>
+
+        <tr>
+          <td>請司機慢慢開</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ขับรถช้า ๆ นะคะ</div><div class="roman">khàp-rót cháa-cháa ná khá</div><div class="eng">Please drive slowly.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขับช้า ๆ หน่อยนะคะ</div><div class="roman">khàp cháa-cháa nòi ná khá</div><div class="eng">Please drive a bit slowly.</div></div></td>
+          <td><span class="thai">หน่อย</span> 讓語氣更柔和，很適合跟司機說。</td>
+        </tr>
+
+        <tr>
+          <td>不要剪太短</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">อย่าตัดผมให้สั้นนักนะคะ</div><div class="roman">yàa dtàt-phǒm hâi sân nák ná khá</div><div class="eng">Don’t cut my hair too short.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อย่าตัดสั้นเกินไปนะคะ</div><div class="roman">yàa dtàt sân gəən bpai ná khá</div><div class="eng">Don’t cut it too short.</div></div></td>
+          <td>生活中 <span class="thai">เกินไป</span> 比 <span class="thai">นัก</span> 更常見、更自然。</td>
+        </tr>
+
+        <tr>
+          <td>做頭髮</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันจะไปร้านทำผมค่ะ</div><div class="roman">chǎn jà bpai ráan tham-phǒm khâ</div><div class="eng">I will go to the hair salon.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วันนี้ไปทำผมค่ะ</div><div class="roman">wan-níi bpai tham-phǒm khâ</div><div class="eng">I’m getting my hair done today.</div></div></td>
+          <td><span class="thai">ทำผม</span> 很廣，包含剪、洗、染、燙、造型。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bangkok" class="tab-content">
+    <h2>Bangkok Expansion｜曼谷生活實用場景</h2>
+
+    <h3>1. Laundry Pickup｜洗衣店到府取衣</h3>
+    <div class="cards">
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">มารับผ้าที่คอนโดได้ไหมคะ</div><div class="roman">maa ráp phâa thîi khɔɔn-doo dâai mái khá</div><div class="eng">Can you pick up the laundry at my condo?</div></div>
+        <p>比課本 <span class="thai">มาเอา</span> 更像服務業用語。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ต้องใช้เวลากี่วันคะ</div><div class="roman">dtɔ̂ng chái wee-laa gìi wan khá</div><div class="eng">How many days will it take?</div></div>
+        <p>送洗衣服必問。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ถ้าเสร็จแล้วช่วยโทรหาฉันหน่อยค่ะ</div><div class="roman">thâa sèt lɛ́ɛw chûai thoo hǎa chǎn nòi khâ</div><div class="eng">When it is finished, please call me.</div></div>
+        <p>任何送修、送洗都能用。</p>
+      </div>
+    </div>
+
+    <h3>2. Tailor Shop｜改褲長、改腰身</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">กางเกงตัวนี้ยาวไปค่ะ</div><div class="roman">gaang-geeng dtua níi yaao bpai khâ</div><div class="eng">These pants are too long.</div></div>
+        <p>褲長太長。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ช่วยแก้ให้สั้นลงหน่อยค่ะ</div><div class="roman">chûai gɛ̂ɛ hâi sân long nòi khâ</div><div class="eng">Please alter them to be shorter.</div></div>
+        <p>要求改短。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">อย่าแก้ให้คับเกินไปนะคะ</div><div class="roman">yàa gɛ̂ɛ hâi kháp gəən bpai ná khá</div><div class="eng">Don’t alter them too tight.</div></div>
+        <p>避免改太緊。</p>
+      </div>
+    </div>
+
+    <h3>3. Hair Salon｜髮廊剪染燙</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ขอสระผมกับตัดผมค่ะ</div><div class="roman">khɔ̌ɔ sà-phǒm gàp dtàt-phǒm khâ</div><div class="eng">I’d like a hair wash and haircut.</div></div>
+        <p>最基本髮廊需求。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">อย่าตัดสั้นเกินไปนะคะ</div><div class="roman">yàa dtàt sân gəən bpai ná khá</div><div class="eng">Don’t cut it too short.</div></div>
+        <p>保命句，強烈建議背。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">อยากทำสีผมสีน้ำตาลเข้มค่ะ</div><div class="roman">yàak tham-sǐi-phǒm sǐi náam-dtaan khêm khâ</div><div class="eng">I want to dye my hair dark brown.</div></div>
+        <p>染髮需求。</p>
+      </div>
+    </div>
+
+    <h3>4. Grab / Taxi｜請司機慢一點</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ขับช้า ๆ หน่อยนะคะ</div><div class="roman">khàp cháa-cháa nòi ná khá</div><div class="eng">Please drive a bit slowly.</div></div>
+        <p>最自然。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ไม่ต้องรีบค่ะ</div><div class="roman">mâi dtɔ̂ng rîip khâ</div><div class="eng">No need to rush.</div></div>
+        <p>比直接說「不要開快」更柔和。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ฉันเวียนหัวค่ะ ขับช้า ๆ ได้ไหมคะ</div><div class="roman">chǎn wian-hǔa khâ, khàp cháa-cháa dâai mái khá</div><div class="eng">I feel dizzy. Could you drive slowly?</div></div>
+        <p>如果司機開太快可以用。</p>
+      </div>
+    </div>
+
+    <h3>5. Friends / Party｜提醒朋友不要喝太多</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">อย่ากินเหล้าเยอะนะ</div><div class="roman">yàa gin lâo yə́ ná</div><div class="eng">Don’t drink too much alcohol.</div></div>
+        <p>朋友間自然。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ดื่มน้ำเยอะ ๆ ด้วยนะ</div><div class="roman">dʉ̀ʉm náam yə́-yə́ dûai ná</div><div class="eng">Drink lots of water too.</div></div>
+        <p>關心語氣。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ถ้าเมาแล้วโทรหาฉันนะ</div><div class="roman">thâa mao lɛ́ɛw thoo hǎa chǎn ná</div><div class="eng">If you get drunk, call me.</div></div>
+        <p>實際照顧朋友的句子。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>洗衣店：請店家到 condo 收衣服</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สวัสดีค่ะ มารับผ้าที่คอนโดได้ไหมคะ</div><div class="roman">sà-wàt-dii khâ, maa ráp phâa thîi khɔɔn-doo dâai mái khá</div><div class="eng">Hello, can you pick up laundry at my condo?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Laundry Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ อยู่คอนโดไหนคะ</div><div class="roman">dâai khâ, yùu khɔɔn-doo nǎi khá</div><div class="eng">Yes. Which condo are you at?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อยู่คอนโดใกล้บีทีเอสโพธิ์นิมิตรค่ะ</div><div class="roman">yùu khɔɔn-doo glâi bii-thii-èet phoo-ní-mít khâ</div><div class="eng">I’m at a condo near BTS Pho Nimit.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Laundry Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ประมาณบ่ายสองจะเข้าไปรับได้ค่ะ</div><div class="roman">bprà-maan bàai sɔ̌ɔng jà khâo bpai ráp dâai khâ</div><div class="eng">We can come pick it up around 2 p.m.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ถ้าซักเสร็จแล้ว ช่วยโทรหาฉันหน่อยนะคะ</div><div class="roman">thâa sák sèt lɛ́ɛw, chûai thoo hǎa chǎn nòi ná khá</div><div class="eng">When the laundry is done, please call me.</div></div></div>
+    </div>
+
+    <h3>裁縫店：改褲子不要太緊</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สวัสดีค่ะ กางเกงตัวนี้ยาวไปค่ะ</div><div class="roman">sà-wàt-dii khâ, gaang-geeng dtua níi yaao bpai khâ</div><div class="eng">Hello, these pants are too long.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Tailor</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยากแก้ให้สั้นลงเท่าไรคะ</div><div class="roman">yàak gɛ̂ɛ hâi sân long thâo-rài khá</div><div class="eng">How much shorter do you want them altered?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สั้นลงนิดหน่อยค่ะ แล้วก็อย่าแก้ให้คับเกินไปนะคะ</div><div class="roman">sân long nít-nɔ̀i khâ, lɛ́ɛw-gɔ̂ɔ yàa gɛ̂ɛ hâi kháp gəən bpai ná khá</div><div class="eng">A little shorter. Also, please don’t make them too tight.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Tailor</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ ต้องลองใส่ก่อนนะคะ</div><div class="roman">dâai khâ, dtɔ̂ng lɔɔng sài gɔ̀ɔn ná khá</div><div class="eng">Okay. You need to try them on first.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ได้ค่ะ ถ้าเสร็จแล้วโทรหาฉันได้ไหมคะ</div><div class="roman">dâai khâ, thâa sèt lɛ́ɛw thoo hǎa chǎn dâai mái khá</div><div class="eng">Okay. When they’re finished, can you call me?</div></div></div>
+    </div>
+
+    <h3>髮廊：剪髮不要剪太短</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Hairdresser</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วันนี้ทำอะไรดีคะ</div><div class="roman">wan-níi tham à-rai dii khá</div><div class="eng">What would you like to do today?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอสระผมกับตัดผมค่ะ</div><div class="roman">khɔ̌ɔ sà-phǒm gàp dtàt-phǒm khâ</div><div class="eng">I’d like a hair wash and a haircut.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Hairdresser</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยากตัดประมาณไหนคะ</div><div class="roman">yàak dtàt bprà-maan nǎi khá</div><div class="eng">About how do you want it cut?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ตัดให้สั้นลงนิดหน่อยค่ะ แต่อย่าตัดสั้นเกินไปนะคะ</div><div class="roman">dtàt hâi sân long nít-nɔ̀i khâ, dtɛ̀ɛ yàa dtàt sân gəən bpai ná khá</div><div class="eng">Please cut it a little shorter, but don’t cut it too short.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Hairdresser</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ เอาประมาณนี้นะคะ</div><div class="roman">dâai khâ, ao bprà-maan níi ná khá</div><div class="eng">Okay, about this much, right?</div></div></div>
+    </div>
+
+    <h3>髮廊：染髮與瀏海</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Hairdresser</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยากทำสีอะไรคะ</div><div class="roman">yàak tham sǐi à-rai khá</div><div class="eng">What color do you want to dye?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อยากทำสีน้ำตาลเข้มค่ะ</div><div class="roman">yàak tham sǐi náam-dtaan khêm khâ</div><div class="eng">I want dark brown.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Hairdresser</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เอาสว่างกว่านี้ไหมคะ</div><div class="roman">ao sà-wàang gwàa níi mái khá</div><div class="eng">Do you want it lighter than this?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไม่ค่ะ อย่าทำให้สว่างเกินไปนะคะ</div><div class="roman">mâi khâ, yàa tham hâi sà-wàang gəən bpai ná khá</div><div class="eng">No. Please don’t make it too light.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">แล้วก็ช่วยตัดหน้าม้าให้บางลงหน่อยค่ะ</div><div class="roman">lɛ́ɛw-gɔ̂ɔ chûai dtàt nâa-máa hâi baang long nòi khâ</div><div class="eng">Also, please cut my bangs a bit thinner.</div></div></div>
+    </div>
+
+    <h3>Grab / Taxi：司機開太快</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอโทษนะคะ ขับช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot ná khá, khàp cháa-cháa nòi dâai mái khá</div><div class="eng">Excuse me, could you drive a bit slower?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ครับ</div><div class="roman">dâai khráp</div><div class="eng">Sure.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ฉันเวียนหัวนิดหน่อยค่ะ ไม่ต้องรีบนะคะ</div><div class="roman">chǎn wian-hǔa nít-nɔ̀i khâ, mâi dtɔ̂ng rîip ná khá</div><div class="eng">I feel a little dizzy. No need to rush.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">โอเคครับ เดี๋ยวผมขับช้าลงครับ</div><div class="roman">oo-khee khráp, dǐao phǒm khàp cháa long khráp</div><div class="eng">Okay, I’ll drive slower.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เอาไป / มาเอา 方向搞反</div><div class="roman">ao bpai / maa ao</div><div class="eng">take to / come pick up</div></div></td>
+          <td><span class="thai">เอาไป</span> 是拿去；<span class="thai">มาเอา</span> 是來拿。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันเอาเสื้อผ้าไปที่ร้านซักรีดค่ะ</div><div class="roman">chǎn ao sʉ̂a-phâa bpai thîi ráan sák-rîit khâ</div><div class="eng">I take clothes to the laundry shop.</div></div>
+            <div class="triad"><div class="thai">พนักงานมาเอาเสื้อผ้าที่ห้องค่ะ</div><div class="roman">phá-nák-ngaan maa ao sʉ̂a-phâa thîi hɔ̂ng khâ</div><div class="eng">The staff comes to pick up the clothes at the room.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ซัก / ล้าง 混淆</div><div class="roman">sák / láang</div><div class="eng">wash clothes / wash generally</div></div></td>
+          <td>衣服用 <span class="thai">ซัก</span>；洗手洗臉洗碗多用 <span class="thai">ล้าง</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">ซักเสื้อผ้า</div><div class="roman">sák sʉ̂a-phâa</div><div class="eng">wash clothes</div></div>
+            <div class="triad"><div class="thai">ล้างมือ</div><div class="roman">láang mʉʉ</div><div class="eng">wash hands</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ตัดเสื้อ / ตัดผม 混淆</div><div class="roman">dtàt-sʉ̂a / dtàt-phǒm</div><div class="eng">tailor clothes / cut hair</div></div></td>
+          <td><span class="thai">ตัดเสื้อ</span> 是做衣服、裁衣；<span class="thai">ตัดผม</span> 是剪頭髮。</td>
+          <td>
+            <div class="triad"><div class="thai">ช่างตัดเสื้อวัดตัวก่อนค่ะ</div><div class="roman">châang dtàt-sʉ̂a wát-dtua gɔ̀ɔn khâ</div><div class="eng">The tailor measures the body first.</div></div>
+            <div class="triad"><div class="thai">ช่างตัดผมตัดดีค่ะ</div><div class="roman">châang dtàt-phǒm dtàt dii khâ</div><div class="eng">The hairdresser cuts hair well.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">สระผม 說成 ล้างผม</div><div class="roman">sà-phǒm / láang-phǒm</div><div class="eng">wash hair / literally wash hair</div></div></td>
+          <td>泰文洗頭髮自然說 <span class="thai">สระผม</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">ขอสระผมอย่างเดียวค่ะ</div><div class="roman">khɔ̌ɔ sà-phǒm yàang-diao khâ</div><div class="eng">I’d like only a hair wash.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อย่า... 語氣太硬</div><div class="roman">yàa...</div><div class="eng">don’t...</div></div></td>
+          <td><span class="thai">อย่า</span> 是不要；加 <span class="thai">นะคะ</span>、<span class="thai">หน่อย</span> 會柔和很多。</td>
+          <td>
+            <div class="triad"><div class="thai">อย่าตัดสั้นเกินไปนะคะ</div><div class="roman">yàa dtàt sân gəən bpai ná khá</div><div class="eng">Don’t cut it too short, please.</div></div>
+            <div class="triad"><div class="thai">ขับช้า ๆ หน่อยนะคะ</div><div class="roman">khàp cháa-cháa nòi ná khá</div><div class="eng">Please drive a bit slowly.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">พอดี / พอแล้ว 混淆</div><div class="roman">phɔɔ-dii / phɔɔ lɛ́ɛw</div><div class="eng">fits just right / enough already</div></div></td>
+          <td><span class="thai">พอดี</span> 是剛好；<span class="thai">พอแล้ว</span> 是夠了。</td>
+          <td>
+            <div class="triad"><div class="thai">เสื้อตัวนี้ใส่พอดีค่ะ</div><div class="roman">sʉ̂a dtua níi sài phɔɔ-dii khâ</div><div class="eng">This shirt fits well.</div></div>
+            <div class="triad"><div class="thai">พอแล้วค่ะ ไม่ต้องตัดเพิ่ม</div><div class="roman">phɔɔ lɛ́ɛw khâ, mâi dtɔ̂ng dtàt phə̂əm</div><div class="eng">That’s enough. No need to cut more.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+
+    <details>
+      <summary>laundry shop / tailor shop / hair salon / mechanic</summary>
+      <div class="triad"><div class="thai">ร้านซักรีด / ร้านตัดเสื้อ / ร้านตัดผม / ช่างซ่อมรถ</div><div class="roman">ráan sák-rîit / ráan dtàt-sʉ̂a / ráan dtàt-phǒm / châang sɔ̂ɔm-rót</div><div class="eng">laundry shop / tailor shop / hair salon / mechanic</div></div>
+      <p><strong>Chinese Explanation:</strong> 本課服務店家與職業詞。</p>
+    </details>
+
+    <details>
+      <summary>wash clothes / iron / alter clothes / measure body</summary>
+      <div class="triad"><div class="thai">ซักผ้า / รีดผ้า / แก้เสื้อ / วัดตัว</div><div class="roman">sák phâa / rîit phâa / gɛ̂ɛ sʉ̂a / wát-dtua</div><div class="eng">wash clothes / iron clothes / alter clothes / measure body</div></div>
+      <p><strong>Chinese Explanation:</strong> 裁縫與洗衣動作。</p>
+    </details>
+
+    <details>
+      <summary>wash hair / cut hair / dye hair / straighten hair / hair extensions</summary>
+      <div class="triad"><div class="thai">สระผม / ตัดผม / ทำสีผม / ยืดผม / ต่อผม</div><div class="roman">sà-phǒm / dtàt-phǒm / tham-sǐi-phǒm / yʉ̂ʉt-phǒm / dtɔ̀ɔ-phǒm</div><div class="eng">wash hair / cut hair / dye hair / straighten hair / hair extensions</div></div>
+      <p><strong>Chinese Explanation:</strong> 髮廊常用動詞。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+
+    <details>
+      <summary>this shirt / this outfit / this shop / this hairdresser</summary>
+      <div class="triad"><div class="thai">เสื้อตัวนี้ / ชุดนี้ / ร้านนี้ / ช่างตัดผมคนนี้</div><div class="roman">sʉ̂a dtua níi / chút níi / ráan níi / châang dtàt-phǒm khon níi</div><div class="eng">this shirt / this outfit / this shop / this hairdresser</div></div>
+      <p><strong>Chinese Explanation:</strong> 衣服常用 <span class="thai">ตัว</span>；人用 <span class="thai">คน</span>；店用 <span class="thai">ร้าน</span>。</p>
+    </details>
+
+    <details>
+      <summary>this car needs repair</summary>
+      <div class="triad"><div class="thai">รถคันนี้ต้องซ่อมค่ะ</div><div class="roman">rót khan níi dtɔ̂ng sɔ̂ɔm khâ</div><div class="eng">This car needs to be repaired.</div></div>
+      <p><strong>Chinese Explanation:</strong> 車量詞用 <span class="thai">คัน</span>。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+
+    <details>
+      <summary>我把衣服拿去洗衣店。</summary>
+      <div class="triad"><div class="thai">ฉันเอาเสื้อผ้าไปที่ร้านซักรีดค่ะ</div><div class="roman">chǎn ao sʉ̂a-phâa bpai thîi ráan sák-rîit khâ</div><div class="eng">I take clothes to the laundry shop.</div></div>
+      <p><strong>Chinese Explanation:</strong> 拿去某處用 <span class="thai">เอา...ไปที่...</span>。</p>
+    </details>
+
+    <details>
+      <summary>請來 condo 收衣服。</summary>
+      <div class="triad"><div class="thai">ช่วยมาเอาเสื้อผ้าที่คอนโดหน่อยค่ะ</div><div class="roman">chûai maa ao sʉ̂a-phâa thîi khɔɔn-doo nòi khâ</div><div class="eng">Please come pick up the clothes at the condo.</div></div>
+      <p><strong>Chinese Explanation:</strong> 服務業也可說 <span class="thai">มารับผ้าที่คอนโดได้ไหมคะ</span>。</p>
+    </details>
+
+    <details>
+      <summary>請開慢一點。</summary>
+      <div class="triad"><div class="thai">ขับช้า ๆ หน่อยนะคะ</div><div class="roman">khàp cháa-cháa nòi ná khá</div><div class="eng">Please drive a bit slowly.</div></div>
+      <p><strong>Chinese Explanation:</strong> 對司機很自然，<span class="thai">หน่อย</span> 讓語氣柔和。</p>
+    </details>
+
+    <details>
+      <summary>不要剪太短。</summary>
+      <div class="triad"><div class="thai">อย่าตัดสั้นเกินไปนะคะ</div><div class="roman">yàa dtàt sân gəən bpai ná khá</div><div class="eng">Don’t cut it too short.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">เกินไป</span> = too much。</p>
+    </details>
+
+    <details>
+      <summary>我想染深咖啡色頭髮。</summary>
+      <div class="triad"><div class="thai">อยากทำสีผมสีน้ำตาลเข้มค่ะ</div><div class="roman">yàak tham-sǐi-phǒm sǐi náam-dtaan khêm khâ</div><div class="eng">I want to dye my hair dark brown.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ทำสีผม</span> = dye hair。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+
+    <details>
+      <summary>把「ช่วยมาเอาเสื้อผ้าที่ห้องหน่อยค่ะ」改成洗衣店服務更自然的說法。</summary>
+      <div class="triad"><div class="thai">มารับผ้าที่ห้องได้ไหมคะ</div><div class="roman">maa ráp phâa thîi hɔ̂ng dâai mái khá</div><div class="eng">Can you pick up the laundry at my room?</div></div>
+      <p><strong>Chinese Explanation:</strong> 服務業常用 <span class="thai">รับ</span> 表示取件。</p>
+    </details>
+
+    <details>
+      <summary>把「ขับรถให้ช้านะคะ」改成對司機更自然柔和的說法。</summary>
+      <div class="triad"><div class="thai">ขับช้า ๆ หน่อยนะคะ</div><div class="roman">khàp cháa-cháa nòi ná khá</div><div class="eng">Please drive a bit slowly.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">หน่อยนะคะ</span> 很適合柔和請求。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>Top 10｜今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="priority">1</span></td>
+          <td><div class="triad"><div class="thai">ฉันเอาเสื้อผ้าไปที่ร้านซักรีดค่ะ</div><div class="roman">chǎn ao sʉ̂a-phâa bpai thîi ráan sák-rîit khâ</div><div class="eng">I take clothes to the laundry shop.</div></div></td>
+          <td>拿東西去某處</td>
+        </tr>
+        <tr>
+          <td><span class="priority">2</span></td>
+          <td><div class="triad"><div class="thai">มารับผ้าที่คอนโดได้ไหมคะ</div><div class="roman">maa ráp phâa thîi khɔɔn-doo dâai mái khá</div><div class="eng">Can you pick up the laundry at my condo?</div></div></td>
+          <td>洗衣店取件</td>
+        </tr>
+        <tr>
+          <td><span class="priority">3</span></td>
+          <td><div class="triad"><div class="thai">ถ้าซักเสร็จแล้วช่วยโทรหาฉันหน่อยค่ะ</div><div class="roman">thâa sák sèt lɛ́ɛw chûai thoo hǎa chǎn nòi khâ</div><div class="eng">When the laundry is done, please call me.</div></div></td>
+          <td>送洗 / 送修</td>
+        </tr>
+        <tr>
+          <td><span class="priority">4</span></td>
+          <td><div class="triad"><div class="thai">ขับช้า ๆ หน่อยนะคะ</div><div class="roman">khàp cháa-cháa nòi ná khá</div><div class="eng">Please drive a bit slowly.</div></div></td>
+          <td>計程車 / Grab</td>
+        </tr>
+        <tr>
+          <td><span class="priority">5</span></td>
+          <td><div class="triad"><div class="thai">อย่ากินเหล้าเยอะนะคะ</div><div class="roman">yàa gin lâo yə́ ná khá</div><div class="eng">Don’t drink too much alcohol.</div></div></td>
+          <td>提醒 / 關心</td>
+        </tr>
+        <tr>
+          <td><span class="priority">6</span></td>
+          <td><div class="triad"><div class="thai">กางเกงตัวนี้ยาวไปค่ะ</div><div class="roman">gaang-geeng dtua níi yaao bpai khâ</div><div class="eng">These pants are too long.</div></div></td>
+          <td>裁縫店</td>
+        </tr>
+        <tr>
+          <td><span class="priority">7</span></td>
+          <td><div class="triad"><div class="thai">ช่วยแก้ให้พอดีตัวนะคะ</div><div class="roman">chûai gɛ̂ɛ hâi phɔɔ-dii dtua ná khá</div><div class="eng">Please alter it so it fits well.</div></div></td>
+          <td>修改衣服</td>
+        </tr>
+        <tr>
+          <td><span class="priority">8</span></td>
+          <td><div class="triad"><div class="thai">ขอสระผมกับตัดผมค่ะ</div><div class="roman">khɔ̌ɔ sà-phǒm gàp dtàt-phǒm khâ</div><div class="eng">I’d like a hair wash and haircut.</div></div></td>
+          <td>髮廊</td>
+        </tr>
+        <tr>
+          <td><span class="priority">9</span></td>
+          <td><div class="triad"><div class="thai">อย่าตัดสั้นเกินไปนะคะ</div><div class="roman">yàa dtàt sân gəən bpai ná khá</div><div class="eng">Don’t cut it too short.</div></div></td>
+          <td>髮廊保命句</td>
+        </tr>
+        <tr>
+          <td><span class="priority">10</span></td>
+          <td><div class="triad"><div class="thai">อยากทำสีผมสีน้ำตาลเข้มค่ะ</div><div class="roman">yàak tham-sǐi-phǒm sǐi náam-dtaan khêm khâ</div><div class="eng">I want to dye my hair dark brown.</div></div></td>
+          <td>染髮</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <h3>今日背誦優先順序</h3>
+      <p>最實用的 6 句建議先背：</p>
+      <ol>
+        <li><div class="triad"><div class="thai">มารับผ้าที่คอนโดได้ไหมคะ</div><div class="roman">maa ráp phâa thîi khɔɔn-doo dâai mái khá</div><div class="eng">Can you pick up the laundry at my condo?</div></div></li>
+        <li><div class="triad"><div class="thai">ถ้าซักเสร็จแล้วช่วยโทรหาฉันหน่อยค่ะ</div><div class="roman">thâa sák sèt lɛ́ɛw chûai thoo hǎa chǎn nòi khâ</div><div class="eng">When the laundry is done, please call me.</div></div></li>
+        <li><div class="triad"><div class="thai">ขับช้า ๆ หน่อยนะคะ</div><div class="roman">khàp cháa-cháa nòi ná khá</div><div class="eng">Please drive a bit slowly.</div></div></li>
+        <li><div class="triad"><div class="thai">กางเกงตัวนี้ยาวไปค่ะ</div><div class="roman">gaang-geeng dtua níi yaao bpai khâ</div><div class="eng">These pants are too long.</div></div></li>
+        <li><div class="triad"><div class="thai">ขอสระผมกับตัดผมค่ะ</div><div class="roman">khɔ̌ɔ sà-phǒm gàp dtàt-phǒm khâ</div><div class="eng">I’d like a hair wash and haircut.</div></div></li>
+        <li><div class="triad"><div class="thai">อย่าตัดสั้นเกินไปนะคะ</div><div class="roman">yàa dtàt sân gəən bpai ná khá</div><div class="eng">Don’t cut it too short.</div></div></li>
+      </ol>
+      <p>
+        Day 13 的核心是「把需求講清楚」：拿去哪裡、請誰來拿、請對方做得慢一點/短一點/剛好一點、不要太短/太緊/太快。這些比單字本身更重要，因為你在曼谷真實生活會一直遇到服務情境。
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function openTab(event,tabId){
+  const contents=document.querySelectorAll('.tab-content');
+  const buttons=document.querySelectorAll('.tab-btn');
+  contents.forEach(c=>c.classList.remove('active'));
+  buttons.forEach(b=>b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  // Stop if same button clicked again
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  // Cancel any ongoing speech
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'th-TH';
+  utter.rate = 0.85;   // slightly slower — good for learning
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+// Inject 🔊 buttons into every div.thai
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+
+    // Wrap existing text in a span so button sits beside it
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

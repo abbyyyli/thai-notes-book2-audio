@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 14 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--orange-soft);
+      color: #9a3412;
+      border: .5px solid rgba(249,115,22,.35);
+      font-weight: 800;
+      margin-right: 6px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 14 學習指南</h1>
+    <p class="subtitle">主題：平常/特別、假設條件、訂票與預約、機票/巴士/火車、艙等座位、飯店房型與床型</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Overview｜本課總覽</h2>
+
+    <div class="cards">
+      <div class="card">
+        <span class="label textbook">Textbook-based</span>
+        <h3>本課主要學什麼？</h3>
+        <ol>
+          <li>用 <strong>ตามธรรมดา</strong> 表達「平常 / 照平常」。</li>
+          <li>用 <strong>เป็นพิเศษ</strong> 表達「特別地 / 特別……」。</li>
+          <li>用 <strong>ถ้า S จะ V</strong> 表達假設條件：「如果……就會……」。</li>
+          <li>用 <strong>สมมุติว่า S + V</strong> 表達「假設說……」。</li>
+          <li>用 <strong>S ต้องการ V/N</strong> 表達「想要 / 需要」。</li>
+          <li>學訂機票、訂巴士票、訂火車票、座位等級、房型與床型。</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <span class="label local">Supplement / Local usage</span>
+        <h3>曼谷生活會怎麼用？</h3>
+        <p>
+          Day 14 很適合用在旅行規劃：買機票、訂夜巴、搭火車去清邁、問還有沒有座位、選普通座/商務艙/臥鋪、訂飯店單人房或雙床房。這一課會讓你能夠在櫃台或 LINE 訂位時，把需求說得比較精準。
+        </p>
+      </div>
+    </div>
+
+    <h3>你學完後可以說什麼？</h3>
+
+    <div class="cards">
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ตามธรรมดา ฉันทำงานวันจันทร์ถึงวันศุกร์ค่ะ</div>
+          <div class="roman">dtaam tham-má-daa chǎn tham-ngaan wan-jan thʉ̌ng wan-sùk khâ</div>
+          <div class="eng">Normally, I work Monday to Friday.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">วันนี้ฉันแต่งตัวสวยเป็นพิเศษค่ะ</div>
+          <div class="roman">wan-níi chǎn dtɛ̀ng-dtua sǔai bpen phí-sèet khâ</div>
+          <div class="eng">Today I dressed especially nicely.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ถ้าฝนตก ฉันจะไม่กลับกรุงเทพฯ ค่ะ</div>
+          <div class="roman">thâa fǒn-dtòk chǎn jà mâi glàp grung-thêep khâ</div>
+          <div class="eng">If it rains, I won’t go back to Bangkok.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ต้องการจองตั๋วเครื่องบินไปกลับค่ะ</div>
+          <div class="roman">dtɔ̂ng-gaan jɔɔng dtǔa khrʉ̂ang-bin bpai-glàp khâ</div>
+          <div class="eng">I would like to book a round-trip plane ticket.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">มีที่นั่งว่างไหมคะ</div>
+          <div class="roman">mii thîi-nâng wâang mái khá</div>
+          <div class="eng">Are there any seats available?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="triad">
+          <div class="thai">ต้องการห้องเตียงคู่หนึ่งคืนค่ะ</div>
+          <div class="roman">dtɔ̂ng-gaan hɔ̂ng dtiang-khûu nʉ̀eng khʉʉn khâ</div>
+          <div class="eng">I would like a twin-bed room for one night.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <h3>本課 PDF 對應重點</h3>
+      <p>第 2 頁：問答句型，重點是「S จะ V, A หรือ B คะ?」以及回答「S จะ V, A หรือ B ก็แล้วแต่...」。</p>
+      <p>第 3 頁：<strong>ตามธรรมดา</strong> + S+V，以及 S+V+adj/adv + <strong>เป็นพิเศษ</strong>。</p>
+      <p>第 4 頁：<strong>ถ้า S จะ V</strong>、<strong>สมมุติว่า S+V</strong>、<strong>S ต้องการ V</strong>，並出現 <strong>บริจาค</strong>、<strong>พักผ่อน</strong> 等詞。</p>
+      <p>第 5 頁：訂票與交通詞：<strong>จอง</strong>、<strong>ตั๋วเครื่องบิน</strong>、<strong>นัด</strong>、<strong>ไปกลับ</strong>、<strong>เที่ยวเดียว</strong>、<strong>ล่วงหน้า</strong>、<strong>เต็ม / ว่าง</strong>、<strong>ยุ่ง / ว่าง</strong>。</p>
+      <p>第 6–13 頁：飛機、巴士、火車與座位等級：<strong>ชั้นหนึ่ง</strong>、<strong>ชั้นธุรกิจ</strong>、<strong>ชั้นประหยัด</strong>、<strong>รถทัวร์ธรรมดา/พิเศษ</strong>、<strong>รถด่วน</strong>、<strong>รถเร็ว</strong>、<strong>รถธรรมดา</strong>、<strong>ชั้นสอง</strong>、<strong>ชั้นสาม</strong>。</p>
+      <p>第 14–15 頁：飯店房型與床型：<strong>ห้องเดี่ยว</strong>、<strong>ห้องคู่</strong>、<strong>เตียงเดี่ยว</strong>、<strong>เตียงคู่</strong>、<strong>เตียงเสริม</strong>。</p>
+    </div>
+
+    <div class="tip orange">
+      <span class="label review">Review</span>
+      Day 12 學過
+      <span class="thai">จะ / อาจจะ / คงจะ</span> /
+      <span class="roman">jà / àat-jà / khong-jà</span> /
+      <span class="eng">will / might / probably</span>。
+      Day 14 會把
+      <span class="thai">จะ</span> /
+      <span class="roman">jà</span> /
+      <span class="eng">will</span>
+      放到條件句裡：
+      <div class="triad">
+        <div class="thai">ถ้าฝนตก ฉันจะไม่กลับกรุงเทพฯ ค่ะ</div>
+        <div class="roman">thâa fǒn-dtòk chǎn jà mâi glàp grung-thêep khâ</div>
+        <div class="eng">If it rains, I won’t go back to Bangkok.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Grammar & Frequency｜文法與語氣詞</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตามธรรมดา</div><div class="roman">dtaam tham-má-daa</div><div class="eng">normally / as usual</div></div></td>
+          <td>Adverbial phrase</td>
+          <td>—</td>
+          <td>放句首表示「平常、照平常來說」。語氣比 <span class="thai">ปกติ</span> 稍微書面/完整。</td>
+          <td><div class="triad"><div class="thai">ตามธรรมดา ฉัน... / ตามธรรมดา เขา...</div><div class="roman">dtaam tham-má-daa chǎn... / dtaam tham-má-daa khǎo...</div><div class="eng">Normally I... / Normally he...</div></div></td>
+          <td><div class="triad"><div class="thai">ตามธรรมดา ฉันตื่นเจ็ดโมงค่ะ</div><div class="roman">dtaam tham-má-daa chǎn dtʉ̀ʉn jèt moong khâ</div><div class="eng">Normally, I wake up at 7.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เป็นพิเศษ</div><div class="roman">bpen phí-sèet</div><div class="eng">especially / particularly</div></div></td>
+          <td>Adverbial phrase</td>
+          <td>—</td>
+          <td>放在形容詞/副詞後面，表示「特別地、比平常更……」。</td>
+          <td><div class="triad"><div class="thai">สวยเป็นพิเศษ / ขยันเป็นพิเศษ / แพงเป็นพิเศษ</div><div class="roman">sǔai bpen phí-sèet / khà-yǎn bpen phí-sèet / phɛɛng bpen phí-sèet</div><div class="eng">especially beautiful / especially hardworking / especially expensive</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้เขาทำงานขยันเป็นพิเศษค่ะ</div><div class="roman">wan-níi khǎo tham-ngaan khà-yǎn bpen phí-sèet khâ</div><div class="eng">Today he works especially hard.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ถ้า</div><div class="roman">thâa</div><div class="eng">if</div></div></td>
+          <td>Conditional connector</td>
+          <td>—</td>
+          <td>表示條件。如果條件成立，後面會發生某結果。</td>
+          <td><div class="triad"><div class="thai">ถ้าฝนตก / ถ้ามีเวลา / ถ้าว่าง</div><div class="roman">thâa fǒn-dtòk / thâa mii wee-laa / thâa wâang</div><div class="eng">if it rains / if there is time / if free</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าว่าง ฉันจะไปด้วยค่ะ</div><div class="roman">thâa wâang chǎn jà bpai dûai khâ</div><div class="eng">If I’m free, I will go too.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สมมุติว่า</div><div class="roman">sǒm-mút wâa</div><div class="eng">suppose that / let’s say that</div></div></td>
+          <td>Hypothetical phrase</td>
+          <td>—</td>
+          <td>用來提出假設情境，常用在討論計畫、想像狀況、舉例。</td>
+          <td><div class="triad"><div class="thai">สมมุติว่าเรามีเงิน / สมมุติว่าฝนตก</div><div class="roman">sǒm-mút wâa rao mii ngoen / sǒm-mút wâa fǒn-dtòk</div><div class="eng">suppose we have money / suppose it rains</div></div></td>
+          <td><div class="triad"><div class="thai">สมมุติว่าเราจองตั๋วไม่ได้ เราจะทำยังไงคะ</div><div class="roman">sǒm-mút wâa rao jɔɔng dtǔa mâi dâai rao jà tham yang-ngai khá</div><div class="eng">Suppose we can’t book tickets, what will we do?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ต้องการ</div><div class="roman">dtɔ̂ng-gaan</div><div class="eng">to want / need / require</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>比 <span class="thai">อยาก</span> 正式，適合訂房、訂票、櫃台、客服。</td>
+          <td><div class="triad"><div class="thai">ต้องการจอง / ต้องการห้อง / ต้องการตั๋ว</div><div class="roman">dtɔ̂ng-gaan jɔɔng / dtɔ̂ng-gaan hɔ̂ng / dtɔ̂ng-gaan dtǔa</div><div class="eng">want to book / need a room / need a ticket</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องการจองห้องเตียงคู่ค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng hɔ̂ng dtiang-khûu khâ</div><div class="eng">I would like to book a twin-bed room.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">บริจาค</div><div class="roman">bɔɔ-rí-jàak</div><div class="eng">to donate</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>捐錢、捐物都可用。教材例句與「世界最有錢的人」假設有關。</td>
+          <td><div class="triad"><div class="thai">บริจาคเงิน / บริจาคของ / บริจาคให้โรงพยาบาล</div><div class="roman">bɔɔ-rí-jàak ngoen / bɔɔ-rí-jàak khɔ̌ɔng / bɔɔ-rí-jàak hâi rooŋ-phá-yaa-baan</div><div class="eng">donate money / donate things / donate to a hospital</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าฉันรวยมาก ฉันจะบริจาคเงินค่ะ</div><div class="roman">thâa chǎn ruai mâak chǎn jà bɔɔ-rí-jàak ngoen khâ</div><div class="eng">If I were very rich, I would donate money.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พักผ่อน</div><div class="roman">phák-phɔ̀ɔn</div><div class="eng">to rest / relax</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>休息、放鬆，常用於旅行、健康、工作後。</td>
+          <td><div class="triad"><div class="thai">ไปพักผ่อน / พักผ่อนเยอะ ๆ / วันพักผ่อน</div><div class="roman">bpai phák-phɔ̀ɔn / phák-phɔ̀ɔn yə́-yə́ / wan phák-phɔ̀ɔn</div><div class="eng">go rest / rest a lot / rest day</div></div></td>
+          <td><div class="triad"><div class="thai">วันหยุดนี้ฉันอยากไปพักผ่อนที่หัวหินค่ะ</div><div class="roman">wan-yùt níi chǎn yàak bpai phák-phɔ̀ɔn thîi hǔa-hǐn khâ</div><div class="eng">This holiday I want to relax in Hua Hin.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Booking & Tickets｜訂位與票券</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">จอง</div><div class="roman">jɔɔng</div><div class="eng">to reserve / book</div></div></td>
+          <td>Verb</td>
+          <td>—</td>
+          <td>可用於訂票、訂房、訂位、預約服務。</td>
+          <td><div class="triad"><div class="thai">จองตั๋ว / จองห้อง / จองโต๊ะ / จองล่วงหน้า</div><div class="roman">jɔɔng dtǔa / jɔɔng hɔ̂ng / jɔɔng dtó / jɔɔng lûang-nâa</div><div class="eng">book a ticket / book a room / reserve a table / book in advance</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันต้องการจองตั๋วรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">chǎn dtɔ̂ng-gaan jɔɔng dtǔa rót-fai bpai chiiang-mài khâ</div><div class="eng">I would like to book a train ticket to Chiang Mai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตั๋ว</div><div class="roman">dtǔa</div><div class="eng">ticket</div></div></td>
+          <td>Noun</td>
+          <td>ใบ</td>
+          <td>票券常用量詞 <span class="thai">ใบ</span>。</td>
+          <td><div class="triad"><div class="thai">ตั๋วเครื่องบิน / ตั๋วรถไฟ / ตั๋วรถทัวร์</div><div class="roman">dtǔa khrʉ̂ang-bin / dtǔa rót-fai / dtǔa rót-thua</div><div class="eng">plane ticket / train ticket / bus ticket</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องการตั๋วสองใบค่ะ</div><div class="roman">dtɔ̂ng-gaan dtǔa sɔ̌ɔng bai khâ</div><div class="eng">I need two tickets.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตั๋วเครื่องบิน</div><div class="roman">dtǔa khrʉ̂ang-bin</div><div class="eng">plane ticket</div></div></td>
+          <td>Noun</td>
+          <td>ใบ</td>
+          <td><span class="thai">เครื่องบิน</span> 是飛機；<span class="thai">ตั๋วเครื่องบิน</span> 是機票。</td>
+          <td><div class="triad"><div class="thai">จองตั๋วเครื่องบิน / ตั๋วเครื่องบินไปกลับ / ตั๋วเครื่องบินเที่ยวเดียว</div><div class="roman">jɔɔng dtǔa khrʉ̂ang-bin / dtǔa khrʉ̂ang-bin bpai-glàp / dtǔa khrʉ̂ang-bin thîao-diao</div><div class="eng">book a plane ticket / round-trip plane ticket / one-way plane ticket</div></div></td>
+          <td><div class="triad"><div class="thai">ตั๋วเครื่องบินไปภูเก็ตเต็มแล้วค่ะ</div><div class="roman">dtǔa khrʉ̂ang-bin bpai phuu-gèt dtem lɛ́ɛw khâ</div><div class="eng">The plane tickets to Phuket are full/sold out.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไปกลับ</div><div class="roman">bpai-glàp</div><div class="eng">round-trip / return</div></div></td>
+          <td>Ticket type</td>
+          <td>—</td>
+          <td>用在交通票：去回都有。</td>
+          <td><div class="triad"><div class="thai">ตั๋วไปกลับ / กรุงเทพฯ-เชียงใหม่ไปกลับ</div><div class="roman">dtǔa bpai-glàp / grung-thêep chiiang-mài bpai-glàp</div><div class="eng">round-trip ticket / Bangkok-Chiang Mai round trip</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องการตั๋วไปกลับสองใบค่ะ</div><div class="roman">dtɔ̂ng-gaan dtǔa bpai-glàp sɔ̌ɔng bai khâ</div><div class="eng">I would like two round-trip tickets.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เที่ยวเดียว</div><div class="roman">thîao-diao</div><div class="eng">one-way / single trip</div></div></td>
+          <td>Ticket type</td>
+          <td>—</td>
+          <td>只買單程票。</td>
+          <td><div class="triad"><div class="thai">ตั๋วเที่ยวเดียว / ไปเชียงใหม่เที่ยวเดียว</div><div class="roman">dtǔa thîao-diao / bpai chiiang-mài thîao-diao</div><div class="eng">one-way ticket / one-way to Chiang Mai</div></div></td>
+          <td><div class="triad"><div class="thai">เอาตั๋วเที่ยวเดียวไปเชียงใหม่ค่ะ</div><div class="roman">ao dtǔa thîao-diao bpai chiiang-mài khâ</div><div class="eng">I’ll take a one-way ticket to Chiang Mai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">นัด</div><div class="roman">nát</div><div class="eng">appointment / to make an appointment</div></div></td>
+          <td>Noun / verb</td>
+          <td>ครั้ง</td>
+          <td>可用於約時間、預約人、看醫生、美容院等。</td>
+          <td><div class="triad"><div class="thai">มีนัด / นัดหมอ / นัดเวลา</div><div class="roman">mii nát / nát mɔ̌ɔ / nát wee-laa</div><div class="eng">have an appointment / make a doctor appointment / set a time</div></div></td>
+          <td><div class="triad"><div class="thai">พรุ่งนี้ฉันมีนัดกับหมอค่ะ</div><div class="roman">phrûng-níi chǎn mii nát gàp mɔ̌ɔ khâ</div><div class="eng">Tomorrow I have an appointment with the doctor.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ล่วงหน้า</div><div class="roman">lûang-nâa</div><div class="eng">in advance</div></div></td>
+          <td>Adverb</td>
+          <td>—</td>
+          <td>放在訂房、訂票、通知等情境，表示提前。</td>
+          <td><div class="triad"><div class="thai">จองล่วงหน้า / แจ้งล่วงหน้า / ล่วงหน้าหนึ่งวัน</div><div class="roman">jɔɔng lûang-nâa / jɛ̂ɛng lûang-nâa / lûang-nâa nʉ̀eng wan</div><div class="eng">book in advance / inform in advance / one day in advance</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องจองล่วงหน้ากี่วันคะ</div><div class="roman">dtɔ̂ng jɔɔng lûang-nâa gìi wan khá</div><div class="eng">How many days in advance do I need to book?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เต็ม</div><div class="roman">dtem</div><div class="eng">full / fully booked</div></div></td>
+          <td>Adjective</td>
+          <td>—</td>
+          <td>票、座位、房間滿了都可以用。</td>
+          <td><div class="triad"><div class="thai">ห้องเต็ม / ที่นั่งเต็ม / รถเต็ม</div><div class="roman">hɔ̂ng dtem / thîi-nâng dtem / rót dtem</div><div class="eng">rooms full / seats full / bus full</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ห้องเตียงคู่เต็มแล้วค่ะ</div><div class="roman">wan-níi hɔ̂ng dtiang-khûu dtem lɛ́ɛw khâ</div><div class="eng">Twin-bed rooms are full today.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ว่าง</div><div class="roman">wâang</div><div class="eng">available / free / empty</div></div></td>
+          <td>Adjective</td>
+          <td>—</td>
+          <td>人有空、房間/座位空著都可用。注意和 <span class="thai">เต็ม</span> 相反。</td>
+          <td><div class="triad"><div class="thai">มีห้องว่าง / มีที่นั่งว่าง / วันนี้ว่างไหม</div><div class="roman">mii hɔ̂ng wâang / mii thîi-nâng wâang / wan-níi wâang mái</div><div class="eng">have available rooms / have available seats / are you free today?</div></div></td>
+          <td><div class="triad"><div class="thai">พรุ่งนี้มีห้องว่างไหมคะ</div><div class="roman">phrûng-níi mii hɔ̂ng wâang mái khá</div><div class="eng">Are there any available rooms tomorrow?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ยุ่ง</div><div class="roman">yûng</div><div class="eng">busy</div></div></td>
+          <td>Adjective</td>
+          <td>—</td>
+          <td>用在人或工作情況，與「有空」的 <span class="thai">ว่าง</span> 相反。</td>
+          <td><div class="triad"><div class="thai">ยุ่งมาก / วันนี้ยุ่ง / งานยุ่ง</div><div class="roman">yûng mâak / wan-níi yûng / ngaan yûng</div><div class="eng">very busy / busy today / work is busy</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ฉันยุ่งมาก แต่พรุ่งนี้ว่างค่ะ</div><div class="roman">wan-níi chǎn yûng mâak dtɛ̀ɛ phrûng-níi wâang khâ</div><div class="eng">Today I’m very busy, but tomorrow I’m free.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Transportation｜交通工具與艙等</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เครื่องบิน</div><div class="roman">khrʉ̂ang-bin</div><div class="eng">airplane</div></div></td>
+          <td>Transportation</td>
+          <td>ลำ</td>
+          <td>飛機本身用 <span class="thai">ลำ</span>；機票是 <span class="thai">ตั๋วเครื่องบิน</span>。</td>
+          <td><div class="triad"><div class="thai">ขึ้นเครื่องบิน / สนามบิน / สายการบิน</div><div class="roman">khʉ̂n khrʉ̂ang-bin / sà-nǎam-bin / sǎai-gaan-bin</div><div class="eng">board a plane / airport / airline</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจะขึ้นเครื่องบินไปภูเก็ตค่ะ</div><div class="roman">chǎn jà khʉ̂n khrʉ̂ang-bin bpai phuu-gèt khâ</div><div class="eng">I will take a plane to Phuket.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สนามบิน</div><div class="roman">sà-nǎam-bin</div><div class="eng">airport</div></div></td>
+          <td>Place</td>
+          <td>แห่ง / ที่</td>
+          <td>機場。曼谷常見：สุวรรณภูมิ、ดอนเมือง。</td>
+          <td><div class="triad"><div class="thai">ไปสนามบิน / ถึงสนามบิน / สนามบินสุวรรณภูมิ</div><div class="roman">bpai sà-nǎam-bin / thʉ̌ng sà-nǎam-bin / sà-nǎam-bin sù-wan-ná-phuum</div><div class="eng">go to the airport / arrive at the airport / Suvarnabhumi Airport</div></div></td>
+          <td><div class="triad"><div class="thai">จากคอนโดไปสนามบินใช้เวลากี่ชั่วโมงคะ</div><div class="roman">jàak khɔɔn-doo bpai sà-nǎam-bin chái wee-laa gìi chûa-moong khá</div><div class="eng">How many hours does it take from the condo to the airport?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สายการบิน</div><div class="roman">sǎai-gaan-bin</div><div class="eng">airline</div></div></td>
+          <td>Company / travel</td>
+          <td>สาย</td>
+          <td>航空公司。<span class="thai">สาย</span> 有線路、航空公司一家的感覺。</td>
+          <td><div class="triad"><div class="thai">สายการบินไทย / สายการบินราคาประหยัด</div><div class="roman">sǎai-gaan-bin thai / sǎai-gaan-bin raa-khaa bprà-yàt</div><div class="eng">Thai Airways / budget airline</div></div></td>
+          <td><div class="triad"><div class="thai">สายการบินนี้มักจะดีเลย์ไหมคะ</div><div class="roman">sǎai-gaan-bin níi mák jà dii-lee mái khá</div><div class="eng">Is this airline often delayed?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ชั้นหนึ่ง</div><div class="roman">chán-nʉ̀eng</div><div class="eng">first class</div></div></td>
+          <td>Class / cabin</td>
+          <td>ชั้น</td>
+          <td>飛機或火車的一等艙/一等車廂。</td>
+          <td><div class="triad"><div class="thai">ตั๋วชั้นหนึ่ง / รถไฟชั้นหนึ่ง / ที่นั่งชั้นหนึ่ง</div><div class="roman">dtǔa chán-nʉ̀eng / rót-fai chán-nʉ̀eng / thîi-nâng chán-nʉ̀eng</div><div class="eng">first-class ticket / first-class train / first-class seat</div></div></td>
+          <td><div class="triad"><div class="thai">รถไฟชั้นหนึ่งมีเตียงนอนค่ะ</div><div class="roman">rót-fai chán-nʉ̀eng mii dtiang-nɔɔn khâ</div><div class="eng">First-class trains have sleeping beds.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ชั้นธุรกิจ</div><div class="roman">chán thú-rá-gìt</div><div class="eng">business class</div></div></td>
+          <td>Flight cabin</td>
+          <td>ชั้น</td>
+          <td>飛機商務艙。</td>
+          <td><div class="triad"><div class="thai">ตั๋วชั้นธุรกิจ / ที่นั่งชั้นธุรกิจ</div><div class="roman">dtǔa chán thú-rá-gìt / thîi-nâng chán thú-rá-gìt</div><div class="eng">business-class ticket / business-class seat</div></div></td>
+          <td><div class="triad"><div class="thai">ตั๋วชั้นธุรกิจแพงกว่าชั้นประหยัดค่ะ</div><div class="roman">dtǔa chán thú-rá-gìt phɛɛng gwàa chán bprà-yàt khâ</div><div class="eng">Business-class tickets are more expensive than economy class.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ชั้นประหยัด</div><div class="roman">chán bprà-yàt</div><div class="eng">economy class</div></div></td>
+          <td>Flight cabin</td>
+          <td>ชั้น</td>
+          <td>飛機經濟艙。</td>
+          <td><div class="triad"><div class="thai">ตั๋วชั้นประหยัด / บินชั้นประหยัด</div><div class="roman">dtǔa chán bprà-yàt / bin chán bprà-yàt</div><div class="eng">economy-class ticket / fly economy class</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมักจะบินชั้นประหยัดค่ะ</div><div class="roman">chǎn mák jà bin chán bprà-yàt khâ</div><div class="eng">I usually fly economy class.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถทัวร์</div><div class="roman">rót-thua</div><div class="eng">tour bus / intercity bus</div></div></td>
+          <td>Transportation</td>
+          <td>คัน</td>
+          <td>長途巴士。通常從 <span class="thai">สถานีขนส่ง</span> 出發。</td>
+          <td><div class="triad"><div class="thai">ขึ้นรถทัวร์ / ตั๋วรถทัวร์ / รถทัวร์พิเศษ</div><div class="roman">khʉ̂n rót-thua / dtǔa rót-thua / rót-thua phí-sèet</div><div class="eng">take a coach bus / bus ticket / special/VIP bus</div></div></td>
+          <td><div class="triad"><div class="thai">คืนนี้ฉันจะนั่งรถทัวร์ไปเชียงใหม่ค่ะ</div><div class="roman">khʉʉn-níi chǎn jà nâng rót-thua bpai chiiang-mài khâ</div><div class="eng">Tonight I will take a bus to Chiang Mai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สถานีขนส่ง</div><div class="roman">sà-thǎa-nii khǒn-sòng</div><div class="eng">bus terminal</div></div></td>
+          <td>Place</td>
+          <td>แห่ง / ที่</td>
+          <td>長途巴士站，不是 BTS 站。曼谷常見如 Mo Chit 巴士站。</td>
+          <td><div class="triad"><div class="thai">ไปสถานีขนส่ง / สถานีขนส่งหมอชิต</div><div class="roman">bpai sà-thǎa-nii khǒn-sòng / sà-thǎa-nii khǒn-sòng mɔ̌ɔ-chít</div><div class="eng">go to the bus terminal / Mo Chit Bus Terminal</div></div></td>
+          <td><div class="triad"><div class="thai">สถานีขนส่งอยู่ไกลจากที่นี่ไหมคะ</div><div class="roman">sà-thǎa-nii khǒn-sòng yùu glai jàak thîi-nîi mái khá</div><div class="eng">Is the bus terminal far from here?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถไฟ</div><div class="roman">rót-fai</div><div class="eng">train</div></div></td>
+          <td>Transportation</td>
+          <td>ขบวน</td>
+          <td>火車。不要和 BTS/MRT 混淆；BTS/MRT 常說 <span class="thai">รถไฟฟ้า</span>。</td>
+          <td><div class="triad"><div class="thai">ขึ้นรถไฟ / สถานีรถไฟ / ตั๋วรถไฟ</div><div class="roman">khʉ̂n rót-fai / sà-thǎa-nii rót-fai / dtǔa rót-fai</div><div class="eng">take a train / train station / train ticket</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยากนั่งรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">chǎn yàak nâng rót-fai bpai chiiang-mài khâ</div><div class="eng">I want to take the train to Chiang Mai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สถานีรถไฟ</div><div class="roman">sà-thǎa-nii rót-fai</div><div class="eng">train station</div></div></td>
+          <td>Place</td>
+          <td>แห่ง / ที่</td>
+          <td>火車站。BTS 站可說 <span class="thai">สถานีรถไฟฟ้า</span>。</td>
+          <td><div class="triad"><div class="thai">สถานีรถไฟกรุงเทพอภิวัฒน์ / ไปสถานีรถไฟ</div><div class="roman">sà-thǎa-nii rót-fai grung-thêep à-phí-wát / bpai sà-thǎa-nii rót-fai</div><div class="eng">Bangkok Apiwat Station / go to the train station</div></div></td>
+          <td><div class="triad"><div class="thai">รถไฟออกจากสถานีรถไฟกี่โมงคะ</div><div class="roman">rót-fai ɔ̀ɔk jàak sà-thǎa-nii rót-fai gìi moong khá</div><div class="eng">What time does the train leave from the train station?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Train / Bus Seat Types｜火車巴士座位</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ที่นั่ง</div><div class="roman">thîi-nâng</div><div class="eng">seat</div></div></td>
+          <td>Noun</td>
+          <td>ที่ / ที่นั่ง</td>
+          <td>座位。訂票時常問 <span class="thai">มีที่นั่งว่างไหม</span>。</td>
+          <td><div class="triad"><div class="thai">ที่นั่งว่าง / ที่นั่งเต็ม / เลือกที่นั่ง</div><div class="roman">thîi-nâng wâang / thîi-nâng dtem / lʉ̂ak thîi-nâng</div><div class="eng">available seat / seats full / choose a seat</div></div></td>
+          <td><div class="triad"><div class="thai">มีที่นั่งว่างสองที่ไหมคะ</div><div class="roman">mii thîi-nâng wâang sɔ̌ɔng thîi mái khá</div><div class="eng">Are there two seats available?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถธรรมดา</div><div class="roman">rót tham-má-daa</div><div class="eng">ordinary train/bus</div></div></td>
+          <td>Transport class</td>
+          <td>คัน / ขบวน</td>
+          <td>一般車種；便宜但可能慢、停站多。</td>
+          <td><div class="triad"><div class="thai">รถไฟธรรมดา / รถทัวร์ธรรมดา / ตั๋วธรรมดา</div><div class="roman">rót-fai tham-má-daa / rót-thua tham-má-daa / dtǔa tham-má-daa</div><div class="eng">ordinary train / ordinary bus / regular ticket</div></div></td>
+          <td><div class="triad"><div class="thai">รถธรรมดาจอดทุกสถานีค่ะ</div><div class="roman">rót tham-má-daa jɔ̀ɔt thúk sà-thǎa-nii khâ</div><div class="eng">The ordinary train stops at every station.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถพิเศษ</div><div class="roman">rót phí-sèet</div><div class="eng">special / VIP bus or train</div></div></td>
+          <td>Transport class</td>
+          <td>คัน / ขบวน</td>
+          <td>比普通車好，可能座位較少、較舒適。</td>
+          <td><div class="triad"><div class="thai">รถทัวร์พิเศษ / ที่นั่งพิเศษ / ตั๋วพิเศษ</div><div class="roman">rót-thua phí-sèet / thîi-nâng phí-sèet / dtǔa phí-sèet</div><div class="eng">special bus / special seat / special ticket</div></div></td>
+          <td><div class="triad"><div class="thai">รถทัวร์พิเศษมีที่นั่ง 24 ที่นั่งค่ะ</div><div class="roman">rót-thua phí-sèet mii thîi-nâng yîi-sìp-sìi thîi-nâng khâ</div><div class="eng">The special bus has 24 seats.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถด่วน</div><div class="roman">rót-dùan</div><div class="eng">express train</div></div></td>
+          <td>Train type</td>
+          <td>ขบวน</td>
+          <td>快車，停較少站。</td>
+          <td><div class="triad"><div class="thai">รถด่วนจอดสถานีใหญ่ / ตั๋วรถด่วน</div><div class="roman">rót-dùan jɔ̀ɔt sà-thǎa-nii yài / dtǔa rót-dùan</div><div class="eng">express train stops at big stations / express train ticket</div></div></td>
+          <td><div class="triad"><div class="thai">รถด่วนจอดจากสถานีแรกถึงสถานีสุดท้ายค่ะ</div><div class="roman">rót-dùan jɔ̀ɔt jàak sà-thǎa-nii rɛ̂ɛk thʉ̌ng sà-thǎa-nii sùt-tháai khâ</div><div class="eng">The express train stops from the first station to the last station.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถเร็ว</div><div class="roman">rót-rew</div><div class="eng">rapid train</div></div></td>
+          <td>Train type</td>
+          <td>ขบวน</td>
+          <td>字面是快車；在泰國火車系統中是車種名稱之一。</td>
+          <td><div class="triad"><div class="thai">รถเร็ว / รถเร็วไปเชียงใหม่ / ตั๋วรถเร็ว</div><div class="roman">rót-rew / rót-rew bpai chiiang-mài / dtǔa rót-rew</div><div class="eng">rapid train / rapid train to Chiang Mai / rapid train ticket</div></div></td>
+          <td><div class="triad"><div class="thai">รถเร็วอาจจะถูกกว่ารถด่วนค่ะ</div><div class="roman">rót-rew àat-jà thùuk gwàa rót-dùan khâ</div><div class="eng">The rapid train might be cheaper than the express train.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ชั้นสอง</div><div class="roman">chán-sɔ̌ɔng</div><div class="eng">second class</div></div></td>
+          <td>Train class</td>
+          <td>ชั้น</td>
+          <td>教材圖片顯示有「มีแอร์ / ไม่มีแอร์」兩種二等車廂。</td>
+          <td><div class="triad"><div class="thai">ชั้นสองมีแอร์ / ชั้นสองไม่มีแอร์ / ตั๋วชั้นสอง</div><div class="roman">chán-sɔ̌ɔng mii ɛɛ / chán-sɔ̌ɔng mâi mii ɛɛ / dtǔa chán-sɔ̌ɔng</div><div class="eng">second class with A/C / second class without A/C / second-class ticket</div></div></td>
+          <td><div class="triad"><div class="thai">ขอตั๋วรถไฟชั้นสองมีแอร์ค่ะ</div><div class="roman">khɔ̌ɔ dtǔa rót-fai chán-sɔ̌ɔng mii ɛɛ khâ</div><div class="eng">I’d like a second-class train ticket with A/C.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ชั้นสาม</div><div class="roman">chán-sǎam</div><div class="eng">third class</div></div></td>
+          <td>Train class</td>
+          <td>ชั้น</td>
+          <td>通常較便宜、較基本。</td>
+          <td><div class="triad"><div class="thai">ตั๋วชั้นสาม / รถไฟชั้นสาม</div><div class="roman">dtǔa chán-sǎam / rót-fai chán-sǎam</div><div class="eng">third-class ticket / third-class train</div></div></td>
+          <td><div class="triad"><div class="thai">ชั้นสามถูกที่สุดค่ะ</div><div class="roman">chán-sǎam thùuk thîi-sùt khâ</div><div class="eng">Third class is the cheapest.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีแอร์</div><div class="roman">mii ɛɛ</div><div class="eng">with air conditioning</div></div></td>
+          <td>Feature phrase</td>
+          <td>—</td>
+          <td>口語常用 <span class="thai">แอร์</span> 表示冷氣。訂巴士/火車/房間常問。</td>
+          <td><div class="triad"><div class="thai">ห้องมีแอร์ / รถมีแอร์ / ชั้นสองมีแอร์</div><div class="roman">hɔ̂ng mii ɛɛ / rót mii ɛɛ / chán-sɔ̌ɔng mii ɛɛ</div><div class="eng">room with A/C / bus with A/C / second class with A/C</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องนี้มีแอร์ไหมคะ</div><div class="roman">hɔ̂ng níi mii ɛɛ mái khá</div><div class="eng">Does this room have A/C?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไม่มีแอร์</div><div class="roman">mâi mii ɛɛ</div><div class="eng">without air conditioning</div></div></td>
+          <td>Feature phrase</td>
+          <td>—</td>
+          <td>泰國旅遊很重要，沒有冷氣可能非常熱。</td>
+          <td><div class="triad"><div class="thai">ห้องไม่มีแอร์ / รถไฟไม่มีแอร์</div><div class="roman">hɔ̂ng mâi mii ɛɛ / rót-fai mâi mii ɛɛ</div><div class="eng">room without A/C / train without A/C</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าไม่มีแอร์ ฉันคงจะนอนไม่หลับค่ะ</div><div class="roman">thâa mâi mii ɛɛ chǎn khong-jà nɔɔn mâi làp khâ</div><div class="eng">If there’s no A/C, I probably won’t be able to sleep.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Hotel Rooms & Beds｜房型與床型</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ห้องเดี่ยว</div><div class="roman">hɔ̂ng-dìao</div><div class="eng">single room</div></div></td>
+          <td>Hotel room type</td>
+          <td>ห้อง</td>
+          <td>一人房。注意 <span class="thai">เดี่ยว</span> 是單一的。</td>
+          <td><div class="triad"><div class="thai">จองห้องเดี่ยว / ห้องเดี่ยวหนึ่งคืน</div><div class="roman">jɔɔng hɔ̂ng-dìao / hɔ̂ng-dìao nʉ̀eng khʉʉn</div><div class="eng">book a single room / single room for one night</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องการจองห้องเดี่ยวหนึ่งคืนค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng hɔ̂ng-dìao nʉ̀eng khʉʉn khâ</div><div class="eng">I would like to book a single room for one night.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ห้องคู่</div><div class="roman">hɔ̂ng-khûu</div><div class="eng">double/twin room</div></div></td>
+          <td>Hotel room type</td>
+          <td>ห้อง</td>
+          <td>雙人房。實際訂房時要再說床型：一大床或兩小床。</td>
+          <td><div class="triad"><div class="thai">ห้องคู่เตียงเดี่ยว / ห้องคู่เตียงคู่</div><div class="roman">hɔ̂ng-khûu dtiang-dìao / hɔ̂ng-khûu dtiang-khûu</div><div class="eng">double room with one bed / twin room with two beds</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องคู่ยังว่างไหมคะ</div><div class="roman">hɔ̂ng-khûu yang wâang mái khá</div><div class="eng">Are double/twin rooms still available?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เตียงเดี่ยว</div><div class="roman">dtiang-dìao</div><div class="eng">single bed / one bed</div></div></td>
+          <td>Bed type</td>
+          <td>เตียง</td>
+          <td>教材第 14–15 頁出現。可指單張床，也可能在飯店語境中指一張大床房，需確認。</td>
+          <td><div class="triad"><div class="thai">ห้องเตียงเดี่ยว / เตียงเดี่ยวหนึ่งเตียง</div><div class="roman">hɔ̂ng dtiang-dìao / dtiang-dìao nʉ̀eng dtiang</div><div class="eng">single-bed room / one single bed</div></div></td>
+          <td><div class="triad"><div class="thai">ขอห้องเตียงเดี่ยวค่ะ</div><div class="roman">khɔ̌ɔ hɔ̂ng dtiang-dìao khâ</div><div class="eng">I’d like a single-bed room.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เตียงคู่</div><div class="roman">dtiang-khûu</div><div class="eng">twin beds / double bed depending on context</div></div></td>
+          <td>Bed type</td>
+          <td>เตียง</td>
+          <td>在泰國訂房要小心：有時 <span class="thai">เตียงคู่</span> 指兩張床，有時英文 double/twin 對應會混亂，最好明說 <span class="thai">สองเตียง</span>。</td>
+          <td><div class="triad"><div class="thai">ห้องเตียงคู่ / เตียงคู่สองเตียง / ขอสองเตียง</div><div class="roman">hɔ̂ng dtiang-khûu / dtiang-khûu sɔ̌ɔng dtiang / khɔ̌ɔ sɔ̌ɔng dtiang</div><div class="eng">twin-bed room / two beds / please give two beds</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องการห้องเตียงคู่สำหรับสองคนค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng dtiang-khûu sǎm-ràp sɔ̌ɔng khon khâ</div><div class="eng">I would like a twin-bed room for two people.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เตียงเสริม</div><div class="roman">dtiang-sə̌əm</div><div class="eng">extra bed</div></div></td>
+          <td>Hotel bed</td>
+          <td>เตียง</td>
+          <td>加床。家庭/三人入住很常問。</td>
+          <td><div class="triad"><div class="thai">เพิ่มเตียงเสริม / ขอเตียงเสริม / มีเตียงเสริมไหม</div><div class="roman">phə̂əm dtiang-sə̌əm / khɔ̌ɔ dtiang-sə̌əm / mii dtiang-sə̌əm mái</div><div class="eng">add an extra bed / request an extra bed / is there an extra bed?</div></div></td>
+          <td><div class="triad"><div class="thai">เพิ่มเตียงเสริมได้ไหมคะ</div><div class="roman">phə̂əm dtiang-sə̌əm dâai mái khá</div><div class="eng">Can we add an extra bed?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ใบ</span><div class="triad"><div class="thai">ใบ</div><div class="roman">bai</div><div class="eng">classifier for tickets / cards / flat items</div></div></td>
+          <td><div class="triad"><div class="thai">ตั๋ว / ตั๋วเครื่องบิน / ตั๋วรถไฟ</div><div class="roman">dtǔa / dtǔa khrʉ̂ang-bin / dtǔa rót-fai</div><div class="eng">ticket / plane ticket / train ticket</div></div></td>
+          <td>票券是薄片/憑證類，常用 <span class="thai">ใบ</span>。</td>
+          <td><div class="triad"><div class="thai">ขอตั๋วสองใบค่ะ</div><div class="roman">khɔ̌ɔ dtǔa sɔ̌ɔng bai khâ</div><div class="eng">Two tickets, please.</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要說 <span class="thai">ตั๋วสองอัน</span>；票券優先用 <span class="thai">ใบ</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ที่ / ที่นั่ง</span><div class="triad"><div class="thai">ที่ / ที่นั่ง</div><div class="roman">thîi / thîi-nâng</div><div class="eng">seat / place</div></div></td>
+          <td><div class="triad"><div class="thai">ที่นั่งรถทัวร์ / ที่นั่งรถไฟ / ที่นั่งเครื่องบิน</div><div class="roman">thîi-nâng rót-thua / thîi-nâng rót-fai / thîi-nâng khrʉ̂ang-bin</div><div class="eng">bus seat / train seat / airplane seat</div></div></td>
+          <td>數座位可以說 <span class="thai">สองที่</span> 或 <span class="thai">สองที่นั่ง</span>。</td>
+          <td><div class="triad"><div class="thai">มีที่นั่งว่างสองที่ไหมคะ</div><div class="roman">mii thîi-nâng wâang sɔ̌ɔng thîi mái khá</div><div class="eng">Are there two seats available?</div></div></td>
+          <td><span class="thai">ที่</span> 也有「地方」意思；訂位時通常靠情境判斷是座位。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เที่ยว</span><div class="triad"><div class="thai">เที่ยว</div><div class="roman">thîao</div><div class="eng">trip / service / flight or ride occurrence</div></div></td>
+          <td><div class="triad"><div class="thai">เที่ยวเดียว / เที่ยวบิน / รถเที่ยวนี้</div><div class="roman">thîao-diao / thîao-bin / rót thîao níi</div><div class="eng">one-way / flight / this bus/train service</div></div></td>
+          <td>表示一趟、一班。</td>
+          <td><div class="triad"><div class="thai">เอาเที่ยวเดียวค่ะ</div><div class="roman">ao thîao-diao khâ</div><div class="eng">One-way, please.</div></div></td>
+          <td>不要和 <span class="thai">ไปเที่ยว</span> 的「旅遊」混淆；同字不同用法。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ชั้น</span><div class="triad"><div class="thai">ชั้น</div><div class="roman">chán</div><div class="eng">class / floor / layer</div></div></td>
+          <td><div class="triad"><div class="thai">ชั้นหนึ่ง / ชั้นสอง / ชั้นธุรกิจ / ชั้นประหยัด</div><div class="roman">chán-nʉ̀eng / chán-sɔ̌ɔng / chán thú-rá-gìt / chán bprà-yàt</div><div class="eng">first class / second class / business class / economy class</div></div></td>
+          <td>艙等、車廂等級、樓層都可用 <span class="thai">ชั้น</span>。</td>
+          <td><div class="triad"><div class="thai">ขอตั๋วชั้นสองมีแอร์ค่ะ</div><div class="roman">khɔ̌ɔ dtǔa chán-sɔ̌ɔng mii ɛɛ khâ</div><div class="eng">I’d like a second-class ticket with A/C.</div></div></td>
+          <td><span class="label review">Review</span> <span class="thai">ชั้น</span> 也可表示樓層，例如 <span class="thai">ชั้นสอง</span> = second floor / second class，靠情境判斷。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ห้อง</span><div class="triad"><div class="thai">ห้อง</div><div class="roman">hɔ̂ng</div><div class="eng">room</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องเดี่ยว / ห้องคู่ / ห้องพัก</div><div class="roman">hɔ̂ng-dìao / hɔ̂ng-khûu / hɔ̂ng-phák</div><div class="eng">single room / double/twin room / hotel room</div></div></td>
+          <td>房間用 <span class="thai">ห้อง</span>。</td>
+          <td><div class="triad"><div class="thai">ต้องการห้องเดี่ยวหนึ่งห้องค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-dìao nʉ̀eng hɔ̂ng khâ</div><div class="eng">I would like one single room.</div></div></td>
+          <td>不要用 <span class="thai">อัน</span> 數房間。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เตียง</span><div class="triad"><div class="thai">เตียง</div><div class="roman">dtiang</div><div class="eng">bed</div></div></td>
+          <td><div class="triad"><div class="thai">เตียงเดี่ยว / เตียงคู่ / เตียงเสริม</div><div class="roman">dtiang-dìao / dtiang-khûu / dtiang-sə̌əm</div><div class="eng">single bed / twin/double bed / extra bed</div></div></td>
+          <td>床用 <span class="thai">เตียง</span> 數。</td>
+          <td><div class="triad"><div class="thai">ขอเตียงเสริมหนึ่งเตียงค่ะ</div><div class="roman">khɔ̌ɔ dtiang-sə̌əm nʉ̀eng dtiang khâ</div><div class="eng">I’d like one extra bed.</div></div></td>
+          <td>訂房時 <span class="thai">ห้อง</span> 是房間，<span class="thai">เตียง</span> 是床，不要混用。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คืน</span><div class="triad"><div class="thai">คืน</div><div class="roman">khʉʉn</div><div class="eng">night</div></div></td>
+          <td><div class="triad"><div class="thai">พักโรงแรม / จองห้อง</div><div class="roman">phák rooŋ-rɛɛm / jɔɔng hɔ̂ng</div><div class="eng">hotel stay / room booking</div></div></td>
+          <td>住宿幾晚用 <span class="thai">คืน</span>。</td>
+          <td><div class="triad"><div class="thai">จองสองคืนค่ะ</div><div class="roman">jɔɔng sɔ̌ɔng khʉʉn khâ</div><div class="eng">Book for two nights.</div></div></td>
+          <td><span class="label review">Review</span> Day 11 已學：住宿用 <span class="thai">คืน</span>，不是 <span class="thai">วัน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คัน</span><div class="triad"><div class="thai">คัน</div><div class="roman">khan</div><div class="eng">classifier for vehicles</div></div></td>
+          <td><div class="triad"><div class="thai">รถทัวร์ / รถ / รถบัส</div><div class="roman">rót-thua / rót / rót-bát</div><div class="eng">coach bus / car / bus</div></div></td>
+          <td>車輛用 <span class="thai">คัน</span>。</td>
+          <td><div class="triad"><div class="thai">รถทัวร์คันนี้มีแอร์ค่ะ</div><div class="roman">rót-thua khan níi mii ɛɛ khâ</div><div class="eng">This coach bus has A/C.</div></div></td>
+          <td><span class="label review">Review</span> Day 12 船用 <span class="thai">ลำ</span>，車用 <span class="thai">คัน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ขบวน</span><div class="triad"><div class="thai">ขบวน</div><div class="roman">khà-buan</div><div class="eng">classifier for trains</div></div></td>
+          <td><div class="triad"><div class="thai">รถไฟ / รถด่วน / รถเร็ว</div><div class="roman">rót-fai / rót-dùan / rót-rew</div><div class="eng">train / express train / rapid train</div></div></td>
+          <td>火車一列用 <span class="thai">ขบวน</span>。</td>
+          <td><div class="triad"><div class="thai">รถไฟขบวนนี้ไปเชียงใหม่ค่ะ</div><div class="roman">rót-fai khà-buan níi bpai chiiang-mài khâ</div><div class="eng">This train goes to Chiang Mai.</div></div></td>
+          <td>不要用 <span class="thai">คัน</span> 數整列火車；車廂可用 <span class="thai">ตู้</span>，整列車用 <span class="thai">ขบวน</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜本課重點補充</h2>
+
+    <h3>ตามธรรมดา vs ปกติ｜平常、通常</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Feeling</th>
+          <th>Different Life Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Textbook / complete</td>
+          <td><div class="triad"><div class="thai">ตามธรรมดา</div><div class="roman">dtaam tham-má-daa</div><div class="eng">normally / as usual</div></div></td>
+          <td>完整、清楚，適合教材、正式敘述。</td>
+          <td>
+            <div class="triad"><div class="thai">ตามธรรมดา ฉันทำงานที่บ้านค่ะ</div><div class="roman">dtaam tham-má-daa chǎn tham-ngaan thîi bâan khâ</div><div class="eng">Normally, I work from home.</div></div>
+            <div class="triad"><div class="thai">ตามธรรมดา ร้านนี้คนเยอะมากค่ะ</div><div class="roman">dtaam tham-má-daa ráan níi khon yə́ mâak khâ</div><div class="eng">Normally, this restaurant is very crowded.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Local / daily</td>
+          <td><div class="triad"><div class="thai">ปกติ</div><div class="roman">bpòk-gà-dtì</div><div class="eng">normally / usually</div></div></td>
+          <td>日常最常用，比 <span class="thai">ตามธรรมดา</span> 更短。</td>
+          <td>
+            <div class="triad"><div class="thai">ปกติฉันตื่นสายค่ะ</div><div class="roman">bpòk-gà-dtì chǎn dtʉ̀ʉn sǎai khâ</div><div class="eng">I usually wake up late.</div></div>
+            <div class="triad"><div class="thai">ปกติรถไฟเที่ยวนี้เต็มไหมคะ</div><div class="roman">bpòk-gà-dtì rót-fai thîao níi dtem mái khá</div><div class="eng">Is this train service usually full?</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>เป็นพิเศษ｜特別地、比平常更……</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Meaning</th>
+          <th>Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>S + V + Adj/Adv + เป็นพิเศษ</td>
+          <td><div class="triad"><div class="thai">วันนี้เขาทำงานขยันเป็นพิเศษค่ะ</div><div class="roman">wan-níi khǎo tham-ngaan khà-yǎn bpen phí-sèet khâ</div><div class="eng">Today he works especially hard.</div></div></td>
+          <td>今天比平常更努力。</td>
+          <td>
+            <div class="triad"><div class="thai">วันนี้เธอแต่งตัวสวยเป็นพิเศษค่ะ</div><div class="roman">wan-níi thəə dtɛ̀ng-dtua sǔai bpen phí-sèet khâ</div><div class="eng">Today she dressed especially beautifully.</div></div>
+            <div class="triad"><div class="thai">ช่วงสงกรานต์ตั๋วเครื่องบินแพงเป็นพิเศษค่ะ</div><div class="roman">chûang sǒng-graan dtǔa khrʉ̂ang-bin phɛɛng bpen phí-sèet khâ</div><div class="eng">During Songkran, plane tickets are especially expensive.</div></div>
+            <div class="triad"><div class="thai">วันนี้ฉันอยากพักผ่อนเป็นพิเศษค่ะ</div><div class="roman">wan-níi chǎn yàak phák-phɔ̀ɔn bpen phí-sèet khâ</div><div class="eng">Today I especially want to rest.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>ถ้า vs สมมุติว่า｜如果 vs 假設說</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage</th>
+          <th>Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>If</td>
+          <td><div class="triad"><div class="thai">ถ้า</div><div class="roman">thâa</div><div class="eng">if</div></div></td>
+          <td>一般條件句：如果 A，就 B。</td>
+          <td>
+            <div class="triad"><div class="thai">ถ้าฝนตก ฉันจะไม่กลับกรุงเทพฯ ค่ะ</div><div class="roman">thâa fǒn-dtòk chǎn jà mâi glàp grung-thêep khâ</div><div class="eng">If it rains, I won’t go back to Bangkok.</div></div>
+            <div class="triad"><div class="thai">ถ้ามีที่นั่งว่าง ฉันจะจองค่ะ</div><div class="roman">thâa mii thîi-nâng wâang chǎn jà jɔɔng khâ</div><div class="eng">If there are seats available, I will book.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Suppose that</td>
+          <td><div class="triad"><div class="thai">สมมุติว่า</div><div class="roman">sǒm-mút wâa</div><div class="eng">suppose that</div></div></td>
+          <td>假設一個情境，常用於討論計畫或想像。</td>
+          <td>
+            <div class="triad"><div class="thai">สมมุติว่าตั๋วเต็ม เราจะไปวันอื่นไหมคะ</div><div class="roman">sǒm-mút wâa dtǔa dtem rao jà bpai wan ʉ̀ʉn mái khá</div><div class="eng">Suppose the tickets are full, should we go another day?</div></div>
+            <div class="triad"><div class="thai">สมมุติว่าเรารวยที่สุดในโลก เราจะไปเที่ยวตลอดชีวิตไหมคะ</div><div class="roman">sǒm-mút wâa rao ruai thîi-sùt nai lôok rao jà bpai thîao dtà-lɔ̀ɔt chii-wít mái khá</div><div class="eng">Suppose we were the richest in the world, would we travel for our whole life?</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>ต้องการ vs อยาก vs ขอ｜正式需求、想要、請給我</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Thai / Romanization / English</th>
+          <th>Best Situation</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Formal need</td>
+          <td><div class="triad"><div class="thai">ต้องการ</div><div class="roman">dtɔ̂ng-gaan</div><div class="eng">want / need</div></div></td>
+          <td>櫃台、訂房、訂票、客服。</td>
+          <td><div class="triad"><div class="thai">ต้องการจองห้องเดี่ยวค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng hɔ̂ng-dìao khâ</div><div class="eng">I would like to book a single room.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Natural want</td>
+          <td><div class="triad"><div class="thai">อยาก</div><div class="roman">yàak</div><div class="eng">want to</div></div></td>
+          <td>朋友聊天、表達個人想法。</td>
+          <td><div class="triad"><div class="thai">ฉันอยากนั่งรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">chǎn yàak nâng rót-fai bpai chiiang-mài khâ</div><div class="eng">I want to take the train to Chiang Mai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Request</td>
+          <td><div class="triad"><div class="thai">ขอ</div><div class="roman">khɔ̌ɔ</div><div class="eng">please give me / may I have</div></div></td>
+          <td>直接向店員要某個東西。</td>
+          <td><div class="triad"><div class="thai">ขอตั๋วรถไฟชั้นสองสองใบค่ะ</div><div class="roman">khɔ̌ɔ dtǔa rót-fai chán-sɔ̌ɔng sɔ̌ɔng bai khâ</div><div class="eng">Two second-class train tickets, please.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>曼谷實用語感：</strong>
+      跟櫃台說話時，
+      <span class="thai">ต้องการ...</span> /
+      <span class="roman">dtɔ̂ng-gaan...</span> /
+      <span class="eng">I would like / I need...</span>
+      很安全、正式。跟朋友說計畫時，
+      <span class="thai">อยาก...</span> /
+      <span class="roman">yàak...</span> /
+      <span class="eng">want to...</span>
+      比較自然。真的要店員給你票/房間時，
+      <span class="thai">ขอ...</span> /
+      <span class="roman">khɔ̌ɔ...</span> /
+      <span class="eng">please give me...</span>
+      最直接。
+    </div>
+
+    <h3>Room vs Bed｜ห้องคู่ / เตียงคู่ / เตียงเดี่ยว 容易混淆</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Need</th>
+          <th>Thai / Romanization / English</th>
+          <th>Why it matters</th>
+          <th>Best sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>一人住一間</td>
+          <td><div class="triad"><div class="thai">ห้องเดี่ยว</div><div class="roman">hɔ̂ng-dìao</div><div class="eng">single room</div></div></td>
+          <td>房型是一人房。</td>
+          <td><div class="triad"><div class="thai">ต้องการห้องเดี่ยวหนึ่งคืนค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-dìao nʉ̀eng khʉʉn khâ</div><div class="eng">I would like a single room for one night.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>兩人一房、兩張床</td>
+          <td><div class="triad"><div class="thai">ห้องคู่ สองเตียง</div><div class="roman">hɔ̂ng-khûu sɔ̌ɔng dtiang</div><div class="eng">double/twin room, two beds</div></div></td>
+          <td>避免 <span class="thai">เตียงคู่</span> 被理解成一張大床或雙床。</td>
+          <td><div class="triad"><div class="thai">ต้องการห้องคู่แบบสองเตียงค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-khûu bɛ̀ɛp sɔ̌ɔng dtiang khâ</div><div class="eng">I would like a double/twin room with two beds.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>需要加床</td>
+          <td><div class="triad"><div class="thai">เตียงเสริม</div><div class="roman">dtiang-sə̌əm</div><div class="eng">extra bed</div></div></td>
+          <td>三人入住或小孩同住常用。</td>
+          <td><div class="triad"><div class="thai">เพิ่มเตียงเสริมได้ไหมคะ</div><div class="roman">phə̂əm dtiang-sə̌əm dâai mái khá</div><div class="eng">Can we add an extra bed?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Structures｜句型整理</h2>
+
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <h3>1. ตามธรรมดา + S + V</h3>
+      <div class="triad">
+        <div class="thai">ตามธรรมดา + Subject + Verb</div>
+        <div class="roman">dtaam tham-má-daa + Subject + Verb</div>
+        <div class="eng">Normally, Subject Verb.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ตามธรรมดา ฉันทำงานค่ะ</div>
+        <div class="roman">dtaam tham-má-daa chǎn tham-ngaan khâ</div>
+        <div class="eng">Normally, I work.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ตามธรรมดา ฉันทำงานที่บ้านค่ะ</div><div class="roman">dtaam tham-má-daa chǎn tham-ngaan thîi bâan khâ</div><div class="eng">Normally, I work from home.</div></div></li>
+        <li><div class="triad"><div class="thai">ตามธรรมดา ฉันนั่ง BTS ไปสยามค่ะ</div><div class="roman">dtaam tham-má-daa chǎn nâng bii-thii-èet bpai sà-yǎam khâ</div><div class="eng">Normally, I take the BTS to Siam.</div></div></li>
+        <li><div class="triad"><div class="thai">ตามธรรมดา รถทัวร์เที่ยวกลางคืนจะเต็มเร็วค่ะ</div><div class="roman">dtaam tham-má-daa rót-thua thîao glaang-khʉʉn jà dtem rew khâ</div><div class="eng">Normally, night bus trips fill up quickly.</div></div></li>
+        <li><div class="triad"><div class="thai">ตามธรรมดา ห้องเตียงคู่จะแพงกว่าห้องเดี่ยวค่ะ</div><div class="roman">dtaam tham-má-daa hɔ̂ng dtiang-khûu jà phɛɛng gwàa hɔ̂ng-dìao khâ</div><div class="eng">Normally, twin-bed rooms are more expensive than single rooms.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>2. S + V + Adj/Adv + เป็นพิเศษ</h3>
+      <div class="triad">
+        <div class="thai">Subject + Verb + Adjective / Adverb + เป็นพิเศษ</div>
+        <div class="roman">Subject + Verb + Adjective / Adverb + bpen phí-sèet</div>
+        <div class="eng">Subject does/is especially Adj/Adv.</div>
+      </div>
+
+      <h4>Textbook-style examples</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">วันนี้เขาทำงานขยันเป็นพิเศษค่ะ</div><div class="roman">wan-níi khǎo tham-ngaan khà-yǎn bpen phí-sèet khâ</div><div class="eng">Today he works especially hard.</div></div></li>
+        <li><div class="triad"><div class="thai">เธอแต่งตัวสวยเป็นพิเศษค่ะ</div><div class="roman">thəə dtɛ̀ng-dtua sǔai bpen phí-sèet khâ</div><div class="eng">She dressed especially beautifully.</div></div></li>
+      </ul>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ช่วงปีใหม่ ตั๋วเครื่องบินแพงเป็นพิเศษค่ะ</div><div class="roman">chûang bpii-mài dtǔa khrʉ̂ang-bin phɛɛng bpen phí-sèet khâ</div><div class="eng">During New Year, plane tickets are especially expensive.</div></div></li>
+        <li><div class="triad"><div class="thai">วันนี้รถติดเป็นพิเศษค่ะ</div><div class="roman">wan-níi rót-dtìt bpen phí-sèet khâ</div><div class="eng">Traffic is especially bad today.</div></div></li>
+        <li><div class="triad"><div class="thai">โรงแรมนี้สะอาดเป็นพิเศษค่ะ</div><div class="roman">rooŋ-rɛɛm níi sà-àat bpen phí-sèet khâ</div><div class="eng">This hotel is especially clean.</div></div></li>
+        <li><div class="triad"><div class="thai">วันนี้ฉันอยากพักผ่อนเป็นพิเศษค่ะ</div><div class="roman">wan-níi chǎn yàak phák-phɔ̀ɔn bpen phí-sèet khâ</div><div class="eng">Today I especially want to rest.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>3. ถ้า + S + V, S + จะ + V</h3>
+      <div class="triad">
+        <div class="thai">ถ้า + Subject + Verb, Subject + จะ + Verb</div>
+        <div class="roman">thâa + Subject + Verb, Subject + jà + Verb</div>
+        <div class="eng">If Subject Verb, Subject will Verb.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ถ้าฝนตก ฉันจะไม่กลับกรุงเทพฯ ค่ะ</div>
+        <div class="roman">thâa fǒn-dtòk chǎn jà mâi glàp grung-thêep khâ</div>
+        <div class="eng">If it rains, I won’t go back to Bangkok.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ถ้ามีที่นั่งว่าง ฉันจะจองทันทีค่ะ</div><div class="roman">thâa mii thîi-nâng wâang chǎn jà jɔɔng than-thii khâ</div><div class="eng">If there are seats available, I will book immediately.</div></div></li>
+        <li><div class="triad"><div class="thai">ถ้าห้องคู่เต็ม เราจะจองห้องเดี่ยวสองห้องค่ะ</div><div class="roman">thâa hɔ̂ng-khûu dtem rao jà jɔɔng hɔ̂ng-dìao sɔ̌ɔng hɔ̂ng khâ</div><div class="eng">If twin rooms are full, we will book two single rooms.</div></div></li>
+        <li><div class="triad"><div class="thai">ถ้าตั๋วรถไฟแพง เราจะนั่งรถทัวร์ค่ะ</div><div class="roman">thâa dtǔa rót-fai phɛɛng rao jà nâng rót-thua khâ</div><div class="eng">If train tickets are expensive, we will take a bus.</div></div></li>
+        <li><div class="triad"><div class="thai">ถ้ารถทัวร์ไม่มีแอร์ ฉันจะไม่ไปค่ะ</div><div class="roman">thâa rót-thua mâi mii ɛɛ chǎn jà mâi bpai khâ</div><div class="eng">If the bus has no A/C, I won’t go.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>4. สมมุติว่า + S + V</h3>
+      <div class="triad">
+        <div class="thai">สมมุติว่า + Subject + Verb</div>
+        <div class="roman">sǒm-mút wâa + Subject + Verb</div>
+        <div class="eng">Suppose that Subject Verb.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">สมมุติว่าเรารวยที่สุดในโลก เราจะไปเที่ยวตลอดชีวิตค่ะ</div>
+        <div class="roman">sǒm-mút wâa rao ruai thîi-sùt nai lôok rao jà bpai thîao dtà-lɔ̀ɔt chii-wít khâ</div>
+        <div class="eng">Suppose we were the richest in the world, we would travel for our whole life.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">สมมุติว่าตั๋วไปกลับเต็ม เราจะซื้อตั๋วเที่ยวเดียวไหมคะ</div><div class="roman">sǒm-mút wâa dtǔa bpai-glàp dtem rao jà sʉ́ʉ dtǔa thîao-diao mái khá</div><div class="eng">Suppose round-trip tickets are full, should we buy one-way tickets?</div></div></li>
+        <li><div class="triad"><div class="thai">สมมุติว่าห้องไม่มีแอร์ เธอจะพักไหม</div><div class="roman">sǒm-mút wâa hɔ̂ng mâi mii ɛɛ thəə jà phák mái</div><div class="eng">Suppose the room has no A/C, would you stay?</div></div></li>
+        <li><div class="triad"><div class="thai">สมมุติว่าเราจองรถไฟไม่ได้ เราจะบินไปไหมคะ</div><div class="roman">sǒm-mút wâa rao jɔɔng rót-fai mâi dâai rao jà bin bpai mái khá</div><div class="eng">Suppose we can’t book the train, should we fly?</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>5. ต้องการ + V / N</h3>
+      <div class="triad">
+        <div class="thai">Subject + ต้องการ + Verb / Noun</div>
+        <div class="roman">Subject + dtɔ̂ng-gaan + Verb / Noun</div>
+        <div class="eng">Subject wants / needs Verb or Noun.</div>
+      </div>
+
+      <h4>Textbook-style example</h4>
+      <div class="triad">
+        <div class="thai">ฉันต้องการเรียนภาษาไทยให้เก่งค่ะ</div>
+        <div class="roman">chǎn dtɔ̂ng-gaan rian phaa-sǎa-thai hâi gèng khâ</div>
+        <div class="eng">I want to study Thai well / become good at Thai.</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">ต้องการจองตั๋วรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng dtǔa rót-fai bpai chiiang-mài khâ</div><div class="eng">I would like to book a train ticket to Chiang Mai.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องการห้องเตียงคู่สำหรับสองคนค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng dtiang-khûu sǎm-ràp sɔ̌ɔng khon khâ</div><div class="eng">I would like a twin-bed room for two people.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องการตั๋วเครื่องบินไปกลับหนึ่งใบค่ะ</div><div class="roman">dtɔ̂ng-gaan dtǔa khrʉ̂ang-bin bpai-glàp nʉ̀eng bai khâ</div><div class="eng">I would like one round-trip plane ticket.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องการเพิ่มเตียงเสริมค่ะ</div><div class="roman">dtɔ̂ng-gaan phə̂əm dtiang-sə̌əm khâ</div><div class="eng">I would like to add an extra bed.</div></div></li>
+      </ul>
+    </div>
+
+    <div class="pattern">
+      <h3>6. S จะ V, A หรือ B คะ?</h3>
+      <div class="triad">
+        <div class="thai">Subject + จะ + Verb, A หรือ B คะ?</div>
+        <div class="roman">Subject + jà + Verb, A rʉ̌ʉ B khá?</div>
+        <div class="eng">Will Subject Verb, A or B?</div>
+      </div>
+
+      <h4>Life variations</h4>
+      <ul>
+        <li><div class="triad"><div class="thai">คุณจะจองตั๋วไปกลับหรือตั๋วเที่ยวเดียวคะ</div><div class="roman">khun jà jɔɔng dtǔa bpai-glàp rʉ̌ʉ dtǔa thîao-diao khá</div><div class="eng">Will you book a round-trip ticket or a one-way ticket?</div></div></li>
+        <li><div class="triad"><div class="thai">คุณจะพักห้องเดี่ยวหรือห้องคู่คะ</div><div class="roman">khun jà phák hɔ̂ng-dìao rʉ̌ʉ hɔ̂ng-khûu khá</div><div class="eng">Will you stay in a single room or a double/twin room?</div></div></li>
+        <li><div class="triad"><div class="thai">คุณจะเอาชั้นสองมีแอร์หรือไม่มีแอร์คะ</div><div class="roman">khun jà ao chán-sɔ̌ɔng mii ɛɛ rʉ̌ʉ mâi mii ɛɛ khá</div><div class="eng">Would you like second class with A/C or without A/C?</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>平常 / 通常</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตามธรรมดา ฉันทำงานค่ะ</div><div class="roman">dtaam tham-má-daa chǎn tham-ngaan khâ</div><div class="eng">Normally, I work.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ปกติฉันทำงานค่ะ</div><div class="roman">bpòk-gà-dtì chǎn tham-ngaan khâ</div><div class="eng">I usually work.</div></div></td>
+          <td><span class="thai">ปกติ</span> 更口語；<span class="thai">ตามธรรมดา</span> 比較教材/正式。</td>
+        </tr>
+
+        <tr>
+          <td>訂票需求</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฉันต้องการจองตั๋วเครื่องบินค่ะ</div><div class="roman">chǎn dtɔ̂ng-gaan jɔɔng dtǔa khrʉ̂ang-bin khâ</div><div class="eng">I would like to book a plane ticket.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอจองตั๋วเครื่องบินหน่อยค่ะ</div><div class="roman">khɔ̌ɔ jɔɔng dtǔa khrʉ̂ang-bin nòi khâ</div><div class="eng">I’d like to book a plane ticket, please.</div></div></td>
+          <td><span class="thai">ต้องการ</span> 很安全正式；<span class="thai">ขอ...หน่อย</span> 服務情境更柔和。</td>
+        </tr>
+
+        <tr>
+          <td>有沒有空房</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มีห้องว่างไหมคะ</div><div class="roman">mii hɔ̂ng wâang mái khá</div><div class="eng">Are there any rooms available?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">คืนนี้มีห้องว่างไหมคะ</div><div class="roman">khʉʉn-níi mii hɔ̂ng wâang mái khá</div><div class="eng">Do you have any rooms available tonight?</div></div></td>
+          <td>加上時間會更清楚：今晚、明天、下週。</td>
+        </tr>
+
+        <tr>
+          <td>票滿了</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตั๋วเต็มแล้วค่ะ</div><div class="roman">dtǔa dtem lɛ́ɛw khâ</div><div class="eng">The tickets are full/sold out.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เต็มหมดแล้วค่ะ</div><div class="roman">dtem mòt lɛ́ɛw khâ</div><div class="eng">It’s all full / all sold out.</div></div></td>
+          <td><span class="thai">หมดแล้ว</span> 有「沒有了」的感覺，店員很常說。</td>
+        </tr>
+
+        <tr>
+          <td>單程 / 來回</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตั๋วเครื่องบินไปกลับหรือตั๋วเที่ยวเดียวคะ</div><div class="roman">dtǔa khrʉ̂ang-bin bpai-glàp rʉ̌ʉ dtǔa thîao-diao khá</div><div class="eng">Round-trip or one-way plane ticket?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปกลับหรือเที่ยวเดียวคะ</div><div class="roman">bpai-glàp rʉ̌ʉ thîao-diao khá</div><div class="eng">Round trip or one way?</div></div></td>
+          <td>真實櫃台通常省略重複名詞。</td>
+        </tr>
+
+        <tr>
+          <td>床型確認</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ต้องการห้องคู่เตียงคู่ค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-khûu dtiang-khûu khâ</div><div class="eng">I would like a twin/double-bed room.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอสองเตียงนะคะ ไม่เอาเตียงเดียว</div><div class="roman">khɔ̌ɔ sɔ̌ɔng dtiang ná khá mâi ao dtiang-diao</div><div class="eng">Two beds, please, not one bed.</div></div></td>
+          <td>怕床型搞錯時，直接說 <span class="thai">สองเตียง</span> 最清楚。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bangkok" class="tab-content">
+    <h2>Bangkok Expansion｜曼谷生活實用場景</h2>
+
+    <h3>1. Booking Train Tickets｜訂火車票去清邁</h3>
+    <div class="cards">
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ต้องการจองตั๋วรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng dtǔa rót-fai bpai chiiang-mài khâ</div><div class="eng">I would like to book a train ticket to Chiang Mai.</div></div>
+        <p>櫃台/LINE 客服都可用。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">มีชั้นสองมีแอร์ว่างไหมคะ</div><div class="roman">mii chán-sɔ̌ɔng mii ɛɛ wâang mái khá</div><div class="eng">Is second class with A/C available?</div></div>
+        <p>泰國火車訂票很實用。</p>
+      </div>
+      <div class="card">
+        <span class="label practical">Practical Usage</span>
+        <div class="triad"><div class="thai">ถ้าชั้นสองเต็ม ขอชั้นหนึ่งได้ไหมคะ</div><div class="roman">thâa chán-sɔ̌ɔng dtem khɔ̌ɔ chán-nʉ̀eng dâai mái khá</div><div class="eng">If second class is full, can I get first class?</div></div>
+        <p>用 Day 14 條件句。</p>
+      </div>
+    </div>
+
+    <h3>2. Bus Terminal｜長途巴士站買票</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ขอตั๋วรถทัวร์ไปพัทยาหนึ่งใบค่ะ</div><div class="roman">khɔ̌ɔ dtǔa rót-thua bpai phát-thá-yaa nʉ̀eng bai khâ</div><div class="eng">One bus ticket to Pattaya, please.</div></div>
+        <p>巴士站買票直接句。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">มีรถรอบกี่โมงคะ</div><div class="roman">mii rót rɔ̂ɔp gìi moong khá</div><div class="eng">What time is the next bus service?</div></div>
+        <p><span class="thai">รอบ</span> 是班次，很實用。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">รถคันนี้มีแอร์ไหมคะ</div><div class="roman">rót khan níi mii ɛɛ mái khá</div><div class="eng">Does this bus have A/C?</div></div>
+        <p>泰國長途巴士必問。</p>
+      </div>
+    </div>
+
+    <h3>3. Airport / Airline｜機票、艙等、行程</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">ต้องการตั๋วเครื่องบินไปกลับหนึ่งใบค่ะ</div><div class="roman">dtɔ̂ng-gaan dtǔa khrʉ̂ang-bin bpai-glàp nʉ̀eng bai khâ</div><div class="eng">I would like one round-trip plane ticket.</div></div>
+        <p>正式訂機票。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">เอาชั้นประหยัดค่ะ</div><div class="roman">ao chán bprà-yàt khâ</div><div class="eng">Economy class, please.</div></div>
+        <p>簡短自然。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ต้องจองล่วงหน้ากี่วันคะ</div><div class="roman">dtɔ̂ng jɔɔng lûang-nâa gìi wan khá</div><div class="eng">How many days in advance do I need to book?</div></div>
+        <p>旺季/節日前很實用。</p>
+      </div>
+    </div>
+
+    <h3>4. Hotel Check-in｜飯店房型與床型確認</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">คืนนี้มีห้องว่างไหมคะ</div><div class="roman">khʉʉn-níi mii hɔ̂ng wâang mái khá</div><div class="eng">Do you have any rooms available tonight?</div></div>
+        <p>walk-in 找房很實用。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">ต้องการห้องคู่แบบสองเตียงค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-khûu bɛ̀ɛp sɔ̌ɔng dtiang khâ</div><div class="eng">I would like a double/twin room with two beds.</div></div>
+        <p>避免床型誤會。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">เพิ่มเตียงเสริมได้ไหมคะ</div><div class="roman">phə̂əm dtiang-sə̌əm dâai mái khá</div><div class="eng">Can we add an extra bed?</div></div>
+        <p>三人住一間時。</p>
+      </div>
+    </div>
+
+    <h3>5. Busy vs Available｜ว่าง 的兩種生活用法</h3>
+    <div class="cards">
+      <div class="card">
+        <div class="triad"><div class="thai">วันนี้คุณว่างไหมคะ</div><div class="roman">wan-níi khun wâang mái khá</div><div class="eng">Are you free today?</div></div>
+        <p>人有空。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">มีห้องว่างไหมคะ</div><div class="roman">mii hɔ̂ng wâang mái khá</div><div class="eng">Are there any available rooms?</div></div>
+        <p>房間空著。</p>
+      </div>
+      <div class="card">
+        <div class="triad"><div class="thai">มีที่นั่งว่างไหมคะ</div><div class="roman">mii thîi-nâng wâang mái khá</div><div class="eng">Are there any available seats?</div></div>
+        <p>座位空著。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>火車站：訂去清邁的夜車</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สวัสดีค่ะ ต้องการจองตั๋วรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">sà-wàt-dii khâ, dtɔ̂ng-gaan jɔɔng dtǔa rót-fai bpai chiiang-mài khâ</div><div class="eng">Hello, I would like to book a train ticket to Chiang Mai.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปวันไหนคะ</div><div class="roman">bpai wan nǎi khá</div><div class="eng">What day are you going?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไปวันศุกร์นี้ค่ะ มีชั้นสองมีแอร์ว่างไหมคะ</div><div class="roman">bpai wan-sùk níi khâ, mii chán-sɔ̌ɔng mii ɛɛ wâang mái khá</div><div class="eng">This Friday. Is second class with A/C available?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ชั้นสองเต็มแล้วค่ะ แต่ชั้นหนึ่งยังว่างค่ะ</div><div class="roman">chán-sɔ̌ɔng dtem lɛ́ɛw khâ, dtɛ̀ɛ chán-nʉ̀eng yang wâang khâ</div><div class="eng">Second class is full, but first class is still available.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ถ้าชั้นสองเต็ม ขอชั้นหนึ่งหนึ่งใบค่ะ</div><div class="roman">thâa chán-sɔ̌ɔng dtem khɔ̌ɔ chán-nʉ̀eng nʉ̀eng bai khâ</div><div class="eng">If second class is full, I’ll take one first-class ticket.</div></div></div>
+    </div>
+
+    <h3>巴士站：買去 Pattaya 的票</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ขอตั๋วรถทัวร์ไปพัทยาหนึ่งใบค่ะ</div><div class="roman">khɔ̌ɔ dtǔa rót-thua bpai phát-thá-yaa nʉ̀eng bai khâ</div><div class="eng">One bus ticket to Pattaya, please.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปกลับหรือเที่ยวเดียวคะ</div><div class="roman">bpai-glàp rʉ̌ʉ thîao-diao khá</div><div class="eng">Round trip or one way?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เที่ยวเดียวค่ะ รถรอบกี่โมงคะ</div><div class="roman">thîao-diao khâ, rót rɔ̂ɔp gìi moong khá</div><div class="eng">One way. What time is the bus?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">รอบต่อไปบ่ายสองค่ะ</div><div class="roman">rɔ̂ɔp dtɔ̀ɔ-bpai bàai sɔ̌ɔng khâ</div><div class="eng">The next one is at 2 p.m.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">รถคันนี้มีแอร์ไหมคะ</div><div class="roman">rót khan níi mii ɛɛ mái khá</div><div class="eng">Does this bus have A/C?</div></div></div>
+    </div>
+
+    <h3>飯店櫃台：確認雙床房</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สวัสดีค่ะ คืนนี้มีห้องว่างไหมคะ</div><div class="roman">sà-wàt-dii khâ, khʉʉn-níi mii hɔ̂ng wâang mái khá</div><div class="eng">Hello, do you have any rooms available tonight?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Receptionist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">มีค่ะ ต้องการห้องเดี่ยวหรือห้องคู่คะ</div><div class="roman">mii khâ, dtɔ̂ng-gaan hɔ̂ng-dìao rʉ̌ʉ hɔ̂ng-khûu khá</div><div class="eng">Yes. Would you like a single room or a double/twin room?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ต้องการห้องคู่แบบสองเตียงค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-khûu bɛ̀ɛp sɔ̌ɔng dtiang khâ</div><div class="eng">I would like a double/twin room with two beds.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Receptionist</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">พักกี่คืนคะ</div><div class="roman">phák gìi khʉʉn khá</div><div class="eng">How many nights will you stay?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">พักสองคืนค่ะ แล้วเพิ่มเตียงเสริมได้ไหมคะ</div><div class="roman">phák sɔ̌ɔng khʉʉn khâ, lɛ́ɛw phə̂əm dtiang-sə̌əm dâai mái khá</div><div class="eng">Two nights. Also, can we add an extra bed?</div></div></div>
+    </div>
+
+    <h3>機票客服：單程還是來回？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ต้องการจองตั๋วเครื่องบินไปภูเก็ตค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng dtǔa khrʉ̂ang-bin bpai phuu-gèt khâ</div><div class="eng">I would like to book a plane ticket to Phuket.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปกลับหรือเที่ยวเดียวคะ</div><div class="roman">bpai-glàp rʉ̌ʉ thîao-diao khá</div><div class="eng">Round trip or one way?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ไปกลับค่ะ เอาชั้นประหยัดค่ะ</div><div class="roman">bpai-glàp khâ, ao chán bprà-yàt khâ</div><div class="eng">Round trip. Economy class, please.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ต้องการเดินทางวันไหนคะ</div><div class="roman">dtɔ̂ng-gaan dəən-thaang wan nǎi khá</div><div class="eng">What day would you like to travel?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">วันศุกร์หน้าค่ะ ต้องจองล่วงหน้ากี่วันคะ</div><div class="roman">wan-sùk nâa khâ, dtɔ̂ng jɔɔng lûang-nâa gìi wan khá</div><div class="eng">Next Friday. How many days in advance do I need to book?</div></div></div>
+    </div>
+
+    <h3>朋友討論旅遊計畫：如果票滿怎麼辦？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ปกติรถไฟไปเชียงใหม่เต็มเร็วไหม</div><div class="roman">bpòk-gà-dtì rót-fai bpai chiiang-mài dtem rew mái</div><div class="eng">Does the train to Chiang Mai usually fill up quickly?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ช่วงวันหยุดเต็มเร็วเป็นพิเศษค่ะ</div><div class="roman">chûang wan-yùt dtem rew bpen phí-sèet khâ</div><div class="eng">During holidays, it fills up especially quickly.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">สมมุติว่าตั๋วเต็ม เราจะทำยังไง</div><div class="roman">sǒm-mút wâa dtǔa dtem rao jà tham yang-ngai</div><div class="eng">Suppose the tickets are full, what will we do?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ถ้าตั๋วรถไฟเต็ม เราจะนั่งรถทัวร์ค่ะ</div><div class="roman">thâa dtǔa rót-fai dtem rao jà nâng rót-thua khâ</div><div class="eng">If train tickets are full, we will take a bus.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เต็ม / ว่าง 混淆</div><div class="roman">dtem / wâang</div><div class="eng">full / available</div></div></td>
+          <td><span class="thai">เต็ม</span> 是滿了；<span class="thai">ว่าง</span> 是空的/有空。</td>
+          <td>
+            <div class="triad"><div class="thai">ตั๋วเต็มแล้วค่ะ</div><div class="roman">dtǔa dtem lɛ́ɛw khâ</div><div class="eng">The tickets are full/sold out.</div></div>
+            <div class="triad"><div class="thai">มีที่นั่งว่างไหมคะ</div><div class="roman">mii thîi-nâng wâang mái khá</div><div class="eng">Are there any available seats?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ว่าง / ยุ่ง 的主語不同</div><div class="roman">wâang / yûng</div><div class="eng">available/free / busy</div></div></td>
+          <td><span class="thai">ว่าง</span> 可指人有空，也可指座位/房間空；<span class="thai">ยุ่ง</span> 多指人忙。</td>
+          <td>
+            <div class="triad"><div class="thai">วันนี้ฉันว่างค่ะ</div><div class="roman">wan-níi chǎn wâang khâ</div><div class="eng">I’m free today.</div></div>
+            <div class="triad"><div class="thai">วันนี้ฉันยุ่งค่ะ</div><div class="roman">wan-níi chǎn yûng khâ</div><div class="eng">I’m busy today.</div></div>
+            <div class="triad"><div class="thai">มีห้องว่างไหมคะ</div><div class="roman">mii hɔ̂ng wâang mái khá</div><div class="eng">Are there available rooms?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ห้องคู่ / เตียงคู่ 混淆</div><div class="roman">hɔ̂ng-khûu / dtiang-khûu</div><div class="eng">double/twin room / twin/double bed</div></div></td>
+          <td><span class="thai">ห้อง</span> 是房間；<span class="thai">เตียง</span> 是床。訂房時最容易誤會。</td>
+          <td>
+            <div class="triad"><div class="thai">ต้องการห้องคู่แบบสองเตียงค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-khûu bɛ̀ɛp sɔ̌ɔng dtiang khâ</div><div class="eng">I want a double/twin room with two beds.</div></div>
+            <div class="triad"><div class="thai">เพิ่มเตียงเสริมได้ไหมคะ</div><div class="roman">phə̂əm dtiang-sə̌əm dâai mái khá</div><div class="eng">Can we add an extra bed?</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ไปกลับ / เที่ยวเดียว 混淆</div><div class="roman">bpai-glàp / thîao-diao</div><div class="eng">round trip / one way</div></div></td>
+          <td><span class="thai">ไปกลับ</span> 是來回；<span class="thai">เที่ยวเดียว</span> 是單程。</td>
+          <td>
+            <div class="triad"><div class="thai">ขอตั๋วไปกลับค่ะ</div><div class="roman">khɔ̌ɔ dtǔa bpai-glàp khâ</div><div class="eng">Round-trip ticket, please.</div></div>
+            <div class="triad"><div class="thai">ขอตั๋วเที่ยวเดียวค่ะ</div><div class="roman">khɔ̌ɔ dtǔa thîao-diao khâ</div><div class="eng">One-way ticket, please.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ต้องการ / อยาก / ขอ 語氣混用</div><div class="roman">dtɔ̂ng-gaan / yàak / khɔ̌ɔ</div><div class="eng">need/want / want to / please give me</div></div></td>
+          <td><span class="thai">ต้องการ</span> 正式；<span class="thai">อยาก</span> 自然；<span class="thai">ขอ</span> 是請給我。</td>
+          <td>
+            <div class="triad"><div class="thai">ต้องการจองห้องค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng hɔ̂ng khâ</div><div class="eng">I would like to book a room.</div></div>
+            <div class="triad"><div class="thai">อยากไปเชียงใหม่ค่ะ</div><div class="roman">yàak bpai chiiang-mài khâ</div><div class="eng">I want to go to Chiang Mai.</div></div>
+            <div class="triad"><div class="thai">ขอตั๋วสองใบค่ะ</div><div class="roman">khɔ̌ɔ dtǔa sɔ̌ɔng bai khâ</div><div class="eng">Two tickets, please.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">รถไฟ / รถไฟฟ้า 混淆</div><div class="roman">rót-fai / rót-fai-fáa</div><div class="eng">train / electric train</div></div></td>
+          <td><span class="thai">รถไฟ</span> 常指一般火車；BTS/MRT 常說 <span class="thai">รถไฟฟ้า</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันนั่งรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">chǎn nâng rót-fai bpai chiiang-mài khâ</div><div class="eng">I take the train to Chiang Mai.</div></div>
+            <div class="triad"><div class="thai">ฉันนั่งรถไฟฟ้าไปสยามค่ะ</div><div class="roman">chǎn nâng rót-fai-fáa bpai sà-yǎam khâ</div><div class="eng">I take the BTS/MRT to Siam.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ชั้น二 的意思依情境改變</div><div class="roman">chán-sɔ̌ɔng</div><div class="eng">second class / second floor</div></div></td>
+          <td><span class="thai">ชั้นสอง</span> 可是「二等」也可是「二樓」。靠交通/建築情境判斷。</td>
+          <td>
+            <div class="triad"><div class="thai">ตั๋วรถไฟชั้นสอง</div><div class="roman">dtǔa rót-fai chán-sɔ̌ɔng</div><div class="eng">second-class train ticket</div></div>
+            <div class="triad"><div class="thai">ร้านอยู่ชั้นสองค่ะ</div><div class="roman">ráan yùu chán-sɔ̌ɔng khâ</div><div class="eng">The shop is on the second floor.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+
+    <details>
+      <summary>normally / especially / if / suppose that / want or need</summary>
+      <div class="triad"><div class="thai">ตามธรรมดา / เป็นพิเศษ / ถ้า / สมมุติว่า / ต้องการ</div><div class="roman">dtaam tham-má-daa / bpen phí-sèet / thâa / sǒm-mút wâa / dtɔ̂ng-gaan</div><div class="eng">normally / especially / if / suppose that / want or need</div></div>
+      <p><strong>Chinese Explanation:</strong> 本課核心句型詞。</p>
+    </details>
+
+    <details>
+      <summary>book / ticket / plane ticket / round trip / one way / in advance</summary>
+      <div class="triad"><div class="thai">จอง / ตั๋ว / ตั๋วเครื่องบิน / ไปกลับ / เที่ยวเดียว / ล่วงหน้า</div><div class="roman">jɔɔng / dtǔa / dtǔa khrʉ̂ang-bin / bpai-glàp / thîao-diao / lûang-nâa</div><div class="eng">book / ticket / plane ticket / round trip / one way / in advance</div></div>
+      <p><strong>Chinese Explanation:</strong> 訂票必背。</p>
+    </details>
+
+    <details>
+      <summary>airport / airline / train station / bus terminal</summary>
+      <div class="triad"><div class="thai">สนามบิน / สายการบิน / สถานีรถไฟ / สถานีขนส่ง</div><div class="roman">sà-nǎam-bin / sǎai-gaan-bin / sà-thǎa-nii rót-fai / sà-thǎa-nii khǒn-sòng</div><div class="eng">airport / airline / train station / bus terminal</div></div>
+      <p><strong>Chinese Explanation:</strong> 交通地點詞。</p>
+    </details>
+
+    <details>
+      <summary>single room / double room / single bed / twin bed / extra bed</summary>
+      <div class="triad"><div class="thai">ห้องเดี่ยว / ห้องคู่ / เตียงเดี่ยว / เตียงคู่ / เตียงเสริม</div><div class="roman">hɔ̂ng-dìao / hɔ̂ng-khûu / dtiang-dìao / dtiang-khûu / dtiang-sə̌əm</div><div class="eng">single room / double room / single bed / twin bed / extra bed</div></div>
+      <p><strong>Chinese Explanation:</strong> 訂房房型與床型。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+
+    <details>
+      <summary>two tickets</summary>
+      <div class="triad"><div class="thai">ตั๋วสองใบ</div><div class="roman">dtǔa sɔ̌ɔng bai</div><div class="eng">two tickets</div></div>
+      <p><strong>Chinese Explanation:</strong> 票券用 <span class="thai">ใบ</span>。</p>
+    </details>
+
+    <details>
+      <summary>one single room for two nights</summary>
+      <div class="triad"><div class="thai">ห้องเดี่ยวหนึ่งห้อง สองคืน</div><div class="roman">hɔ̂ng-dìao nʉ̀eng hɔ̂ng, sɔ̌ɔng khʉʉn</div><div class="eng">one single room for two nights</div></div>
+      <p><strong>Chinese Explanation:</strong> 房間用 <span class="thai">ห้อง</span>，住宿晚數用 <span class="thai">คืน</span>。</p>
+    </details>
+
+    <details>
+      <summary>one extra bed</summary>
+      <div class="triad"><div class="thai">เตียงเสริมหนึ่งเตียง</div><div class="roman">dtiang-sə̌əm nʉ̀eng dtiang</div><div class="eng">one extra bed</div></div>
+      <p><strong>Chinese Explanation:</strong> 床用 <span class="thai">เตียง</span>。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+
+    <details>
+      <summary>我想訂一張去清邁的火車票。</summary>
+      <div class="triad"><div class="thai">ฉันต้องการจองตั๋วรถไฟไปเชียงใหม่หนึ่งใบค่ะ</div><div class="roman">chǎn dtɔ̂ng-gaan jɔɔng dtǔa rót-fai bpai chiiang-mài nʉ̀eng bai khâ</div><div class="eng">I would like to book one train ticket to Chiang Mai.</div></div>
+      <p><strong>Chinese Explanation:</strong> 正式需求用 <span class="thai">ต้องการจอง</span>。</p>
+    </details>
+
+    <details>
+      <summary>還有空位嗎？</summary>
+      <div class="triad"><div class="thai">มีที่นั่งว่างไหมคะ</div><div class="roman">mii thîi-nâng wâang mái khá</div><div class="eng">Are there any available seats?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ว่าง</span> 在這裡是 available。</p>
+    </details>
+
+    <details>
+      <summary>如果二等車滿了，我要一等車。</summary>
+      <div class="triad"><div class="thai">ถ้าชั้นสองเต็ม ขอชั้นหนึ่งค่ะ</div><div class="roman">thâa chán-sɔ̌ɔng dtem khɔ̌ɔ chán-nʉ̀eng khâ</div><div class="eng">If second class is full, I’ll take first class.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ถ้า...ขอ...</span> 很實用。</p>
+    </details>
+
+    <details>
+      <summary>我想要雙人房，兩張床。</summary>
+      <div class="triad"><div class="thai">ต้องการห้องคู่แบบสองเตียงค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-khûu bɛ̀ɛp sɔ̌ɔng dtiang khâ</div><div class="eng">I would like a double/twin room with two beds.</div></div>
+      <p><strong>Chinese Explanation:</strong> 明說 <span class="thai">สองเตียง</span> 可避免床型誤會。</p>
+    </details>
+
+    <details>
+      <summary>可以加床嗎？</summary>
+      <div class="triad"><div class="thai">เพิ่มเตียงเสริมได้ไหมคะ</div><div class="roman">phə̂əm dtiang-sə̌əm dâai mái khá</div><div class="eng">Can we add an extra bed?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">เพิ่ม</span> = add。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+
+    <details>
+      <summary>把「ตามธรรมดา ฉันทำงานค่ะ」改成更常見口語。</summary>
+      <div class="triad"><div class="thai">ปกติฉันทำงานค่ะ</div><div class="roman">bpòk-gà-dtì chǎn tham-ngaan khâ</div><div class="eng">I usually work.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ปกติ</span> 更日常。</p>
+    </details>
+
+    <details>
+      <summary>把「ตั๋วเครื่องบินไปกลับหรือตั๋วเที่ยวเดียวคะ」改成櫃台自然短句。</summary>
+      <div class="triad"><div class="thai">ไปกลับหรือเที่ยวเดียวคะ</div><div class="roman">bpai-glàp rʉ̌ʉ thîao-diao khá</div><div class="eng">Round trip or one way?</div></div>
+      <p><strong>Chinese Explanation:</strong> 真實對話常省略重複的 <span class="thai">ตั๋ว</span>。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>Top 10｜今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="priority">1</span></td>
+          <td><div class="triad"><div class="thai">ปกติฉันนั่ง BTS ไปสยามค่ะ</div><div class="roman">bpòk-gà-dtì chǎn nâng bii-thii-èet bpai sà-yǎam khâ</div><div class="eng">I usually take the BTS to Siam.</div></div></td>
+          <td>平常習慣</td>
+        </tr>
+        <tr>
+          <td><span class="priority">2</span></td>
+          <td><div class="triad"><div class="thai">ช่วงวันหยุดตั๋วแพงเป็นพิเศษค่ะ</div><div class="roman">chûang wan-yùt dtǔa phɛɛng bpen phí-sèet khâ</div><div class="eng">During holidays, tickets are especially expensive.</div></div></td>
+          <td>เป็นพิเศษ</td>
+        </tr>
+        <tr>
+          <td><span class="priority">3</span></td>
+          <td><div class="triad"><div class="thai">ถ้ามีที่นั่งว่าง ฉันจะจองค่ะ</div><div class="roman">thâa mii thîi-nâng wâang chǎn jà jɔɔng khâ</div><div class="eng">If there are seats available, I will book.</div></div></td>
+          <td>條件句</td>
+        </tr>
+        <tr>
+          <td><span class="priority">4</span></td>
+          <td><div class="triad"><div class="thai">สมมุติว่าตั๋วเต็ม เราจะทำยังไงคะ</div><div class="roman">sǒm-mút wâa dtǔa dtem rao jà tham yang-ngai khá</div><div class="eng">Suppose the tickets are full, what will we do?</div></div></td>
+          <td>假設討論</td>
+        </tr>
+        <tr>
+          <td><span class="priority">5</span></td>
+          <td><div class="triad"><div class="thai">ต้องการจองตั๋วรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng dtǔa rót-fai bpai chiiang-mài khâ</div><div class="eng">I would like to book a train ticket to Chiang Mai.</div></div></td>
+          <td>訂火車票</td>
+        </tr>
+        <tr>
+          <td><span class="priority">6</span></td>
+          <td><div class="triad"><div class="thai">มีที่นั่งว่างไหมคะ</div><div class="roman">mii thîi-nâng wâang mái khá</div><div class="eng">Are there any available seats?</div></div></td>
+          <td>問空位</td>
+        </tr>
+        <tr>
+          <td><span class="priority">7</span></td>
+          <td><div class="triad"><div class="thai">ไปกลับหรือเที่ยวเดียวคะ</div><div class="roman">bpai-glàp rʉ̌ʉ thîao-diao khá</div><div class="eng">Round trip or one way?</div></div></td>
+          <td>訂票選項</td>
+        </tr>
+        <tr>
+          <td><span class="priority">8</span></td>
+          <td><div class="triad"><div class="thai">ขอตั๋วชั้นสองมีแอร์สองใบค่ะ</div><div class="roman">khɔ̌ɔ dtǔa chán-sɔ̌ɔng mii ɛɛ sɔ̌ɔng bai khâ</div><div class="eng">Two second-class tickets with A/C, please.</div></div></td>
+          <td>火車票實用句</td>
+        </tr>
+        <tr>
+          <td><span class="priority">9</span></td>
+          <td><div class="triad"><div class="thai">ต้องการห้องคู่แบบสองเตียงค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-khûu bɛ̀ɛp sɔ̌ɔng dtiang khâ</div><div class="eng">I would like a double/twin room with two beds.</div></div></td>
+          <td>訂房床型</td>
+        </tr>
+        <tr>
+          <td><span class="priority">10</span></td>
+          <td><div class="triad"><div class="thai">เพิ่มเตียงเสริมได้ไหมคะ</div><div class="roman">phə̂əm dtiang-sə̌əm dâai mái khá</div><div class="eng">Can we add an extra bed?</div></div></td>
+          <td>加床</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <h3>今日背誦優先順序</h3>
+      <p>最實用的 6 句建議先背：</p>
+      <ol>
+        <li><div class="triad"><div class="thai">ต้องการจองตั๋วรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng dtǔa rót-fai bpai chiiang-mài khâ</div><div class="eng">I would like to book a train ticket to Chiang Mai.</div></div></li>
+        <li><div class="triad"><div class="thai">มีที่นั่งว่างไหมคะ</div><div class="roman">mii thîi-nâng wâang mái khá</div><div class="eng">Are there any available seats?</div></div></li>
+        <li><div class="triad"><div class="thai">ไปกลับหรือเที่ยวเดียวคะ</div><div class="roman">bpai-glàp rʉ̌ʉ thîao-diao khá</div><div class="eng">Round trip or one way?</div></div></li>
+        <li><div class="triad"><div class="thai">ถ้ามีที่นั่งว่าง ฉันจะจองค่ะ</div><div class="roman">thâa mii thîi-nâng wâang chǎn jà jɔɔng khâ</div><div class="eng">If there are seats available, I will book.</div></div></li>
+        <li><div class="triad"><div class="thai">ต้องการห้องคู่แบบสองเตียงค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng-khûu bɛ̀ɛp sɔ̌ɔng dtiang khâ</div><div class="eng">I would like a double/twin room with two beds.</div></div></li>
+        <li><div class="triad"><div class="thai">เพิ่มเตียงเสริมได้ไหมคะ</div><div class="roman">phə̂əm dtiang-sə̌əm dâai mái khá</div><div class="eng">Can we add an extra bed?</div></div></li>
+      </ol>
+      <p>
+        Day 14 的核心是「訂票訂房的需求表達」。真正生活中最重要的是：
+        <span class="thai">ต้องการจอง...</span>、
+        <span class="thai">มี...ว่างไหม</span>、
+        <span class="thai">เต็มแล้ว</span>、
+        <span class="thai">ไปกลับหรือเที่ยวเดียว</span>、
+        <span class="thai">ห้องคู่แบบสองเตียง</span>。
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function openTab(event,tabId){
+  const contents=document.querySelectorAll('.tab-content');
+  const buttons=document.querySelectorAll('.tab-btn');
+  contents.forEach(c=>c.classList.remove('active'));
+  buttons.forEach(b=>b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

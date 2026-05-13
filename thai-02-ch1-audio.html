@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 1 Study Guide</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 18px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: #eab308; background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Thai Book 2｜Day 1 學習指南</h1>
+    <p class="subtitle">主題：出門/到達、交通方式、從 A 到 B 花多久、工作時間、料理方式、麵類、咖哩、味道、รถ 多義用法</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'transport')">Transport</button>
+    <button class="tab-btn" onclick="openTab(event, 'food')">Food Verbs</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'usage')">Practical Usage Bank</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Real-life Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      第二冊 Day 1 分成兩大主題。第一個主題是「日常移動」：幾點從家裡出門、幾點到公司、怎麼去、從哪個站到哪個站要多久、從幾點工作到幾點。第二個主題是「料理方式與點餐」：炸、炒、烤、煮、蒸、烘，以及常見食物如炒飯、煎蛋、炸魚、薯條、打拋、炒河粉、烤雞、烤肉、冬陰功、蒸魚、烤雞、麵條、咖哩和味道。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Leave home</div>
+        <div class="triad">
+          <div class="thai">คุณออกจากบ้านกี่โมงคะ</div>
+          <div class="roman">khun òok jàak bâan gìi moong khá</div>
+          <div class="eng">What time do you leave home?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Arrive at work</div>
+        <div class="triad">
+          <div class="thai">คุณมาถึงบริษัทกี่โมงคะ</div>
+          <div class="roman">khun maa thʉ̌ng bɔɔ-rí-sàt gìi moong khá</div>
+          <div class="eng">What time do you arrive at the company?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">How to go</div>
+        <div class="triad">
+          <div class="thai">คุณไปบริษัทอย่างไรคะ</div>
+          <div class="roman">khun bpai bɔɔ-rí-sàt yàang-rai khá</div>
+          <div class="eng">How do you go to the company?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Food order</div>
+        <div class="triad">
+          <div class="thai">ผัดใส่น้ำมันนิดหน่อยค่ะ</div>
+          <div class="roman">phàt sài nám-man nít-nɔ̀i khâ</div>
+          <div class="eng">Stir-fry it with just a little oil.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      第一冊已學過 <span class="thai">ไป</span> / <span class="roman">bpai</span> / <span class="eng">go</span>、
+      <span class="thai">มา</span> / <span class="roman">maa</span> / <span class="eng">come</span>、
+      <span class="thai">ถึง</span> / <span class="roman">thʉ̌ng</span> / <span class="eng">arrive / reach</span> 的基礎概念。這一課把它放進更完整的通勤句型：從家裡出門、到公司、從站 A 到站 B。
+    </div>
+
+    <div class="tip">
+      <strong>Bangkok Practical Focus：</strong>
+      這課非常實用，尤其是在曼谷生活。你會用到：
+      問朋友幾點出門、幾點到公司、搭 BTS/MRT 還是摩托車、從 Phloen Chit 到 Siam 要多久；點餐時問這個是炸的還是烤的、請店員少油、不要太辣、要炒的還是湯的。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Movement, Time & Work</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ออก</div><div class="roman">òok</div><div class="eng">go out / exit</div></div></td>
+          <td>Movement</td>
+          <td>表示從裡面往外出去。常接 <span class="thai">จาก</span> 表示「從某地出來」。</td>
+          <td><div class="triad"><div class="thai">ออกจากบ้าน</div><div class="roman">òok jàak bâan</div><div class="eng">leave home</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันออกจากบ้านแปดโมงเช้าค่ะ</div><div class="roman">chǎn òok jàak bâan bpɛ̀ɛt moong cháo khâ</div><div class="eng">I leave home at 8 a.m.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เข้า</div><div class="roman">khâo</div><div class="eng">enter / go in</div></div></td>
+          <td>Movement</td>
+          <td>教材對比 <span class="thai">ออก</span> 與 <span class="thai">เข้า</span>。進入房間、公司、學校都可用。</td>
+          <td><div class="triad"><div class="thai">เข้าบริษัท</div><div class="roman">khâo bɔɔ-rí-sàt</div><div class="eng">enter the company / start work</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเข้าบริษัทเก้าโมงค่ะ</div><div class="roman">chǎn khâo bɔɔ-rí-sàt gâo moong khâ</div><div class="eng">I enter the office at 9.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ออกจาก</div><div class="roman">òok jàak</div><div class="eng">leave from / go out from</div></div></td>
+          <td>Movement phrase</td>
+          <td><span class="thai">จาก</span> = from。用於「從某地離開」。</td>
+          <td><div class="triad"><div class="thai">ออกจากบ้าน / ออกจากโรงเรียน</div><div class="roman">òok jàak bâan / òok jàak roong-rian</div><div class="eng">leave home / leave school</div></div></td>
+          <td><div class="triad"><div class="thai">คุณออกจากบ้านกี่โมงคะ</div><div class="roman">khun òok jàak bâan gìi moong khá</div><div class="eng">What time do you leave home?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ถึง</div><div class="roman">thʉ̌ng</div><div class="eng">arrive / reach / to</div></div></td>
+          <td>Movement / preposition</td>
+          <td>可以當動詞「到達」，也可以放在 A 到 B 的結構中。</td>
+          <td><div class="triad"><div class="thai">มาถึง / ไปถึง / จาก...ถึง...</div><div class="roman">maa thʉ̌ng / bpai thʉ̌ng / jàak...thʉ̌ng...</div><div class="eng">arrive / go and arrive / from...to...</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันมาถึงบริษัทเก้าโมงเช้าค่ะ</div><div class="roman">chǎn maa thʉ̌ng bɔɔ-rí-sàt gâo moong cháo khâ</div><div class="eng">I arrive at the company at 9 a.m.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">บริษัท</div><div class="roman">bɔɔ-rí-sàt</div><div class="eng">company</div></div></td>
+          <td>Place / work</td>
+          <td>上班族很常用。口語也可用 <span class="thai">ที่ทำงาน</span> 表示 workplace。</td>
+          <td><div class="triad"><div class="thai">ไปบริษัท / มาถึงบริษัท</div><div class="roman">bpai bɔɔ-rí-sàt / maa thʉ̌ng bɔɔ-rí-sàt</div><div class="eng">go to company / arrive at company</div></div></td>
+          <td><div class="triad"><div class="thai">คุณไปบริษัทอย่างไรคะ</div><div class="roman">khun bpai bɔɔ-rí-sàt yàang-rai khá</div><div class="eng">How do you go to the company?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ทำงาน</div><div class="roman">tham-ngaan</div><div class="eng">work</div></div></td>
+          <td>Work</td>
+          <td>教材練習「從幾點工作到幾點」。</td>
+          <td><div class="triad"><div class="thai">ทำงานตั้งแต่...ถึง...</div><div class="roman">tham-ngaan dtâng-dtɛ̀ɛ...thʉ̌ng...</div><div class="eng">work from...to...</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันทำงานตั้งแต่เก้าโมงถึงหกโมงเย็นค่ะ</div><div class="roman">chǎn tham-ngaan dtâng-dtɛ̀ɛ gâo moong thʉ̌ng hòk moong yen khâ</div><div class="eng">I work from 9 a.m. to 6 p.m.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ตั้งแต่</div><div class="roman">dtâng-dtɛ̀ɛ</div><div class="eng">from / since</div></div></td>
+          <td>Time marker</td>
+          <td>用於「從某時間開始」。常搭配 <span class="thai">ถึง</span>。</td>
+          <td><div class="triad"><div class="thai">ตั้งแต่ 09:00 ถึง 18:00</div><div class="roman">dtâng-dtɛ̀ɛ gâo moong thʉ̌ng sìp-bpɛ̀ɛt moong</div><div class="eng">from 09:00 to 18:00</div></div></td>
+          <td><div class="triad"><div class="thai">คุณทำงานตั้งแต่กี่โมงถึงกี่โมงคะ</div><div class="roman">khun tham-ngaan dtâng-dtɛ̀ɛ gìi moong thʉ̌ng gìi moong khá</div><div class="eng">From what time to what time do you work?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">กี่นาที</div><div class="roman">gìi naa-thii</div><div class="eng">how many minutes</div></div></td>
+          <td>Time duration</td>
+          <td>問短時間花多久。</td>
+          <td><div class="triad"><div class="thai">ใช้เวลากี่นาที</div><div class="roman">chái wee-laa gìi naa-thii</div><div class="eng">how many minutes does it take?</div></div></td>
+          <td><div class="triad"><div class="thai">จากอโศกถึงสยามกี่นาทีคะ</div><div class="roman">jàak à-sòok thʉ̌ng sà-yǎam gìi naa-thii khá</div><div class="eng">How many minutes from Asok to Siam?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Morning Routine Vocabulary</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Usage Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ตื่น</div><div class="roman">dtʉ̀ʉn</div><div class="eng">wake up</div></div></td>
+          <td>Daily routine</td>
+          <td>可問幾點起床。</td>
+          <td><div class="triad"><div class="thai">คุณตื่นกี่โมงคะ</div><div class="roman">khun dtʉ̀ʉn gìi moong khá</div><div class="eng">What time do you wake up?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แปรงฟัน</div><div class="roman">bprɛɛng fan</div><div class="eng">brush teeth</div></div></td>
+          <td>Daily routine</td>
+          <td><span class="thai">ฟัน</span> = teeth。</td>
+          <td><div class="triad"><div class="thai">ฉันแปรงฟันตอนเช้าค่ะ</div><div class="roman">chǎn bprɛɛng fan dtɔɔn cháo khâ</div><div class="eng">I brush my teeth in the morning.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อาบน้ำ</div><div class="roman">àap náam</div><div class="eng">take a shower</div></div></td>
+          <td>Daily routine</td>
+          <td>泰文說「洗澡」常用 <span class="thai">อาบน้ำ</span>，字面是 bathe water。</td>
+          <td><div class="triad"><div class="thai">ฉันอาบน้ำก่อนออกจากบ้านค่ะ</div><div class="roman">chǎn àap náam gɔ̀ɔn òok jàak bâan khâ</div><div class="eng">I shower before leaving home.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แต่งตัว</div><div class="roman">dtɛ̀ng-dtua</div><div class="eng">get dressed</div></div></td>
+          <td>Daily routine</td>
+          <td>出門前穿衣、打扮。</td>
+          <td><div class="triad"><div class="thai">ฉันแต่งตัวแล้วออกจากบ้านค่ะ</div><div class="roman">chǎn dtɛ̀ng-dtua lɛ́ɛw òok jàak bâan khâ</div><div class="eng">I get dressed and then leave home.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ล้างหน้า</div><div class="roman">láang nâa</div><div class="eng">wash face</div></div></td>
+          <td>Daily routine</td>
+          <td><span class="thai">ล้าง</span> = wash；<span class="thai">หน้า</span> = face。</td>
+          <td><div class="triad"><div class="thai">ตื่นแล้วล้างหน้าค่ะ</div><div class="roman">dtʉ̀ʉn lɛ́ɛw láang nâa khâ</div><div class="eng">I wake up and wash my face.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="transport" class="tab-content">
+    <h2>Transport｜曼谷交通用法</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Action Verb</th>
+          <th>Bangkok Usage</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">รถไฟฟ้า</div><div class="roman">rót-fai-fáa</div><div class="eng">BTS / electric train</div></div></td>
+          <td><div class="triad"><div class="thai">ขึ้นรถไฟฟ้า</div><div class="roman">khʉ̂n rót-fai-fáa</div><div class="eng">take the BTS</div></div></td>
+          <td>BTS / MRT 都可被初學者泛稱為 <span class="thai">รถไฟฟ้า</span>，但精準講 BTS = <span class="thai">บีทีเอส</span>。</td>
+          <td><div class="triad"><div class="thai">ฉันขึ้นรถไฟฟ้าไปบริษัทค่ะ</div><div class="roman">chǎn khʉ̂n rót-fai-fáa bpai bɔɔ-rí-sàt khâ</div><div class="eng">I take the BTS to the company.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">รถไฟฟ้าใต้ดิน</div><div class="roman">rót-fai-fáa dtâi-din</div><div class="eng">MRT / subway</div></div></td>
+          <td><div class="triad"><div class="thai">ขึ้นรถไฟฟ้าใต้ดิน</div><div class="roman">khʉ̂n rót-fai-fáa dtâi-din</div><div class="eng">take the MRT</div></div></td>
+          <td>教材第 4 頁用 Lat Phrao 到 Sukhumvit 站練習。</td>
+          <td><div class="triad"><div class="thai">ฉันขึ้นรถไฟฟ้าใต้ดินจากสถานีลาดพร้าวถึงสถานีสุขุมวิทค่ะ</div><div class="roman">chǎn khʉ̂n rót-fai-fáa dtâi-din jàak sà-thǎa-nii lâat-phráao thʉ̌ng sà-thǎa-nii sù-khǔm-wít khâ</div><div class="eng">I take the MRT from Lat Phrao station to Sukhumvit station.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">รถเมล์</div><div class="roman">rót-mee</div><div class="eng">bus</div></div></td>
+          <td><div class="triad"><div class="thai">ขึ้นรถเมล์</div><div class="roman">khʉ̂n rót-mee</div><div class="eng">take a bus</div></div></td>
+          <td>曼谷公車很便宜，但對初學者比較難。</td>
+          <td><div class="triad"><div class="thai">ฉันขึ้นรถเมล์ไปตลาดค่ะ</div><div class="roman">chǎn khʉ̂n rót-mee bpai dtà-làat khâ</div><div class="eng">I take the bus to the market.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">รถ</div><div class="roman">rót</div><div class="eng">car / vehicle</div></div></td>
+          <td><div class="triad"><div class="thai">ขับรถ</div><div class="roman">khàp rót</div><div class="eng">drive a car</div></div></td>
+          <td>教材第 15 頁補充 <span class="thai">รถ</span> 有名詞/動詞差異：<span class="thai">รถ</span> noun = vehicle；<span class="thai">รดน้ำ</span> verb = water plants。</td>
+          <td><div class="triad"><div class="thai">เขาขับรถไปทำงานค่ะ</div><div class="roman">khǎo khàp rót bpai tham-ngaan khâ</div><div class="eng">He/she drives to work.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">มอเตอร์ไซค์</div><div class="roman">mɔɔ-dtə̂ə-sai</div><div class="eng">motorcycle</div></div></td>
+          <td><div class="triad"><div class="thai">ขี่มอเตอร์ไซค์ / ซ้อนมอเตอร์ไซค์</div><div class="roman">khìi mɔɔ-dtə̂ə-sai / sɔ́ɔn mɔɔ-dtə̂ə-sai</div><div class="eng">ride a motorcycle / ride as passenger</div></div></td>
+          <td>曼谷摩托計程車很常見。自己騎用 <span class="thai">ขี่</span>，坐後座用 <span class="thai">ซ้อน</span>。</td>
+          <td><div class="triad"><div class="thai">ฉันซ้อนมอเตอร์ไซค์ไปปากซอยค่ะ</div><div class="roman">chǎn sɔ́ɔn mɔɔ-dtə̂ə-sai bpai bpàak-sɔɔi khâ</div><div class="eng">I ride on the back of a motorcycle to the entrance of the soi.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เรือ</div><div class="roman">rʉa</div><div class="eng">boat</div></div></td>
+          <td><div class="triad"><div class="thai">ลงเรือ</div><div class="roman">long rʉa</div><div class="eng">take / get on a boat</div></div></td>
+          <td>曼谷可搭昭披耶河船或คลอง船。教材用 <span class="thai">ลงเรือ</span>。</td>
+          <td><div class="triad"><div class="thai">ฉันลงเรือไปท่าเรือค่ะ</div><div class="roman">chǎn long rʉa bpai thâa-rʉa khâ</div><div class="eng">I take a boat to the pier.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">จักรยาน</div><div class="roman">jàk-grà-yaan</div><div class="eng">bicycle</div></div></td>
+          <td><div class="triad"><div class="thai">ขี่จักรยาน</div><div class="roman">khìi jàk-grà-yaan</div><div class="eng">ride a bicycle</div></div></td>
+          <td>曼谷市區較少當通勤主力，但在公園/社區會用。</td>
+          <td><div class="triad"><div class="thai">เขาขี่จักรยานไปสวนค่ะ</div><div class="roman">khǎo khìi jàk-grà-yaan bpai sǔan khâ</div><div class="eng">He/she rides a bicycle to the park.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>交通動詞核心：</strong>
+      <p><span class="thai">ขึ้น</span> / <span class="roman">khʉ̂n</span> / <span class="eng">get on, take</span>：搭 BTS、公車、MRT。</p>
+      <p><span class="thai">ขับ</span> / <span class="roman">khàp</span> / <span class="eng">drive</span>：開車。</p>
+      <p><span class="thai">ขี่</span> / <span class="roman">khìi</span> / <span class="eng">ride</span>：騎摩托車/腳踏車。</p>
+      <p><span class="thai">ซ้อน</span> / <span class="roman">sɔ́ɔn</span> / <span class="eng">ride as passenger behind</span>：坐摩托車後座。</p>
+      <p><span class="thai">ลงเรือ</span> / <span class="roman">long rʉa</span> / <span class="eng">take a boat</span>：搭船。</p>
+    </div>
+  </section>
+
+  <section id="food" class="tab-content">
+    <h2>Food Verbs｜料理方式與點餐補充</h2>
+
+    <h3>Cooking Verbs</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Used For</th>
+          <th>Common Dishes</th>
+          <th>Practical Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ทอด</div><div class="roman">thɔ̂ɔt</div><div class="eng">fry / deep-fry</div></div></td>
+          <td>油炸、煎炸</td>
+          <td>
+            <div class="triad"><div class="thai">ไก่ทอด / ไข่ทอด / ไข่ดาว / ปลาทอด / มันฝรั่งทอด</div><div class="roman">gài thɔ̂ɔt / khài thɔ̂ɔt / khài daao / bplaa thɔ̂ɔt / man-fà-ràng thɔ̂ɔt</div><div class="eng">fried chicken / fried egg / sunny-side-up egg / fried fish / French fries</div></div>
+          </td>
+          <td>如果怕油，搭配 <span class="thai">น้ำมันน้อย</span> 或 <span class="thai">ไม่เอามันมาก</span>。</td>
+          <td><div class="triad"><div class="thai">ไก่ทอดใส่น้ำมันมากค่ะ</div><div class="roman">gài thɔ̂ɔt sài nám-man mâak khâ</div><div class="eng">Fried chicken uses a lot of oil.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ผัด</div><div class="roman">phàt</div><div class="eng">stir-fry</div></div></td>
+          <td>熱鍋炒</td>
+          <td>
+            <div class="triad"><div class="thai">ผัดกะเพรา / ผักผัด / ผัดไทย</div><div class="roman">phàt gà-phrao / phàk phàt / phàt thai</div><div class="eng">stir-fried basil / stir-fried vegetables / Pad Thai</div></div>
+          </td>
+          <td><span class="thai">ผัด</span> 通常會有油；可說 <span class="thai">น้ำมันน้อย</span>。</td>
+          <td><div class="triad"><div class="thai">ผัดใส่น้ำมันนิดหน่อยค่ะ</div><div class="roman">phàt sài nám-man nít-nɔ̀i khâ</div><div class="eng">Stir-fry it with just a little oil.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ปิ้ง</div><div class="roman">bpîng</div><div class="eng">grill, usually over direct heat / skewer style</div></div></td>
+          <td>烤、炙烤，常見串物</td>
+          <td>
+            <div class="triad"><div class="thai">หมูปิ้ง / ลูกชิ้นปิ้ง / ไก่ปิ้ง</div><div class="roman">mǔu bpîng / lûuk-chín bpîng / gài bpîng</div><div class="eng">grilled pork skewers / grilled meatballs / grilled chicken</div></div>
+          </td>
+          <td>早餐路邊攤常見 <span class="thai">หมูปิ้ง</span>，常配糯米飯。</td>
+          <td><div class="triad"><div class="thai">ขอหมูปิ้งสองไม้ค่ะ</div><div class="roman">khɔ̌ɔ mǔu bpîng sɔ̌ɔng mái khâ</div><div class="eng">Two pork skewers, please.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ย่าง</div><div class="roman">yâang</div><div class="eng">grill / roast</div></div></td>
+          <td>烤肉、炭烤、烤箱或爐烤</td>
+          <td>
+            <div class="triad"><div class="thai">คอหมูย่าง / ไก่ย่าง / เนื้อย่าง</div><div class="roman">khɔɔ-mǔu yâang / gài yâang / nʉ́a yâang</div><div class="eng">grilled pork neck / grilled chicken / grilled beef</div></div>
+          </td>
+          <td><span class="thai">ปิ้ง</span> 偏串烤、直接炙；<span class="thai">ย่าง</span> 更廣泛，烤肉/烤雞常用。</td>
+          <td><div class="triad"><div class="thai">คอหมูย่างอร่อยมากค่ะ</div><div class="roman">khɔɔ-mǔu yâang arɔ̀i mâak khâ</div><div class="eng">Grilled pork neck is very delicious.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ต้ม</div><div class="roman">dtôm</div><div class="eng">boil</div></div></td>
+          <td>煮、湯類</td>
+          <td>
+            <div class="triad"><div class="thai">ข้าวต้มกุ้ง / ไข่ต้ม / ต้มยำกุ้ง</div><div class="roman">khâao-dtôm gûng / khài dtôm / dtôm-yam-gûng</div><div class="eng">shrimp rice soup / boiled egg / tom yum shrimp soup</div></div>
+          </td>
+          <td>湯、粥、煮蛋都常用。</td>
+          <td><div class="triad"><div class="thai">เช้านี้กินข้าวต้มกุ้งค่ะ</div><div class="roman">cháo níi gin khâao-dtôm gûng khâ</div><div class="eng">This morning I ate shrimp rice soup.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">นึ่ง</div><div class="roman">nʉ̂ng</div><div class="eng">steam</div></div></td>
+          <td>蒸</td>
+          <td>
+            <div class="triad"><div class="thai">ติ่มซำ / ไก่นึ่ง / ปลานึ่ง</div><div class="roman">dtìm-sam / gài nʉ̂ng / bplaa nʉ̂ng</div><div class="eng">dim sum / steamed chicken / steamed fish</div></div>
+          </td>
+          <td>想吃清淡一點可以選蒸的。</td>
+          <td><div class="triad"><div class="thai">ปลานึ่งไม่ค่อยมันค่ะ</div><div class="roman">bplaa nʉ̂ng mâi khɔ̂i man khâ</div><div class="eng">Steamed fish is not very oily.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อบ</div><div class="roman">òp</div><div class="eng">bake / roast in oven</div></div></td>
+          <td>烘、烤箱烤</td>
+          <td>
+            <div class="triad"><div class="thai">กุ้งอบวุ้นเส้น / ไก่อบ / ขนมปัง</div><div class="roman">gûng òp wún-sên / gài òp / khà-nǒm-bpang</div><div class="eng">baked shrimp with glass noodles / roasted chicken / bread</div></div>
+          </td>
+          <td>看到 <span class="thai">อบ</span> 通常是鍋烘或烤箱處理，不是油炸。</td>
+          <td><div class="triad"><div class="thai">กุ้งอบวุ้นเส้นร้านนี้อร่อยค่ะ</div><div class="roman">gûng òp wún-sên ráan níi arɔ̀i khâ</div><div class="eng">The baked shrimp with glass noodles at this restaurant is delicious.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Noodles, Curry & Taste</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Usage Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เส้นใหญ่</div><div class="roman">sên yài</div><div class="eng">wide rice noodles</div></div></td>
+          <td>Noodles</td>
+          <td>寬河粉，常用於 <span class="thai">ผัดซีอิ๊ว</span>。</td>
+          <td><div class="triad"><div class="thai">ขอเส้นใหญ่ค่ะ</div><div class="roman">khɔ̌ɔ sên yài khâ</div><div class="eng">Wide noodles, please.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เส้นเล็ก</div><div class="roman">sên lék</div><div class="eng">thin rice noodles</div></div></td>
+          <td>Noodles</td>
+          <td>常見湯麵選項。</td>
+          <td><div class="triad"><div class="thai">เอาเส้นเล็กน้ำค่ะ</div><div class="roman">ao sên lék náam khâ</div><div class="eng">I’ll have thin noodles in soup.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">วุ้นเส้น</div><div class="roman">wún-sên</div><div class="eng">glass noodles</div></div></td>
+          <td>Noodles</td>
+          <td>常見於 <span class="thai">กุ้งอบวุ้นเส้น</span>。</td>
+          <td><div class="triad"><div class="thai">ฉันชอบวุ้นเส้นค่ะ</div><div class="roman">chǎn chɔ̂ɔp wún-sên khâ</div><div class="eng">I like glass noodles.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เส้นหมี่</div><div class="roman">sên mìi</div><div class="eng">rice vermicelli</div></div></td>
+          <td>Noodles</td>
+          <td>細米粉，比 <span class="thai">เส้นเล็ก</span> 更細。</td>
+          <td><div class="triad"><div class="thai">เส้นหมี่แห้งหนึ่งชามค่ะ</div><div class="roman">sên mìi hɛ̂ɛng nʉ̀eng chaam khâ</div><div class="eng">One bowl of dry rice vermicelli, please.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เส้นบะหมี่</div><div class="roman">sên bà-mìi</div><div class="eng">egg noodles</div></div></td>
+          <td>Noodles</td>
+          <td>黃色蛋麵。</td>
+          <td><div class="triad"><div class="thai">เอาบะหมี่น้ำค่ะ</div><div class="roman">ao bà-mìi náam khâ</div><div class="eng">I’ll have egg noodles in soup.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แกง</div><div class="roman">gɛɛng</div><div class="eng">curry / soup-like dish</div></div></td>
+          <td>Curry / soup</td>
+          <td>泰文 <span class="thai">แกง</span> 不一定是印度式咖哩，也可以是湯湯水水的菜。</td>
+          <td><div class="triad"><div class="thai">แกงเขียวหวานเผ็ดนิดหน่อยค่ะ</div><div class="roman">gɛɛng khǐao-wǎan phèt nít-nɔ̀i khâ</div><div class="eng">Green curry is a little spicy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ใส่กะทิ</div><div class="roman">sài gà-thí</div><div class="eng">add coconut milk</div></div></td>
+          <td>Ingredient</td>
+          <td>泰式咖哩常有椰奶，味道會更香濃。</td>
+          <td><div class="triad"><div class="thai">แกงนี้ใส่กะทิไหมคะ</div><div class="roman">gɛɛng níi sài gà-thí mái khá</div><div class="eng">Does this curry have coconut milk?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">รสชาติ</div><div class="roman">rót-châat</div><div class="eng">taste / flavor</div></div></td>
+          <td>Taste</td>
+          <td>教材第 16 頁整理味道：酸、甜、鹹、辣、苦、淡。</td>
+          <td><div class="triad"><div class="thai">รสชาติเป็นยังไงคะ</div><div class="roman">rót-châat bpen yang-ngai khá</div><div class="eng">How does it taste?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      第一冊 Day 17 已學味道詞：
+      <span class="thai">เปรี้ยว</span> / <span class="roman">bprîao</span> / <span class="eng">sour</span>、
+      <span class="thai">หวาน</span> / <span class="roman">wǎan</span> / <span class="eng">sweet</span>、
+      <span class="thai">เค็ม</span> / <span class="roman">khem</span> / <span class="eng">salty</span>、
+      <span class="thai">เผ็ด</span> / <span class="roman">phèt</span> / <span class="eng">spicy</span>、
+      <span class="thai">ขม</span> / <span class="roman">khǒm</span> / <span class="eng">bitter</span>、
+      <span class="thai">จืด</span> / <span class="roman">jʉ̀ʉt</span> / <span class="eng">bland</span>。本課放進 <span class="thai">รสชาติ</span> 的總類別。
+    </div>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table｜量詞與點餐單位</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Thai / Romanization / English</th>
+          <th>Used For</th>
+          <th>Why It’s Used</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ไม้</span></td>
+          <td><div class="triad"><div class="thai">ไม้</div><div class="roman">mái</div><div class="eng">stick / skewer classifier</div></div></td>
+          <td>หมูปิ้ง / ลูกชิ้นปิ้ง / skewers</td>
+          <td>串在竹籤上的食物用 <span class="thai">ไม้</span>。</td>
+          <td>不要說 <span class="thai">หมูปิ้งสองอัน</span>，點串烤更自然說 <span class="thai">สองไม้</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">จาน</span></td>
+          <td><div class="triad"><div class="thai">จาน</div><div class="roman">jaan</div><div class="eng">plate</div></div></td>
+          <td>炒飯、炒河粉、打拋飯、一般一盤菜</td>
+          <td>盤裝料理用 <span class="thai">จาน</span>。</td>
+          <td><span class="thai">ผัดไทยหนึ่งจาน</span> 比 <span class="thai">ผัดไทยหนึ่งอัน</span> 自然。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ชาม</span></td>
+          <td><div class="triad"><div class="thai">ชาม</div><div class="roman">chaam</div><div class="eng">bowl</div></div></td>
+          <td>湯麵、粥、湯品</td>
+          <td>碗裝食物用 <span class="thai">ชาม</span>。</td>
+          <td>湯麵常說 <span class="thai">ก๋วยเตี๋ยวหนึ่งชาม</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ฟอง</span></td>
+          <td><div class="triad"><div class="thai">ฟอง</div><div class="roman">fɔɔng</div><div class="eng">egg classifier</div></div></td>
+          <td>ไข่ / eggs</td>
+          <td>蛋的量詞用 <span class="thai">ฟอง</span>。</td>
+          <td>不要說 <span class="thai">ไข่หนึ่งอัน</span>，練習時用 <span class="thai">ไข่หนึ่งฟอง</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ตัว</span></td>
+          <td><div class="triad"><div class="thai">ตัว</div><div class="roman">dtua</div><div class="eng">animal classifier</div></div></td>
+          <td>ปลา / ไก่ when counting whole animal</td>
+          <td>整條魚、整隻雞可用 <span class="thai">ตัว</span>。</td>
+          <td>如果是一份料理，常用 <span class="thai">จาน</span>；如果整條魚，才用 <span class="thai">ตัว</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">สถานี</span></td>
+          <td><div class="triad"><div class="thai">สถานี</div><div class="roman">sà-thǎa-nii</div><div class="eng">station</div></div></td>
+          <td>BTS/MRT station</td>
+          <td>嚴格說是名詞「站」，不是量詞；但在交通句中很重要。</td>
+          <td><span class="thai">จากสถานีอโศกถึงสถานีสยาม</span> = from Asok station to Siam station。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>1. What time do you leave home?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + ออกจาก + Place + กี่โมง + คะ</div>
+        <div class="roman">khun + òok jàak + Place + gìi moong + khá</div>
+        <div class="eng">What time do you leave from place?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Textbook Example</th><th>Variations</th><th>Chinese Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณออกจากบ้านกี่โมงคะ</div><div class="roman">khun òok jàak bâan gìi moong khá</div><div class="eng">What time do you leave home?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันออกจากบ้านแปดโมงเช้าค่ะ</div><div class="roman">chǎn òok jàak bâan bpɛ̀ɛt moong cháo khâ</div><div class="eng">I leave home at 8 a.m.</div></div>
+            <div class="triad"><div class="thai">วันนี้ออกจากบ้านสายค่ะ</div><div class="roman">wan-níi òok jàak bâan sǎai khâ</div><div class="eng">Today I left home late.</div></div>
+            <div class="triad"><div class="thai">ต้องออกจากบ้านกี่โมงคะ</div><div class="roman">dtɔ̂ng òok jàak bâan gìi moong khá</div><div class="eng">What time do I need to leave home?</div></div>
+          </td>
+          <td><span class="thai">ออกจาก</span> 是「從某處離開」，不是進入。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. What time do you arrive?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + มาถึง + Place + กี่โมง + คะ</div>
+        <div class="roman">khun + maa thʉ̌ng + Place + gìi moong + khá</div>
+        <div class="eng">What time do you arrive at place?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Textbook Example</th><th>Variations</th><th>Chinese Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณมาถึงบริษัทกี่โมงคะ</div><div class="roman">khun maa thʉ̌ng bɔɔ-rí-sàt gìi moong khá</div><div class="eng">What time do you arrive at the company?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันมาถึงบริษัทเก้าโมงเช้าค่ะ</div><div class="roman">chǎn maa thʉ̌ng bɔɔ-rí-sàt gâo moong cháo khâ</div><div class="eng">I arrive at the company at 9 a.m.</div></div>
+            <div class="triad"><div class="thai">มาถึงแล้วค่ะ</div><div class="roman">maa thʉ̌ng lɛ́ɛw khâ</div><div class="eng">I have arrived.</div></div>
+            <div class="triad"><div class="thai">ยังไม่ถึงค่ะ</div><div class="roman">yang mâi thʉ̌ng khâ</div><div class="eng">I haven’t arrived yet.</div></div>
+          </td>
+          <td><span class="thai">มาถึงแล้ว</span> 是 Line 訊息超實用句。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. How do you go to work?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + ไป + Place + อย่างไร / ยังไง + คะ</div>
+        <div class="roman">khun + bpai + Place + yàang-rai / yang-ngai + khá</div>
+        <div class="eng">How do you go to place?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answers</th><th>Chinese Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณไปบริษัทอย่างไรคะ</div><div class="roman">khun bpai bɔɔ-rí-sàt yàang-rai khá</div><div class="eng">How do you go to the company?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันขึ้นรถไฟฟ้าไปบริษัทค่ะ</div><div class="roman">chǎn khʉ̂n rót-fai-fáa bpai bɔɔ-rí-sàt khâ</div><div class="eng">I take the BTS to the company.</div></div>
+            <div class="triad"><div class="thai">ฉันขับรถไปบริษัทค่ะ</div><div class="roman">chǎn khàp rót bpai bɔɔ-rí-sàt khâ</div><div class="eng">I drive to the company.</div></div>
+            <div class="triad"><div class="thai">ฉันนั่งวินไปสถานีค่ะ</div><div class="roman">chǎn nâng win bpai sà-thǎa-nii khâ</div><div class="eng">I take a motorcycle taxi to the station.</div></div>
+          </td>
+          <td><span class="label local">Local</span> 口語常用 <span class="thai">ยังไง</span>，教材較正式用 <span class="thai">อย่างไร</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. From place A to place B, how many minutes?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">จาก + Place 1 + ถึง + Place 2 + กี่นาที + คะ</div>
+        <div class="roman">jàak + Place 1 + thʉ̌ng + Place 2 + gìi naa-thii + khá</div>
+        <div class="eng">How many minutes from Place 1 to Place 2?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Textbook Example</th><th>Bangkok Variations</th><th>Chinese Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">จากสถานีลาดพร้าวถึงสถานีสุขุมวิทกี่นาทีคะ</div><div class="roman">jàak sà-thǎa-nii lâat-phráao thʉ̌ng sà-thǎa-nii sù-khǔm-wít gìi naa-thii khá</div><div class="eng">How many minutes from Lat Phrao station to Sukhumvit station?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">จากอโศกถึงสยามกี่นาทีคะ</div><div class="roman">jàak à-sòok thʉ̌ng sà-yǎam gìi naa-thii khá</div><div class="eng">How many minutes from Asok to Siam?</div></div>
+            <div class="triad"><div class="thai">จากที่นี่ถึงสถานีไกลไหมคะ</div><div class="roman">jàak thîi-nîi thʉ̌ng sà-thǎa-nii glai mái khá</div><div class="eng">Is it far from here to the station?</div></div>
+            <div class="triad"><div class="thai">ใช้เวลาประมาณกี่นาทีคะ</div><div class="roman">chái wee-laa bprà-maan gìi naa-thii khá</div><div class="eng">About how many minutes does it take?</div></div>
+          </td>
+          <td><span class="label local">Local</span> 真實生活常加 <span class="thai">ประมาณ</span> = approximately。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>5. From what time to what time do you work?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + ทำงาน + ตั้งแต่ + กี่โมง + ถึง + กี่โมง + คะ</div>
+        <div class="roman">khun + tham-ngaan + dtâng-dtɛ̀ɛ + gìi moong + thʉ̌ng + gìi moong + khá</div>
+        <div class="eng">From what time to what time do you work?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answers</th><th>Chinese Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณทำงานตั้งแต่กี่โมงถึงกี่โมงคะ</div><div class="roman">khun tham-ngaan dtâng-dtɛ̀ɛ gìi moong thʉ̌ng gìi moong khá</div><div class="eng">From what time to what time do you work?</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันทำงานตั้งแต่ 09:00 ถึง 18:00 ค่ะ</div><div class="roman">chǎn tham-ngaan dtâng-dtɛ̀ɛ gâo moong thʉ̌ng sìp-bpɛ̀ɛt moong khâ</div><div class="eng">I work from 09:00 to 18:00.</div></div>
+            <div class="triad"><div class="thai">ฉันทำงานตั้งแต่เก้าโมงเช้าถึงหกโมงเย็นค่ะ</div><div class="roman">chǎn tham-ngaan dtâng-dtɛ̀ɛ gâo moong cháo thʉ̌ng hòk moong yen khâ</div><div class="eng">I work from 9 a.m. to 6 p.m.</div></div>
+          </td>
+          <td>正式時間可以直接說數字；口語自然說 <span class="thai">เก้าโมงเช้า</span>、<span class="thai">หกโมงเย็น</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問怎麼去公司</td>
+          <td><div class="triad"><div class="thai">คุณไปบริษัทอย่างไรคะ</div><div class="roman">khun bpai bɔɔ-rí-sàt yàang-rai khá</div><div class="eng">How do you go to the company?</div></div></td>
+          <td><div class="triad"><div class="thai">ไปทำงานยังไงคะ</div><div class="roman">bpai tham-ngaan yang-ngai khá</div><div class="eng">How do you go to work?</div></div></td>
+          <td><span class="thai">อย่างไร</span> 較正式，口語多說 <span class="thai">ยังไง</span>。</td>
+        </tr>
+
+        <tr>
+          <td>問幾點到</td>
+          <td><div class="triad"><div class="thai">คุณมาถึงบริษัทกี่โมงคะ</div><div class="roman">khun maa thʉ̌ng bɔɔ-rí-sàt gìi moong khá</div><div class="eng">What time do you arrive at the company?</div></div></td>
+          <td><div class="triad"><div class="thai">ถึงที่ทำงานกี่โมงคะ</div><div class="roman">thʉ̌ng thîi-tham-ngaan gìi moong khá</div><div class="eng">What time do you get to work?</div></div></td>
+          <td><span class="thai">ที่ทำงาน</span> 比 <span class="thai">บริษัท</span> 更泛用。</td>
+        </tr>
+
+        <tr>
+          <td>問花多久</td>
+          <td><div class="triad"><div class="thai">จากสถานีลาดพร้าวถึงสถานีสุขุมวิทกี่นาทีคะ</div><div class="roman">jàak sà-thǎa-nii lâat-phráao thʉ̌ng sà-thǎa-nii sù-khǔm-wít gìi naa-thii khá</div><div class="eng">How many minutes from Lat Phrao station to Sukhumvit station?</div></div></td>
+          <td><div class="triad"><div class="thai">จากนี่ไปสุขุมวิทใช้เวลาประมาณกี่นาทีคะ</div><div class="roman">jàak nîi bpai sù-khǔm-wít chái wee-laa bprà-maan gìi naa-thii khá</div><div class="eng">About how many minutes from here to Sukhumvit?</div></div></td>
+          <td>生活中常用 <span class="thai">ใช้เวลา</span> = take time。</td>
+        </tr>
+
+        <tr>
+          <td>問工作時間</td>
+          <td><div class="triad"><div class="thai">คุณทำงานตั้งแต่กี่โมงถึงกี่โมงคะ</div><div class="roman">khun tham-ngaan dtâng-dtɛ̀ɛ gìi moong thʉ̌ng gìi moong khá</div><div class="eng">From what time to what time do you work?</div></div></td>
+          <td><div class="triad"><div class="thai">ทำงานกี่โมงถึงกี่โมงคะ</div><div class="roman">tham-ngaan gìi moong thʉ̌ng gìi moong khá</div><div class="eng">What are your work hours?</div></div></td>
+          <td>口語可省略 <span class="thai">ตั้งแต่</span>，但完整句比較清楚。</td>
+        </tr>
+
+        <tr>
+          <td>問這個是炸的嗎</td>
+          <td><div class="triad"><div class="thai">อันนี้ทอดใช่ไหมคะ</div><div class="roman">an níi thɔ̂ɔt châi mái khá</div><div class="eng">Is this fried?</div></div></td>
+          <td><div class="triad"><div class="thai">อันนี้ทอดหรือย่างคะ</div><div class="roman">an níi thɔ̂ɔt rʉ̌ʉ yâang khá</div><div class="eng">Is this fried or grilled?</div></div></td>
+          <td>在路邊攤想避開油炸時很實用。</td>
+        </tr>
+
+        <tr>
+          <td>要求少油</td>
+          <td><div class="triad"><div class="thai">ผัดใส่น้ำมันนิดหน่อยค่ะ</div><div class="roman">phàt sài nám-man nít-nɔ̀i khâ</div><div class="eng">Stir-fry it with just a little oil.</div></div></td>
+          <td><div class="triad"><div class="thai">ขอน้ำมันน้อย ๆ นะคะ</div><div class="roman">khɔ̌ɔ nám-man nɔ́ɔi-nɔ́ɔi ná khá</div><div class="eng">Please use very little oil.</div></div></td>
+          <td><span class="thai">ขอ...น้อย ๆ</span> 點餐很好用。</td>
+        </tr>
+
+        <tr>
+          <td>問味道</td>
+          <td><div class="triad"><div class="thai">รสชาติเป็นยังไงคะ</div><div class="roman">rót-châat bpen yang-ngai khá</div><div class="eng">How does it taste?</div></div></td>
+          <td><div class="triad"><div class="thai">รสชาติประมาณไหนคะ</div><div class="roman">rót-châat bprà-maan nǎi khá</div><div class="eng">What kind of taste is it?</div></div></td>
+          <td>問店員味道偏甜、偏辣、偏鹹時很自然。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="usage" class="tab-content">
+    <h2>Practical Usage Bank｜實戰用法補充</h2>
+
+    <h3>1. 通勤會話常用句</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問朋友怎麼去上班</td>
+          <td><div class="triad"><div class="thai">ปกติไปทำงานยังไงคะ</div><div class="roman">bpòk-gà-dtì bpai tham-ngaan yang-ngai khá</div><div class="eng">How do you usually go to work?</div></div></td>
+          <td><span class="thai">ปกติ</span> = usually，很自然開場。</td>
+        </tr>
+        <tr>
+          <td>說搭 BTS</td>
+          <td><div class="triad"><div class="thai">ปกติขึ้นบีทีเอสค่ะ</div><div class="roman">bpòk-gà-dtì khʉ̂n bii-thii-ét khâ</div><div class="eng">I usually take the BTS.</div></div></td>
+          <td>曼谷實際更常說 BTS。</td>
+        </tr>
+        <tr>
+          <td>說搭摩托車到站</td>
+          <td><div class="triad"><div class="thai">นั่งวินไปสถานีค่ะ</div><div class="roman">nâng win bpai sà-thǎa-nii khâ</div><div class="eng">I take a motorcycle taxi to the station.</div></div></td>
+          <td><span class="thai">วิน</span> = motorcycle taxi stand / motorcycle taxi。</td>
+        </tr>
+        <tr>
+          <td>說塞車</td>
+          <td><div class="triad"><div class="thai">รถติดมากค่ะ</div><div class="roman">rót dtìt mâak khâ</div><div class="eng">The traffic is very bad.</div></div></td>
+          <td>曼谷生活必備句。</td>
+        </tr>
+        <tr>
+          <td>說快到了</td>
+          <td><div class="triad"><div class="thai">ใกล้ถึงแล้วค่ะ</div><div class="roman">glâi thʉ̌ng lɛ́ɛw khâ</div><div class="eng">I’m almost there.</div></div></td>
+          <td>傳 Line 給朋友/老師/男友都常用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. 點餐：料理方式＋少油＋辣度</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問這個是炸的嗎</td>
+          <td><div class="triad"><div class="thai">อันนี้ทอดไหมคะ</div><div class="roman">an níi thɔ̂ɔt mái khá</div><div class="eng">Is this fried?</div></div></td>
+          <td>想避開油炸時。</td>
+        </tr>
+        <tr>
+          <td>問有沒有蒸的</td>
+          <td><div class="triad"><div class="thai">มีแบบนึ่งไหมคะ</div><div class="roman">mii bɛ̀ɛp nʉ̂ng mái khá</div><div class="eng">Do you have a steamed version?</div></div></td>
+          <td><span class="thai">แบบ</span> = style / type。</td>
+        </tr>
+        <tr>
+          <td>要求少油</td>
+          <td><div class="triad"><div class="thai">ขอน้ำมันน้อย ๆ ค่ะ</div><div class="roman">khɔ̌ɔ nám-man nɔ́ɔi-nɔ́ɔi khâ</div><div class="eng">Please use very little oil.</div></div></td>
+          <td>小吃店超實用。</td>
+        </tr>
+        <tr>
+          <td>要求不要太辣</td>
+          <td><div class="triad"><div class="thai">ไม่เอาเผ็ดมากนะคะ</div><div class="roman">mâi ao phèt mâak ná khá</div><div class="eng">Please don’t make it too spicy.</div></div></td>
+          <td><span class="label review">Review</span> Day 17 味道/辣度。</td>
+        </tr>
+        <tr>
+          <td>問有椰奶嗎</td>
+          <td><div class="triad"><div class="thai">อันนี้ใส่กะทิไหมคะ</div><div class="roman">an níi sài gà-thí mái khá</div><div class="eng">Does this have coconut milk?</div></div></td>
+          <td>問咖哩或甜點很實用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. 麵攤點餐常用句</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>我要細麵湯</td>
+          <td><div class="triad"><div class="thai">เอาเส้นเล็กน้ำค่ะ</div><div class="roman">ao sên lék náam khâ</div><div class="eng">I’ll have thin noodles in soup.</div></div></td>
+          <td><span class="thai">น้ำ</span> = soup version。</td>
+        </tr>
+        <tr>
+          <td>我要乾麵</td>
+          <td><div class="triad"><div class="thai">เอาเส้นหมี่แห้งค่ะ</div><div class="roman">ao sên mìi hɛ̂ɛng khâ</div><div class="eng">I’ll have dry rice vermicelli.</div></div></td>
+          <td><span class="thai">แห้ง</span> = dry noodles。</td>
+        </tr>
+        <tr>
+          <td>不要香菜</td>
+          <td><div class="triad"><div class="thai">ไม่ใส่ผักชีค่ะ</div><div class="roman">mâi sài phàk-chii khâ</div><div class="eng">No cilantro, please.</div></div></td>
+          <td>補充常用點餐句。</td>
+        </tr>
+        <tr>
+          <td>外帶</td>
+          <td><div class="triad"><div class="thai">ใส่ถุงค่ะ</div><div class="roman">sài thǔng khâ</div><div class="eng">Put it in a bag / takeaway, please.</div></div></td>
+          <td>路邊攤外帶常說。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>1. 早上通勤：你幾點出門？</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label local">Supplement / Local usage</span></p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">คุณออกจากบ้านกี่โมงคะ</div><div class="roman">khun òok jàak bâan gìi moong khá</div><div class="eng">What time do you leave home?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ออกจากบ้านแปดโมงเช้าค่ะ</div><div class="roman">òok jàak bâan bpɛ̀ɛt moong cháo khâ</div><div class="eng">I leave home at 8 a.m.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ถึงที่ทำงานกี่โมงคะ</div><div class="roman">thʉ̌ng thîi-tham-ngaan gìi moong khá</div><div class="eng">What time do you get to work?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ถึงประมาณเก้าโมงค่ะ</div><div class="roman">thʉ̌ng bprà-maan gâo moong khâ</div><div class="eng">I arrive around 9.</div></div></div>
+    </div>
+
+    <h3>2. 問怎麼去公司：搭 BTS 還是開車？</h3>
+    <p><span class="label local">Supplement / Local usage</span> 曼谷通勤聊天。</p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ปกติไปทำงานยังไงคะ</div><div class="roman">bpòk-gà-dtì bpai tham-ngaan yang-ngai khá</div><div class="eng">How do you usually go to work?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ปกติขึ้นบีทีเอสค่ะ</div><div class="roman">bpòk-gà-dtì khʉ̂n bii-thii-ét khâ</div><div class="eng">I usually take the BTS.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ใช้เวลานานไหมคะ</div><div class="roman">chái wee-laa naan mái khá</div><div class="eng">Does it take long?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ประมาณสามสิบนาทีค่ะ</div><div class="roman">bprà-maan sǎam-sìp naa-thii khâ</div><div class="eng">About thirty minutes.</div></div></div>
+    </div>
+
+    <h3>3. 搭 MRT：從 Lat Phrao 到 Sukhumvit</h3>
+    <p><span class="label textbook">Textbook-based</span> 教材交通站名句型。</p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Teacher</span><div class="triad"><div class="thai">คุณขึ้นรถไฟฟ้าใต้ดินจากสถานีลาดพร้าวถึงสถานีสุขุมวิทกี่นาทีคะ</div><div class="roman">khun khʉ̂n rót-fai-fáa dtâi-din jàak sà-thǎa-nii lâat-phráao thʉ̌ng sà-thǎa-nii sù-khǔm-wít gìi naa-thii khá</div><div class="eng">How many minutes do you take the MRT from Lat Phrao station to Sukhumvit station?</div></div></div>
+      <div class="bubble b"><span class="speaker b">Student</span><div class="triad"><div class="thai">ประมาณสามสิบนาทีค่ะ</div><div class="roman">bprà-maan sǎam-sìp naa-thii khâ</div><div class="eng">About thirty minutes.</div></div></div>
+    </div>
+
+    <h3>4. 跟朋友報備：我快到了</h3>
+    <p><span class="label practical">Practical Usage</span> Line 訊息超常用。</p>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ใกล้ถึงแล้วค่ะ</div><div class="roman">glâi thʉ̌ng lɛ́ɛw khâ</div><div class="eng">I’m almost there.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">โอเคค่ะ รออยู่หน้าร้านนะคะ</div><div class="roman">oo-khee khâ, rɔɔ yùu nâa ráan ná khá</div><div class="eng">Okay, I’m waiting in front of the shop.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">รถติดมากค่ะ ขอโทษนะคะ</div><div class="roman">rót dtìt mâak khâ, khɔ̌ɔ-thôot ná khá</div><div class="eng">Traffic is very bad. Sorry.</div></div></div>
+    </div>
+
+    <h3>5. 小吃店：這個是炸的還是烤的？</h3>
+    <p><span class="label practical">Practical Usage</span> 避免吃太油時超實用。</p>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">อันนี้ทอดหรือย่างคะ</div><div class="roman">an níi thɔ̂ɔt rʉ̌ʉ yâang khá</div><div class="eng">Is this fried or grilled?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Vendor</span><div class="triad"><div class="thai">อันนี้ย่างค่ะ</div><div class="roman">an níi yâang khâ</div><div class="eng">This one is grilled.</div></div></div>
+      <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">เอาไก่ย่างหนึ่งจานค่ะ</div><div class="roman">ao gài yâang nʉ̀eng jaan khâ</div><div class="eng">I’ll have one plate of grilled chicken.</div></div></div>
+    </div>
+
+    <h3>6. 點打拋：少油、不太辣</h3>
+    <p><span class="label local">Supplement / Local usage</span> 曼谷餐廳/小吃店實戰。</p>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">เอาผัดกะเพราหมูหนึ่งจานค่ะ</div><div class="roman">ao phàt gà-phrao mǔu nʉ̀eng jaan khâ</div><div class="eng">I’ll have one plate of pork basil stir-fry.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Vendor</span><div class="triad"><div class="thai">เอาเผ็ดไหมคะ</div><div class="roman">ao phèt mái khá</div><div class="eng">Do you want it spicy?</div></div></div>
+      <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">เผ็ดนิดหน่อยค่ะ แล้วขอน้ำมันน้อย ๆ นะคะ</div><div class="roman">phèt nít-nɔ̀i khâ, lɛ́ɛw khɔ̌ɔ nám-man nɔ́ɔi-nɔ́ɔi ná khá</div><div class="eng">A little spicy, and please use very little oil.</div></div></div>
+    </div>
+
+    <h3>7. 麵攤：你要哪種麵？</h3>
+    <p><span class="label practical">Practical Usage</span> 補充麵攤真實問答。</p>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Vendor</span><div class="triad"><div class="thai">เอาเส้นอะไรคะ</div><div class="roman">ao sên arai khá</div><div class="eng">What kind of noodles do you want?</div></div></div>
+      <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">เอาเส้นเล็กน้ำค่ะ</div><div class="roman">ao sên lék náam khâ</div><div class="eng">I’ll have thin noodles in soup.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Vendor</span><div class="triad"><div class="thai">ใส่ผักไหมคะ</div><div class="roman">sài phàk mái khá</div><div class="eng">Do you want vegetables?</div></div></div>
+      <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">ใส่ค่ะ แต่ไม่ใส่ผักชีค่ะ</div><div class="roman">sài khâ, dtɛ̀ɛ mâi sài phàk-chii khâ</div><div class="eng">Yes, but no cilantro.</div></div></div>
+    </div>
+
+    <h3>8. 問咖哩：有椰奶嗎？辣嗎？</h3>
+    <p><span class="label practical">Practical Usage</span> 泰式咖哩點餐。</p>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">แกงเขียวหวานใส่กะทิไหมคะ</div><div class="roman">gɛɛng khǐao-wǎan sài gà-thí mái khá</div><div class="eng">Does green curry have coconut milk?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ใส่ค่ะ</div><div class="roman">sài khâ</div><div class="eng">Yes, it does.</div></div></div>
+      <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">เผ็ดมากไหมคะ</div><div class="roman">phèt mâak mái khá</div><div class="eng">Is it very spicy?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">เผ็ดนิดหน่อยค่ะ</div><div class="roman">phèt nít-nɔ̀i khâ</div><div class="eng">It is a little spicy.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why It’s Wrong / Risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ออก / เข้า 混用</div><div class="roman">òok / khâo</div><div class="eng">go out / enter</div></div></td>
+          <td>教材一開始就對比兩者。<span class="thai">ออก</span> 是出去；<span class="thai">เข้า</span> 是進去。</td>
+          <td>
+            <div class="triad"><div class="thai">ออกจากบ้าน</div><div class="roman">òok jàak bâan</div><div class="eng">leave home</div></div>
+            <div class="triad"><div class="thai">เข้าบริษัท</div><div class="roman">khâo bɔɔ-rí-sàt</div><div class="eng">enter the company / start work</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">มา / ไป / ถึง 混亂</div><div class="roman">maa / bpai / thʉ̌ng</div><div class="eng">come / go / arrive</div></div></td>
+          <td><span class="thai">มา</span> 往說話者/目前位置來；<span class="thai">ไป</span> 往外去；<span class="thai">ถึง</span> 是到達。</td>
+          <td><div class="triad"><div class="thai">ฉันมาถึงบริษัทแล้วค่ะ</div><div class="roman">chǎn maa thʉ̌ng bɔɔ-rí-sàt lɛ́ɛw khâ</div><div class="eng">I have arrived at the company.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อย่างไร 太正式</div><div class="roman">yàang-rai</div><div class="eng">how</div></div></td>
+          <td>教材句沒錯，但曼谷口語更常說 <span class="thai">ยังไง</span>。</td>
+          <td><div class="triad"><div class="thai">ไปทำงานยังไงคะ</div><div class="roman">bpai tham-ngaan yang-ngai khá</div><div class="eng">How do you go to work?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ขึ้น / ขับ / ขี่ / ซ้อน 混用</div><div class="roman">khʉ̂n / khàp / khìi / sɔ́ɔn</div><div class="eng">take / drive / ride / ride as passenger</div></div></td>
+          <td>交通工具搭配動詞不同。</td>
+          <td>
+            <div class="triad"><div class="thai">ขึ้นรถไฟฟ้า</div><div class="roman">khʉ̂n rót-fai-fáa</div><div class="eng">take the BTS</div></div>
+            <div class="triad"><div class="thai">ขับรถ</div><div class="roman">khàp rót</div><div class="eng">drive a car</div></div>
+            <div class="triad"><div class="thai">ขี่มอเตอร์ไซค์</div><div class="roman">khìi mɔɔ-dtə̂ə-sai</div><div class="eng">ride a motorcycle</div></div>
+            <div class="triad"><div class="thai">ซ้อนมอเตอร์ไซค์</div><div class="roman">sɔ́ɔn mɔɔ-dtə̂ə-sai</div><div class="eng">ride on the back of a motorcycle</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ทอด / ผัด 都翻成炒</div><div class="roman">thɔ̂ɔt / phàt</div><div class="eng">fry / stir-fry</div></div></td>
+          <td><span class="thai">ทอด</span> 是炸/煎炸；<span class="thai">ผัด</span> 是炒。</td>
+          <td>
+            <div class="triad"><div class="thai">ไก่ทอด</div><div class="roman">gài thɔ̂ɔt</div><div class="eng">fried chicken</div></div>
+            <div class="triad"><div class="thai">ผัดกะเพรา</div><div class="roman">phàt gà-phrao</div><div class="eng">stir-fried basil</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ปิ้ง / ย่าง 完全一樣</div><div class="roman">bpîng / yâang</div><div class="eng">grill / grill, roast</div></div></td>
+          <td>兩者都可表示烤，但 <span class="thai">ปิ้ง</span> 常見於串烤、炙烤；<span class="thai">ย่าง</span> 用法更廣。</td>
+          <td>
+            <div class="triad"><div class="thai">หมูปิ้งสองไม้</div><div class="roman">mǔu bpîng sɔ̌ɔng mái</div><div class="eng">two pork skewers</div></div>
+            <div class="triad"><div class="thai">ไก่ย่างหนึ่งจาน</div><div class="roman">gài yâang nʉ̀eng jaan</div><div class="eng">one plate of grilled chicken</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">รถ vs รด</div><div class="roman">rót vs rót</div><div class="eng">vehicle vs water plants</div></div></td>
+          <td>教材第 15 頁提醒：<span class="thai">รถ</span> 是車；<span class="thai">รดน้ำต้นไม้</span> 是澆花/澆植物。</td>
+          <td>
+            <div class="triad"><div class="thai">ขับรถ</div><div class="roman">khàp rót</div><div class="eng">drive a car</div></div>
+            <div class="triad"><div class="thai">รดน้ำต้นไม้</div><div class="roman">rót náam dtôn-máai</div><div class="eng">water the plants</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>本課最重要記憶點：</strong>
+      <p>1. <span class="thai">ออกจากบ้าน</span> / <span class="roman">òok jàak bâan</span> / <span class="eng">leave home</span></p>
+      <p>2. <span class="thai">มาถึงบริษัท</span> / <span class="roman">maa thʉ̌ng bɔɔ-rí-sàt</span> / <span class="eng">arrive at the company</span></p>
+      <p>3. <span class="thai">จาก...ถึง...</span> / <span class="roman">jàak...thʉ̌ng...</span> / <span class="eng">from...to...</span></p>
+      <p>4. <span class="thai">ตั้งแต่...ถึง...</span> / <span class="roman">dtâng-dtɛ̀ɛ...thʉ̌ng...</span> / <span class="eng">from...to...</span></p>
+      <p>5. 食物動詞：<span class="thai">ทอด</span> / <span class="roman">thɔ̂ɔt</span> / <span class="eng">fry</span>、<span class="thai">ผัด</span> / <span class="roman">phàt</span> / <span class="eng">stir-fry</span>、<span class="thai">ต้ม</span> / <span class="roman">dtôm</span> / <span class="eng">boil</span>、<span class="thai">นึ่ง</span> / <span class="roman">nʉ̂ng</span> / <span class="eng">steam</span>。</p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Vocabulary Recall</h3>
+    <details>
+      <summary>1. leave home</summary>
+      <div class="triad"><div class="thai">ออกจากบ้าน</div><div class="roman">òok jàak bâan</div><div class="eng">leave home</div></div>
+      <p>Chinese Explanation: <span class="thai">ออก</span> 是出去，<span class="thai">จาก</span> 是從。</p>
+    </details>
+
+    <details>
+      <summary>2. arrive at the company</summary>
+      <div class="triad"><div class="thai">มาถึงบริษัท</div><div class="roman">maa thʉ̌ng bɔɔ-rí-sàt</div><div class="eng">arrive at the company</div></div>
+      <p>Chinese Explanation: <span class="thai">ถึง</span> 是到達。</p>
+    </details>
+
+    <details>
+      <summary>3. take the BTS</summary>
+      <div class="triad"><div class="thai">ขึ้นรถไฟฟ้า</div><div class="roman">khʉ̂n rót-fai-fáa</div><div class="eng">take the BTS / electric train</div></div>
+      <p>Chinese Explanation: 交通工具上車常用 <span class="thai">ขึ้น</span>。</p>
+    </details>
+
+    <details>
+      <summary>4. stir-fry</summary>
+      <div class="triad"><div class="thai">ผัด</div><div class="roman">phàt</div><div class="eng">stir-fry</div></div>
+      <p>Chinese Explanation: 例如 <span class="thai">ผัดกะเพรา</span>、<span class="thai">ผัดไทย</span>。</p>
+    </details>
+
+    <details>
+      <summary>5. deep-fry / fry</summary>
+      <div class="triad"><div class="thai">ทอด</div><div class="roman">thɔ̂ɔt</div><div class="eng">fry / deep-fry</div></div>
+      <p>Chinese Explanation: 例如 <span class="thai">ไก่ทอด</span>、<span class="thai">ปลาทอด</span>。</p>
+    </details>
+
+    <h3>B. Translation Practice</h3>
+    <details>
+      <summary>1. What time do you leave home?</summary>
+      <div class="triad"><div class="thai">คุณออกจากบ้านกี่โมงคะ</div><div class="roman">khun òok jàak bâan gìi moong khá</div><div class="eng">What time do you leave home?</div></div>
+      <p>Chinese Explanation: 問幾點出門。</p>
+    </details>
+
+    <details>
+      <summary>2. I arrive at the company at 9 a.m.</summary>
+      <div class="triad"><div class="thai">ฉันมาถึงบริษัทเก้าโมงเช้าค่ะ</div><div class="roman">chǎn maa thʉ̌ng bɔɔ-rí-sàt gâo moong cháo khâ</div><div class="eng">I arrive at the company at 9 a.m.</div></div>
+      <p>Chinese Explanation: <span class="thai">มาถึง</span> 是到達。</p>
+    </details>
+
+    <details>
+      <summary>3. How do you usually go to work?</summary>
+      <div class="triad"><div class="thai">ปกติไปทำงานยังไงคะ</div><div class="roman">bpòk-gà-dtì bpai tham-ngaan yang-ngai khá</div><div class="eng">How do you usually go to work?</div></div>
+      <p>Chinese Explanation: 曼谷口語常用 <span class="thai">ยังไง</span>。</p>
+    </details>
+
+    <details>
+      <summary>4. From here to Sukhumvit, about how many minutes?</summary>
+      <div class="triad"><div class="thai">จากที่นี่ถึงสุขุมวิทประมาณกี่นาทีคะ</div><div class="roman">jàak thîi-nîi thʉ̌ng sù-khǔm-wít bprà-maan gìi naa-thii khá</div><div class="eng">About how many minutes from here to Sukhumvit?</div></div>
+      <p>Chinese Explanation: <span class="thai">ประมาณ</span> = about。</p>
+    </details>
+
+    <details>
+      <summary>5. Please use very little oil.</summary>
+      <div class="triad"><div class="thai">ขอน้ำมันน้อย ๆ ค่ะ</div><div class="roman">khɔ̌ɔ nám-man nɔ́ɔi-nɔ́ɔi khâ</div><div class="eng">Please use very little oil.</div></div>
+      <p>Chinese Explanation: 小吃店實用句。</p>
+    </details>
+
+    <details>
+      <summary>6. Is this fried or grilled?</summary>
+      <div class="triad"><div class="thai">อันนี้ทอดหรือย่างคะ</div><div class="roman">an níi thɔ̂ɔt rʉ̌ʉ yâang khá</div><div class="eng">Is this fried or grilled?</div></div>
+      <p>Chinese Explanation: 避免吃油炸時很實用。</p>
+    </details>
+
+    <h3>C. Classifier Practice</h3>
+    <details>
+      <summary>1. Two pork skewers</summary>
+      <div class="triad"><div class="thai">หมูปิ้งสองไม้</div><div class="roman">mǔu bpîng sɔ̌ɔng mái</div><div class="eng">two pork skewers</div></div>
+      <p>Chinese Explanation: 串烤用量詞 <span class="thai">ไม้</span>。</p>
+    </details>
+
+    <details>
+      <summary>2. One plate of Pad Thai</summary>
+      <div class="triad"><div class="thai">ผัดไทยหนึ่งจาน</div><div class="roman">phàt thai nʉ̀eng jaan</div><div class="eng">one plate of Pad Thai</div></div>
+      <p>Chinese Explanation: 盤裝料理用 <span class="thai">จาน</span>。</p>
+    </details>
+
+    <details>
+      <summary>3. One bowl of thin noodles in soup</summary>
+      <div class="triad"><div class="thai">เส้นเล็กน้ำหนึ่งชาม</div><div class="roman">sên lék náam nʉ̀eng chaam</div><div class="eng">one bowl of thin noodles in soup</div></div>
+      <p>Chinese Explanation: 碗裝麵用 <span class="thai">ชาม</span>。</p>
+    </details>
+
+    <h3>D. Street Thai Conversion</h3>
+    <details>
+      <summary>1. Textbook: คุณไปบริษัทอย่างไรคะ → Local version?</summary>
+      <div class="triad"><div class="thai">ไปทำงานยังไงคะ</div><div class="roman">bpai tham-ngaan yang-ngai khá</div><div class="eng">How do you go to work?</div></div>
+      <p>Chinese Explanation: <span class="thai">ยังไง</span> 比 <span class="thai">อย่างไร</span> 更口語。</p>
+    </details>
+
+    <details>
+      <summary>2. Textbook: คุณมาถึงบริษัทกี่โมงคะ → Local version?</summary>
+      <div class="triad"><div class="thai">ถึงที่ทำงานกี่โมงคะ</div><div class="roman">thʉ̌ng thîi-tham-ngaan gìi moong khá</div><div class="eng">What time do you get to work?</div></div>
+      <p>Chinese Explanation: <span class="thai">ที่ทำงาน</span> = workplace，比公司更泛用。</p>
+    </details>
+
+    <h3>E. Mini Role-play</h3>
+    <div class="tip blue">
+      情境：你跟朋友聊通勤。你要說自己通常搭 BTS 去上班，從家裡到公司大約 40 分鐘，今天塞車所以會晚一點。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ปกติไปทำงานยังไงคะ</div><div class="roman">bpòk-gà-dtì bpai tham-ngaan yang-ngai khá</div><div class="eng">How do you usually go to work?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ปกติขึ้นบีทีเอสค่ะ</div><div class="roman">bpòk-gà-dtì khʉ̂n bii-thii-ét khâ</div><div class="eng">I usually take the BTS.</div></div></div>
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ใช้เวลากี่นาทีคะ</div><div class="roman">chái wee-laa gìi naa-thii khá</div><div class="eng">How many minutes does it take?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ประมาณสี่สิบนาทีค่ะ</div><div class="roman">bprà-maan sìi-sìp naa-thii khâ</div><div class="eng">About forty minutes.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">วันนี้รถติดมากค่ะ อาจจะถึงช้านิดหน่อยค่ะ</div><div class="roman">wan-níi rót dtìt mâak khâ, àat jà thʉ̌ng cháa nít-nɔ̀i khâ</div><div class="eng">Traffic is very bad today. I might arrive a little late.</div></div></div>
+      </div>
+    </details>
+
+    <div class="tip blue">
+      情境：你在小吃店點打拋飯。你要問可不可以少油、不太辣，然後加一顆煎蛋。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">เอาผัดกะเพราหมูหนึ่งจานค่ะ</div><div class="roman">ao phàt gà-phrao mǔu nʉ̀eng jaan khâ</div><div class="eng">I’ll have one plate of pork basil stir-fry.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ขอน้ำมันน้อย ๆ นะคะ</div><div class="roman">khɔ̌ɔ nám-man nɔ́ɔi-nɔ́ɔi ná khá</div><div class="eng">Please use very little oil.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ไม่เอาเผ็ดมากค่ะ</div><div class="roman">mâi ao phèt mâak khâ</div><div class="eng">Please don’t make it too spicy.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ใส่ไข่ดาวหนึ่งฟองด้วยค่ะ</div><div class="roman">sài khài daao nʉ̀eng fɔɔng dûai khâ</div><div class="eng">Please add one fried egg too.</div></div></div>
+      </div>
+    </details>
+
+    <h3>今日最重要 10 句</h3>
+    <table>
+      <thead><tr><th>#</th><th>Thai / Romanization / English</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><div class="triad"><div class="thai">คุณออกจากบ้านกี่โมงคะ</div><div class="roman">khun òok jàak bâan gìi moong khá</div><div class="eng">What time do you leave home?</div></div></td><td>問出門時間</td></tr>
+        <tr><td>2</td><td><div class="triad"><div class="thai">ฉันออกจากบ้านแปดโมงเช้าค่ะ</div><div class="roman">chǎn òok jàak bâan bpɛ̀ɛt moong cháo khâ</div><div class="eng">I leave home at 8 a.m.</div></div></td><td>回答出門時間</td></tr>
+        <tr><td>3</td><td><div class="triad"><div class="thai">มาถึงแล้วค่ะ</div><div class="roman">maa thʉ̌ng lɛ́ɛw khâ</div><div class="eng">I have arrived.</div></div></td><td>Line 報備</td></tr>
+        <tr><td>4</td><td><div class="triad"><div class="thai">ยังไม่ถึงค่ะ</div><div class="roman">yang mâi thʉ̌ng khâ</div><div class="eng">I haven’t arrived yet.</div></div></td><td>還沒到</td></tr>
+        <tr><td>5</td><td><div class="triad"><div class="thai">ปกติไปทำงานยังไงคะ</div><div class="roman">bpòk-gà-dtì bpai tham-ngaan yang-ngai khá</div><div class="eng">How do you usually go to work?</div></div></td><td>通勤聊天</td></tr>
+        <tr><td>6</td><td><div class="triad"><div class="thai">ใช้เวลาประมาณกี่นาทีคะ</div><div class="roman">chái wee-laa bprà-maan gìi naa-thii khá</div><div class="eng">About how many minutes does it take?</div></div></td><td>問花多久</td></tr>
+        <tr><td>7</td><td><div class="triad"><div class="thai">รถติดมากค่ะ</div><div class="roman">rót dtìt mâak khâ</div><div class="eng">The traffic is very bad.</div></div></td><td>曼谷必備</td></tr>
+        <tr><td>8</td><td><div class="triad"><div class="thai">อันนี้ทอดหรือย่างคะ</div><div class="roman">an níi thɔ̂ɔt rʉ̌ʉ yâang khá</div><div class="eng">Is this fried or grilled?</div></div></td><td>問料理方式</td></tr>
+        <tr><td>9</td><td><div class="triad"><div class="thai">ขอน้ำมันน้อย ๆ ค่ะ</div><div class="roman">khɔ̌ɔ nám-man nɔ́ɔi-nɔ́ɔi khâ</div><div class="eng">Please use very little oil.</div></div></td><td>點餐少油</td></tr>
+        <tr><td>10</td><td><div class="triad"><div class="thai">เอาเส้นเล็กน้ำค่ะ</div><div class="roman">ao sên lék náam khâ</div><div class="eng">I’ll have thin noodles in soup.</div></div></td><td>麵攤點餐</td></tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

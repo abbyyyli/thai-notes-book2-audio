@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Book 2｜Day 9 學習指南</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+      --yellow: #ca8a04;
+      --yellow-soft: rgba(234,179,8,.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    h4 { margin: 20px 0 8px; font-size: 15px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+    .label.practical { background: var(--yellow-soft); color: #854d0e; border: .5px solid rgba(234,179,8,.35); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+    .tip.yellow { border-left-color: var(--yellow); background: var(--yellow-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+    .bubble.c { justify-self: start; border-left: 5px solid var(--orange); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+    .speaker.c { background: var(--orange-soft); color: #c2410c; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1>Thai Book 2｜Day 9 學習指南</h1>
+    <p class="subtitle">主題：ก่อน / หลัง、สาย / ไม่สาย、เหมือนกัน / ด้วยกัน / เท่ากัน / พร้อมกัน / เดียวกัน、交通地點、交通工具與量詞</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'supplement')">Supplement</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'bangkok')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+    <button class="tab-btn" onclick="openTab(event, 'top10')">Top 10</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 9 的主線是「時間順序 + 比較/一起 + 交通」。教材先用
+      <span class="thai">เมื่อก่อน</span> /
+      <span class="roman">mʉ̂a-gɔ̀ɔn</span> /
+      <span class="eng">before / in the past</span>
+      和
+      <span class="thai">ตอนนี้</span> /
+      <span class="roman">dtɔɔn-níi</span> /
+      <span class="eng">now</span>
+      對比曼谷以前沒有捷運、現在有捷運，接著進入
+      <span class="thai">ก่อน</span> /
+      <span class="roman">gɔ̀ɔn</span> /
+      <span class="eng">before</span>
+      與
+      <span class="thai">หลัง</span> /
+      <span class="roman">lǎng</span> /
+      <span class="eng">after</span>
+      的句型。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Before / after</div>
+        <div class="triad">
+          <div class="thai">ฉันอาบน้ำก่อนนอนค่ะ</div>
+          <div class="roman">chǎn àap-náam gɔ̀ɔn nɔɔn khâ</div>
+          <div class="eng">I shower before sleeping.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Late / not late</div>
+        <div class="triad">
+          <div class="thai">วันนี้ฉันไปเรียนสายค่ะ</div>
+          <div class="roman">wan-níi chǎn bpai rian sǎai khâ</div>
+          <div class="eng">Today I was late for class.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Same / together</div>
+        <div class="triad">
+          <div class="thai">เราไปด้วยกันค่ะ</div>
+          <div class="roman">rao bpai dûai-gan khâ</div>
+          <div class="eng">We go together.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Bangkok transport</div>
+        <div class="triad">
+          <div class="thai">ฉันขึ้นรถไฟฟ้าที่สถานีโพธิ์นิมิตรค่ะ</div>
+          <div class="roman">chǎn khʉ̂n rót-fai-fáa thîi sà-thǎa-nii phoo-ní-mít khâ</div>
+          <div class="eng">I take the BTS at Pho Nimit station.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 8 學過位置詞
+      <span class="thai">ข้างหน้า / ข้างหลัง</span> /
+      <span class="roman">khâang-nâa / khâang-lǎng</span> /
+      <span class="eng">in front / behind</span>。
+      Day 9 的
+      <span class="thai">ก่อน / หลัง</span> /
+      <span class="roman">gɔ̀ɔn / lǎng</span> /
+      <span class="eng">before / after</span>
+      是時間順序，不是空間前後。
+    </div>
+
+    <div class="tip blue">
+      <strong>曼谷生活連結：</strong>
+      這課很適合用在 BTS/MRT、巴士、機場、碼頭、火車站情境：問怎麼去、在哪裡上車、會不會遲到、要不要一起去、我們是不是搭同一班車。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Time & Sequence｜時間與先後順序</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เมื่อก่อน</div><div class="roman">mʉ̂a-gɔ̀ɔn</div><div class="eng">before / in the past</div></div></td>
+          <td>Time adverb</td>
+          <td>—</td>
+          <td>用來對比「以前」和「現在」。比單獨 <span class="thai">ก่อน</span> 更像「以前」。</td>
+          <td><div class="triad"><div class="thai">เมื่อก่อน...แต่ตอนนี้... / เมื่อก่อนไม่มี...</div><div class="roman">mʉ̂a-gɔ̀ɔn...dtɛ̀ɛ dtɔɔn-níi... / mʉ̂a-gɔ̀ɔn mâi-mii...</div><div class="eng">before...but now... / before there wasn’t...</div></div></td>
+          <td><div class="triad"><div class="thai">เมื่อก่อนกรุงเทพฯ ไม่มีรถไฟฟ้าค่ะ</div><div class="roman">mʉ̂a-gɔ̀ɔn grung-thêep mâi-mii rót-fai-fáa khâ</div><div class="eng">In the past, Bangkok did not have skytrain/electric train.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตอนนี้</div><div class="roman">dtɔɔn-níi</div><div class="eng">now</div></div></td>
+          <td>Time adverb</td>
+          <td>—</td>
+          <td>表示現在、目前。</td>
+          <td><div class="triad"><div class="thai">ตอนนี้มี... / ตอนนี้อยู่ที่...</div><div class="roman">dtɔɔn-níi mii... / dtɔɔn-níi yùu thîi...</div><div class="eng">now there is... / now I am at...</div></div></td>
+          <td><div class="triad"><div class="thai">ตอนนี้กรุงเทพฯ มีรถไฟฟ้าหลายสายค่ะ</div><div class="roman">dtɔɔn-níi grung-thêep mii rót-fai-fáa lǎai sǎai khâ</div><div class="eng">Now Bangkok has many train lines.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ก่อน</div><div class="roman">gɔ̀ɔn</div><div class="eng">before / first</div></div></td>
+          <td>Sequence word</td>
+          <td>—</td>
+          <td>可放在兩個動作中間，表示 V1 在 V2 之前。也可句尾表示「先」。</td>
+          <td><div class="triad"><div class="thai">ก่อนนอน / ก่อนออกจากบ้าน / ไปก่อน</div><div class="roman">gɔ̀ɔn nɔɔn / gɔ̀ɔn ɔ̀ɔk-jàak bâan / bpai gɔ̀ɔn</div><div class="eng">before sleeping / before leaving home / go first</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันปิดไฟก่อนออกจากบ้านค่ะ</div><div class="roman">chǎn bpìt fai gɔ̀ɔn ɔ̀ɔk-jàak bâan khâ</div><div class="eng">I turn off the light before leaving home.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หลัง</div><div class="roman">lǎng</div><div class="eng">after / behind</div></div></td>
+          <td>Sequence word / position</td>
+          <td>—</td>
+          <td>本課重點是「after」。Day 8 已學 <span class="thai">ข้างหลัง</span> 是 behind。</td>
+          <td><div class="triad"><div class="thai">หลังเลิกเรียน / หลังทำงาน / หลังจาก...</div><div class="roman">lǎng lə̂ək-rian / lǎng tham-ngaan / lǎng-jàak...</div><div class="eng">after class / after work / after...</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันกินข้าวหลังเลิกเรียนค่ะ</div><div class="roman">chǎn gin khâao lǎng lə̂ək-rian khâ</div><div class="eng">I eat after class.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สาย</div><div class="roman">sǎai</div><div class="eng">late</div></div></td>
+          <td>Time adjective</td>
+          <td>—</td>
+          <td>表示比預定時間晚。不要和 <span class="thai">สาย</span> = line / route 混淆。</td>
+          <td><div class="triad"><div class="thai">ไปสาย / มาสาย / สายแล้ว</div><div class="roman">bpai sǎai / maa sǎai / sǎai lɛ́ɛw</div><div class="eng">go late / come late / it’s late already</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้รถติด ฉันเลยมาสายค่ะ</div><div class="roman">wan-níi rót-dtìt, chǎn ləəi maa sǎai khâ</div><div class="eng">There was traffic today, so I came late.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไม่สาย</div><div class="roman">mâi sǎai</div><div class="eng">not late</div></div></td>
+          <td>Time adjective</td>
+          <td>—</td>
+          <td>否定放在形容詞前：<span class="thai">ไม่ + สาย</span>。</td>
+          <td><div class="triad"><div class="thai">ไปไม่สาย / มาไม่สาย / ยังไม่สาย</div><div class="roman">bpai mâi sǎai / maa mâi sǎai / yang mâi sǎai</div><div class="eng">not go late / not come late / still not late</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าออกตอนนี้ เรายังไม่สายค่ะ</div><div class="roman">thâa ɔ̀ɔk dtɔɔn-níi, rao yang mâi sǎai khâ</div><div class="eng">If we leave now, we are still not late.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Same / Together / Equal｜相同、一起、一樣多、同時、同一個</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เหมือนกัน</div><div class="roman">mʉ̌an-gan</div><div class="eng">same / alike / too</div></div></td>
+          <td>Comparison</td>
+          <td>—</td>
+          <td>用來說 N1 跟 N2 一樣，也常用在「我也是」。</td>
+          <td><div class="triad"><div class="thai">สีเหมือนกัน / ชอบเหมือนกัน / เหมือนกันไหม</div><div class="roman">sǐi mʉ̌an-gan / chɔ̂ɔp mʉ̌an-gan / mʉ̌an-gan mái</div><div class="eng">same color / like it too / are they the same?</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันกับเพื่อนชอบชาไทยเหมือนกันค่ะ</div><div class="roman">chǎn gàp phʉ̂an chɔ̂ɔp chaa-thai mʉ̌an-gan khâ</div><div class="eng">My friend and I both like Thai tea.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ด้วยกัน</div><div class="roman">dûai-gan</div><div class="eng">together</div></div></td>
+          <td>Togetherness</td>
+          <td>—</td>
+          <td>表示一起做某動作。結構常是 N1 กับ N2 + V + ด้วยกัน。</td>
+          <td><div class="triad"><div class="thai">ไปด้วยกัน / กินด้วยกัน / เรียนด้วยกัน</div><div class="roman">bpai dûai-gan / gin dûai-gan / rian dûai-gan</div><div class="eng">go together / eat together / study together</div></div></td>
+          <td><div class="triad"><div class="thai">เราไปสยามด้วยกันไหมคะ</div><div class="roman">rao bpai sà-yǎam dûai-gan mái khá</div><div class="eng">Shall we go to Siam together?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เท่ากัน</div><div class="roman">thâo-gan</div><div class="eng">equal / the same amount</div></div></td>
+          <td>Quantity comparison</td>
+          <td>—</td>
+          <td>用於數量、價格、大小、時間長度一樣。</td>
+          <td><div class="triad"><div class="thai">ราคาเท่ากัน / จำนวนเท่ากัน / สูงเท่ากัน</div><div class="roman">raa-khaa thâo-gan / jam-nuan thâo-gan / sǔung thâo-gan</div><div class="eng">same price / same quantity / same height</div></div></td>
+          <td><div class="triad"><div class="thai">กาแฟสองแก้วนี้ราคาเท่ากันค่ะ</div><div class="roman">gaa-fɛɛ sɔ̌ɔng gâew níi raa-khaa thâo-gan khâ</div><div class="eng">These two coffees have the same price.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พร้อมกัน</div><div class="roman">phrɔ́ɔm-gan</div><div class="eng">at the same time / together simultaneously</div></div></td>
+          <td>Time / action</td>
+          <td>—</td>
+          <td>重點是「同時發生」，不是單純一起。</td>
+          <td><div class="triad"><div class="thai">ออกพร้อมกัน / ถึงพร้อมกัน / เริ่มพร้อมกัน</div><div class="roman">ɔ̀ɔk phrɔ́ɔm-gan / thʉ̌ng phrɔ́ɔm-gan / rə̂əm phrɔ́ɔm-gan</div><div class="eng">leave at the same time / arrive at the same time / start at the same time</div></div></td>
+          <td><div class="triad"><div class="thai">เราจะออกจากบ้านพร้อมกันตอนแปดโมงค่ะ</div><div class="roman">rao jà ɔ̀ɔk-jàak bâan phrɔ́ɔm-gan dtɔɔn bpɛ̀ɛt moong khâ</div><div class="eng">We will leave home at the same time at 8 o’clock.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เดียวกัน</div><div class="roman">diao-gan</div><div class="eng">the same one / same specific item</div></div></td>
+          <td>Identity / same specific item</td>
+          <td>—</td>
+          <td>用於同一個房間、同一瓶水、同一班車。教材提醒：N + Clf. + เดียวกัน。</td>
+          <td><div class="triad"><div class="thai">ห้องเดียวกัน / ขวดเดียวกัน / สายเดียวกัน</div><div class="roman">hɔ̂ng diao-gan / khùat diao-gan / sǎai diao-gan</div><div class="eng">same room / same bottle / same line</div></div></td>
+          <td><div class="triad"><div class="thai">เราอยู่ห้องเดียวกันค่ะ</div><div class="roman">rao yùu hɔ̂ng diao-gan khâ</div><div class="eng">We are in the same room.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Transport & City Facilities｜交通與城市設施</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ถนน</div><div class="roman">thà-nǒn</div><div class="eng">road / street</div></div></td>
+          <td>City place</td>
+          <td>—</td>
+          <td>道路名常用 <span class="thai">ถนน</span>。在曼谷地址很常見。</td>
+          <td><div class="triad"><div class="thai">ข้ามถนน / ถนนใหญ่ / ถนนสีลม</div><div class="roman">khâam thà-nǒn / thà-nǒn yài / thà-nǒn sǐi-lom</div><div class="eng">cross the road / big road / Silom Road</div></div></td>
+          <td><div class="triad"><div class="thai">ต้องข้ามถนนตรงทางม้าลายค่ะ</div><div class="roman">dtɔ̂ng khâam thà-nǒn dtrong thaang-máa-laai khâ</div><div class="eng">You have to cross the road at the zebra crossing.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ทางม้าลาย</div><div class="roman">thaang-máa-laai</div><div class="eng">zebra crossing / crosswalk</div></div></td>
+          <td>Road facility</td>
+          <td>—</td>
+          <td>字面像「斑馬路」。教材頁 7 的路口圖有標示。</td>
+          <td><div class="triad"><div class="thai">ข้ามทางม้าลาย / อยู่ตรงทางม้าลาย</div><div class="roman">khâam thaang-máa-laai / yùu dtrong thaang-máa-laai</div><div class="eng">cross at the zebra crossing / be at the crosswalk</div></div></td>
+          <td><div class="triad"><div class="thai">ข้ามทางม้าลายปลอดภัยกว่าค่ะ</div><div class="roman">khâam thaang-máa-laai bplɔ̀ɔt-phai gwàa khâ</div><div class="eng">Crossing at the zebra crossing is safer.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สะพานลอย</div><div class="roman">sà-phaan-lɔɔi</div><div class="eng">pedestrian bridge / overpass</div></div></td>
+          <td>Road facility</td>
+          <td><span class="classifier-chip">สะพาน</span></td>
+          <td>曼谷大馬路很常見。比直接穿越馬路安全。</td>
+          <td><div class="triad"><div class="thai">ขึ้นสะพานลอย / ข้ามสะพานลอย / ลงสะพานลอย</div><div class="roman">khʉ̂n sà-phaan-lɔɔi / khâam sà-phaan-lɔɔi / long sà-phaan-lɔɔi</div><div class="eng">go up the overpass / cross the overpass / go down the overpass</div></div></td>
+          <td><div class="triad"><div class="thai">ถนนนี้รถเยอะ ควรข้ามสะพานลอยค่ะ</div><div class="roman">thà-nǒn níi rót yə́, khuan khâam sà-phaan-lɔɔi khâ</div><div class="eng">There are many cars on this road, so you should cross by the overpass.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ป้ายรถเมล์</div><div class="roman">bpâai rót-mee</div><div class="eng">bus stop</div></div></td>
+          <td>Transport place</td>
+          <td><span class="classifier-chip">ป้าย</span></td>
+          <td><span class="thai">ป้าย</span> 是牌子、站牌。教材路口圖有站牌。</td>
+          <td><div class="triad"><div class="thai">รอที่ป้ายรถเมล์ / ป้ายรถเมล์อยู่ไหน</div><div class="roman">rɔɔ thîi bpâai rót-mee / bpâai rót-mee yùu nǎi</div><div class="eng">wait at the bus stop / where is the bus stop?</div></div></td>
+          <td><div class="triad"><div class="thai">ป้ายรถเมล์อยู่หน้าปากซอยค่ะ</div><div class="roman">bpâai rót-mee yùu nâa bpàak-sɔɔi khâ</div><div class="eng">The bus stop is at the entrance of the soi.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ไฟเขียว / ไฟแดง</div><div class="roman">fai-khǐao / fai-dɛɛng</div><div class="eng">green light / red light</div></div></td>
+          <td>Traffic signal</td>
+          <td>—</td>
+          <td>教材圖中有紅綠燈。<span class="thai">ไฟ</span> 是燈；<span class="thai">เขียว</span> 綠；<span class="thai">แดง</span> 紅。</td>
+          <td><div class="triad"><div class="thai">รอไฟเขียว / ติดไฟแดง / ข้ามตอนไฟเขียว</div><div class="roman">rɔɔ fai-khǐao / dtìt fai-dɛɛng / khâam dtɔɔn fai-khǐao</div><div class="eng">wait for green light / stuck at a red light / cross when the light is green</div></div></td>
+          <td><div class="triad"><div class="thai">รอไฟเขียวก่อนค่อยข้ามถนนนะคะ</div><div class="roman">rɔɔ fai-khǐao gɔ̀ɔn khɔ̂i khâam thà-nǒn ná khá</div><div class="eng">Wait for the green light first, then cross the road.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คลอง / แม่น้ำ</div><div class="roman">khlɔɔng / mâe-náam</div><div class="eng">canal / river</div></div></td>
+          <td>Waterway</td>
+          <td>—</td>
+          <td>教材頁 8 有碼頭、คลอง、แม่น้ำ。曼谷交通也會用船。</td>
+          <td><div class="triad"><div class="thai">คลองแสนแสบ / แม่น้ำเจ้าพระยา / ริมแม่น้ำ</div><div class="roman">khlɔɔng sɛ̌ɛn-sɛ̀ɛp / mâe-náam jâo-phrá-yaa / rim mâe-náam</div><div class="eng">Saen Saep canal / Chao Phraya River / riverside</div></div></td>
+          <td><div class="triad"><div class="thai">วัดอรุณอยู่ริมแม่น้ำเจ้าพระยาค่ะ</div><div class="roman">wát à-run yùu rim mâe-náam jâo-phrá-yaa khâ</div><div class="eng">Wat Arun is by the Chao Phraya River.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ท่าเรือ</div><div class="roman">thâa-rʉa</div><div class="eng">pier / boat pier</div></div></td>
+          <td>Transport place</td>
+          <td><span class="classifier-chip">ท่า</span></td>
+          <td>搭船地點。曼谷河邊、คลอง 船都會用到。</td>
+          <td><div class="triad"><div class="thai">ขึ้นเรือที่ท่าเรือ / ท่าเรืออยู่ไหน</div><div class="roman">khʉ̂n rʉa thîi thâa-rʉa / thâa-rʉa yùu nǎi</div><div class="eng">get on a boat at the pier / where is the pier?</div></div></td>
+          <td><div class="triad"><div class="thai">ท่าเรืออยู่ข้างหลังตลาดค่ะ</div><div class="roman">thâa-rʉa yùu khâang-lǎng dtà-làat khâ</div><div class="eng">The pier is behind the market.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Transport Vehicles｜交通工具</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถ</div><div class="roman">rót</div><div class="eng">car / vehicle</div></div></td>
+          <td>Vehicle</td>
+          <td><span class="classifier-chip">คัน</span></td>
+          <td>車輛總稱，也可指車子。</td>
+          <td><div class="triad"><div class="thai">ขึ้นรถ / ลงรถ / รถติด</div><div class="roman">khʉ̂n rót / long rót / rót-dtìt</div><div class="eng">get in/on a vehicle / get off / traffic jam</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้รถติดมากค่ะ</div><div class="roman">wan-níi rót-dtìt mâak khâ</div><div class="eng">The traffic is very bad today.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถเมล์</div><div class="roman">rót-mee</div><div class="eng">bus</div></div></td>
+          <td>Vehicle</td>
+          <td><span class="classifier-chip">คัน</span></td>
+          <td>一般公車。搭公車說 <span class="thai">ขึ้นรถเมล์</span>。</td>
+          <td><div class="triad"><div class="thai">ขึ้นรถเมล์ / รอรถเมล์ / ป้ายรถเมล์</div><div class="roman">khʉ̂n rót-mee / rɔɔ rót-mee / bpâai rót-mee</div><div class="eng">take a bus / wait for the bus / bus stop</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันรอรถเมล์นานมากค่ะ</div><div class="roman">chǎn rɔɔ rót-mee naan mâak khâ</div><div class="eng">I waited for the bus for a very long time.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">มอเตอร์ไซค์</div><div class="roman">mɔɔ-dtəə-sai</div><div class="eng">motorcycle</div></div></td>
+          <td>Vehicle</td>
+          <td><span class="classifier-chip">คัน</span></td>
+          <td>曼谷常見交通。摩托計程車常說 <span class="thai">วินมอเตอร์ไซค์</span>。</td>
+          <td><div class="triad"><div class="thai">นั่งมอเตอร์ไซค์ / เรียกวิน / วินมอเตอร์ไซค์</div><div class="roman">nâng mɔɔ-dtəə-sai / rîak win / win mɔɔ-dtəə-sai</div><div class="eng">ride a motorcycle / call a motorbike taxi / motorbike taxi stand</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้ารีบมาก นั่งวินมอเตอร์ไซค์เร็วกว่าไหมคะ</div><div class="roman">thâa rîip mâak, nâng win mɔɔ-dtəə-sai rew gwàa mái khá</div><div class="eng">If we are in a hurry, is taking a motorbike taxi faster?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">จักรยาน</div><div class="roman">jàk-grà-yaan</div><div class="eng">bicycle</div></div></td>
+          <td>Vehicle</td>
+          <td><span class="classifier-chip">คัน</span></td>
+          <td>腳踏車也屬於車類，用 <span class="thai">คัน</span>。</td>
+          <td><div class="triad"><div class="thai">ขี่จักรยาน / จักรยานหนึ่งคัน</div><div class="roman">khìi jàk-grà-yaan / jàk-grà-yaan nʉ̀eng khan</div><div class="eng">ride a bicycle / one bicycle</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอยากขี่จักรยานในสวนค่ะ</div><div class="roman">chǎn yàak khìi jàk-grà-yaan nai sǔan khâ</div><div class="eng">I want to ride a bicycle in the park.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เครื่องบิน</div><div class="roman">khrʉ̂ang-bin</div><div class="eng">airplane</div></div></td>
+          <td>Vehicle</td>
+          <td><span class="classifier-chip">ลำ</span></td>
+          <td>飛機、船類常用 <span class="thai">ลำ</span>。</td>
+          <td><div class="triad"><div class="thai">ขึ้นเครื่องบิน / สนามบิน / เครื่องบินลำนี้</div><div class="roman">khʉ̂n khrʉ̂ang-bin / sà-nǎam-bin / khrʉ̂ang-bin lam níi</div><div class="eng">board a plane / airport / this airplane</div></div></td>
+          <td><div class="triad"><div class="thai">พรุ่งนี้ฉันจะขึ้นเครื่องบินไปเชียงใหม่ค่ะ</div><div class="roman">phrûng-níi chǎn jà khʉ̂n khrʉ̂ang-bin bpai chiiang-mài khâ</div><div class="eng">Tomorrow I will take a plane to Chiang Mai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เรือ</div><div class="roman">rʉa</div><div class="eng">boat</div></div></td>
+          <td>Vehicle</td>
+          <td><span class="classifier-chip">ลำ</span></td>
+          <td>搭船說 <span class="thai">ขึ้นเรือ</span>。曼谷河邊/คลอง 很實用。</td>
+          <td><div class="triad"><div class="thai">ขึ้นเรือ / ท่าเรือ / เรือหนึ่งลำ</div><div class="roman">khʉ̂n rʉa / thâa-rʉa / rʉa nʉ̀eng lam</div><div class="eng">take a boat / pier / one boat</div></div></td>
+          <td><div class="triad"><div class="thai">เราจะขึ้นเรือที่ท่าเรือนี้ค่ะ</div><div class="roman">rao jà khʉ̂n rʉa thîi thâa-rʉa níi khâ</div><div class="eng">We will take the boat at this pier.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถไฟ</div><div class="roman">rót-fai</div><div class="eng">train</div></div></td>
+          <td>Vehicle</td>
+          <td><span class="classifier-chip">ขบวน</span></td>
+          <td>列車用 <span class="thai">ขบวน</span>，一列火車。</td>
+          <td><div class="triad"><div class="thai">สถานีรถไฟ / ขึ้นรถไฟ / รถไฟขบวนนี้</div><div class="roman">sà-thǎa-nii rót-fai / khʉ̂n rót-fai / rót-fai khà-buan níi</div><div class="eng">train station / take a train / this train</div></div></td>
+          <td><div class="triad"><div class="thai">รถไฟขบวนนี้ไปหัวลำโพงค่ะ</div><div class="roman">rót-fai khà-buan níi bpai hǔa-lam-phoong khâ</div><div class="eng">This train goes to Hua Lamphong.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถไฟฟ้า</div><div class="roman">rót-fai-fáa</div><div class="eng">electric train / skytrain</div></div></td>
+          <td>Vehicle / urban rail</td>
+          <td><span class="classifier-chip">ขบวน / สาย</span></td>
+          <td>可指 BTS/MRT 這類城市軌道交通。路線用 <span class="thai">สาย</span>，列車用 <span class="thai">ขบวน</span>。</td>
+          <td><div class="triad"><div class="thai">ขึ้นรถไฟฟ้า / สถานีรถไฟฟ้า / รถไฟฟ้าสายสีลม</div><div class="roman">khʉ̂n rót-fai-fáa / sà-thǎa-nii rót-fai-fáa / rót-fai-fáa sǎai sǐi-lom</div><div class="eng">take the train / train station / Silom Line</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันไปเรียนโดยรถไฟฟ้าค่ะ</div><div class="roman">chǎn bpai rian dooi rót-fai-fáa khâ</div><div class="eng">I go to class by skytrain/electric train.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">รถไฟฟ้าใต้ดิน</div><div class="roman">rót-fai-fáa dtâai-din</div><div class="eng">underground train / subway</div></div></td>
+          <td>Vehicle / MRT</td>
+          <td><span class="classifier-chip">ขบวน / สาย</span></td>
+          <td>字面是「地下電車」。曼谷常指 MRT。</td>
+          <td><div class="triad"><div class="thai">ขึ้น MRT / รถไฟฟ้าใต้ดินสายสีน้ำเงิน</div><div class="roman">khʉ̂n em-aa-thii / rót-fai-fáa dtâai-din sǎai sǐi náam-ngən</div><div class="eng">take the MRT / Blue Line MRT</div></div></td>
+          <td><div class="triad"><div class="thai">บางทีนั่งรถไฟฟ้าใต้ดินสะดวกกว่าค่ะ</div><div class="roman">baang-thii nâng rót-fai-fáa dtâai-din sà-dùak gwàa khâ</div><div class="eng">Sometimes taking the subway is more convenient.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why this classifier is used</th>
+          <th>Correct Example</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">คัน</span><div class="triad"><div class="thai">คัน</div><div class="roman">khan</div><div class="eng">classifier for vehicles with wheels</div></div></td>
+          <td><div class="triad"><div class="thai">รถ / รถเมล์ / มอเตอร์ไซค์ / จักรยาน</div><div class="roman">rót / rót-mee / mɔɔ-dtəə-sai / jàk-grà-yaan</div><div class="eng">car / bus / motorcycle / bicycle</div></div></td>
+          <td>有輪子的車輛常用。</td>
+          <td><div class="triad"><div class="thai">รถเมล์หนึ่งคัน</div><div class="roman">rót-mee nʉ̀eng khan</div><div class="eng">one bus</div></div></td>
+          <td><span class="label warn">Common mistake</span> 不要把公車說成 <span class="thai">รถเมล์หนึ่งขบวน</span>。<span class="thai">ขบวน</span> 是列車。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ลำ</span><div class="triad"><div class="thai">ลำ</div><div class="roman">lam</div><div class="eng">classifier for planes and boats</div></div></td>
+          <td><div class="triad"><div class="thai">เครื่องบิน / เรือ</div><div class="roman">khrʉ̂ang-bin / rʉa</div><div class="eng">airplane / boat</div></div></td>
+          <td>飛機、船這類長形大型交通工具常用。</td>
+          <td><div class="triad"><div class="thai">เรือหนึ่งลำ</div><div class="roman">rʉa nʉ̀eng lam</div><div class="eng">one boat</div></div></td>
+          <td><span class="label warn">Common mistake</span> 飛機不要用 <span class="thai">คัน</span>，本課先記 <span class="thai">เครื่องบินหนึ่งลำ</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ขบวน</span><div class="triad"><div class="thai">ขบวน</div><div class="roman">khà-buan</div><div class="eng">classifier for trains / processions</div></div></td>
+          <td><div class="triad"><div class="thai">รถไฟ / รถไฟฟ้า / รถไฟฟ้าใต้ดิน</div><div class="roman">rót-fai / rót-fai-fáa / rót-fai-fáa dtâai-din</div><div class="eng">train / BTS-like train / underground train</div></div></td>
+          <td>一列火車、一班列車用。</td>
+          <td><div class="triad"><div class="thai">รถไฟฟ้าขบวนนี้คนเยอะค่ะ</div><div class="roman">rót-fai-fáa khà-buan níi khon yə́ khâ</div><div class="eng">This train is crowded.</div></div></td>
+          <td><span class="label warn">Common mistake</span> 路線不是 <span class="thai">ขบวน</span>，路線用 <span class="thai">สาย</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">สาย</span><div class="triad"><div class="thai">สาย</div><div class="roman">sǎai</div><div class="eng">line / route / classifier for routes</div></div></td>
+          <td><div class="triad"><div class="thai">รถไฟฟ้าสายสีลม / รถเมล์สาย 8 / สายสีน้ำเงิน</div><div class="roman">rót-fai-fáa sǎai sǐi-lom / rót-mee sǎai bpɛ̀ɛt / sǎai sǐi náam-ngən</div><div class="eng">Silom Line / bus route 8 / Blue Line</div></div></td>
+          <td>路線、線路用。</td>
+          <td><div class="triad"><div class="thai">ฉันขึ้นรถไฟฟ้าสายสีลมค่ะ</div><div class="roman">chǎn khʉ̂n rót-fai-fáa sǎai sǐi-lom khâ</div><div class="eng">I take the Silom Line.</div></div></td>
+          <td><span class="label warn">Common mistake</span> <span class="thai">สาย</span> 也有 late 的意思，靠上下文判斷。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ป้าย</span><div class="triad"><div class="thai">ป้าย</div><div class="roman">bpâai</div><div class="eng">sign / stop marker</div></div></td>
+          <td><div class="triad"><div class="thai">ป้ายรถเมล์ / ป้ายทางออก / ป้ายชื่อ</div><div class="roman">bpâai rót-mee / bpâai thaang-ɔ̀ɔk / bpâai chʉ̂ʉ</div><div class="eng">bus stop / exit sign / name tag</div></div></td>
+          <td>牌子、站牌用。</td>
+          <td><div class="triad"><div class="thai">ป้ายรถเมล์อยู่ตรงนั้นค่ะ</div><div class="roman">bpâai rót-mee yùu dtrong-nán khâ</div><div class="eng">The bus stop is over there.</div></div></td>
+          <td>不要把 <span class="thai">ป้ายรถเมล์</span> 理解成車，是「站牌」。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ท่า</span><div class="triad"><div class="thai">ท่า</div><div class="roman">thâa</div><div class="eng">pier / terminal / port-like stop</div></div></td>
+          <td><div class="triad"><div class="thai">ท่าเรือ</div><div class="roman">thâa-rʉa</div><div class="eng">pier</div></div></td>
+          <td>上船/下船的地點。</td>
+          <td><div class="triad"><div class="thai">ท่าเรือนี้คนเยอะค่ะ</div><div class="roman">thâa-rʉa níi khon yə́ khâ</div><div class="eng">This pier is crowded.</div></div></td>
+          <td>搭船說 <span class="thai">ขึ้นเรือที่ท่าเรือ</span>，不是 <span class="thai">สถานีเรือ</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>交通量詞速記：</strong>
+      有輪子的車多用
+      <span class="thai">คัน</span> /
+      <span class="roman">khan</span> /
+      <span class="eng">vehicle classifier</span>；
+      飛機、船用
+      <span class="thai">ลำ</span> /
+      <span class="roman">lam</span> /
+      <span class="eng">plane/boat classifier</span>；
+      火車、捷運列車用
+      <span class="thai">ขบวน</span> /
+      <span class="roman">khà-buan</span> /
+      <span class="eng">train classifier</span>；
+      路線用
+      <span class="thai">สาย</span> /
+      <span class="roman">sǎai</span> /
+      <span class="eng">line/route</span>。
+    </div>
+  </section>
+
+  <section id="supplement" class="tab-content">
+    <h2>Supplement｜本課重點補充</h2>
+
+    <h3>ก่อน / หลัง｜before / after 的三種用法</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Meaning</th>
+          <th>Textbook-style Example</th>
+          <th>Bangkok Life Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">S + V1 + ก่อน + V2</div><div class="roman">S + V1 + gɔ̀ɔn + V2</div><div class="eng">do V1 before V2</div></div></td>
+          <td>先做 V1，再做 V2。</td>
+          <td><div class="triad"><div class="thai">ฉันอาบน้ำก่อนนอนค่ะ</div><div class="roman">chǎn àap-náam gɔ̀ɔn nɔɔn khâ</div><div class="eng">I shower before sleeping.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันซื้อกาแฟก่อนขึ้นรถไฟฟ้าค่ะ</div><div class="roman">chǎn sʉ́ʉ gaa-fɛɛ gɔ̀ɔn khʉ̂n rót-fai-fáa khâ</div><div class="eng">I buy coffee before getting on the BTS.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">S + V2 + หลัง + V1</div><div class="roman">S + V2 + lǎng + V1</div><div class="eng">do V2 after V1</div></div></td>
+          <td>先做 V1，再做 V2；只是句子角度反過來。</td>
+          <td><div class="triad"><div class="thai">ฉันนอนหลังอาบน้ำค่ะ</div><div class="roman">chǎn nɔɔn lǎng àap-náam khâ</div><div class="eng">I sleep after showering.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันกินข้าวหลังเลิกเรียนค่ะ</div><div class="roman">chǎn gin khâao lǎng lə̂ək-rian khâ</div><div class="eng">I eat after class.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">S + V + ก่อน / หลัง + time</div><div class="roman">S + V + gɔ̀ɔn / lǎng + time</div><div class="eng">do something before / after a time</div></div></td>
+          <td>和時間點比較。</td>
+          <td><div class="triad"><div class="thai">ฉันมาถึงโรงเรียนก่อนเก้าโมงค่ะ</div><div class="roman">chǎn maa-thʉ̌ng rooŋ-rian gɔ̀ɔn gâo moong khâ</div><div class="eng">I arrive at school before 9 o’clock.</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันถึงสถานีพร้อมกันกับเพื่อนหลังแปดโมงค่ะ</div><div class="roman">chǎn thʉ̌ng sà-thǎa-nii phrɔ́ɔm-gan gàp phʉ̂an lǎng bpɛ̀ɛt moong khâ</div><div class="eng">I arrived at the station at the same time as my friend after 8 o’clock.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>理解技巧：</strong>
+      <span class="thai">ก่อน</span> 看左邊動作先發生；
+      <span class="thai">หลัง</span> 看右邊動作先發生。初學時可以先用中文想：
+      「A ก่อน B」= A 在 B 之前；
+      「A หลัง B」= A 在 B 之後。
+    </div>
+
+    <h3>สาย / ไม่สาย｜遲到與不遲到</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Expression</th>
+          <th>Thai / Romanization / English</th>
+          <th>Usage</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Late</td>
+          <td><div class="triad"><div class="thai">สาย</div><div class="roman">sǎai</div><div class="eng">late</div></div></td>
+          <td>比預定時間晚。</td>
+          <td><div class="triad"><div class="thai">ฉันไปเรียนสายค่ะ</div><div class="roman">chǎn bpai rian sǎai khâ</div><div class="eng">I was late for class.</div></div></td>
+        </tr>
+        <tr>
+          <td>Not late</td>
+          <td><div class="triad"><div class="thai">ไม่สาย</div><div class="roman">mâi sǎai</div><div class="eng">not late</div></div></td>
+          <td>還沒遲到。</td>
+          <td><div class="triad"><div class="thai">ถ้าออกตอนนี้ ยังไม่สายค่ะ</div><div class="roman">thâa ɔ̀ɔk dtɔɔn-níi, yang mâi sǎai khâ</div><div class="eng">If we leave now, we are still not late.</div></div></td>
+        </tr>
+        <tr>
+          <td>Already late</td>
+          <td><div class="triad"><div class="thai">สายแล้ว</div><div class="roman">sǎai lɛ́ɛw</div><div class="eng">already late</div></div></td>
+          <td>已經晚了，帶急迫感。</td>
+          <td><div class="triad"><div class="thai">รีบหน่อยค่ะ สายแล้ว</div><div class="roman">rîip nòi khâ, sǎai lɛ́ɛw</div><div class="eng">Please hurry. We’re already late.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>เหมือนกัน / ด้วยกัน / เท่ากัน / พร้อมกัน / เดียวกัน｜五個 gan 的差異</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Expression</th>
+          <th>Core Meaning</th>
+          <th>Example</th>
+          <th>Do not confuse with...</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เหมือนกัน</div><div class="roman">mʉ̌an-gan</div><div class="eng">same / alike / too</div></div></td>
+          <td>性質、喜好、狀態一樣。</td>
+          <td><div class="triad"><div class="thai">เราชอบกาแฟเหมือนกันค่ะ</div><div class="roman">rao chɔ̂ɔp gaa-fɛɛ mʉ̌an-gan khâ</div><div class="eng">We both like coffee.</div></div></td>
+          <td><span class="thai">เดียวกัน</span> 是同一個具體東西，不只是相似。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ด้วยกัน</div><div class="roman">dûai-gan</div><div class="eng">together</div></div></td>
+          <td>一起做某動作。</td>
+          <td><div class="triad"><div class="thai">เราไปเรียนด้วยกันค่ะ</div><div class="roman">rao bpai rian dûai-gan khâ</div><div class="eng">We go to class together.</div></div></td>
+          <td><span class="thai">พร้อมกัน</span> 強調同時，不一定只是一起。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เท่ากัน</div><div class="roman">thâo-gan</div><div class="eng">equal / same amount</div></div></td>
+          <td>數量、價格、大小一樣。</td>
+          <td><div class="triad"><div class="thai">เราจ่ายเงินเท่ากันค่ะ</div><div class="roman">rao jàai ngoen thâo-gan khâ</div><div class="eng">We pay the same amount.</div></div></td>
+          <td>不要用在「一起去」，一起去是 <span class="thai">ไปด้วยกัน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">พร้อมกัน</div><div class="roman">phrɔ́ɔm-gan</div><div class="eng">at the same time</div></div></td>
+          <td>同時發生。</td>
+          <td><div class="triad"><div class="thai">เราถึงสถานีพร้อมกันค่ะ</div><div class="roman">rao thʉ̌ng sà-thǎa-nii phrɔ́ɔm-gan khâ</div><div class="eng">We arrived at the station at the same time.</div></div></td>
+          <td>一起做但不同時間，不一定用 <span class="thai">พร้อมกัน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เดียวกัน</div><div class="roman">diao-gan</div><div class="eng">the same specific one</div></div></td>
+          <td>同一個具體物件、地點、班次、路線。</td>
+          <td><div class="triad"><div class="thai">เราอยู่ห้องเดียวกันค่ะ</div><div class="roman">rao yùu hɔ̂ng diao-gan khâ</div><div class="eng">We are in the same room.</div></div></td>
+          <td><span class="thai">เหมือนกัน</span> 是相似/一樣；<span class="thai">เดียวกัน</span> 是同一個。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Road Map Words｜路口圖常見詞</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Scene</th>
+          <th>Thai / Romanization / English</th>
+          <th>Practical Sentence</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Zebra crossing</td>
+          <td><div class="triad"><div class="thai">ทางม้าลาย</div><div class="roman">thaang-máa-laai</div><div class="eng">crosswalk / zebra crossing</div></div></td>
+          <td><div class="triad"><div class="thai">ข้ามถนนตรงทางม้าลายค่ะ</div><div class="roman">khâam thà-nǒn dtrong thaang-máa-laai khâ</div><div class="eng">Cross the road at the crosswalk.</div></div></td>
+          <td>曼谷路口超實用。</td>
+        </tr>
+
+        <tr>
+          <td>Overpass</td>
+          <td><div class="triad"><div class="thai">สะพานลอย</div><div class="roman">sà-phaan-lɔɔi</div><div class="eng">pedestrian bridge / overpass</div></div></td>
+          <td><div class="triad"><div class="thai">เดินขึ้นสะพานลอยแล้วข้ามไปอีกฝั่งค่ะ</div><div class="roman">dəən khʉ̂n sà-phaan-lɔɔi lɛ́ɛw khâam bpai ìik fàŋ khâ</div><div class="eng">Walk up the overpass and cross to the other side.</div></div></td>
+          <td>比穿越大馬路安全。</td>
+        </tr>
+
+        <tr>
+          <td>Traffic light</td>
+          <td><div class="triad"><div class="thai">ไฟเขียว / ไฟแดง</div><div class="roman">fai-khǐao / fai-dɛɛng</div><div class="eng">green light / red light</div></div></td>
+          <td><div class="triad"><div class="thai">รอไฟเขียวก่อนนะคะ</div><div class="roman">rɔɔ fai-khǐao gɔ̀ɔn ná khá</div><div class="eng">Wait for the green light first.</div></div></td>
+          <td><span class="thai">ก่อน</span> 在這裡是「先」。</td>
+        </tr>
+
+        <tr>
+          <td>Bus stop</td>
+          <td><div class="triad"><div class="thai">ป้ายรถเมล์</div><div class="roman">bpâai rót-mee</div><div class="eng">bus stop</div></div></td>
+          <td><div class="triad"><div class="thai">ป้ายรถเมล์อยู่ข้างหน้าห้างค่ะ</div><div class="roman">bpâai rót-mee yùu khâang-nâa hâang khâ</div><div class="eng">The bus stop is in front of the mall.</div></div></td>
+          <td><span class="label review">Review</span> Day 8 的 <span class="thai">ข้างหน้า</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Airports, Bus Terminals, Train Stations｜交通樞紐</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Place Type</th>
+          <th>Thai / Romanization / English</th>
+          <th>Examples from Bangkok / Thailand</th>
+          <th>Useful Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Airport</td>
+          <td><div class="triad"><div class="thai">สนามบิน</div><div class="roman">sà-nǎam-bin</div><div class="eng">airport</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ดอนเมือง / สุวรรณภูมิ</div><div class="roman">dɔɔn-mʉang / sù-wan-ná-phuum</div><div class="eng">Don Mueang / Suvarnabhumi</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">ฉันจะไปสนามบินสุวรรณภูมิค่ะ</div><div class="roman">chǎn jà bpai sà-nǎam-bin sù-wan-ná-phuum khâ</div><div class="eng">I will go to Suvarnabhumi Airport.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Bus / van terminal</td>
+          <td><div class="triad"><div class="thai">สถานีขนส่ง</div><div class="roman">sà-thǎa-nii khǒn-sòng</div><div class="eng">bus terminal / transport station</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">เอกมัย / หมอชิต / สายใต้</div><div class="roman">èek-gà-mǎi / mɔ̌ɔ-chít / sǎai-dtâai</div><div class="eng">Ekkamai / Mo Chit / Southern Bus Terminal</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">รถตู้ไปพัทยาออกจากเอกมัยค่ะ</div><div class="roman">rót-dtûu bpai phát-thá-yaa ɔ̀ɔk-jàak èek-gà-mǎi khâ</div><div class="eng">The van to Pattaya departs from Ekkamai.</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Train station</td>
+          <td><div class="triad"><div class="thai">สถานีรถไฟ</div><div class="roman">sà-thǎa-nii rót-fai</div><div class="eng">train station</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">สถานีรถไฟหัวลำโพง</div><div class="roman">sà-thǎa-nii rót-fai hǔa-lam-phoong</div><div class="eng">Hua Lamphong Railway Station</div></div>
+          </td>
+          <td><div class="triad"><div class="thai">สถานีรถไฟหัวลำโพงอยู่ไม่ไกลจากเยาวราชค่ะ</div><div class="roman">sà-thǎa-nii rót-fai hǔa-lam-phoong yùu mâi glai jàak yao-wá-râat khâ</div><div class="eng">Hua Lamphong Railway Station is not far from Yaowarat.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>Structure｜เมื่อก่อน... แต่ตอนนี้...：以前……但現在……</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เมื่อก่อน + Clause A, แต่ตอนนี้ + Clause B</div>
+        <div class="roman">mʉ̂a-gɔ̀ɔn + Clause A, dtɛ̀ɛ dtɔɔn-níi + Clause B</div>
+        <div class="eng">Before, A; but now, B.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เมื่อก่อนกรุงเทพฯ ไม่มีรถไฟฟ้า แต่ตอนนี้กรุงเทพฯ มีรถไฟฟ้าค่ะ</div><div class="roman">mʉ̂a-gɔ̀ɔn grung-thêep mâi-mii rót-fai-fáa, dtɛ̀ɛ dtɔɔn-níi grung-thêep mii rót-fai-fáa khâ</div><div class="eng">Before Bangkok did not have electric trains, but now Bangkok has electric trains.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">เมื่อก่อนฉันไม่ค่อยขึ้นรถเมล์ แต่ตอนนี้ฉันขึ้นรถไฟฟ้าทุกวันค่ะ</div><div class="roman">mʉ̂a-gɔ̀ɔn chǎn mâi khɔ̂i khʉ̂n rót-mee, dtɛ̀ɛ dtɔɔn-níi chǎn khʉ̂n rót-fai-fáa thúk wan khâ</div><div class="eng">Before I rarely took the bus, but now I take the BTS every day.</div></div>
+            <div class="triad"><div class="thai">เมื่อก่อนแถวนี้ไม่มีคาเฟ่ แต่ตอนนี้มีเยอะมากค่ะ</div><div class="roman">mʉ̂a-gɔ̀ɔn thɛ̌ɛo níi mâi-mii khaa-fêe, dtɛ̀ɛ dtɔɔn-níi mii yə́ mâak khâ</div><div class="eng">Before this area didn’t have cafés, but now there are many.</div></div>
+          </td>
+          <td>這個句型很適合描述城市變化、生活習慣變化。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜V1 ก่อน V2：先做 V1 再做 V2</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">S + V1 + ก่อน + V2</div>
+        <div class="roman">S + V1 + gɔ̀ɔn + V2</div>
+        <div class="eng">Subject does V1 before V2.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ฉันปิดไฟก่อนออกจากบ้านค่ะ</div><div class="roman">chǎn bpìt fai gɔ̀ɔn ɔ̀ɔk-jàak bâan khâ</div><div class="eng">I turn off the light before leaving home.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันกินข้าวก่อนเรียนภาษาไทยค่ะ</div><div class="roman">chǎn gin khâao gɔ̀ɔn rian phaa-sǎa-thai khâ</div><div class="eng">I eat before studying Thai.</div></div>
+            <div class="triad"><div class="thai">เราซื้อตั๋วก่อนขึ้นรถไฟค่ะ</div><div class="roman">rao sʉ́ʉ dtǔa gɔ̀ɔn khʉ̂n rót-fai khâ</div><div class="eng">We buy tickets before getting on the train.</div></div>
+            <div class="triad"><div class="thai">รอไฟเขียวก่อนข้ามถนนนะคะ</div><div class="roman">rɔɔ fai-khǐao gɔ̀ɔn khâam thà-nǒn ná khá</div><div class="eng">Wait for the green light before crossing the road.</div></div>
+          </td>
+          <td><span class="thai">ก่อน</span> 前面的動作先發生。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜V2 หลัง V1：做 V2 在 V1 之後</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">S + V2 + หลัง + V1</div>
+        <div class="roman">S + V2 + lǎng + V1</div>
+        <div class="eng">Subject does V2 after V1.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Textbook Example</th>
+          <th>Life Variations</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ฉันนอนหลังอาบน้ำค่ะ</div><div class="roman">chǎn nɔɔn lǎng àap-náam khâ</div><div class="eng">I sleep after showering.</div></div></td>
+          <td>
+            <div class="triad"><div class="thai">ฉันไปคาเฟ่หลังเรียนค่ะ</div><div class="roman">chǎn bpai khaa-fêe lǎng rian khâ</div><div class="eng">I go to a café after class.</div></div>
+            <div class="triad"><div class="thai">เราไปกินข้าวหลังดูหนังค่ะ</div><div class="roman">rao bpai gin khâao lǎng duu nǎng khâ</div><div class="eng">We go eat after watching a movie.</div></div>
+            <div class="triad"><div class="thai">ฉันกลับบ้านหลังทำงานค่ะ</div><div class="roman">chǎn glàp bâan lǎng tham-ngaan khâ</div><div class="eng">I go home after work.</div></div>
+          </td>
+          <td><span class="thai">หลัง</span> 後面的動作先發生。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure｜N1 กับ N2 + เหมือนกัน / ด้วยกัน / เท่ากัน / พร้อมกัน</h3>
+    <div class="pattern">
+      <div class="triad">
+        <div class="thai">N1 กับ N2 + phrase + กัน</div>
+        <div class="roman">N1 gàp N2 + phrase + gan</div>
+        <div class="eng">N1 and N2 have/do something mutually / together / equally.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Expression</th>
+          <th>Example</th>
+          <th>中文說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เหมือนกัน</div><div class="roman">mʉ̌an-gan</div><div class="eng">same / alike</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันกับเพื่อนชอบร้านนี้เหมือนกันค่ะ</div><div class="roman">chǎn gàp phʉ̂an chɔ̂ɔp ráan níi mʉ̌an-gan khâ</div><div class="eng">My friend and I both like this shop.</div></div></td>
+          <td>喜好、性質一樣。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ด้วยกัน</div><div class="roman">dûai-gan</div><div class="eng">together</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันกับเพื่อนไปสยามด้วยกันค่ะ</div><div class="roman">chǎn gàp phʉ̂an bpai sà-yǎam dûai-gan khâ</div><div class="eng">My friend and I go to Siam together.</div></div></td>
+          <td>一起做動作。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เท่ากัน</div><div class="roman">thâo-gan</div><div class="eng">equal / same amount</div></div></td>
+          <td><div class="triad"><div class="thai">เราจ่ายค่าแท็กซี่เท่ากันค่ะ</div><div class="roman">rao jàai khâa thɛ́k-sîi thâo-gan khâ</div><div class="eng">We pay the same amount for the taxi.</div></div></td>
+          <td>金額、數量一樣。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">พร้อมกัน</div><div class="roman">phrɔ́ɔm-gan</div><div class="eng">at the same time</div></div></td>
+          <td><div class="triad"><div class="thai">เราถึงสถานีพร้อมกันค่ะ</div><div class="roman">rao thʉ̌ng sà-thǎa-nii phrɔ́ɔm-gan khâ</div><div class="eng">We arrived at the station at the same time.</div></div></td>
+          <td>時間同時。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เดียวกัน</div><div class="roman">diao-gan</div><div class="eng">same specific one</div></div></td>
+          <td><div class="triad"><div class="thai">เราขึ้นรถไฟฟ้าสายเดียวกันค่ะ</div><div class="roman">rao khʉ̂n rót-fai-fáa sǎai diao-gan khâ</div><div class="eng">We take the same train line.</div></div></td>
+          <td>N + classifier + <span class="thai">เดียวกัน</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問會不會遲到</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เราจะไปโรงเรียนสายไหมคะ</div><div class="roman">rao jà bpai rooŋ-rian sǎai mái khá</div><div class="eng">Will we be late for school?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">จะทันไหมคะ</div><div class="roman">jà than mái khá</div><div class="eng">Will we make it in time?</div></div></td>
+          <td><span class="thai">ทัน</span> 很口語，表示趕得上。</td>
+        </tr>
+
+        <tr>
+          <td>催促對方</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">สายแล้วค่ะ</div><div class="roman">sǎai lɛ́ɛw khâ</div><div class="eng">It’s already late.</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">รีบหน่อยค่ะ เดี๋ยวสาย</div><div class="roman">rîip nòi khâ, dǐao sǎai</div><div class="eng">Please hurry, or we’ll be late.</div></div></td>
+          <td><span class="thai">เดี๋ยวสาย</span> = 等一下會遲到。</td>
+        </tr>
+
+        <tr>
+          <td>問要不要一起去</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เราไปด้วยกันไหมคะ</div><div class="roman">rao bpai dûai-gan mái khá</div><div class="eng">Shall we go together?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปด้วยกันไหม</div><div class="roman">bpai dûai-gan mái</div><div class="eng">Go together?</div></div></td>
+          <td>朋友間可省略主詞與禮貌詞；但對老師/店員保留 <span class="thai">ค่ะ</span>。</td>
+        </tr>
+
+        <tr>
+          <td>問是不是同一班車/同一路線</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เราไปสายเดียวกันไหมคะ</div><div class="roman">rao bpai sǎai diao-gan mái khá</div><div class="eng">Are we taking the same line?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">สายเดียวกันใช่ไหมคะ</div><div class="roman">sǎai diao-gan châi mái khá</div><div class="eng">It’s the same line, right?</div></div></td>
+          <td>在 BTS/MRT 很實用。</td>
+        </tr>
+
+        <tr>
+          <td>問巴士站在哪</td>
+          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ป้ายรถเมล์อยู่ที่ไหนคะ</div><div class="roman">bpâai rót-mee yùu thîi-nǎi khá</div><div class="eng">Where is the bus stop?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ป้ายรถเมล์อยู่ไหนคะ</div><div class="roman">bpâai rót-mee yùu nǎi khá</div><div class="eng">Where is the bus stop?</div></div></td>
+          <td><span class="label review">Review</span> Day 8：口語常省略 <span class="thai">ที่</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bangkok" class="tab-content">
+    <h2>Bangkok Expansion｜Real-life Bangkok Situations</h2>
+
+    <h3>BTS / MRT｜捷運：會不會遲到？</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問趕不趕得上</td>
+          <td><div class="triad"><div class="thai">ถ้าออกตอนนี้ จะทันไหมคะ</div><div class="roman">thâa ɔ̀ɔk dtɔɔn-níi, jà than mái khá</div><div class="eng">If we leave now, will we make it in time?</div></div></td>
+          <td><span class="thai">ทัน</span> 比 <span class="thai">ไม่สาย</span> 更像真實口語。</td>
+        </tr>
+        <tr>
+          <td>說會遲到</td>
+          <td><div class="triad"><div class="thai">รถติดมาก น่าจะสายค่ะ</div><div class="roman">rót-dtìt mâak, nâa-jà sǎai khâ</div><div class="eng">Traffic is really bad. I’ll probably be late.</div></div></td>
+          <td><span class="thai">น่าจะ</span> = probably。</td>
+        </tr>
+        <tr>
+          <td>說不會遲到</td>
+          <td><div class="triad"><div class="thai">ไม่สายค่ะ ยังมีเวลา</div><div class="roman">mâi sǎai khâ, yang mii wee-laa</div><div class="eng">We won’t be late. There’s still time.</div></div></td>
+          <td>很適合安撫朋友。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Crossing the Road｜過馬路</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>提醒等綠燈</td>
+          <td><div class="triad"><div class="thai">รอไฟเขียวก่อนค่อยข้ามค่ะ</div><div class="roman">rɔɔ fai-khǐao gɔ̀ɔn khɔ̂i khâam khâ</div><div class="eng">Wait for the green light first, then cross.</div></div></td>
+          <td><span class="thai">ค่อย</span> = then / later after a condition。</td>
+        </tr>
+        <tr>
+          <td>問斑馬線在哪</td>
+          <td><div class="triad"><div class="thai">ทางม้าลายอยู่ตรงไหนคะ</div><div class="roman">thaang-máa-laai yùu dtrong-nǎi khá</div><div class="eng">Where is the crosswalk?</div></div></td>
+          <td><span class="thai">ตรงไหน</span> = exactly where。</td>
+        </tr>
+        <tr>
+          <td>建議走天橋</td>
+          <td><div class="triad"><div class="thai">ข้ามสะพานลอยดีกว่าค่ะ ถนนนี้รถเยอะ</div><div class="roman">khâam sà-phaan-lɔɔi dii gwàa khâ, thà-nǒn níi rót yə́</div><div class="eng">It’s better to cross by the overpass. This road has many cars.</div></div></td>
+          <td>曼谷大馬路非常實用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Bus / Van / Terminal｜公車、小巴、轉運站</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問公車站</td>
+          <td><div class="triad"><div class="thai">ป้ายรถเมล์อยู่ไหนคะ</div><div class="roman">bpâai rót-mee yùu nǎi khá</div><div class="eng">Where is the bus stop?</div></div></td>
+          <td>最實用句。</td>
+        </tr>
+        <tr>
+          <td>問哪一路公車</td>
+          <td><div class="triad"><div class="thai">ต้องขึ้นรถเมล์สายอะไรคะ</div><div class="roman">dtɔ̂ng khʉ̂n rót-mee sǎai à-rai khá</div><div class="eng">Which bus route do I need to take?</div></div></td>
+          <td><span class="thai">สาย</span> = route / line。</td>
+        </tr>
+        <tr>
+          <td>問小巴去不去某地</td>
+          <td><div class="triad"><div class="thai">รถตู้คันนี้ไปพัทยาไหมคะ</div><div class="roman">rót-dtûu khan níi bpai phát-thá-yaa mái khá</div><div class="eng">Does this van go to Pattaya?</div></div></td>
+          <td>交通工具 + classifier + นี้。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Boat & Pier｜搭船 / 碼頭</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問碼頭在哪</td>
+          <td><div class="triad"><div class="thai">ท่าเรืออยู่ที่ไหนคะ</div><div class="roman">thâa-rʉa yùu thîi-nǎi khá</div><div class="eng">Where is the pier?</div></div></td>
+          <td>要搭船時必備。</td>
+        </tr>
+        <tr>
+          <td>問這艘船去哪</td>
+          <td><div class="triad"><div class="thai">เรือลำนี้ไปท่าไหนคะ</div><div class="roman">rʉa lam níi bpai thâa nǎi khá</div><div class="eng">Which pier does this boat go to?</div></div></td>
+          <td><span class="thai">เรือ</span> 用量詞 <span class="thai">ลำ</span>。</td>
+        </tr>
+        <tr>
+          <td>問是否同一艘船</td>
+          <td><div class="triad"><div class="thai">เราอยู่เรือลำเดียวกันไหมคะ</div><div class="roman">rao yùu rʉa lam diao-gan mái khá</div><div class="eng">Are we on the same boat?</div></div></td>
+          <td>N + classifier + <span class="thai">เดียวกัน</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Airport｜機場</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問是不是同一班機</td>
+          <td><div class="triad"><div class="thai">เราอยู่เครื่องบินลำเดียวกันไหมคะ</div><div class="roman">rao yùu khrʉ̂ang-bin lam diao-gan mái khá</div><div class="eng">Are we on the same plane?</div></div></td>
+          <td>飛機用 <span class="thai">ลำ</span>。</td>
+        </tr>
+        <tr>
+          <td>問要去哪個機場</td>
+          <td><div class="triad"><div class="thai">ไปสนามบินไหนคะ ดอนเมืองหรือสุวรรณภูมิ</div><div class="roman">bpai sà-nǎam-bin nǎi khá, dɔɔn-mʉang rʉ̌ʉ sù-wan-ná-phuum</div><div class="eng">Which airport are you going to, Don Mueang or Suvarnabhumi?</div></div></td>
+          <td>曼谷兩個主要機場，很重要。</td>
+        </tr>
+        <tr>
+          <td>怕來不及</td>
+          <td><div class="triad"><div class="thai">กลัวไปสนามบินไม่ทันค่ะ</div><div class="roman">glua bpai sà-nǎam-bin mâi than khâ</div><div class="eng">I’m afraid I won’t make it to the airport in time.</div></div></td>
+          <td><span class="thai">ไม่ทัน</span> = not in time。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Dialogues｜真實場景對話</h2>
+
+    <h3>BTS：會不會遲到？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ถ้าออกตอนนี้ จะทันไหมคะ</div><div class="roman">thâa ɔ̀ɔk dtɔɔn-níi, jà than mái khá</div><div class="eng">If we leave now, will we make it in time?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ทันค่ะ ถ้าขึ้นรถไฟฟ้า</div><div class="roman">than khâ, thâa khʉ̂n rót-fai-fáa</div><div class="eng">Yes, if we take the BTS.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label textbook">Textbook-based + Supplement</span><div class="triad"><div class="thai">เราจะไปสายไหมคะ</div><div class="roman">rao jà bpai sǎai mái khá</div><div class="eng">Will we be late?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไม่สายค่ะ ยังมีเวลา</div><div class="roman">mâi sǎai khâ, yang mii wee-laa</div><div class="eng">We won’t be late. There’s still time.</div></div></div>
+    </div>
+
+    <h3>過馬路：等綠燈再走</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ข้ามตรงนี้ได้ไหมคะ</div><div class="roman">khâam dtrong-níi dâai mái khá</div><div class="eng">Can we cross here?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">รอไฟเขียวก่อนค่อยข้ามค่ะ</div><div class="roman">rɔɔ fai-khǐao gɔ̀ɔn khɔ̂i khâam khâ</div><div class="eng">Wait for the green light first, then cross.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ทางม้าลายอยู่ตรงไหนคะ</div><div class="roman">thaang-máa-laai yùu dtrong-nǎi khá</div><div class="eng">Where exactly is the crosswalk?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อยู่ข้างหน้าค่ะ เดินไปอีกนิดเดียว</div><div class="roman">yùu khâang-nâa khâ, dəən bpai ìik nít-diao</div><div class="eng">It’s in front. Walk just a little further.</div></div></div>
+    </div>
+
+    <h3>公車站：我要搭哪一線？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขอโทษค่ะ ป้ายรถเมล์อยู่ไหนคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, bpâai rót-mee yùu nǎi khá</div><div class="eng">Excuse me, where is the bus stop?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Local</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อยู่หน้าห้างค่ะ</div><div class="roman">yùu nâa hâang khâ</div><div class="eng">It’s in front of the mall.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ถ้าจะไปสยาม ต้องขึ้นรถเมล์สายอะไรคะ</div><div class="roman">thâa jà bpai sà-yǎam, dtɔ̂ng khʉ̂n rót-mee sǎai à-rai khá</div><div class="eng">If I want to go to Siam, which bus route do I need to take?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Local</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ขึ้นรถไฟฟ้าจะสะดวกกว่านะคะ</div><div class="roman">khʉ̂n rót-fai-fáa jà sà-dùak gwàa ná khá</div><div class="eng">Taking the BTS would be more convenient.</div></div></div>
+    </div>
+
+    <h3>碼頭：這艘船去哪裡？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ท่าเรืออยู่ที่ไหนคะ</div><div class="roman">thâa-rʉa yùu thîi-nǎi khá</div><div class="eng">Where is the pier?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เดินตรงไป แล้วเลี้ยวซ้ายค่ะ</div><div class="roman">dəən dtrong bpai, lɛ́ɛw líao sáai khâ</div><div class="eng">Walk straight, then turn left.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">เรือลำนี้ไปท่าไหนคะ</div><div class="roman">rʉa lam níi bpai thâa nǎi khá</div><div class="eng">Which pier does this boat go to?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Staff</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปท่าสาทรค่ะ</div><div class="roman">bpai thâa sǎa-thɔɔn khâ</div><div class="eng">It goes to Sathorn Pier.</div></div></div>
+    </div>
+
+    <h3>朋友約出門：要不要一起去？</h3>
+    <div class="bubble-wrap">
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วันนี้ไปคาเฟ่ไหมคะ</div><div class="roman">wan-níi bpai khaa-fêe mái khá</div><div class="eng">Do you want to go to a café today?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปค่ะ ไปด้วยกันไหมคะ</div><div class="roman">bpai khâ, bpai dûai-gan mái khá</div><div class="eng">Yes. Shall we go together?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ได้ค่ะ เราออกพร้อมกันไหม</div><div class="roman">dâai khâ, rao ɔ̀ɔk phrɔ́ɔm-gan mái</div><div class="eng">Sure. Shall we leave at the same time?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ได้ค่ะ เจอกันที่สถานีตอนบ่ายสองนะคะ</div><div class="roman">dâai khâ, jəə-gan thîi sà-thǎa-nii dtɔɔn bàai sɔ̌ɔng ná khá</div><div class="eng">Sure. Let’s meet at the station at 2 p.m.</div></div></div>
+    </div>
+
+    <h3>機場：怕來不及</h3>
+    <div class="bubble-wrap">
+      <div class="bubble b"><span class="speaker b">You</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">กลัวไปสนามบินไม่ทันค่ะ</div><div class="roman">glua bpai sà-nǎam-bin mâi than khâ</div><div class="eng">I’m afraid I won’t make it to the airport in time.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปสนามบินไหนครับ</div><div class="roman">bpai sà-nǎam-bin nǎi khráp</div><div class="eng">Which airport are you going to?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">สุวรรณภูมิค่ะ ต้องถึงก่อนสิบโมงค่ะ</div><div class="roman">sù-wan-ná-phuum khâ, dtɔ̂ng thʉ̌ng gɔ̀ɔn sìp moong khâ</div><div class="eng">Suvarnabhumi. I need to arrive before 10 o’clock.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ตอนนี้รถไม่ติดมาก น่าจะทันครับ</div><div class="roman">dtɔɔn-níi rót mâi dtìt mâak, nâa-jà than khráp</div><div class="eng">Traffic isn’t too bad now. You should make it in time.</div></div></div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why it is wrong / risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ก่อน / หลัง 方向搞反</div><div class="roman">gɔ̀ɔn / lǎng</div><div class="eng">before / after</div></div></td>
+          <td><span class="thai">A ก่อน B</span> = A 在 B 之前；<span class="thai">A หลัง B</span> = A 在 B 之後。</td>
+          <td>
+            <div class="triad"><div class="thai">ฉันกินข้าวก่อนเรียนค่ะ</div><div class="roman">chǎn gin khâao gɔ̀ɔn rian khâ</div><div class="eng">I eat before studying.</div></div>
+            <div class="triad"><div class="thai">ฉันกินข้าวหลังเรียนค่ะ</div><div class="roman">chǎn gin khâao lǎng rian khâ</div><div class="eng">I eat after studying.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">สาย = late / line 混淆</div><div class="roman">sǎai</div><div class="eng">late / line</div></div></td>
+          <td><span class="thai">ไปสาย</span> 是遲到；<span class="thai">สายสีลม</span> 是 Silom Line。</td>
+          <td>
+            <div class="triad"><div class="thai">วันนี้ฉันมาสายค่ะ</div><div class="roman">wan-níi chǎn maa sǎai khâ</div><div class="eng">Today I came late.</div></div>
+            <div class="triad"><div class="thai">ฉันขึ้นรถไฟฟ้าสายสีลมค่ะ</div><div class="roman">chǎn khʉ̂n rót-fai-fáa sǎai sǐi-lom khâ</div><div class="eng">I take the Silom Line.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ด้วยกัน / พร้อมกัน 混用</div><div class="roman">dûai-gan / phrɔ́ɔm-gan</div><div class="eng">together / at the same time</div></div></td>
+          <td><span class="thai">ด้วยกัน</span> 是一起；<span class="thai">พร้อมกัน</span> 是同時。</td>
+          <td>
+            <div class="triad"><div class="thai">เราไปกินข้าวด้วยกันค่ะ</div><div class="roman">rao bpai gin khâao dûai-gan khâ</div><div class="eng">We go eat together.</div></div>
+            <div class="triad"><div class="thai">เราถึงร้านพร้อมกันค่ะ</div><div class="roman">rao thʉ̌ng ráan phrɔ́ɔm-gan khâ</div><div class="eng">We arrived at the restaurant at the same time.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เหมือนกัน / เดียวกัน 混用</div><div class="roman">mʉ̌an-gan / diao-gan</div><div class="eng">same/alike / the same one</div></div></td>
+          <td><span class="thai">เหมือนกัน</span> 是一樣/相似；<span class="thai">เดียวกัน</span> 是同一個具體東西。</td>
+          <td>
+            <div class="triad"><div class="thai">เราชอบชาไทยเหมือนกันค่ะ</div><div class="roman">rao chɔ̂ɔp chaa-thai mʉ̌an-gan khâ</div><div class="eng">We both like Thai tea.</div></div>
+            <div class="triad"><div class="thai">เราอยู่ห้องเดียวกันค่ะ</div><div class="roman">rao yùu hɔ̂ng diao-gan khâ</div><div class="eng">We are in the same room.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">交通工具量詞混用</div><div class="roman">khan / lam / khà-buan / sǎai</div><div class="eng">vehicle / plane-boat / train / line classifier</div></div></td>
+          <td>車、船、飛機、火車、路線量詞不同。</td>
+          <td>
+            <div class="triad"><div class="thai">รถเมล์หนึ่งคัน / เรือหนึ่งลำ / รถไฟหนึ่งขบวน / รถไฟฟ้าสายสีลม</div><div class="roman">rót-mee nʉ̀eng khan / rʉa nʉ̀eng lam / rót-fai nʉ̀eng khà-buan / rót-fai-fáa sǎai sǐi-lom</div><div class="eng">one bus / one boat / one train / Silom Line</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>Vocabulary Recall</h3>
+    <details>
+      <summary>before / after / late / not late</summary>
+      <div class="triad"><div class="thai">ก่อน / หลัง / สาย / ไม่สาย</div><div class="roman">gɔ̀ɔn / lǎng / sǎai / mâi sǎai</div><div class="eng">before / after / late / not late</div></div>
+      <p><strong>Chinese Explanation:</strong> 本課時間順序核心詞。</p>
+    </details>
+
+    <details>
+      <summary>same / together / equal / at the same time / the same one</summary>
+      <div class="triad"><div class="thai">เหมือนกัน / ด้วยกัน / เท่ากัน / พร้อมกัน / เดียวกัน</div><div class="roman">mʉ̌an-gan / dûai-gan / thâo-gan / phrɔ́ɔm-gan / diao-gan</div><div class="eng">same / together / equal / at the same time / the same one</div></div>
+      <p><strong>Chinese Explanation:</strong> 五個都有 <span class="thai">กัน</span>，但意思不同。</p>
+    </details>
+
+    <details>
+      <summary>crosswalk / overpass / bus stop / pier</summary>
+      <div class="triad"><div class="thai">ทางม้าลาย / สะพานลอย / ป้ายรถเมล์ / ท่าเรือ</div><div class="roman">thaang-máa-laai / sà-phaan-lɔɔi / bpâai rót-mee / thâa-rʉa</div><div class="eng">crosswalk / overpass / bus stop / pier</div></div>
+      <p><strong>Chinese Explanation:</strong> 曼谷路上和交通轉乘必備。</p>
+    </details>
+
+    <h3>Classifier Practice</h3>
+    <details>
+      <summary>one bus</summary>
+      <div class="triad"><div class="thai">รถเมล์หนึ่งคัน</div><div class="roman">rót-mee nʉ̀eng khan</div><div class="eng">one bus</div></div>
+      <p><strong>Chinese Explanation:</strong> 有輪子的車輛用 <span class="thai">คัน</span>。</p>
+    </details>
+
+    <details>
+      <summary>one boat</summary>
+      <div class="triad"><div class="thai">เรือหนึ่งลำ</div><div class="roman">rʉa nʉ̀eng lam</div><div class="eng">one boat</div></div>
+      <p><strong>Chinese Explanation:</strong> 船用 <span class="thai">ลำ</span>。</p>
+    </details>
+
+    <details>
+      <summary>one train</summary>
+      <div class="triad"><div class="thai">รถไฟหนึ่งขบวน</div><div class="roman">rót-fai nʉ̀eng khà-buan</div><div class="eng">one train</div></div>
+      <p><strong>Chinese Explanation:</strong> 一列火車用 <span class="thai">ขบวน</span>。</p>
+    </details>
+
+    <h3>Translation Chinese → Thai</h3>
+    <details>
+      <summary>我睡覺前洗澡。</summary>
+      <div class="triad"><div class="thai">ฉันอาบน้ำก่อนนอนค่ะ</div><div class="roman">chǎn àap-náam gɔ̀ɔn nɔɔn khâ</div><div class="eng">I shower before sleeping.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ก่อน</span> 前面的動作先發生。</p>
+    </details>
+
+    <details>
+      <summary>我下課後去咖啡廳。</summary>
+      <div class="triad"><div class="thai">ฉันไปคาเฟ่หลังเลิกเรียนค่ะ</div><div class="roman">chǎn bpai khaa-fêe lǎng lə̂ək-rian khâ</div><div class="eng">I go to a café after class.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">หลัง</span> 後面接先發生的事情。</p>
+    </details>
+
+    <details>
+      <summary>我們一起去暹羅。</summary>
+      <div class="triad"><div class="thai">เราไปสยามด้วยกันค่ะ</div><div class="roman">rao bpai sà-yǎam dûai-gan khâ</div><div class="eng">We go to Siam together.</div></div>
+      <p><strong>Chinese Explanation:</strong> 一起做動作用 <span class="thai">ด้วยกัน</span>。</p>
+    </details>
+
+    <details>
+      <summary>我們搭同一條捷運線。</summary>
+      <div class="triad"><div class="thai">เราขึ้นรถไฟฟ้าสายเดียวกันค่ะ</div><div class="roman">rao khʉ̂n rót-fai-fáa sǎai diao-gan khâ</div><div class="eng">We take the same train line.</div></div>
+      <p><strong>Chinese Explanation:</strong> 路線用 <span class="thai">สาย</span>，同一條路線是 <span class="thai">สายเดียวกัน</span>。</p>
+    </details>
+
+    <h3>Street Thai Conversion</h3>
+    <details>
+      <summary>把「เราจะไปโรงเรียนสายไหมคะ」改成曼谷口語「來得及嗎？」</summary>
+      <div class="triad"><div class="thai">จะทันไหมคะ</div><div class="roman">jà than mái khá</div><div class="eng">Will we make it in time?</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">ทัน</span> 是趕得上，真實生活很常用。</p>
+    </details>
+
+    <details>
+      <summary>把「ป้ายรถเมล์อยู่ที่ไหนคะ」改成口語。</summary>
+      <div class="triad"><div class="thai">ป้ายรถเมล์อยู่ไหนคะ</div><div class="roman">bpâai rót-mee yùu nǎi khá</div><div class="eng">Where is the bus stop?</div></div>
+      <p><strong>Chinese Explanation:</strong> 口語常省略 <span class="thai">ที่</span>。</p>
+    </details>
+
+    <h3>Dialogue Completion</h3>
+    <details>
+      <summary>Friend: รีบหน่อยค่ะ เดี๋ยวสาย。You: ______</summary>
+      <div class="triad"><div class="thai">โอเคค่ะ ไปเดี๋ยวนี้ค่ะ</div><div class="roman">oo-khee khâ, bpai dǐao-níi khâ</div><div class="eng">Okay, I’m going now.</div></div>
+      <p><strong>Chinese Explanation:</strong> <span class="thai">เดี๋ยวนี้</span> = right now。</p>
+    </details>
+
+    <details>
+      <summary>Staff: เรือลำนี้ไปท่าสาทรค่ะ。You: ______</summary>
+      <div class="triad"><div class="thai">ขอบคุณค่ะ เราขึ้นเรือลำนี้ได้ไหมคะ</div><div class="roman">khɔ̀ɔp-khun khâ, rao khʉ̂n rʉa lam níi dâai mái khá</div><div class="eng">Thank you. Can we take this boat?</div></div>
+      <p><strong>Chinese Explanation:</strong> 船用 <span class="thai">ลำ</span>。</p>
+    </details>
+  </section>
+
+  <section id="top10" class="tab-content">
+    <h2>今日最重要 10 句</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thai / Romanization / English</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="triad"><div class="thai">ฉันอาบน้ำก่อนนอนค่ะ</div><div class="roman">chǎn àap-náam gɔ̀ɔn nɔɔn khâ</div><div class="eng">I shower before sleeping.</div></div></td><td>ก่อน 句型</td></tr>
+        <tr><td>2</td><td><div class="triad"><div class="thai">ฉันไปคาเฟ่หลังเรียนค่ะ</div><div class="roman">chǎn bpai khaa-fêe lǎng rian khâ</div><div class="eng">I go to a café after class.</div></div></td><td>หลัง 句型</td></tr>
+        <tr><td>3</td><td><div class="triad"><div class="thai">จะทันไหมคะ</div><div class="roman">jà than mái khá</div><div class="eng">Will we make it in time?</div></div></td><td>趕不趕得上</td></tr>
+        <tr><td>4</td><td><div class="triad"><div class="thai">รถติดมาก น่าจะสายค่ะ</div><div class="roman">rót-dtìt mâak, nâa-jà sǎai khâ</div><div class="eng">Traffic is bad. I’ll probably be late.</div></div></td><td>曼谷交通遲到</td></tr>
+        <tr><td>5</td><td><div class="triad"><div class="thai">เราไปด้วยกันไหมคะ</div><div class="roman">rao bpai dûai-gan mái khá</div><div class="eng">Shall we go together?</div></div></td><td>邀約一起去</td></tr>
+        <tr><td>6</td><td><div class="triad"><div class="thai">เราถึงสถานีพร้อมกันค่ะ</div><div class="roman">rao thʉ̌ng sà-thǎa-nii phrɔ́ɔm-gan khâ</div><div class="eng">We arrived at the station at the same time.</div></div></td><td>同時</td></tr>
+        <tr><td>7</td><td><div class="triad"><div class="thai">เราขึ้นรถไฟฟ้าสายเดียวกันค่ะ</div><div class="roman">rao khʉ̂n rót-fai-fáa sǎai diao-gan khâ</div><div class="eng">We take the same train line.</div></div></td><td>同一路線</td></tr>
+        <tr><td>8</td><td><div class="triad"><div class="thai">รอไฟเขียวก่อนค่อยข้ามค่ะ</div><div class="roman">rɔɔ fai-khǐao gɔ̀ɔn khɔ̂i khâam khâ</div><div class="eng">Wait for the green light first, then cross.</div></div></td><td>過馬路</td></tr>
+        <tr><td>9</td><td><div class="triad"><div class="thai">ป้ายรถเมล์อยู่ไหนคะ</div><div class="roman">bpâai rót-mee yùu nǎi khá</div><div class="eng">Where is the bus stop?</div></div></td><td>問公車站</td></tr>
+        <tr><td>10</td><td><div class="triad"><div class="thai">เรือลำนี้ไปท่าไหนคะ</div><div class="roman">rʉa lam níi bpai thâa nǎi khá</div><div class="eng">Which pier does this boat go to?</div></div></td><td>搭船</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip yellow">
+      <strong>今日背誦優先順序：</strong>
+      先背 3、4、5、7、8、9、10。這幾句最接近曼谷生活：趕不趕得上、交通遲到、一起去、同一路線、過馬路、問公車站、問船去哪。
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>
