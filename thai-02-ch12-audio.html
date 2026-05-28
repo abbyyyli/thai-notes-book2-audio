@@ -120,9 +120,9 @@
     .eng { font-size: 13px; color: var(--text); }
 
     .triad { display: grid; gap: 2px; margin: 4px 0; }
-    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
-    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
-    .triad .eng::before { content: "English: "; color: var(--muted); }
+    .triad .thai::before { content: none; }
+    .triad .roman::before { content: none; }
+    .triad .eng::before { content: none; }
 
     table {
       width: 100%;
@@ -294,6 +294,80 @@
       table { font-size: 13px; }
       .bubble { max-width: 100%; }
     }
+  
+
+    /* ── Clean label / collocation pill patch ───────────────────── */
+    .triad .thai::before,
+    .triad .roman::before,
+    .triad .eng::before { content: none !important; }
+
+    .classifier-chip,
+    .classifier-inline,
+    .classifier-plain {
+      display: inline-block;
+      font-weight: 700;
+      color: var(--text);
+      background: transparent !important;
+      border: 0 !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      margin: 2px 4px 2px 0;
+    }
+
+    .colloc-cell {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .colloc-chip {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      border: .5px solid rgba(22,163,74,.24);
+      background: rgba(240,253,244,.78);
+      border-radius: 12px;
+      padding: 5px 10px;
+      margin: 3px 3px 3px 0;
+      cursor: pointer;
+      transition: all .15s ease;
+      min-width: 72px;
+      text-align: center;
+      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+    }
+
+    .colloc-chip:hover,
+    .colloc-chip:focus-visible {
+      background: rgba(255,247,237,.92);
+      border-color: rgba(249,115,22,.34);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .colloc-chip.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.45);
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+
+    .colloc-chip .thai {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.25;
+    }
+
+    .colloc-chip .en-colloc {
+      display: block;
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.2;
+    }
+
   </style>
 </head>
 
@@ -304,9 +378,9 @@
     <h1>Thai Book 2｜Day 12 學習指南</h1>
     <p class="subtitle">主題：季節、天氣、溫度、自然景象、水上活動、可能性、是否句、還要多久到</p>
     <p>
-      <span class="label textbook">Textbook-based</span>
-      <span class="label local">Supplement / Local usage</span>
-      <span class="label practical">Practical Usage</span>
+      
+      
+      
       <span class="label review">Review</span>
       <span class="label warn">Common mistake</span>
     </p>
@@ -331,7 +405,7 @@
 
     <div class="cards">
       <div class="card">
-        <span class="label textbook">Textbook-based</span>
+        
         <h3>本課主要學什麼？</h3>
         <ol>
           <li>複習 12 個月份，並學會泰國常見季節：<strong>ฤดูหนาว / ฤดูร้อน / ฤดูฝน</strong>。</li>
@@ -344,7 +418,7 @@
       </div>
 
       <div class="card">
-        <span class="label local">Supplement / Local usage</span>
+        
         <h3>曼谷生活會怎麼用？</h3>
         <p>
           Day 12 很適合用在天氣閒聊、約出門前確認會不會下雨、問 BTS 還幾站到、問生日還有幾個月、問朋友是不是開車來、旅遊時說想游泳/潛水/划船。
@@ -445,56 +519,56 @@
       </thead>
       <tbody>
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฤดู</div><div class="roman">rʉ́-duu</div><div class="eng">season</div></div></td>
+          <td><div class="triad"><div class="thai">ฤดู</div><div class="roman">rʉ́-duu</div><div class="eng">season</div></div></td>
           <td>Time / season noun</td>
           <td>ฤดู</td>
           <td>表示季節，後面接天氣特徵：冷、熱、雨。</td>
-          <td><div class="triad"><div class="thai">ฤดูหนาว / ฤดูร้อน / ฤดูฝน</div><div class="roman">rʉ́-duu nǎao / rʉ́-duu rɔ́ɔn / rʉ́-duu fǒn</div><div class="eng">cold season / hot season / rainy season</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฤดูหนาว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฤดูหนาว</span><span class="en-colloc">cold season</span></span><span class="colloc-chip" data-thai="ฤดูร้อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฤดูร้อน</span><span class="en-colloc">hot season</span></span><span class="colloc-chip" data-thai="ฤดูฝน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฤดูฝน</span><span class="en-colloc">rainy season</span></span></div></td>
           <td><div class="triad"><div class="thai">เมืองไทยมีสามฤดูค่ะ</div><div class="roman">mʉang-thai mii sǎam rʉ́-duu khâ</div><div class="eng">Thailand has three seasons.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฤดูหนาว</div><div class="roman">rʉ́-duu nǎao</div><div class="eng">cold season / winter</div></div></td>
+          <td><div class="triad"><div class="thai">ฤดูหนาว</div><div class="roman">rʉ́-duu nǎao</div><div class="eng">cold season / winter</div></div></td>
           <td>Season</td>
           <td>ฤดู</td>
           <td>泰國的「冬季」通常不是下雪的冬天，而是比較涼。</td>
-          <td><div class="triad"><div class="thai">หน้าหนาว / อากาศเย็น / ลมหนาว</div><div class="roman">nâa-nǎao / aa-gàat yen / lom nǎao</div><div class="eng">cold season / cool weather / cool wind</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าหนาว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หน้าหนาว</span><span class="en-colloc">cold season</span></span><span class="colloc-chip" data-thai="อากาศเย็น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อากาศเย็น</span><span class="en-colloc">cool weather</span></span><span class="colloc-chip" data-thai="ลมหนาว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลมหนาว</span><span class="en-colloc">cool wind</span></span></div></td>
           <td><div class="triad"><div class="thai">ฤดูหนาวที่กรุงเทพฯ ไม่ค่อยหนาวค่ะ</div><div class="roman">rʉ́-duu nǎao thîi grung-thêep mâi khɔ̂i nǎao khâ</div><div class="eng">Bangkok’s cold season is not very cold.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฤดูร้อน</div><div class="roman">rʉ́-duu rɔ́ɔn</div><div class="eng">hot season / summer</div></div></td>
+          <td><div class="triad"><div class="thai">ฤดูร้อน</div><div class="roman">rʉ́-duu rɔ́ɔn</div><div class="eng">hot season / summer</div></div></td>
           <td>Season</td>
           <td>ฤดู</td>
           <td>泰國熱季很熱，曼谷體感可能非常高。</td>
-          <td><div class="triad"><div class="thai">หน้าร้อน / ร้อนมาก / อากาศร้อน</div><div class="roman">nâa-rɔ́ɔn / rɔ́ɔn mâak / aa-gàat rɔ́ɔn</div><div class="eng">hot season / very hot / hot weather</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าร้อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หน้าร้อน</span><span class="en-colloc">hot season</span></span><span class="colloc-chip" data-thai="ร้อนมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ร้อนมาก</span><span class="en-colloc">very hot</span></span><span class="colloc-chip" data-thai="อากาศร้อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อากาศร้อน</span><span class="en-colloc">hot weather</span></span></div></td>
           <td><div class="triad"><div class="thai">ฤดูร้อนกรุงเทพฯ ร้อนมากค่ะ</div><div class="roman">rʉ́-duu rɔ́ɔn grung-thêep rɔ́ɔn mâak khâ</div><div class="eng">Bangkok is very hot in the hot season.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฤดูฝน</div><div class="roman">rʉ́-duu fǒn</div><div class="eng">rainy season</div></div></td>
+          <td><div class="triad"><div class="thai">ฤดูฝน</div><div class="roman">rʉ́-duu fǒn</div><div class="eng">rainy season</div></div></td>
           <td>Season</td>
           <td>ฤดู</td>
           <td>泰國雨季常見午後雷陣雨、塞車、叫車變貴。</td>
-          <td><div class="triad"><div class="thai">หน้าฝน / ฝนตก / ฝนตกหนัก</div><div class="roman">nâa-fǒn / fǒn-dtòk / fǒn-dtòk nàk</div><div class="eng">rainy season / rain falls / heavy rain</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าฝน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หน้าฝน</span><span class="en-colloc">rainy season</span></span><span class="colloc-chip" data-thai="ฝนตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝนตก</span><span class="en-colloc">rain falls</span></span><span class="colloc-chip" data-thai="ฝนตกหนัก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝนตกหนัก</span><span class="en-colloc">heavy rain</span></span></div></td>
           <td><div class="triad"><div class="thai">หน้าฝนรถติดมากค่ะ</div><div class="roman">nâa-fǒn rót-dtìt mâak khâ</div><div class="eng">During rainy season, traffic is very bad.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">องศา</div><div class="roman">ong-sǎa</div><div class="eng">degree</div></div></td>
+          <td><div class="triad"><div class="thai">องศา</div><div class="roman">ong-sǎa</div><div class="eng">degree</div></div></td>
           <td>Temperature unit</td>
           <td>องศา</td>
           <td>表示溫度的「度」。教材出現 43°C、44°C、-30°C。</td>
-          <td><div class="triad"><div class="thai">43 องศา / กี่องศา / อุณหภูมิ</div><div class="roman">sìi-sìp-sǎam ong-sǎa / gìi ong-sǎa / un-hà-phuum</div><div class="eng">43 degrees / how many degrees / temperature</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="43 องศา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">43 องศา</span><span class="en-colloc">43 degrees</span></span><span class="colloc-chip" data-thai="กี่องศา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กี่องศา</span><span class="en-colloc">how many degrees</span></span><span class="colloc-chip" data-thai="อุณหภูมิ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อุณหภูมิ</span><span class="en-colloc">temperature</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้อุณหภูมิ 35 องศาค่ะ</div><div class="roman">wan-níi un-hà-phuum sǎam-sìp-hâa ong-sǎa khâ</div><div class="eng">Today the temperature is 35 degrees.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ติดลบ</div><div class="roman">dtìt-lóp</div><div class="eng">negative / below zero</div></div></td>
+          <td><div class="triad"><div class="thai">ติดลบ</div><div class="roman">dtìt-lóp</div><div class="eng">negative / below zero</div></div></td>
           <td>Temperature / number</td>
           <td>—</td>
           <td>用來說負數或零下溫度。</td>
-          <td><div class="triad"><div class="thai">ติดลบ 30 องศา / อุณหภูมิติดลบ</div><div class="roman">dtìt-lóp sǎam-sìp ong-sǎa / un-hà-phuum dtìt-lóp</div><div class="eng">minus 30 degrees / below-zero temperature</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ติดลบ 30 องศา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ติดลบ 30 องศา</span><span class="en-colloc">minus 30 degrees</span></span><span class="colloc-chip" data-thai="อุณหภูมิติดลบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อุณหภูมิติดลบ</span><span class="en-colloc">below-zero temperature</span></span></div></td>
           <td><div class="triad"><div class="thai">ที่นี่อุณหภูมิติดลบสิบองศาค่ะ</div><div class="roman">thîi-nîi un-hà-phuum dtìt-lóp sìp ong-sǎa khâ</div><div class="eng">Here, the temperature is minus ten degrees.</div></div></td>
         </tr>
       </tbody>
@@ -514,65 +588,65 @@
       </thead>
       <tbody>
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">หิมะ</div><div class="roman">hì-má</div><div class="eng">snow</div></div></td>
+          <td><div class="triad"><div class="thai">หิมะ</div><div class="roman">hì-má</div><div class="eng">snow</div></div></td>
           <td>Nature / weather</td>
           <td>—</td>
           <td>泰國幾乎沒有雪，所以多用在國外、北海道、韓國、歐洲旅遊。</td>
-          <td><div class="triad"><div class="thai">หิมะตก / หิมะละลาย / เล่นหิมะ</div><div class="roman">hì-má dtòk / hì-má lá-laai / lên hì-má</div><div class="eng">snow falls / snow melts / play in the snow</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หิมะตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หิมะตก</span><span class="en-colloc">snow falls</span></span><span class="colloc-chip" data-thai="หิมะละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หิมะละลาย</span><span class="en-colloc">snow melts</span></span><span class="colloc-chip" data-thai="เล่นหิมะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เล่นหิมะ</span><span class="en-colloc">play in the snow</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากไปญี่ปุ่นเพื่อดูหิมะค่ะ</div><div class="roman">chǎn yàak bpai yîi-bpùn phʉ̂a duu hì-má khâ</div><div class="eng">I want to go to Japan to see snow.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ละลาย</div><div class="roman">lá-laai</div><div class="eng">to melt / dissolve</div></div></td>
+          <td><div class="triad"><div class="thai">ละลาย</div><div class="roman">lá-laai</div><div class="eng">to melt / dissolve</div></div></td>
           <td>Verb</td>
           <td>—</td>
           <td>可用於雪、冰、奶油、糖等融化/溶解。</td>
-          <td><div class="triad"><div class="thai">หิมะละลาย / น้ำแข็งละลาย / น้ำตาลละลาย</div><div class="roman">hì-má lá-laai / náam-khɛ̌ng lá-laai / náam-dtaan lá-laai</div><div class="eng">snow melts / ice melts / sugar dissolves</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หิมะละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หิมะละลาย</span><span class="en-colloc">snow melts</span></span><span class="colloc-chip" data-thai="น้ำแข็งละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">น้ำแข็งละลาย</span><span class="en-colloc">ice melts</span></span><span class="colloc-chip" data-thai="น้ำตาลละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">น้ำตาลละลาย</span><span class="en-colloc">sugar dissolves</span></span></div></td>
           <td><div class="triad"><div class="thai">น้ำแข็งละลายเร็วมากค่ะ</div><div class="roman">náam-khɛ̌ng lá-laai rew mâak khâ</div><div class="eng">The ice melts very quickly.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">น้ำแข็ง</div><div class="roman">náam-khɛ̌ng</div><div class="eng">ice</div></div></td>
+          <td><div class="triad"><div class="thai">น้ำแข็ง</div><div class="roman">náam-khɛ̌ng</div><div class="eng">ice</div></div></td>
           <td>Nature / drink item</td>
           <td>ก้อน / ถุง / แก้ว</td>
           <td>冰塊一顆用 <span class="thai">ก้อน</span>；一袋冰用 <span class="thai">ถุง</span>。</td>
-          <td><div class="triad"><div class="thai">ใส่น้ำแข็ง / น้ำแข็งละลาย / น้ำแข็งหนึ่งแก้ว</div><div class="roman">sài náam-khɛ̌ng / náam-khɛ̌ng lá-laai / náam-khɛ̌ng nʉ̀eng gɛ̂ɛo</div><div class="eng">add ice / ice melts / one glass of ice</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ใส่น้ำแข็ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใส่น้ำแข็ง</span><span class="en-colloc">add ice</span></span><span class="colloc-chip" data-thai="น้ำแข็งละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">น้ำแข็งละลาย</span><span class="en-colloc">ice melts</span></span><span class="colloc-chip" data-thai="น้ำแข็งหนึ่งแก้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">น้ำแข็งหนึ่งแก้ว</span><span class="en-colloc">one glass of ice</span></span></div></td>
           <td><div class="triad"><div class="thai">กาแฟแก้วนี้น้ำแข็งละลายหมดแล้วค่ะ</div><div class="roman">gaa-fɛɛ gɛ̂ɛo níi náam-khɛ̌ng lá-laai mòt lɛ́ɛw khâ</div><div class="eng">The ice in this coffee has all melted.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ต้นไม้</div><div class="roman">dtôn-máai</div><div class="eng">tree / plant</div></div></td>
+          <td><div class="triad"><div class="thai">ต้นไม้</div><div class="roman">dtôn-máai</div><div class="eng">tree / plant</div></div></td>
           <td>Nature noun</td>
           <td>ต้น</td>
           <td>樹木量詞也常用 <span class="thai">ต้น</span>。</td>
-          <td><div class="triad"><div class="thai">ปลูกต้นไม้ / ใต้ต้นไม้ / ต้นไม้ใหญ่</div><div class="roman">bplùuk dtôn-máai / dtâi dtôn-máai / dtôn-máai yài</div><div class="eng">plant trees / under the tree / big tree</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ปลูกต้นไม้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปลูกต้นไม้</span><span class="en-colloc">plant trees</span></span><span class="colloc-chip" data-thai="ใต้ต้นไม้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใต้ต้นไม้</span><span class="en-colloc">under the tree</span></span><span class="colloc-chip" data-thai="ต้นไม้ใหญ่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ต้นไม้ใหญ่</span><span class="en-colloc">big tree</span></span></div></td>
           <td><div class="triad"><div class="thai">หน้าคอนโดมีต้นไม้เยอะค่ะ</div><div class="roman">nâa khɔɔn-doo mii dtôn-máai yə́ khâ</div><div class="eng">There are many trees in front of the condo.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ใบไม้</div><div class="roman">bai-máai</div><div class="eng">leaf / leaves</div></div></td>
+          <td><div class="triad"><div class="thai">ใบไม้</div><div class="roman">bai-máai</div><div class="eng">leaf / leaves</div></div></td>
           <td>Nature noun</td>
           <td>ใบ</td>
           <td>葉子用 <span class="thai">ใบ</span>，跟包包/票券的量詞同字但語義不同。</td>
-          <td><div class="triad"><div class="thai">ใบไม้ร่วง / ใบไม้เปลี่ยนสี / ใบไม้สีเขียว</div><div class="roman">bai-máai rûang / bai-máai bplìan sǐi / bai-máai sǐi khǐao</div><div class="eng">leaves fall / leaves change color / green leaves</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ใบไม้ร่วง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใบไม้ร่วง</span><span class="en-colloc">leaves fall</span></span><span class="colloc-chip" data-thai="ใบไม้เปลี่ยนสี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใบไม้เปลี่ยนสี</span><span class="en-colloc">leaves change color</span></span><span class="colloc-chip" data-thai="ใบไม้สีเขียว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใบไม้สีเขียว</span><span class="en-colloc">green leaves</span></span></div></td>
           <td><div class="triad"><div class="thai">ฤดูใบไม้ร่วง ใบไม้เปลี่ยนสีค่ะ</div><div class="roman">rʉ́-duu bai-máai-rûang, bai-máai bplìan sǐi khâ</div><div class="eng">In autumn, the leaves change color.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ลม</div><div class="roman">lom</div><div class="eng">wind / air</div></div></td>
+          <td><div class="triad"><div class="thai">ลม</div><div class="roman">lom</div><div class="eng">wind / air</div></div></td>
           <td>Nature noun</td>
           <td>—</td>
           <td>自然的風；注意跟 <span class="thai">พัดลม</span> 風扇不同。</td>
-          <td><div class="triad"><div class="thai">ลมแรง / ลมพัด / มีลม</div><div class="roman">lom rɛɛng / lom phát / mii lom</div><div class="eng">strong wind / wind blows / windy</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ลมแรง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลมแรง</span><span class="en-colloc">strong wind</span></span><span class="colloc-chip" data-thai="ลมพัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลมพัด</span><span class="en-colloc">wind blows</span></span><span class="colloc-chip" data-thai="มีลม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีลม</span><span class="en-colloc">windy</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้มีลม อากาศดีค่ะ</div><div class="roman">wan-níi mii lom, aa-gàat dii khâ</div><div class="eng">It is windy today, and the weather is nice.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เมฆ</div><div class="roman">mêek</div><div class="eng">cloud</div></div></td>
+          <td><div class="triad"><div class="thai">เมฆ</div><div class="roman">mêek</div><div class="eng">cloud</div></div></td>
           <td>Nature noun</td>
           <td>ก้อน</td>
           <td>雲一朵可用 <span class="thai">ก้อน</span>，但日常多直接說「有雲」。</td>
-          <td><div class="triad"><div class="thai">มีเมฆ / เมฆเยอะ / ท้องฟ้ามีเมฆ</div><div class="roman">mii mêek / mêek yə́ / thɔ́ɔng-fáa mii mêek</div><div class="eng">cloudy / many clouds / the sky has clouds</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีเมฆ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีเมฆ</span><span class="en-colloc">cloudy</span></span><span class="colloc-chip" data-thai="เมฆเยอะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เมฆเยอะ</span><span class="en-colloc">many clouds</span></span><span class="colloc-chip" data-thai="ท้องฟ้ามีเมฆ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท้องฟ้ามีเมฆ</span><span class="en-colloc">the sky has clouds</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้เมฆเยอะ ฝนอาจจะตกค่ะ</div><div class="roman">wan-níi mêek yə́, fǒn àat-jà dtòk khâ</div><div class="eng">There are many clouds today; it might rain.</div></div></td>
         </tr>
       </tbody>
@@ -592,47 +666,47 @@
       </thead>
       <tbody>
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ทะเลสาบ</div><div class="roman">thá-lee-sàap</div><div class="eng">lake</div></div></td>
+          <td><div class="triad"><div class="thai">ทะเลสาบ</div><div class="roman">thá-lee-sàap</div><div class="eng">lake</div></div></td>
           <td>Place / nature</td>
           <td>แห่ง / ที่</td>
           <td>正式地點可用 <span class="thai">แห่ง</span>；口語常用 <span class="thai">ที่</span>。</td>
-          <td><div class="triad"><div class="thai">ไปทะเลสาบ / ทะเลสาบสวย / ริมทะเลสาบ</div><div class="roman">bpai thá-lee-sàap / thá-lee-sàap sǔai / rim thá-lee-sàap</div><div class="eng">go to a lake / beautiful lake / lakeside</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปทะเลสาบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปทะเลสาบ</span><span class="en-colloc">go to a lake</span></span><span class="colloc-chip" data-thai="ทะเลสาบสวย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทะเลสาบสวย</span><span class="en-colloc">beautiful lake</span></span><span class="colloc-chip" data-thai="ริมทะเลสาบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ริมทะเลสาบ</span><span class="en-colloc">lakeside</span></span></div></td>
           <td><div class="triad"><div class="thai">ทะเลสาบที่นี่สวยมากค่ะ</div><div class="roman">thá-lee-sàap thîi-nîi sǔai mâak khâ</div><div class="eng">The lake here is very beautiful.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ว่ายน้ำ</div><div class="roman">wâai-náam</div><div class="eng">to swim</div></div></td>
+          <td><div class="triad"><div class="thai">ว่ายน้ำ</div><div class="roman">wâai-náam</div><div class="eng">to swim</div></div></td>
           <td>Activity verb</td>
           <td>ครั้ง</td>
           <td>水裡活動，常搭配 <span class="thai">สระว่ายน้ำ</span> 游泳池、<span class="thai">ทะเล</span> 海。</td>
-          <td><div class="triad"><div class="thai">ไปว่ายน้ำ / สระว่ายน้ำ / ว่ายน้ำที่ทะเล</div><div class="roman">bpai wâai-náam / sà-wàai-náam / wâai-náam thîi thá-lee</div><div class="eng">go swimming / swimming pool / swim at the sea</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปว่ายน้ำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปว่ายน้ำ</span><span class="en-colloc">go swimming</span></span><span class="colloc-chip" data-thai="สระว่ายน้ำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สระว่ายน้ำ</span><span class="en-colloc">swimming pool</span></span><span class="colloc-chip" data-thai="ว่ายน้ำที่ทะเล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ว่ายน้ำที่ทะเล</span><span class="en-colloc">swim at the sea</span></span></div></td>
           <td><div class="triad"><div class="thai">เย็นนี้ฉันจะไปว่ายน้ำที่คอนโดค่ะ</div><div class="roman">yen-níi chǎn jà bpai wâai-náam thîi khɔɔn-doo khâ</div><div class="eng">This evening I will go swimming at the condo.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ตกปลา</div><div class="roman">dtòk-bplaa</div><div class="eng">to fish / fishing</div></div></td>
+          <td><div class="triad"><div class="thai">ตกปลา</div><div class="roman">dtòk-bplaa</div><div class="eng">to fish / fishing</div></div></td>
           <td>Activity verb</td>
           <td>ครั้ง / ตัว</td>
           <td><span class="thai">ตกปลา</span> 是「釣魚」；魚的量詞常用 <span class="thai">ตัว</span>。</td>
-          <td><div class="triad"><div class="thai">ไปตกปลา / ตกปลาได้สองตัว</div><div class="roman">bpai dtòk-bplaa / dtòk-bplaa dâai sɔ̌ɔng dtua</div><div class="eng">go fishing / catch two fish</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปตกปลา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปตกปลา</span><span class="en-colloc">go fishing</span></span><span class="colloc-chip" data-thai="ตกปลาได้สองตัว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตกปลาได้สองตัว</span><span class="en-colloc">catch two fish</span></span></div></td>
           <td><div class="triad"><div class="thai">พ่อชอบไปตกปลาวันเสาร์ค่ะ</div><div class="roman">phɔ̂ɔ chɔ̂ɔp bpai dtòk-bplaa wan-sǎo khâ</div><div class="eng">My father likes to go fishing on Saturdays.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">พายเรือ</div><div class="roman">phaai-rʉa</div><div class="eng">to paddle / row a boat</div></div></td>
+          <td><div class="triad"><div class="thai">พายเรือ</div><div class="roman">phaai-rʉa</div><div class="eng">to paddle / row a boat</div></div></td>
           <td>Activity verb</td>
           <td>ลำ / ครั้ง</td>
           <td><span class="thai">เรือ</span> 船的量詞是 <span class="thai">ลำ</span>。</td>
-          <td><div class="triad"><div class="thai">พายเรือคายัค / พายเรือในทะเลสาบ</div><div class="roman">phaai-rʉa khaa-yák / phaai-rʉa nai thá-lee-sàap</div><div class="eng">kayaking / paddle in a lake</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พายเรือคายัค" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พายเรือคายัค</span><span class="en-colloc">kayaking</span></span><span class="colloc-chip" data-thai="พายเรือในทะเลสาบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พายเรือในทะเลสาบ</span><span class="en-colloc">paddle in a lake</span></span></div></td>
           <td><div class="triad"><div class="thai">เราไปพายเรือที่สวนลุมได้ไหมคะ</div><div class="roman">rao bpai phaai-rʉa thîi sǔan-lum dâai mái khá</div><div class="eng">Can we go paddle boating at Lumphini Park?</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ดำน้ำ</div><div class="roman">dam-náam</div><div class="eng">to dive / snorkel</div></div></td>
+          <td><div class="triad"><div class="thai">ดำน้ำ</div><div class="roman">dam-náam</div><div class="eng">to dive / snorkel</div></div></td>
           <td>Activity verb</td>
           <td>ครั้ง</td>
           <td>可指潛水或浮潛，具體要看情境。浮潛也常說 <span class="thai">ดำน้ำตื้น</span>。</td>
-          <td><div class="triad"><div class="thai">ไปดำน้ำ / ดำน้ำที่เกาะเต่า / ดำน้ำตื้น</div><div class="roman">bpai dam-náam / dam-náam thîi gɔ̀ dtào / dam-náam dtʉ̂ʉn</div><div class="eng">go diving / dive at Koh Tao / snorkel</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปดำน้ำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปดำน้ำ</span><span class="en-colloc">go diving</span></span><span class="colloc-chip" data-thai="ดำน้ำที่เกาะเต่า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ดำน้ำที่เกาะเต่า</span><span class="en-colloc">dive at Koh Tao</span></span><span class="colloc-chip" data-thai="ดำน้ำตื้น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ดำน้ำตื้น</span><span class="en-colloc">snorkel</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากไปดำน้ำที่เกาะเต่าค่ะ</div><div class="roman">chǎn yàak bpai dam-náam thîi gɔ̀ dtào khâ</div><div class="eng">I want to go diving at Koh Tao.</div></div></td>
         </tr>
       </tbody>
@@ -652,38 +726,38 @@
       </thead>
       <tbody>
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">จะ</div><div class="roman">jà</div><div class="eng">will / future marker</div></div></td>
+          <td><div class="triad"><div class="thai">จะ</div><div class="roman">jà</div><div class="eng">will / future marker</div></div></td>
           <td>Future marker</td>
           <td>—</td>
           <td>教材第 6 頁用 100% 表示很確定會發生。</td>
-          <td><div class="triad"><div class="thai">จะไป / จะกลับ / จะถึง</div><div class="roman">jà bpai / jà glàp / jà thʉ̌ng</div><div class="eng">will go / will return / will arrive</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จะไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จะไป</span><span class="en-colloc">will go</span></span><span class="colloc-chip" data-thai="จะกลับ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จะกลับ</span><span class="en-colloc">will return</span></span><span class="colloc-chip" data-thai="จะถึง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จะถึง</span><span class="en-colloc">will arrive</span></span></div></td>
           <td><div class="triad"><div class="thai">อีกสามสถานีจะถึงสยามค่ะ</div><div class="roman">ìik sǎam sà-thǎa-nii jà thʉ̌ng sà-yǎam khâ</div><div class="eng">Three more stations and we’ll arrive at Siam.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">อาจจะ</div><div class="roman">àat-jà</div><div class="eng">may / might</div></div></td>
+          <td><div class="triad"><div class="thai">อาจจะ</div><div class="roman">àat-jà</div><div class="eng">may / might</div></div></td>
           <td>Probability marker</td>
           <td>—</td>
           <td>教材標示約 50% 可能性。語氣是不確定、可能。</td>
-          <td><div class="triad"><div class="thai">อาจจะฝนตก / อาจจะไป / อาจจะสาย</div><div class="roman">àat-jà fǒn-dtòk / àat-jà bpai / àat-jà sǎai</div><div class="eng">it might rain / might go / might be late</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อาจจะฝนตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาจจะฝนตก</span><span class="en-colloc">it might rain</span></span><span class="colloc-chip" data-thai="อาจจะไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาจจะไป</span><span class="en-colloc">might go</span></span><span class="colloc-chip" data-thai="อาจจะสาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาจจะสาย</span><span class="en-colloc">might be late</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้ฉันอาจจะไปสยามค่ะ</div><div class="roman">wan-níi chǎn àat-jà bpai sà-yǎam khâ</div><div class="eng">I might go to Siam today.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คงจะ</div><div class="roman">khong-jà</div><div class="eng">probably / likely</div></div></td>
+          <td><div class="triad"><div class="thai">คงจะ</div><div class="roman">khong-jà</div><div class="eng">probably / likely</div></div></td>
           <td>Probability marker</td>
           <td>—</td>
           <td>教材標示約 70–80% 可能性。比 <span class="thai">อาจจะ</span> 更有把握。</td>
-          <td><div class="triad"><div class="thai">คงจะร้อน / คงจะรถติด / คงจะไปไม่ได้</div><div class="roman">khong-jà rɔ́ɔn / khong-jà rót-dtìt / khong-jà bpai mâi dâai</div><div class="eng">probably hot / probably traffic / probably cannot go</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คงจะร้อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คงจะร้อน</span><span class="en-colloc">probably hot</span></span><span class="colloc-chip" data-thai="คงจะรถติด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คงจะรถติด</span><span class="en-colloc">probably traffic</span></span><span class="colloc-chip" data-thai="คงจะไปไม่ได้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คงจะไปไม่ได้</span><span class="en-colloc">probably cannot go</span></span></div></td>
           <td><div class="triad"><div class="thai">เย็นนี้คงจะรถติดมากค่ะ</div><div class="roman">yen-níi khong-jà rót-dtìt mâak khâ</div><div class="eng">This evening there will probably be heavy traffic.</div></div></td>
         </tr>
 
         <tr>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ถึง</div><div class="roman">thʉ̌ng</div><div class="eng">to arrive / reach / until</div></div></td>
+          <td><div class="triad"><div class="thai">ถึง</div><div class="roman">thʉ̌ng</div><div class="eng">to arrive / reach / until</div></div></td>
           <td>Verb / preposition</td>
           <td>—</td>
           <td>本課重點是「到達」某地或某時間。</td>
-          <td><div class="triad"><div class="thai">จะถึง / ถึงสยาม / ถึงวันเกิด</div><div class="roman">jà thʉ̌ng / thʉ̌ng sà-yǎam / thʉ̌ng wan-gə̀ət</div><div class="eng">will arrive / arrive at Siam / until birthday</div></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จะถึง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จะถึง</span><span class="en-colloc">will arrive</span></span><span class="colloc-chip" data-thai="ถึงสยาม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถึงสยาม</span><span class="en-colloc">arrive at Siam</span></span><span class="colloc-chip" data-thai="ถึงวันเกิด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถึงวันเกิด</span><span class="en-colloc">until birthday</span></span></div></td>
           <td><div class="triad"><div class="thai">อีกสี่เดือนจะถึงวันเกิดฉันค่ะ</div><div class="roman">ìik sìi dʉan jà thʉ̌ng wan-gə̀ət chǎn khâ</div><div class="eng">In four more months, it will be my birthday.</div></div></td>
         </tr>
       </tbody>
@@ -705,7 +779,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><span class="classifier-chip">องศา</span><div class="triad"><div class="thai">องศา</div><div class="roman">ong-sǎa</div><div class="eng">degree</div></div></td>
+          <td><span class="classifier-plain">องศา</span><div class="triad"><div class="thai">องศา</div><div class="roman">ong-sǎa</div><div class="eng">degree</div></div></td>
           <td><div class="triad"><div class="thai">อุณหภูมิ / ความร้อน / ความเย็น</div><div class="roman">un-hà-phuum / khwaam-rɔ́ɔn / khwaam-yen</div><div class="eng">temperature / heat / coldness</div></div></td>
           <td>溫度單位。</td>
           <td><div class="triad"><div class="thai">วันนี้ 35 องศาค่ะ</div><div class="roman">wan-níi sǎam-sìp-hâa ong-sǎa khâ</div><div class="eng">Today it is 35 degrees.</div></div></td>
@@ -713,7 +787,7 @@
         </tr>
 
         <tr>
-          <td><span class="classifier-chip">ฤดู</span><div class="triad"><div class="thai">ฤดู</div><div class="roman">rʉ́-duu</div><div class="eng">season</div></div></td>
+          <td><span class="classifier-plain">ฤดู</span><div class="triad"><div class="thai">ฤดู</div><div class="roman">rʉ́-duu</div><div class="eng">season</div></div></td>
           <td><div class="triad"><div class="thai">ฤดูหนาว / ฤดูร้อน / ฤดูฝน</div><div class="roman">rʉ́-duu nǎao / rʉ́-duu rɔ́ɔn / rʉ́-duu fǒn</div><div class="eng">cold season / hot season / rainy season</div></div></td>
           <td>數季節或說某個季節。</td>
           <td><div class="triad"><div class="thai">เมืองไทยมีสามฤดูค่ะ</div><div class="roman">mʉang-thai mii sǎam rʉ́-duu khâ</div><div class="eng">Thailand has three seasons.</div></div></td>
@@ -721,7 +795,7 @@
         </tr>
 
         <tr>
-          <td><span class="classifier-chip">สถานี</span><div class="triad"><div class="thai">สถานี</div><div class="roman">sà-thǎa-nii</div><div class="eng">station</div></div></td>
+          <td><span class="classifier-plain">สถานี</span><div class="triad"><div class="thai">สถานี</div><div class="roman">sà-thǎa-nii</div><div class="eng">station</div></div></td>
           <td><div class="triad"><div class="thai">BTS / MRT / รถไฟ</div><div class="roman">bii-thii-èet / em-aa-thii / rót-fai</div><div class="eng">BTS / MRT / train</div></div></td>
           <td>在「還有幾站到」非常常用。</td>
           <td><div class="triad"><div class="thai">อีกสามสถานีจะถึงสยามค่ะ</div><div class="roman">ìik sǎam sà-thǎa-nii jà thʉ̌ng sà-yǎam khâ</div><div class="eng">Three more stations and we’ll arrive at Siam.</div></div></td>
@@ -729,7 +803,7 @@
         </tr>
 
         <tr>
-          <td><span class="classifier-chip">ต้น</span><div class="triad"><div class="thai">ต้น</div><div class="roman">dtôn</div><div class="eng">classifier for trees / plants</div></div></td>
+          <td><span class="classifier-plain">ต้น</span><div class="triad"><div class="thai">ต้น</div><div class="roman">dtôn</div><div class="eng">classifier for trees / plants</div></div></td>
           <td><div class="triad"><div class="thai">ต้นไม้ / ดอกไม้บางชนิด</div><div class="roman">dtôn-máai / dɔ̀ɔk-máai baang chá-nít</div><div class="eng">trees / some plants</div></div></td>
           <td>樹木是一棵一棵，用 <span class="thai">ต้น</span>。</td>
           <td><div class="triad"><div class="thai">หน้าบ้านมีต้นไม้สองต้นค่ะ</div><div class="roman">nâa bâan mii dtôn-máai sɔ̌ɔng dtôn khâ</div><div class="eng">There are two trees in front of the house.</div></div></td>
@@ -737,7 +811,7 @@
         </tr>
 
         <tr>
-          <td><span class="classifier-chip">ใบ</span><div class="triad"><div class="thai">ใบ</div><div class="roman">bai</div><div class="eng">classifier for leaves / bags / flat items</div></div></td>
+          <td><span class="classifier-plain">ใบ</span><div class="triad"><div class="thai">ใบ</div><div class="roman">bai</div><div class="eng">classifier for leaves / bags / flat items</div></div></td>
           <td><div class="triad"><div class="thai">ใบไม้ / กระเป๋า / ตั๋ว</div><div class="roman">bai-máai / grà-bpǎo / dtǔa</div><div class="eng">leaf / bag / ticket</div></div></td>
           <td>葉子本身就是 <span class="thai">ใบไม้</span>，單片葉子用 <span class="thai">ใบ</span>。</td>
           <td><div class="triad"><div class="thai">ใบไม้หนึ่งใบตกลงมา</div><div class="roman">bai-máai nʉ̀eng bai dtòk long maa</div><div class="eng">One leaf fell down.</div></div></td>
@@ -745,7 +819,7 @@
         </tr>
 
         <tr>
-          <td><span class="classifier-chip">ลำ</span><div class="triad"><div class="thai">ลำ</div><div class="roman">lam</div><div class="eng">classifier for boats / long vehicles</div></div></td>
+          <td><span class="classifier-plain">ลำ</span><div class="triad"><div class="thai">ลำ</div><div class="roman">lam</div><div class="eng">classifier for boats / long vehicles</div></div></td>
           <td><div class="triad"><div class="thai">เรือ / เครื่องบินบาง情境</div><div class="roman">rʉa / khrʉ̂ang-bin baang sà-thǎa-ná-gaan</div><div class="eng">boat / aircraft in some contexts</div></div></td>
           <td>船的量詞。</td>
           <td><div class="triad"><div class="thai">เรือหนึ่งลำอยู่ริมทะเลสาบค่ะ</div><div class="roman">rʉa nʉ̀eng lam yùu rim thá-lee-sàap khâ</div><div class="eng">One boat is by the lake.</div></div></td>
@@ -753,7 +827,7 @@
         </tr>
 
         <tr>
-          <td><span class="classifier-chip">ครั้ง</span><div class="triad"><div class="thai">ครั้ง</div><div class="roman">khráng</div><div class="eng">time / occurrence</div></div></td>
+          <td><span class="classifier-plain">ครั้ง</span><div class="triad"><div class="thai">ครั้ง</div><div class="roman">khráng</div><div class="eng">time / occurrence</div></div></td>
           <td><div class="triad"><div class="thai">ว่ายน้ำ / ดำน้ำ / ไปเที่ยว</div><div class="roman">wâai-náam / dam-náam / bpai thîao</div><div class="eng">swimming / diving / traveling</div></div></td>
           <td>數動作發生幾次。</td>
           <td><div class="triad"><div class="thai">ฉันไปดำน้ำสองครั้งค่ะ</div><div class="roman">chǎn bpai dam-náam sɔ̌ɔng khráng khâ</div><div class="eng">I went diving twice.</div></div></td>
@@ -947,7 +1021,7 @@
     <h2>Structures｜句型整理</h2>
 
     <div class="pattern">
-      <span class="label textbook">Textbook-based</span>
+      
       <h3>1. S + จะ / อาจจะ / คงจะ + V</h3>
       <div class="triad">
         <div class="thai">Subject + จะ / อาจจะ / คงจะ + Verb</div>
@@ -1068,36 +1142,36 @@
       <tbody>
         <tr>
           <td>說季節</td>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฤดูฝน</div><div class="roman">rʉ́-duu fǒn</div><div class="eng">rainy season</div></div></td>
-          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">หน้าฝน</div><div class="roman">nâa-fǒn</div><div class="eng">rainy season, spoken</div></div></td>
+          <td><div class="triad"><div class="thai">ฤดูฝน</div><div class="roman">rʉ́-duu fǒn</div><div class="eng">rainy season</div></div></td>
+          <td><div class="triad"><div class="thai">หน้าฝน</div><div class="roman">nâa-fǒn</div><div class="eng">rainy season, spoken</div></div></td>
           <td>正式說 <span class="thai">ฤดู</span>，日常很常說 <span class="thai">หน้า</span>。</td>
         </tr>
 
         <tr>
           <td>說可能下雨</td>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">ฝนอาจจะตกค่ะ</div><div class="roman">fǒn àat-jà dtòk khâ</div><div class="eng">It might rain.</div></div></td>
-          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เหมือนฝนจะตกนะ</div><div class="roman">mʉ̌an fǒn jà dtòk ná</div><div class="eng">Looks like it’s going to rain.</div></div></td>
+          <td><div class="triad"><div class="thai">ฝนอาจจะตกค่ะ</div><div class="roman">fǒn àat-jà dtòk khâ</div><div class="eng">It might rain.</div></div></td>
+          <td><div class="triad"><div class="thai">เหมือนฝนจะตกนะ</div><div class="roman">mʉ̌an fǒn jà dtòk ná</div><div class="eng">Looks like it’s going to rain.</div></div></td>
           <td>看到黑雲時，曼谷人很常用 <span class="thai">เหมือน...</span>。</td>
         </tr>
 
         <tr>
           <td>問是不是開車來</td>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">คุณขับรถมาโรงเรียนหรือไม่ขับรถมาโรงเรียนคะ</div><div class="roman">khun khàp-rót maa rooŋ-rian rʉ̌ʉ mâi khàp-rót maa rooŋ-rian khá</div><div class="eng">Did you drive to school or not?</div></div></td>
-          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วันนี้ขับรถมาไหมคะ</div><div class="roman">wan-níi khàp-rót maa mái khá</div><div class="eng">Did you drive here today?</div></div></td>
+          <td><div class="triad"><div class="thai">คุณขับรถมาโรงเรียนหรือไม่ขับรถมาโรงเรียนคะ</div><div class="roman">khun khàp-rót maa rooŋ-rian rʉ̌ʉ mâi khàp-rót maa rooŋ-rian khá</div><div class="eng">Did you drive to school or not?</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ขับรถมาไหมคะ</div><div class="roman">wan-níi khàp-rót maa mái khá</div><div class="eng">Did you drive here today?</div></div></td>
           <td>生活中用 <span class="thai">ไหม</span> 更自然。</td>
         </tr>
 
         <tr>
           <td>問還多久到</td>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">เมื่อไรจะถึงสยามคะ</div><div class="roman">mʉ̂a-rài jà thʉ̌ng sà-yǎam khá</div><div class="eng">When will we arrive at Siam?</div></div></td>
-          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อีกกี่สถานีถึงสยามคะ</div><div class="roman">ìik gìi sà-thǎa-nii thʉ̌ng sà-yǎam khá</div><div class="eng">How many more stations to Siam?</div></div></td>
+          <td><div class="triad"><div class="thai">เมื่อไรจะถึงสยามคะ</div><div class="roman">mʉ̂a-rài jà thʉ̌ng sà-yǎam khá</div><div class="eng">When will we arrive at Siam?</div></div></td>
+          <td><div class="triad"><div class="thai">อีกกี่สถานีถึงสยามคะ</div><div class="roman">ìik gìi sà-thǎa-nii thʉ̌ng sà-yǎam khá</div><div class="eng">How many more stations to Siam?</div></div></td>
           <td>BTS/MRT 更常問「還幾站」。</td>
         </tr>
 
         <tr>
           <td>說很熱</td>
-          <td><span class="label textbook">Textbook-based</span><div class="triad"><div class="thai">วันนี้อุณหภูมิสูงมากค่ะ</div><div class="roman">wan-níi un-hà-phuum sǔung mâak khâ</div><div class="eng">The temperature is very high today.</div></div></td>
-          <td><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วันนี้ร้อนมาก เหมือนจะละลายเลย</div><div class="roman">wan-níi rɔ́ɔn mâak, mʉ̌an jà lá-laai ləəi</div><div class="eng">It’s so hot today, I feel like I’m melting.</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้อุณหภูมิสูงมากค่ะ</div><div class="roman">wan-níi un-hà-phuum sǔung mâak khâ</div><div class="eng">The temperature is very high today.</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ร้อนมาก เหมือนจะละลายเลย</div><div class="roman">wan-níi rɔ́ɔn mâak, mʉ̌an jà lá-laai ləəi</div><div class="eng">It’s so hot today, I feel like I’m melting.</div></div></td>
           <td>口語誇張說法，非常自然。</td>
         </tr>
       </tbody>
@@ -1110,17 +1184,17 @@
     <h3>1. BTS / MRT：還有幾站到？</h3>
     <div class="cards">
       <div class="card">
-        <span class="label practical">Practical Usage</span>
+        
         <div class="triad"><div class="thai">อีกกี่สถานีจะถึงสยามคะ</div><div class="roman">ìik gìi sà-thǎa-nii jà thʉ̌ng sà-yǎam khá</div><div class="eng">How many more stations until Siam?</div></div>
         <p>在 BTS/MRT 上非常實用。</p>
       </div>
       <div class="card">
-        <span class="label practical">Practical Usage</span>
+        
         <div class="triad"><div class="thai">อีกสามสถานีจะถึงสยามค่ะ</div><div class="roman">ìik sǎam sà-thǎa-nii jà thʉ̌ng sà-yǎam khâ</div><div class="eng">Three more stations and we will arrive at Siam.</div></div>
         <p>回答站數。</p>
       </div>
       <div class="card">
-        <span class="label practical">Practical Usage</span>
+        
         <div class="triad"><div class="thai">อีกสองสถานีต้องลงแล้วค่ะ</div><div class="roman">ìik sɔ̌ɔng sà-thǎa-nii dtɔ̂ng long lɛ́ɛw khâ</div><div class="eng">We have to get off in two more stations.</div></div>
         <p>提醒朋友準備下車。</p>
       </div>
@@ -1196,42 +1270,42 @@
 
     <h3>BTS：還有幾站到 Siam？</h3>
     <div class="bubble-wrap">
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อีกกี่สถานีจะถึงสยามคะ</div><div class="roman">ìik gìi sà-thǎa-nii jà thʉ̌ng sà-yǎam khá</div><div class="eng">How many more stations until Siam?</div></div></div>
-      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อีกสามสถานีค่ะ</div><div class="roman">ìik sǎam sà-thǎa-nii khâ</div><div class="eng">Three more stations.</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">งั้นใกล้ถึงแล้วใช่ไหมคะ</div><div class="roman">ngán glâi thʉ̌ng lɛ́ɛw châi mái khá</div><div class="eng">So we’re almost there, right?</div></div></div>
-      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ใช่ค่ะ อีกสองสถานีต้องเตรียมลงแล้วค่ะ</div><div class="roman">châi khâ, ìik sɔ̌ɔng sà-thǎa-nii dtɔ̂ng dtriam long lɛ́ɛw khâ</div><div class="eng">Yes. In two more stations, we need to get ready to get off.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">อีกกี่สถานีจะถึงสยามคะ</div><div class="roman">ìik gìi sà-thǎa-nii jà thʉ̌ng sà-yǎam khá</div><div class="eng">How many more stations until Siam?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">อีกสามสถานีค่ะ</div><div class="roman">ìik sǎam sà-thǎa-nii khâ</div><div class="eng">Three more stations.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">งั้นใกล้ถึงแล้วใช่ไหมคะ</div><div class="roman">ngán glâi thʉ̌ng lɛ́ɛw châi mái khá</div><div class="eng">So we’re almost there, right?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ใช่ค่ะ อีกสองสถานีต้องเตรียมลงแล้วค่ะ</div><div class="roman">châi khâ, ìik sɔ̌ɔng sà-thǎa-nii dtɔ̂ng dtriam long lɛ́ɛw khâ</div><div class="eng">Yes. In two more stations, we need to get ready to get off.</div></div></div>
     </div>
 
     <h3>朋友約出門：看起來要下雨</h3>
     <div class="bubble-wrap">
-      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">วันนี้ไปเดินเล่นสยามไหม</div><div class="roman">wan-níi bpai dəən-lên sà-yǎam mái</div><div class="eng">Do you want to walk around Siam today?</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อาจจะไปค่ะ แต่เหมือนฝนจะตก</div><div class="roman">àat-jà bpai khâ, dtɛ̀ɛ mʉ̌an fǒn jà dtòk</div><div class="eng">I might go, but it looks like it’s going to rain.</div></div></div>
-      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">งั้นพกร่มไปด้วยนะ</div><div class="roman">ngán phók rôm bpai dûai ná</div><div class="eng">Then bring an umbrella too.</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">โอเคค่ะ เย็นนี้คงจะรถติดมากด้วย</div><div class="roman">oo-khee khâ, yen-níi khong-jà rót-dtìt mâak dûai</div><div class="eng">Okay. There will probably be a lot of traffic this evening too.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">วันนี้ไปเดินเล่นสยามไหม</div><div class="roman">wan-níi bpai dəən-lên sà-yǎam mái</div><div class="eng">Do you want to walk around Siam today?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">อาจจะไปค่ะ แต่เหมือนฝนจะตก</div><div class="roman">àat-jà bpai khâ, dtɛ̀ɛ mʉ̌an fǒn jà dtòk</div><div class="eng">I might go, but it looks like it’s going to rain.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">งั้นพกร่มไปด้วยนะ</div><div class="roman">ngán phók rôm bpai dûai ná</div><div class="eng">Then bring an umbrella too.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">โอเคค่ะ เย็นนี้คงจะรถติดมากด้วย</div><div class="roman">oo-khee khâ, yen-níi khong-jà rót-dtìt mâak dûai</div><div class="eng">Okay. There will probably be a lot of traffic this evening too.</div></div></div>
     </div>
 
     <h3>Condo：要不要去游泳？</h3>
     <div class="bubble-wrap">
-      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">เย็นนี้จะไปว่ายน้ำหรือไม่ไปว่ายน้ำ</div><div class="roman">yen-níi jà bpai wâai-náam rʉ̌ʉ mâi bpai wâai-náam</div><div class="eng">Will you go swimming this evening or not?</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อาจจะไปค่ะ ถ้าฝนไม่ตก</div><div class="roman">àat-jà bpai khâ, thâa fǒn mâi dtòk</div><div class="eng">I might go, if it doesn’t rain.</div></div></div>
-      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ไปที่สระคอนโดใช่ไหม</div><div class="roman">bpai thîi sà khɔɔn-doo châi mái</div><div class="eng">At the condo pool, right?</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ใช่ค่ะ แต่ถ้าฝนตกคงจะไม่ไปค่ะ</div><div class="roman">châi khâ, dtɛ̀ɛ thâa fǒn-dtòk khong-jà mâi bpai khâ</div><div class="eng">Yes, but if it rains, I probably won’t go.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">เย็นนี้จะไปว่ายน้ำหรือไม่ไปว่ายน้ำ</div><div class="roman">yen-níi jà bpai wâai-náam rʉ̌ʉ mâi bpai wâai-náam</div><div class="eng">Will you go swimming this evening or not?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">อาจจะไปค่ะ ถ้าฝนไม่ตก</div><div class="roman">àat-jà bpai khâ, thâa fǒn mâi dtòk</div><div class="eng">I might go, if it doesn’t rain.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ไปที่สระคอนโดใช่ไหม</div><div class="roman">bpai thîi sà khɔɔn-doo châi mái</div><div class="eng">At the condo pool, right?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ใช่ค่ะ แต่ถ้าฝนตกคงจะไม่ไปค่ะ</div><div class="roman">châi khâ, dtɛ̀ɛ thâa fǒn-dtòk khong-jà mâi bpai khâ</div><div class="eng">Yes, but if it rains, I probably won’t go.</div></div></div>
     </div>
 
     <h3>Taxi / Grab：還有多久到？</h3>
     <div class="bubble-wrap">
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">อีกกี่นาทีจะถึงคะ</div><div class="roman">ìik gìi naa-thii jà thʉ̌ng khá</div><div class="eng">How many more minutes until we arrive?</div></div></div>
-      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">อีกประมาณสิบห้านาทีครับ</div><div class="roman">ìik bprà-maan sìp-hâa naa-thii khráp</div><div class="eng">About 15 more minutes.</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">รถติดมากไหมคะ</div><div class="roman">rót-dtìt mâak mái khá</div><div class="eng">Is the traffic very bad?</div></div></div>
-      <div class="bubble a"><span class="speaker a">Driver</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ติดนิดหน่อยครับ แต่คงจะถึงทันเวลา</div><div class="roman">dtìt nít-nɔ̀i khráp, dtɛ̀ɛ khong-jà thʉ̌ng than wee-laa</div><div class="eng">A little bit, but we will probably arrive on time.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">อีกกี่นาทีจะถึงคะ</div><div class="roman">ìik gìi naa-thii jà thʉ̌ng khá</div><div class="eng">How many more minutes until we arrive?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Driver</span><div class="triad"><div class="thai">อีกประมาณสิบห้านาทีครับ</div><div class="roman">ìik bprà-maan sìp-hâa naa-thii khráp</div><div class="eng">About 15 more minutes.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">รถติดมากไหมคะ</div><div class="roman">rót-dtìt mâak mái khá</div><div class="eng">Is the traffic very bad?</div></div></div>
+      <div class="bubble a"><span class="speaker a">Driver</span><div class="triad"><div class="thai">ติดนิดหน่อยครับ แต่คงจะถึงทันเวลา</div><div class="roman">dtìt nít-nɔ̀i khráp, dtɛ̀ɛ khong-jà thʉ̌ng than wee-laa</div><div class="eng">A little bit, but we will probably arrive on time.</div></div></div>
     </div>
 
     <h3>旅行：海島活動安排</h3>
     <div class="bubble-wrap">
-      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">พรุ่งนี้อยากทำอะไร</div><div class="roman">phrûng-níi yàak tham à-rai</div><div class="eng">What do you want to do tomorrow?</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">ฉันอยากไปดำน้ำค่ะ</div><div class="roman">chǎn yàak bpai dam-náam khâ</div><div class="eng">I want to go diving.</div></div></div>
-      <div class="bubble a"><span class="speaker a">Friend</span><span class="label local">Supplement / Local usage</span><div class="triad"><div class="thai">ถ้าฝนตก อาจจะไปไม่ได้</div><div class="roman">thâa fǒn-dtòk, àat-jà bpai mâi dâai</div><div class="eng">If it rains, we might not be able to go.</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><span class="label practical">Practical Usage</span><div class="triad"><div class="thai">งั้นคงต้องดูอากาศก่อนค่ะ</div><div class="roman">ngán khong dtɔ̂ng duu aa-gàat gɔ̀ɔn khâ</div><div class="eng">Then we probably need to check the weather first.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">พรุ่งนี้อยากทำอะไร</div><div class="roman">phrûng-níi yàak tham à-rai</div><div class="eng">What do you want to do tomorrow?</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ฉันอยากไปดำน้ำค่ะ</div><div class="roman">chǎn yàak bpai dam-náam khâ</div><div class="eng">I want to go diving.</div></div></div>
+      <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ถ้าฝนตก อาจจะไปไม่ได้</div><div class="roman">thâa fǒn-dtòk, àat-jà bpai mâi dâai</div><div class="eng">If it rains, we might not be able to go.</div></div></div>
+      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">งั้นคงต้องดูอากาศก่อนค่ะ</div><div class="roman">ngán khong dtɔ̂ng duu aa-gàat gɔ̀ɔn khâ</div><div class="eng">Then we probably need to check the weather first.</div></div></div>
     </div>
   </section>
 
@@ -1554,6 +1628,26 @@ document.addEventListener('DOMContentLoaded', () => {
     el.appendChild(btn);
   });
 });
+
+
+// ── Collocation audio pills patch ─────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.colloc-chip').forEach(chip => {
+    const text = chip.getAttribute('data-thai');
+    if (!text) return;
+    chip.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(text, chip);
+    });
+    chip.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        speakThai(text, chip);
+      }
+    });
+  });
+});
+
 </script>
 </body>
 </html>
