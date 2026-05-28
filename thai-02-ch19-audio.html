@@ -120,7 +120,7 @@
     .eng { font-size: 13px; color: var(--text); }
 
     .triad { display: grid; gap: 2px; margin: 4px 0; }
-    .triad .thai::before { content: none; }
+    .triad .:before { content: none; }
     .triad .roman::before { content: none; }
     .triad .eng::before { content: none; }
 
@@ -285,82 +285,9 @@
       table { font-size: 13px; }
       .bubble { max-width: 100%; }
     }
-  
 
-    /* ── Clean label / collocation pill patch ───────────────────── */
-    .triad .thai::before,
-    .triad .roman::before,
-    .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
-    .colloc-cell {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: flex-start;
-    }
-
-    .colloc-chip {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1px;
-      border: .5px solid rgba(22,163,74,.24);
-      background: rgba(240,253,244,.78);
-      border-radius: 12px;
-      padding: 5px 10px;
-      margin: 3px 3px 3px 0;
-      cursor: pointer;
-      transition: all .15s ease;
-      min-width: 72px;
-      text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
-    }
-
-    .colloc-chip:hover,
-    .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
-      outline: none;
-    }
-
-    .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
-    }
-
-    .colloc-chip .thai {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.25;
-    }
-
-    .colloc-chip .en-colloc {
-      display: block;
-      font-size: 10.5px;
-      color: var(--muted);
-      line-height: 1.2;
-    }
-  
-
-    /* ── ch1-19 clean triad + collocation pill patch ───────── */
+    /* ── Correct collocation pill behavior patch ──────────────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
@@ -370,76 +297,73 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      align-items: flex-start;
       margin: 4px 0;
+      align-items: flex-start;
     }
 
     .audio-pill,
+    .collocation-pill,
     .colloc-chip {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1px;
-      border: .5px solid rgba(22,163,74,.24);
-      background: rgba(240,253,244,.78);
-      color: var(--text);
-      border-radius: 12px;
-      padding: 5px 10px;
-      margin: 3px 3px 3px 0;
-      cursor: pointer;
-      line-height: 1.25;
-      transition: background-color .12s ease, border-color .12s ease;
-      min-width: 72px;
-      text-align: center;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 6px !important;
+      border: .5px solid rgba(22,163,74,.24) !important;
+      background: rgba(22,163,74,.10) !important;
+      color: var(--text) !important;
+      border-radius: 999px !important;
+      padding: 5px 9px !important;
+      margin: 3px 3px 3px 0 !important;
+      cursor: pointer !important;
+      line-height: 1.35 !important;
+      transition: background-color .15s ease, border-color .15s ease !important;
+      font: inherit !important;
+      text-align: left !important;
       box-shadow: none !important;
       transform: none !important;
       animation: none !important;
-      font: inherit;
     }
 
     .audio-pill:hover,
     .audio-pill:focus-visible,
+    .collocation-pill:hover,
+    .collocation-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(220,252,231,.86);
-      border-color: rgba(22,163,74,.32);
+      background: rgba(22,163,74,.16) !important;
+      border-color: rgba(22,163,74,.32) !important;
       transform: none !important;
       animation: none !important;
-      outline: none;
+      outline: none !important;
     }
 
     .audio-pill.speaking,
+    .collocation-pill.speaking,
     .colloc-chip.speaking {
-      background: rgba(220,252,231,.96) !important;
-      border-color: rgba(22,163,74,.38) !important;
+      background: rgba(22,163,74,.18) !important;
+      border-color: rgba(22,163,74,.42) !important;
       transform: none !important;
       animation: none !important;
     }
 
-    .audio-pill::before,
-    .audio-pill::after,
-    .colloc-chip::before,
-    .colloc-chip::after {
-      content: none !important;
-    }
-
     .audio-pill .pill-thai,
+    .collocation-pill .pill-thai,
     .colloc-chip .thai {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.25;
-      color: var(--text);
+      display: inline !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      letter-spacing: .01em !important;
+      color: var(--text) !important;
+      line-height: 1.25 !important;
     }
 
     .audio-pill .pill-eng,
+    .collocation-pill .pill-eng,
     .colloc-chip .en-colloc {
-      display: block;
-      font-size: 10.5px;
-      color: var(--muted);
-      line-height: 1.2;
+      display: inline !important;
+      font-size: 12px !important;
+      color: var(--muted) !important;
+      line-height: 1.2 !important;
     }
 
   </style>
@@ -1720,6 +1644,7 @@ function openTab(event,tabId){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
+
 // ── TTS ──────────────────────────────────────────────
 let thaiVoice = null;
 let activBtn  = null;
@@ -1735,6 +1660,26 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = loadVoices;
 }
 
+function isCollocationPill(btn) {
+  return btn && btn.classList && (
+    btn.classList.contains('audio-pill') ||
+    btn.classList.contains('collocation-pill') ||
+    btn.classList.contains('colloc-chip')
+  );
+}
+
+function resetSpeakButton(btn) {
+  if (!btn) return;
+  btn.classList.remove('speaking');
+  if (!isCollocationPill(btn)) btn.textContent = '🔊';
+}
+
+function markSpeakButton(btn) {
+  if (!btn) return;
+  btn.classList.add('speaking');
+  if (!isCollocationPill(btn)) btn.textContent = '⏸';
+}
+
 function speakThai(text, btn) {
   if (!window.speechSynthesis) {
     alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
@@ -1742,36 +1687,44 @@ function speakThai(text, btn) {
   }
   if (activBtn === btn && speechSynthesis.speaking) {
     speechSynthesis.cancel();
-    btn.classList.remove('speaking');
-    btn.textContent = '🔊';
+    resetSpeakButton(btn);
     activBtn = null;
     return;
   }
   speechSynthesis.cancel();
-  if (activBtn) {
-    activBtn.classList.remove('speaking');
-    activBtn.textContent = '🔊';
-  }
+  if (activBtn) resetSpeakButton(activBtn);
+
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang  = 'th-TH';
   utter.rate  = 0.85;
   utter.pitch = 1.0;
   if (thaiVoice) utter.voice = thaiVoice;
   utter.onstart = () => {
-    btn.classList.add('speaking');
-    btn.textContent = '⏸';
+    markSpeakButton(btn);
     activBtn = btn;
   };
   utter.onend = utter.onerror = () => {
-    btn.classList.remove('speaking');
-    btn.textContent = '🔊';
+    resetSpeakButton(btn);
     activBtn = null;
   };
   speechSynthesis.speak(utter);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.audio-pill, .collocation-pill, .colloc-chip').forEach(pill => {
+    if (!pill.dataset.thai) {
+      const thaiEl = pill.querySelector('.pill-thai, .thai');
+      if (thaiEl) pill.dataset.thai = thaiEl.textContent.trim();
+    }
+    pill.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(pill.dataset.thai || pill.textContent.trim(), pill);
+    });
+  });
+
   document.querySelectorAll('div.thai').forEach(el => {
+    if (el.closest('.audio-pill, .collocation-pill, .colloc-chip, .collocation-pills, .colloc-cell')) return;
+    if (el.querySelector('.speak-btn')) return;
     const rawText = el.textContent.trim();
     if (!rawText) return;
     const span = document.createElement('span');
@@ -1791,26 +1744,6 @@ document.addEventListener('DOMContentLoaded', () => {
     el.appendChild(btn);
   });
 });
-
-
-// ── Collocation audio pills patch ─────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.colloc-chip').forEach(chip => {
-    const text = chip.getAttribute('data-thai');
-    if (!text) return;
-    chip.addEventListener('click', e => {
-      e.stopPropagation();
-      speakThai(text, chip);
-    });
-    chip.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        speakThai(text, chip);
-      }
-    });
-  });
-});
-
 </script>
 
 
@@ -1832,7 +1765,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.playCollocationThai = function (el) {
-    speakText(el && el.dataset ? el.dataset.thai : '', el);
+    speakText(el && el.dataset ? el.dataset.'', el);
   };
 
   document.addEventListener('click', function (event) {

@@ -304,7 +304,6 @@
     }
     .audio-pill:hover {
       background: rgba(22,163,74,.16);
-      transform: translateY(-1px);
     }
     .audio-pill .pill-thai {
       font-size: 15px;
@@ -317,8 +316,8 @@
       color: var(--muted);
     }
     .audio-pill.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.35);
+      background: rgba(22,163,74,.18);
+      border-color: rgba(22,163,74,.42);
     }
 
 @media (max-width: 720px) {
@@ -1495,6 +1494,22 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = loadVoices;
 }
 
+function isAudioPill(btn) {
+  return btn && btn.classList && btn.classList.contains('audio-pill');
+}
+
+function resetSpeakButton(btn) {
+  if (!btn) return;
+  btn.classList.remove('speaking');
+  if (!isAudioPill(btn)) btn.textContent = '🔊';
+}
+
+function markSpeakButton(btn) {
+  if (!btn) return;
+  btn.classList.add('speaking');
+  if (!isAudioPill(btn)) btn.textContent = '⏸';
+}
+
 function speakThai(text, btn) {
   if (!window.speechSynthesis) {
     alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
@@ -1502,29 +1517,24 @@ function speakThai(text, btn) {
   }
   if (activBtn === btn && speechSynthesis.speaking) {
     speechSynthesis.cancel();
-    btn.classList.remove('speaking');
-    btn.textContent = '🔊';
+    resetSpeakButton(btn);
     activBtn = null;
     return;
   }
   speechSynthesis.cancel();
-  if (activBtn) {
-    activBtn.classList.remove('speaking');
-    activBtn.textContent = '🔊';
-  }
+  if (activBtn) resetSpeakButton(activBtn);
+
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang  = 'th-TH';
   utter.rate  = 0.85;
   utter.pitch = 1.0;
   if (thaiVoice) utter.voice = thaiVoice;
   utter.onstart = () => {
-    btn.classList.add('speaking');
-    btn.textContent = '⏸';
+    markSpeakButton(btn);
     activBtn = btn;
   };
   utter.onend = utter.onerror = () => {
-    btn.classList.remove('speaking');
-    btn.textContent = '🔊';
+    resetSpeakButton(btn);
     activBtn = null;
   };
   speechSynthesis.speak(utter);
@@ -1532,6 +1542,7 @@ function speakThai(text, btn) {
 
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('div.thai').forEach(el => {
+    if (el.closest('.audio-pill, .collocation-pills')) return;
     const rawText = el.textContent.trim();
     if (!rawText) return;
     const span = document.createElement('span');
