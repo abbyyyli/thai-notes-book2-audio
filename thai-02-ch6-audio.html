@@ -338,6 +338,90 @@
       table { font-size: 13px; }
       .bubble { max-width: 100%; }
     }
+  
+
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
+    .triad .thai::before,
+    .triad .roman::before,
+    .triad .eng::before { content: none !important; }
+
+    .collocation-pills,
+    .colloc-cell {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+      margin: 4px 0;
+    }
+
+    .audio-pill,
+    .colloc-chip {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      border: .5px solid rgba(22,163,74,.24);
+      background: rgba(240,253,244,.78);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 5px 10px;
+      margin: 3px 3px 3px 0;
+      cursor: pointer;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
+      min-width: 72px;
+      text-align: center;
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
+    }
+
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
+    .colloc-chip:hover,
+    .colloc-chip:focus-visible {
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
+      outline: none;
+    }
+
+    .audio-pill.speaking,
+    .colloc-chip.speaking {
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
+    }
+
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
+    .colloc-chip .thai {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .audio-pill .pill-eng,
+    .colloc-chip .en-colloc {
+      display: block;
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.2;
+    }
+
   </style>
 </head>
 <body>
@@ -345,6 +429,14 @@
 <section class="hero">
 <h1>Thai Book 2｜Day 6 學習指南</h1>
 <p class="subtitle">主題：บ้าง / มั่ง 有哪些、เอา...มา / เอา...ไป 帶來 / 帶去、海邊用品、簽證延期、移民局、พาใครมา / ไป 帶誰來 / 去</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label practical">Practical Usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+
 <p>
 
 <span class="label local">Supplement / Local usage</span>
@@ -472,7 +564,7 @@
 <td>Question / listing particle</td>
 <td>—</td>
 <td>放在問句尾，表示「有哪些？」通常期待多個答案，不是單一答案。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="อะไรบ้าง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อะไรบ้าง</span><span class="en-colloc">what things</span></span><span class="colloc-chip" data-thai="ที่ไหนบ้าง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ที่ไหนบ้าง</span><span class="en-colloc">which places</span></span><span class="colloc-chip" data-thai="ใครบ้าง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใครบ้าง</span><span class="en-colloc">who all</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="อะไรบ้าง" role="button" tabindex="0" ><span class="thai">อะไรบ้าง</span><span class="en-colloc">what things</span></span><span class="colloc-chip" data-thai="ที่ไหนบ้าง" role="button" tabindex="0" ><span class="thai">ที่ไหนบ้าง</span><span class="en-colloc">which places</span></span><span class="colloc-chip" data-thai="ใครบ้าง" role="button" tabindex="0" ><span class="thai">ใครบ้าง</span><span class="en-colloc">who all</span></span></div></td>
 <td>
 <div class="triad"><div class="thai">คุณซื้ออะไรที่ตลาดบ้างคะ</div><div class="roman">khun sʉ́ʉ à-rai thîi dtà-làat bâang khá</div><div class="eng">What things did you buy at the market?</div></div>
 </td>
@@ -485,7 +577,7 @@
 <td>Casual particle</td>
 <td>—</td>
 <td>口語版，朋友聊天常聽到。正式場合、老師面前、移民局不建議優先用。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปไหนมั่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปไหนมั่ง</span><span class="en-colloc">where did you go</span></span><span class="colloc-chip" data-thai="ซื้ออะไรมามั่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ซื้ออะไรมามั่ง</span><span class="en-colloc">what did you buy</span></span><span class="colloc-chip" data-thai="มีอะไรมั่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีอะไรมั่ง</span><span class="en-colloc">what is there</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปไหนมั่ง" role="button" tabindex="0" ><span class="thai">ไปไหนมั่ง</span><span class="en-colloc">where did you go</span></span><span class="colloc-chip" data-thai="ซื้ออะไรมามั่ง" role="button" tabindex="0" ><span class="thai">ซื้ออะไรมามั่ง</span><span class="en-colloc">what did you buy</span></span><span class="colloc-chip" data-thai="มีอะไรมั่ง" role="button" tabindex="0" ><span class="thai">มีอะไรมั่ง</span><span class="en-colloc">what is there</span></span></div></td>
 <td>
 <div class="triad"><div class="thai">วันหยุดไปไหนมามั่ง</div><div class="roman">wan-yùt bpai nǎi maa mâng</div><div class="eng">Where did you go during the holiday?</div></div>
 </td>
@@ -498,7 +590,7 @@
 <td>Limiting phrase</td>
 <td>—</td>
 <td>表示「只有……」。可以放在名詞後，也可以作為補充句。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="อันนี้เท่านั้น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อันนี้เท่านั้น</span><span class="en-colloc">only this one</span></span><span class="colloc-chip" data-thai="เงินเท่านั้น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เงินเท่านั้น</span><span class="en-colloc">only money</span></span><span class="colloc-chip" data-thai="กระเป๋าใบนี้เท่านั้น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระเป๋าใบนี้เท่านั้น</span><span class="en-colloc">only this bag</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="อันนี้เท่านั้น" role="button" tabindex="0" ><span class="thai">อันนี้เท่านั้น</span><span class="en-colloc">only this one</span></span><span class="colloc-chip" data-thai="เงินเท่านั้น" role="button" tabindex="0" ><span class="thai">เงินเท่านั้น</span><span class="en-colloc">only money</span></span><span class="colloc-chip" data-thai="กระเป๋าใบนี้เท่านั้น" role="button" tabindex="0" ><span class="thai">กระเป๋าใบนี้เท่านั้น</span><span class="en-colloc">only this bag</span></span></div></td>
 <td>
 <div class="triad"><div class="thai">วันนี้ฉันเอากระเป๋าเป้มาเท่านั้นค่ะ</div><div class="roman">wan-níi chǎn ao grà-bpǎo bpêe maa thâo-nán khâ</div><div class="eng">Today I brought only a backpack.</div></div>
 </td>
@@ -511,7 +603,7 @@
 <td>Connector</td>
 <td>—</td>
 <td>可以表示「和某人一起」，也可以列舉兩個東西。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปกับเพื่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปกับเพื่อน</span><span class="en-colloc">go with a friend</span></span><span class="colloc-chip" data-thai="หนังสือเดินทางกับเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หนังสือเดินทางกับเงิน</span><span class="en-colloc">passport and money</span></span><span class="colloc-chip" data-thai="แฟนกับเพื่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แฟนกับเพื่อน</span><span class="en-colloc">partner and friend</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปกับเพื่อน" role="button" tabindex="0" ><span class="thai">ไปกับเพื่อน</span><span class="en-colloc">go with a friend</span></span><span class="colloc-chip" data-thai="หนังสือเดินทางกับเงิน" role="button" tabindex="0" ><span class="thai">หนังสือเดินทางกับเงิน</span><span class="en-colloc">passport and money</span></span><span class="colloc-chip" data-thai="แฟนกับเพื่อน" role="button" tabindex="0" ><span class="thai">แฟนกับเพื่อน</span><span class="en-colloc">partner and friend</span></span></div></td>
 <td>
 <div class="triad"><div class="thai">ฉันไปทะเลกับแฟนค่ะ</div><div class="roman">chǎn bpai thá-lee gàp fɛɛn khâ</div><div class="eng">I went to the beach with my partner.</div></div>
 </td>
@@ -524,7 +616,7 @@
 <td>Connector</td>
 <td>—</td>
 <td>口語列舉很常見，像中文「然後還有」。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="แล้วก็อีกหลายอย่าง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แล้วก็อีกหลายอย่าง</span><span class="en-colloc">and many other things</span></span><span class="colloc-chip" data-thai="แล้วก็ไปต่อ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แล้วก็ไปต่อ</span><span class="en-colloc">then continue going</span></span><span class="colloc-chip" data-thai="แล้วก็ซื้อของ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แล้วก็ซื้อของ</span><span class="en-colloc">then buy things</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="แล้วก็อีกหลายอย่าง" role="button" tabindex="0" ><span class="thai">แล้วก็อีกหลายอย่าง</span><span class="en-colloc">and many other things</span></span><span class="colloc-chip" data-thai="แล้วก็ไปต่อ" role="button" tabindex="0" ><span class="thai">แล้วก็ไปต่อ</span><span class="en-colloc">then continue going</span></span><span class="colloc-chip" data-thai="แล้วก็ซื้อของ" role="button" tabindex="0" ><span class="thai">แล้วก็ซื้อของ</span><span class="en-colloc">then buy things</span></span></div></td>
 <td>
 <div class="triad"><div class="thai">ฉันเอาร่ม หมวก แล้วก็แว่นกันแดดไปค่ะ</div><div class="roman">chǎn ao rôm, mùak, lɛ́ɛw gɔ̂ɔ wɛ̂ɛn gan-dɛ̀ɛt bpai khâ</div><div class="eng">I took an umbrella, a hat, and sunglasses.</div></div>
 </td>
@@ -549,7 +641,7 @@
 <td>Document</td>
 <td><span class="classifier-chip">เล่ม</span><div class="roman">lêm</div><div class="eng">classifier for books/passports</div></td>
 <td>字面是「旅行的書」，所以量詞用 <span class="thai">เล่ม</span>。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="เอาหนังสือเดินทางไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เอาหนังสือเดินทางไป</span><span class="en-colloc">take a passport</span></span><span class="colloc-chip" data-thai="หนังสือเดินทางหมดอายุ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หนังสือเดินทางหมดอายุ</span><span class="en-colloc">passport expires</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="เอาหนังสือเดินทางไป" role="button" tabindex="0" ><span class="thai">เอาหนังสือเดินทางไป</span><span class="en-colloc">take a passport</span></span><span class="colloc-chip" data-thai="หนังสือเดินทางหมดอายุ" role="button" tabindex="0" ><span class="thai">หนังสือเดินทางหมดอายุ</span><span class="en-colloc">passport expires</span></span></div></td>
 <td><div class="triad"><div class="thai">เวลาต่อวีซ่า ต้องเอาหนังสือเดินทางไปค่ะ</div><div class="roman">wee-laa dtɔ̀ɔ wii-sâa, dtɔ̂ng ao nǎng-sʉ̌ʉ-dəən-thaang bpai khâ</div><div class="eng">When extending a visa, you have to take your passport.</div></div></td>
 </tr>
 <tr>
@@ -557,7 +649,7 @@
 <td>Bag</td>
 <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for bags</div></td>
 <td><span class="label review">Review</span> 包包類多用 <span class="thai">ใบ</span>。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ลากกระเป๋าเดินทาง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลากกระเป๋าเดินทาง</span><span class="en-colloc">pull a suitcase</span></span><span class="colloc-chip" data-thai="กระเป๋าเดินทางใบใหญ่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระเป๋าเดินทางใบใหญ่</span><span class="en-colloc">a big suitcase</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ลากกระเป๋าเดินทาง" role="button" tabindex="0" ><span class="thai">ลากกระเป๋าเดินทาง</span><span class="en-colloc">pull a suitcase</span></span><span class="colloc-chip" data-thai="กระเป๋าเดินทางใบใหญ่" role="button" tabindex="0" ><span class="thai">กระเป๋าเดินทางใบใหญ่</span><span class="en-colloc">a big suitcase</span></span></div></td>
 <td><div class="triad"><div class="thai">ฉันเอากระเป๋าเดินทางใบใหญ่มาเมืองไทยค่ะ</div><div class="roman">chǎn ao grà-bpǎo-dəən-thaang bai yài maa mʉang-thai khâ</div><div class="eng">I brought a big suitcase to Thailand.</div></div></td>
 </tr>
 <tr>
@@ -565,7 +657,7 @@
 <td>Bag</td>
 <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for bags</div></td>
 <td>背包；去上課、去咖啡店、去旅行都很常用。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="สะพายกระเป๋าเป้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สะพายกระเป๋าเป้</span><span class="en-colloc">carry a backpack</span></span><span class="colloc-chip" data-thai="กระเป๋าเป้ใบเล็ก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระเป๋าเป้ใบเล็ก</span><span class="en-colloc">a small backpack</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="สะพายกระเป๋าเป้" role="button" tabindex="0" ><span class="thai">สะพายกระเป๋าเป้</span><span class="en-colloc">carry a backpack</span></span><span class="colloc-chip" data-thai="กระเป๋าเป้ใบเล็ก" role="button" tabindex="0" ><span class="thai">กระเป๋าเป้ใบเล็ก</span><span class="en-colloc">a small backpack</span></span></div></td>
 <td><div class="triad"><div class="thai">เวลาไปเรียน ฉันเอากระเป๋าเป้ไปค่ะ</div><div class="roman">wee-laa bpai rian, chǎn ao grà-bpǎo bpêe bpai khâ</div><div class="eng">When I go to class, I take a backpack.</div></div></td>
 </tr>
 <tr>
@@ -573,7 +665,7 @@
 <td>Bag</td>
 <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for bags</div></td>
 <td><span class="thai">สะพาย</span> / <span class="roman">sà-phaai</span> / <span class="eng">carry over shoulder</span>，指背在肩上的包。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="สะพายกระเป๋า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สะพายกระเป๋า</span><span class="en-colloc">carry a bag over the shoulder</span></span><span class="colloc-chip" data-thai="กระเป๋าสะพายสีดำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระเป๋าสะพายสีดำ</span><span class="en-colloc">black shoulder bag</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="สะพายกระเป๋า" role="button" tabindex="0" ><span class="thai">สะพายกระเป๋า</span><span class="en-colloc">carry a bag over the shoulder</span></span><span class="colloc-chip" data-thai="กระเป๋าสะพายสีดำ" role="button" tabindex="0" ><span class="thai">กระเป๋าสะพายสีดำ</span><span class="en-colloc">black shoulder bag</span></span></div></td>
 <td><div class="triad"><div class="thai">เวลาไปห้าง ฉันเอากระเป๋าสะพายไปค่ะ</div><div class="roman">wee-laa bpai hâang, chǎn ao grà-bpǎo sà-phaai bpai khâ</div><div class="eng">When I go to the mall, I take a shoulder bag.</div></div></td>
 </tr>
 <tr>
@@ -581,7 +673,7 @@
 <td>Bag</td>
 <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for bags</div></td>
 <td><span class="thai">ถือ</span> / <span class="roman">thʉ̌ʉ</span> / <span class="eng">hold</span>，手拿包。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถือกระเป๋า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถือกระเป๋า</span><span class="en-colloc">hold a bag</span></span><span class="colloc-chip" data-thai="กระเป๋าถือใบใหม่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระเป๋าถือใบใหม่</span><span class="en-colloc">a new handbag</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถือกระเป๋า" role="button" tabindex="0" ><span class="thai">ถือกระเป๋า</span><span class="en-colloc">hold a bag</span></span><span class="colloc-chip" data-thai="กระเป๋าถือใบใหม่" role="button" tabindex="0" ><span class="thai">กระเป๋าถือใบใหม่</span><span class="en-colloc">a new handbag</span></span></div></td>
 <td><div class="triad"><div class="thai">ฉันไม่อยากเอากระเป๋าใหญ่ไป เอากระเป๋าถือใบเล็กพอค่ะ</div><div class="roman">chǎn mâi yàak ao grà-bpǎo yài bpai, ao grà-bpǎo thʉ̌ʉ bai lék phɔɔ khâ</div><div class="eng">I don’t want to take a big bag. A small handbag is enough.</div></div></td>
 </tr>
 <tr>
@@ -589,7 +681,7 @@
 <td>Bag / personal item</td>
 <td><span class="classifier-chip">ใบ</span><div class="roman">bai</div><div class="eng">classifier for wallets/bags</div></td>
 <td><span class="label review">Review</span> Day 4 已學過「錢包不見」相關句型。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="กระเป๋าสตางค์หาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระเป๋าสตางค์หาย</span><span class="en-colloc">wallet is missing</span></span><span class="colloc-chip" data-thai="ลืมกระเป๋าสตางค์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลืมกระเป๋าสตางค์</span><span class="en-colloc">forget wallet</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="กระเป๋าสตางค์หาย" role="button" tabindex="0" ><span class="thai">กระเป๋าสตางค์หาย</span><span class="en-colloc">wallet is missing</span></span><span class="colloc-chip" data-thai="ลืมกระเป๋าสตางค์" role="button" tabindex="0" ><span class="thai">ลืมกระเป๋าสตางค์</span><span class="en-colloc">forget wallet</span></span></div></td>
 <td><div class="triad"><div class="thai">ฉันลืมกระเป๋าสตางค์ไว้ที่คอนโดค่ะ</div><div class="roman">chǎn lʉʉm grà-bpǎo sà-dtaang wái thîi khɔɔn-doo khâ</div><div class="eng">I left my wallet at the condo.</div></div></td>
 </tr>
 </tbody>
@@ -612,7 +704,7 @@
 <td>Immigration</td>
 <td>—</td>
 <td>外來語。常搭配到期、延長、旅遊簽。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ต่อวีซ่า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ต่อวีซ่า</span><span class="en-colloc">extend a visa</span></span><span class="colloc-chip" data-thai="วีซ่าหมดอายุ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วีซ่าหมดอายุ</span><span class="en-colloc">visa expires</span></span><span class="colloc-chip" data-thai="วีซ่าท่องเที่ยว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วีซ่าท่องเที่ยว</span><span class="en-colloc">tourist visa</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ต่อวีซ่า" role="button" tabindex="0" ><span class="thai">ต่อวีซ่า</span><span class="en-colloc">extend a visa</span></span><span class="colloc-chip" data-thai="วีซ่าหมดอายุ" role="button" tabindex="0" ><span class="thai">วีซ่าหมดอายุ</span><span class="en-colloc">visa expires</span></span><span class="colloc-chip" data-thai="วีซ่าท่องเที่ยว" role="button" tabindex="0" ><span class="thai">วีซ่าท่องเที่ยว</span><span class="en-colloc">tourist visa</span></span></div></td>
 <td><div class="triad"><div class="thai">วีซ่าของฉันหมดอายุวันที่หนึ่งมีนาคมค่ะ</div><div class="roman">wii-sâa khɔ̌ɔng chǎn mòt aa-yú wan-thîi nʉ̀eng mii-naa-khom khâ</div><div class="eng">My visa expires on March 1st.</div></div></td>
 </tr>
 <tr>
@@ -620,7 +712,7 @@
 <td>Immigration</td>
 <td>—</td>
 <td><span class="thai">ท่องเที่ยว</span> / <span class="roman">thɔ̂ng-thîao</span> / <span class="eng">travel / tourism</span>。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="วีซ่าท่องเที่ยวมีอายุสองเดือน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วีซ่าท่องเที่ยวมีอายุสองเดือน</span><span class="en-colloc">a tourist visa is valid for two months</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="วีซ่าท่องเที่ยวมีอายุสองเดือน" role="button" tabindex="0" ><span class="thai">วีซ่าท่องเที่ยวมีอายุสองเดือน</span><span class="en-colloc">a tourist visa is valid for two months</span></span></div></td>
 <td><div class="triad"><div class="thai">วีซ่าท่องเที่ยวมีอายุสองเดือนค่ะ</div><div class="roman">wii-sâa thɔ̂ng-thîao mii aa-yú sɔ̌ɔng dʉan khâ</div><div class="eng">The tourist visa is valid for two months.</div></div></td>
 </tr>
 <tr>
@@ -628,7 +720,7 @@
 <td>Place</td>
 <td>—</td>
 <td>完整正式名稱。口語常用縮寫。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปสำนักงานตรวจคนเข้าเมือง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปสำนักงานตรวจคนเข้าเมือง</span><span class="en-colloc">go to the Immigration Office</span></span><span class="colloc-chip" data-thai="ไป ตม." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไป ตม.</span><span class="en-colloc">go to Immigration</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปสำนักงานตรวจคนเข้าเมือง" role="button" tabindex="0" ><span class="thai">ไปสำนักงานตรวจคนเข้าเมือง</span><span class="en-colloc">go to the Immigration Office</span></span><span class="colloc-chip" data-thai="ไป ตม." role="button" tabindex="0" ><span class="thai">ไป ตม.</span><span class="en-colloc">go to Immigration</span></span></div></td>
 <td><div class="triad"><div class="thai">พรุ่งนี้ฉันต้องไปสำนักงานตรวจคนเข้าเมืองค่ะ</div><div class="roman">phrûng-níi chǎn dtɔ̂ng bpai sǎm-nák-ngaan dtrùat khon khâo mʉang khâ</div><div class="eng">Tomorrow I have to go to the Immigration Office.</div></div></td>
 </tr>
 <tr>
@@ -636,7 +728,7 @@
 <td>Money</td>
 <td>—</td>
 <td>不可數名詞，不需要一般物品量詞。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="เอาเงินไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เอาเงินไป</span><span class="en-colloc">take money</span></span><span class="colloc-chip" data-thai="จ่ายเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จ่ายเงิน</span><span class="en-colloc">pay money</span></span><span class="colloc-chip" data-thai="เงินสด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เงินสด</span><span class="en-colloc">cash</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="เอาเงินไป" role="button" tabindex="0" ><span class="thai">เอาเงินไป</span><span class="en-colloc">take money</span></span><span class="colloc-chip" data-thai="จ่ายเงิน" role="button" tabindex="0" ><span class="thai">จ่ายเงิน</span><span class="en-colloc">pay money</span></span><span class="colloc-chip" data-thai="เงินสด" role="button" tabindex="0" ><span class="thai">เงินสด</span><span class="en-colloc">cash</span></span></div></td>
 <td><div class="triad"><div class="thai">ไปตลาดควรเอาเงินสดไปค่ะ</div><div class="roman">bpai dtà-làat khuan ao ngoen-sòt bpai khâ</div><div class="eng">When going to the market, you should take cash.</div></div></td>
 </tr>
 <tr>
@@ -644,7 +736,7 @@
 <td>Document item</td>
 <td><span class="classifier-chip">รูป</span><div class="roman">rûup</div><div class="eng">classifier for photos</div></td>
 <td>照片可用 <span class="thai">รูป</span> 數。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถ่ายรูป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถ่ายรูป</span><span class="en-colloc">take a photo</span></span><span class="colloc-chip" data-thai="รูปถ่ายสองรูป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รูปถ่ายสองรูป</span><span class="en-colloc">two photos</span></span><span class="colloc-chip" data-thai="รูปถ่ายติดบัตร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รูปถ่ายติดบัตร</span><span class="en-colloc">ID photo</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถ่ายรูป" role="button" tabindex="0" ><span class="thai">ถ่ายรูป</span><span class="en-colloc">take a photo</span></span><span class="colloc-chip" data-thai="รูปถ่ายสองรูป" role="button" tabindex="0" ><span class="thai">รูปถ่ายสองรูป</span><span class="en-colloc">two photos</span></span><span class="colloc-chip" data-thai="รูปถ่ายติดบัตร" role="button" tabindex="0" ><span class="thai">รูปถ่ายติดบัตร</span><span class="en-colloc">ID photo</span></span></div></td>
 <td><div class="triad"><div class="thai">ฉันต้องเอารูปถ่ายสองรูปไปค่ะ</div><div class="roman">chǎn dtɔ̂ng ao rûup-thàai sɔ̌ɔng rûup bpai khâ</div><div class="eng">I have to take two photos.</div></div></td>
 </tr>
 <tr>
@@ -652,7 +744,7 @@
 <td>Document</td>
 <td><span class="classifier-chip">ฉบับ / ชุด</span><div class="roman">chà-bàp / chút</div><div class="eng">copy / set</div></td>
 <td>一份文件可用 <span class="thai">ฉบับ</span>；一套文件用 <span class="thai">ชุด</span>。</td>
-<td><div class="colloc-cell"><span class="colloc-chip" data-thai="เตรียมเอกสาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เตรียมเอกสาร</span><span class="en-colloc">prepare documents</span></span><span class="colloc-chip" data-thai="เอกสารครบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เอกสารครบ</span><span class="en-colloc">documents complete</span></span><span class="colloc-chip" data-thai="เอกสารไม่ครบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เอกสารไม่ครบ</span><span class="en-colloc">documents incomplete</span></span></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="เตรียมเอกสาร" role="button" tabindex="0" ><span class="thai">เตรียมเอกสาร</span><span class="en-colloc">prepare documents</span></span><span class="colloc-chip" data-thai="เอกสารครบ" role="button" tabindex="0" ><span class="thai">เอกสารครบ</span><span class="en-colloc">documents complete</span></span><span class="colloc-chip" data-thai="เอกสารไม่ครบ" role="button" tabindex="0" ><span class="thai">เอกสารไม่ครบ</span><span class="en-colloc">documents incomplete</span></span></div></td>
 <td><div class="triad"><div class="thai">เอกสารยังไม่ครบค่ะ</div><div class="roman">èek-gà-sǎan yang mâi khróp khâ</div><div class="eng">The documents are still incomplete.</div></div></td>
 </tr>
 </tbody>
@@ -1850,5 +1942,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

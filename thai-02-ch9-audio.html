@@ -353,34 +353,23 @@
       color: var(--muted);
       line-height: 1.2;
     }
-
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -389,38 +378,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -562,7 +571,7 @@
           <td>Time adverb</td>
           <td>—</td>
           <td>用來對比「以前」和「現在」。比單獨 <span class="thai">ก่อน</span> 更像「以前」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เมื่อก่อน...แต่ตอนนี้..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เมื่อก่อน...แต่ตอนนี้...</span><span class="en-colloc">before...but now...</span></span><span class="colloc-chip" data-thai="เมื่อก่อนไม่มี..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เมื่อก่อนไม่มี...</span><span class="en-colloc">before there wasn’t...</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เมื่อก่อน...แต่ตอนนี้..." role="button" tabindex="0" ><span class="thai">เมื่อก่อน...แต่ตอนนี้...</span><span class="en-colloc">before...but now...</span></span><span class="colloc-chip" data-thai="เมื่อก่อนไม่มี..." role="button" tabindex="0" ><span class="thai">เมื่อก่อนไม่มี...</span><span class="en-colloc">before there wasn’t...</span></span></div></td>
           <td><div class="triad"><div class="thai">เมื่อก่อนกรุงเทพฯ ไม่มีรถไฟฟ้าค่ะ</div><div class="roman">mʉ̂a-gɔ̀ɔn grung-thêep mâi-mii rót-fai-fáa khâ</div><div class="eng">In the past, Bangkok did not have skytrain/electric train.</div></div></td>
         </tr>
 
@@ -571,7 +580,7 @@
           <td>Time adverb</td>
           <td>—</td>
           <td>表示現在、目前。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตอนนี้มี..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตอนนี้มี...</span><span class="en-colloc">now there is...</span></span><span class="colloc-chip" data-thai="ตอนนี้อยู่ที่..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตอนนี้อยู่ที่...</span><span class="en-colloc">now I am at...</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตอนนี้มี..." role="button" tabindex="0" ><span class="thai">ตอนนี้มี...</span><span class="en-colloc">now there is...</span></span><span class="colloc-chip" data-thai="ตอนนี้อยู่ที่..." role="button" tabindex="0" ><span class="thai">ตอนนี้อยู่ที่...</span><span class="en-colloc">now I am at...</span></span></div></td>
           <td><div class="triad"><div class="thai">ตอนนี้กรุงเทพฯ มีรถไฟฟ้าหลายสายค่ะ</div><div class="roman">dtɔɔn-níi grung-thêep mii rót-fai-fáa lǎai sǎai khâ</div><div class="eng">Now Bangkok has many train lines.</div></div></td>
         </tr>
 
@@ -580,7 +589,7 @@
           <td>Sequence word</td>
           <td>—</td>
           <td>可放在兩個動作中間，表示 V1 在 V2 之前。也可句尾表示「先」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ก่อนนอน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ก่อนนอน</span><span class="en-colloc">before sleeping</span></span><span class="colloc-chip" data-thai="ก่อนออกจากบ้าน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ก่อนออกจากบ้าน</span><span class="en-colloc">before leaving home</span></span><span class="colloc-chip" data-thai="ไปก่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปก่อน</span><span class="en-colloc">go first</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ก่อนนอน" role="button" tabindex="0" ><span class="thai">ก่อนนอน</span><span class="en-colloc">before sleeping</span></span><span class="colloc-chip" data-thai="ก่อนออกจากบ้าน" role="button" tabindex="0" ><span class="thai">ก่อนออกจากบ้าน</span><span class="en-colloc">before leaving home</span></span><span class="colloc-chip" data-thai="ไปก่อน" role="button" tabindex="0" ><span class="thai">ไปก่อน</span><span class="en-colloc">go first</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันปิดไฟก่อนออกจากบ้านค่ะ</div><div class="roman">chǎn bpìt fai gɔ̀ɔn ɔ̀ɔk-jàak bâan khâ</div><div class="eng">I turn off the light before leaving home.</div></div></td>
         </tr>
 
@@ -589,7 +598,7 @@
           <td>Sequence word / position</td>
           <td>—</td>
           <td>本課重點是「after」。Day 8 已學 <span class="thai">ข้างหลัง</span> 是 behind。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หลังเลิกเรียน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หลังเลิกเรียน</span><span class="en-colloc">after class</span></span><span class="colloc-chip" data-thai="หลังทำงาน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หลังทำงาน</span><span class="en-colloc">after work</span></span><span class="colloc-chip" data-thai="หลังจาก..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หลังจาก...</span><span class="en-colloc">after...</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หลังเลิกเรียน" role="button" tabindex="0" ><span class="thai">หลังเลิกเรียน</span><span class="en-colloc">after class</span></span><span class="colloc-chip" data-thai="หลังทำงาน" role="button" tabindex="0" ><span class="thai">หลังทำงาน</span><span class="en-colloc">after work</span></span><span class="colloc-chip" data-thai="หลังจาก..." role="button" tabindex="0" ><span class="thai">หลังจาก...</span><span class="en-colloc">after...</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันกินข้าวหลังเลิกเรียนค่ะ</div><div class="roman">chǎn gin khâao lǎng lə̂ək-rian khâ</div><div class="eng">I eat after class.</div></div></td>
         </tr>
 
@@ -598,7 +607,7 @@
           <td>Time adjective</td>
           <td>—</td>
           <td>表示比預定時間晚。不要和 <span class="thai">สาย</span> = line / route 混淆。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปสาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปสาย</span><span class="en-colloc">go late</span></span><span class="colloc-chip" data-thai="มาสาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มาสาย</span><span class="en-colloc">come late</span></span><span class="colloc-chip" data-thai="สายแล้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สายแล้ว</span><span class="en-colloc">it’s late already</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปสาย" role="button" tabindex="0" ><span class="thai">ไปสาย</span><span class="en-colloc">go late</span></span><span class="colloc-chip" data-thai="มาสาย" role="button" tabindex="0" ><span class="thai">มาสาย</span><span class="en-colloc">come late</span></span><span class="colloc-chip" data-thai="สายแล้ว" role="button" tabindex="0" ><span class="thai">สายแล้ว</span><span class="en-colloc">it’s late already</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้รถติด ฉันเลยมาสายค่ะ</div><div class="roman">wan-níi rót-dtìt, chǎn ləəi maa sǎai khâ</div><div class="eng">There was traffic today, so I came late.</div></div></td>
         </tr>
 
@@ -607,7 +616,7 @@
           <td>Time adjective</td>
           <td>—</td>
           <td>否定放在形容詞前：<span class="thai">ไม่ + สาย</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปไม่สาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปไม่สาย</span><span class="en-colloc">not go late</span></span><span class="colloc-chip" data-thai="มาไม่สาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มาไม่สาย</span><span class="en-colloc">not come late</span></span><span class="colloc-chip" data-thai="ยังไม่สาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยังไม่สาย</span><span class="en-colloc">still not late</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปไม่สาย" role="button" tabindex="0" ><span class="thai">ไปไม่สาย</span><span class="en-colloc">not go late</span></span><span class="colloc-chip" data-thai="มาไม่สาย" role="button" tabindex="0" ><span class="thai">มาไม่สาย</span><span class="en-colloc">not come late</span></span><span class="colloc-chip" data-thai="ยังไม่สาย" role="button" tabindex="0" ><span class="thai">ยังไม่สาย</span><span class="en-colloc">still not late</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าออกตอนนี้ เรายังไม่สายค่ะ</div><div class="roman">thâa ɔ̀ɔk dtɔɔn-níi, rao yang mâi sǎai khâ</div><div class="eng">If we leave now, we are still not late.</div></div></td>
         </tr>
       </tbody>
@@ -631,7 +640,7 @@
           <td>Comparison</td>
           <td>—</td>
           <td>用來說 N1 跟 N2 一樣，也常用在「我也是」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สีเหมือนกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สีเหมือนกัน</span><span class="en-colloc">same color</span></span><span class="colloc-chip" data-thai="ชอบเหมือนกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ชอบเหมือนกัน</span><span class="en-colloc">like it too</span></span><span class="colloc-chip" data-thai="เหมือนกันไหม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เหมือนกันไหม</span><span class="en-colloc">are they the same?</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สีเหมือนกัน" role="button" tabindex="0" ><span class="thai">สีเหมือนกัน</span><span class="en-colloc">same color</span></span><span class="colloc-chip" data-thai="ชอบเหมือนกัน" role="button" tabindex="0" ><span class="thai">ชอบเหมือนกัน</span><span class="en-colloc">like it too</span></span><span class="colloc-chip" data-thai="เหมือนกันไหม" role="button" tabindex="0" ><span class="thai">เหมือนกันไหม</span><span class="en-colloc">are they the same?</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันกับเพื่อนชอบชาไทยเหมือนกันค่ะ</div><div class="roman">chǎn gàp phʉ̂an chɔ̂ɔp chaa-thai mʉ̌an-gan khâ</div><div class="eng">My friend and I both like Thai tea.</div></div></td>
         </tr>
 
@@ -640,7 +649,7 @@
           <td>Togetherness</td>
           <td>—</td>
           <td>表示一起做某動作。結構常是 N1 กับ N2 + V + ด้วยกัน。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปด้วยกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปด้วยกัน</span><span class="en-colloc">go together</span></span><span class="colloc-chip" data-thai="กินด้วยกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินด้วยกัน</span><span class="en-colloc">eat together</span></span><span class="colloc-chip" data-thai="เรียนด้วยกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เรียนด้วยกัน</span><span class="en-colloc">study together</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปด้วยกัน" role="button" tabindex="0" ><span class="thai">ไปด้วยกัน</span><span class="en-colloc">go together</span></span><span class="colloc-chip" data-thai="กินด้วยกัน" role="button" tabindex="0" ><span class="thai">กินด้วยกัน</span><span class="en-colloc">eat together</span></span><span class="colloc-chip" data-thai="เรียนด้วยกัน" role="button" tabindex="0" ><span class="thai">เรียนด้วยกัน</span><span class="en-colloc">study together</span></span></div></td>
           <td><div class="triad"><div class="thai">เราไปสยามด้วยกันไหมคะ</div><div class="roman">rao bpai sà-yǎam dûai-gan mái khá</div><div class="eng">Shall we go to Siam together?</div></div></td>
         </tr>
 
@@ -649,7 +658,7 @@
           <td>Quantity comparison</td>
           <td>—</td>
           <td>用於數量、價格、大小、時間長度一樣。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ราคาเท่ากัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ราคาเท่ากัน</span><span class="en-colloc">same price</span></span><span class="colloc-chip" data-thai="จำนวนเท่ากัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จำนวนเท่ากัน</span><span class="en-colloc">same quantity</span></span><span class="colloc-chip" data-thai="สูงเท่ากัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สูงเท่ากัน</span><span class="en-colloc">same height</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ราคาเท่ากัน" role="button" tabindex="0" ><span class="thai">ราคาเท่ากัน</span><span class="en-colloc">same price</span></span><span class="colloc-chip" data-thai="จำนวนเท่ากัน" role="button" tabindex="0" ><span class="thai">จำนวนเท่ากัน</span><span class="en-colloc">same quantity</span></span><span class="colloc-chip" data-thai="สูงเท่ากัน" role="button" tabindex="0" ><span class="thai">สูงเท่ากัน</span><span class="en-colloc">same height</span></span></div></td>
           <td><div class="triad"><div class="thai">กาแฟสองแก้วนี้ราคาเท่ากันค่ะ</div><div class="roman">gaa-fɛɛ sɔ̌ɔng gâew níi raa-khaa thâo-gan khâ</div><div class="eng">These two coffees have the same price.</div></div></td>
         </tr>
 
@@ -658,7 +667,7 @@
           <td>Time / action</td>
           <td>—</td>
           <td>重點是「同時發生」，不是單純一起。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ออกพร้อมกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ออกพร้อมกัน</span><span class="en-colloc">leave at the same time</span></span><span class="colloc-chip" data-thai="ถึงพร้อมกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถึงพร้อมกัน</span><span class="en-colloc">arrive at the same time</span></span><span class="colloc-chip" data-thai="เริ่มพร้อมกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เริ่มพร้อมกัน</span><span class="en-colloc">start at the same time</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ออกพร้อมกัน" role="button" tabindex="0" ><span class="thai">ออกพร้อมกัน</span><span class="en-colloc">leave at the same time</span></span><span class="colloc-chip" data-thai="ถึงพร้อมกัน" role="button" tabindex="0" ><span class="thai">ถึงพร้อมกัน</span><span class="en-colloc">arrive at the same time</span></span><span class="colloc-chip" data-thai="เริ่มพร้อมกัน" role="button" tabindex="0" ><span class="thai">เริ่มพร้อมกัน</span><span class="en-colloc">start at the same time</span></span></div></td>
           <td><div class="triad"><div class="thai">เราจะออกจากบ้านพร้อมกันตอนแปดโมงค่ะ</div><div class="roman">rao jà ɔ̀ɔk-jàak bâan phrɔ́ɔm-gan dtɔɔn bpɛ̀ɛt moong khâ</div><div class="eng">We will leave home at the same time at 8 o’clock.</div></div></td>
         </tr>
 
@@ -667,7 +676,7 @@
           <td>Identity / same specific item</td>
           <td>—</td>
           <td>用於同一個房間、同一瓶水、同一班車。教材提醒：N + Clf. + เดียวกัน。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องเดียวกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องเดียวกัน</span><span class="en-colloc">same room</span></span><span class="colloc-chip" data-thai="ขวดเดียวกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขวดเดียวกัน</span><span class="en-colloc">same bottle</span></span><span class="colloc-chip" data-thai="สายเดียวกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สายเดียวกัน</span><span class="en-colloc">same line</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องเดียวกัน" role="button" tabindex="0" ><span class="thai">ห้องเดียวกัน</span><span class="en-colloc">same room</span></span><span class="colloc-chip" data-thai="ขวดเดียวกัน" role="button" tabindex="0" ><span class="thai">ขวดเดียวกัน</span><span class="en-colloc">same bottle</span></span><span class="colloc-chip" data-thai="สายเดียวกัน" role="button" tabindex="0" ><span class="thai">สายเดียวกัน</span><span class="en-colloc">same line</span></span></div></td>
           <td><div class="triad"><div class="thai">เราอยู่ห้องเดียวกันค่ะ</div><div class="roman">rao yùu hɔ̂ng diao-gan khâ</div><div class="eng">We are in the same room.</div></div></td>
         </tr>
       </tbody>
@@ -691,7 +700,7 @@
           <td>City place</td>
           <td>—</td>
           <td>道路名常用 <span class="thai">ถนน</span>。在曼谷地址很常見。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ข้ามถนน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ข้ามถนน</span><span class="en-colloc">cross the road</span></span><span class="colloc-chip" data-thai="ถนนใหญ่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถนนใหญ่</span><span class="en-colloc">big road</span></span><span class="colloc-chip" data-thai="ถนนสีลม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถนนสีลม</span><span class="en-colloc">Silom Road</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ข้ามถนน" role="button" tabindex="0" ><span class="thai">ข้ามถนน</span><span class="en-colloc">cross the road</span></span><span class="colloc-chip" data-thai="ถนนใหญ่" role="button" tabindex="0" ><span class="thai">ถนนใหญ่</span><span class="en-colloc">big road</span></span><span class="colloc-chip" data-thai="ถนนสีลม" role="button" tabindex="0" ><span class="thai">ถนนสีลม</span><span class="en-colloc">Silom Road</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องข้ามถนนตรงทางม้าลายค่ะ</div><div class="roman">dtɔ̂ng khâam thà-nǒn dtrong thaang-máa-laai khâ</div><div class="eng">You have to cross the road at the zebra crossing.</div></div></td>
         </tr>
 
@@ -700,7 +709,7 @@
           <td>Road facility</td>
           <td>—</td>
           <td>字面像「斑馬路」。教材頁 7 的路口圖有標示。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ข้ามทางม้าลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ข้ามทางม้าลาย</span><span class="en-colloc">cross at the zebra crossing</span></span><span class="colloc-chip" data-thai="อยู่ตรงทางม้าลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อยู่ตรงทางม้าลาย</span><span class="en-colloc">be at the crosswalk</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ข้ามทางม้าลาย" role="button" tabindex="0" ><span class="thai">ข้ามทางม้าลาย</span><span class="en-colloc">cross at the zebra crossing</span></span><span class="colloc-chip" data-thai="อยู่ตรงทางม้าลาย" role="button" tabindex="0" ><span class="thai">อยู่ตรงทางม้าลาย</span><span class="en-colloc">be at the crosswalk</span></span></div></td>
           <td><div class="triad"><div class="thai">ข้ามทางม้าลายปลอดภัยกว่าค่ะ</div><div class="roman">khâam thaang-máa-laai bplɔ̀ɔt-phai gwàa khâ</div><div class="eng">Crossing at the zebra crossing is safer.</div></div></td>
         </tr>
 
@@ -709,7 +718,7 @@
           <td>Road facility</td>
           <td><span class="classifier-plain">สะพาน</span></td>
           <td>曼谷大馬路很常見。比直接穿越馬路安全。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นสะพานลอย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นสะพานลอย</span><span class="en-colloc">go up the overpass</span></span><span class="colloc-chip" data-thai="ข้ามสะพานลอย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ข้ามสะพานลอย</span><span class="en-colloc">cross the overpass</span></span><span class="colloc-chip" data-thai="ลงสะพานลอย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลงสะพานลอย</span><span class="en-colloc">go down the overpass</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นสะพานลอย" role="button" tabindex="0" ><span class="thai">ขึ้นสะพานลอย</span><span class="en-colloc">go up the overpass</span></span><span class="colloc-chip" data-thai="ข้ามสะพานลอย" role="button" tabindex="0" ><span class="thai">ข้ามสะพานลอย</span><span class="en-colloc">cross the overpass</span></span><span class="colloc-chip" data-thai="ลงสะพานลอย" role="button" tabindex="0" ><span class="thai">ลงสะพานลอย</span><span class="en-colloc">go down the overpass</span></span></div></td>
           <td><div class="triad"><div class="thai">ถนนนี้รถเยอะ ควรข้ามสะพานลอยค่ะ</div><div class="roman">thà-nǒn níi rót yə́, khuan khâam sà-phaan-lɔɔi khâ</div><div class="eng">There are many cars on this road, so you should cross by the overpass.</div></div></td>
         </tr>
 
@@ -718,7 +727,7 @@
           <td>Transport place</td>
           <td><span class="classifier-plain">ป้าย</span></td>
           <td><span class="thai">ป้าย</span> 是牌子、站牌。教材路口圖有站牌。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รอที่ป้ายรถเมล์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รอที่ป้ายรถเมล์</span><span class="en-colloc">wait at the bus stop</span></span><span class="colloc-chip" data-thai="ป้ายรถเมล์อยู่ไหน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ป้ายรถเมล์อยู่ไหน</span><span class="en-colloc">where is the bus stop?</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รอที่ป้ายรถเมล์" role="button" tabindex="0" ><span class="thai">รอที่ป้ายรถเมล์</span><span class="en-colloc">wait at the bus stop</span></span><span class="colloc-chip" data-thai="ป้ายรถเมล์อยู่ไหน" role="button" tabindex="0" ><span class="thai">ป้ายรถเมล์อยู่ไหน</span><span class="en-colloc">where is the bus stop?</span></span></div></td>
           <td><div class="triad"><div class="thai">ป้ายรถเมล์อยู่หน้าปากซอยค่ะ</div><div class="roman">bpâai rót-mee yùu nâa bpàak-sɔɔi khâ</div><div class="eng">The bus stop is at the entrance of the soi.</div></div></td>
         </tr>
 
@@ -727,7 +736,7 @@
           <td>Traffic signal</td>
           <td>—</td>
           <td>教材圖中有紅綠燈。<span class="thai">ไฟ</span> 是燈；<span class="thai">เขียว</span> 綠；<span class="thai">แดง</span> 紅。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รอไฟเขียว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รอไฟเขียว</span><span class="en-colloc">wait for green light</span></span><span class="colloc-chip" data-thai="ติดไฟแดง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ติดไฟแดง</span><span class="en-colloc">stuck at a red light</span></span><span class="colloc-chip" data-thai="ข้ามตอนไฟเขียว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ข้ามตอนไฟเขียว</span><span class="en-colloc">cross when the light is green</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รอไฟเขียว" role="button" tabindex="0" ><span class="thai">รอไฟเขียว</span><span class="en-colloc">wait for green light</span></span><span class="colloc-chip" data-thai="ติดไฟแดง" role="button" tabindex="0" ><span class="thai">ติดไฟแดง</span><span class="en-colloc">stuck at a red light</span></span><span class="colloc-chip" data-thai="ข้ามตอนไฟเขียว" role="button" tabindex="0" ><span class="thai">ข้ามตอนไฟเขียว</span><span class="en-colloc">cross when the light is green</span></span></div></td>
           <td><div class="triad"><div class="thai">รอไฟเขียวก่อนค่อยข้ามถนนนะคะ</div><div class="roman">rɔɔ fai-khǐao gɔ̀ɔn khɔ̂i khâam thà-nǒn ná khá</div><div class="eng">Wait for the green light first, then cross the road.</div></div></td>
         </tr>
 
@@ -736,7 +745,7 @@
           <td>Waterway</td>
           <td>—</td>
           <td>教材頁 8 有碼頭、คลอง、แม่น้ำ。曼谷交通也會用船。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คลองแสนแสบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คลองแสนแสบ</span><span class="en-colloc">Saen Saep canal</span></span><span class="colloc-chip" data-thai="แม่น้ำเจ้าพระยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แม่น้ำเจ้าพระยา</span><span class="en-colloc">Chao Phraya River</span></span><span class="colloc-chip" data-thai="ริมแม่น้ำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ริมแม่น้ำ</span><span class="en-colloc">riverside</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คลองแสนแสบ" role="button" tabindex="0" ><span class="thai">คลองแสนแสบ</span><span class="en-colloc">Saen Saep canal</span></span><span class="colloc-chip" data-thai="แม่น้ำเจ้าพระยา" role="button" tabindex="0" ><span class="thai">แม่น้ำเจ้าพระยา</span><span class="en-colloc">Chao Phraya River</span></span><span class="colloc-chip" data-thai="ริมแม่น้ำ" role="button" tabindex="0" ><span class="thai">ริมแม่น้ำ</span><span class="en-colloc">riverside</span></span></div></td>
           <td><div class="triad"><div class="thai">วัดอรุณอยู่ริมแม่น้ำเจ้าพระยาค่ะ</div><div class="roman">wát à-run yùu rim mâe-náam jâo-phrá-yaa khâ</div><div class="eng">Wat Arun is by the Chao Phraya River.</div></div></td>
         </tr>
 
@@ -745,7 +754,7 @@
           <td>Transport place</td>
           <td><span class="classifier-plain">ท่า</span></td>
           <td>搭船地點。曼谷河邊、คลอง 船都會用到。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นเรือที่ท่าเรือ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นเรือที่ท่าเรือ</span><span class="en-colloc">get on a boat at the pier</span></span><span class="colloc-chip" data-thai="ท่าเรืออยู่ไหน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท่าเรืออยู่ไหน</span><span class="en-colloc">where is the pier?</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นเรือที่ท่าเรือ" role="button" tabindex="0" ><span class="thai">ขึ้นเรือที่ท่าเรือ</span><span class="en-colloc">get on a boat at the pier</span></span><span class="colloc-chip" data-thai="ท่าเรืออยู่ไหน" role="button" tabindex="0" ><span class="thai">ท่าเรืออยู่ไหน</span><span class="en-colloc">where is the pier?</span></span></div></td>
           <td><div class="triad"><div class="thai">ท่าเรืออยู่ข้างหลังตลาดค่ะ</div><div class="roman">thâa-rʉa yùu khâang-lǎng dtà-làat khâ</div><div class="eng">The pier is behind the market.</div></div></td>
         </tr>
       </tbody>
@@ -769,7 +778,7 @@
           <td>Vehicle</td>
           <td><span class="classifier-plain">คัน</span></td>
           <td>車輛總稱，也可指車子。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถ / ลงรถ / รถติด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นรถ / ลงรถ / รถติด</span><span class="en-colloc">get in/on a vehicle / get off / traffic jam</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถ / ลงรถ / รถติด" role="button" tabindex="0" ><span class="thai">ขึ้นรถ / ลงรถ / รถติด</span><span class="en-colloc">get in/on a vehicle / get off / traffic jam</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้รถติดมากค่ะ</div><div class="roman">wan-níi rót-dtìt mâak khâ</div><div class="eng">The traffic is very bad today.</div></div></td>
         </tr>
 
@@ -778,7 +787,7 @@
           <td>Vehicle</td>
           <td><span class="classifier-plain">คัน</span></td>
           <td>一般公車。搭公車說 <span class="thai">ขึ้นรถเมล์</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถเมล์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นรถเมล์</span><span class="en-colloc">take a bus</span></span><span class="colloc-chip" data-thai="รอรถเมล์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รอรถเมล์</span><span class="en-colloc">wait for the bus</span></span><span class="colloc-chip" data-thai="ป้ายรถเมล์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ป้ายรถเมล์</span><span class="en-colloc">bus stop</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถเมล์" role="button" tabindex="0" ><span class="thai">ขึ้นรถเมล์</span><span class="en-colloc">take a bus</span></span><span class="colloc-chip" data-thai="รอรถเมล์" role="button" tabindex="0" ><span class="thai">รอรถเมล์</span><span class="en-colloc">wait for the bus</span></span><span class="colloc-chip" data-thai="ป้ายรถเมล์" role="button" tabindex="0" ><span class="thai">ป้ายรถเมล์</span><span class="en-colloc">bus stop</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันรอรถเมล์นานมากค่ะ</div><div class="roman">chǎn rɔɔ rót-mee naan mâak khâ</div><div class="eng">I waited for the bus for a very long time.</div></div></td>
         </tr>
 
@@ -787,7 +796,7 @@
           <td>Vehicle</td>
           <td><span class="classifier-plain">คัน</span></td>
           <td>曼谷常見交通。摩托計程車常說 <span class="thai">วินมอเตอร์ไซค์</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="นั่งมอเตอร์ไซค์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">นั่งมอเตอร์ไซค์</span><span class="en-colloc">ride a motorcycle</span></span><span class="colloc-chip" data-thai="เรียกวิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เรียกวิน</span><span class="en-colloc">call a motorbike taxi</span></span><span class="colloc-chip" data-thai="วินมอเตอร์ไซค์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วินมอเตอร์ไซค์</span><span class="en-colloc">motorbike taxi stand</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="นั่งมอเตอร์ไซค์" role="button" tabindex="0" ><span class="thai">นั่งมอเตอร์ไซค์</span><span class="en-colloc">ride a motorcycle</span></span><span class="colloc-chip" data-thai="เรียกวิน" role="button" tabindex="0" ><span class="thai">เรียกวิน</span><span class="en-colloc">call a motorbike taxi</span></span><span class="colloc-chip" data-thai="วินมอเตอร์ไซค์" role="button" tabindex="0" ><span class="thai">วินมอเตอร์ไซค์</span><span class="en-colloc">motorbike taxi stand</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้ารีบมาก นั่งวินมอเตอร์ไซค์เร็วกว่าไหมคะ</div><div class="roman">thâa rîip mâak, nâng win mɔɔ-dtəə-sai rew gwàa mái khá</div><div class="eng">If we are in a hurry, is taking a motorbike taxi faster?</div></div></td>
         </tr>
 
@@ -796,7 +805,7 @@
           <td>Vehicle</td>
           <td><span class="classifier-plain">คัน</span></td>
           <td>腳踏車也屬於車類，用 <span class="thai">คัน</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขี่จักรยาน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขี่จักรยาน</span><span class="en-colloc">ride a bicycle</span></span><span class="colloc-chip" data-thai="จักรยานหนึ่งคัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จักรยานหนึ่งคัน</span><span class="en-colloc">one bicycle</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขี่จักรยาน" role="button" tabindex="0" ><span class="thai">ขี่จักรยาน</span><span class="en-colloc">ride a bicycle</span></span><span class="colloc-chip" data-thai="จักรยานหนึ่งคัน" role="button" tabindex="0" ><span class="thai">จักรยานหนึ่งคัน</span><span class="en-colloc">one bicycle</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากขี่จักรยานในสวนค่ะ</div><div class="roman">chǎn yàak khìi jàk-grà-yaan nai sǔan khâ</div><div class="eng">I want to ride a bicycle in the park.</div></div></td>
         </tr>
 
@@ -805,7 +814,7 @@
           <td>Vehicle</td>
           <td><span class="classifier-plain">ลำ</span></td>
           <td>飛機、船類常用 <span class="thai">ลำ</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นเครื่องบิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นเครื่องบิน</span><span class="en-colloc">board a plane</span></span><span class="colloc-chip" data-thai="สนามบิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สนามบิน</span><span class="en-colloc">airport</span></span><span class="colloc-chip" data-thai="เครื่องบินลำนี้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เครื่องบินลำนี้</span><span class="en-colloc">this airplane</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นเครื่องบิน" role="button" tabindex="0" ><span class="thai">ขึ้นเครื่องบิน</span><span class="en-colloc">board a plane</span></span><span class="colloc-chip" data-thai="สนามบิน" role="button" tabindex="0" ><span class="thai">สนามบิน</span><span class="en-colloc">airport</span></span><span class="colloc-chip" data-thai="เครื่องบินลำนี้" role="button" tabindex="0" ><span class="thai">เครื่องบินลำนี้</span><span class="en-colloc">this airplane</span></span></div></td>
           <td><div class="triad"><div class="thai">พรุ่งนี้ฉันจะขึ้นเครื่องบินไปเชียงใหม่ค่ะ</div><div class="roman">phrûng-níi chǎn jà khʉ̂n khrʉ̂ang-bin bpai chiiang-mài khâ</div><div class="eng">Tomorrow I will take a plane to Chiang Mai.</div></div></td>
         </tr>
 
@@ -814,7 +823,7 @@
           <td>Vehicle</td>
           <td><span class="classifier-plain">ลำ</span></td>
           <td>搭船說 <span class="thai">ขึ้นเรือ</span>。曼谷河邊/คลอง 很實用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นเรือ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นเรือ</span><span class="en-colloc">take a boat</span></span><span class="colloc-chip" data-thai="ท่าเรือ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท่าเรือ</span><span class="en-colloc">pier</span></span><span class="colloc-chip" data-thai="เรือหนึ่งลำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เรือหนึ่งลำ</span><span class="en-colloc">one boat</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นเรือ" role="button" tabindex="0" ><span class="thai">ขึ้นเรือ</span><span class="en-colloc">take a boat</span></span><span class="colloc-chip" data-thai="ท่าเรือ" role="button" tabindex="0" ><span class="thai">ท่าเรือ</span><span class="en-colloc">pier</span></span><span class="colloc-chip" data-thai="เรือหนึ่งลำ" role="button" tabindex="0" ><span class="thai">เรือหนึ่งลำ</span><span class="en-colloc">one boat</span></span></div></td>
           <td><div class="triad"><div class="thai">เราจะขึ้นเรือที่ท่าเรือนี้ค่ะ</div><div class="roman">rao jà khʉ̂n rʉa thîi thâa-rʉa níi khâ</div><div class="eng">We will take the boat at this pier.</div></div></td>
         </tr>
 
@@ -823,7 +832,7 @@
           <td>Vehicle</td>
           <td><span class="classifier-plain">ขบวน</span></td>
           <td>列車用 <span class="thai">ขบวน</span>，一列火車。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สถานีรถไฟ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สถานีรถไฟ</span><span class="en-colloc">train station</span></span><span class="colloc-chip" data-thai="ขึ้นรถไฟ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นรถไฟ</span><span class="en-colloc">take a train</span></span><span class="colloc-chip" data-thai="รถไฟขบวนนี้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถไฟขบวนนี้</span><span class="en-colloc">this train</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สถานีรถไฟ" role="button" tabindex="0" ><span class="thai">สถานีรถไฟ</span><span class="en-colloc">train station</span></span><span class="colloc-chip" data-thai="ขึ้นรถไฟ" role="button" tabindex="0" ><span class="thai">ขึ้นรถไฟ</span><span class="en-colloc">take a train</span></span><span class="colloc-chip" data-thai="รถไฟขบวนนี้" role="button" tabindex="0" ><span class="thai">รถไฟขบวนนี้</span><span class="en-colloc">this train</span></span></div></td>
           <td><div class="triad"><div class="thai">รถไฟขบวนนี้ไปหัวลำโพงค่ะ</div><div class="roman">rót-fai khà-buan níi bpai hǔa-lam-phoong khâ</div><div class="eng">This train goes to Hua Lamphong.</div></div></td>
         </tr>
 
@@ -832,7 +841,7 @@
           <td>Vehicle / urban rail</td>
           <td><span class="classifier-plain">ขบวน / สาย</span></td>
           <td>可指 BTS/MRT 這類城市軌道交通。路線用 <span class="thai">สาย</span>，列車用 <span class="thai">ขบวน</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถไฟฟ้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นรถไฟฟ้า</span><span class="en-colloc">take the train</span></span><span class="colloc-chip" data-thai="สถานีรถไฟฟ้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สถานีรถไฟฟ้า</span><span class="en-colloc">train station</span></span><span class="colloc-chip" data-thai="รถไฟฟ้าสายสีลม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถไฟฟ้าสายสีลม</span><span class="en-colloc">Silom Line</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถไฟฟ้า" role="button" tabindex="0" ><span class="thai">ขึ้นรถไฟฟ้า</span><span class="en-colloc">take the train</span></span><span class="colloc-chip" data-thai="สถานีรถไฟฟ้า" role="button" tabindex="0" ><span class="thai">สถานีรถไฟฟ้า</span><span class="en-colloc">train station</span></span><span class="colloc-chip" data-thai="รถไฟฟ้าสายสีลม" role="button" tabindex="0" ><span class="thai">รถไฟฟ้าสายสีลม</span><span class="en-colloc">Silom Line</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันไปเรียนโดยรถไฟฟ้าค่ะ</div><div class="roman">chǎn bpai rian dooi rót-fai-fáa khâ</div><div class="eng">I go to class by skytrain/electric train.</div></div></td>
         </tr>
 
@@ -841,7 +850,7 @@
           <td>Vehicle / MRT</td>
           <td><span class="classifier-plain">ขบวน / สาย</span></td>
           <td>字面是「地下電車」。曼谷常指 MRT。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้น MRT" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้น MRT</span><span class="en-colloc">take the MRT</span></span><span class="colloc-chip" data-thai="รถไฟฟ้าใต้ดินสายสีน้ำเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถไฟฟ้าใต้ดินสายสีน้ำเงิน</span><span class="en-colloc">Blue Line MRT</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้น MRT" role="button" tabindex="0" ><span class="thai">ขึ้น MRT</span><span class="en-colloc">take the MRT</span></span><span class="colloc-chip" data-thai="รถไฟฟ้าใต้ดินสายสีน้ำเงิน" role="button" tabindex="0" ><span class="thai">รถไฟฟ้าใต้ดินสายสีน้ำเงิน</span><span class="en-colloc">Blue Line MRT</span></span></div></td>
           <td><div class="triad"><div class="thai">บางทีนั่งรถไฟฟ้าใต้ดินสะดวกกว่าค่ะ</div><div class="roman">baang-thii nâng rót-fai-fáa dtâai-din sà-dùak gwàa khâ</div><div class="eng">Sometimes taking the subway is more convenient.</div></div></td>
         </tr>
       </tbody>
@@ -1789,5 +1798,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

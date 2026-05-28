@@ -357,6 +357,90 @@
       line-height: 1.2;
     }
 
+  
+
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
+    .triad .thai::before,
+    .triad .roman::before,
+    .triad .eng::before { content: none !important; }
+
+    .collocation-pills,
+    .colloc-cell {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+      margin: 4px 0;
+    }
+
+    .audio-pill,
+    .colloc-chip {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      border: .5px solid rgba(22,163,74,.24);
+      background: rgba(240,253,244,.78);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 5px 10px;
+      margin: 3px 3px 3px 0;
+      cursor: pointer;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
+      min-width: 72px;
+      text-align: center;
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
+    }
+
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
+    .colloc-chip:hover,
+    .colloc-chip:focus-visible {
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
+      outline: none;
+    }
+
+    .audio-pill.speaking,
+    .colloc-chip.speaking {
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
+    }
+
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
+    .colloc-chip .thai {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .audio-pill .pill-eng,
+    .colloc-chip .en-colloc {
+      display: block;
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.2;
+    }
+
   </style>
 </head>
 
@@ -477,7 +561,7 @@
           <td><div class="triad"><div class="thai">ข้างใน</div><div class="roman">khâang-nai</div><div class="eng">inside</div></div></td>
           <td>Place / direction</td>
           <td>表示裡面。常和 <span class="thai">เข้า</span> 搭配。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เข้ามาข้างใน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เข้ามาข้างใน</span><span class="en-colloc">come inside</span></span><span class="colloc-chip" data-thai="อยู่ข้างใน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อยู่ข้างใน</span><span class="en-colloc">be inside</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เข้ามาข้างใน" role="button" tabindex="0" ><span class="thai">เข้ามาข้างใน</span><span class="en-colloc">come inside</span></span><span class="colloc-chip" data-thai="อยู่ข้างใน" role="button" tabindex="0" ><span class="thai">อยู่ข้างใน</span><span class="en-colloc">be inside</span></span></div></td>
           <td><div class="triad"><div class="thai">เชิญเข้ามาข้างในสิคะ</div><div class="roman">chəən khâo maa khâang-nai sì khá</div><div class="eng">Please come inside.</div></div></td>
         </tr>
 
@@ -485,7 +569,7 @@
           <td><div class="triad"><div class="thai">ข้างนอก</div><div class="roman">khâang-nɔ̂ɔk</div><div class="eng">outside</div></div></td>
           <td>Place / direction</td>
           <td>表示外面。常和 <span class="thai">ออก</span> 搭配。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ออกไปข้างนอก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ออกไปข้างนอก</span><span class="en-colloc">go outside</span></span><span class="colloc-chip" data-thai="รอข้างนอก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รอข้างนอก</span><span class="en-colloc">wait outside</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ออกไปข้างนอก" role="button" tabindex="0" ><span class="thai">ออกไปข้างนอก</span><span class="en-colloc">go outside</span></span><span class="colloc-chip" data-thai="รอข้างนอก" role="button" tabindex="0" ><span class="thai">รอข้างนอก</span><span class="en-colloc">wait outside</span></span></div></td>
           <td><div class="triad"><div class="thai">เพื่อนรออยู่ข้างนอกค่ะ</div><div class="roman">phʉ̂an rɔɔ yùu khâang-nɔ̂ɔk khâ</div><div class="eng">My friend is waiting outside.</div></div></td>
         </tr>
 
@@ -493,7 +577,7 @@
           <td><div class="triad"><div class="thai">กุญแจ</div><div class="roman">gun-jae</div><div class="eng">key</div></div></td>
           <td>Object</td>
           <td>鑰匙。可搭配 <span class="thai">หาย</span> 表示不見。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กุญแจหาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กุญแจหาย</span><span class="en-colloc">key is missing</span></span><span class="colloc-chip" data-thai="ลืมกุญแจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลืมกุญแจ</span><span class="en-colloc">forget the key</span></span><span class="colloc-chip" data-thai="หากุญแจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หากุญแจ</span><span class="en-colloc">look for the key</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กุญแจหาย" role="button" tabindex="0" ><span class="thai">กุญแจหาย</span><span class="en-colloc">key is missing</span></span><span class="colloc-chip" data-thai="ลืมกุญแจ" role="button" tabindex="0" ><span class="thai">ลืมกุญแจ</span><span class="en-colloc">forget the key</span></span><span class="colloc-chip" data-thai="หากุญแจ" role="button" tabindex="0" ><span class="thai">หากุญแจ</span><span class="en-colloc">look for the key</span></span></div></td>
           <td><div class="triad"><div class="thai">กุญแจหายค่ะ เข้าไม่ได้ค่ะ</div><div class="roman">gun-jae hǎai khâ, khâo mâi dâai khâ</div><div class="eng">My key is missing. I can’t get in.</div></div></td>
         </tr>
 
@@ -501,7 +585,7 @@
           <td><div class="triad"><div class="thai">กระเป๋าสตางค์</div><div class="roman">grà-bpǎo sà-dtaang</div><div class="eng">wallet</div></div></td>
           <td>Object</td>
           <td>錢包。口語也常說 <span class="thai">กระเป๋าตังค์</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กระเป๋าสตางค์หาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระเป๋าสตางค์หาย</span><span class="en-colloc">wallet is missing</span></span><span class="colloc-chip" data-thai="ลืมกระเป๋าสตางค์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลืมกระเป๋าสตางค์</span><span class="en-colloc">forget wallet</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กระเป๋าสตางค์หาย" role="button" tabindex="0" ><span class="thai">กระเป๋าสตางค์หาย</span><span class="en-colloc">wallet is missing</span></span><span class="colloc-chip" data-thai="ลืมกระเป๋าสตางค์" role="button" tabindex="0" ><span class="thai">ลืมกระเป๋าสตางค์</span><span class="en-colloc">forget wallet</span></span></div></td>
           <td><div class="triad"><div class="thai">กระเป๋าสตางค์หายที่ตลาดค่ะ</div><div class="roman">grà-bpǎo sà-dtaang hǎai thîi dtà-làat khâ</div><div class="eng">My wallet went missing at the market.</div></div></td>
         </tr>
 
@@ -509,7 +593,7 @@
           <td><div class="triad"><div class="thai">ขโมย</div><div class="roman">khà-mooi</div><div class="eng">thief / steal</div></div></td>
           <td>Noun / verb</td>
           <td>可當名詞「小偷」，也可當動詞「偷」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถูกขโมย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถูกขโมย</span><span class="en-colloc">be stolen</span></span><span class="colloc-chip" data-thai="ขโมยกระเป๋า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขโมยกระเป๋า</span><span class="en-colloc">steal a bag</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถูกขโมย" role="button" tabindex="0" ><span class="thai">ถูกขโมย</span><span class="en-colloc">be stolen</span></span><span class="colloc-chip" data-thai="ขโมยกระเป๋า" role="button" tabindex="0" ><span class="thai">ขโมยกระเป๋า</span><span class="en-colloc">steal a bag</span></span></div></td>
           <td><div class="triad"><div class="thai">โทรศัพท์ถูกขโมยค่ะ</div><div class="roman">thoo-rá-sàp thùuk khà-mooi khâ</div><div class="eng">My phone was stolen.</div></div></td>
         </tr>
 
@@ -517,7 +601,7 @@
           <td><div class="triad"><div class="thai">หาย</div><div class="roman">hǎai</div><div class="eng">disappear / be missing / recover</div></div></td>
           <td>Verb / state</td>
           <td>物品不見可以用；病好了也可以用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ของหาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ของหาย</span><span class="en-colloc">thing is missing</span></span><span class="colloc-chip" data-thai="ป่วยหายแล้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ป่วยหายแล้ว</span><span class="en-colloc">recovered from illness</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ของหาย" role="button" tabindex="0" ><span class="thai">ของหาย</span><span class="en-colloc">thing is missing</span></span><span class="colloc-chip" data-thai="ป่วยหายแล้ว" role="button" tabindex="0" ><span class="thai">ป่วยหายแล้ว</span><span class="en-colloc">recovered from illness</span></span></div></td>
           <td><div class="triad"><div class="thai">บัตรหายค่ะ ต้องทำยังไงคะ</div><div class="roman">bàt hǎai khâ, dtɔ̂ng tham yang-ngai khá</div><div class="eng">My card is missing. What should I do?</div></div></td>
         </tr>
       </tbody>
@@ -539,7 +623,7 @@
           <td><div class="triad"><div class="thai">เชิญ</div><div class="roman">chəən</div><div class="eng">please / invite</div></div></td>
           <td>Polite verb</td>
           <td>很禮貌的「請」。常用於請進、請坐。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เชิญเข้ามา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เชิญเข้ามา</span><span class="en-colloc">please come in</span></span><span class="colloc-chip" data-thai="เชิญนั่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เชิญนั่ง</span><span class="en-colloc">please sit</span></span><span class="colloc-chip" data-thai="เชิญค่ะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เชิญค่ะ</span><span class="en-colloc">please go ahead</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เชิญเข้ามา" role="button" tabindex="0" ><span class="thai">เชิญเข้ามา</span><span class="en-colloc">please come in</span></span><span class="colloc-chip" data-thai="เชิญนั่ง" role="button" tabindex="0" ><span class="thai">เชิญนั่ง</span><span class="en-colloc">please sit</span></span><span class="colloc-chip" data-thai="เชิญค่ะ" role="button" tabindex="0" ><span class="thai">เชิญค่ะ</span><span class="en-colloc">please go ahead</span></span></div></td>
           <td><div class="triad"><div class="thai">เชิญนั่งก่อนค่ะ</div><div class="roman">chəən nâng gɔ̀ɔn khâ</div><div class="eng">Please have a seat first.</div></div></td>
         </tr>
 
@@ -547,7 +631,7 @@
           <td><div class="triad"><div class="thai">สิ</div><div class="roman">sì</div><div class="eng">encouraging particle / go ahead</div></div></td>
           <td>Particle</td>
           <td>放句尾，讓邀請或建議更有「來嘛、做吧」的感覺。對不熟的人要小心，可能略直接。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เข้ามาสิคะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เข้ามาสิคะ</span><span class="en-colloc">come in</span></span><span class="colloc-chip" data-thai="กินสิคะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินสิคะ</span><span class="en-colloc">eat, go ahead</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เข้ามาสิคะ" role="button" tabindex="0" ><span class="thai">เข้ามาสิคะ</span><span class="en-colloc">come in</span></span><span class="colloc-chip" data-thai="กินสิคะ" role="button" tabindex="0" ><span class="thai">กินสิคะ</span><span class="en-colloc">eat, go ahead</span></span></div></td>
           <td><div class="triad"><div class="thai">เข้ามาสิคะ ไม่ต้องเกรงใจค่ะ</div><div class="roman">khâo maa sì khá, mâi dtɔ̂ng greeng-jai khâ</div><div class="eng">Come in, don’t be shy.</div></div></td>
         </tr>
 
@@ -555,7 +639,7 @@
           <td><div class="triad"><div class="thai">กดกริ่ง</div><div class="roman">gòt grìng</div><div class="eng">press the doorbell</div></div></td>
           <td>Action</td>
           <td><span class="thai">กด</span> = press；<span class="thai">กริ่ง</span> = bell。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กดกริ่งก่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กดกริ่งก่อน</span><span class="en-colloc">press the bell first</span></span><span class="colloc-chip" data-thai="กดกริ่งหน้าห้อง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กดกริ่งหน้าห้อง</span><span class="en-colloc">press the bell in front of the room</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กดกริ่งก่อน" role="button" tabindex="0" ><span class="thai">กดกริ่งก่อน</span><span class="en-colloc">press the bell first</span></span><span class="colloc-chip" data-thai="กดกริ่งหน้าห้อง" role="button" tabindex="0" ><span class="thai">กดกริ่งหน้าห้อง</span><span class="en-colloc">press the bell in front of the room</span></span></div></td>
           <td><div class="triad"><div class="thai">ถึงแล้วกดกริ่งนะคะ</div><div class="roman">thʉ̌ng lɛ́ɛw gòt grìng ná khá</div><div class="eng">When you arrive, press the bell.</div></div></td>
         </tr>
 
@@ -563,7 +647,7 @@
           <td><div class="triad"><div class="thai">เคาะประตู</div><div class="roman">khɔ́ bprà-dtuu</div><div class="eng">knock on the door</div></div></td>
           <td>Action</td>
           <td><span class="thai">เคาะ</span> = knock；<span class="thai">ประตู</span> = door。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เคาะประตูก่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เคาะประตูก่อน</span><span class="en-colloc">knock first</span></span><span class="colloc-chip" data-thai="เคาะเบา ๆ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เคาะเบา ๆ</span><span class="en-colloc">knock softly</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เคาะประตูก่อน" role="button" tabindex="0" ><span class="thai">เคาะประตูก่อน</span><span class="en-colloc">knock first</span></span><span class="colloc-chip" data-thai="เคาะเบา ๆ" role="button" tabindex="0" ><span class="thai">เคาะเบา ๆ</span><span class="en-colloc">knock softly</span></span></div></td>
           <td><div class="triad"><div class="thai">ก่อนเข้าห้อง ต้องเคาะประตูก่อนค่ะ</div><div class="roman">gɔ̀ɔn khâo hɔ̂ng, dtɔ̂ng khɔ́ bprà-dtuu gɔ̀ɔn khâ</div><div class="eng">Before entering the room, you must knock first.</div></div></td>
         </tr>
 
@@ -571,7 +655,7 @@
           <td><div class="triad"><div class="thai">เกรงใจ</div><div class="roman">greeng-jai</div><div class="eng">feel considerate / feel reluctant to impose</div></div></td>
           <td>Culture word</td>
           <td>非常泰式文化詞，表示怕麻煩別人、覺得不好意思。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไม่ต้องเกรงใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่ต้องเกรงใจ</span><span class="en-colloc">don’t be shy</span></span><span class="colloc-chip" data-thai="เกรงใจมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เกรงใจมาก</span><span class="en-colloc">feel very considerate</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไม่ต้องเกรงใจ" role="button" tabindex="0" ><span class="thai">ไม่ต้องเกรงใจ</span><span class="en-colloc">don’t be shy</span></span><span class="colloc-chip" data-thai="เกรงใจมาก" role="button" tabindex="0" ><span class="thai">เกรงใจมาก</span><span class="en-colloc">feel very considerate</span></span></div></td>
           <td><div class="triad"><div class="thai">ไม่ต้องเกรงใจนะคะ</div><div class="roman">mâi dtɔ̂ng greeng-jai ná khá</div><div class="eng">Please don’t feel shy / don’t worry about imposing.</div></div></td>
         </tr>
 
@@ -579,7 +663,7 @@
           <td><div class="triad"><div class="thai">ตามสบาย</div><div class="roman">dtaam sà-baai</div><div class="eng">make yourself comfortable / as you like</div></div></td>
           <td>Courtesy phrase</td>
           <td>讓對方放鬆，像「你隨意、自在一點」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตามสบายค่ะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตามสบายค่ะ</span><span class="en-colloc">make yourself comfortable</span></span><span class="colloc-chip" data-thai="นั่งตามสบาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">นั่งตามสบาย</span><span class="en-colloc">sit comfortably</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตามสบายค่ะ" role="button" tabindex="0" ><span class="thai">ตามสบายค่ะ</span><span class="en-colloc">make yourself comfortable</span></span><span class="colloc-chip" data-thai="นั่งตามสบาย" role="button" tabindex="0" ><span class="thai">นั่งตามสบาย</span><span class="en-colloc">sit comfortably</span></span></div></td>
           <td><div class="triad"><div class="thai">เข้ามาแล้วนั่งตามสบายค่ะ</div><div class="roman">khâo maa lɛ́ɛw nâng dtaam sà-baai khâ</div><div class="eng">Come in and make yourself comfortable.</div></div></td>
         </tr>
 
@@ -587,7 +671,7 @@
           <td><div class="triad"><div class="thai">อะไรก็ได้</div><div class="roman">à-rai gɔ̂ɔ dâai</div><div class="eng">anything is fine</div></div></td>
           <td>Choice phrase</td>
           <td>回答選擇時超常用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินอะไรก็ได้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินอะไรก็ได้</span><span class="en-colloc">anything to eat is fine</span></span><span class="colloc-chip" data-thai="ไปไหนก็ได้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปไหนก็ได้</span><span class="en-colloc">anywhere is fine</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินอะไรก็ได้" role="button" tabindex="0" ><span class="thai">กินอะไรก็ได้</span><span class="en-colloc">anything to eat is fine</span></span><span class="colloc-chip" data-thai="ไปไหนก็ได้" role="button" tabindex="0" ><span class="thai">ไปไหนก็ได้</span><span class="en-colloc">anywhere is fine</span></span></div></td>
           <td><div class="triad"><div class="thai">เย็นนี้กินอะไรก็ได้ค่ะ</div><div class="roman">yen níi gin à-rai gɔ̂ɔ dâai khâ</div><div class="eng">Anything is fine for dinner tonight.</div></div></td>
         </tr>
       </tbody>
@@ -609,7 +693,7 @@
           <td><div class="triad"><div class="thai">ต้อง</div><div class="roman">dtɔ̂ng</div><div class="eng">must / have to</div></div></td>
           <td>Modal verb</td>
           <td>表示必須。否定是 <span class="thai">ไม่ต้อง</span> = 不用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ต้องถอดรองเท้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ต้องถอดรองเท้า</span><span class="en-colloc">must take off shoes</span></span><span class="colloc-chip" data-thai="ไม่ต้องถอดรองเท้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่ต้องถอดรองเท้า</span><span class="en-colloc">don’t have to take off shoes</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ต้องถอดรองเท้า" role="button" tabindex="0" ><span class="thai">ต้องถอดรองเท้า</span><span class="en-colloc">must take off shoes</span></span><span class="colloc-chip" data-thai="ไม่ต้องถอดรองเท้า" role="button" tabindex="0" ><span class="thai">ไม่ต้องถอดรองเท้า</span><span class="en-colloc">don’t have to take off shoes</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องเคาะประตูก่อนไหมคะ</div><div class="roman">dtɔ̂ng khɔ́ bprà-dtuu gɔ̀ɔn mái khá</div><div class="eng">Do I have to knock first?</div></div></td>
         </tr>
 
@@ -617,7 +701,7 @@
           <td><div class="triad"><div class="thai">ถอดรองเท้า</div><div class="roman">thɔ̀ɔt rɔɔng-tháao</div><div class="eng">take off shoes</div></div></td>
           <td>Action</td>
           <td><span class="thai">ถอด</span> = take off；<span class="thai">รองเท้า</span> = shoes。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถอดรองเท้าก่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถอดรองเท้าก่อน</span><span class="en-colloc">take off shoes first</span></span><span class="colloc-chip" data-thai="ใส่รองเท้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใส่รองเท้า</span><span class="en-colloc">wear shoes</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถอดรองเท้าก่อน" role="button" tabindex="0" ><span class="thai">ถอดรองเท้าก่อน</span><span class="en-colloc">take off shoes first</span></span><span class="colloc-chip" data-thai="ใส่รองเท้า" role="button" tabindex="0" ><span class="thai">ใส่รองเท้า</span><span class="en-colloc">wear shoes</span></span></div></td>
           <td><div class="triad"><div class="thai">เข้าบ้านต้องถอดรองเท้าค่ะ</div><div class="roman">khâo bâan dtɔ̂ng thɔ̀ɔt rɔɔng-tháao khâ</div><div class="eng">You have to take off shoes when entering the house.</div></div></td>
         </tr>
 
@@ -625,7 +709,7 @@
           <td><div class="triad"><div class="thai">อย่า</div><div class="roman">yàa</div><div class="eng">don’t</div></div></td>
           <td>Negative command</td>
           <td>放動詞前，表示不要做。比 <span class="thai">ห้าม</span> 生活化。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อย่าพูด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อย่าพูด</span><span class="en-colloc">don’t speak</span></span><span class="colloc-chip" data-thai="อย่าสูบบุหรี่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อย่าสูบบุหรี่</span><span class="en-colloc">don’t smoke</span></span><span class="colloc-chip" data-thai="อย่าเข้าไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อย่าเข้าไป</span><span class="en-colloc">don’t go in</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อย่าพูด" role="button" tabindex="0" ><span class="thai">อย่าพูด</span><span class="en-colloc">don’t speak</span></span><span class="colloc-chip" data-thai="อย่าสูบบุหรี่" role="button" tabindex="0" ><span class="thai">อย่าสูบบุหรี่</span><span class="en-colloc">don’t smoke</span></span><span class="colloc-chip" data-thai="อย่าเข้าไป" role="button" tabindex="0" ><span class="thai">อย่าเข้าไป</span><span class="en-colloc">don’t go in</span></span></div></td>
           <td><div class="triad"><div class="thai">อย่าพูดภาษาอังกฤษนะคะ</div><div class="roman">yàa phûut phaa-sǎa ang-grìt ná khá</div><div class="eng">Don’t speak English, okay?</div></div></td>
         </tr>
 
@@ -633,7 +717,7 @@
           <td><div class="triad"><div class="thai">ห้าม</div><div class="roman">hâam</div><div class="eng">forbidden / prohibit</div></div></td>
           <td>Prohibition</td>
           <td>常見於標語、規則，比 <span class="thai">อย่า</span> 更正式。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้ามสูบบุหรี่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้ามสูบบุหรี่</span><span class="en-colloc">no smoking</span></span><span class="colloc-chip" data-thai="ห้ามเข้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้ามเข้า</span><span class="en-colloc">no entry</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้ามสูบบุหรี่" role="button" tabindex="0" ><span class="thai">ห้ามสูบบุหรี่</span><span class="en-colloc">no smoking</span></span><span class="colloc-chip" data-thai="ห้ามเข้า" role="button" tabindex="0" ><span class="thai">ห้ามเข้า</span><span class="en-colloc">no entry</span></span></div></td>
           <td><div class="triad"><div class="thai">ห้ามสูบบุหรี่ที่ปั๊มน้ำมันค่ะ</div><div class="roman">hâam sùup bù-rìi thîi bpám-nám-man khâ</div><div class="eng">Smoking is prohibited at the gas station.</div></div></td>
         </tr>
 
@@ -641,7 +725,7 @@
           <td><div class="triad"><div class="thai">สูบบุหรี่</div><div class="roman">sùup bù-rìi</div><div class="eng">smoke cigarettes</div></div></td>
           <td>Action</td>
           <td><span class="thai">สูบ</span> = smoke/suck；<span class="thai">บุหรี่</span> = cigarette。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้ามสูบบุหรี่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้ามสูบบุหรี่</span><span class="en-colloc">no smoking</span></span><span class="colloc-chip" data-thai="ไม่สูบบุหรี่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่สูบบุหรี่</span><span class="en-colloc">don’t smoke</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้ามสูบบุหรี่" role="button" tabindex="0" ><span class="thai">ห้ามสูบบุหรี่</span><span class="en-colloc">no smoking</span></span><span class="colloc-chip" data-thai="ไม่สูบบุหรี่" role="button" tabindex="0" ><span class="thai">ไม่สูบบุหรี่</span><span class="en-colloc">don’t smoke</span></span></div></td>
           <td><div class="triad"><div class="thai">ในห้องห้ามสูบบุหรี่ค่ะ</div><div class="roman">nai hɔ̂ng hâam sùup bù-rìi khâ</div><div class="eng">Smoking is prohibited in the room.</div></div></td>
         </tr>
 
@@ -649,7 +733,7 @@
           <td><div class="triad"><div class="thai">ไม่สบาย</div><div class="roman">mâi sà-baai</div><div class="eng">not feeling well / sick</div></div></td>
           <td>Health</td>
           <td>泰文很常用，不一定很嚴重。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกไม่สบาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รู้สึกไม่สบาย</span><span class="en-colloc">feel unwell</span></span><span class="colloc-chip" data-thai="ไม่สบายมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่สบายมาก</span><span class="en-colloc">very sick</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกไม่สบาย" role="button" tabindex="0" ><span class="thai">รู้สึกไม่สบาย</span><span class="en-colloc">feel unwell</span></span><span class="colloc-chip" data-thai="ไม่สบายมาก" role="button" tabindex="0" ><span class="thai">ไม่สบายมาก</span><span class="en-colloc">very sick</span></span></div></td>
           <td><div class="triad"><div class="thai">พอฉันไม่สบาย ฉันไปหาหมอค่ะ</div><div class="roman">phɔɔ chǎn mâi sà-baai, chǎn bpai hǎa mɔ̌ɔ khâ</div><div class="eng">When I feel sick, I go see a doctor.</div></div></td>
         </tr>
 
@@ -657,7 +741,7 @@
           <td><div class="triad"><div class="thai">กินยา</div><div class="roman">gin yaa</div><div class="eng">take medicine</div></div></td>
           <td>Health</td>
           <td>泰文說「吃藥」用 <span class="thai">กิน</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินยาก่อนนอน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินยาก่อนนอน</span><span class="en-colloc">take medicine before bed</span></span><span class="colloc-chip" data-thai="กินยาหลังอาหาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินยาหลังอาหาร</span><span class="en-colloc">take medicine after meals</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินยาก่อนนอน" role="button" tabindex="0" ><span class="thai">กินยาก่อนนอน</span><span class="en-colloc">take medicine before bed</span></span><span class="colloc-chip" data-thai="กินยาหลังอาหาร" role="button" tabindex="0" ><span class="thai">กินยาหลังอาหาร</span><span class="en-colloc">take medicine after meals</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องกินยาวันละสองครั้งค่ะ</div><div class="roman">dtɔ̂ng gin yaa wan lá sɔ̌ɔng khráng khâ</div><div class="eng">You have to take medicine twice a day.</div></div></td>
         </tr>
 
@@ -665,7 +749,7 @@
           <td><div class="triad"><div class="thai">ไปหาหมอ</div><div class="roman">bpai hǎa mɔ̌ɔ</div><div class="eng">go see a doctor</div></div></td>
           <td>Health</td>
           <td><span class="thai">หา</span> 在這裡是「找/去見」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปหาหมอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปหาหมอ</span><span class="en-colloc">go see a doctor</span></span><span class="colloc-chip" data-thai="ไปโรงพยาบาล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปโรงพยาบาล</span><span class="en-colloc">go to hospital</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปหาหมอ" role="button" tabindex="0" ><span class="thai">ไปหาหมอ</span><span class="en-colloc">go see a doctor</span></span><span class="colloc-chip" data-thai="ไปโรงพยาบาล" role="button" tabindex="0" ><span class="thai">ไปโรงพยาบาล</span><span class="en-colloc">go to hospital</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าไม่สบายมาก ควรไปหาหมอนะคะ</div><div class="roman">thâa mâi sà-baai mâak, khuan bpai hǎa mɔ̌ɔ ná khá</div><div class="eng">If you feel very sick, you should go see a doctor.</div></div></td>
         </tr>
       </tbody>
@@ -1957,5 +2041,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

@@ -327,6 +327,90 @@
       table { font-size: 13px; }
       .bubble { max-width: 100%; }
     }
+  
+
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
+    .triad .thai::before,
+    .triad .roman::before,
+    .triad .eng::before { content: none !important; }
+
+    .collocation-pills,
+    .colloc-cell {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+      margin: 4px 0;
+    }
+
+    .audio-pill,
+    .colloc-chip {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      border: .5px solid rgba(22,163,74,.24);
+      background: rgba(240,253,244,.78);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 5px 10px;
+      margin: 3px 3px 3px 0;
+      cursor: pointer;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
+      min-width: 72px;
+      text-align: center;
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
+    }
+
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
+    .colloc-chip:hover,
+    .colloc-chip:focus-visible {
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
+      outline: none;
+    }
+
+    .audio-pill.speaking,
+    .colloc-chip.speaking {
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
+    }
+
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
+    .colloc-chip .thai {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .audio-pill .pill-eng,
+    .colloc-chip .en-colloc {
+      display: block;
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.2;
+    }
+
   </style>
 </head>
 <body>
@@ -425,35 +509,35 @@
 <td><div class="triad"><div class="thai">กำลัง</div><div class="roman">gam-lang</div><div class="eng">currently / be in the process of</div></div></td>
 <td>Aspect marker</td>
 <td>放在動詞前面，表示「正在」。常和 <span class="thai">อยู่</span> 搭配。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="กำลังอ่าน" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">กำลังอ่าน</span><span class="pill-eng">currently reading</span></button><button class="audio-pill" data-thai="กำลังทำ" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">กำลังทำ</span><span class="pill-eng">doing</span></button><button class="audio-pill" data-thai="กำลังขับ" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">กำลังขับ</span><span class="pill-eng">driving</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="กำลังอ่าน" role="button" tabindex="0"><span class="thai">กำลังอ่าน</span><span class="en-colloc">currently reading</span></span><span class="colloc-chip" data-thai="กำลังทำ" role="button" tabindex="0"><span class="thai">กำลังทำ</span><span class="en-colloc">doing</span></span><span class="colloc-chip" data-thai="กำลังขับ" role="button" tabindex="0"><span class="thai">กำลังขับ</span><span class="en-colloc">driving</span></span></div></td>
 <td><div class="triad"><div class="thai">ฉันกำลังอ่านหนังสืออยู่ค่ะ</div><div class="roman">chǎn gam-lang àan nǎng-sʉ̌ʉ yùu khâ</div><div class="eng">I am reading a book right now.</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">อยู่</div><div class="roman">yùu</div><div class="eng">be located / currently doing</div></div></td>
 <td>Aspect / state</td>
 <td><span class="label review">Review</span> 以前學過「在」。這課用在句尾，表示動作正在進行。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="กำลัง...อยู่" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">กำลัง...อยู่</span><span class="pill-eng">be doing...right now</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="กำลัง...อยู่" role="button" tabindex="0"><span class="thai">กำลัง...อยู่</span><span class="en-colloc">be doing...right now</span></span></div></td>
 <td><div class="triad"><div class="thai">เขากำลังขับรถอยู่ค่ะ</div><div class="roman">khǎo gam-lang khàp rót yùu khâ</div><div class="eng">He is driving right now.</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">อ่านหนังสือ</div><div class="roman">àan nǎng-sʉ̌ʉ</div><div class="eng">read a book / study</div></div></td>
 <td>Action</td>
 <td>字面是讀書，也常表示念書。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="กำลังอ่านหนังสือ" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">กำลังอ่านหนังสือ</span><span class="pill-eng">reading</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="กำลังอ่านหนังสือ" role="button" tabindex="0"><span class="thai">กำลังอ่านหนังสือ</span><span class="en-colloc">reading</span></span></div></td>
 <td><div class="triad"><div class="thai">เด็กกำลังอ่านหนังสืออยู่ค่ะ</div><div class="roman">dèk gam-lang àan nǎng-sʉ̌ʉ yùu khâ</div><div class="eng">The child is reading a book right now.</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">ขับรถ</div><div class="roman">khàp rót</div><div class="eng">drive a car</div></div></td>
 <td>Action / transport</td>
 <td><span class="label review">Review</span> Day 1 已學交通動詞。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="กำลังขับรถ" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">กำลังขับรถ</span><span class="pill-eng">driving right now</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="กำลังขับรถ" role="button" tabindex="0"><span class="thai">กำลังขับรถ</span><span class="en-colloc">driving right now</span></span></div></td>
 <td><div class="triad"><div class="thai">เขากำลังขับรถอยู่ค่ะ</div><div class="roman">khǎo gam-lang khàp rót yùu khâ</div><div class="eng">He is driving right now.</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">ทำอาหาร</div><div class="roman">tham aa-hǎan</div><div class="eng">cook / make food</div></div></td>
 <td>Action / food</td>
 <td><span class="thai">ทำ</span> = make/do；<span class="thai">อาหาร</span> = food。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="กำลังทำอาหาร" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">กำลังทำอาหาร</span><span class="pill-eng">cooking now</span></button><button class="audio-pill" data-thai="ทำอาหารให้ฉัน" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">ทำอาหารให้ฉัน</span><span class="pill-eng">cook for me</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="กำลังทำอาหาร" role="button" tabindex="0"><span class="thai">กำลังทำอาหาร</span><span class="en-colloc">cooking now</span></span><span class="colloc-chip" data-thai="ทำอาหารให้ฉัน" role="button" tabindex="0"><span class="thai">ทำอาหารให้ฉัน</span><span class="en-colloc">cook for me</span></span></div></td>
 <td><div class="triad"><div class="thai">พ่อครัวกำลังทำอาหารอยู่ค่ะ</div><div class="roman">phɔ̂ɔ-khrua gam-lang tham aa-hǎan yùu khâ</div><div class="eng">The chef is cooking right now.</div></div></td>
 </tr>
 </tbody>
@@ -1639,5 +1723,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

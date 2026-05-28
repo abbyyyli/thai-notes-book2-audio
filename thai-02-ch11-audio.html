@@ -367,34 +367,23 @@
       color: var(--muted);
       line-height: 1.2;
     }
-
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -403,38 +392,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -514,7 +523,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td>結尾 <span class="thai">-คม</span> 的月份通常有 31 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนมกราคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนมกราคม</span><span class="en-colloc">January</span></span><span class="colloc-chip" data-thai="วันที่หนึ่งมกราคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วันที่หนึ่งมกราคม</span><span class="en-colloc">January 1st</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนมกราคม" role="button" tabindex="0" ><span class="thai">เดือนมกราคม</span><span class="en-colloc">January</span></span><span class="colloc-chip" data-thai="วันที่หนึ่งมกราคม" role="button" tabindex="0" ><span class="thai">วันที่หนึ่งมกราคม</span><span class="en-colloc">January 1st</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันจะเริ่มเรียนภาษาไทยเดือนมกราคมค่ะ</div><div class="roman">chǎn jà rə̂əm rian phaa-sǎa-thai dʉan má-gà-raa-khom khâ</div><div class="eng">I will start studying Thai in January.</div></div></td>
         </tr>
 
@@ -523,7 +532,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td>二月有 28 天，閏年 29 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนกุมภาพันธ์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนกุมภาพันธ์</span><span class="en-colloc">February</span></span><span class="colloc-chip" data-thai="ทุก 4 ปี มี 29 วัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทุก 4 ปี มี 29 วัน</span><span class="en-colloc">every 4 years has 29 days</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนกุมภาพันธ์" role="button" tabindex="0" ><span class="thai">เดือนกุมภาพันธ์</span><span class="en-colloc">February</span></span><span class="colloc-chip" data-thai="ทุก 4 ปี มี 29 วัน" role="button" tabindex="0" ><span class="thai">ทุก 4 ปี มี 29 วัน</span><span class="en-colloc">every 4 years has 29 days</span></span></div></td>
           <td><div class="triad"><div class="thai">เดือนกุมภาพันธ์มี 28 หรือ 29 วันค่ะ</div><div class="roman">dʉan gum-phaa-phan mii yîi-sìp-bpɛ̀ɛt rʉ̌ʉ yîi-sìp-gâo wan khâ</div><div class="eng">February has 28 or 29 days.</div></div></td>
         </tr>
 
@@ -532,7 +541,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td><span class="thai">-คม</span> 月，31 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนมีนาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนมีนาคม</span><span class="en-colloc">March</span></span><span class="colloc-chip" data-thai="กลางเดือนมีนาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลางเดือนมีนาคม</span><span class="en-colloc">mid-March</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนมีนาคม" role="button" tabindex="0" ><span class="thai">เดือนมีนาคม</span><span class="en-colloc">March</span></span><span class="colloc-chip" data-thai="กลางเดือนมีนาคม" role="button" tabindex="0" ><span class="thai">กลางเดือนมีนาคม</span><span class="en-colloc">mid-March</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันมาเมืองไทยเดือนมีนาคมค่ะ</div><div class="roman">chǎn maa mʉang-thai dʉan mii-naa-khom khâ</div><div class="eng">I came to Thailand in March.</div></div></td>
         </tr>
 
@@ -541,7 +550,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td>結尾 <span class="thai">-ยน</span> 的月份通常有 30 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนเมษายน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนเมษายน</span><span class="en-colloc">April</span></span><span class="colloc-chip" data-thai="สงกรานต์เดือนเมษายน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สงกรานต์เดือนเมษายน</span><span class="en-colloc">Songkran in April</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนเมษายน" role="button" tabindex="0" ><span class="thai">เดือนเมษายน</span><span class="en-colloc">April</span></span><span class="colloc-chip" data-thai="สงกรานต์เดือนเมษายน" role="button" tabindex="0" ><span class="thai">สงกรานต์เดือนเมษายน</span><span class="en-colloc">Songkran in April</span></span></div></td>
           <td><div class="triad"><div class="thai">สงกรานต์อยู่เดือนเมษายนค่ะ</div><div class="roman">sǒng-graan yùu dʉan mee-sǎa-yǒn khâ</div><div class="eng">Songkran is in April.</div></div></td>
         </tr>
 
@@ -550,7 +559,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td><span class="thai">-คม</span> 月，31 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนพฤษภาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนพฤษภาคม</span><span class="en-colloc">May</span></span><span class="colloc-chip" data-thai="ปลายเดือนพฤษภาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปลายเดือนพฤษภาคม</span><span class="en-colloc">late May</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนพฤษภาคม" role="button" tabindex="0" ><span class="thai">เดือนพฤษภาคม</span><span class="en-colloc">May</span></span><span class="colloc-chip" data-thai="ปลายเดือนพฤษภาคม" role="button" tabindex="0" ><span class="thai">ปลายเดือนพฤษภาคม</span><span class="en-colloc">late May</span></span></div></td>
           <td><div class="triad"><div class="thai">คอร์สนี้เรียนจนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">khɔ̂ɔt níi rian jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">This course runs until May.</div></div></td>
         </tr>
 
@@ -559,7 +568,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td><span class="thai">-ยน</span> 月，30 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนมิถุนายน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนมิถุนายน</span><span class="en-colloc">June</span></span><span class="colloc-chip" data-thai="ต้นเดือนมิถุนายน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ต้นเดือนมิถุนายน</span><span class="en-colloc">early June</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนมิถุนายน" role="button" tabindex="0" ><span class="thai">เดือนมิถุนายน</span><span class="en-colloc">June</span></span><span class="colloc-chip" data-thai="ต้นเดือนมิถุนายน" role="button" tabindex="0" ><span class="thai">ต้นเดือนมิถุนายน</span><span class="en-colloc">early June</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันมีสอบเดือนมิถุนายนค่ะ</div><div class="roman">chǎn mii sɔ̀ɔp dʉan mí-thù-naa-yǒn khâ</div><div class="eng">I have an exam in June.</div></div></td>
         </tr>
 
@@ -568,7 +577,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td><span class="thai">-คม</span> 月，31 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนกรกฎาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนกรกฎาคม</span><span class="en-colloc">July</span></span><span class="colloc-chip" data-thai="วันหยุดเดือนกรกฎาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วันหยุดเดือนกรกฎาคม</span><span class="en-colloc">holiday in July</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนกรกฎาคม" role="button" tabindex="0" ><span class="thai">เดือนกรกฎาคม</span><span class="en-colloc">July</span></span><span class="colloc-chip" data-thai="วันหยุดเดือนกรกฎาคม" role="button" tabindex="0" ><span class="thai">วันหยุดเดือนกรกฎาคม</span><span class="en-colloc">holiday in July</span></span></div></td>
           <td><div class="triad"><div class="thai">เดือนกรกฎาคมกรุงเทพฯ ฝนตกบ่อยค่ะ</div><div class="roman">dʉan gà-rá-gà-daa-khom grung-thêep fǒn-dtòk bɔ̀i khâ</div><div class="eng">In July, it rains often in Bangkok.</div></div></td>
         </tr>
 
@@ -577,7 +586,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td><span class="thai">-คม</span> 月，31 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนสิงหาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนสิงหาคม</span><span class="en-colloc">August</span></span><span class="colloc-chip" data-thai="วันแม่เดือนสิงหาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วันแม่เดือนสิงหาคม</span><span class="en-colloc">Mother’s Day in August</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนสิงหาคม" role="button" tabindex="0" ><span class="thai">เดือนสิงหาคม</span><span class="en-colloc">August</span></span><span class="colloc-chip" data-thai="วันแม่เดือนสิงหาคม" role="button" tabindex="0" ><span class="thai">วันแม่เดือนสิงหาคม</span><span class="en-colloc">Mother’s Day in August</span></span></div></td>
           <td><div class="triad"><div class="thai">วันแม่ของไทยอยู่เดือนสิงหาคมค่ะ</div><div class="roman">wan-mɛ̂ɛ khɔ̌ɔng thai yùu dʉan sǐng-hǎa-khom khâ</div><div class="eng">Thai Mother’s Day is in August.</div></div></td>
         </tr>
 
@@ -586,7 +595,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td><span class="thai">-ยน</span> 月，30 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนกันยายน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนกันยายน</span><span class="en-colloc">September</span></span><span class="colloc-chip" data-thai="เปิดเทอมเดือนกันยายน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เปิดเทอมเดือนกันยายน</span><span class="en-colloc">semester starts in September</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนกันยายน" role="button" tabindex="0" ><span class="thai">เดือนกันยายน</span><span class="en-colloc">September</span></span><span class="colloc-chip" data-thai="เปิดเทอมเดือนกันยายน" role="button" tabindex="0" ><span class="thai">เปิดเทอมเดือนกันยายน</span><span class="en-colloc">semester starts in September</span></span></div></td>
           <td><div class="triad"><div class="thai">มหาวิทยาลัยเปิดเทอมเดือนกันยายนค่ะ</div><div class="roman">má-hǎa-wít-thá-yaa-lai bpə̀ət-thəəm dʉan gan-yaa-yǒn khâ</div><div class="eng">The university semester starts in September.</div></div></td>
         </tr>
 
@@ -595,7 +604,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td><span class="thai">-คม</span> 月，31 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนตุลาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนตุลาคม</span><span class="en-colloc">October</span></span><span class="colloc-chip" data-thai="กลางเดือนตุลาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลางเดือนตุลาคม</span><span class="en-colloc">mid-October</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนตุลาคม" role="button" tabindex="0" ><span class="thai">เดือนตุลาคม</span><span class="en-colloc">October</span></span><span class="colloc-chip" data-thai="กลางเดือนตุลาคม" role="button" tabindex="0" ><span class="thai">กลางเดือนตุลาคม</span><span class="en-colloc">mid-October</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากไปเที่ยวเชียงใหม่เดือนตุลาคมค่ะ</div><div class="roman">chǎn yàak bpai thîao chiiang-mài dʉan dtù-laa-khom khâ</div><div class="eng">I want to travel to Chiang Mai in October.</div></div></td>
         </tr>
 
@@ -604,7 +613,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td><span class="thai">-ยน</span> 月，30 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนพฤศจิกายน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนพฤศจิกายน</span><span class="en-colloc">November</span></span><span class="colloc-chip" data-thai="ลอยกระทงเดือนพฤศจิกายน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลอยกระทงเดือนพฤศจิกายน</span><span class="en-colloc">Loy Krathong in November</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนพฤศจิกายน" role="button" tabindex="0" ><span class="thai">เดือนพฤศจิกายน</span><span class="en-colloc">November</span></span><span class="colloc-chip" data-thai="ลอยกระทงเดือนพฤศจิกายน" role="button" tabindex="0" ><span class="thai">ลอยกระทงเดือนพฤศจิกายน</span><span class="en-colloc">Loy Krathong in November</span></span></div></td>
           <td><div class="triad"><div class="thai">ลอยกระทงมักอยู่เดือนพฤศจิกายนค่ะ</div><div class="roman">lɔɔi-grà-thong mák yùu dʉan phrʉ́t-sà-jì-gaa-yǒn khâ</div><div class="eng">Loy Krathong is often in November.</div></div></td>
         </tr>
 
@@ -613,7 +622,7 @@
           <td>Month</td>
           <td>เดือน</td>
           <td><span class="thai">-คม</span> 月，31 天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนธันวาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนธันวาคม</span><span class="en-colloc">December</span></span><span class="colloc-chip" data-thai="สิ้นปีเดือนธันวาคม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สิ้นปีเดือนธันวาคม</span><span class="en-colloc">year-end in December</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดือนธันวาคม" role="button" tabindex="0" ><span class="thai">เดือนธันวาคม</span><span class="en-colloc">December</span></span><span class="colloc-chip" data-thai="สิ้นปีเดือนธันวาคม" role="button" tabindex="0" ><span class="thai">สิ้นปีเดือนธันวาคม</span><span class="en-colloc">year-end in December</span></span></div></td>
           <td><div class="triad"><div class="thai">เดือนธันวาคมคนไปเที่ยวเยอะค่ะ</div><div class="roman">dʉan than-waa-khom khon bpai thîao yə́ khâ</div><div class="eng">In December, many people travel.</div></div></td>
         </tr>
       </tbody>
@@ -637,7 +646,7 @@
           <td>Time connector</td>
           <td>—</td>
           <td>表示動作或狀態持續到某個時間點。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จนถึงเดือนหน้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จนถึงเดือนหน้า</span><span class="en-colloc">until next month</span></span><span class="colloc-chip" data-thai="จนถึงพรุ่งนี้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จนถึงพรุ่งนี้</span><span class="en-colloc">until tomorrow</span></span><span class="colloc-chip" data-thai="จนถึงสิ้นปี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จนถึงสิ้นปี</span><span class="en-colloc">until year-end</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จนถึงเดือนหน้า" role="button" tabindex="0" ><span class="thai">จนถึงเดือนหน้า</span><span class="en-colloc">until next month</span></span><span class="colloc-chip" data-thai="จนถึงพรุ่งนี้" role="button" tabindex="0" ><span class="thai">จนถึงพรุ่งนี้</span><span class="en-colloc">until tomorrow</span></span><span class="colloc-chip" data-thai="จนถึงสิ้นปี" role="button" tabindex="0" ><span class="thai">จนถึงสิ้นปี</span><span class="en-colloc">until year-end</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันจะอยู่กรุงเทพฯ จนถึงเดือนพฤษภาคมค่ะ</div><div class="roman">chǎn jà yùu grung-thêep jon-thʉ̌ng dʉan phrʉ́t-sà-phaa-khom khâ</div><div class="eng">I will stay in Bangkok until May.</div></div></td>
         </tr>
 
@@ -646,7 +655,7 @@
           <td>Duration word</td>
           <td>—</td>
           <td>表示整段時間都如此。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตลอดวัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตลอดวัน</span><span class="en-colloc">all day</span></span><span class="colloc-chip" data-thai="ตลอดคืน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตลอดคืน</span><span class="en-colloc">all night</span></span><span class="colloc-chip" data-thai="ตลอดชีวิต" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตลอดชีวิต</span><span class="en-colloc">all life</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตลอดวัน" role="button" tabindex="0" ><span class="thai">ตลอดวัน</span><span class="en-colloc">all day</span></span><span class="colloc-chip" data-thai="ตลอดคืน" role="button" tabindex="0" ><span class="thai">ตลอดคืน</span><span class="en-colloc">all night</span></span><span class="colloc-chip" data-thai="ตลอดชีวิต" role="button" tabindex="0" ><span class="thai">ตลอดชีวิต</span><span class="en-colloc">all life</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากเรียนภาษาไปตลอดชีวิตค่ะ</div><div class="roman">chǎn yàak rian phaa-sǎa bpai dtà-lɔ̀ɔt chii-wít khâ</div><div class="eng">I want to keep learning languages for my whole life.</div></div></td>
         </tr>
 
@@ -655,7 +664,7 @@
           <td>Time noun</td>
           <td>วัน</td>
           <td><span class="thai">วัน</span> 是天；<span class="thai">กลางวัน</span> 是白天。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตลอดวัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตลอดวัน</span><span class="en-colloc">all day</span></span><span class="colloc-chip" data-thai="กลางวันร้อนมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลางวันร้อนมาก</span><span class="en-colloc">daytime is very hot</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตลอดวัน" role="button" tabindex="0" ><span class="thai">ตลอดวัน</span><span class="en-colloc">all day</span></span><span class="colloc-chip" data-thai="กลางวันร้อนมาก" role="button" tabindex="0" ><span class="thai">กลางวันร้อนมาก</span><span class="en-colloc">daytime is very hot</span></span></div></td>
           <td><div class="triad"><div class="thai">กลางวันกรุงเทพฯ ร้อนมากค่ะ</div><div class="roman">glaang-wan grung-thêep rɔ́ɔn mâak khâ</div><div class="eng">Bangkok is very hot during the day.</div></div></td>
         </tr>
 
@@ -664,7 +673,7 @@
           <td>Time noun</td>
           <td>คืน</td>
           <td><span class="thai">คืน</span> 作量詞可表示「晚」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สามคืน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สามคืน</span><span class="en-colloc">three nights</span></span><span class="colloc-chip" data-thai="ตลอดคืน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตลอดคืน</span><span class="en-colloc">all night</span></span><span class="colloc-chip" data-thai="กลางคืนไม่ร้อนมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลางคืนไม่ร้อนมาก</span><span class="en-colloc">nighttime is not very hot</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สามคืน" role="button" tabindex="0" ><span class="thai">สามคืน</span><span class="en-colloc">three nights</span></span><span class="colloc-chip" data-thai="ตลอดคืน" role="button" tabindex="0" ><span class="thai">ตลอดคืน</span><span class="en-colloc">all night</span></span><span class="colloc-chip" data-thai="กลางคืนไม่ร้อนมาก" role="button" tabindex="0" ><span class="thai">กลางคืนไม่ร้อนมาก</span><span class="en-colloc">nighttime is not very hot</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันพักที่โรงแรมนี้สามคืนค่ะ</div><div class="roman">chǎn phák thîi rooŋ-rɛɛm níi sǎam khʉʉn khâ</div><div class="eng">I stay at this hotel for three nights.</div></div></td>
         </tr>
 
@@ -673,7 +682,7 @@
           <td>Relative marker / place marker</td>
           <td>—</td>
           <td>本課重點是修飾名詞：N + ที่ + clause。也可表示「在某地」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อาหารที่..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาหารที่...</span><span class="en-colloc">food that...</span></span><span class="colloc-chip" data-thai="เสื้อที่..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสื้อที่...</span><span class="en-colloc">shirt that...</span></span><span class="colloc-chip" data-thai="ร้านที่..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ร้านที่...</span><span class="en-colloc">shop that...</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อาหารที่..." role="button" tabindex="0" ><span class="thai">อาหารที่...</span><span class="en-colloc">food that...</span></span><span class="colloc-chip" data-thai="เสื้อที่..." role="button" tabindex="0" ><span class="thai">เสื้อที่...</span><span class="en-colloc">shirt that...</span></span><span class="colloc-chip" data-thai="ร้านที่..." role="button" tabindex="0" ><span class="thai">ร้านที่...</span><span class="en-colloc">shop that...</span></span></div></td>
           <td><div class="triad"><div class="thai">ร้านที่ฉันไปเมื่อวานอร่อยมากค่ะ</div><div class="roman">ráan thîi chǎn bpai mʉ̂a-waan à-rɔ̀i mâak khâ</div><div class="eng">The restaurant that I went to yesterday was very delicious.</div></div></td>
         </tr>
 
@@ -682,7 +691,7 @@
           <td>Modal verb</td>
           <td>—</td>
           <td>比較正式/中性地給建議。否定是 <span class="thai">ไม่ควร</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ควรออกกำลัง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ควรออกกำลัง</span><span class="en-colloc">should exercise</span></span><span class="colloc-chip" data-thai="ควรกินผัก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ควรกินผัก</span><span class="en-colloc">should eat vegetables</span></span><span class="colloc-chip" data-thai="ควรพักผ่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ควรพักผ่อน</span><span class="en-colloc">should rest</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ควรออกกำลัง" role="button" tabindex="0" ><span class="thai">ควรออกกำลัง</span><span class="en-colloc">should exercise</span></span><span class="colloc-chip" data-thai="ควรกินผัก" role="button" tabindex="0" ><span class="thai">ควรกินผัก</span><span class="en-colloc">should eat vegetables</span></span><span class="colloc-chip" data-thai="ควรพักผ่อน" role="button" tabindex="0" ><span class="thai">ควรพักผ่อน</span><span class="en-colloc">should rest</span></span></div></td>
           <td><div class="triad"><div class="thai">คุณควรออกกำลังกายทุกวันค่ะ</div><div class="roman">khun khuan ɔ̀ɔk-gam-lang-gaai thúk wan khâ</div><div class="eng">You should exercise every day.</div></div></td>
         </tr>
 
@@ -691,7 +700,7 @@
           <td>Negative modal verb</td>
           <td>—</td>
           <td>比 <span class="thai">ห้าม</span> 柔和；是建議不要做，不是嚴格禁止。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไม่ควรกินหวาน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่ควรกินหวาน</span><span class="en-colloc">should not eat sweets</span></span><span class="colloc-chip" data-thai="ไม่ควรกินเบียร์เหล้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่ควรกินเบียร์เหล้า</span><span class="en-colloc">should not drink beer or liquor</span></span><span class="colloc-chip" data-thai="ไม่ควรนอนดึก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่ควรนอนดึก</span><span class="en-colloc">should not sleep late</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไม่ควรกินหวาน" role="button" tabindex="0" ><span class="thai">ไม่ควรกินหวาน</span><span class="en-colloc">should not eat sweets</span></span><span class="colloc-chip" data-thai="ไม่ควรกินเบียร์เหล้า" role="button" tabindex="0" ><span class="thai">ไม่ควรกินเบียร์เหล้า</span><span class="en-colloc">should not drink beer or liquor</span></span><span class="colloc-chip" data-thai="ไม่ควรนอนดึก" role="button" tabindex="0" ><span class="thai">ไม่ควรนอนดึก</span><span class="en-colloc">should not sleep late</span></span></div></td>
           <td><div class="triad"><div class="thai">คุณไม่ควรกินอาหารหวานมากค่ะ</div><div class="roman">khun mâi khuan gin aa-hǎan wǎan mâak khâ</div><div class="eng">You should not eat very sweet food.</div></div></td>
         </tr>
 
@@ -700,7 +709,7 @@
           <td>Verb</td>
           <td>—</td>
           <td>可用於推薦食物、地方、醫生、課程，也可用在給建議。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แนะนำร้านอาหาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แนะนำร้านอาหาร</span><span class="en-colloc">recommend a restaurant</span></span><span class="colloc-chip" data-thai="แนะนำให้..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แนะนำให้...</span><span class="en-colloc">recommend that...</span></span><span class="colloc-chip" data-thai="มีอะไรแนะนำไหม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีอะไรแนะนำไหม</span><span class="en-colloc">any recommendations?</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แนะนำร้านอาหาร" role="button" tabindex="0" ><span class="thai">แนะนำร้านอาหาร</span><span class="en-colloc">recommend a restaurant</span></span><span class="colloc-chip" data-thai="แนะนำให้..." role="button" tabindex="0" ><span class="thai">แนะนำให้...</span><span class="en-colloc">recommend that...</span></span><span class="colloc-chip" data-thai="มีอะไรแนะนำไหม" role="button" tabindex="0" ><span class="thai">มีอะไรแนะนำไหม</span><span class="en-colloc">any recommendations?</span></span></div></td>
           <td><div class="triad"><div class="thai">หมอแนะนำให้ฉันกินผักมากขึ้นค่ะ</div><div class="roman">mɔ̌ɔ náe-nam hâi chǎn gin phàk mâak khʉ̂n khâ</div><div class="eng">The doctor recommends that I eat more vegetables.</div></div></td>
         </tr>
       </tbody>
@@ -1354,5 +1363,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

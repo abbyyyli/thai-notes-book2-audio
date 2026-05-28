@@ -358,34 +358,23 @@
       color: var(--muted);
       line-height: 1.2;
     }
-
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -394,38 +383,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -575,7 +584,7 @@
           <td>Time / sequence word</td>
           <td>—</td>
           <td>可放在動詞前表示「在……之前」，也可放句尾表示「先……」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินข้าวก่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินข้าวก่อน</span><span class="en-colloc">eat first</span></span><span class="colloc-chip" data-thai="ก่อนเปิดบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ก่อนเปิดบัญชี</span><span class="en-colloc">before opening an account</span></span><span class="colloc-chip" data-thai="กลับบ้านก่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลับบ้านก่อน</span><span class="en-colloc">go home first</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินข้าวก่อน" role="button" tabindex="0" ><span class="thai">กินข้าวก่อน</span><span class="en-colloc">eat first</span></span><span class="colloc-chip" data-thai="ก่อนเปิดบัญชี" role="button" tabindex="0" ><span class="thai">ก่อนเปิดบัญชี</span><span class="en-colloc">before opening an account</span></span><span class="colloc-chip" data-thai="กลับบ้านก่อน" role="button" tabindex="0" ><span class="thai">กลับบ้านก่อน</span><span class="en-colloc">go home first</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันขอไปกดเงินก่อนนะคะ</div><div class="roman">chǎn khɔ̌ɔ bpai gòt-ngən gɔ̀ɔn ná khá</div><div class="eng">Let me go withdraw cash first.</div></div></td>
         </tr>
 
@@ -584,7 +593,7 @@
           <td>Connector</td>
           <td>—</td>
           <td>常和 <span class="thai">ก็</span> 搭配：<span class="thai">พอ..., ก็...</span> = 一……就……。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พอฝนตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พอฝนตก</span><span class="en-colloc">once it rains</span></span><span class="colloc-chip" data-thai="พอถึงคิว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พอถึงคิว</span><span class="en-colloc">once the queue reaches you</span></span><span class="colloc-chip" data-thai="พอเรียนเสร็จ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พอเรียนเสร็จ</span><span class="en-colloc">once class is finished</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พอฝนตก" role="button" tabindex="0" ><span class="thai">พอฝนตก</span><span class="en-colloc">once it rains</span></span><span class="colloc-chip" data-thai="พอถึงคิว" role="button" tabindex="0" ><span class="thai">พอถึงคิว</span><span class="en-colloc">once the queue reaches you</span></span><span class="colloc-chip" data-thai="พอเรียนเสร็จ" role="button" tabindex="0" ><span class="thai">พอเรียนเสร็จ</span><span class="en-colloc">once class is finished</span></span></div></td>
           <td><div class="triad"><div class="thai">พอถึงคิวฉัน เจ้าหน้าที่ก็เรียกไปช่องสองค่ะ</div><div class="roman">phɔɔ thʉ̌ng khiu chǎn, jâo-nâa-thîi gɔ̂ɔ rîak bpai chɔ̂ng sɔ̌ɔng khâ</div><div class="eng">Once it was my turn, the staff called me to counter 2.</div></div></td>
         </tr>
 
@@ -593,7 +602,7 @@
           <td>Completion phrase</td>
           <td>—</td>
           <td>接在動詞後，表示做完了。常接下一個動作。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เรียนเสร็จแล้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เรียนเสร็จแล้ว</span><span class="en-colloc">finished studying</span></span><span class="colloc-chip" data-thai="เซ็นชื่อเสร็จแล้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เซ็นชื่อเสร็จแล้ว</span><span class="en-colloc">finished signing</span></span><span class="colloc-chip" data-thai="ทำการบ้านเสร็จแล้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำการบ้านเสร็จแล้ว</span><span class="en-colloc">finished homework</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เรียนเสร็จแล้ว" role="button" tabindex="0" ><span class="thai">เรียนเสร็จแล้ว</span><span class="en-colloc">finished studying</span></span><span class="colloc-chip" data-thai="เซ็นชื่อเสร็จแล้ว" role="button" tabindex="0" ><span class="thai">เซ็นชื่อเสร็จแล้ว</span><span class="en-colloc">finished signing</span></span><span class="colloc-chip" data-thai="ทำการบ้านเสร็จแล้ว" role="button" tabindex="0" ><span class="thai">ทำการบ้านเสร็จแล้ว</span><span class="en-colloc">finished homework</span></span></div></td>
           <td><div class="triad"><div class="thai">กรอกแบบฟอร์มเสร็จแล้วเอาไปให้เจ้าหน้าที่ได้เลยค่ะ</div><div class="roman">grɔ̀ɔk bɛ̀ɛp-fɔɔm sèt lɛ́ɛw ao bpai hâi jâo-nâa-thîi dâai ləəi khâ</div><div class="eng">After filling out the form, you can take it to the staff right away.</div></div></td>
         </tr>
 
@@ -602,7 +611,7 @@
           <td>Phrase</td>
           <td>—</td>
           <td>表示可以直接做；也常用於回應「可以啊」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รับเงินได้เลย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รับเงินได้เลย</span><span class="en-colloc">can receive money right away</span></span><span class="colloc-chip" data-thai="เข้าไปได้เลย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เข้าไปได้เลย</span><span class="en-colloc">can go in right away</span></span><span class="colloc-chip" data-thai="ใช้ได้เลย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใช้ได้เลย</span><span class="en-colloc">can use it right away</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รับเงินได้เลย" role="button" tabindex="0" ><span class="thai">รับเงินได้เลย</span><span class="en-colloc">can receive money right away</span></span><span class="colloc-chip" data-thai="เข้าไปได้เลย" role="button" tabindex="0" ><span class="thai">เข้าไปได้เลย</span><span class="en-colloc">can go in right away</span></span><span class="colloc-chip" data-thai="ใช้ได้เลย" role="button" tabindex="0" ><span class="thai">ใช้ได้เลย</span><span class="en-colloc">can use it right away</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้ากรอกข้อมูลครบแล้ว กดส่งได้เลยค่ะ</div><div class="roman">thâa grɔ̀ɔk khɔ̂ɔ-muun khróp lɛ́ɛw, gòt sòng dâai ləəi khâ</div><div class="eng">If you’ve filled in all the information, you can press submit right away.</div></div></td>
         </tr>
       </tbody>
@@ -626,7 +635,7 @@
           <td>Place</td>
           <td>แห่ง / สาขา</td>
           <td>銀行機構用 <span class="thai">แห่ง</span>，分行常用 <span class="thai">สาขา</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปธนาคาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปธนาคาร</span><span class="en-colloc">go to the bank</span></span><span class="colloc-chip" data-thai="สาขาใกล้บ้าน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สาขาใกล้บ้าน</span><span class="en-colloc">nearby branch</span></span><span class="colloc-chip" data-thai="ธนาคารกรุงเทพ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ธนาคารกรุงเทพ</span><span class="en-colloc">Bangkok Bank</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปธนาคาร" role="button" tabindex="0" ><span class="thai">ไปธนาคาร</span><span class="en-colloc">go to the bank</span></span><span class="colloc-chip" data-thai="สาขาใกล้บ้าน" role="button" tabindex="0" ><span class="thai">สาขาใกล้บ้าน</span><span class="en-colloc">nearby branch</span></span><span class="colloc-chip" data-thai="ธนาคารกรุงเทพ" role="button" tabindex="0" ><span class="thai">ธนาคารกรุงเทพ</span><span class="en-colloc">Bangkok Bank</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันต้องไปธนาคารเพื่อเปิดบัญชีค่ะ</div><div class="roman">chǎn dtɔ̂ng bpai thá-naa-khaan phʉ̂a bpə̀ət ban-chii khâ</div><div class="eng">I need to go to the bank to open an account.</div></div></td>
         </tr>
 
@@ -635,7 +644,7 @@
           <td>Verb phrase</td>
           <td>บัญชี</td>
           <td><span class="thai">เปิด</span> 是開；帳戶用 <span class="thai">บัญชี</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เปิดบัญชีใหม่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เปิดบัญชีใหม่</span><span class="en-colloc">open a new account</span></span><span class="colloc-chip" data-thai="เปิดบัญชีธนาคาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เปิดบัญชีธนาคาร</span><span class="en-colloc">open a bank account</span></span><span class="colloc-chip" data-thai="เอกสารเปิดบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เอกสารเปิดบัญชี</span><span class="en-colloc">account-opening documents</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เปิดบัญชีใหม่" role="button" tabindex="0" ><span class="thai">เปิดบัญชีใหม่</span><span class="en-colloc">open a new account</span></span><span class="colloc-chip" data-thai="เปิดบัญชีธนาคาร" role="button" tabindex="0" ><span class="thai">เปิดบัญชีธนาคาร</span><span class="en-colloc">open a bank account</span></span><span class="colloc-chip" data-thai="เอกสารเปิดบัญชี" role="button" tabindex="0" ><span class="thai">เอกสารเปิดบัญชี</span><span class="en-colloc">account-opening documents</span></span></div></td>
           <td><div class="triad"><div class="thai">ก่อนเปิดบัญชีต้องเตรียมพาสปอร์ตกับเอกสารค่ะ</div><div class="roman">gɔ̀ɔn bpə̀ət ban-chii dtɔ̂ng dtriam pháat-bpɔ̀ɔt gàp èek-gà-sǎan khâ</div><div class="eng">Before opening an account, you have to prepare your passport and documents.</div></div></td>
         </tr>
 
@@ -644,7 +653,7 @@
           <td>Verb phrase</td>
           <td>บัญชี</td>
           <td>和 <span class="thai">เปิดบัญชี</span> 相反。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ปิดบัญชีเก่า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปิดบัญชีเก่า</span><span class="en-colloc">close old account</span></span><span class="colloc-chip" data-thai="ปิดบัญชีธนาคาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปิดบัญชีธนาคาร</span><span class="en-colloc">close bank account</span></span><span class="colloc-chip" data-thai="ค่าธรรมเนียมปิดบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ค่าธรรมเนียมปิดบัญชี</span><span class="en-colloc">account-closing fee</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ปิดบัญชีเก่า" role="button" tabindex="0" ><span class="thai">ปิดบัญชีเก่า</span><span class="en-colloc">close old account</span></span><span class="colloc-chip" data-thai="ปิดบัญชีธนาคาร" role="button" tabindex="0" ><span class="thai">ปิดบัญชีธนาคาร</span><span class="en-colloc">close bank account</span></span><span class="colloc-chip" data-thai="ค่าธรรมเนียมปิดบัญชี" role="button" tabindex="0" ><span class="thai">ค่าธรรมเนียมปิดบัญชี</span><span class="en-colloc">account-closing fee</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าจะกลับประเทศ อาจต้องปิดบัญชีก่อนค่ะ</div><div class="roman">thâa jà glàp bprà-thêet, àat dtɔ̂ng bpìt ban-chii gɔ̀ɔn khâ</div><div class="eng">If you’re going back to your country, you may need to close the account first.</div></div></td>
         </tr>
 
@@ -653,7 +662,7 @@
           <td>Noun</td>
           <td>บัญชี</td>
           <td>銀行帳戶、帳號都可能用到。也可指會計帳。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เลขบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เลขบัญชี</span><span class="en-colloc">account number</span></span><span class="colloc-chip" data-thai="ชื่อบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ชื่อบัญชี</span><span class="en-colloc">account name</span></span><span class="colloc-chip" data-thai="โอนเข้าบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">โอนเข้าบัญชี</span><span class="en-colloc">transfer into account</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เลขบัญชี" role="button" tabindex="0" ><span class="thai">เลขบัญชี</span><span class="en-colloc">account number</span></span><span class="colloc-chip" data-thai="ชื่อบัญชี" role="button" tabindex="0" ><span class="thai">ชื่อบัญชี</span><span class="en-colloc">account name</span></span><span class="colloc-chip" data-thai="โอนเข้าบัญชี" role="button" tabindex="0" ><span class="thai">โอนเข้าบัญชี</span><span class="en-colloc">transfer into account</span></span></div></td>
           <td><div class="triad"><div class="thai">ช่วยเขียนเลขบัญชีให้หน่อยได้ไหมคะ</div><div class="roman">chûai khǐan lêek ban-chii hâi nòi dâai mái khá</div><div class="eng">Could you write the account number for me?</div></div></td>
         </tr>
 
@@ -662,7 +671,7 @@
           <td>Noun</td>
           <td>เล่ม</td>
           <td><span class="thai">สมุด</span> 是本子，銀行存摺用 <span class="thai">สมุดบัญชี</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อัปเดตสมุดบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อัปเดตสมุดบัญชี</span><span class="en-colloc">update passbook</span></span><span class="colloc-chip" data-thai="ลืมสมุดบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลืมสมุดบัญชี</span><span class="en-colloc">forgot passbook</span></span><span class="colloc-chip" data-thai="สมุดบัญชีหาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สมุดบัญชีหาย</span><span class="en-colloc">passbook lost</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อัปเดตสมุดบัญชี" role="button" tabindex="0" ><span class="thai">อัปเดตสมุดบัญชี</span><span class="en-colloc">update passbook</span></span><span class="colloc-chip" data-thai="ลืมสมุดบัญชี" role="button" tabindex="0" ><span class="thai">ลืมสมุดบัญชี</span><span class="en-colloc">forgot passbook</span></span><span class="colloc-chip" data-thai="สมุดบัญชีหาย" role="button" tabindex="0" ><span class="thai">สมุดบัญชีหาย</span><span class="en-colloc">passbook lost</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันลืมเอาสมุดบัญชีมา ต้องกลับบ้านก่อนค่ะ</div><div class="roman">chǎn lʉʉm ao sà-mùt ban-chii maa, dtɔ̂ng glàp bâan gɔ̀ɔn khâ</div><div class="eng">I forgot to bring my bank passbook, so I have to go home first.</div></div></td>
         </tr>
 
@@ -671,7 +680,7 @@
           <td>Person</td>
           <td>คน</td>
           <td>正式一點的「職員、承辦人員」。教材也標註可等於 <span class="thai">พนักงาน</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คุยกับเจ้าหน้าที่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คุยกับเจ้าหน้าที่</span><span class="en-colloc">talk with staff</span></span><span class="colloc-chip" data-thai="เจ้าหน้าที่เรียกคิว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เจ้าหน้าที่เรียกคิว</span><span class="en-colloc">staff calls queue</span></span><span class="colloc-chip" data-thai="ถามเจ้าหน้าที่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถามเจ้าหน้าที่</span><span class="en-colloc">ask the staff</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คุยกับเจ้าหน้าที่" role="button" tabindex="0" ><span class="thai">คุยกับเจ้าหน้าที่</span><span class="en-colloc">talk with staff</span></span><span class="colloc-chip" data-thai="เจ้าหน้าที่เรียกคิว" role="button" tabindex="0" ><span class="thai">เจ้าหน้าที่เรียกคิว</span><span class="en-colloc">staff calls queue</span></span><span class="colloc-chip" data-thai="ถามเจ้าหน้าที่" role="button" tabindex="0" ><span class="thai">ถามเจ้าหน้าที่</span><span class="en-colloc">ask the staff</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าไม่เข้าใจ ต้องถามเจ้าหน้าที่ก่อนเซ็นชื่อค่ะ</div><div class="roman">thâa mâi khâo-jai, dtɔ̂ng thǎam jâo-nâa-thîi gɔ̀ɔn sen-chʉ̂ʉ khâ</div><div class="eng">If you don’t understand, you have to ask the staff before signing.</div></div></td>
         </tr>
 
@@ -680,7 +689,7 @@
           <td>Person</td>
           <td>คน</td>
           <td>比 <span class="thai">เจ้าหน้าที่</span> 更一般，可用於銀行、店家、公司員工。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พนักงานธนาคาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พนักงานธนาคาร</span><span class="en-colloc">bank employee</span></span><span class="colloc-chip" data-thai="พนักงานร้าน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พนักงานร้าน</span><span class="en-colloc">shop staff</span></span><span class="colloc-chip" data-thai="ถามพนักงาน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถามพนักงาน</span><span class="en-colloc">ask staff</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พนักงานธนาคาร" role="button" tabindex="0" ><span class="thai">พนักงานธนาคาร</span><span class="en-colloc">bank employee</span></span><span class="colloc-chip" data-thai="พนักงานร้าน" role="button" tabindex="0" ><span class="thai">พนักงานร้าน</span><span class="en-colloc">shop staff</span></span><span class="colloc-chip" data-thai="ถามพนักงาน" role="button" tabindex="0" ><span class="thai">ถามพนักงาน</span><span class="en-colloc">ask staff</span></span></div></td>
           <td><div class="triad"><div class="thai">พนักงานบอกให้ฉันรอเรียกคิวค่ะ</div><div class="roman">phá-nák-ngaan bɔ̀ɔk hâi chǎn rɔɔ rîak khiu khâ</div><div class="eng">The staff told me to wait for my queue to be called.</div></div></td>
         </tr>
 
@@ -689,7 +698,7 @@
           <td>Noun</td>
           <td>ใบ</td>
           <td>在銀行、醫院、政府機關常見。螢幕會叫號。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กดบัตรคิว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กดบัตรคิว</span><span class="en-colloc">press queue ticket</span></span><span class="colloc-chip" data-thai="รับบัตรคิว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รับบัตรคิว</span><span class="en-colloc">receive queue ticket</span></span><span class="colloc-chip" data-thai="เรียกหมายเลข" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เรียกหมายเลข</span><span class="en-colloc">call number</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กดบัตรคิว" role="button" tabindex="0" ><span class="thai">กดบัตรคิว</span><span class="en-colloc">press queue ticket</span></span><span class="colloc-chip" data-thai="รับบัตรคิว" role="button" tabindex="0" ><span class="thai">รับบัตรคิว</span><span class="en-colloc">receive queue ticket</span></span><span class="colloc-chip" data-thai="เรียกหมายเลข" role="button" tabindex="0" ><span class="thai">เรียกหมายเลข</span><span class="en-colloc">call number</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องกดบัตรคิวก่อนคุยกับเจ้าหน้าที่ค่ะ</div><div class="roman">dtɔ̂ng gòt bàt-khiu gɔ̀ɔn khui gàp jâo-nâa-thîi khâ</div><div class="eng">You have to take a queue ticket before talking with the staff.</div></div></td>
         </tr>
 
@@ -698,7 +707,7 @@
           <td>Noun</td>
           <td>ช่อง</td>
           <td>銀行櫃台窗口、電視頻道、ช่องทาง 管道都會用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ช่องสอง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ช่องสอง</span><span class="en-colloc">counter 2</span></span><span class="colloc-chip" data-thai="ช่องบริการ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ช่องบริการ</span><span class="en-colloc">service counter</span></span><span class="colloc-chip" data-thai="ช่องทางออนไลน์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ช่องทางออนไลน์</span><span class="en-colloc">online channel</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ช่องสอง" role="button" tabindex="0" ><span class="thai">ช่องสอง</span><span class="en-colloc">counter 2</span></span><span class="colloc-chip" data-thai="ช่องบริการ" role="button" tabindex="0" ><span class="thai">ช่องบริการ</span><span class="en-colloc">service counter</span></span><span class="colloc-chip" data-thai="ช่องทางออนไลน์" role="button" tabindex="0" ><span class="thai">ช่องทางออนไลน์</span><span class="en-colloc">online channel</span></span></div></td>
           <td><div class="triad"><div class="thai">ขอเชิญหมายเลขสี่สามศูนย์ที่ช่องสองค่ะ</div><div class="roman">khɔ̌ɔ chəən mǎai-lêek sìi-sǎam-sǔun thîi chɔ̂ng sɔ̌ɔng khâ</div><div class="eng">Number 430, please go to counter 2.</div></div></td>
         </tr>
       </tbody>
@@ -722,7 +731,7 @@
           <td>Verb phrase</td>
           <td>ครั้ง</td>
           <td><span class="thai">ฝาก</span> 是寄放、存；銀行存錢用 <span class="thai">ฝากเงิน</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฝากเงินเข้าบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝากเงินเข้าบัญชี</span><span class="en-colloc">deposit into account</span></span><span class="colloc-chip" data-thai="ฝากเงินสด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝากเงินสด</span><span class="en-colloc">deposit cash</span></span><span class="colloc-chip" data-thai="ฝากเงินที่ตู้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝากเงินที่ตู้</span><span class="en-colloc">deposit at machine</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฝากเงินเข้าบัญชี" role="button" tabindex="0" ><span class="thai">ฝากเงินเข้าบัญชี</span><span class="en-colloc">deposit into account</span></span><span class="colloc-chip" data-thai="ฝากเงินสด" role="button" tabindex="0" ><span class="thai">ฝากเงินสด</span><span class="en-colloc">deposit cash</span></span><span class="colloc-chip" data-thai="ฝากเงินที่ตู้" role="button" tabindex="0" ><span class="thai">ฝากเงินที่ตู้</span><span class="en-colloc">deposit at machine</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันต้องฝากเงินเข้าบัญชีก่อนจ่ายค่าเช่าค่ะ</div><div class="roman">chǎn dtɔ̂ng fàak-ngən khâo ban-chii gɔ̀ɔn jàai khâa-châo khâ</div><div class="eng">I have to deposit money into the account before paying rent.</div></div></td>
         </tr>
 
@@ -731,7 +740,7 @@
           <td>Verb phrase</td>
           <td>ครั้ง</td>
           <td>較正式，可用於銀行提款，也可用於公司報帳請款。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เบิกเงินสด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เบิกเงินสด</span><span class="en-colloc">withdraw cash</span></span><span class="colloc-chip" data-thai="เบิกค่าเดินทาง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เบิกค่าเดินทาง</span><span class="en-colloc">claim transportation fee</span></span><span class="colloc-chip" data-thai="เบิกเงินจากบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เบิกเงินจากบัญชี</span><span class="en-colloc">withdraw from account</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เบิกเงินสด" role="button" tabindex="0" ><span class="thai">เบิกเงินสด</span><span class="en-colloc">withdraw cash</span></span><span class="colloc-chip" data-thai="เบิกค่าเดินทาง" role="button" tabindex="0" ><span class="thai">เบิกค่าเดินทาง</span><span class="en-colloc">claim transportation fee</span></span><span class="colloc-chip" data-thai="เบิกเงินจากบัญชี" role="button" tabindex="0" ><span class="thai">เบิกเงินจากบัญชี</span><span class="en-colloc">withdraw from account</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าจะเบิกเงินจำนวนมาก ต้องใช้บัตรประชาชนค่ะ</div><div class="roman">thâa jà bə̀ək-ngən jam-nuan mâak, dtɔ̂ng chái bàt-bprà-chaa-chon khâ</div><div class="eng">If you want to withdraw a large amount, you need to use an ID card.</div></div></td>
         </tr>
 
@@ -740,7 +749,7 @@
           <td>Verb phrase</td>
           <td>ครั้ง</td>
           <td>提款最常用說法之一，ATM 也常用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถอนเงินจากตู้ ATM" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถอนเงินจากตู้ ATM</span><span class="en-colloc">withdraw from ATM</span></span><span class="colloc-chip" data-thai="ถอนเงินสด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถอนเงินสด</span><span class="en-colloc">withdraw cash</span></span><span class="colloc-chip" data-thai="ถอนเงินห้าพัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถอนเงินห้าพัน</span><span class="en-colloc">withdraw 5,000</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถอนเงินจากตู้ ATM" role="button" tabindex="0" ><span class="thai">ถอนเงินจากตู้ ATM</span><span class="en-colloc">withdraw from ATM</span></span><span class="colloc-chip" data-thai="ถอนเงินสด" role="button" tabindex="0" ><span class="thai">ถอนเงินสด</span><span class="en-colloc">withdraw cash</span></span><span class="colloc-chip" data-thai="ถอนเงินห้าพัน" role="button" tabindex="0" ><span class="thai">ถอนเงินห้าพัน</span><span class="en-colloc">withdraw 5,000</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันจะถอนเงินก่อน แล้วค่อยไปซื้อของค่ะ</div><div class="roman">chǎn jà thɔ̌ɔn-ngən gɔ̀ɔn, lɛ́ɛw khɔ̂i bpai sʉ́ʉ khɔ̌ɔng khâ</div><div class="eng">I’ll withdraw money first, then go shopping.</div></div></td>
         </tr>
 
@@ -749,7 +758,7 @@
           <td>Verb phrase</td>
           <td>ครั้ง</td>
           <td>超口語，在地人常說「去按錢」。通常指 ATM。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปกดเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปกดเงิน</span><span class="en-colloc">go withdraw cash</span></span><span class="colloc-chip" data-thai="กดเงินที่ตู้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กดเงินที่ตู้</span><span class="en-colloc">withdraw at machine</span></span><span class="colloc-chip" data-thai="กดเงินสด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กดเงินสด</span><span class="en-colloc">withdraw cash</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปกดเงิน" role="button" tabindex="0" ><span class="thai">ไปกดเงิน</span><span class="en-colloc">go withdraw cash</span></span><span class="colloc-chip" data-thai="กดเงินที่ตู้" role="button" tabindex="0" ><span class="thai">กดเงินที่ตู้</span><span class="en-colloc">withdraw at machine</span></span><span class="colloc-chip" data-thai="กดเงินสด" role="button" tabindex="0" ><span class="thai">กดเงินสด</span><span class="en-colloc">withdraw cash</span></span></div></td>
           <td><div class="triad"><div class="thai">เดี๋ยวฉันไปกดเงินก่อนนะคะ เพราะร้านนี้รับแต่เงินสด</div><div class="roman">dǐao chǎn bpai gòt-ngən gɔ̀ɔn ná khá, phrɔ́ ráan níi ráp dtɛ̀ɛ ngən-sòt</div><div class="eng">I’ll go withdraw cash first because this shop only accepts cash.</div></div></td>
         </tr>
 
@@ -758,7 +767,7 @@
           <td>Verb phrase</td>
           <td>ครั้ง</td>
           <td>轉帳。泰國很常掃 QR / 轉 PromptPay。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="โอนเงินให้เพื่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">โอนเงินให้เพื่อน</span><span class="en-colloc">transfer money to friend</span></span><span class="colloc-chip" data-thai="โอนผ่านแอป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">โอนผ่านแอป</span><span class="en-colloc">transfer through app</span></span><span class="colloc-chip" data-thai="โอนเข้าบัญชี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">โอนเข้าบัญชี</span><span class="en-colloc">transfer into account</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="โอนเงินให้เพื่อน" role="button" tabindex="0" ><span class="thai">โอนเงินให้เพื่อน</span><span class="en-colloc">transfer money to friend</span></span><span class="colloc-chip" data-thai="โอนผ่านแอป" role="button" tabindex="0" ><span class="thai">โอนผ่านแอป</span><span class="en-colloc">transfer through app</span></span><span class="colloc-chip" data-thai="โอนเข้าบัญชี" role="button" tabindex="0" ><span class="thai">โอนเข้าบัญชี</span><span class="en-colloc">transfer into account</span></span></div></td>
           <td><div class="triad"><div class="thai">โอนเงินเสร็จแล้วส่งสลิปให้ได้เลยค่ะ</div><div class="roman">oon-ngən sèt lɛ́ɛw sòng sà-líp hâi dâai ləəi khâ</div><div class="eng">After transferring, you can send the slip right away.</div></div></td>
         </tr>
 
@@ -767,7 +776,7 @@
           <td>Verb phrase</td>
           <td>ครั้ง</td>
           <td>可指換外幣，也可指把大鈔換小鈔/零錢。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แลกเงินไทย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แลกเงินไทย</span><span class="en-colloc">exchange Thai money</span></span><span class="colloc-chip" data-thai="แลกแบงก์ย่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แลกแบงก์ย่อย</span><span class="en-colloc">change into small bills</span></span><span class="colloc-chip" data-thai="แลกเหรียญ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แลกเหรียญ</span><span class="en-colloc">exchange coins</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แลกเงินไทย" role="button" tabindex="0" ><span class="thai">แลกเงินไทย</span><span class="en-colloc">exchange Thai money</span></span><span class="colloc-chip" data-thai="แลกแบงก์ย่อย" role="button" tabindex="0" ><span class="thai">แลกแบงก์ย่อย</span><span class="en-colloc">change into small bills</span></span><span class="colloc-chip" data-thai="แลกเหรียญ" role="button" tabindex="0" ><span class="thai">แลกเหรียญ</span><span class="en-colloc">exchange coins</span></span></div></td>
           <td><div class="triad"><div class="thai">ขอแลกแบงก์พันเป็นแบงก์ร้อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ lɛ̂ɛk bɛng-phan bpen bɛng-rɔ́ɔi dâai mái khá</div><div class="eng">Can I change a 1,000-baht bill into 100-baht bills?</div></div></td>
         </tr>
 
@@ -776,7 +785,7 @@
           <td>Noun</td>
           <td>—</td>
           <td>買東西找回來的錢。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รับเงินทอน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รับเงินทอน</span><span class="en-colloc">receive change</span></span><span class="colloc-chip" data-thai="ทอนเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทอนเงิน</span><span class="en-colloc">give change</span></span><span class="colloc-chip" data-thai="ไม่มีเงินทอน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่มีเงินทอน</span><span class="en-colloc">no change</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รับเงินทอน" role="button" tabindex="0" ><span class="thai">รับเงินทอน</span><span class="en-colloc">receive change</span></span><span class="colloc-chip" data-thai="ทอนเงิน" role="button" tabindex="0" ><span class="thai">ทอนเงิน</span><span class="en-colloc">give change</span></span><span class="colloc-chip" data-thai="ไม่มีเงินทอน" role="button" tabindex="0" ><span class="thai">ไม่มีเงินทอน</span><span class="en-colloc">no change</span></span></div></td>
           <td><div class="triad"><div class="thai">แม่ค้าลืมให้เงินทอน ฉันเลยต้องบอกเบา ๆ ค่ะ</div><div class="roman">mɛ̂ɛ-kháa lʉʉm hâi ngən-thɔɔn, chǎn ləəi dtɔ̂ng bɔ̀ɔk bao-bao khâ</div><div class="eng">The vendor forgot to give change, so I had to tell her softly.</div></div></td>
         </tr>
 
@@ -785,7 +794,7 @@
           <td>Noun</td>
           <td>—</td>
           <td><span class="thai">เศษเงิน</span> 偏零散小錢；<span class="thai">เงินย่อย</span> 常指可找零的小鈔零錢。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีเงินย่อยไหม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีเงินย่อยไหม</span><span class="en-colloc">do you have small change?</span></span><span class="colloc-chip" data-thai="ขอเงินย่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขอเงินย่อย</span><span class="en-colloc">small change please</span></span><span class="colloc-chip" data-thai="ไม่มีเศษเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่มีเศษเงิน</span><span class="en-colloc">no small change</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีเงินย่อยไหม" role="button" tabindex="0" ><span class="thai">มีเงินย่อยไหม</span><span class="en-colloc">do you have small change?</span></span><span class="colloc-chip" data-thai="ขอเงินย่อย" role="button" tabindex="0" ><span class="thai">ขอเงินย่อย</span><span class="en-colloc">small change please</span></span><span class="colloc-chip" data-thai="ไม่มีเศษเงิน" role="button" tabindex="0" ><span class="thai">ไม่มีเศษเงิน</span><span class="en-colloc">no small change</span></span></div></td>
           <td><div class="triad"><div class="thai">ร้านเล็ก ๆ บางร้านไม่มีเงินทอนสำหรับแบงก์พันค่ะ</div><div class="roman">ráan lék-lék baang ráan mâi mii ngən-thɔɔn sǎm-ràp bɛng-phan khâ</div><div class="eng">Some small shops don’t have change for a 1,000-baht bill.</div></div></td>
         </tr>
       </tbody>
@@ -809,7 +818,7 @@
           <td>Noun</td>
           <td>ใบ</td>
           <td>口語來自 English “banknote”。紙鈔用量詞 <span class="thai">ใบ</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แบงก์พัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แบงก์พัน</span><span class="en-colloc">1,000-baht bill</span></span><span class="colloc-chip" data-thai="แบงก์ร้อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แบงก์ร้อย</span><span class="en-colloc">100-baht bill</span></span><span class="colloc-chip" data-thai="แบงก์ย่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แบงก์ย่อย</span><span class="en-colloc">small bills</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แบงก์พัน" role="button" tabindex="0" ><span class="thai">แบงก์พัน</span><span class="en-colloc">1,000-baht bill</span></span><span class="colloc-chip" data-thai="แบงก์ร้อย" role="button" tabindex="0" ><span class="thai">แบงก์ร้อย</span><span class="en-colloc">100-baht bill</span></span><span class="colloc-chip" data-thai="แบงก์ย่อย" role="button" tabindex="0" ><span class="thai">แบงก์ย่อย</span><span class="en-colloc">small bills</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันมีแต่แบงก์พัน ไม่มีแบงก์ย่อยค่ะ</div><div class="roman">chǎn mii dtɛ̀ɛ bɛng-phan, mâi mii bɛng-yɔ̂i khâ</div><div class="eng">I only have a 1,000-baht bill, no small bills.</div></div></td>
         </tr>
 
@@ -818,7 +827,7 @@
           <td>Noun</td>
           <td>เหรียญ</td>
           <td>硬幣。硬幣可直接用 <span class="thai">เหรียญ</span> 當名詞與量詞。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เหรียญสิบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เหรียญสิบ</span><span class="en-colloc">10-baht coin</span></span><span class="colloc-chip" data-thai="เหรียญห้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เหรียญห้า</span><span class="en-colloc">5-baht coin</span></span><span class="colloc-chip" data-thai="เหรียญบาท" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เหรียญบาท</span><span class="en-colloc">1-baht coin</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เหรียญสิบ" role="button" tabindex="0" ><span class="thai">เหรียญสิบ</span><span class="en-colloc">10-baht coin</span></span><span class="colloc-chip" data-thai="เหรียญห้า" role="button" tabindex="0" ><span class="thai">เหรียญห้า</span><span class="en-colloc">5-baht coin</span></span><span class="colloc-chip" data-thai="เหรียญบาท" role="button" tabindex="0" ><span class="thai">เหรียญบาท</span><span class="en-colloc">1-baht coin</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันต้องใช้เหรียญสิบสองเหรียญสำหรับซักผ้าค่ะ</div><div class="roman">chǎn dtɔ̂ng chái rǐan-sìp sɔ̌ɔng rǐan sǎm-ràp sák-phâa khâ</div><div class="eng">I need two 10-baht coins for laundry.</div></div></td>
         </tr>
 
@@ -827,7 +836,7 @@
           <td>Currency unit</td>
           <td>—</td>
           <td>100 satang = 1 baht。生活中較少用，但硬幣名稱會出現。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้าสิบสตางค์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้าสิบสตางค์</span><span class="en-colloc">50 satang</span></span><span class="colloc-chip" data-thai="ยี่สิบห้าสตางค์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยี่สิบห้าสตางค์</span><span class="en-colloc">25 satang</span></span><span class="colloc-chip" data-thai="เก็บสตางค์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เก็บสตางค์</span><span class="en-colloc">save money</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้าสิบสตางค์" role="button" tabindex="0" ><span class="thai">ห้าสิบสตางค์</span><span class="en-colloc">50 satang</span></span><span class="colloc-chip" data-thai="ยี่สิบห้าสตางค์" role="button" tabindex="0" ><span class="thai">ยี่สิบห้าสตางค์</span><span class="en-colloc">25 satang</span></span><span class="colloc-chip" data-thai="เก็บสตางค์" role="button" tabindex="0" ><span class="thai">เก็บสตางค์</span><span class="en-colloc">save money</span></span></div></td>
           <td><div class="triad"><div class="thai">เหรียญห้าสิบสตางค์ใช้ไม่บ่อยเท่าเหรียญบาทค่ะ</div><div class="roman">rǐan hâa-sìp sà-dtaang chái mâi bɔ̀i thâo rǐan-bàat khâ</div><div class="eng">The 50-satang coin is not used as often as the 1-baht coin.</div></div></td>
         </tr>
       </tbody>
@@ -1803,5 +1812,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

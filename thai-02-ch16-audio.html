@@ -358,34 +358,23 @@
       color: var(--muted);
       line-height: 1.2;
     }
-
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -394,38 +383,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -590,7 +599,7 @@
           <td>Adjective / phrase</td>
           <td>—</td>
           <td>教材用 100% 表示「一樣」。也常用作「也一樣」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เหมือนกันมาก / ไม่เหมือนกัน / ฉันก็เหมือนกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เหมือนกันมาก / ไม่เหมือนกัน / ฉันก็เหมือนกัน</span><span class="en-colloc">very similar/same / not the same / me too</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เหมือนกันมาก / ไม่เหมือนกัน / ฉันก็เหมือนกัน" role="button" tabindex="0" ><span class="thai">เหมือนกันมาก / ไม่เหมือนกัน / ฉันก็เหมือนกัน</span><span class="en-colloc">very similar/same / not the same / me too</span></span></div></td>
           <td><div class="triad"><div class="thai">สองร้านนี้ราคาเหมือนกันค่ะ</div><div class="roman">sɔ̌ɔng ráan níi raa-khaa mʉ̌an-gan khâ</div><div class="eng">These two shops have the same price.</div></div></td>
         </tr>
 
@@ -599,7 +608,7 @@
           <td>Adjective phrase</td>
           <td>—</td>
           <td>教材用 80% 表示相似但不完全一樣。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าคล้ายกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หน้าคล้ายกัน</span><span class="en-colloc">faces are similar</span></span><span class="colloc-chip" data-thai="เสียงคล้ายกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสียงคล้ายกัน</span><span class="en-colloc">sounds are similar</span></span><span class="colloc-chip" data-thai="ความหมายคล้ายกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ความหมายคล้ายกัน</span><span class="en-colloc">meanings are similar</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าคล้ายกัน" role="button" tabindex="0" ><span class="thai">หน้าคล้ายกัน</span><span class="en-colloc">faces are similar</span></span><span class="colloc-chip" data-thai="เสียงคล้ายกัน" role="button" tabindex="0" ><span class="thai">เสียงคล้ายกัน</span><span class="en-colloc">sounds are similar</span></span><span class="colloc-chip" data-thai="ความหมายคล้ายกัน" role="button" tabindex="0" ><span class="thai">ความหมายคล้ายกัน</span><span class="en-colloc">meanings are similar</span></span></div></td>
           <td><div class="triad"><div class="thai">คำว่า ได้ กับ ไหว คล้ายกันนิดหน่อย แต่ใช้ไม่เหมือนกันค่ะ</div><div class="roman">kham wâa dâai gàp wǎi khláai-gan nít-nɔ̀i, dtɛ̀ɛ chái mâi mʉ̌an-gan khâ</div><div class="eng">The words dai and wai are a little similar, but they are not used the same way.</div></div></td>
         </tr>
 
@@ -608,7 +617,7 @@
           <td>Adjective phrase</td>
           <td>—</td>
           <td>教材用 0% 表示不同。可用來比較字義、價格、口音、文化。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ราคาแตกต่างกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ราคาแตกต่างกัน</span><span class="en-colloc">prices differ</span></span><span class="colloc-chip" data-thai="ความหมายต่างกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ความหมายต่างกัน</span><span class="en-colloc">meanings differ</span></span><span class="colloc-chip" data-thai="สำเนียงต่างกัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สำเนียงต่างกัน</span><span class="en-colloc">accents differ</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ราคาแตกต่างกัน" role="button" tabindex="0" ><span class="thai">ราคาแตกต่างกัน</span><span class="en-colloc">prices differ</span></span><span class="colloc-chip" data-thai="ความหมายต่างกัน" role="button" tabindex="0" ><span class="thai">ความหมายต่างกัน</span><span class="en-colloc">meanings differ</span></span><span class="colloc-chip" data-thai="สำเนียงต่างกัน" role="button" tabindex="0" ><span class="thai">สำเนียงต่างกัน</span><span class="en-colloc">accents differ</span></span></div></td>
           <td><div class="triad"><div class="thai">ภาษาไทยกับภาษาจีนมีโครงสร้างประโยคต่างกันค่ะ</div><div class="roman">phaa-sǎa-thai gàp phaa-sǎa-jiin mii khroong-sâang bprà-yòok dtàang-gan khâ</div><div class="eng">Thai and Chinese have different sentence structures.</div></div></td>
         </tr>
       </tbody>
@@ -632,7 +641,7 @@
           <td>Verb</td>
           <td>ครั้ง</td>
           <td>常用在上課、請老師解釋、說明規則。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อธิบายคำศัพท์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อธิบายคำศัพท์</span><span class="en-colloc">explain vocabulary</span></span><span class="colloc-chip" data-thai="อธิบายไวยากรณ์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อธิบายไวยากรณ์</span><span class="en-colloc">explain grammar</span></span><span class="colloc-chip" data-thai="อธิบายเป็นภาษาอังกฤษ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อธิบายเป็นภาษาอังกฤษ</span><span class="en-colloc">explain in English</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อธิบายคำศัพท์" role="button" tabindex="0" ><span class="thai">อธิบายคำศัพท์</span><span class="en-colloc">explain vocabulary</span></span><span class="colloc-chip" data-thai="อธิบายไวยากรณ์" role="button" tabindex="0" ><span class="thai">อธิบายไวยากรณ์</span><span class="en-colloc">explain grammar</span></span><span class="colloc-chip" data-thai="อธิบายเป็นภาษาอังกฤษ" role="button" tabindex="0" ><span class="thai">อธิบายเป็นภาษาอังกฤษ</span><span class="en-colloc">explain in English</span></span></div></td>
           <td><div class="triad"><div class="thai">ครูช่วยอธิบายรูปประโยคนี้อีกครั้งได้ไหมคะ</div><div class="roman">khruu chûai à-thí-baai rûup bprà-yòok níi ìik khráng dâai mái khá</div><div class="eng">Teacher, could you explain this sentence pattern again?</div></div></td>
         </tr>
 
@@ -641,7 +650,7 @@
           <td>Verb</td>
           <td>ครั้ง</td>
           <td>直譯是「發出聲音」。用於發音練習。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ออกเสียงชัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ออกเสียงชัด</span><span class="en-colloc">pronounce clearly</span></span><span class="colloc-chip" data-thai="ออกเสียงไม่ชัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ออกเสียงไม่ชัด</span><span class="en-colloc">pronounce unclearly</span></span><span class="colloc-chip" data-thai="ออกเสียงคำนี้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ออกเสียงคำนี้</span><span class="en-colloc">pronounce this word</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ออกเสียงชัด" role="button" tabindex="0" ><span class="thai">ออกเสียงชัด</span><span class="en-colloc">pronounce clearly</span></span><span class="colloc-chip" data-thai="ออกเสียงไม่ชัด" role="button" tabindex="0" ><span class="thai">ออกเสียงไม่ชัด</span><span class="en-colloc">pronounce unclearly</span></span><span class="colloc-chip" data-thai="ออกเสียงคำนี้" role="button" tabindex="0" ><span class="thai">ออกเสียงคำนี้</span><span class="en-colloc">pronounce this word</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันออกเสียง ร เรือ ไม่ค่อยชัดค่ะ</div><div class="roman">chǎn ɔ̀ɔk-sǐang rɔɔ-rʉa mâi khɔ̂i chát khâ</div><div class="eng">I don’t pronounce the Thai r sound very clearly.</div></div></td>
         </tr>
 
@@ -650,7 +659,7 @@
           <td>Noun</td>
           <td>คำ</td>
           <td>「字、詞」。問單字意思時很常用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คำนี้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คำนี้</span><span class="en-colloc">this word</span></span><span class="colloc-chip" data-thai="คำศัพท์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คำศัพท์</span><span class="en-colloc">vocabulary</span></span><span class="colloc-chip" data-thai="ความหมายของคำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ความหมายของคำ</span><span class="en-colloc">meaning of a word</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คำนี้" role="button" tabindex="0" ><span class="thai">คำนี้</span><span class="en-colloc">this word</span></span><span class="colloc-chip" data-thai="คำศัพท์" role="button" tabindex="0" ><span class="thai">คำศัพท์</span><span class="en-colloc">vocabulary</span></span><span class="colloc-chip" data-thai="ความหมายของคำ" role="button" tabindex="0" ><span class="thai">ความหมายของคำ</span><span class="en-colloc">meaning of a word</span></span></div></td>
           <td><div class="triad"><div class="thai">คำนี้ออกเสียงยังไงคะ</div><div class="roman">kham níi ɔ̀ɔk-sǐang yang-ngai khá</div><div class="eng">How do you pronounce this word?</div></div></td>
         </tr>
 
@@ -659,7 +668,7 @@
           <td>Noun</td>
           <td>ประโยค</td>
           <td>句子。學文法與造句時很重要。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ประโยคนี้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ประโยคนี้</span><span class="en-colloc">this sentence</span></span><span class="colloc-chip" data-thai="แต่งประโยค" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แต่งประโยค</span><span class="en-colloc">make a sentence</span></span><span class="colloc-chip" data-thai="แปลประโยค" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แปลประโยค</span><span class="en-colloc">translate a sentence</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ประโยคนี้" role="button" tabindex="0" ><span class="thai">ประโยคนี้</span><span class="en-colloc">this sentence</span></span><span class="colloc-chip" data-thai="แต่งประโยค" role="button" tabindex="0" ><span class="thai">แต่งประโยค</span><span class="en-colloc">make a sentence</span></span><span class="colloc-chip" data-thai="แปลประโยค" role="button" tabindex="0" ><span class="thai">แปลประโยค</span><span class="en-colloc">translate a sentence</span></span></div></td>
           <td><div class="triad"><div class="thai">ประโยคนี้ยาว แต่ความหมายไม่ยากค่ะ</div><div class="roman">bprà-yòok níi yaao, dtɛ̀ɛ khwaam-mǎai mâi yâak khâ</div><div class="eng">This sentence is long, but the meaning is not difficult.</div></div></td>
         </tr>
 
@@ -668,7 +677,7 @@
           <td>Noun phrase</td>
           <td>รูป / แบบ</td>
           <td>句型、句子形式。適合上課討論文法。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รูปประโยค S+V+O" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รูปประโยค S+V+O</span><span class="en-colloc">SVO sentence pattern</span></span><span class="colloc-chip" data-thai="รูปประโยคนี้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รูปประโยคนี้</span><span class="en-colloc">this sentence pattern</span></span><span class="colloc-chip" data-thai="เปลี่ยนรูปประโยค" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เปลี่ยนรูปประโยค</span><span class="en-colloc">change the sentence pattern</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รูปประโยค S+V+O" role="button" tabindex="0" ><span class="thai">รูปประโยค S+V+O</span><span class="en-colloc">SVO sentence pattern</span></span><span class="colloc-chip" data-thai="รูปประโยคนี้" role="button" tabindex="0" ><span class="thai">รูปประโยคนี้</span><span class="en-colloc">this sentence pattern</span></span><span class="colloc-chip" data-thai="เปลี่ยนรูปประโยค" role="button" tabindex="0" ><span class="thai">เปลี่ยนรูปประโยค</span><span class="en-colloc">change the sentence pattern</span></span></div></td>
           <td><div class="triad"><div class="thai">รูปประโยคนี้ใช้บ่อยในชีวิตประจำวันค่ะ</div><div class="roman">rûup bprà-yòok níi chái bɔ̀i nai chii-wít bprà-jam-wan khâ</div><div class="eng">This sentence pattern is often used in daily life.</div></div></td>
         </tr>
 
@@ -677,7 +686,7 @@
           <td>Verb phrase</td>
           <td>ประโยค</td>
           <td><span class="thai">แต่ง</span> 有創作、編寫的意思；<span class="thai">แต่งประโยค</span> 是造句。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฝึกแต่งประโยค" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝึกแต่งประโยค</span><span class="en-colloc">practice making sentences</span></span><span class="colloc-chip" data-thai="แต่งประโยคสั้น ๆ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แต่งประโยคสั้น ๆ</span><span class="en-colloc">make short sentences</span></span><span class="colloc-chip" data-thai="แต่งประโยคเอง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แต่งประโยคเอง</span><span class="en-colloc">make sentences by yourself</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฝึกแต่งประโยค" role="button" tabindex="0" ><span class="thai">ฝึกแต่งประโยค</span><span class="en-colloc">practice making sentences</span></span><span class="colloc-chip" data-thai="แต่งประโยคสั้น ๆ" role="button" tabindex="0" ><span class="thai">แต่งประโยคสั้น ๆ</span><span class="en-colloc">make short sentences</span></span><span class="colloc-chip" data-thai="แต่งประโยคเอง" role="button" tabindex="0" ><span class="thai">แต่งประโยคเอง</span><span class="en-colloc">make sentences by yourself</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้ครูให้แต่งประโยคจากคำว่า ไหว ค่ะ</div><div class="roman">wan-níi khruu hâi dtɛ̀ng bprà-yòok jàak kham wâa wǎi khâ</div><div class="eng">Today the teacher asked us to make a sentence using the word wai.</div></div></td>
         </tr>
 
@@ -686,7 +695,7 @@
           <td>Noun</td>
           <td>ความหมาย</td>
           <td>名詞。問某詞意思時用 <span class="thai">มีความหมายอะไร</span> 或 <span class="thai">หมายความว่าอะไร</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ความหมายของคำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ความหมายของคำ</span><span class="en-colloc">meaning of a word</span></span><span class="colloc-chip" data-thai="มีความหมายว่า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีความหมายว่า</span><span class="en-colloc">has the meaning that</span></span><span class="colloc-chip" data-thai="หมายความว่า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หมายความว่า</span><span class="en-colloc">means that</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ความหมายของคำ" role="button" tabindex="0" ><span class="thai">ความหมายของคำ</span><span class="en-colloc">meaning of a word</span></span><span class="colloc-chip" data-thai="มีความหมายว่า" role="button" tabindex="0" ><span class="thai">มีความหมายว่า</span><span class="en-colloc">has the meaning that</span></span><span class="colloc-chip" data-thai="หมายความว่า" role="button" tabindex="0" ><span class="thai">หมายความว่า</span><span class="en-colloc">means that</span></span></div></td>
           <td><div class="triad"><div class="thai">คำว่า คล่อง มีความหมายว่า พูดได้เร็วและเป็นธรรมชาติค่ะ</div><div class="roman">kham wâa khlɔ̂ng mii khwaam-mǎai wâa phûut dâai rew lɛ́ bpen tham-má-châat khâ</div><div class="eng">The word khlong means being able to speak quickly and naturally.</div></div></td>
         </tr>
 
@@ -695,7 +704,7 @@
           <td>Verb</td>
           <td>ครั้ง</td>
           <td>可用於練語言、練發音、練開車、練運動。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฝึกพูด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝึกพูด</span><span class="en-colloc">practice speaking</span></span><span class="colloc-chip" data-thai="ฝึกออกเสียง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝึกออกเสียง</span><span class="en-colloc">practice pronunciation</span></span><span class="colloc-chip" data-thai="ฝึกแต่งประโยค" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝึกแต่งประโยค</span><span class="en-colloc">practice making sentences</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฝึกพูด" role="button" tabindex="0" ><span class="thai">ฝึกพูด</span><span class="en-colloc">practice speaking</span></span><span class="colloc-chip" data-thai="ฝึกออกเสียง" role="button" tabindex="0" ><span class="thai">ฝึกออกเสียง</span><span class="en-colloc">practice pronunciation</span></span><span class="colloc-chip" data-thai="ฝึกแต่งประโยค" role="button" tabindex="0" ><span class="thai">ฝึกแต่งประโยค</span><span class="en-colloc">practice making sentences</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันฝึกพูดภาษาไทยกับแม่ค้าทุกเช้าค่ะ</div><div class="roman">chǎn fʉ̀k phûut phaa-sǎa-thai gàp mɛ̂ɛ-kháa thúk cháo khâ</div><div class="eng">I practice speaking Thai with vendors every morning.</div></div></td>
         </tr>
       </tbody>
@@ -719,7 +728,7 @@
           <td>Verb / ability marker</td>
           <td>—</td>
           <td>本課重點是「會某技能」，例如會開車、會騎機車。不是一般的「可以」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขับรถเป็น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขับรถเป็น</span><span class="en-colloc">know how to drive</span></span><span class="colloc-chip" data-thai="ขี่มอเตอร์ไซค์เป็น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขี่มอเตอร์ไซค์เป็น</span><span class="en-colloc">know how to ride a motorcycle</span></span><span class="colloc-chip" data-thai="ว่ายน้ำเป็น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ว่ายน้ำเป็น</span><span class="en-colloc">know how to swim</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขับรถเป็น" role="button" tabindex="0" ><span class="thai">ขับรถเป็น</span><span class="en-colloc">know how to drive</span></span><span class="colloc-chip" data-thai="ขี่มอเตอร์ไซค์เป็น" role="button" tabindex="0" ><span class="thai">ขี่มอเตอร์ไซค์เป็น</span><span class="en-colloc">know how to ride a motorcycle</span></span><span class="colloc-chip" data-thai="ว่ายน้ำเป็น" role="button" tabindex="0" ><span class="thai">ว่ายน้ำเป็น</span><span class="en-colloc">know how to swim</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันขี่มอเตอร์ไซค์ไม่เป็นค่ะ แต่ขี่จักรยานเป็น</div><div class="roman">chǎn khìi mɔɔ-dtəə-sai mâi bpen khâ, dtɛ̀ɛ khìi jàk-grà-yaan bpen</div><div class="eng">I don’t know how to ride a motorcycle, but I know how to ride a bicycle.</div></div></td>
         </tr>
 
@@ -728,7 +737,7 @@
           <td>Ability / permission marker</td>
           <td>—</td>
           <td>表示做得到、可以做、被允許。不是技能本身，而是某次做得到。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พูดได้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พูดได้</span><span class="en-colloc">can speak</span></span><span class="colloc-chip" data-thai="เข้าได้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เข้าได้</span><span class="en-colloc">can enter</span></span><span class="colloc-chip" data-thai="ใส่ได้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใส่ได้</span><span class="en-colloc">can wear</span></span><span class="colloc-chip" data-thai="ทำได้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำได้</span><span class="en-colloc">can do</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พูดได้" role="button" tabindex="0" ><span class="thai">พูดได้</span><span class="en-colloc">can speak</span></span><span class="colloc-chip" data-thai="เข้าได้" role="button" tabindex="0" ><span class="thai">เข้าได้</span><span class="en-colloc">can enter</span></span><span class="colloc-chip" data-thai="ใส่ได้" role="button" tabindex="0" ><span class="thai">ใส่ได้</span><span class="en-colloc">can wear</span></span><span class="colloc-chip" data-thai="ทำได้" role="button" tabindex="0" ><span class="thai">ทำได้</span><span class="en-colloc">can do</span></span></div></td>
           <td><div class="triad"><div class="thai">รองเท้าคู่นี้ใส่เข้าวัดได้ค่ะ</div><div class="roman">rɔɔng-tháao khûu níi sài khâo wát dâai khâ</div><div class="eng">These shoes can be worn into the temple.</div></div></td>
         </tr>
 
@@ -737,7 +746,7 @@
           <td>Capacity marker</td>
           <td>—</td>
           <td>重點是體力、精神、時間或狀態撐得住。常用 <span class="thai">ไม่ไหว</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทำไม่ไหว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำไม่ไหว</span><span class="en-colloc">can’t handle doing</span></span><span class="colloc-chip" data-thai="เดินไม่ไหว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดินไม่ไหว</span><span class="en-colloc">can’t walk anymore</span></span><span class="colloc-chip" data-thai="กินไม่ไหว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินไม่ไหว</span><span class="en-colloc">can’t eat anymore</span></span><span class="colloc-chip" data-thai="รอไหว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รอไหว</span><span class="en-colloc">can wait</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทำไม่ไหว" role="button" tabindex="0" ><span class="thai">ทำไม่ไหว</span><span class="en-colloc">can’t handle doing</span></span><span class="colloc-chip" data-thai="เดินไม่ไหว" role="button" tabindex="0" ><span class="thai">เดินไม่ไหว</span><span class="en-colloc">can’t walk anymore</span></span><span class="colloc-chip" data-thai="กินไม่ไหว" role="button" tabindex="0" ><span class="thai">กินไม่ไหว</span><span class="en-colloc">can’t eat anymore</span></span><span class="colloc-chip" data-thai="รอไหว" role="button" tabindex="0" ><span class="thai">รอไหว</span><span class="en-colloc">can wait</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้ฉันเหนื่อยมาก เรียนต่อไม่ไหวค่ะ</div><div class="roman">wan-níi chǎn nʉ̀ai mâak, rian dtɔ̀ɔ mâi wǎi khâ</div><div class="eng">I’m very tired today. I can’t keep studying.</div></div></td>
         </tr>
 
@@ -746,7 +755,7 @@
           <td>Verb</td>
           <td>ครั้ง</td>
           <td>後面接動詞，表示努力做某事。常接 <span class="thai">ให้</span> 表示努力達到某結果。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พยายามพูด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พยายามพูด</span><span class="en-colloc">try to speak</span></span><span class="colloc-chip" data-thai="พยายามจำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พยายามจำ</span><span class="en-colloc">try to remember</span></span><span class="colloc-chip" data-thai="พยายามทำให้ดี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พยายามทำให้ดี</span><span class="en-colloc">try to do it well</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พยายามพูด" role="button" tabindex="0" ><span class="thai">พยายามพูด</span><span class="en-colloc">try to speak</span></span><span class="colloc-chip" data-thai="พยายามจำ" role="button" tabindex="0" ><span class="thai">พยายามจำ</span><span class="en-colloc">try to remember</span></span><span class="colloc-chip" data-thai="พยายามทำให้ดี" role="button" tabindex="0" ><span class="thai">พยายามทำให้ดี</span><span class="en-colloc">try to do it well</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันพยายามจำวรรณยุกต์ให้แม่นค่ะ</div><div class="roman">chǎn phá-yaa-yaam jam wan-ná-yúk hâi mɛ̂n khâ</div><div class="eng">I try to memorize the tones accurately.</div></div></td>
         </tr>
 
@@ -755,7 +764,7 @@
           <td>Adjective / adverb</td>
           <td>—</td>
           <td>形容說話、閱讀、使用語言流暢自然。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พูดคล่อง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พูดคล่อง</span><span class="en-colloc">speak fluently</span></span><span class="colloc-chip" data-thai="อ่านคล่อง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อ่านคล่อง</span><span class="en-colloc">read fluently</span></span><span class="colloc-chip" data-thai="ใช้ภาษาไทยคล่อง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใช้ภาษาไทยคล่อง</span><span class="en-colloc">use Thai fluently</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พูดคล่อง" role="button" tabindex="0" ><span class="thai">พูดคล่อง</span><span class="en-colloc">speak fluently</span></span><span class="colloc-chip" data-thai="อ่านคล่อง" role="button" tabindex="0" ><span class="thai">อ่านคล่อง</span><span class="en-colloc">read fluently</span></span><span class="colloc-chip" data-thai="ใช้ภาษาไทยคล่อง" role="button" tabindex="0" ><span class="thai">ใช้ภาษาไทยคล่อง</span><span class="en-colloc">use Thai fluently</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าฝึกทุกวัน จะพูดภาษาไทยคล่องขึ้นค่ะ</div><div class="roman">thâa fʉ̀k thúk wan, jà phûut phaa-sǎa-thai khlɔ̂ng khʉ̂n khâ</div><div class="eng">If you practice every day, you will speak Thai more fluently.</div></div></td>
         </tr>
 
@@ -764,7 +773,7 @@
           <td>Adjective / adverb</td>
           <td>—</td>
           <td>形容聲音、發音、解釋、圖片、畫面清楚。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พูดชัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พูดชัด</span><span class="en-colloc">speak clearly</span></span><span class="colloc-chip" data-thai="ออกเสียงชัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ออกเสียงชัด</span><span class="en-colloc">pronounce clearly</span></span><span class="colloc-chip" data-thai="อธิบายชัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อธิบายชัด</span><span class="en-colloc">explain clearly</span></span><span class="colloc-chip" data-thai="เห็นชัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เห็นชัด</span><span class="en-colloc">see clearly</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พูดชัด" role="button" tabindex="0" ><span class="thai">พูดชัด</span><span class="en-colloc">speak clearly</span></span><span class="colloc-chip" data-thai="ออกเสียงชัด" role="button" tabindex="0" ><span class="thai">ออกเสียงชัด</span><span class="en-colloc">pronounce clearly</span></span><span class="colloc-chip" data-thai="อธิบายชัด" role="button" tabindex="0" ><span class="thai">อธิบายชัด</span><span class="en-colloc">explain clearly</span></span><span class="colloc-chip" data-thai="เห็นชัด" role="button" tabindex="0" ><span class="thai">เห็นชัด</span><span class="en-colloc">see clearly</span></span></div></td>
           <td><div class="triad"><div class="thai">ครูอธิบายชัดมาก เลยเข้าใจง่ายค่ะ</div><div class="roman">khruu à-thí-baai chát mâak, ləəi khâo-jai ngâai khâ</div><div class="eng">The teacher explains very clearly, so it is easy to understand.</div></div></td>
         </tr>
       </tbody>
@@ -1714,5 +1723,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

@@ -120,9 +120,9 @@
     .eng { font-size: 13px; color: var(--text); }
 
     .triad { display: grid; gap: 2px; margin: 4px 0; }
-    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
-    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
-    .triad .eng::before { content: "English: "; color: var(--muted); }
+    .triad .thai::before { content: none; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: none; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: none; color: var(--muted); }
 
     table {
       width: 100%;
@@ -288,31 +288,21 @@
     }
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -321,38 +311,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -501,7 +511,7 @@
           <td>Mail</td>
           <td><span class="classifier-plain">ฉบับ</span><div class="roman">chà-bàp</div><div class="eng">copy / piece of written document</div></td>
           <td>信件類常用 <span class="thai">ฉบับ</span>。口語如果只是說「有信」，不一定要加量詞。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="ส่งจดหมาย" aria-label="播放 ส่งจดหมาย"><span class="thai">ส่งจดหมาย</span><span class="en-colloc">send a letter</span></button><button type="button" class="colloc-chip" data-thai="ได้รับจดหมาย" aria-label="播放 ได้รับจดหมาย"><span class="thai">ได้รับจดหมาย</span><span class="en-colloc">receive a letter</span></button><button type="button" class="colloc-chip" data-thai="จดหมายสองฉบับ" aria-label="播放 จดหมายสองฉบับ"><span class="thai">จดหมายสองฉบับ</span><span class="en-colloc">two letters</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="ส่งจดหมาย" aria-label="播放 ส่งจดหมาย"><span class="thai">ส่งจดหมาย</span><span class="en-colloc">send a letter</span></button><button class="colloc-chip" data-thai="ได้รับจดหมาย" aria-label="播放 ได้รับจดหมาย"><span class="thai">ได้รับจดหมาย</span><span class="en-colloc">receive a letter</span></button><button class="colloc-chip" data-thai="จดหมายสองฉบับ" aria-label="播放 จดหมายสองฉบับ"><span class="thai">จดหมายสองฉบับ</span><span class="en-colloc">two letters</span></button></div></td>
           <td><div class="triad"><div class="thai">ฉันได้รับจดหมายจากมหาวิทยาลัยค่ะ</div><div class="roman">chǎn dâai-ráp jòt-mǎai jàak má-hǎa-wít-thá-yaa-lai khâ</div><div class="eng">I received a letter from the university.</div></div></td>
         </tr>
 
@@ -510,7 +520,7 @@
           <td>Mail</td>
           <td><span class="classifier-plain">ซอง</span><div class="roman">sɔɔng</div><div class="eng">envelope / classifier for envelopes</div></td>
           <td><span class="thai">ซอง</span> 本身可以是「信封」，也可以當信封類的量詞。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="ใส่ซองจดหมาย" aria-label="播放 ใส่ซองจดหมาย"><span class="thai">ใส่ซองจดหมาย</span><span class="en-colloc">put in an envelope</span></button><button type="button" class="colloc-chip" data-thai="ซองจดหมายหนึ่งซอง" aria-label="播放 ซองจดหมายหนึ่งซอง"><span class="thai">ซองจดหมายหนึ่งซอง</span><span class="en-colloc">one envelope</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="ใส่ซองจดหมาย" aria-label="播放 ใส่ซองจดหมาย"><span class="thai">ใส่ซองจดหมาย</span><span class="en-colloc">put in an envelope</span></button><button class="colloc-chip" data-thai="ซองจดหมายหนึ่งซอง" aria-label="播放 ซองจดหมายหนึ่งซอง"><span class="thai">ซองจดหมายหนึ่งซอง</span><span class="en-colloc">one envelope</span></button></div></td>
           <td><div class="triad"><div class="thai">ช่วยใส่เอกสารในซองจดหมายให้หน่อยค่ะ</div><div class="roman">chûai sài èek-gà-sǎan nai sɔɔng jòt-mǎai hâi nòi khâ</div><div class="eng">Please help put the documents in the envelope.</div></div></td>
         </tr>
 
@@ -519,7 +529,7 @@
           <td>Document</td>
           <td><span class="classifier-plain">ฉบับ / ชุด</span><div class="roman">chà-bàp / chút</div><div class="eng">copy / set</div></td>
           <td><span class="label review">Review</span> Day 6 已學。單份文件用 <span class="thai">ฉบับ</span>；一套文件用 <span class="thai">ชุด</span>。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="เตรียมเอกสาร" aria-label="播放 เตรียมเอกสาร"><span class="thai">เตรียมเอกสาร</span><span class="en-colloc">prepare documents</span></button><button type="button" class="colloc-chip" data-thai="เอกสารครบ" aria-label="播放 เอกสารครบ"><span class="thai">เอกสารครบ</span><span class="en-colloc">documents complete</span></button><button type="button" class="colloc-chip" data-thai="เอกสารไม่ครบ" aria-label="播放 เอกสารไม่ครบ"><span class="thai">เอกสารไม่ครบ</span><span class="en-colloc">documents incomplete</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="เตรียมเอกสาร" aria-label="播放 เตรียมเอกสาร"><span class="thai">เตรียมเอกสาร</span><span class="en-colloc">prepare documents</span></button><button class="colloc-chip" data-thai="เอกสารครบ" aria-label="播放 เอกสารครบ"><span class="thai">เอกสารครบ</span><span class="en-colloc">documents complete</span></button><button class="colloc-chip" data-thai="เอกสารไม่ครบ" aria-label="播放 เอกสารไม่ครบ"><span class="thai">เอกสารไม่ครบ</span><span class="en-colloc">documents incomplete</span></button></div></td>
           <td><div class="triad"><div class="thai">ต้องกรอกที่อยู่ในเอกสารค่ะ</div><div class="roman">dtɔ̂ng grɔ̀ɔk thîi-yùu nai èek-gà-sǎan khâ</div><div class="eng">You have to fill in the address on the document.</div></div></td>
         </tr>
 
@@ -528,7 +538,7 @@
           <td>Place / service</td>
           <td>—</td>
           <td>可以指「郵局」或「郵政」。郵局完整可說 <span class="thai">ที่ทำการไปรษณีย์</span>。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="ส่งไปรษณีย์" aria-label="播放 ส่งไปรษณีย์"><span class="thai">ส่งไปรษณีย์</span><span class="en-colloc">send by post</span></button><button type="button" class="colloc-chip" data-thai="ไปไปรษณีย์" aria-label="播放 ไปไปรษณีย์"><span class="thai">ไปไปรษณีย์</span><span class="en-colloc">go to the post office</span></button><button type="button" class="colloc-chip" data-thai="รหัสไปรษณีย์" aria-label="播放 รหัสไปรษณีย์"><span class="thai">รหัสไปรษณีย์</span><span class="en-colloc">postal code</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="ส่งไปรษณีย์" aria-label="播放 ส่งไปรษณีย์"><span class="thai">ส่งไปรษณีย์</span><span class="en-colloc">send by post</span></button><button class="colloc-chip" data-thai="ไปไปรษณีย์" aria-label="播放 ไปไปรษณีย์"><span class="thai">ไปไปรษณีย์</span><span class="en-colloc">go to the post office</span></button><button class="colloc-chip" data-thai="รหัสไปรษณีย์" aria-label="播放 รหัสไปรษณีย์"><span class="thai">รหัสไปรษณีย์</span><span class="en-colloc">postal code</span></button></div></td>
           <td><div class="triad"><div class="thai">ฉันจะไปไปรษณีย์เพื่อส่งเอกสารค่ะ</div><div class="roman">chǎn jà bpai bprai-sà-nii phʉ̂a sòng èek-gà-sǎan khâ</div><div class="eng">I will go to the post office to send documents.</div></div></td>
         </tr>
 
@@ -537,7 +547,7 @@
           <td>Form / identity</td>
           <td>—</td>
           <td><span class="thai">ชื่อ</span> 是名字；<span class="thai">นามสกุล</span> 是姓氏。填表很常見。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="กรอกชื่อ-นามสกุล" aria-label="播放 กรอกชื่อ-นามสกุล"><span class="thai">กรอกชื่อ-นามสกุล</span><span class="en-colloc">fill in full name</span></button><button type="button" class="colloc-chip" data-thai="เขียนชื่อ-นามสกุล" aria-label="播放 เขียนชื่อ-นามสกุล"><span class="thai">เขียนชื่อ-นามสกุล</span><span class="en-colloc">write full name</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="กรอกชื่อ-นามสกุล" aria-label="播放 กรอกชื่อ-นามสกุล"><span class="thai">กรอกชื่อ-นามสกุล</span><span class="en-colloc">fill in full name</span></button><button class="colloc-chip" data-thai="เขียนชื่อ-นามสกุล" aria-label="播放 เขียนชื่อ-นามสกุล"><span class="thai">เขียนชื่อ-นามสกุล</span><span class="en-colloc">write full name</span></button></div></td>
           <td><div class="triad"><div class="thai">กรุณาเขียนชื่อ-นามสกุลให้ชัดเจนค่ะ</div><div class="roman">gà-rú-naa khǐan chʉ̂ʉ naam-sà-gun hâi chát-jeen khâ</div><div class="eng">Please write your full name clearly.</div></div></td>
         </tr>
 
@@ -546,7 +556,7 @@
           <td>Address</td>
           <td>—</td>
           <td>字面是「居住的地方」。填表、叫外送、收包裹都會用。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="กรอกที่อยู่" aria-label="播放 กรอกที่อยู่"><span class="thai">กรอกที่อยู่</span><span class="en-colloc">fill in address</span></button><button type="button" class="colloc-chip" data-thai="ขอที่อยู่" aria-label="播放 ขอที่อยู่"><span class="thai">ขอที่อยู่</span><span class="en-colloc">ask for address</span></button><button type="button" class="colloc-chip" data-thai="ส่งของไปที่อยู่" aria-label="播放 ส่งของไปที่อยู่"><span class="thai">ส่งของไปที่อยู่</span><span class="en-colloc">send items to an address</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="กรอกที่อยู่" aria-label="播放 กรอกที่อยู่"><span class="thai">กรอกที่อยู่</span><span class="en-colloc">fill in address</span></button><button class="colloc-chip" data-thai="ขอที่อยู่" aria-label="播放 ขอที่อยู่"><span class="thai">ขอที่อยู่</span><span class="en-colloc">ask for address</span></button><button class="colloc-chip" data-thai="ส่งของไปที่อยู่" aria-label="播放 ส่งของไปที่อยู่"><span class="thai">ส่งของไปที่อยู่</span><span class="en-colloc">send items to an address</span></button></div></td>
           <td><div class="triad"><div class="thai">ขอที่อยู่ภาษาไทยได้ไหมคะ</div><div class="roman">khɔ̌ɔ thîi-yùu phaa-sǎa-thai dâai mái khá</div><div class="eng">Can I have the address in Thai?</div></div></td>
         </tr>
 
@@ -555,7 +565,7 @@
           <td>Address</td>
           <td>—</td>
           <td><span class="thai">รหัส</span> 是 code；常在地址最後一格。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="ใส่รหัสไปรษณีย์" aria-label="播放 ใส่รหัสไปรษณีย์"><span class="thai">ใส่รหัสไปรษณีย์</span><span class="en-colloc">enter postal code</span></button><button type="button" class="colloc-chip" data-thai="รหัสไปรษณีย์อะไร" aria-label="播放 รหัสไปรษณีย์อะไร"><span class="thai">รหัสไปรษณีย์อะไร</span><span class="en-colloc">what postal code</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="ใส่รหัสไปรษณีย์" aria-label="播放 ใส่รหัสไปรษณีย์"><span class="thai">ใส่รหัสไปรษณีย์</span><span class="en-colloc">enter postal code</span></button><button class="colloc-chip" data-thai="รหัสไปรษณีย์อะไร" aria-label="播放 รหัสไปรษณีย์อะไร"><span class="thai">รหัสไปรษณีย์อะไร</span><span class="en-colloc">what postal code</span></button></div></td>
           <td><div class="triad"><div class="thai">รหัสไปรษณีย์ของเขตนี้คืออะไรคะ</div><div class="roman">rá-hàt bprai-sà-nii khɔ̌ɔng khèet níi khʉʉ à-rai khá</div><div class="eng">What is the postal code of this district?</div></div></td>
         </tr>
       </tbody>
@@ -579,7 +589,7 @@
           <td>Address</td>
           <td>—</td>
           <td>填地址第一層常見欄位，例如 888/104。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="บ้านเลขที่อะไร" aria-label="播放 บ้านเลขที่อะไร"><span class="thai">บ้านเลขที่อะไร</span><span class="en-colloc">what house number</span></button><button type="button" class="colloc-chip" data-thai="เขียนบ้านเลขที่" aria-label="播放 เขียนบ้านเลขที่"><span class="thai">เขียนบ้านเลขที่</span><span class="en-colloc">write house number</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="บ้านเลขที่อะไร" aria-label="播放 บ้านเลขที่อะไร"><span class="thai">บ้านเลขที่อะไร</span><span class="en-colloc">what house number</span></button><button class="colloc-chip" data-thai="เขียนบ้านเลขที่" aria-label="播放 เขียนบ้านเลขที่"><span class="thai">เขียนบ้านเลขที่</span><span class="en-colloc">write house number</span></button></div></td>
           <td><div class="triad"><div class="thai">บ้านเลขที่ของคอนโดคือ 888/104 ค่ะ</div><div class="roman">bâan-lêek-thîi khɔ̌ɔng khɔɔn-doo khʉʉ bpɛ̀ɛt-rɔ́ɔi-bpɛ̀ɛt-sìp-sìi khâ</div><div class="eng">The condo’s house number is 888/104.</div></div></td>
         </tr>
 
@@ -588,7 +598,7 @@
           <td>Address / place</td>
           <td>—</td>
           <td>可以是鄉村的村，也可指住宅社區。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="อยู่หมู่บ้านไหน" aria-label="播放 อยู่หมู่บ้านไหน"><span class="thai">อยู่หมู่บ้านไหน</span><span class="en-colloc">which village</span></button><button type="button" class="colloc-chip" data-thai="ชื่อหมู่บ้าน" aria-label="播放 ชื่อหมู่บ้าน"><span class="thai">ชื่อหมู่บ้าน</span><span class="en-colloc">estate do you live in</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="อยู่หมู่บ้านไหน" aria-label="播放 อยู่หมู่บ้านไหน"><span class="thai">อยู่หมู่บ้านไหน</span><span class="en-colloc">which village</span></button><button class="colloc-chip" data-thai="ชื่อหมู่บ้าน" aria-label="播放 ชื่อหมู่บ้าน"><span class="thai">ชื่อหมู่บ้าน</span><span class="en-colloc">estate do you live in</span></button></div></td>
           <td><div class="triad"><div class="thai">เขาอยู่หมู่บ้านใกล้สถานีรถไฟฟ้าค่ะ</div><div class="roman">khǎo yùu mùu-bâan glâi sà-thǎa-nii rót-fai-fáa khâ</div><div class="eng">He lives in a housing estate near the BTS station.</div></div></td>
         </tr>
 
@@ -597,7 +607,7 @@
           <td>Administrative area</td>
           <td>—</td>
           <td>曼谷以外常用；曼谷通常用 <span class="thai">แขวง</span>。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="ตำบลอะไร" aria-label="播放 ตำบลอะไร"><span class="thai">ตำบลอะไร</span><span class="en-colloc">which subdistrict</span></button><button type="button" class="colloc-chip" data-thai="อยู่ตำบลไหน" aria-label="播放 อยู่ตำบลไหน"><span class="thai">อยู่ตำบลไหน</span><span class="en-colloc">in which subdistrict</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="ตำบลอะไร" aria-label="播放 ตำบลอะไร"><span class="thai">ตำบลอะไร</span><span class="en-colloc">which subdistrict</span></button><button class="colloc-chip" data-thai="อยู่ตำบลไหน" aria-label="播放 อยู่ตำบลไหน"><span class="thai">อยู่ตำบลไหน</span><span class="en-colloc">in which subdistrict</span></button></div></td>
           <td><div class="triad"><div class="thai">บ้านคุณยายอยู่ตำบลเล็ก ๆ ในเชียงใหม่ค่ะ</div><div class="roman">bâan khun-yaai yùu dtam-bon lék-lék nai chiiang-mài khâ</div><div class="eng">Grandma’s house is in a small subdistrict in Chiang Mai.</div></div></td>
         </tr>
 
@@ -606,7 +616,7 @@
           <td>Bangkok address</td>
           <td>—</td>
           <td>曼谷地址常用，對應外府的 <span class="thai">ตำบล</span>。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="แขวงอะไร" aria-label="播放 แขวงอะไร"><span class="thai">แขวงอะไร</span><span class="en-colloc">which Bangkok subdistrict</span></button><button type="button" class="colloc-chip" data-thai="แขวงคลองตัน" aria-label="播放 แขวงคลองตัน"><span class="thai">แขวงคลองตัน</span><span class="en-colloc">Khlong Tan subdistrict</span></button><button type="button" class="colloc-chip" data-thai="แขวงปทุมวัน" aria-label="播放 แขวงปทุมวัน"><span class="thai">แขวงปทุมวัน</span><span class="en-colloc">Pathum Wan subdistrict</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="แขวงอะไร" aria-label="播放 แขวงอะไร"><span class="thai">แขวงอะไร</span><span class="en-colloc">which Bangkok subdistrict</span></button><button class="colloc-chip" data-thai="แขวงคลองตัน" aria-label="播放 แขวงคลองตัน"><span class="thai">แขวงคลองตัน</span><span class="en-colloc">Khlong Tan subdistrict</span></button><button class="colloc-chip" data-thai="แขวงปทุมวัน" aria-label="播放 แขวงปทุมวัน"><span class="thai">แขวงปทุมวัน</span><span class="en-colloc">Pathum Wan subdistrict</span></button></div></td>
           <td><div class="triad"><div class="thai">คอนโดนี้อยู่แขวงคลองตันค่ะ</div><div class="roman">khɔɔn-doo níi yùu khwɛ̌ɛng khlɔɔng-dtan khâ</div><div class="eng">This condo is in Khlong Tan subdistrict.</div></div></td>
         </tr>
 
@@ -615,7 +625,7 @@
           <td>Administrative area</td>
           <td>—</td>
           <td>曼谷以外常用；曼谷通常用 <span class="thai">เขต</span>。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="อำเภออะไร" aria-label="播放 อำเภออะไร"><span class="thai">อำเภออะไร</span><span class="en-colloc">which district</span></button><button type="button" class="colloc-chip" data-thai="อยู่ อำเภอเมือง" aria-label="播放 อยู่ อำเภอเมือง"><span class="thai">อยู่ อำเภอเมือง</span><span class="en-colloc">in Mueang district</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="อำเภออะไร" aria-label="播放 อำเภออะไร"><span class="thai">อำเภออะไร</span><span class="en-colloc">which district</span></button><button class="colloc-chip" data-thai="อยู่ อำเภอเมือง" aria-label="播放 อยู่ อำเภอเมือง"><span class="thai">อยู่ อำเภอเมือง</span><span class="en-colloc">in Mueang district</span></button></div></td>
           <td><div class="triad"><div class="thai">โรงแรมนี้อยู่อำเภอเมืองเชียงใหม่ค่ะ</div><div class="roman">rooŋ-rɛɛm níi yùu am-phəə mʉang chiiang-mài khâ</div><div class="eng">This hotel is in Mueang Chiang Mai district.</div></div></td>
         </tr>
 
@@ -624,7 +634,7 @@
           <td>Bangkok address</td>
           <td>—</td>
           <td>曼谷地址常用，對應外府的 <span class="thai">อำเภอ</span>。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="เขตอะไร" aria-label="播放 เขตอะไร"><span class="thai">เขตอะไร</span><span class="en-colloc">which Bangkok district</span></button><button type="button" class="colloc-chip" data-thai="เขตปทุมวัน" aria-label="播放 เขตปทุมวัน"><span class="thai">เขตปทุมวัน</span><span class="en-colloc">Pathum Wan district</span></button><button type="button" class="colloc-chip" data-thai="เขตคลองเตย" aria-label="播放 เขตคลองเตย"><span class="thai">เขตคลองเตย</span><span class="en-colloc">Khlong Toei district</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="เขตอะไร" aria-label="播放 เขตอะไร"><span class="thai">เขตอะไร</span><span class="en-colloc">which Bangkok district</span></button><button class="colloc-chip" data-thai="เขตปทุมวัน" aria-label="播放 เขตปทุมวัน"><span class="thai">เขตปทุมวัน</span><span class="en-colloc">Pathum Wan district</span></button><button class="colloc-chip" data-thai="เขตคลองเตย" aria-label="播放 เขตคลองเตย"><span class="thai">เขตคลองเตย</span><span class="en-colloc">Khlong Toei district</span></button></div></td>
           <td><div class="triad"><div class="thai">ห้างนี้อยู่เขตปทุมวันค่ะ</div><div class="roman">hâang níi yùu khèet bpà-thum-wan khâ</div><div class="eng">This mall is in Pathum Wan district.</div></div></td>
         </tr>
 
@@ -633,7 +643,7 @@
           <td>Administrative area</td>
           <td>—</td>
           <td>泰國省份，例如清邁府、普吉府。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="จังหวัดอะไร" aria-label="播放 จังหวัดอะไร"><span class="thai">จังหวัดอะไร</span><span class="en-colloc">which province</span></button><button type="button" class="colloc-chip" data-thai="จังหวัดเชียงใหม่" aria-label="播放 จังหวัดเชียงใหม่"><span class="thai">จังหวัดเชียงใหม่</span><span class="en-colloc">Chiang Mai Province</span></button><button type="button" class="colloc-chip" data-thai="จังหวัดภูเก็ต" aria-label="播放 จังหวัดภูเก็ต"><span class="thai">จังหวัดภูเก็ต</span><span class="en-colloc">Phuket Province</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="จังหวัดอะไร" aria-label="播放 จังหวัดอะไร"><span class="thai">จังหวัดอะไร</span><span class="en-colloc">which province</span></button><button class="colloc-chip" data-thai="จังหวัดเชียงใหม่" aria-label="播放 จังหวัดเชียงใหม่"><span class="thai">จังหวัดเชียงใหม่</span><span class="en-colloc">Chiang Mai Province</span></button><button class="colloc-chip" data-thai="จังหวัดภูเก็ต" aria-label="播放 จังหวัดภูเก็ต"><span class="thai">จังหวัดภูเก็ต</span><span class="en-colloc">Phuket Province</span></button></div></td>
           <td><div class="triad"><div class="thai">เชียงใหม่เป็นจังหวัดทางภาคเหนือค่ะ</div><div class="roman">chiiang-mài bpen jang-wàt thaang phâak nʉ̌a khâ</div><div class="eng">Chiang Mai is a province in the northern region.</div></div></td>
         </tr>
       </tbody>
@@ -657,7 +667,7 @@
           <td>Geography</td>
           <td>—</td>
           <td><span class="thai">เมือง</span> 是城市，<span class="thai">หลวง</span> 有「主要、官方」感。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="เมืองหลวงของประเทศ" aria-label="播放 เมืองหลวงของประเทศ"><span class="thai">เมืองหลวงของประเทศ</span><span class="en-colloc">capital of a country</span></button><button type="button" class="colloc-chip" data-thai="กรุงเทพฯ เป็นเมืองหลวง" aria-label="播放 กรุงเทพฯ เป็นเมืองหลวง"><span class="thai">กรุงเทพฯ เป็นเมืองหลวง</span><span class="en-colloc">Bangkok is the capital</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="เมืองหลวงของประเทศ" aria-label="播放 เมืองหลวงของประเทศ"><span class="thai">เมืองหลวงของประเทศ</span><span class="en-colloc">capital of a country</span></button><button class="colloc-chip" data-thai="กรุงเทพฯ เป็นเมืองหลวง" aria-label="播放 กรุงเทพฯ เป็นเมืองหลวง"><span class="thai">กรุงเทพฯ เป็นเมืองหลวง</span><span class="en-colloc">Bangkok is the capital</span></button></div></td>
           <td><div class="triad"><div class="thai">ไทเปเป็นเมืองหลวงของไต้หวันค่ะ</div><div class="roman">thai-bpèe bpen mʉang-lǔang khɔ̌ɔng tâai-wǎn khâ</div><div class="eng">Taipei is the capital of Taiwan.</div></div></td>
         </tr>
 
@@ -666,7 +676,7 @@
           <td>Geography</td>
           <td>—</td>
           <td>常用於國名，例如 <span class="thai">ประเทศไทย</span>。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="ประเทศอะไร" aria-label="播放 ประเทศอะไร"><span class="thai">ประเทศอะไร</span><span class="en-colloc">which country</span></button><button type="button" class="colloc-chip" data-thai="ประเทศไทย" aria-label="播放 ประเทศไทย"><span class="thai">ประเทศไทย</span><span class="en-colloc">Thailand</span></button><button type="button" class="colloc-chip" data-thai="ประเทศญี่ปุ่น" aria-label="播放 ประเทศญี่ปุ่น"><span class="thai">ประเทศญี่ปุ่น</span><span class="en-colloc">Japan</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="ประเทศอะไร" aria-label="播放 ประเทศอะไร"><span class="thai">ประเทศอะไร</span><span class="en-colloc">which country</span></button><button class="colloc-chip" data-thai="ประเทศไทย" aria-label="播放 ประเทศไทย"><span class="thai">ประเทศไทย</span><span class="en-colloc">Thailand</span></button><button class="colloc-chip" data-thai="ประเทศญี่ปุ่น" aria-label="播放 ประเทศญี่ปุ่น"><span class="thai">ประเทศญี่ปุ่น</span><span class="en-colloc">Japan</span></button></div></td>
           <td><div class="triad"><div class="thai">คุณมาจากประเทศอะไรคะ</div><div class="roman">khun maa jàak prà-thêet à-rai khá</div><div class="eng">What country are you from?</div></div></td>
         </tr>
 
@@ -675,7 +685,7 @@
           <td>Geography</td>
           <td>—</td>
           <td>可以指城市，也常出現在行政區名。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="เมืองอะไร" aria-label="播放 เมืองอะไร"><span class="thai">เมืองอะไร</span><span class="en-colloc">what city</span></button><button type="button" class="colloc-chip" data-thai="เมืองใหญ่" aria-label="播放 เมืองใหญ่"><span class="thai">เมืองใหญ่</span><span class="en-colloc">big city</span></button><button type="button" class="colloc-chip" data-thai="เมืองหลวง" aria-label="播放 เมืองหลวง"><span class="thai">เมืองหลวง</span><span class="en-colloc">capital city</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="เมืองอะไร" aria-label="播放 เมืองอะไร"><span class="thai">เมืองอะไร</span><span class="en-colloc">what city</span></button><button class="colloc-chip" data-thai="เมืองใหญ่" aria-label="播放 เมืองใหญ่"><span class="thai">เมืองใหญ่</span><span class="en-colloc">big city</span></button><button class="colloc-chip" data-thai="เมืองหลวง" aria-label="播放 เมืองหลวง"><span class="thai">เมืองหลวง</span><span class="en-colloc">capital city</span></button></div></td>
           <td><div class="triad"><div class="thai">กรุงเทพฯ เป็นเมืองใหญ่มากค่ะ</div><div class="roman">grung-thêep bpen mʉang yài mâak khâ</div><div class="eng">Bangkok is a very big city.</div></div></td>
         </tr>
 
@@ -684,7 +694,7 @@
           <td>Geography</td>
           <td>—</td>
           <td>泰國地理區域，例如北部、中部、南部。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="ภาคเหนือ" aria-label="播放 ภาคเหนือ"><span class="thai">ภาคเหนือ</span><span class="en-colloc">northern region</span></button><button type="button" class="colloc-chip" data-thai="ภาคกลาง" aria-label="播放 ภาคกลาง"><span class="thai">ภาคกลาง</span><span class="en-colloc">central region</span></button><button type="button" class="colloc-chip" data-thai="ภาคใต้" aria-label="播放 ภาคใต้"><span class="thai">ภาคใต้</span><span class="en-colloc">southern region</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="ภาคเหนือ" aria-label="播放 ภาคเหนือ"><span class="thai">ภาคเหนือ</span><span class="en-colloc">northern region</span></button><button class="colloc-chip" data-thai="ภาคกลาง" aria-label="播放 ภาคกลาง"><span class="thai">ภาคกลาง</span><span class="en-colloc">central region</span></button><button class="colloc-chip" data-thai="ภาคใต้" aria-label="播放 ภาคใต้"><span class="thai">ภาคใต้</span><span class="en-colloc">southern region</span></button></div></td>
           <td><div class="triad"><div class="thai">ภูเก็ตอยู่ภาคใต้ค่ะ</div><div class="roman">phuu-gèt yùu phâak dtâai khâ</div><div class="eng">Phuket is in the southern region.</div></div></td>
         </tr>
 
@@ -693,7 +703,7 @@
           <td>Direction</td>
           <td>—</td>
           <td>方位詞前常有 <span class="thai">ทิศ</span>，例如北方、南方。</td>
-          <td><div class="colloc-cell"><button type="button" class="colloc-chip" data-thai="ทิศเหนือ" aria-label="播放 ทิศเหนือ"><span class="thai">ทิศเหนือ</span><span class="en-colloc">north</span></button><button type="button" class="colloc-chip" data-thai="ทิศใต้" aria-label="播放 ทิศใต้"><span class="thai">ทิศใต้</span><span class="en-colloc">south</span></button><button type="button" class="colloc-chip" data-thai="ทิศตะวันออก" aria-label="播放 ทิศตะวันออก"><span class="thai">ทิศตะวันออก</span><span class="en-colloc">east</span></button></div></td>
+          <td><div class="colloc-cell"><button class="colloc-chip" data-thai="ทิศเหนือ" aria-label="播放 ทิศเหนือ"><span class="thai">ทิศเหนือ</span><span class="en-colloc">north</span></button><button class="colloc-chip" data-thai="ทิศใต้" aria-label="播放 ทิศใต้"><span class="thai">ทิศใต้</span><span class="en-colloc">south</span></button><button class="colloc-chip" data-thai="ทิศตะวันออก" aria-label="播放 ทิศตะวันออก"><span class="thai">ทิศตะวันออก</span><span class="en-colloc">east</span></button></div></td>
           <td><div class="triad"><div class="thai">เชียงใหม่อยู่ทางทิศเหนือของประเทศไทยค่ะ</div><div class="roman">chiiang-mài yùu thaang thít nʉ̌a khɔ̌ɔng prà-thêet-thai khâ</div><div class="eng">Chiang Mai is in the north of Thailand.</div></div></td>
         </tr>
       </tbody>
@@ -1998,5 +2008,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

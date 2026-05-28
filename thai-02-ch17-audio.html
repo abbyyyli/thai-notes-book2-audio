@@ -358,34 +358,23 @@
       color: var(--muted);
       line-height: 1.2;
     }
-
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -394,38 +383,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -578,7 +587,7 @@
           <td>Place</td>
           <td>แห่ง</td>
           <td>正式醫院。口語常直接說去醫院。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปโรงพยาบาล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปโรงพยาบาล</span><span class="en-colloc">go to hospital</span></span><span class="colloc-chip" data-thai="อยู่โรงพยาบาล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อยู่โรงพยาบาล</span><span class="en-colloc">stay in hospital</span></span><span class="colloc-chip" data-thai="โรงพยาบาลเอกชน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">โรงพยาบาลเอกชน</span><span class="en-colloc">private hospital</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปโรงพยาบาล" role="button" tabindex="0" ><span class="thai">ไปโรงพยาบาล</span><span class="en-colloc">go to hospital</span></span><span class="colloc-chip" data-thai="อยู่โรงพยาบาล" role="button" tabindex="0" ><span class="thai">อยู่โรงพยาบาล</span><span class="en-colloc">stay in hospital</span></span><span class="colloc-chip" data-thai="โรงพยาบาลเอกชน" role="button" tabindex="0" ><span class="thai">โรงพยาบาลเอกชน</span><span class="en-colloc">private hospital</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้ามีไข้สูง ควรไปโรงพยาบาลค่ะ</div><div class="roman">thâa mii khâi sǔung, khuan bpai rooŋ-phá-yaa-baan khâ</div><div class="eng">If you have a high fever, you should go to the hospital.</div></div></td>
         </tr>
 
@@ -587,7 +596,7 @@
           <td>Person</td>
           <td>คน</td>
           <td>日常常說 <span class="thai">หมอ</span>。正式可說 <span class="thai">แพทย์</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หาหมอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หาหมอ</span><span class="en-colloc">see a doctor</span></span><span class="colloc-chip" data-thai="หมอฟัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หมอฟัน</span><span class="en-colloc">dentist</span></span><span class="colloc-chip" data-thai="หมอตรวจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หมอตรวจ</span><span class="en-colloc">doctor examines</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หาหมอ" role="button" tabindex="0" ><span class="thai">หาหมอ</span><span class="en-colloc">see a doctor</span></span><span class="colloc-chip" data-thai="หมอฟัน" role="button" tabindex="0" ><span class="thai">หมอฟัน</span><span class="en-colloc">dentist</span></span><span class="colloc-chip" data-thai="หมอตรวจ" role="button" tabindex="0" ><span class="thai">หมอตรวจ</span><span class="en-colloc">doctor examines</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากหาหมอเพราะเจ็บคอมาหลายวันค่ะ</div><div class="roman">chǎn yàak hǎa mɔ̌ɔ phrɔ́ jèp-khɔɔ maa lǎai wan khâ</div><div class="eng">I want to see a doctor because I’ve had a sore throat for many days.</div></div></td>
         </tr>
 
@@ -596,7 +605,7 @@
           <td>Person</td>
           <td>คน</td>
           <td>護士。可幫忙量血壓、量身高體重、打針、說明流程。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พยาบาลวัดความดัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พยาบาลวัดความดัน</span><span class="en-colloc">nurse measures blood pressure</span></span><span class="colloc-chip" data-thai="พยาบาลฉีดยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พยาบาลฉีดยา</span><span class="en-colloc">nurse gives an injection</span></span><span class="colloc-chip" data-thai="พยาบาลเรียกชื่อ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พยาบาลเรียกชื่อ</span><span class="en-colloc">nurse calls the name</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พยาบาลวัดความดัน" role="button" tabindex="0" ><span class="thai">พยาบาลวัดความดัน</span><span class="en-colloc">nurse measures blood pressure</span></span><span class="colloc-chip" data-thai="พยาบาลฉีดยา" role="button" tabindex="0" ><span class="thai">พยาบาลฉีดยา</span><span class="en-colloc">nurse gives an injection</span></span><span class="colloc-chip" data-thai="พยาบาลเรียกชื่อ" role="button" tabindex="0" ><span class="thai">พยาบาลเรียกชื่อ</span><span class="en-colloc">nurse calls the name</span></span></div></td>
           <td><div class="triad"><div class="thai">พยาบาลบอกให้ฉันชั่งน้ำหนักก่อนค่ะ</div><div class="roman">phá-yaa-baan bɔ̀ɔk hâi chǎn châng náam-nàk gɔ̀ɔn khâ</div><div class="eng">The nurse told me to weigh myself first.</div></div></td>
         </tr>
 
@@ -605,7 +614,7 @@
           <td>Person</td>
           <td>คน</td>
           <td><span class="thai">คนไข้</span> 偏醫療場景的病人；<span class="thai">คนป่วย</span> 是生病的人。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คนไข้รอหมอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คนไข้รอหมอ</span><span class="en-colloc">patient waits for the doctor</span></span><span class="colloc-chip" data-thai="คนป่วยมีไข้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คนป่วยมีไข้</span><span class="en-colloc">sick person has a fever</span></span><span class="colloc-chip" data-thai="ห้องคนไข้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องคนไข้</span><span class="en-colloc">patient room</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คนไข้รอหมอ" role="button" tabindex="0" ><span class="thai">คนไข้รอหมอ</span><span class="en-colloc">patient waits for the doctor</span></span><span class="colloc-chip" data-thai="คนป่วยมีไข้" role="button" tabindex="0" ><span class="thai">คนป่วยมีไข้</span><span class="en-colloc">sick person has a fever</span></span><span class="colloc-chip" data-thai="ห้องคนไข้" role="button" tabindex="0" ><span class="thai">ห้องคนไข้</span><span class="en-colloc">patient room</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้คนไข้เยอะมาก ต้องรอนานค่ะ</div><div class="roman">wan-níi khon-khâi yə́ mâak, dtɔ̂ng rɔɔ naan khâ</div><div class="eng">There are many patients today, so I have to wait long.</div></div></td>
         </tr>
 
@@ -614,7 +623,7 @@
           <td>Place</td>
           <td>ร้าน</td>
           <td>泰國很多藥局可直接諮詢藥師，但要清楚說症狀與過敏史。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปร้านขายยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปร้านขายยา</span><span class="en-colloc">go to a pharmacy</span></span><span class="colloc-chip" data-thai="ซื้อยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ซื้อยา</span><span class="en-colloc">buy medicine</span></span><span class="colloc-chip" data-thai="ถามเภสัช" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถามเภสัช</span><span class="en-colloc">ask the pharmacist</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปร้านขายยา" role="button" tabindex="0" ><span class="thai">ไปร้านขายยา</span><span class="en-colloc">go to a pharmacy</span></span><span class="colloc-chip" data-thai="ซื้อยา" role="button" tabindex="0" ><span class="thai">ซื้อยา</span><span class="en-colloc">buy medicine</span></span><span class="colloc-chip" data-thai="ถามเภสัช" role="button" tabindex="0" ><span class="thai">ถามเภสัช</span><span class="en-colloc">ask the pharmacist</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันจะไปร้านขายยาใกล้คอนโดค่ะ</div><div class="roman">chǎn jà bpai ráan-khǎai-yaa glâi khɔɔn-doo khâ</div><div class="eng">I will go to the pharmacy near my condo.</div></div></td>
         </tr>
 
@@ -623,7 +632,7 @@
           <td>Person</td>
           <td>คน</td>
           <td><span class="thai">เภสัชกร</span> 正式；口語常簡短說 <span class="thai">เภสัช</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถามเภสัช" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถามเภสัช</span><span class="en-colloc">ask the pharmacist</span></span><span class="colloc-chip" data-thai="เภสัชแนะนำยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เภสัชแนะนำยา</span><span class="en-colloc">pharmacist recommends medicine</span></span><span class="colloc-chip" data-thai="เภสัชบอกวิธีกินยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เภสัชบอกวิธีกินยา</span><span class="en-colloc">pharmacist tells how to take medicine</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถามเภสัช" role="button" tabindex="0" ><span class="thai">ถามเภสัช</span><span class="en-colloc">ask the pharmacist</span></span><span class="colloc-chip" data-thai="เภสัชแนะนำยา" role="button" tabindex="0" ><span class="thai">เภสัชแนะนำยา</span><span class="en-colloc">pharmacist recommends medicine</span></span><span class="colloc-chip" data-thai="เภสัชบอกวิธีกินยา" role="button" tabindex="0" ><span class="thai">เภสัชบอกวิธีกินยา</span><span class="en-colloc">pharmacist tells how to take medicine</span></span></div></td>
           <td><div class="triad"><div class="thai">เภสัชบอกว่าต้องกินยาหลังอาหารค่ะ</div><div class="roman">phee-sàt bɔ̀ɔk wâa dtɔ̂ng gin yaa lǎng aa-hǎan khâ</div><div class="eng">The pharmacist said I have to take the medicine after meals.</div></div></td>
         </tr>
       </tbody>
@@ -647,7 +656,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td>泰文常說「有 fever」。否定是 <span class="thai">ไม่มีไข้</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีไข้สูง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีไข้สูง</span><span class="en-colloc">have high fever</span></span><span class="colloc-chip" data-thai="ไม่มีไข้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่มีไข้</span><span class="en-colloc">no fever</span></span><span class="colloc-chip" data-thai="วัดไข้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วัดไข้</span><span class="en-colloc">measure temperature</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีไข้สูง" role="button" tabindex="0" ><span class="thai">มีไข้สูง</span><span class="en-colloc">have high fever</span></span><span class="colloc-chip" data-thai="ไม่มีไข้" role="button" tabindex="0" ><span class="thai">ไม่มีไข้</span><span class="en-colloc">no fever</span></span><span class="colloc-chip" data-thai="วัดไข้" role="button" tabindex="0" ><span class="thai">วัดไข้</span><span class="en-colloc">measure temperature</span></span></div></td>
           <td><div class="triad"><div class="thai">เมื่อคืนฉันมีไข้ แต่วันนี้ดีขึ้นค่ะ</div><div class="roman">mʉ̂a-khʉʉn chǎn mii khâi, dtɛ̀ɛ wan-níi dii khʉ̂n khâ</div><div class="eng">Last night I had a fever, but today I’m better.</div></div></td>
         </tr>
 
@@ -656,7 +665,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td>教材第 4 頁用於體溫高。嚴重時應就醫。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เด็กมีไข้สูง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เด็กมีไข้สูง</span><span class="en-colloc">child has high fever</span></span><span class="colloc-chip" data-thai="มีไข้สูงทั้งคืน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีไข้สูงทั้งคืน</span><span class="en-colloc">had high fever all night</span></span><span class="colloc-chip" data-thai="ไข้ไม่ลด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไข้ไม่ลด</span><span class="en-colloc">fever doesn’t go down</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เด็กมีไข้สูง" role="button" tabindex="0" ><span class="thai">เด็กมีไข้สูง</span><span class="en-colloc">child has high fever</span></span><span class="colloc-chip" data-thai="มีไข้สูงทั้งคืน" role="button" tabindex="0" ><span class="thai">มีไข้สูงทั้งคืน</span><span class="en-colloc">had high fever all night</span></span><span class="colloc-chip" data-thai="ไข้ไม่ลด" role="button" tabindex="0" ><span class="thai">ไข้ไม่ลด</span><span class="en-colloc">fever doesn’t go down</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้ามีไข้สูงทั้งคืน ควรไปหาหมอค่ะ</div><div class="roman">thâa mii khâi sǔung tháng khʉʉn, khuan bpai hǎa mɔ̌ɔ khâ</div><div class="eng">If you have a high fever all night, you should see a doctor.</div></div></td>
         </tr>
 
@@ -665,7 +674,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td><span class="thai">เจ็บ</span> 是痛，<span class="thai">คอ</span> 是喉嚨/脖子。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เจ็บคอมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เจ็บคอมาก</span><span class="en-colloc">very sore throat</span></span><span class="colloc-chip" data-thai="เจ็บคอตอนกลืน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เจ็บคอตอนกลืน</span><span class="en-colloc">throat hurts when swallowing</span></span><span class="colloc-chip" data-thai="ยาอมแก้เจ็บคอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาอมแก้เจ็บคอ</span><span class="en-colloc">lozenge for sore throat</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เจ็บคอมาก" role="button" tabindex="0" ><span class="thai">เจ็บคอมาก</span><span class="en-colloc">very sore throat</span></span><span class="colloc-chip" data-thai="เจ็บคอตอนกลืน" role="button" tabindex="0" ><span class="thai">เจ็บคอตอนกลืน</span><span class="en-colloc">throat hurts when swallowing</span></span><span class="colloc-chip" data-thai="ยาอมแก้เจ็บคอ" role="button" tabindex="0" ><span class="thai">ยาอมแก้เจ็บคอ</span><span class="en-colloc">lozenge for sore throat</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันเจ็บคอเพราะพูดเยอะเมื่อวานค่ะ</div><div class="roman">chǎn jèp-khɔɔ phrɔ́ phûut yə́ mʉ̂a-waan khâ</div><div class="eng">I have a sore throat because I talked a lot yesterday.</div></div></td>
         </tr>
 
@@ -674,7 +683,7 @@
           <td>Symptom / verb</td>
           <td>—</td>
           <td>咳嗽。可以說咳得很厲害。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไอแห้ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไอแห้ง</span><span class="en-colloc">dry cough</span></span><span class="colloc-chip" data-thai="ไอมีเสมหะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไอมีเสมหะ</span><span class="en-colloc">cough with phlegm</span></span><span class="colloc-chip" data-thai="ไอทั้งคืน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไอทั้งคืน</span><span class="en-colloc">cough all night</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไอแห้ง" role="button" tabindex="0" ><span class="thai">ไอแห้ง</span><span class="en-colloc">dry cough</span></span><span class="colloc-chip" data-thai="ไอมีเสมหะ" role="button" tabindex="0" ><span class="thai">ไอมีเสมหะ</span><span class="en-colloc">cough with phlegm</span></span><span class="colloc-chip" data-thai="ไอทั้งคืน" role="button" tabindex="0" ><span class="thai">ไอทั้งคืน</span><span class="en-colloc">cough all night</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันไอทั้งคืน เลยนอนไม่ค่อยหลับค่ะ</div><div class="roman">chǎn ai tháng khʉʉn, ləəi nɔɔn mâi khɔ̂i làp khâ</div><div class="eng">I coughed all night, so I couldn’t sleep well.</div></div></td>
         </tr>
 
@@ -683,7 +692,7 @@
           <td>Symptom / verb</td>
           <td>ครั้ง</td>
           <td>打噴嚏。過敏、感冒都可能。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จามบ่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จามบ่อย</span><span class="en-colloc">sneeze often</span></span><span class="colloc-chip" data-thai="จามทั้งวัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จามทั้งวัน</span><span class="en-colloc">sneeze all day</span></span><span class="colloc-chip" data-thai="จามเพราะแพ้ฝุ่น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จามเพราะแพ้ฝุ่น</span><span class="en-colloc">sneeze because of dust allergy</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จามบ่อย" role="button" tabindex="0" ><span class="thai">จามบ่อย</span><span class="en-colloc">sneeze often</span></span><span class="colloc-chip" data-thai="จามทั้งวัน" role="button" tabindex="0" ><span class="thai">จามทั้งวัน</span><span class="en-colloc">sneeze all day</span></span><span class="colloc-chip" data-thai="จามเพราะแพ้ฝุ่น" role="button" tabindex="0" ><span class="thai">จามเพราะแพ้ฝุ่น</span><span class="en-colloc">sneeze because of dust allergy</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันจามบ่อยเวลาเปิดแอร์ค่ะ</div><div class="roman">chǎn jaam bɔ̀i wee-laa bpə̀ət ɛɛ khâ</div><div class="eng">I sneeze often when the air conditioner is on.</div></div></td>
         </tr>
 
@@ -692,7 +701,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td>直譯「有鼻涕」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="น้ำมูกไหล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">น้ำมูกไหล</span><span class="en-colloc">runny nose</span></span><span class="colloc-chip" data-thai="มีน้ำมูกใส" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีน้ำมูกใส</span><span class="en-colloc">clear mucus</span></span><span class="colloc-chip" data-thai="คัดจมูก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คัดจมูก</span><span class="en-colloc">stuffy nose</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="น้ำมูกไหล" role="button" tabindex="0" ><span class="thai">น้ำมูกไหล</span><span class="en-colloc">runny nose</span></span><span class="colloc-chip" data-thai="มีน้ำมูกใส" role="button" tabindex="0" ><span class="thai">มีน้ำมูกใส</span><span class="en-colloc">clear mucus</span></span><span class="colloc-chip" data-thai="คัดจมูก" role="button" tabindex="0" ><span class="thai">คัดจมูก</span><span class="en-colloc">stuffy nose</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันมีน้ำมูกตั้งแต่เช้า แต่ไม่มีไข้ค่ะ</div><div class="roman">chǎn mii náam-mûuk dtâng-dtɛ̀ɛ cháo, dtɛ̀ɛ mâi mii khâi khâ</div><div class="eng">I’ve had a runny nose since morning, but no fever.</div></div></td>
         </tr>
 
@@ -701,7 +710,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td>痰。和咳嗽常一起說。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไอมีเสมหะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไอมีเสมหะ</span><span class="en-colloc">cough with phlegm</span></span><span class="colloc-chip" data-thai="เสมหะเยอะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสมหะเยอะ</span><span class="en-colloc">lots of phlegm</span></span><span class="colloc-chip" data-thai="ยาละลายเสมหะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาละลายเสมหะ</span><span class="en-colloc">phlegm-dissolving medicine</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไอมีเสมหะ" role="button" tabindex="0" ><span class="thai">ไอมีเสมหะ</span><span class="en-colloc">cough with phlegm</span></span><span class="colloc-chip" data-thai="เสมหะเยอะ" role="button" tabindex="0" ><span class="thai">เสมหะเยอะ</span><span class="en-colloc">lots of phlegm</span></span><span class="colloc-chip" data-thai="ยาละลายเสมหะ" role="button" tabindex="0" ><span class="thai">ยาละลายเสมหะ</span><span class="en-colloc">phlegm-dissolving medicine</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันไอมีเสมหะ เลยอยากถามเภสัชก่อนซื้อยา</div><div class="roman">chǎn ai mii sěem-hà, ləəi yàak thǎam phee-sàt gɔ̀ɔn sʉ́ʉ yaa</div><div class="eng">I have a cough with phlegm, so I want to ask the pharmacist before buying medicine.</div></div></td>
         </tr>
 
@@ -710,7 +719,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td><span class="thai">ปวด</span> 是痠痛、疼痛；頭痛用 <span class="thai">ปวดหัว</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ปวดหัวมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปวดหัวมาก</span><span class="en-colloc">bad headache</span></span><span class="colloc-chip" data-thai="หายปวดหัว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หายปวดหัว</span><span class="en-colloc">headache is gone</span></span><span class="colloc-chip" data-thai="ยาแก้ปวดหัว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ปวดหัว</span><span class="en-colloc">headache medicine</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ปวดหัวมาก" role="button" tabindex="0" ><span class="thai">ปวดหัวมาก</span><span class="en-colloc">bad headache</span></span><span class="colloc-chip" data-thai="หายปวดหัว" role="button" tabindex="0" ><span class="thai">หายปวดหัว</span><span class="en-colloc">headache is gone</span></span><span class="colloc-chip" data-thai="ยาแก้ปวดหัว" role="button" tabindex="0" ><span class="thai">ยาแก้ปวดหัว</span><span class="en-colloc">headache medicine</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้แดดแรงมาก ทำให้ฉันปวดหัวค่ะ</div><div class="roman">wan-níi dɛ̀ɛt rɛɛng mâak, tham-hâi chǎn bpùat-hǔa khâ</div><div class="eng">The sun is very strong today, and it gave me a headache.</div></div></td>
         </tr>
 
@@ -719,7 +728,7 @@
           <td>Illness</td>
           <td>—</td>
           <td>口語常簡短說 <span class="thai">เป็นหวัด</span>。教材也出現 <span class="thai">หวัดไข้</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เป็นหวัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เป็นหวัด</span><span class="en-colloc">have a cold</span></span><span class="colloc-chip" data-thai="หวัดลงคอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หวัดลงคอ</span><span class="en-colloc">cold affecting throat</span></span><span class="colloc-chip" data-thai="หวัดธรรมดา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หวัดธรรมดา</span><span class="en-colloc">common cold</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เป็นหวัด" role="button" tabindex="0" ><span class="thai">เป็นหวัด</span><span class="en-colloc">have a cold</span></span><span class="colloc-chip" data-thai="หวัดลงคอ" role="button" tabindex="0" ><span class="thai">หวัดลงคอ</span><span class="en-colloc">cold affecting throat</span></span><span class="colloc-chip" data-thai="หวัดธรรมดา" role="button" tabindex="0" ><span class="thai">หวัดธรรมดา</span><span class="en-colloc">common cold</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันเป็นหวัดนิดหน่อย เลยใส่หน้ากากค่ะ</div><div class="roman">chǎn bpen wàt nít-nɔ̀i, ləəi sài nâa-gàak khâ</div><div class="eng">I have a slight cold, so I’m wearing a mask.</div></div></td>
         </tr>
       </tbody>
@@ -743,7 +752,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td>非常常用。旅遊吃壞肚子時必備。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ท้องเสียทั้งคืน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท้องเสียทั้งคืน</span><span class="en-colloc">diarrhea all night</span></span><span class="colloc-chip" data-thai="ยาแก้ท้องเสีย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ท้องเสีย</span><span class="en-colloc">diarrhea medicine</span></span><span class="colloc-chip" data-thai="ท้องเสียเพราะอาหารไม่สะอาด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท้องเสียเพราะอาหารไม่สะอาด</span><span class="en-colloc">diarrhea from unclean food</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ท้องเสียทั้งคืน" role="button" tabindex="0" ><span class="thai">ท้องเสียทั้งคืน</span><span class="en-colloc">diarrhea all night</span></span><span class="colloc-chip" data-thai="ยาแก้ท้องเสีย" role="button" tabindex="0" ><span class="thai">ยาแก้ท้องเสีย</span><span class="en-colloc">diarrhea medicine</span></span><span class="colloc-chip" data-thai="ท้องเสียเพราะอาหารไม่สะอาด" role="button" tabindex="0" ><span class="thai">ท้องเสียเพราะอาหารไม่สะอาด</span><span class="en-colloc">diarrhea from unclean food</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันท้องเสียหลังจากกินอาหารทะเลค่ะ</div><div class="roman">chǎn thɔ́ɔng-sǐa lǎng-jàak gin aa-hǎan thá-lee khâ</div><div class="eng">I had diarrhea after eating seafood.</div></div></td>
         </tr>
 
@@ -752,7 +761,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td>和 <span class="thai">ท้องเสีย</span> 相反。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เป็นท้องผูก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เป็นท้องผูก</span><span class="en-colloc">be constipated</span></span><span class="colloc-chip" data-thai="ยาแก้ท้องผูก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ท้องผูก</span><span class="en-colloc">constipation medicine</span></span><span class="colloc-chip" data-thai="ดื่มน้ำน้อยทำให้ท้องผูก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ดื่มน้ำน้อยทำให้ท้องผูก</span><span class="en-colloc">drinking little water causes constipation</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เป็นท้องผูก" role="button" tabindex="0" ><span class="thai">เป็นท้องผูก</span><span class="en-colloc">be constipated</span></span><span class="colloc-chip" data-thai="ยาแก้ท้องผูก" role="button" tabindex="0" ><span class="thai">ยาแก้ท้องผูก</span><span class="en-colloc">constipation medicine</span></span><span class="colloc-chip" data-thai="ดื่มน้ำน้อยทำให้ท้องผูก" role="button" tabindex="0" ><span class="thai">ดื่มน้ำน้อยทำให้ท้องผูก</span><span class="en-colloc">drinking little water causes constipation</span></span></div></td>
           <td><div class="triad"><div class="thai">ช่วงเดินทางฉันท้องผูกบ่อยค่ะ</div><div class="roman">chûang dəən-thaang chǎn thɔ́ɔng-phùuk bɔ̀i khâ</div><div class="eng">I often get constipated when traveling.</div></div></td>
         </tr>
 
@@ -761,7 +770,7 @@
           <td>Symptom / body reaction</td>
           <td>—</td>
           <td>肚子叫。可因餓或腸胃蠕動。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ท้องร้องดัง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท้องร้องดัง</span><span class="en-colloc">stomach growls loudly</span></span><span class="colloc-chip" data-thai="ท้องร้องเพราะหิว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท้องร้องเพราะหิว</span><span class="en-colloc">stomach growls from hunger</span></span><span class="colloc-chip" data-thai="ท้องร้องในห้องเรียน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท้องร้องในห้องเรียน</span><span class="en-colloc">stomach growls in class</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ท้องร้องดัง" role="button" tabindex="0" ><span class="thai">ท้องร้องดัง</span><span class="en-colloc">stomach growls loudly</span></span><span class="colloc-chip" data-thai="ท้องร้องเพราะหิว" role="button" tabindex="0" ><span class="thai">ท้องร้องเพราะหิว</span><span class="en-colloc">stomach growls from hunger</span></span><span class="colloc-chip" data-thai="ท้องร้องในห้องเรียน" role="button" tabindex="0" ><span class="thai">ท้องร้องในห้องเรียน</span><span class="en-colloc">stomach growls in class</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันยังไม่ได้กินข้าว ท้องเลยร้องค่ะ</div><div class="roman">chǎn yang mâi dâai gin khâao, thɔ́ɔng ləəi rɔ́ɔng khâ</div><div class="eng">I haven’t eaten yet, so my stomach is growling.</div></div></td>
         </tr>
 
@@ -770,7 +779,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td>肚子脹氣、不舒服。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ท้องอืดหลังอาหาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท้องอืดหลังอาหาร</span><span class="en-colloc">bloated after food</span></span><span class="colloc-chip" data-thai="ยาแก้ท้องอืด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ท้องอืด</span><span class="en-colloc">medicine for bloating</span></span><span class="colloc-chip" data-thai="อาหารทำให้ท้องอืด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาหารทำให้ท้องอืด</span><span class="en-colloc">food causes bloating</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ท้องอืดหลังอาหาร" role="button" tabindex="0" ><span class="thai">ท้องอืดหลังอาหาร</span><span class="en-colloc">bloated after food</span></span><span class="colloc-chip" data-thai="ยาแก้ท้องอืด" role="button" tabindex="0" ><span class="thai">ยาแก้ท้องอืด</span><span class="en-colloc">medicine for bloating</span></span><span class="colloc-chip" data-thai="อาหารทำให้ท้องอืด" role="button" tabindex="0" ><span class="thai">อาหารทำให้ท้องอืด</span><span class="en-colloc">food causes bloating</span></span></div></td>
           <td><div class="triad"><div class="thai">กินเร็วเกินไปทำให้ฉันท้องอืดค่ะ</div><div class="roman">gin rew gəən bpai tham-hâi chǎn thɔ́ɔng-ʉ̀ʉt khâ</div><div class="eng">Eating too fast makes me bloated.</div></div></td>
         </tr>
 
@@ -779,7 +788,7 @@
           <td>Body reaction</td>
           <td>ครั้ง</td>
           <td><span class="thai">ผายลม</span> 比較正式；日常可能聽到較口語說法，但教材用正式詞。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เรอบ่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เรอบ่อย</span><span class="en-colloc">burp often</span></span><span class="colloc-chip" data-thai="ผายลมบ่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ผายลมบ่อย</span><span class="en-colloc">pass gas often</span></span><span class="colloc-chip" data-thai="ท้องอืดแล้วเรอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท้องอืดแล้วเรอ</span><span class="en-colloc">bloated and burping</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เรอบ่อย" role="button" tabindex="0" ><span class="thai">เรอบ่อย</span><span class="en-colloc">burp often</span></span><span class="colloc-chip" data-thai="ผายลมบ่อย" role="button" tabindex="0" ><span class="thai">ผายลมบ่อย</span><span class="en-colloc">pass gas often</span></span><span class="colloc-chip" data-thai="ท้องอืดแล้วเรอ" role="button" tabindex="0" ><span class="thai">ท้องอืดแล้วเรอ</span><span class="en-colloc">bloated and burping</span></span></div></td>
           <td><div class="triad"><div class="thai">หลังดื่มน้ำอัดลม ฉันเรอบ่อยค่ะ</div><div class="roman">lǎng dʉ̀ʉm náam-àt-lom, chǎn rəə bɔ̀i khâ</div><div class="eng">After drinking soda, I burp often.</div></div></td>
         </tr>
 
@@ -788,7 +797,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td>頭暈。可因暈車、低血糖、疲勞等。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เวียนหัวมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เวียนหัวมาก</span><span class="en-colloc">very dizzy</span></span><span class="colloc-chip" data-thai="เวียนหัวตอนลุก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เวียนหัวตอนลุก</span><span class="en-colloc">dizzy when standing up</span></span><span class="colloc-chip" data-thai="เวียนหัวจะเป็นลม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เวียนหัวจะเป็นลม</span><span class="en-colloc">dizzy and about to faint</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เวียนหัวมาก" role="button" tabindex="0" ><span class="thai">เวียนหัวมาก</span><span class="en-colloc">very dizzy</span></span><span class="colloc-chip" data-thai="เวียนหัวตอนลุก" role="button" tabindex="0" ><span class="thai">เวียนหัวตอนลุก</span><span class="en-colloc">dizzy when standing up</span></span><span class="colloc-chip" data-thai="เวียนหัวจะเป็นลม" role="button" tabindex="0" ><span class="thai">เวียนหัวจะเป็นลม</span><span class="en-colloc">dizzy and about to faint</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันเวียนหัวหลังจากนั่งเรือนานค่ะ</div><div class="roman">chǎn wian-hǔa lǎng-jàak nâng rʉa naan khâ</div><div class="eng">I felt dizzy after sitting on the boat for a long time.</div></div></td>
         </tr>
 
@@ -797,7 +806,7 @@
           <td>Symptom</td>
           <td>—</td>
           <td>想吐、噁心。常和 <span class="thai">อาเจียน</span> 搭配。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คลื่นไส้จะอาเจียน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คลื่นไส้จะอาเจียน</span><span class="en-colloc">nauseous and about to vomit</span></span><span class="colloc-chip" data-thai="เมารถแล้วคลื่นไส้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เมารถแล้วคลื่นไส้</span><span class="en-colloc">carsick and nauseous</span></span><span class="colloc-chip" data-thai="ยาแก้คลื่นไส้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้คลื่นไส้</span><span class="en-colloc">anti-nausea medicine</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คลื่นไส้จะอาเจียน" role="button" tabindex="0" ><span class="thai">คลื่นไส้จะอาเจียน</span><span class="en-colloc">nauseous and about to vomit</span></span><span class="colloc-chip" data-thai="เมารถแล้วคลื่นไส้" role="button" tabindex="0" ><span class="thai">เมารถแล้วคลื่นไส้</span><span class="en-colloc">carsick and nauseous</span></span><span class="colloc-chip" data-thai="ยาแก้คลื่นไส้" role="button" tabindex="0" ><span class="thai">ยาแก้คลื่นไส้</span><span class="en-colloc">anti-nausea medicine</span></span></div></td>
           <td><div class="triad"><div class="thai">กลิ่นอาหารแรงทำให้ฉันคลื่นไส้ค่ะ</div><div class="roman">glìn aa-hǎan rɛɛng tham-hâi chǎn khlʉ̂ʉn-sâi khâ</div><div class="eng">Strong food smells make me nauseous.</div></div></td>
         </tr>
 
@@ -806,7 +815,7 @@
           <td>Symptom / verb</td>
           <td>ครั้ง</td>
           <td>比較正式，醫療場景常用。口語也常聽到 <span class="thai">อ้วก</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อาเจียนหลายครั้ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาเจียนหลายครั้ง</span><span class="en-colloc">vomit many times</span></span><span class="colloc-chip" data-thai="คลื่นไส้และอาเจียน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คลื่นไส้และอาเจียน</span><span class="en-colloc">nausea and vomiting</span></span><span class="colloc-chip" data-thai="อาเจียนหลังอาหาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาเจียนหลังอาหาร</span><span class="en-colloc">vomit after food</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อาเจียนหลายครั้ง" role="button" tabindex="0" ><span class="thai">อาเจียนหลายครั้ง</span><span class="en-colloc">vomit many times</span></span><span class="colloc-chip" data-thai="คลื่นไส้และอาเจียน" role="button" tabindex="0" ><span class="thai">คลื่นไส้และอาเจียน</span><span class="en-colloc">nausea and vomiting</span></span><span class="colloc-chip" data-thai="อาเจียนหลังอาหาร" role="button" tabindex="0" ><span class="thai">อาเจียนหลังอาหาร</span><span class="en-colloc">vomit after food</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าอาเจียนหลายครั้ง ควรดื่มน้ำเกลือแร่และพบแพทย์ค่ะ</div><div class="roman">thâa aa-jian lǎai khráng, khuan dʉ̀ʉm náam-glʉa-rɛ̂ɛ lɛ́ phóp phɛ̂ɛt khâ</div><div class="eng">If you vomit many times, you should drink oral rehydration solution and see a doctor.</div></div></td>
         </tr>
 
@@ -815,7 +824,7 @@
           <td>Emergency symptom</td>
           <td>ครั้ง</td>
           <td>昏倒。常見於天氣熱、人多、血糖低等情境。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จะเป็นลม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จะเป็นลม</span><span class="en-colloc">about to faint</span></span><span class="colloc-chip" data-thai="เป็นลมใน BTS" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เป็นลมใน BTS</span><span class="en-colloc">faint on BTS</span></span><span class="colloc-chip" data-thai="ช่วยคนเป็นลม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ช่วยคนเป็นลม</span><span class="en-colloc">help someone who fainted</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จะเป็นลม" role="button" tabindex="0" ><span class="thai">จะเป็นลม</span><span class="en-colloc">about to faint</span></span><span class="colloc-chip" data-thai="เป็นลมใน BTS" role="button" tabindex="0" ><span class="thai">เป็นลมใน BTS</span><span class="en-colloc">faint on BTS</span></span><span class="colloc-chip" data-thai="ช่วยคนเป็นลม" role="button" tabindex="0" ><span class="thai">ช่วยคนเป็นลม</span><span class="en-colloc">help someone who fainted</span></span></div></td>
           <td><div class="triad"><div class="thai">อากาศร้อนมากจนฉันเกือบเป็นลมค่ะ</div><div class="roman">aa-gàat rɔ́ɔn mâak jon chǎn gʉ̀ap bpen-lom khâ</div><div class="eng">The weather was so hot that I almost fainted.</div></div></td>
         </tr>
 
@@ -824,7 +833,7 @@
           <td>Verb</td>
           <td>—</td>
           <td>本課是「過敏」。另有「輸給」的意思，靠語境分辨。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แพ้อาหารทะเล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แพ้อาหารทะเล</span><span class="en-colloc">allergic to seafood</span></span><span class="colloc-chip" data-thai="แพ้ยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แพ้ยา</span><span class="en-colloc">allergic to medicine</span></span><span class="colloc-chip" data-thai="แพ้ดอกไม้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แพ้ดอกไม้</span><span class="en-colloc">allergic to flowers</span></span><span class="colloc-chip" data-thai="ผื่นขึ้น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ผื่นขึ้น</span><span class="en-colloc">rash appears</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แพ้อาหารทะเล" role="button" tabindex="0" ><span class="thai">แพ้อาหารทะเล</span><span class="en-colloc">allergic to seafood</span></span><span class="colloc-chip" data-thai="แพ้ยา" role="button" tabindex="0" ><span class="thai">แพ้ยา</span><span class="en-colloc">allergic to medicine</span></span><span class="colloc-chip" data-thai="แพ้ดอกไม้" role="button" tabindex="0" ><span class="thai">แพ้ดอกไม้</span><span class="en-colloc">allergic to flowers</span></span><span class="colloc-chip" data-thai="ผื่นขึ้น" role="button" tabindex="0" ><span class="thai">ผื่นขึ้น</span><span class="en-colloc">rash appears</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันแพ้อาหารทะเล กินกุ้งแล้วผื่นขึ้นค่ะ</div><div class="roman">chǎn phɛ́ɛ aa-hǎan thá-lee, gin gûng lɛ́ɛw phʉ̀ʉn khʉ̂n khâ</div><div class="eng">I’m allergic to seafood. I get a rash after eating shrimp.</div></div></td>
         </tr>
       </tbody>
@@ -848,7 +857,7 @@
           <td>Noun</td>
           <td>เม็ด / ขวด / หลอด / กล่อง</td>
           <td>泛稱藥。實際量詞看藥品形式。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินยา</span><span class="en-colloc">take medicine</span></span><span class="colloc-chip" data-thai="ซื้อยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ซื้อยา</span><span class="en-colloc">buy medicine</span></span><span class="colloc-chip" data-thai="ยาแก้ปวด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ปวด</span><span class="en-colloc">painkiller</span></span><span class="colloc-chip" data-thai="แพ้ยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แพ้ยา</span><span class="en-colloc">allergic to medicine</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินยา" role="button" tabindex="0" ><span class="thai">กินยา</span><span class="en-colloc">take medicine</span></span><span class="colloc-chip" data-thai="ซื้อยา" role="button" tabindex="0" ><span class="thai">ซื้อยา</span><span class="en-colloc">buy medicine</span></span><span class="colloc-chip" data-thai="ยาแก้ปวด" role="button" tabindex="0" ><span class="thai">ยาแก้ปวด</span><span class="en-colloc">painkiller</span></span><span class="colloc-chip" data-thai="แพ้ยา" role="button" tabindex="0" ><span class="thai">แพ้ยา</span><span class="en-colloc">allergic to medicine</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันแพ้ยาบางชนิด ต้องบอกเภสัชก่อนค่ะ</div><div class="roman">chǎn phɛ́ɛ yaa baang chá-nít, dtɔ̂ng bɔ̀ɔk phee-sàt gɔ̀ɔn khâ</div><div class="eng">I’m allergic to some medicines, so I have to tell the pharmacist first.</div></div></td>
         </tr>
 
@@ -857,7 +866,7 @@
           <td>Medicine</td>
           <td>เม็ด / แผง</td>
           <td><span class="thai">อม</span> 是含在嘴裡，不是吞。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อมยาอม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อมยาอม</span><span class="en-colloc">suck a lozenge</span></span><span class="colloc-chip" data-thai="ยาอมแก้เจ็บคอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาอมแก้เจ็บคอ</span><span class="en-colloc">lozenge for sore throat</span></span><span class="colloc-chip" data-thai="ยาอมรสมินต์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาอมรสมินต์</span><span class="en-colloc">mint lozenge</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อมยาอม" role="button" tabindex="0" ><span class="thai">อมยาอม</span><span class="en-colloc">suck a lozenge</span></span><span class="colloc-chip" data-thai="ยาอมแก้เจ็บคอ" role="button" tabindex="0" ><span class="thai">ยาอมแก้เจ็บคอ</span><span class="en-colloc">lozenge for sore throat</span></span><span class="colloc-chip" data-thai="ยาอมรสมินต์" role="button" tabindex="0" ><span class="thai">ยาอมรสมินต์</span><span class="en-colloc">mint lozenge</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าเจ็บคอมาก อาจอมยาอมก่อนนอนค่ะ</div><div class="roman">thâa jèp-khɔɔ mâak, àat om yaa-om gɔ̀ɔn nɔɔn khâ</div><div class="eng">If your throat hurts a lot, you might use a lozenge before bed.</div></div></td>
         </tr>
 
@@ -866,7 +875,7 @@
           <td>Medicine / daily item</td>
           <td>อัน / หลอด</td>
           <td>泰國常見鼻通/嗅聞型清涼用品。頭暈、鼻塞時常有人用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ดมยาดม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ดมยาดม</span><span class="en-colloc">smell an inhaler</span></span><span class="colloc-chip" data-thai="ยาดมโป๊ยเซียน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาดมโป๊ยเซียน</span><span class="en-colloc">Poy-Sian inhaler</span></span><span class="colloc-chip" data-thai="เวียนหัวใช้ยาดม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เวียนหัวใช้ยาดม</span><span class="en-colloc">use inhaler when dizzy</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ดมยาดม" role="button" tabindex="0" ><span class="thai">ดมยาดม</span><span class="en-colloc">smell an inhaler</span></span><span class="colloc-chip" data-thai="ยาดมโป๊ยเซียน" role="button" tabindex="0" ><span class="thai">ยาดมโป๊ยเซียน</span><span class="en-colloc">Poy-Sian inhaler</span></span><span class="colloc-chip" data-thai="เวียนหัวใช้ยาดม" role="button" tabindex="0" ><span class="thai">เวียนหัวใช้ยาดม</span><span class="en-colloc">use inhaler when dizzy</span></span></div></td>
           <td><div class="triad"><div class="thai">คนไทยหลายคนพกยาดมในกระเป๋าค่ะ</div><div class="roman">khon thai lǎai khon phók yaa-dom nai grà-bpǎo khâ</div><div class="eng">Many Thai people carry inhalers in their bags.</div></div></td>
         </tr>
 
@@ -875,7 +884,7 @@
           <td>Medicine</td>
           <td>เม็ด</td>
           <td><span class="thai">เม็ด</span> 是粒狀、顆狀量詞。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินยาเม็ด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินยาเม็ด</span><span class="en-colloc">take a pill</span></span><span class="colloc-chip" data-thai="ยาเม็ดสีขาว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาเม็ดสีขาว</span><span class="en-colloc">white pill</span></span><span class="colloc-chip" data-thai="ครั้งละหนึ่งเม็ด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ครั้งละหนึ่งเม็ด</span><span class="en-colloc">one tablet per time</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินยาเม็ด" role="button" tabindex="0" ><span class="thai">กินยาเม็ด</span><span class="en-colloc">take a pill</span></span><span class="colloc-chip" data-thai="ยาเม็ดสีขาว" role="button" tabindex="0" ><span class="thai">ยาเม็ดสีขาว</span><span class="en-colloc">white pill</span></span><span class="colloc-chip" data-thai="ครั้งละหนึ่งเม็ด" role="button" tabindex="0" ><span class="thai">ครั้งละหนึ่งเม็ด</span><span class="en-colloc">one tablet per time</span></span></div></td>
           <td><div class="triad"><div class="thai">ยานี้กินครั้งละหนึ่งเม็ดหลังอาหารค่ะ</div><div class="roman">yaa níi gin khráng lá nʉ̀eng mét lǎng aa-hǎan khâ</div><div class="eng">Take this medicine one tablet at a time after meals.</div></div></td>
         </tr>
 
@@ -884,7 +893,7 @@
           <td>Medicine</td>
           <td>ขวด / เม็ด</td>
           <td><span class="thai">แก้</span> 在藥名中是「治、緩解」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ยาแก้ไอน้ำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ไอน้ำ</span><span class="en-colloc">liquid cough medicine</span></span><span class="colloc-chip" data-thai="ยาแก้ไอเม็ด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ไอเม็ด</span><span class="en-colloc">cough tablets</span></span><span class="colloc-chip" data-thai="กินยาแก้ไอก่อนนอน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินยาแก้ไอก่อนนอน</span><span class="en-colloc">take cough medicine before bed</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ยาแก้ไอน้ำ" role="button" tabindex="0" ><span class="thai">ยาแก้ไอน้ำ</span><span class="en-colloc">liquid cough medicine</span></span><span class="colloc-chip" data-thai="ยาแก้ไอเม็ด" role="button" tabindex="0" ><span class="thai">ยาแก้ไอเม็ด</span><span class="en-colloc">cough tablets</span></span><span class="colloc-chip" data-thai="กินยาแก้ไอก่อนนอน" role="button" tabindex="0" ><span class="thai">กินยาแก้ไอก่อนนอน</span><span class="en-colloc">take cough medicine before bed</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันไอทั้งคืน เลยอยากซื้อยาแก้ไอค่ะ</div><div class="roman">chǎn ai tháng khʉʉn, ləəi yàak sʉ́ʉ yaa-gɛ̂ɛ-ai khâ</div><div class="eng">I coughed all night, so I want to buy cough medicine.</div></div></td>
         </tr>
 
@@ -893,7 +902,7 @@
           <td>Medicine</td>
           <td>ขวด</td>
           <td><span class="thai">หยอด</span> 是滴。眼藥水用滴的。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หยอดตา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หยอดตา</span><span class="en-colloc">put in eye drops</span></span><span class="colloc-chip" data-thai="ตาแห้ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตาแห้ง</span><span class="en-colloc">dry eyes</span></span><span class="colloc-chip" data-thai="ยาหยอดตาแก้แพ้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาหยอดตาแก้แพ้</span><span class="en-colloc">allergy eye drops</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หยอดตา" role="button" tabindex="0" ><span class="thai">หยอดตา</span><span class="en-colloc">put in eye drops</span></span><span class="colloc-chip" data-thai="ตาแห้ง" role="button" tabindex="0" ><span class="thai">ตาแห้ง</span><span class="en-colloc">dry eyes</span></span><span class="colloc-chip" data-thai="ยาหยอดตาแก้แพ้" role="button" tabindex="0" ><span class="thai">ยาหยอดตาแก้แพ้</span><span class="en-colloc">allergy eye drops</span></span></div></td>
           <td><div class="triad"><div class="thai">อยู่ห้องแอร์ทั้งวันทำให้ตาแห้ง ต้องใช้ยาหยอดตาค่ะ</div><div class="roman">yùu hɔ̂ng-ɛɛ tháng wan tham-hâi dtaa hɛ̂ɛng, dtɔ̂ng chái yaa-yɔ̀ɔt-dtaa khâ</div><div class="eng">Being in an air-conditioned room all day makes my eyes dry, so I need eye drops.</div></div></td>
         </tr>
 
@@ -902,7 +911,7 @@
           <td>Medicine</td>
           <td>หลอด / กระปุก</td>
           <td><span class="thai">ทา</span> 是塗抹。皮膚癢、傷口、痠痛可能用外用藥。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทายา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทายา</span><span class="en-colloc">apply medicine</span></span><span class="colloc-chip" data-thai="ยาทาแก้คัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาทาแก้คัน</span><span class="en-colloc">anti-itch ointment</span></span><span class="colloc-chip" data-thai="ยาทาแผล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาทาแผล</span><span class="en-colloc">wound ointment</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทายา" role="button" tabindex="0" ><span class="thai">ทายา</span><span class="en-colloc">apply medicine</span></span><span class="colloc-chip" data-thai="ยาทาแก้คัน" role="button" tabindex="0" ><span class="thai">ยาทาแก้คัน</span><span class="en-colloc">anti-itch ointment</span></span><span class="colloc-chip" data-thai="ยาทาแผล" role="button" tabindex="0" ><span class="thai">ยาทาแผล</span><span class="en-colloc">wound ointment</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าผื่นคัน เภสัชอาจให้ยาทาค่ะ</div><div class="roman">thâa phʉ̀ʉn khan, phee-sàt àat hâi yaa-thaa khâ</div><div class="eng">If the rash is itchy, the pharmacist may give an ointment.</div></div></td>
         </tr>
 
@@ -911,7 +920,7 @@
           <td>Medicine</td>
           <td>เม็ด / แผง</td>
           <td>泛指止痛藥。也可具體說頭痛、牙痛、肚子痛。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ยาแก้ปวดหัว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ปวดหัว</span><span class="en-colloc">headache medicine</span></span><span class="colloc-chip" data-thai="ยาแก้ปวดฟัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ปวดฟัน</span><span class="en-colloc">toothache medicine</span></span><span class="colloc-chip" data-thai="ยาแก้ปวดท้อง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยาแก้ปวดท้อง</span><span class="en-colloc">stomachache medicine</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ยาแก้ปวดหัว" role="button" tabindex="0" ><span class="thai">ยาแก้ปวดหัว</span><span class="en-colloc">headache medicine</span></span><span class="colloc-chip" data-thai="ยาแก้ปวดฟัน" role="button" tabindex="0" ><span class="thai">ยาแก้ปวดฟัน</span><span class="en-colloc">toothache medicine</span></span><span class="colloc-chip" data-thai="ยาแก้ปวดท้อง" role="button" tabindex="0" ><span class="thai">ยาแก้ปวดท้อง</span><span class="en-colloc">stomachache medicine</span></span></div></td>
           <td><div class="triad"><div class="thai">ขอยาแก้ปวดฟันหน่อยค่ะ ปวดตั้งแต่เมื่อคืน</div><div class="roman">khɔ̌ɔ yaa-gɛ̂ɛ bpùat-fan nòi khâ, bpùat dtâng-dtɛ̀ɛ mʉ̂a-khʉʉn</div><div class="eng">I’d like toothache medicine. It has hurt since last night.</div></div></td>
         </tr>
 
@@ -920,7 +929,7 @@
           <td>Medical action</td>
           <td>เข็ม / ครั้ง</td>
           <td><span class="thai">ฉีด</span> 是注射。可由醫護打，也可說自己去打針。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กลัวฉีดยา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลัวฉีดยา</span><span class="en-colloc">afraid of injections</span></span><span class="colloc-chip" data-thai="ฉีดยาแล้วเจ็บ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฉีดยาแล้วเจ็บ</span><span class="en-colloc">injection hurts</span></span><span class="colloc-chip" data-thai="ฉีดวัคซีน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฉีดวัคซีน</span><span class="en-colloc">get vaccinated</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กลัวฉีดยา" role="button" tabindex="0" ><span class="thai">กลัวฉีดยา</span><span class="en-colloc">afraid of injections</span></span><span class="colloc-chip" data-thai="ฉีดยาแล้วเจ็บ" role="button" tabindex="0" ><span class="thai">ฉีดยาแล้วเจ็บ</span><span class="en-colloc">injection hurts</span></span><span class="colloc-chip" data-thai="ฉีดวัคซีน" role="button" tabindex="0" ><span class="thai">ฉีดวัคซีน</span><span class="en-colloc">get vaccinated</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันกลัวเข็ม แต่ต้องฉีดวัคซีนค่ะ</div><div class="roman">chǎn glua khěm, dtɛ̀ɛ dtɔ̂ng chìit wák-siin khâ</div><div class="eng">I’m afraid of needles, but I have to get vaccinated.</div></div></td>
         </tr>
       </tbody>
@@ -1890,5 +1899,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

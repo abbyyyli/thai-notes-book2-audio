@@ -367,34 +367,23 @@
       color: var(--muted);
       line-height: 1.2;
     }
-
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -403,38 +392,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -597,7 +606,7 @@
           <td>Time / season noun</td>
           <td>ฤดู</td>
           <td>表示季節，後面接天氣特徵：冷、熱、雨。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฤดูหนาว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฤดูหนาว</span><span class="en-colloc">cold season</span></span><span class="colloc-chip" data-thai="ฤดูร้อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฤดูร้อน</span><span class="en-colloc">hot season</span></span><span class="colloc-chip" data-thai="ฤดูฝน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฤดูฝน</span><span class="en-colloc">rainy season</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฤดูหนาว" role="button" tabindex="0" ><span class="thai">ฤดูหนาว</span><span class="en-colloc">cold season</span></span><span class="colloc-chip" data-thai="ฤดูร้อน" role="button" tabindex="0" ><span class="thai">ฤดูร้อน</span><span class="en-colloc">hot season</span></span><span class="colloc-chip" data-thai="ฤดูฝน" role="button" tabindex="0" ><span class="thai">ฤดูฝน</span><span class="en-colloc">rainy season</span></span></div></td>
           <td><div class="triad"><div class="thai">เมืองไทยมีสามฤดูค่ะ</div><div class="roman">mʉang-thai mii sǎam rʉ́-duu khâ</div><div class="eng">Thailand has three seasons.</div></div></td>
         </tr>
 
@@ -606,7 +615,7 @@
           <td>Season</td>
           <td>ฤดู</td>
           <td>泰國的「冬季」通常不是下雪的冬天，而是比較涼。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าหนาว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หน้าหนาว</span><span class="en-colloc">cold season</span></span><span class="colloc-chip" data-thai="อากาศเย็น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อากาศเย็น</span><span class="en-colloc">cool weather</span></span><span class="colloc-chip" data-thai="ลมหนาว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลมหนาว</span><span class="en-colloc">cool wind</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าหนาว" role="button" tabindex="0" ><span class="thai">หน้าหนาว</span><span class="en-colloc">cold season</span></span><span class="colloc-chip" data-thai="อากาศเย็น" role="button" tabindex="0" ><span class="thai">อากาศเย็น</span><span class="en-colloc">cool weather</span></span><span class="colloc-chip" data-thai="ลมหนาว" role="button" tabindex="0" ><span class="thai">ลมหนาว</span><span class="en-colloc">cool wind</span></span></div></td>
           <td><div class="triad"><div class="thai">ฤดูหนาวที่กรุงเทพฯ ไม่ค่อยหนาวค่ะ</div><div class="roman">rʉ́-duu nǎao thîi grung-thêep mâi khɔ̂i nǎao khâ</div><div class="eng">Bangkok’s cold season is not very cold.</div></div></td>
         </tr>
 
@@ -615,7 +624,7 @@
           <td>Season</td>
           <td>ฤดู</td>
           <td>泰國熱季很熱，曼谷體感可能非常高。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าร้อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หน้าร้อน</span><span class="en-colloc">hot season</span></span><span class="colloc-chip" data-thai="ร้อนมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ร้อนมาก</span><span class="en-colloc">very hot</span></span><span class="colloc-chip" data-thai="อากาศร้อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อากาศร้อน</span><span class="en-colloc">hot weather</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าร้อน" role="button" tabindex="0" ><span class="thai">หน้าร้อน</span><span class="en-colloc">hot season</span></span><span class="colloc-chip" data-thai="ร้อนมาก" role="button" tabindex="0" ><span class="thai">ร้อนมาก</span><span class="en-colloc">very hot</span></span><span class="colloc-chip" data-thai="อากาศร้อน" role="button" tabindex="0" ><span class="thai">อากาศร้อน</span><span class="en-colloc">hot weather</span></span></div></td>
           <td><div class="triad"><div class="thai">ฤดูร้อนกรุงเทพฯ ร้อนมากค่ะ</div><div class="roman">rʉ́-duu rɔ́ɔn grung-thêep rɔ́ɔn mâak khâ</div><div class="eng">Bangkok is very hot in the hot season.</div></div></td>
         </tr>
 
@@ -624,7 +633,7 @@
           <td>Season</td>
           <td>ฤดู</td>
           <td>泰國雨季常見午後雷陣雨、塞車、叫車變貴。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าฝน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หน้าฝน</span><span class="en-colloc">rainy season</span></span><span class="colloc-chip" data-thai="ฝนตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝนตก</span><span class="en-colloc">rain falls</span></span><span class="colloc-chip" data-thai="ฝนตกหนัก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝนตกหนัก</span><span class="en-colloc">heavy rain</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หน้าฝน" role="button" tabindex="0" ><span class="thai">หน้าฝน</span><span class="en-colloc">rainy season</span></span><span class="colloc-chip" data-thai="ฝนตก" role="button" tabindex="0" ><span class="thai">ฝนตก</span><span class="en-colloc">rain falls</span></span><span class="colloc-chip" data-thai="ฝนตกหนัก" role="button" tabindex="0" ><span class="thai">ฝนตกหนัก</span><span class="en-colloc">heavy rain</span></span></div></td>
           <td><div class="triad"><div class="thai">หน้าฝนรถติดมากค่ะ</div><div class="roman">nâa-fǒn rót-dtìt mâak khâ</div><div class="eng">During rainy season, traffic is very bad.</div></div></td>
         </tr>
 
@@ -633,7 +642,7 @@
           <td>Temperature unit</td>
           <td>องศา</td>
           <td>表示溫度的「度」。教材出現 43°C、44°C、-30°C。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="43 องศา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">43 องศา</span><span class="en-colloc">43 degrees</span></span><span class="colloc-chip" data-thai="กี่องศา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กี่องศา</span><span class="en-colloc">how many degrees</span></span><span class="colloc-chip" data-thai="อุณหภูมิ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อุณหภูมิ</span><span class="en-colloc">temperature</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="43 องศา" role="button" tabindex="0" ><span class="thai">43 องศา</span><span class="en-colloc">43 degrees</span></span><span class="colloc-chip" data-thai="กี่องศา" role="button" tabindex="0" ><span class="thai">กี่องศา</span><span class="en-colloc">how many degrees</span></span><span class="colloc-chip" data-thai="อุณหภูมิ" role="button" tabindex="0" ><span class="thai">อุณหภูมิ</span><span class="en-colloc">temperature</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้อุณหภูมิ 35 องศาค่ะ</div><div class="roman">wan-níi un-hà-phuum sǎam-sìp-hâa ong-sǎa khâ</div><div class="eng">Today the temperature is 35 degrees.</div></div></td>
         </tr>
 
@@ -642,7 +651,7 @@
           <td>Temperature / number</td>
           <td>—</td>
           <td>用來說負數或零下溫度。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ติดลบ 30 องศา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ติดลบ 30 องศา</span><span class="en-colloc">minus 30 degrees</span></span><span class="colloc-chip" data-thai="อุณหภูมิติดลบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อุณหภูมิติดลบ</span><span class="en-colloc">below-zero temperature</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ติดลบ 30 องศา" role="button" tabindex="0" ><span class="thai">ติดลบ 30 องศา</span><span class="en-colloc">minus 30 degrees</span></span><span class="colloc-chip" data-thai="อุณหภูมิติดลบ" role="button" tabindex="0" ><span class="thai">อุณหภูมิติดลบ</span><span class="en-colloc">below-zero temperature</span></span></div></td>
           <td><div class="triad"><div class="thai">ที่นี่อุณหภูมิติดลบสิบองศาค่ะ</div><div class="roman">thîi-nîi un-hà-phuum dtìt-lóp sìp ong-sǎa khâ</div><div class="eng">Here, the temperature is minus ten degrees.</div></div></td>
         </tr>
       </tbody>
@@ -666,7 +675,7 @@
           <td>Nature / weather</td>
           <td>—</td>
           <td>泰國幾乎沒有雪，所以多用在國外、北海道、韓國、歐洲旅遊。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หิมะตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หิมะตก</span><span class="en-colloc">snow falls</span></span><span class="colloc-chip" data-thai="หิมะละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หิมะละลาย</span><span class="en-colloc">snow melts</span></span><span class="colloc-chip" data-thai="เล่นหิมะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เล่นหิมะ</span><span class="en-colloc">play in the snow</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หิมะตก" role="button" tabindex="0" ><span class="thai">หิมะตก</span><span class="en-colloc">snow falls</span></span><span class="colloc-chip" data-thai="หิมะละลาย" role="button" tabindex="0" ><span class="thai">หิมะละลาย</span><span class="en-colloc">snow melts</span></span><span class="colloc-chip" data-thai="เล่นหิมะ" role="button" tabindex="0" ><span class="thai">เล่นหิมะ</span><span class="en-colloc">play in the snow</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากไปญี่ปุ่นเพื่อดูหิมะค่ะ</div><div class="roman">chǎn yàak bpai yîi-bpùn phʉ̂a duu hì-má khâ</div><div class="eng">I want to go to Japan to see snow.</div></div></td>
         </tr>
 
@@ -675,7 +684,7 @@
           <td>Verb</td>
           <td>—</td>
           <td>可用於雪、冰、奶油、糖等融化/溶解。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หิมะละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หิมะละลาย</span><span class="en-colloc">snow melts</span></span><span class="colloc-chip" data-thai="น้ำแข็งละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">น้ำแข็งละลาย</span><span class="en-colloc">ice melts</span></span><span class="colloc-chip" data-thai="น้ำตาลละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">น้ำตาลละลาย</span><span class="en-colloc">sugar dissolves</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หิมะละลาย" role="button" tabindex="0" ><span class="thai">หิมะละลาย</span><span class="en-colloc">snow melts</span></span><span class="colloc-chip" data-thai="น้ำแข็งละลาย" role="button" tabindex="0" ><span class="thai">น้ำแข็งละลาย</span><span class="en-colloc">ice melts</span></span><span class="colloc-chip" data-thai="น้ำตาลละลาย" role="button" tabindex="0" ><span class="thai">น้ำตาลละลาย</span><span class="en-colloc">sugar dissolves</span></span></div></td>
           <td><div class="triad"><div class="thai">น้ำแข็งละลายเร็วมากค่ะ</div><div class="roman">náam-khɛ̌ng lá-laai rew mâak khâ</div><div class="eng">The ice melts very quickly.</div></div></td>
         </tr>
 
@@ -684,7 +693,7 @@
           <td>Nature / drink item</td>
           <td>ก้อน / ถุง / แก้ว</td>
           <td>冰塊一顆用 <span class="thai">ก้อน</span>；一袋冰用 <span class="thai">ถุง</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ใส่น้ำแข็ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใส่น้ำแข็ง</span><span class="en-colloc">add ice</span></span><span class="colloc-chip" data-thai="น้ำแข็งละลาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">น้ำแข็งละลาย</span><span class="en-colloc">ice melts</span></span><span class="colloc-chip" data-thai="น้ำแข็งหนึ่งแก้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">น้ำแข็งหนึ่งแก้ว</span><span class="en-colloc">one glass of ice</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ใส่น้ำแข็ง" role="button" tabindex="0" ><span class="thai">ใส่น้ำแข็ง</span><span class="en-colloc">add ice</span></span><span class="colloc-chip" data-thai="น้ำแข็งละลาย" role="button" tabindex="0" ><span class="thai">น้ำแข็งละลาย</span><span class="en-colloc">ice melts</span></span><span class="colloc-chip" data-thai="น้ำแข็งหนึ่งแก้ว" role="button" tabindex="0" ><span class="thai">น้ำแข็งหนึ่งแก้ว</span><span class="en-colloc">one glass of ice</span></span></div></td>
           <td><div class="triad"><div class="thai">กาแฟแก้วนี้น้ำแข็งละลายหมดแล้วค่ะ</div><div class="roman">gaa-fɛɛ gɛ̂ɛo níi náam-khɛ̌ng lá-laai mòt lɛ́ɛw khâ</div><div class="eng">The ice in this coffee has all melted.</div></div></td>
         </tr>
 
@@ -693,7 +702,7 @@
           <td>Nature noun</td>
           <td>ต้น</td>
           <td>樹木量詞也常用 <span class="thai">ต้น</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ปลูกต้นไม้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปลูกต้นไม้</span><span class="en-colloc">plant trees</span></span><span class="colloc-chip" data-thai="ใต้ต้นไม้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใต้ต้นไม้</span><span class="en-colloc">under the tree</span></span><span class="colloc-chip" data-thai="ต้นไม้ใหญ่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ต้นไม้ใหญ่</span><span class="en-colloc">big tree</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ปลูกต้นไม้" role="button" tabindex="0" ><span class="thai">ปลูกต้นไม้</span><span class="en-colloc">plant trees</span></span><span class="colloc-chip" data-thai="ใต้ต้นไม้" role="button" tabindex="0" ><span class="thai">ใต้ต้นไม้</span><span class="en-colloc">under the tree</span></span><span class="colloc-chip" data-thai="ต้นไม้ใหญ่" role="button" tabindex="0" ><span class="thai">ต้นไม้ใหญ่</span><span class="en-colloc">big tree</span></span></div></td>
           <td><div class="triad"><div class="thai">หน้าคอนโดมีต้นไม้เยอะค่ะ</div><div class="roman">nâa khɔɔn-doo mii dtôn-máai yə́ khâ</div><div class="eng">There are many trees in front of the condo.</div></div></td>
         </tr>
 
@@ -702,7 +711,7 @@
           <td>Nature noun</td>
           <td>ใบ</td>
           <td>葉子用 <span class="thai">ใบ</span>，跟包包/票券的量詞同字但語義不同。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ใบไม้ร่วง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใบไม้ร่วง</span><span class="en-colloc">leaves fall</span></span><span class="colloc-chip" data-thai="ใบไม้เปลี่ยนสี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใบไม้เปลี่ยนสี</span><span class="en-colloc">leaves change color</span></span><span class="colloc-chip" data-thai="ใบไม้สีเขียว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ใบไม้สีเขียว</span><span class="en-colloc">green leaves</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ใบไม้ร่วง" role="button" tabindex="0" ><span class="thai">ใบไม้ร่วง</span><span class="en-colloc">leaves fall</span></span><span class="colloc-chip" data-thai="ใบไม้เปลี่ยนสี" role="button" tabindex="0" ><span class="thai">ใบไม้เปลี่ยนสี</span><span class="en-colloc">leaves change color</span></span><span class="colloc-chip" data-thai="ใบไม้สีเขียว" role="button" tabindex="0" ><span class="thai">ใบไม้สีเขียว</span><span class="en-colloc">green leaves</span></span></div></td>
           <td><div class="triad"><div class="thai">ฤดูใบไม้ร่วง ใบไม้เปลี่ยนสีค่ะ</div><div class="roman">rʉ́-duu bai-máai-rûang, bai-máai bplìan sǐi khâ</div><div class="eng">In autumn, the leaves change color.</div></div></td>
         </tr>
 
@@ -711,7 +720,7 @@
           <td>Nature noun</td>
           <td>—</td>
           <td>自然的風；注意跟 <span class="thai">พัดลม</span> 風扇不同。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ลมแรง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลมแรง</span><span class="en-colloc">strong wind</span></span><span class="colloc-chip" data-thai="ลมพัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ลมพัด</span><span class="en-colloc">wind blows</span></span><span class="colloc-chip" data-thai="มีลม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีลม</span><span class="en-colloc">windy</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ลมแรง" role="button" tabindex="0" ><span class="thai">ลมแรง</span><span class="en-colloc">strong wind</span></span><span class="colloc-chip" data-thai="ลมพัด" role="button" tabindex="0" ><span class="thai">ลมพัด</span><span class="en-colloc">wind blows</span></span><span class="colloc-chip" data-thai="มีลม" role="button" tabindex="0" ><span class="thai">มีลม</span><span class="en-colloc">windy</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้มีลม อากาศดีค่ะ</div><div class="roman">wan-níi mii lom, aa-gàat dii khâ</div><div class="eng">It is windy today, and the weather is nice.</div></div></td>
         </tr>
 
@@ -720,7 +729,7 @@
           <td>Nature noun</td>
           <td>ก้อน</td>
           <td>雲一朵可用 <span class="thai">ก้อน</span>，但日常多直接說「有雲」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีเมฆ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีเมฆ</span><span class="en-colloc">cloudy</span></span><span class="colloc-chip" data-thai="เมฆเยอะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เมฆเยอะ</span><span class="en-colloc">many clouds</span></span><span class="colloc-chip" data-thai="ท้องฟ้ามีเมฆ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ท้องฟ้ามีเมฆ</span><span class="en-colloc">the sky has clouds</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีเมฆ" role="button" tabindex="0" ><span class="thai">มีเมฆ</span><span class="en-colloc">cloudy</span></span><span class="colloc-chip" data-thai="เมฆเยอะ" role="button" tabindex="0" ><span class="thai">เมฆเยอะ</span><span class="en-colloc">many clouds</span></span><span class="colloc-chip" data-thai="ท้องฟ้ามีเมฆ" role="button" tabindex="0" ><span class="thai">ท้องฟ้ามีเมฆ</span><span class="en-colloc">the sky has clouds</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้เมฆเยอะ ฝนอาจจะตกค่ะ</div><div class="roman">wan-níi mêek yə́, fǒn àat-jà dtòk khâ</div><div class="eng">There are many clouds today; it might rain.</div></div></td>
         </tr>
       </tbody>
@@ -744,7 +753,7 @@
           <td>Place / nature</td>
           <td>แห่ง / ที่</td>
           <td>正式地點可用 <span class="thai">แห่ง</span>；口語常用 <span class="thai">ที่</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปทะเลสาบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปทะเลสาบ</span><span class="en-colloc">go to a lake</span></span><span class="colloc-chip" data-thai="ทะเลสาบสวย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทะเลสาบสวย</span><span class="en-colloc">beautiful lake</span></span><span class="colloc-chip" data-thai="ริมทะเลสาบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ริมทะเลสาบ</span><span class="en-colloc">lakeside</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปทะเลสาบ" role="button" tabindex="0" ><span class="thai">ไปทะเลสาบ</span><span class="en-colloc">go to a lake</span></span><span class="colloc-chip" data-thai="ทะเลสาบสวย" role="button" tabindex="0" ><span class="thai">ทะเลสาบสวย</span><span class="en-colloc">beautiful lake</span></span><span class="colloc-chip" data-thai="ริมทะเลสาบ" role="button" tabindex="0" ><span class="thai">ริมทะเลสาบ</span><span class="en-colloc">lakeside</span></span></div></td>
           <td><div class="triad"><div class="thai">ทะเลสาบที่นี่สวยมากค่ะ</div><div class="roman">thá-lee-sàap thîi-nîi sǔai mâak khâ</div><div class="eng">The lake here is very beautiful.</div></div></td>
         </tr>
 
@@ -753,7 +762,7 @@
           <td>Activity verb</td>
           <td>ครั้ง</td>
           <td>水裡活動，常搭配 <span class="thai">สระว่ายน้ำ</span> 游泳池、<span class="thai">ทะเล</span> 海。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปว่ายน้ำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปว่ายน้ำ</span><span class="en-colloc">go swimming</span></span><span class="colloc-chip" data-thai="สระว่ายน้ำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สระว่ายน้ำ</span><span class="en-colloc">swimming pool</span></span><span class="colloc-chip" data-thai="ว่ายน้ำที่ทะเล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ว่ายน้ำที่ทะเล</span><span class="en-colloc">swim at the sea</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปว่ายน้ำ" role="button" tabindex="0" ><span class="thai">ไปว่ายน้ำ</span><span class="en-colloc">go swimming</span></span><span class="colloc-chip" data-thai="สระว่ายน้ำ" role="button" tabindex="0" ><span class="thai">สระว่ายน้ำ</span><span class="en-colloc">swimming pool</span></span><span class="colloc-chip" data-thai="ว่ายน้ำที่ทะเล" role="button" tabindex="0" ><span class="thai">ว่ายน้ำที่ทะเล</span><span class="en-colloc">swim at the sea</span></span></div></td>
           <td><div class="triad"><div class="thai">เย็นนี้ฉันจะไปว่ายน้ำที่คอนโดค่ะ</div><div class="roman">yen-níi chǎn jà bpai wâai-náam thîi khɔɔn-doo khâ</div><div class="eng">This evening I will go swimming at the condo.</div></div></td>
         </tr>
 
@@ -762,7 +771,7 @@
           <td>Activity verb</td>
           <td>ครั้ง / ตัว</td>
           <td><span class="thai">ตกปลา</span> 是「釣魚」；魚的量詞常用 <span class="thai">ตัว</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปตกปลา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปตกปลา</span><span class="en-colloc">go fishing</span></span><span class="colloc-chip" data-thai="ตกปลาได้สองตัว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตกปลาได้สองตัว</span><span class="en-colloc">catch two fish</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปตกปลา" role="button" tabindex="0" ><span class="thai">ไปตกปลา</span><span class="en-colloc">go fishing</span></span><span class="colloc-chip" data-thai="ตกปลาได้สองตัว" role="button" tabindex="0" ><span class="thai">ตกปลาได้สองตัว</span><span class="en-colloc">catch two fish</span></span></div></td>
           <td><div class="triad"><div class="thai">พ่อชอบไปตกปลาวันเสาร์ค่ะ</div><div class="roman">phɔ̂ɔ chɔ̂ɔp bpai dtòk-bplaa wan-sǎo khâ</div><div class="eng">My father likes to go fishing on Saturdays.</div></div></td>
         </tr>
 
@@ -771,7 +780,7 @@
           <td>Activity verb</td>
           <td>ลำ / ครั้ง</td>
           <td><span class="thai">เรือ</span> 船的量詞是 <span class="thai">ลำ</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พายเรือคายัค" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พายเรือคายัค</span><span class="en-colloc">kayaking</span></span><span class="colloc-chip" data-thai="พายเรือในทะเลสาบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พายเรือในทะเลสาบ</span><span class="en-colloc">paddle in a lake</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="พายเรือคายัค" role="button" tabindex="0" ><span class="thai">พายเรือคายัค</span><span class="en-colloc">kayaking</span></span><span class="colloc-chip" data-thai="พายเรือในทะเลสาบ" role="button" tabindex="0" ><span class="thai">พายเรือในทะเลสาบ</span><span class="en-colloc">paddle in a lake</span></span></div></td>
           <td><div class="triad"><div class="thai">เราไปพายเรือที่สวนลุมได้ไหมคะ</div><div class="roman">rao bpai phaai-rʉa thîi sǔan-lum dâai mái khá</div><div class="eng">Can we go paddle boating at Lumphini Park?</div></div></td>
         </tr>
 
@@ -780,7 +789,7 @@
           <td>Activity verb</td>
           <td>ครั้ง</td>
           <td>可指潛水或浮潛，具體要看情境。浮潛也常說 <span class="thai">ดำน้ำตื้น</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปดำน้ำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปดำน้ำ</span><span class="en-colloc">go diving</span></span><span class="colloc-chip" data-thai="ดำน้ำที่เกาะเต่า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ดำน้ำที่เกาะเต่า</span><span class="en-colloc">dive at Koh Tao</span></span><span class="colloc-chip" data-thai="ดำน้ำตื้น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ดำน้ำตื้น</span><span class="en-colloc">snorkel</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปดำน้ำ" role="button" tabindex="0" ><span class="thai">ไปดำน้ำ</span><span class="en-colloc">go diving</span></span><span class="colloc-chip" data-thai="ดำน้ำที่เกาะเต่า" role="button" tabindex="0" ><span class="thai">ดำน้ำที่เกาะเต่า</span><span class="en-colloc">dive at Koh Tao</span></span><span class="colloc-chip" data-thai="ดำน้ำตื้น" role="button" tabindex="0" ><span class="thai">ดำน้ำตื้น</span><span class="en-colloc">snorkel</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากไปดำน้ำที่เกาะเต่าค่ะ</div><div class="roman">chǎn yàak bpai dam-náam thîi gɔ̀ dtào khâ</div><div class="eng">I want to go diving at Koh Tao.</div></div></td>
         </tr>
       </tbody>
@@ -804,7 +813,7 @@
           <td>Future marker</td>
           <td>—</td>
           <td>教材第 6 頁用 100% 表示很確定會發生。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จะไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จะไป</span><span class="en-colloc">will go</span></span><span class="colloc-chip" data-thai="จะกลับ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จะกลับ</span><span class="en-colloc">will return</span></span><span class="colloc-chip" data-thai="จะถึง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จะถึง</span><span class="en-colloc">will arrive</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จะไป" role="button" tabindex="0" ><span class="thai">จะไป</span><span class="en-colloc">will go</span></span><span class="colloc-chip" data-thai="จะกลับ" role="button" tabindex="0" ><span class="thai">จะกลับ</span><span class="en-colloc">will return</span></span><span class="colloc-chip" data-thai="จะถึง" role="button" tabindex="0" ><span class="thai">จะถึง</span><span class="en-colloc">will arrive</span></span></div></td>
           <td><div class="triad"><div class="thai">อีกสามสถานีจะถึงสยามค่ะ</div><div class="roman">ìik sǎam sà-thǎa-nii jà thʉ̌ng sà-yǎam khâ</div><div class="eng">Three more stations and we’ll arrive at Siam.</div></div></td>
         </tr>
 
@@ -813,7 +822,7 @@
           <td>Probability marker</td>
           <td>—</td>
           <td>教材標示約 50% 可能性。語氣是不確定、可能。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อาจจะฝนตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาจจะฝนตก</span><span class="en-colloc">it might rain</span></span><span class="colloc-chip" data-thai="อาจจะไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาจจะไป</span><span class="en-colloc">might go</span></span><span class="colloc-chip" data-thai="อาจจะสาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาจจะสาย</span><span class="en-colloc">might be late</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อาจจะฝนตก" role="button" tabindex="0" ><span class="thai">อาจจะฝนตก</span><span class="en-colloc">it might rain</span></span><span class="colloc-chip" data-thai="อาจจะไป" role="button" tabindex="0" ><span class="thai">อาจจะไป</span><span class="en-colloc">might go</span></span><span class="colloc-chip" data-thai="อาจจะสาย" role="button" tabindex="0" ><span class="thai">อาจจะสาย</span><span class="en-colloc">might be late</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้ฉันอาจจะไปสยามค่ะ</div><div class="roman">wan-níi chǎn àat-jà bpai sà-yǎam khâ</div><div class="eng">I might go to Siam today.</div></div></td>
         </tr>
 
@@ -822,7 +831,7 @@
           <td>Probability marker</td>
           <td>—</td>
           <td>教材標示約 70–80% 可能性。比 <span class="thai">อาจจะ</span> 更有把握。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คงจะร้อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คงจะร้อน</span><span class="en-colloc">probably hot</span></span><span class="colloc-chip" data-thai="คงจะรถติด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คงจะรถติด</span><span class="en-colloc">probably traffic</span></span><span class="colloc-chip" data-thai="คงจะไปไม่ได้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คงจะไปไม่ได้</span><span class="en-colloc">probably cannot go</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คงจะร้อน" role="button" tabindex="0" ><span class="thai">คงจะร้อน</span><span class="en-colloc">probably hot</span></span><span class="colloc-chip" data-thai="คงจะรถติด" role="button" tabindex="0" ><span class="thai">คงจะรถติด</span><span class="en-colloc">probably traffic</span></span><span class="colloc-chip" data-thai="คงจะไปไม่ได้" role="button" tabindex="0" ><span class="thai">คงจะไปไม่ได้</span><span class="en-colloc">probably cannot go</span></span></div></td>
           <td><div class="triad"><div class="thai">เย็นนี้คงจะรถติดมากค่ะ</div><div class="roman">yen-níi khong-jà rót-dtìt mâak khâ</div><div class="eng">This evening there will probably be heavy traffic.</div></div></td>
         </tr>
 
@@ -831,7 +840,7 @@
           <td>Verb / preposition</td>
           <td>—</td>
           <td>本課重點是「到達」某地或某時間。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จะถึง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จะถึง</span><span class="en-colloc">will arrive</span></span><span class="colloc-chip" data-thai="ถึงสยาม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถึงสยาม</span><span class="en-colloc">arrive at Siam</span></span><span class="colloc-chip" data-thai="ถึงวันเกิด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถึงวันเกิด</span><span class="en-colloc">until birthday</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จะถึง" role="button" tabindex="0" ><span class="thai">จะถึง</span><span class="en-colloc">will arrive</span></span><span class="colloc-chip" data-thai="ถึงสยาม" role="button" tabindex="0" ><span class="thai">ถึงสยาม</span><span class="en-colloc">arrive at Siam</span></span><span class="colloc-chip" data-thai="ถึงวันเกิด" role="button" tabindex="0" ><span class="thai">ถึงวันเกิด</span><span class="en-colloc">until birthday</span></span></div></td>
           <td><div class="triad"><div class="thai">อีกสี่เดือนจะถึงวันเกิดฉันค่ะ</div><div class="roman">ìik sìi dʉan jà thʉ̌ng wan-gə̀ət chǎn khâ</div><div class="eng">In four more months, it will be my birthday.</div></div></td>
         </tr>
       </tbody>
@@ -1723,5 +1732,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

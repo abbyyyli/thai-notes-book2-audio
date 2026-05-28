@@ -367,34 +367,23 @@
       color: var(--muted);
       line-height: 1.2;
     }
-
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -403,38 +392,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -599,7 +608,7 @@
           <td>Verb</td>
           <td>—</td>
           <td>本課用法是「做出某種結果」或「使某物變得……」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทำอาหาร" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำอาหาร</span><span class="en-colloc">cook</span></span><span class="colloc-chip" data-thai="ทำงาน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำงาน</span><span class="en-colloc">work</span></span><span class="colloc-chip" data-thai="ทำให้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้</span><span class="en-colloc">make or cause</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทำอาหาร" role="button" tabindex="0" ><span class="thai">ทำอาหาร</span><span class="en-colloc">cook</span></span><span class="colloc-chip" data-thai="ทำงาน" role="button" tabindex="0" ><span class="thai">ทำงาน</span><span class="en-colloc">work</span></span><span class="colloc-chip" data-thai="ทำให้" role="button" tabindex="0" ><span class="thai">ทำให้</span><span class="en-colloc">make or cause</span></span></div></td>
           <td><div class="triad"><div class="thai">พอลทำอาหารอร่อยค่ะ</div><div class="roman">Paul tham aa-hǎan a-rɔ̀i khâ</div><div class="eng">Paul makes delicious food.</div></div></td>
         </tr>
 
@@ -608,7 +617,7 @@
           <td>Causative verb phrase</td>
           <td>—</td>
           <td>後面接結果：<span class="thai">ทำให้ + S + Adj/V</span>，表示造成某狀態。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทำให้อ้วน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้อ้วน</span><span class="en-colloc">make fat</span></span><span class="colloc-chip" data-thai="ทำให้รถติด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้รถติด</span><span class="en-colloc">cause traffic</span></span><span class="colloc-chip" data-thai="ทำให้ไม่สบาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้ไม่สบาย</span><span class="en-colloc">make sick</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทำให้อ้วน" role="button" tabindex="0" ><span class="thai">ทำให้อ้วน</span><span class="en-colloc">make fat</span></span><span class="colloc-chip" data-thai="ทำให้รถติด" role="button" tabindex="0" ><span class="thai">ทำให้รถติด</span><span class="en-colloc">cause traffic</span></span><span class="colloc-chip" data-thai="ทำให้ไม่สบาย" role="button" tabindex="0" ><span class="thai">ทำให้ไม่สบาย</span><span class="en-colloc">make sick</span></span></div></td>
           <td><div class="triad"><div class="thai">กินขนมมากทำให้อ้วนค่ะ</div><div class="roman">gin khà-nǒm mâak tham-hâi ûan khâ</div><div class="eng">Eating a lot of sweets makes you fat.</div></div></td>
         </tr>
 
@@ -617,7 +626,7 @@
           <td>Adjective</td>
           <td>—</td>
           <td>形容食物好吃。搭配 <span class="thai">ทำอาหารอร่อย</span> = 做飯好吃。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อาหารอร่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาหารอร่อย</span><span class="en-colloc">delicious food</span></span><span class="colloc-chip" data-thai="ทำอาหารอร่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำอาหารอร่อย</span><span class="en-colloc">cook deliciously</span></span><span class="colloc-chip" data-thai="ร้านนี้อร่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ร้านนี้อร่อย</span><span class="en-colloc">this shop is delicious</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="อาหารอร่อย" role="button" tabindex="0" ><span class="thai">อาหารอร่อย</span><span class="en-colloc">delicious food</span></span><span class="colloc-chip" data-thai="ทำอาหารอร่อย" role="button" tabindex="0" ><span class="thai">ทำอาหารอร่อย</span><span class="en-colloc">cook deliciously</span></span><span class="colloc-chip" data-thai="ร้านนี้อร่อย" role="button" tabindex="0" ><span class="thai">ร้านนี้อร่อย</span><span class="en-colloc">this shop is delicious</span></span></div></td>
           <td><div class="triad"><div class="thai">ร้านนี้ทำก๋วยเตี๋ยวอร่อยมากค่ะ</div><div class="roman">ráan níi tham gǔai-dtǐao a-rɔ̀i mâak khâ</div><div class="eng">This shop makes very delicious noodles.</div></div></td>
         </tr>
 
@@ -626,7 +635,7 @@
           <td>Adjective</td>
           <td>—</td>
           <td>形容人能力好。教材例：<span class="thai">อานานเก่ง</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ภาษาไทยเก่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ภาษาไทยเก่ง</span><span class="en-colloc">good at Thai</span></span><span class="colloc-chip" data-thai="ทำงานเก่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำงานเก่ง</span><span class="en-colloc">good at working</span></span><span class="colloc-chip" data-thai="พูดเก่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พูดเก่ง</span><span class="en-colloc">good at speaking</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ภาษาไทยเก่ง" role="button" tabindex="0" ><span class="thai">ภาษาไทยเก่ง</span><span class="en-colloc">good at Thai</span></span><span class="colloc-chip" data-thai="ทำงานเก่ง" role="button" tabindex="0" ><span class="thai">ทำงานเก่ง</span><span class="en-colloc">good at working</span></span><span class="colloc-chip" data-thai="พูดเก่ง" role="button" tabindex="0" ><span class="thai">พูดเก่ง</span><span class="en-colloc">good at speaking</span></span></div></td>
           <td><div class="triad"><div class="thai">เธอพูดภาษาไทยเก่งขึ้นมากค่ะ</div><div class="roman">thəə phûut phaa-sǎa-thai gèng khʉ̂n mâak khâ</div><div class="eng">You have become much better at speaking Thai.</div></div></td>
         </tr>
 
@@ -635,7 +644,7 @@
           <td>Adjective</td>
           <td>—</td>
           <td>形容體型變胖。對人直接說可能不禮貌，學習句型可以，但日常要小心。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินเยอะทำให้อ้วน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กินเยอะทำให้อ้วน</span><span class="en-colloc">eating a lot makes one fat</span></span><span class="colloc-chip" data-thai="กลัวอ้วน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลัวอ้วน</span><span class="en-colloc">afraid of getting fat</span></span><span class="colloc-chip" data-thai="ไม่อยากอ้วน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่อยากอ้วน</span><span class="en-colloc">don’t want to get fat</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กินเยอะทำให้อ้วน" role="button" tabindex="0" ><span class="thai">กินเยอะทำให้อ้วน</span><span class="en-colloc">eating a lot makes one fat</span></span><span class="colloc-chip" data-thai="กลัวอ้วน" role="button" tabindex="0" ><span class="thai">กลัวอ้วน</span><span class="en-colloc">afraid of getting fat</span></span><span class="colloc-chip" data-thai="ไม่อยากอ้วน" role="button" tabindex="0" ><span class="thai">ไม่อยากอ้วน</span><span class="en-colloc">don’t want to get fat</span></span></div></td>
           <td><div class="triad"><div class="thai">กินน้ำหวานทุกวันอาจทำให้อ้วนค่ะ</div><div class="roman">gin náam-wǎan thúk wan àat tham-hâi ûan khâ</div><div class="eng">Drinking sweet drinks every day might make you gain weight.</div></div></td>
         </tr>
 
@@ -644,7 +653,7 @@
           <td>Adjective</td>
           <td>—</td>
           <td>反義詞：<span class="thai">อ้วน</span>。可形容人瘦，也可說變瘦。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ผอมลง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ผอมลง</span><span class="en-colloc">lose weight</span></span><span class="colloc-chip" data-thai="อยากผอม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อยากผอม</span><span class="en-colloc">want to be slim</span></span><span class="colloc-chip" data-thai="ผอมเกินไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ผอมเกินไป</span><span class="en-colloc">too thin</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ผอมลง" role="button" tabindex="0" ><span class="thai">ผอมลง</span><span class="en-colloc">lose weight</span></span><span class="colloc-chip" data-thai="อยากผอม" role="button" tabindex="0" ><span class="thai">อยากผอม</span><span class="en-colloc">want to be slim</span></span><span class="colloc-chip" data-thai="ผอมเกินไป" role="button" tabindex="0" ><span class="thai">ผอมเกินไป</span><span class="en-colloc">too thin</span></span></div></td>
           <td><div class="triad"><div class="thai">ออกกำลังกายทุกวันทำให้เขาผอมลงค่ะ</div><div class="roman">ɔ̀ɔk-gam-lang-gaai thúk wan tham-hâi khǎo phɔ̌ɔm long khâ</div><div class="eng">Exercising every day made him slimmer.</div></div></td>
         </tr>
 
@@ -653,7 +662,7 @@
           <td>Adjective phrase</td>
           <td>—</td>
           <td>比單純 <span class="thai">แข็งแรง</span> 更偏健康狀態。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทำให้สุขภาพดี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้สุขภาพดี</span><span class="en-colloc">make healthy</span></span><span class="colloc-chip" data-thai="อยากสุขภาพดี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อยากสุขภาพดี</span><span class="en-colloc">want to be healthy</span></span><span class="colloc-chip" data-thai="อาหารสุขภาพ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อาหารสุขภาพ</span><span class="en-colloc">healthy food</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทำให้สุขภาพดี" role="button" tabindex="0" ><span class="thai">ทำให้สุขภาพดี</span><span class="en-colloc">make healthy</span></span><span class="colloc-chip" data-thai="อยากสุขภาพดี" role="button" tabindex="0" ><span class="thai">อยากสุขภาพดี</span><span class="en-colloc">want to be healthy</span></span><span class="colloc-chip" data-thai="อาหารสุขภาพ" role="button" tabindex="0" ><span class="thai">อาหารสุขภาพ</span><span class="en-colloc">healthy food</span></span></div></td>
           <td><div class="triad"><div class="thai">กินผักเยอะ ๆ ทำให้สุขภาพดีค่ะ</div><div class="roman">gin phàk yə́-yə́ tham-hâi sùk-khà-phâap dii khâ</div><div class="eng">Eating lots of vegetables makes you healthy.</div></div></td>
         </tr>
 
@@ -662,7 +671,7 @@
           <td>Adjective</td>
           <td>—</td>
           <td>偏身體強壯、有體力。可和 <span class="thai">สุขภาพดี</span> 搭配但不完全一樣。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ร่างกายแข็งแรง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ร่างกายแข็งแรง</span><span class="en-colloc">strong body</span></span><span class="colloc-chip" data-thai="ออกกำลังกายให้แข็งแรง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ออกกำลังกายให้แข็งแรง</span><span class="en-colloc">exercise to be strong</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ร่างกายแข็งแรง" role="button" tabindex="0" ><span class="thai">ร่างกายแข็งแรง</span><span class="en-colloc">strong body</span></span><span class="colloc-chip" data-thai="ออกกำลังกายให้แข็งแรง" role="button" tabindex="0" ><span class="thai">ออกกำลังกายให้แข็งแรง</span><span class="en-colloc">exercise to be strong</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าออกกำลังกายบ่อย ๆ ร่างกายจะแข็งแรงค่ะ</div><div class="roman">thâa ɔ̀ɔk-gam-lang-gaai bɔ̀i-bɔ̀i râang-gaai jà khɛ̌ng-rɛɛng khâ</div><div class="eng">If you exercise often, your body will be strong.</div></div></td>
         </tr>
       </tbody>
@@ -686,7 +695,7 @@
           <td>Damage adjective / verb</td>
           <td>—</td>
           <td>用於紙、布、衣服「破、撕裂」。也可表示缺少，但本課是破掉。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กระดาษขาด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระดาษขาด</span><span class="en-colloc">paper is torn</span></span><span class="colloc-chip" data-thai="เสื้อขาด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสื้อขาด</span><span class="en-colloc">shirt is torn</span></span><span class="colloc-chip" data-thai="กางเกงขาด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กางเกงขาด</span><span class="en-colloc">pants are torn</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กระดาษขาด" role="button" tabindex="0" ><span class="thai">กระดาษขาด</span><span class="en-colloc">paper is torn</span></span><span class="colloc-chip" data-thai="เสื้อขาด" role="button" tabindex="0" ><span class="thai">เสื้อขาด</span><span class="en-colloc">shirt is torn</span></span><span class="colloc-chip" data-thai="กางเกงขาด" role="button" tabindex="0" ><span class="thai">กางเกงขาด</span><span class="en-colloc">pants are torn</span></span></div></td>
           <td><div class="triad"><div class="thai">เสื้อตัวนี้ขาดตรงแขนค่ะ</div><div class="roman">sʉ̂a dtua níi khàat dtrong khɛ̌ɛn khâ</div><div class="eng">This shirt is torn at the sleeve.</div></div></td>
         </tr>
 
@@ -695,7 +704,7 @@
           <td>Damage adjective / verb</td>
           <td>—</td>
           <td>用於長條、支撐物、硬物「斷掉」。如筷子、眼鏡腳、椅子腳、骨頭。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตะเกียบหัก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตะเกียบหัก</span><span class="en-colloc">chopsticks broke</span></span><span class="colloc-chip" data-thai="มือถือหัก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มือถือหัก</span><span class="en-colloc">phone broke in half</span></span><span class="colloc-chip" data-thai="แว่นตาหัก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แว่นตาหัก</span><span class="en-colloc">glasses broke</span></span><span class="colloc-chip" data-thai="ขาเก้าอี้หัก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขาเก้าอี้หัก</span><span class="en-colloc">chair leg broke</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตะเกียบหัก" role="button" tabindex="0" ><span class="thai">ตะเกียบหัก</span><span class="en-colloc">chopsticks broke</span></span><span class="colloc-chip" data-thai="มือถือหัก" role="button" tabindex="0" ><span class="thai">มือถือหัก</span><span class="en-colloc">phone broke in half</span></span><span class="colloc-chip" data-thai="แว่นตาหัก" role="button" tabindex="0" ><span class="thai">แว่นตาหัก</span><span class="en-colloc">glasses broke</span></span><span class="colloc-chip" data-thai="ขาเก้าอี้หัก" role="button" tabindex="0" ><span class="thai">ขาเก้าอี้หัก</span><span class="en-colloc">chair leg broke</span></span></div></td>
           <td><div class="triad"><div class="thai">ขาเก้าอี้หัก นั่งไม่ได้ค่ะ</div><div class="roman">khǎa gâo-îi hàk, nâng mâi dâai khâ</div><div class="eng">The chair leg is broken, so I can’t sit on it.</div></div></td>
         </tr>
 
@@ -704,7 +713,7 @@
           <td>Damage adjective / verb</td>
           <td>—</td>
           <td>玻璃、杯子、鏡子、骨頭等破裂、碎裂。比 <span class="thai">ร้าว</span> 嚴重。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แก้วแตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แก้วแตก</span><span class="en-colloc">glass broke</span></span><span class="colloc-chip" data-thai="กระจกแตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระจกแตก</span><span class="en-colloc">mirror or glass broke</span></span><span class="colloc-chip" data-thai="กระดูกแตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กระดูกแตก</span><span class="en-colloc">bone cracked or fractured</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แก้วแตก" role="button" tabindex="0" ><span class="thai">แก้วแตก</span><span class="en-colloc">glass broke</span></span><span class="colloc-chip" data-thai="กระจกแตก" role="button" tabindex="0" ><span class="thai">กระจกแตก</span><span class="en-colloc">mirror or glass broke</span></span><span class="colloc-chip" data-thai="กระดูกแตก" role="button" tabindex="0" ><span class="thai">กระดูกแตก</span><span class="en-colloc">bone cracked or fractured</span></span></div></td>
           <td><div class="triad"><div class="thai">แก้วแตกเต็มพื้นค่ะ</div><div class="roman">gɛ̂ɛw dtɛ̀ɛk dtem phʉ́ʉn khâ</div><div class="eng">The broken glass is all over the floor.</div></div></td>
         </tr>
 
@@ -713,7 +722,7 @@
           <td>Damage adjective / verb</td>
           <td>—</td>
           <td>有裂痕但未必完全碎掉。常用於牆、地板、天花板、道路、玻璃、骨頭。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ผนังร้าว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ผนังร้าว</span><span class="en-colloc">wall cracked</span></span><span class="colloc-chip" data-thai="พื้นร้าว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พื้นร้าว</span><span class="en-colloc">floor cracked</span></span><span class="colloc-chip" data-thai="เพดานร้าว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เพดานร้าว</span><span class="en-colloc">ceiling cracked</span></span><span class="colloc-chip" data-thai="ถนนร้าว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถนนร้าว</span><span class="en-colloc">road cracked</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ผนังร้าว" role="button" tabindex="0" ><span class="thai">ผนังร้าว</span><span class="en-colloc">wall cracked</span></span><span class="colloc-chip" data-thai="พื้นร้าว" role="button" tabindex="0" ><span class="thai">พื้นร้าว</span><span class="en-colloc">floor cracked</span></span><span class="colloc-chip" data-thai="เพดานร้าว" role="button" tabindex="0" ><span class="thai">เพดานร้าว</span><span class="en-colloc">ceiling cracked</span></span><span class="colloc-chip" data-thai="ถนนร้าว" role="button" tabindex="0" ><span class="thai">ถนนร้าว</span><span class="en-colloc">road cracked</span></span></div></td>
           <td><div class="triad"><div class="thai">ผนังห้องน้ำร้าว ต้องแจ้งนิติค่ะ</div><div class="roman">phà-nǎng hɔ̂ng-náam ráao, dtɔ̂ng jɛ̂ɛng ní-dtì khâ</div><div class="eng">The bathroom wall is cracked. I need to inform the condo juristic office.</div></div></td>
         </tr>
 
@@ -722,7 +731,7 @@
           <td>Damage adjective / verb</td>
           <td>—</td>
           <td>缺一小角，不一定整個破。常用於杯、碗、牙齒。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แก้วบิ่น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แก้วบิ่น</span><span class="en-colloc">chipped glass</span></span><span class="colloc-chip" data-thai="ชามบิ่น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ชามบิ่น</span><span class="en-colloc">chipped bowl</span></span><span class="colloc-chip" data-thai="ฟันบิ่น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฟันบิ่น</span><span class="en-colloc">chipped tooth</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="แก้วบิ่น" role="button" tabindex="0" ><span class="thai">แก้วบิ่น</span><span class="en-colloc">chipped glass</span></span><span class="colloc-chip" data-thai="ชามบิ่น" role="button" tabindex="0" ><span class="thai">ชามบิ่น</span><span class="en-colloc">chipped bowl</span></span><span class="colloc-chip" data-thai="ฟันบิ่น" role="button" tabindex="0" ><span class="thai">ฟันบิ่น</span><span class="en-colloc">chipped tooth</span></span></div></td>
           <td><div class="triad"><div class="thai">แก้วใบนี้บิ่นแล้ว อย่าใช้เลยค่ะ</div><div class="roman">gɛ̂ɛw bai níi bìn lɛ́ɛw, yàa chái ləəi khâ</div><div class="eng">This glass is chipped already. Don’t use it.</div></div></td>
         </tr>
 
@@ -731,7 +740,7 @@
           <td>Noun</td>
           <td>ชิ้น</td>
           <td><span class="thai">เศษ</span> 是碎片、殘片；<span class="thai">เศษแก้ว</span> 是玻璃碎片。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กวาดเศษแก้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กวาดเศษแก้ว</span><span class="en-colloc">sweep glass shards</span></span><span class="colloc-chip" data-thai="เก็บเศษแก้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เก็บเศษแก้ว</span><span class="en-colloc">pick up glass shards</span></span><span class="colloc-chip" data-thai="ระวังเศษแก้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ระวังเศษแก้ว</span><span class="en-colloc">watch out for glass shards</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กวาดเศษแก้ว" role="button" tabindex="0" ><span class="thai">กวาดเศษแก้ว</span><span class="en-colloc">sweep glass shards</span></span><span class="colloc-chip" data-thai="เก็บเศษแก้ว" role="button" tabindex="0" ><span class="thai">เก็บเศษแก้ว</span><span class="en-colloc">pick up glass shards</span></span><span class="colloc-chip" data-thai="ระวังเศษแก้ว" role="button" tabindex="0" ><span class="thai">ระวังเศษแก้ว</span><span class="en-colloc">watch out for glass shards</span></span></div></td>
           <td><div class="triad"><div class="thai">ระวังเศษแก้วบาดเท้านะคะ</div><div class="roman">rá-wang sèet-gɛ̂ɛw bàat tháao ná khá</div><div class="eng">Be careful, the glass shards may cut your foot.</div></div></td>
         </tr>
       </tbody>
@@ -755,7 +764,7 @@
           <td>Verb</td>
           <td>ครั้ง</td>
           <td>用針線縫合。衣服破洞、褲子裂開都可以用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เย็บเสื้อ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เย็บเสื้อ</span><span class="en-colloc">sew a shirt</span></span><span class="colloc-chip" data-thai="เย็บกางเกง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เย็บกางเกง</span><span class="en-colloc">sew pants</span></span><span class="colloc-chip" data-thai="เย็บแผล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เย็บแผล</span><span class="en-colloc">stitch a wound</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เย็บเสื้อ" role="button" tabindex="0" ><span class="thai">เย็บเสื้อ</span><span class="en-colloc">sew a shirt</span></span><span class="colloc-chip" data-thai="เย็บกางเกง" role="button" tabindex="0" ><span class="thai">เย็บกางเกง</span><span class="en-colloc">sew pants</span></span><span class="colloc-chip" data-thai="เย็บแผล" role="button" tabindex="0" ><span class="thai">เย็บแผล</span><span class="en-colloc">stitch a wound</span></span></div></td>
           <td><div class="triad"><div class="thai">เสื้อขาด ต้องเย็บค่ะ</div><div class="roman">sʉ̂a khàat, dtɔ̂ng yép khâ</div><div class="eng">The shirt is torn, so it needs to be sewn.</div></div></td>
         </tr>
 
@@ -764,7 +773,7 @@
           <td>Verb</td>
           <td>ครั้ง</td>
           <td>把補片貼/縫上去，修補破洞。比 <span class="thai">เย็บ</span> 更像「補一塊」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ปะเสื้อ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปะเสื้อ</span><span class="en-colloc">patch a shirt</span></span><span class="colloc-chip" data-thai="ปะกางเกง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปะกางเกง</span><span class="en-colloc">patch pants</span></span><span class="colloc-chip" data-thai="ปะยาง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปะยาง</span><span class="en-colloc">patch a tire</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ปะเสื้อ" role="button" tabindex="0" ><span class="thai">ปะเสื้อ</span><span class="en-colloc">patch a shirt</span></span><span class="colloc-chip" data-thai="ปะกางเกง" role="button" tabindex="0" ><span class="thai">ปะกางเกง</span><span class="en-colloc">patch pants</span></span><span class="colloc-chip" data-thai="ปะยาง" role="button" tabindex="0" ><span class="thai">ปะยาง</span><span class="en-colloc">patch a tire</span></span></div></td>
           <td><div class="triad"><div class="thai">กางเกงขาดตรงเข่า ช่วยปะให้หน่อยค่ะ</div><div class="roman">gaang-geeng khàat dtrong khào, chûai bpà hâi nòi khâ</div><div class="eng">The pants are torn at the knee. Please patch them for me.</div></div></td>
         </tr>
 
@@ -773,7 +782,7 @@
           <td>Verb</td>
           <td>ครั้ง</td>
           <td>較細緻地織補、補洞，常見於衣服布料修補。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ชุนเสื้อ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ชุนเสื้อ</span><span class="en-colloc">darn a shirt</span></span><span class="colloc-chip" data-thai="ชุนถุงเท้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ชุนถุงเท้า</span><span class="en-colloc">darn socks</span></span><span class="colloc-chip" data-thai="ชุนรู" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ชุนรู</span><span class="en-colloc">mend a hole</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ชุนเสื้อ" role="button" tabindex="0" ><span class="thai">ชุนเสื้อ</span><span class="en-colloc">darn a shirt</span></span><span class="colloc-chip" data-thai="ชุนถุงเท้า" role="button" tabindex="0" ><span class="thai">ชุนถุงเท้า</span><span class="en-colloc">darn socks</span></span><span class="colloc-chip" data-thai="ชุนรู" role="button" tabindex="0" ><span class="thai">ชุนรู</span><span class="en-colloc">mend a hole</span></span></div></td>
           <td><div class="triad"><div class="thai">รูเล็ก ๆ แบบนี้ชุนได้ค่ะ</div><div class="roman">ruu lék-lék bɛ̀ɛp níi chun dâai khâ</div><div class="eng">A small hole like this can be darned.</div></div></td>
         </tr>
 
@@ -782,7 +791,7 @@
           <td>Noun</td>
           <td>เส้น / ม้วน</td>
           <td>線；一條線可用 <span class="thai">เส้น</span>，一卷線可用 <span class="thai">ม้วน</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ด้ายสีดำ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ด้ายสีดำ</span><span class="en-colloc">black thread</span></span><span class="colloc-chip" data-thai="ด้ายกับเข็ม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ด้ายกับเข็ม</span><span class="en-colloc">thread and needle</span></span><span class="colloc-chip" data-thai="ม้วนด้าย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ม้วนด้าย</span><span class="en-colloc">spool of thread</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ด้ายสีดำ" role="button" tabindex="0" ><span class="thai">ด้ายสีดำ</span><span class="en-colloc">black thread</span></span><span class="colloc-chip" data-thai="ด้ายกับเข็ม" role="button" tabindex="0" ><span class="thai">ด้ายกับเข็ม</span><span class="en-colloc">thread and needle</span></span><span class="colloc-chip" data-thai="ม้วนด้าย" role="button" tabindex="0" ><span class="thai">ม้วนด้าย</span><span class="en-colloc">spool of thread</span></span></div></td>
           <td><div class="triad"><div class="thai">มีด้ายสีขาวไหมคะ</div><div class="roman">mii dâai sǐi khǎao mái khá</div><div class="eng">Do you have white thread?</div></div></td>
         </tr>
 
@@ -791,7 +800,7 @@
           <td>Noun</td>
           <td>เล่ม</td>
           <td>縫衣針常用量詞 <span class="thai">เล่ม</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เข็มเย็บผ้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เข็มเย็บผ้า</span><span class="en-colloc">sewing needle</span></span><span class="colloc-chip" data-thai="เข็มกับด้าย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เข็มกับด้าย</span><span class="en-colloc">needle and thread</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เข็มเย็บผ้า" role="button" tabindex="0" ><span class="thai">เข็มเย็บผ้า</span><span class="en-colloc">sewing needle</span></span><span class="colloc-chip" data-thai="เข็มกับด้าย" role="button" tabindex="0" ><span class="thai">เข็มกับด้าย</span><span class="en-colloc">needle and thread</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันต้องใช้เข็มกับด้ายค่ะ</div><div class="roman">chǎn dtɔ̂ng chái khěm gàp dâai khâ</div><div class="eng">I need to use a needle and thread.</div></div></td>
         </tr>
 
@@ -800,7 +809,7 @@
           <td>Verb</td>
           <td>ครั้ง</td>
           <td>用掃把掃地、掃碎玻璃。搭配 <span class="thai">เศษแก้ว</span> 很常用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กวาดพื้น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กวาดพื้น</span><span class="en-colloc">sweep the floor</span></span><span class="colloc-chip" data-thai="กวาดเศษแก้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กวาดเศษแก้ว</span><span class="en-colloc">sweep glass shards</span></span><span class="colloc-chip" data-thai="กวาดห้อง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กวาดห้อง</span><span class="en-colloc">sweep the room</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กวาดพื้น" role="button" tabindex="0" ><span class="thai">กวาดพื้น</span><span class="en-colloc">sweep the floor</span></span><span class="colloc-chip" data-thai="กวาดเศษแก้ว" role="button" tabindex="0" ><span class="thai">กวาดเศษแก้ว</span><span class="en-colloc">sweep glass shards</span></span><span class="colloc-chip" data-thai="กวาดห้อง" role="button" tabindex="0" ><span class="thai">กวาดห้อง</span><span class="en-colloc">sweep the room</span></span></div></td>
           <td><div class="triad"><div class="thai">แก้วแตก ต้องกวาดเศษแก้วก่อนค่ะ</div><div class="roman">gɛ̂ɛw dtɛ̀ɛk, dtɔ̂ng gwàat sèet-gɛ̂ɛw gɔ̀ɔn khâ</div><div class="eng">The glass broke; we must sweep up the shards first.</div></div></td>
         </tr>
 
@@ -809,7 +818,7 @@
           <td>Verb</td>
           <td>ครั้ง</td>
           <td>丟掉。注意也可表示丟下某人/某物，但本課是丟垃圾。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทิ้งขยะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทิ้งขยะ</span><span class="en-colloc">throw away trash</span></span><span class="colloc-chip" data-thai="ทิ้งเศษแก้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทิ้งเศษแก้ว</span><span class="en-colloc">throw away glass shards</span></span><span class="colloc-chip" data-thai="ทิ้งของเก่า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทิ้งของเก่า</span><span class="en-colloc">throw away old things</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทิ้งขยะ" role="button" tabindex="0" ><span class="thai">ทิ้งขยะ</span><span class="en-colloc">throw away trash</span></span><span class="colloc-chip" data-thai="ทิ้งเศษแก้ว" role="button" tabindex="0" ><span class="thai">ทิ้งเศษแก้ว</span><span class="en-colloc">throw away glass shards</span></span><span class="colloc-chip" data-thai="ทิ้งของเก่า" role="button" tabindex="0" ><span class="thai">ทิ้งของเก่า</span><span class="en-colloc">throw away old things</span></span></div></td>
           <td><div class="triad"><div class="thai">อย่าทิ้งเศษแก้วลงถุงขยะธรรมดานะคะ</div><div class="roman">yàa thíng sèet-gɛ̂ɛw long thǔng khà-yà tham-má-daa ná khá</div><div class="eng">Don’t throw glass shards into a regular trash bag.</div></div></td>
         </tr>
 
@@ -818,7 +827,7 @@
           <td>Noun</td>
           <td>ใบ</td>
           <td>垃圾桶。<span class="thai">ขยะ</span> 是垃圾。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทิ้งในถังขยะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทิ้งในถังขยะ</span><span class="en-colloc">throw in the trash bin</span></span><span class="colloc-chip" data-thai="ถุงขยะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถุงขยะ</span><span class="en-colloc">trash bag</span></span><span class="colloc-chip" data-thai="แยกขยะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แยกขยะ</span><span class="en-colloc">separate trash</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทิ้งในถังขยะ" role="button" tabindex="0" ><span class="thai">ทิ้งในถังขยะ</span><span class="en-colloc">throw in the trash bin</span></span><span class="colloc-chip" data-thai="ถุงขยะ" role="button" tabindex="0" ><span class="thai">ถุงขยะ</span><span class="en-colloc">trash bag</span></span><span class="colloc-chip" data-thai="แยกขยะ" role="button" tabindex="0" ><span class="thai">แยกขยะ</span><span class="en-colloc">separate trash</span></span></div></td>
           <td><div class="triad"><div class="thai">ถังขยะอยู่ตรงไหนคะ</div><div class="roman">thǎng khà-yà yùu dtrong nǎi khá</div><div class="eng">Where is the trash bin?</div></div></td>
         </tr>
 
@@ -827,7 +836,7 @@
           <td>Warning verb</td>
           <td>—</td>
           <td>提醒小心。可單獨用，也可搭配 <span class="thai">จะ</span> 表示可能發生的結果。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ระวังรถ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ระวังรถ</span><span class="en-colloc">watch out for cars</span></span><span class="colloc-chip" data-thai="ระวังลื่น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ระวังลื่น</span><span class="en-colloc">be careful, slippery</span></span><span class="colloc-chip" data-thai="ระวังแก้วแตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ระวังแก้วแตก</span><span class="en-colloc">careful, the glass may break</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ระวังรถ" role="button" tabindex="0" ><span class="thai">ระวังรถ</span><span class="en-colloc">watch out for cars</span></span><span class="colloc-chip" data-thai="ระวังลื่น" role="button" tabindex="0" ><span class="thai">ระวังลื่น</span><span class="en-colloc">be careful, slippery</span></span><span class="colloc-chip" data-thai="ระวังแก้วแตก" role="button" tabindex="0" ><span class="thai">ระวังแก้วแตก</span><span class="en-colloc">careful, the glass may break</span></span></div></td>
           <td><div class="triad"><div class="thai">ระวังพื้นลื่นนะคะ</div><div class="roman">rá-wang phʉ́ʉn lʉ̂ʉn ná khá</div><div class="eng">Be careful, the floor is slippery.</div></div></td>
         </tr>
 
@@ -836,7 +845,7 @@
           <td>Time adverb</td>
           <td>—</td>
           <td>表示「等一下、一下子後」。真實口語極常用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดี๋ยวฉัน..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดี๋ยวฉัน...</span><span class="en-colloc">I’ll... in a moment</span></span><span class="colloc-chip" data-thai="เดี๋ยวกลับมา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดี๋ยวกลับมา</span><span class="en-colloc">I’ll come back</span></span><span class="colloc-chip" data-thai="เดี๋ยวทำให้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดี๋ยวทำให้</span><span class="en-colloc">I’ll do it for you</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เดี๋ยวฉัน..." role="button" tabindex="0" ><span class="thai">เดี๋ยวฉัน...</span><span class="en-colloc">I’ll... in a moment</span></span><span class="colloc-chip" data-thai="เดี๋ยวกลับมา" role="button" tabindex="0" ><span class="thai">เดี๋ยวกลับมา</span><span class="en-colloc">I’ll come back</span></span><span class="colloc-chip" data-thai="เดี๋ยวทำให้" role="button" tabindex="0" ><span class="thai">เดี๋ยวทำให้</span><span class="en-colloc">I’ll do it for you</span></span></div></td>
           <td><div class="triad"><div class="thai">เดี๋ยวฉันจะกลับบ้านค่ะ</div><div class="roman">dǐao chǎn jà glàp bâan khâ</div><div class="eng">I’ll go home in a moment.</div></div></td>
         </tr>
 
@@ -845,7 +854,7 @@
           <td>Time adverb</td>
           <td>—</td>
           <td>表示剛剛才發生。放在動詞前。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เพิ่งกินข้าว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เพิ่งกินข้าว</span><span class="en-colloc">just ate</span></span><span class="colloc-chip" data-thai="เพิ่งกลับมา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เพิ่งกลับมา</span><span class="en-colloc">just came back</span></span><span class="colloc-chip" data-thai="เพิ่งไปเที่ยว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เพิ่งไปเที่ยว</span><span class="en-colloc">just went traveling</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เพิ่งกินข้าว" role="button" tabindex="0" ><span class="thai">เพิ่งกินข้าว</span><span class="en-colloc">just ate</span></span><span class="colloc-chip" data-thai="เพิ่งกลับมา" role="button" tabindex="0" ><span class="thai">เพิ่งกลับมา</span><span class="en-colloc">just came back</span></span><span class="colloc-chip" data-thai="เพิ่งไปเที่ยว" role="button" tabindex="0" ><span class="thai">เพิ่งไปเที่ยว</span><span class="en-colloc">just went traveling</span></span></div></td>
           <td><div class="triad"><div class="thai">ครูเพิ่งกินข้าวค่ะ</div><div class="roman">khruu phə̂ng gin khâao khâ</div><div class="eng">The teacher just ate.</div></div></td>
         </tr>
       </tbody>
@@ -1888,5 +1897,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

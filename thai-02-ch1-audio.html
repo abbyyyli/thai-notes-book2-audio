@@ -327,6 +327,90 @@
       table { font-size: 13px; }
       .bubble { max-width: 100%; }
     }
+  
+
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
+    .triad .thai::before,
+    .triad .roman::before,
+    .triad .eng::before { content: none !important; }
+
+    .collocation-pills,
+    .colloc-cell {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+      margin: 4px 0;
+    }
+
+    .audio-pill,
+    .colloc-chip {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      border: .5px solid rgba(22,163,74,.24);
+      background: rgba(240,253,244,.78);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 5px 10px;
+      margin: 3px 3px 3px 0;
+      cursor: pointer;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
+      min-width: 72px;
+      text-align: center;
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
+    }
+
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
+    .colloc-chip:hover,
+    .colloc-chip:focus-visible {
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
+      outline: none;
+    }
+
+    .audio-pill.speaking,
+    .colloc-chip.speaking {
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
+    }
+
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
+    .colloc-chip .thai {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .audio-pill .pill-eng,
+    .colloc-chip .en-colloc {
+      display: block;
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.2;
+    }
+
   </style>
 </head>
 <body>
@@ -425,56 +509,56 @@
 <td><div class="triad"><div class="thai">ออก</div><div class="roman">òok</div><div class="eng">go out / exit</div></div></td>
 <td>Movement</td>
 <td>表示從裡面往外出去。常接 <span class="thai">จาก</span> 表示「從某地出來」。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="ออกจากบ้าน" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">ออกจากบ้าน</span><span class="pill-eng">leave home</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ออกจากบ้าน" role="button" tabindex="0"><span class="thai">ออกจากบ้าน</span><span class="en-colloc">leave home</span></span></div></td>
 <td><div class="triad"><div class="thai">ฉันออกจากบ้านแปดโมงเช้าค่ะ</div><div class="roman">chǎn òok jàak bâan bpɛ̀ɛt moong cháo khâ</div><div class="eng">I leave home at 8 a.m.</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">เข้า</div><div class="roman">khâo</div><div class="eng">enter / go in</div></div></td>
 <td>Movement</td>
 <td>教材對比 <span class="thai">ออก</span> 與 <span class="thai">เข้า</span>。進入房間、公司、學校都可用。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="เข้าบริษัท" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">เข้าบริษัท</span><span class="pill-eng">enter the company</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="เข้าบริษัท" role="button" tabindex="0"><span class="thai">เข้าบริษัท</span><span class="en-colloc">enter the company</span></span></div></td>
 <td><div class="triad"><div class="thai">ฉันเข้าบริษัทเก้าโมงค่ะ</div><div class="roman">chǎn khâo bɔɔ-rí-sàt gâo moong khâ</div><div class="eng">I enter the office at 9.</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">ออกจาก</div><div class="roman">òok jàak</div><div class="eng">leave from / go out from</div></div></td>
 <td>Movement phrase</td>
 <td><span class="thai">จาก</span> = from。用於「從某地離開」。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="ออกจากบ้าน" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">ออกจากบ้าน</span><span class="pill-eng">leave home</span></button><button class="audio-pill" data-thai="ออกจากโรงเรียน" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">ออกจากโรงเรียน</span><span class="pill-eng">leave school</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ออกจากบ้าน" role="button" tabindex="0"><span class="thai">ออกจากบ้าน</span><span class="en-colloc">leave home</span></span><span class="colloc-chip" data-thai="ออกจากโรงเรียน" role="button" tabindex="0"><span class="thai">ออกจากโรงเรียน</span><span class="en-colloc">leave school</span></span></div></td>
 <td><div class="triad"><div class="thai">คุณออกจากบ้านกี่โมงคะ</div><div class="roman">khun òok jàak bâan gìi moong khá</div><div class="eng">What time do you leave home?</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">ถึง</div><div class="roman">thʉ̌ng</div><div class="eng">arrive / reach / to</div></div></td>
 <td>Movement / preposition</td>
 <td>可以當動詞「到達」，也可以放在 A 到 B 的結構中。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="มาถึง" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">มาถึง</span><span class="pill-eng">arrive</span></button><button class="audio-pill" data-thai="ไปถึง" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">ไปถึง</span><span class="pill-eng">go and arrive</span></button><button class="audio-pill" data-thai="จาก...ถึง..." onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">จาก...ถึง...</span><span class="pill-eng">from...to...</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="มาถึง" role="button" tabindex="0"><span class="thai">มาถึง</span><span class="en-colloc">arrive</span></span><span class="colloc-chip" data-thai="ไปถึง" role="button" tabindex="0"><span class="thai">ไปถึง</span><span class="en-colloc">go and arrive</span></span><span class="colloc-chip" data-thai="จาก...ถึง..." role="button" tabindex="0"><span class="thai">จาก...ถึง...</span><span class="en-colloc">from...to...</span></span></div></td>
 <td><div class="triad"><div class="thai">ฉันมาถึงบริษัทเก้าโมงเช้าค่ะ</div><div class="roman">chǎn maa thʉ̌ng bɔɔ-rí-sàt gâo moong cháo khâ</div><div class="eng">I arrive at the company at 9 a.m.</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">บริษัท</div><div class="roman">bɔɔ-rí-sàt</div><div class="eng">company</div></div></td>
 <td>Place / work</td>
 <td>上班族很常用。口語也可用 <span class="thai">ที่ทำงาน</span> 表示 workplace。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="ไปบริษัท" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">ไปบริษัท</span><span class="pill-eng">go to company</span></button><button class="audio-pill" data-thai="มาถึงบริษัท" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">มาถึงบริษัท</span><span class="pill-eng">arrive at company</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปบริษัท" role="button" tabindex="0"><span class="thai">ไปบริษัท</span><span class="en-colloc">go to company</span></span><span class="colloc-chip" data-thai="มาถึงบริษัท" role="button" tabindex="0"><span class="thai">มาถึงบริษัท</span><span class="en-colloc">arrive at company</span></span></div></td>
 <td><div class="triad"><div class="thai">คุณไปบริษัทอย่างไรคะ</div><div class="roman">khun bpai bɔɔ-rí-sàt yàang-rai khá</div><div class="eng">How do you go to the company?</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">ทำงาน</div><div class="roman">tham-ngaan</div><div class="eng">work</div></div></td>
 <td>Work</td>
 <td>教材練習「從幾點工作到幾點」。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="ทำงานตั้งแต่...ถึง..." onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">ทำงานตั้งแต่...ถึง...</span><span class="pill-eng">work from...to...</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ทำงานตั้งแต่...ถึง..." role="button" tabindex="0"><span class="thai">ทำงานตั้งแต่...ถึง...</span><span class="en-colloc">work from...to...</span></span></div></td>
 <td><div class="triad"><div class="thai">ฉันทำงานตั้งแต่เก้าโมงถึงหกโมงเย็นค่ะ</div><div class="roman">chǎn tham-ngaan dtâng-dtɛ̀ɛ gâo moong thʉ̌ng hòk moong yen khâ</div><div class="eng">I work from 9 a.m. to 6 p.m.</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">ตั้งแต่</div><div class="roman">dtâng-dtɛ̀ɛ</div><div class="eng">from / since</div></div></td>
 <td>Time marker</td>
 <td>用於「從某時間開始」。常搭配 <span class="thai">ถึง</span>。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="ตั้งแต่ 09:00 ถึง 18:00" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">ตั้งแต่ 09:00 ถึง 18:00</span><span class="pill-eng">from 09:00 to 18:00</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั้งแต่ 09:00 ถึง 18:00" role="button" tabindex="0"><span class="thai">ตั้งแต่ 09:00 ถึง 18:00</span><span class="en-colloc">from 09:00 to 18:00</span></span></div></td>
 <td><div class="triad"><div class="thai">คุณทำงานตั้งแต่กี่โมงถึงกี่โมงคะ</div><div class="roman">khun tham-ngaan dtâng-dtɛ̀ɛ gìi moong thʉ̌ng gìi moong khá</div><div class="eng">From what time to what time do you work?</div></div></td>
 </tr>
 <tr>
 <td><div class="triad"><div class="thai">กี่นาที</div><div class="roman">gìi naa-thii</div><div class="eng">how many minutes</div></div></td>
 <td>Time duration</td>
 <td>問短時間花多久。</td>
-<td><div class="collocation-pills"><button class="audio-pill" data-thai="ใช้เวลากี่นาที" onclick="speakThai(this.dataset.thai, this)" type="button"><span class="pill-thai">ใช้เวลากี่นาที</span><span class="pill-eng">how many minutes does it take?</span></button></div></td>
+<td><div class="colloc-cell"><span class="colloc-chip" data-thai="ใช้เวลากี่นาที" role="button" tabindex="0"><span class="thai">ใช้เวลากี่นาที</span><span class="en-colloc">how many minutes does it take?</span></span></div></td>
 <td><div class="triad"><div class="thai">จากอโศกถึงสยามกี่นาทีคะ</div><div class="roman">jàak à-sòok thʉ̌ng sà-yǎam gìi naa-thii khá</div><div class="eng">How many minutes from Asok to Siam?</div></div></td>
 </tr>
 </tbody>
@@ -1412,5 +1496,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

@@ -367,34 +367,23 @@
       color: var(--muted);
       line-height: 1.2;
     }
-
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -403,38 +392,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -602,7 +611,7 @@
           <td>Adverbial phrase</td>
           <td>—</td>
           <td>放句首表示「平常、照平常來說」。語氣比 <span class="thai">ปกติ</span> 稍微書面/完整。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตามธรรมดา ฉัน..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตามธรรมดา ฉัน...</span><span class="en-colloc">Normally I...</span></span><span class="colloc-chip" data-thai="ตามธรรมดา เขา..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตามธรรมดา เขา...</span><span class="en-colloc">Normally he...</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตามธรรมดา ฉัน..." role="button" tabindex="0" ><span class="thai">ตามธรรมดา ฉัน...</span><span class="en-colloc">Normally I...</span></span><span class="colloc-chip" data-thai="ตามธรรมดา เขา..." role="button" tabindex="0" ><span class="thai">ตามธรรมดา เขา...</span><span class="en-colloc">Normally he...</span></span></div></td>
           <td><div class="triad"><div class="thai">ตามธรรมดา ฉันตื่นเจ็ดโมงค่ะ</div><div class="roman">dtaam tham-má-daa chǎn dtʉ̀ʉn jèt moong khâ</div><div class="eng">Normally, I wake up at 7.</div></div></td>
         </tr>
 
@@ -611,7 +620,7 @@
           <td>Adverbial phrase</td>
           <td>—</td>
           <td>放在形容詞/副詞後面，表示「特別地、比平常更……」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สวยเป็นพิเศษ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สวยเป็นพิเศษ</span><span class="en-colloc">especially beautiful</span></span><span class="colloc-chip" data-thai="ขยันเป็นพิเศษ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขยันเป็นพิเศษ</span><span class="en-colloc">especially hardworking</span></span><span class="colloc-chip" data-thai="แพงเป็นพิเศษ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แพงเป็นพิเศษ</span><span class="en-colloc">especially expensive</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สวยเป็นพิเศษ" role="button" tabindex="0" ><span class="thai">สวยเป็นพิเศษ</span><span class="en-colloc">especially beautiful</span></span><span class="colloc-chip" data-thai="ขยันเป็นพิเศษ" role="button" tabindex="0" ><span class="thai">ขยันเป็นพิเศษ</span><span class="en-colloc">especially hardworking</span></span><span class="colloc-chip" data-thai="แพงเป็นพิเศษ" role="button" tabindex="0" ><span class="thai">แพงเป็นพิเศษ</span><span class="en-colloc">especially expensive</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้เขาทำงานขยันเป็นพิเศษค่ะ</div><div class="roman">wan-níi khǎo tham-ngaan khà-yǎn bpen phí-sèet khâ</div><div class="eng">Today he works especially hard.</div></div></td>
         </tr>
 
@@ -620,7 +629,7 @@
           <td>Conditional connector</td>
           <td>—</td>
           <td>表示條件。如果條件成立，後面會發生某結果。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถ้าฝนตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถ้าฝนตก</span><span class="en-colloc">if it rains</span></span><span class="colloc-chip" data-thai="ถ้ามีเวลา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถ้ามีเวลา</span><span class="en-colloc">if there is time</span></span><span class="colloc-chip" data-thai="ถ้าว่าง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถ้าว่าง</span><span class="en-colloc">if free</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ถ้าฝนตก" role="button" tabindex="0" ><span class="thai">ถ้าฝนตก</span><span class="en-colloc">if it rains</span></span><span class="colloc-chip" data-thai="ถ้ามีเวลา" role="button" tabindex="0" ><span class="thai">ถ้ามีเวลา</span><span class="en-colloc">if there is time</span></span><span class="colloc-chip" data-thai="ถ้าว่าง" role="button" tabindex="0" ><span class="thai">ถ้าว่าง</span><span class="en-colloc">if free</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าว่าง ฉันจะไปด้วยค่ะ</div><div class="roman">thâa wâang chǎn jà bpai dûai khâ</div><div class="eng">If I’m free, I will go too.</div></div></td>
         </tr>
 
@@ -629,7 +638,7 @@
           <td>Hypothetical phrase</td>
           <td>—</td>
           <td>用來提出假設情境，常用在討論計畫、想像狀況、舉例。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สมมุติว่าเรามีเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สมมุติว่าเรามีเงิน</span><span class="en-colloc">suppose we have money</span></span><span class="colloc-chip" data-thai="สมมุติว่าฝนตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สมมุติว่าฝนตก</span><span class="en-colloc">suppose it rains</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สมมุติว่าเรามีเงิน" role="button" tabindex="0" ><span class="thai">สมมุติว่าเรามีเงิน</span><span class="en-colloc">suppose we have money</span></span><span class="colloc-chip" data-thai="สมมุติว่าฝนตก" role="button" tabindex="0" ><span class="thai">สมมุติว่าฝนตก</span><span class="en-colloc">suppose it rains</span></span></div></td>
           <td><div class="triad"><div class="thai">สมมุติว่าเราจองตั๋วไม่ได้ เราจะทำยังไงคะ</div><div class="roman">sǒm-mút wâa rao jɔɔng dtǔa mâi dâai rao jà tham yang-ngai khá</div><div class="eng">Suppose we can’t book tickets, what will we do?</div></div></td>
         </tr>
 
@@ -638,7 +647,7 @@
           <td>Verb</td>
           <td>—</td>
           <td>比 <span class="thai">อยาก</span> 正式，適合訂房、訂票、櫃台、客服。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ต้องการจอง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ต้องการจอง</span><span class="en-colloc">want to book</span></span><span class="colloc-chip" data-thai="ต้องการห้อง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ต้องการห้อง</span><span class="en-colloc">need a room</span></span><span class="colloc-chip" data-thai="ต้องการตั๋ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ต้องการตั๋ว</span><span class="en-colloc">need a ticket</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ต้องการจอง" role="button" tabindex="0" ><span class="thai">ต้องการจอง</span><span class="en-colloc">want to book</span></span><span class="colloc-chip" data-thai="ต้องการห้อง" role="button" tabindex="0" ><span class="thai">ต้องการห้อง</span><span class="en-colloc">need a room</span></span><span class="colloc-chip" data-thai="ต้องการตั๋ว" role="button" tabindex="0" ><span class="thai">ต้องการตั๋ว</span><span class="en-colloc">need a ticket</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องการจองห้องเตียงคู่ค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng hɔ̂ng dtiang-khûu khâ</div><div class="eng">I would like to book a twin-bed room.</div></div></td>
         </tr>
 
@@ -647,7 +656,7 @@
           <td>Verb</td>
           <td>—</td>
           <td>捐錢、捐物都可用。教材例句與「世界最有錢的人」假設有關。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="บริจาคเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">บริจาคเงิน</span><span class="en-colloc">donate money</span></span><span class="colloc-chip" data-thai="บริจาคของ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">บริจาคของ</span><span class="en-colloc">donate things</span></span><span class="colloc-chip" data-thai="บริจาคให้โรงพยาบาล" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">บริจาคให้โรงพยาบาล</span><span class="en-colloc">donate to a hospital</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="บริจาคเงิน" role="button" tabindex="0" ><span class="thai">บริจาคเงิน</span><span class="en-colloc">donate money</span></span><span class="colloc-chip" data-thai="บริจาคของ" role="button" tabindex="0" ><span class="thai">บริจาคของ</span><span class="en-colloc">donate things</span></span><span class="colloc-chip" data-thai="บริจาคให้โรงพยาบาล" role="button" tabindex="0" ><span class="thai">บริจาคให้โรงพยาบาล</span><span class="en-colloc">donate to a hospital</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าฉันรวยมาก ฉันจะบริจาคเงินค่ะ</div><div class="roman">thâa chǎn ruai mâak chǎn jà bɔɔ-rí-jàak ngoen khâ</div><div class="eng">If I were very rich, I would donate money.</div></div></td>
         </tr>
 
@@ -656,7 +665,7 @@
           <td>Verb</td>
           <td>—</td>
           <td>休息、放鬆，常用於旅行、健康、工作後。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปพักผ่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปพักผ่อน</span><span class="en-colloc">go rest</span></span><span class="colloc-chip" data-thai="พักผ่อนเยอะ ๆ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">พักผ่อนเยอะ ๆ</span><span class="en-colloc">rest a lot</span></span><span class="colloc-chip" data-thai="วันพักผ่อน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วันพักผ่อน</span><span class="en-colloc">rest day</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปพักผ่อน" role="button" tabindex="0" ><span class="thai">ไปพักผ่อน</span><span class="en-colloc">go rest</span></span><span class="colloc-chip" data-thai="พักผ่อนเยอะ ๆ" role="button" tabindex="0" ><span class="thai">พักผ่อนเยอะ ๆ</span><span class="en-colloc">rest a lot</span></span><span class="colloc-chip" data-thai="วันพักผ่อน" role="button" tabindex="0" ><span class="thai">วันพักผ่อน</span><span class="en-colloc">rest day</span></span></div></td>
           <td><div class="triad"><div class="thai">วันหยุดนี้ฉันอยากไปพักผ่อนที่หัวหินค่ะ</div><div class="roman">wan-yùt níi chǎn yàak bpai phák-phɔ̀ɔn thîi hǔa-hǐn khâ</div><div class="eng">This holiday I want to relax in Hua Hin.</div></div></td>
         </tr>
       </tbody>
@@ -680,7 +689,7 @@
           <td>Verb</td>
           <td>—</td>
           <td>可用於訂票、訂房、訂位、預約服務。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จองตั๋ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จองตั๋ว</span><span class="en-colloc">book a ticket</span></span><span class="colloc-chip" data-thai="จองห้อง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จองห้อง</span><span class="en-colloc">book a room</span></span><span class="colloc-chip" data-thai="จองโต๊ะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จองโต๊ะ</span><span class="en-colloc">reserve a table</span></span><span class="colloc-chip" data-thai="จองล่วงหน้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จองล่วงหน้า</span><span class="en-colloc">book in advance</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จองตั๋ว" role="button" tabindex="0" ><span class="thai">จองตั๋ว</span><span class="en-colloc">book a ticket</span></span><span class="colloc-chip" data-thai="จองห้อง" role="button" tabindex="0" ><span class="thai">จองห้อง</span><span class="en-colloc">book a room</span></span><span class="colloc-chip" data-thai="จองโต๊ะ" role="button" tabindex="0" ><span class="thai">จองโต๊ะ</span><span class="en-colloc">reserve a table</span></span><span class="colloc-chip" data-thai="จองล่วงหน้า" role="button" tabindex="0" ><span class="thai">จองล่วงหน้า</span><span class="en-colloc">book in advance</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันต้องการจองตั๋วรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">chǎn dtɔ̂ng-gaan jɔɔng dtǔa rót-fai bpai chiiang-mài khâ</div><div class="eng">I would like to book a train ticket to Chiang Mai.</div></div></td>
         </tr>
 
@@ -689,7 +698,7 @@
           <td>Noun</td>
           <td>ใบ</td>
           <td>票券常用量詞 <span class="thai">ใบ</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วเครื่องบิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วเครื่องบิน</span><span class="en-colloc">plane ticket</span></span><span class="colloc-chip" data-thai="ตั๋วรถไฟ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วรถไฟ</span><span class="en-colloc">train ticket</span></span><span class="colloc-chip" data-thai="ตั๋วรถทัวร์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วรถทัวร์</span><span class="en-colloc">bus ticket</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วเครื่องบิน" role="button" tabindex="0" ><span class="thai">ตั๋วเครื่องบิน</span><span class="en-colloc">plane ticket</span></span><span class="colloc-chip" data-thai="ตั๋วรถไฟ" role="button" tabindex="0" ><span class="thai">ตั๋วรถไฟ</span><span class="en-colloc">train ticket</span></span><span class="colloc-chip" data-thai="ตั๋วรถทัวร์" role="button" tabindex="0" ><span class="thai">ตั๋วรถทัวร์</span><span class="en-colloc">bus ticket</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องการตั๋วสองใบค่ะ</div><div class="roman">dtɔ̂ng-gaan dtǔa sɔ̌ɔng bai khâ</div><div class="eng">I need two tickets.</div></div></td>
         </tr>
 
@@ -698,7 +707,7 @@
           <td>Noun</td>
           <td>ใบ</td>
           <td><span class="thai">เครื่องบิน</span> 是飛機；<span class="thai">ตั๋วเครื่องบิน</span> 是機票。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จองตั๋วเครื่องบิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จองตั๋วเครื่องบิน</span><span class="en-colloc">book a plane ticket</span></span><span class="colloc-chip" data-thai="ตั๋วเครื่องบินไปกลับ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วเครื่องบินไปกลับ</span><span class="en-colloc">round-trip plane ticket</span></span><span class="colloc-chip" data-thai="ตั๋วเครื่องบินเที่ยวเดียว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วเครื่องบินเที่ยวเดียว</span><span class="en-colloc">one-way plane ticket</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จองตั๋วเครื่องบิน" role="button" tabindex="0" ><span class="thai">จองตั๋วเครื่องบิน</span><span class="en-colloc">book a plane ticket</span></span><span class="colloc-chip" data-thai="ตั๋วเครื่องบินไปกลับ" role="button" tabindex="0" ><span class="thai">ตั๋วเครื่องบินไปกลับ</span><span class="en-colloc">round-trip plane ticket</span></span><span class="colloc-chip" data-thai="ตั๋วเครื่องบินเที่ยวเดียว" role="button" tabindex="0" ><span class="thai">ตั๋วเครื่องบินเที่ยวเดียว</span><span class="en-colloc">one-way plane ticket</span></span></div></td>
           <td><div class="triad"><div class="thai">ตั๋วเครื่องบินไปภูเก็ตเต็มแล้วค่ะ</div><div class="roman">dtǔa khrʉ̂ang-bin bpai phuu-gèt dtem lɛ́ɛw khâ</div><div class="eng">The plane tickets to Phuket are full/sold out.</div></div></td>
         </tr>
 
@@ -707,7 +716,7 @@
           <td>Ticket type</td>
           <td>—</td>
           <td>用在交通票：去回都有。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วไปกลับ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วไปกลับ</span><span class="en-colloc">round-trip ticket</span></span><span class="colloc-chip" data-thai="กรุงเทพฯ-เชียงใหม่ไปกลับ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กรุงเทพฯ-เชียงใหม่ไปกลับ</span><span class="en-colloc">Bangkok-Chiang Mai round trip</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วไปกลับ" role="button" tabindex="0" ><span class="thai">ตั๋วไปกลับ</span><span class="en-colloc">round-trip ticket</span></span><span class="colloc-chip" data-thai="กรุงเทพฯ-เชียงใหม่ไปกลับ" role="button" tabindex="0" ><span class="thai">กรุงเทพฯ-เชียงใหม่ไปกลับ</span><span class="en-colloc">Bangkok-Chiang Mai round trip</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องการตั๋วไปกลับสองใบค่ะ</div><div class="roman">dtɔ̂ng-gaan dtǔa bpai-glàp sɔ̌ɔng bai khâ</div><div class="eng">I would like two round-trip tickets.</div></div></td>
         </tr>
 
@@ -716,7 +725,7 @@
           <td>Ticket type</td>
           <td>—</td>
           <td>只買單程票。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วเที่ยวเดียว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วเที่ยวเดียว</span><span class="en-colloc">one-way ticket</span></span><span class="colloc-chip" data-thai="ไปเชียงใหม่เที่ยวเดียว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปเชียงใหม่เที่ยวเดียว</span><span class="en-colloc">one-way to Chiang Mai</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วเที่ยวเดียว" role="button" tabindex="0" ><span class="thai">ตั๋วเที่ยวเดียว</span><span class="en-colloc">one-way ticket</span></span><span class="colloc-chip" data-thai="ไปเชียงใหม่เที่ยวเดียว" role="button" tabindex="0" ><span class="thai">ไปเชียงใหม่เที่ยวเดียว</span><span class="en-colloc">one-way to Chiang Mai</span></span></div></td>
           <td><div class="triad"><div class="thai">เอาตั๋วเที่ยวเดียวไปเชียงใหม่ค่ะ</div><div class="roman">ao dtǔa thîao-diao bpai chiiang-mài khâ</div><div class="eng">I’ll take a one-way ticket to Chiang Mai.</div></div></td>
         </tr>
 
@@ -725,7 +734,7 @@
           <td>Noun / verb</td>
           <td>ครั้ง</td>
           <td>可用於約時間、預約人、看醫生、美容院等。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีนัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีนัด</span><span class="en-colloc">have an appointment</span></span><span class="colloc-chip" data-thai="นัดหมอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">นัดหมอ</span><span class="en-colloc">make a doctor appointment</span></span><span class="colloc-chip" data-thai="นัดเวลา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">นัดเวลา</span><span class="en-colloc">set a time</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีนัด" role="button" tabindex="0" ><span class="thai">มีนัด</span><span class="en-colloc">have an appointment</span></span><span class="colloc-chip" data-thai="นัดหมอ" role="button" tabindex="0" ><span class="thai">นัดหมอ</span><span class="en-colloc">make a doctor appointment</span></span><span class="colloc-chip" data-thai="นัดเวลา" role="button" tabindex="0" ><span class="thai">นัดเวลา</span><span class="en-colloc">set a time</span></span></div></td>
           <td><div class="triad"><div class="thai">พรุ่งนี้ฉันมีนัดกับหมอค่ะ</div><div class="roman">phrûng-níi chǎn mii nát gàp mɔ̌ɔ khâ</div><div class="eng">Tomorrow I have an appointment with the doctor.</div></div></td>
         </tr>
 
@@ -734,7 +743,7 @@
           <td>Adverb</td>
           <td>—</td>
           <td>放在訂房、訂票、通知等情境，表示提前。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จองล่วงหน้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จองล่วงหน้า</span><span class="en-colloc">book in advance</span></span><span class="colloc-chip" data-thai="แจ้งล่วงหน้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">แจ้งล่วงหน้า</span><span class="en-colloc">inform in advance</span></span><span class="colloc-chip" data-thai="ล่วงหน้าหนึ่งวัน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ล่วงหน้าหนึ่งวัน</span><span class="en-colloc">one day in advance</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จองล่วงหน้า" role="button" tabindex="0" ><span class="thai">จองล่วงหน้า</span><span class="en-colloc">book in advance</span></span><span class="colloc-chip" data-thai="แจ้งล่วงหน้า" role="button" tabindex="0" ><span class="thai">แจ้งล่วงหน้า</span><span class="en-colloc">inform in advance</span></span><span class="colloc-chip" data-thai="ล่วงหน้าหนึ่งวัน" role="button" tabindex="0" ><span class="thai">ล่วงหน้าหนึ่งวัน</span><span class="en-colloc">one day in advance</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องจองล่วงหน้ากี่วันคะ</div><div class="roman">dtɔ̂ng jɔɔng lûang-nâa gìi wan khá</div><div class="eng">How many days in advance do I need to book?</div></div></td>
         </tr>
 
@@ -743,7 +752,7 @@
           <td>Adjective</td>
           <td>—</td>
           <td>票、座位、房間滿了都可以用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องเต็ม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องเต็ม</span><span class="en-colloc">rooms full</span></span><span class="colloc-chip" data-thai="ที่นั่งเต็ม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ที่นั่งเต็ม</span><span class="en-colloc">seats full</span></span><span class="colloc-chip" data-thai="รถเต็ม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถเต็ม</span><span class="en-colloc">bus full</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องเต็ม" role="button" tabindex="0" ><span class="thai">ห้องเต็ม</span><span class="en-colloc">rooms full</span></span><span class="colloc-chip" data-thai="ที่นั่งเต็ม" role="button" tabindex="0" ><span class="thai">ที่นั่งเต็ม</span><span class="en-colloc">seats full</span></span><span class="colloc-chip" data-thai="รถเต็ม" role="button" tabindex="0" ><span class="thai">รถเต็ม</span><span class="en-colloc">bus full</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้ห้องเตียงคู่เต็มแล้วค่ะ</div><div class="roman">wan-níi hɔ̂ng dtiang-khûu dtem lɛ́ɛw khâ</div><div class="eng">Twin-bed rooms are full today.</div></div></td>
         </tr>
 
@@ -752,7 +761,7 @@
           <td>Adjective</td>
           <td>—</td>
           <td>人有空、房間/座位空著都可用。注意和 <span class="thai">เต็ม</span> 相反。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีห้องว่าง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีห้องว่าง</span><span class="en-colloc">have available rooms</span></span><span class="colloc-chip" data-thai="มีที่นั่งว่าง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีที่นั่งว่าง</span><span class="en-colloc">have available seats</span></span><span class="colloc-chip" data-thai="วันนี้ว่างไหม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วันนี้ว่างไหม</span><span class="en-colloc">are you free today?</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="มีห้องว่าง" role="button" tabindex="0" ><span class="thai">มีห้องว่าง</span><span class="en-colloc">have available rooms</span></span><span class="colloc-chip" data-thai="มีที่นั่งว่าง" role="button" tabindex="0" ><span class="thai">มีที่นั่งว่าง</span><span class="en-colloc">have available seats</span></span><span class="colloc-chip" data-thai="วันนี้ว่างไหม" role="button" tabindex="0" ><span class="thai">วันนี้ว่างไหม</span><span class="en-colloc">are you free today?</span></span></div></td>
           <td><div class="triad"><div class="thai">พรุ่งนี้มีห้องว่างไหมคะ</div><div class="roman">phrûng-níi mii hɔ̂ng wâang mái khá</div><div class="eng">Are there any available rooms tomorrow?</div></div></td>
         </tr>
 
@@ -761,7 +770,7 @@
           <td>Adjective</td>
           <td>—</td>
           <td>用在人或工作情況，與「有空」的 <span class="thai">ว่าง</span> 相反。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ยุ่งมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยุ่งมาก</span><span class="en-colloc">very busy</span></span><span class="colloc-chip" data-thai="วันนี้ยุ่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">วันนี้ยุ่ง</span><span class="en-colloc">busy today</span></span><span class="colloc-chip" data-thai="งานยุ่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">งานยุ่ง</span><span class="en-colloc">work is busy</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ยุ่งมาก" role="button" tabindex="0" ><span class="thai">ยุ่งมาก</span><span class="en-colloc">very busy</span></span><span class="colloc-chip" data-thai="วันนี้ยุ่ง" role="button" tabindex="0" ><span class="thai">วันนี้ยุ่ง</span><span class="en-colloc">busy today</span></span><span class="colloc-chip" data-thai="งานยุ่ง" role="button" tabindex="0" ><span class="thai">งานยุ่ง</span><span class="en-colloc">work is busy</span></span></div></td>
           <td><div class="triad"><div class="thai">วันนี้ฉันยุ่งมาก แต่พรุ่งนี้ว่างค่ะ</div><div class="roman">wan-níi chǎn yûng mâak dtɛ̀ɛ phrûng-níi wâang khâ</div><div class="eng">Today I’m very busy, but tomorrow I’m free.</div></div></td>
         </tr>
       </tbody>
@@ -785,7 +794,7 @@
           <td>Transportation</td>
           <td>ลำ</td>
           <td>飛機本身用 <span class="thai">ลำ</span>；機票是 <span class="thai">ตั๋วเครื่องบิน</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นเครื่องบิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นเครื่องบิน</span><span class="en-colloc">board a plane</span></span><span class="colloc-chip" data-thai="สนามบิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สนามบิน</span><span class="en-colloc">airport</span></span><span class="colloc-chip" data-thai="สายการบิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สายการบิน</span><span class="en-colloc">airline</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นเครื่องบิน" role="button" tabindex="0" ><span class="thai">ขึ้นเครื่องบิน</span><span class="en-colloc">board a plane</span></span><span class="colloc-chip" data-thai="สนามบิน" role="button" tabindex="0" ><span class="thai">สนามบิน</span><span class="en-colloc">airport</span></span><span class="colloc-chip" data-thai="สายการบิน" role="button" tabindex="0" ><span class="thai">สายการบิน</span><span class="en-colloc">airline</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันจะขึ้นเครื่องบินไปภูเก็ตค่ะ</div><div class="roman">chǎn jà khʉ̂n khrʉ̂ang-bin bpai phuu-gèt khâ</div><div class="eng">I will take a plane to Phuket.</div></div></td>
         </tr>
 
@@ -794,7 +803,7 @@
           <td>Place</td>
           <td>แห่ง / ที่</td>
           <td>機場。曼谷常見：สุวรรณภูมิ、ดอนเมือง。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปสนามบิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปสนามบิน</span><span class="en-colloc">go to the airport</span></span><span class="colloc-chip" data-thai="ถึงสนามบิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ถึงสนามบิน</span><span class="en-colloc">arrive at the airport</span></span><span class="colloc-chip" data-thai="สนามบินสุวรรณภูมิ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สนามบินสุวรรณภูมิ</span><span class="en-colloc">Suvarnabhumi Airport</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปสนามบิน" role="button" tabindex="0" ><span class="thai">ไปสนามบิน</span><span class="en-colloc">go to the airport</span></span><span class="colloc-chip" data-thai="ถึงสนามบิน" role="button" tabindex="0" ><span class="thai">ถึงสนามบิน</span><span class="en-colloc">arrive at the airport</span></span><span class="colloc-chip" data-thai="สนามบินสุวรรณภูมิ" role="button" tabindex="0" ><span class="thai">สนามบินสุวรรณภูมิ</span><span class="en-colloc">Suvarnabhumi Airport</span></span></div></td>
           <td><div class="triad"><div class="thai">จากคอนโดไปสนามบินใช้เวลากี่ชั่วโมงคะ</div><div class="roman">jàak khɔɔn-doo bpai sà-nǎam-bin chái wee-laa gìi chûa-moong khá</div><div class="eng">How many hours does it take from the condo to the airport?</div></div></td>
         </tr>
 
@@ -803,7 +812,7 @@
           <td>Company / travel</td>
           <td>สาย</td>
           <td>航空公司。<span class="thai">สาย</span> 有線路、航空公司一家的感覺。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สายการบินไทย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สายการบินไทย</span><span class="en-colloc">Thai Airways</span></span><span class="colloc-chip" data-thai="สายการบินราคาประหยัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สายการบินราคาประหยัด</span><span class="en-colloc">budget airline</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สายการบินไทย" role="button" tabindex="0" ><span class="thai">สายการบินไทย</span><span class="en-colloc">Thai Airways</span></span><span class="colloc-chip" data-thai="สายการบินราคาประหยัด" role="button" tabindex="0" ><span class="thai">สายการบินราคาประหยัด</span><span class="en-colloc">budget airline</span></span></div></td>
           <td><div class="triad"><div class="thai">สายการบินนี้มักจะดีเลย์ไหมคะ</div><div class="roman">sǎai-gaan-bin níi mák jà dii-lee mái khá</div><div class="eng">Is this airline often delayed?</div></div></td>
         </tr>
 
@@ -812,7 +821,7 @@
           <td>Class / cabin</td>
           <td>ชั้น</td>
           <td>飛機或火車的一等艙/一等車廂。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วชั้นหนึ่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วชั้นหนึ่ง</span><span class="en-colloc">first-class ticket</span></span><span class="colloc-chip" data-thai="รถไฟชั้นหนึ่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถไฟชั้นหนึ่ง</span><span class="en-colloc">first-class train</span></span><span class="colloc-chip" data-thai="ที่นั่งชั้นหนึ่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ที่นั่งชั้นหนึ่ง</span><span class="en-colloc">first-class seat</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วชั้นหนึ่ง" role="button" tabindex="0" ><span class="thai">ตั๋วชั้นหนึ่ง</span><span class="en-colloc">first-class ticket</span></span><span class="colloc-chip" data-thai="รถไฟชั้นหนึ่ง" role="button" tabindex="0" ><span class="thai">รถไฟชั้นหนึ่ง</span><span class="en-colloc">first-class train</span></span><span class="colloc-chip" data-thai="ที่นั่งชั้นหนึ่ง" role="button" tabindex="0" ><span class="thai">ที่นั่งชั้นหนึ่ง</span><span class="en-colloc">first-class seat</span></span></div></td>
           <td><div class="triad"><div class="thai">รถไฟชั้นหนึ่งมีเตียงนอนค่ะ</div><div class="roman">rót-fai chán-nʉ̀eng mii dtiang-nɔɔn khâ</div><div class="eng">First-class trains have sleeping beds.</div></div></td>
         </tr>
 
@@ -821,7 +830,7 @@
           <td>Flight cabin</td>
           <td>ชั้น</td>
           <td>飛機商務艙。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วชั้นธุรกิจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วชั้นธุรกิจ</span><span class="en-colloc">business-class ticket</span></span><span class="colloc-chip" data-thai="ที่นั่งชั้นธุรกิจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ที่นั่งชั้นธุรกิจ</span><span class="en-colloc">business-class seat</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วชั้นธุรกิจ" role="button" tabindex="0" ><span class="thai">ตั๋วชั้นธุรกิจ</span><span class="en-colloc">business-class ticket</span></span><span class="colloc-chip" data-thai="ที่นั่งชั้นธุรกิจ" role="button" tabindex="0" ><span class="thai">ที่นั่งชั้นธุรกิจ</span><span class="en-colloc">business-class seat</span></span></div></td>
           <td><div class="triad"><div class="thai">ตั๋วชั้นธุรกิจแพงกว่าชั้นประหยัดค่ะ</div><div class="roman">dtǔa chán thú-rá-gìt phɛɛng gwàa chán bprà-yàt khâ</div><div class="eng">Business-class tickets are more expensive than economy class.</div></div></td>
         </tr>
 
@@ -830,7 +839,7 @@
           <td>Flight cabin</td>
           <td>ชั้น</td>
           <td>飛機經濟艙。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วชั้นประหยัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วชั้นประหยัด</span><span class="en-colloc">economy-class ticket</span></span><span class="colloc-chip" data-thai="บินชั้นประหยัด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">บินชั้นประหยัด</span><span class="en-colloc">fly economy class</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วชั้นประหยัด" role="button" tabindex="0" ><span class="thai">ตั๋วชั้นประหยัด</span><span class="en-colloc">economy-class ticket</span></span><span class="colloc-chip" data-thai="บินชั้นประหยัด" role="button" tabindex="0" ><span class="thai">บินชั้นประหยัด</span><span class="en-colloc">fly economy class</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันมักจะบินชั้นประหยัดค่ะ</div><div class="roman">chǎn mák jà bin chán bprà-yàt khâ</div><div class="eng">I usually fly economy class.</div></div></td>
         </tr>
 
@@ -839,7 +848,7 @@
           <td>Transportation</td>
           <td>คัน</td>
           <td>長途巴士。通常從 <span class="thai">สถานีขนส่ง</span> 出發。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถทัวร์ / ตั๋วรถทัวร์ / รถทัวร์พิเศษ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นรถทัวร์ / ตั๋วรถทัวร์ / รถทัวร์พิเศษ</span><span class="en-colloc">take a coach bus / bus ticket / special/VIP bus</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถทัวร์ / ตั๋วรถทัวร์ / รถทัวร์พิเศษ" role="button" tabindex="0" ><span class="thai">ขึ้นรถทัวร์ / ตั๋วรถทัวร์ / รถทัวร์พิเศษ</span><span class="en-colloc">take a coach bus / bus ticket / special/VIP bus</span></span></div></td>
           <td><div class="triad"><div class="thai">คืนนี้ฉันจะนั่งรถทัวร์ไปเชียงใหม่ค่ะ</div><div class="roman">khʉʉn-níi chǎn jà nâng rót-thua bpai chiiang-mài khâ</div><div class="eng">Tonight I will take a bus to Chiang Mai.</div></div></td>
         </tr>
 
@@ -848,7 +857,7 @@
           <td>Place</td>
           <td>แห่ง / ที่</td>
           <td>長途巴士站，不是 BTS 站。曼谷常見如 Mo Chit 巴士站。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปสถานีขนส่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปสถานีขนส่ง</span><span class="en-colloc">go to the bus terminal</span></span><span class="colloc-chip" data-thai="สถานีขนส่งหมอชิต" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สถานีขนส่งหมอชิต</span><span class="en-colloc">Mo Chit Bus Terminal</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไปสถานีขนส่ง" role="button" tabindex="0" ><span class="thai">ไปสถานีขนส่ง</span><span class="en-colloc">go to the bus terminal</span></span><span class="colloc-chip" data-thai="สถานีขนส่งหมอชิต" role="button" tabindex="0" ><span class="thai">สถานีขนส่งหมอชิต</span><span class="en-colloc">Mo Chit Bus Terminal</span></span></div></td>
           <td><div class="triad"><div class="thai">สถานีขนส่งอยู่ไกลจากที่นี่ไหมคะ</div><div class="roman">sà-thǎa-nii khǒn-sòng yùu glai jàak thîi-nîi mái khá</div><div class="eng">Is the bus terminal far from here?</div></div></td>
         </tr>
 
@@ -857,7 +866,7 @@
           <td>Transportation</td>
           <td>ขบวน</td>
           <td>火車。不要和 BTS/MRT 混淆；BTS/MRT 常說 <span class="thai">รถไฟฟ้า</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถไฟ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขึ้นรถไฟ</span><span class="en-colloc">take a train</span></span><span class="colloc-chip" data-thai="สถานีรถไฟ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สถานีรถไฟ</span><span class="en-colloc">train station</span></span><span class="colloc-chip" data-thai="ตั๋วรถไฟ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วรถไฟ</span><span class="en-colloc">train ticket</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ขึ้นรถไฟ" role="button" tabindex="0" ><span class="thai">ขึ้นรถไฟ</span><span class="en-colloc">take a train</span></span><span class="colloc-chip" data-thai="สถานีรถไฟ" role="button" tabindex="0" ><span class="thai">สถานีรถไฟ</span><span class="en-colloc">train station</span></span><span class="colloc-chip" data-thai="ตั๋วรถไฟ" role="button" tabindex="0" ><span class="thai">ตั๋วรถไฟ</span><span class="en-colloc">train ticket</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากนั่งรถไฟไปเชียงใหม่ค่ะ</div><div class="roman">chǎn yàak nâng rót-fai bpai chiiang-mài khâ</div><div class="eng">I want to take the train to Chiang Mai.</div></div></td>
         </tr>
 
@@ -866,7 +875,7 @@
           <td>Place</td>
           <td>แห่ง / ที่</td>
           <td>火車站。BTS 站可說 <span class="thai">สถานีรถไฟฟ้า</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สถานีรถไฟกรุงเทพอภิวัฒน์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สถานีรถไฟกรุงเทพอภิวัฒน์</span><span class="en-colloc">Bangkok Apiwat Station</span></span><span class="colloc-chip" data-thai="ไปสถานีรถไฟ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไปสถานีรถไฟ</span><span class="en-colloc">go to the train station</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สถานีรถไฟกรุงเทพอภิวัฒน์" role="button" tabindex="0" ><span class="thai">สถานีรถไฟกรุงเทพอภิวัฒน์</span><span class="en-colloc">Bangkok Apiwat Station</span></span><span class="colloc-chip" data-thai="ไปสถานีรถไฟ" role="button" tabindex="0" ><span class="thai">ไปสถานีรถไฟ</span><span class="en-colloc">go to the train station</span></span></div></td>
           <td><div class="triad"><div class="thai">รถไฟออกจากสถานีรถไฟกี่โมงคะ</div><div class="roman">rót-fai ɔ̀ɔk jàak sà-thǎa-nii rót-fai gìi moong khá</div><div class="eng">What time does the train leave from the train station?</div></div></td>
         </tr>
       </tbody>
@@ -890,7 +899,7 @@
           <td>Noun</td>
           <td>ที่ / ที่นั่ง</td>
           <td>座位。訂票時常問 <span class="thai">มีที่นั่งว่างไหม</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ที่นั่งว่าง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ที่นั่งว่าง</span><span class="en-colloc">available seat</span></span><span class="colloc-chip" data-thai="ที่นั่งเต็ม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ที่นั่งเต็ม</span><span class="en-colloc">seats full</span></span><span class="colloc-chip" data-thai="เลือกที่นั่ง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เลือกที่นั่ง</span><span class="en-colloc">choose a seat</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ที่นั่งว่าง" role="button" tabindex="0" ><span class="thai">ที่นั่งว่าง</span><span class="en-colloc">available seat</span></span><span class="colloc-chip" data-thai="ที่นั่งเต็ม" role="button" tabindex="0" ><span class="thai">ที่นั่งเต็ม</span><span class="en-colloc">seats full</span></span><span class="colloc-chip" data-thai="เลือกที่นั่ง" role="button" tabindex="0" ><span class="thai">เลือกที่นั่ง</span><span class="en-colloc">choose a seat</span></span></div></td>
           <td><div class="triad"><div class="thai">มีที่นั่งว่างสองที่ไหมคะ</div><div class="roman">mii thîi-nâng wâang sɔ̌ɔng thîi mái khá</div><div class="eng">Are there two seats available?</div></div></td>
         </tr>
 
@@ -899,7 +908,7 @@
           <td>Transport class</td>
           <td>คัน / ขบวน</td>
           <td>一般車種；便宜但可能慢、停站多。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รถไฟธรรมดา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถไฟธรรมดา</span><span class="en-colloc">ordinary train</span></span><span class="colloc-chip" data-thai="รถทัวร์ธรรมดา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถทัวร์ธรรมดา</span><span class="en-colloc">ordinary bus</span></span><span class="colloc-chip" data-thai="ตั๋วธรรมดา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วธรรมดา</span><span class="en-colloc">regular ticket</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รถไฟธรรมดา" role="button" tabindex="0" ><span class="thai">รถไฟธรรมดา</span><span class="en-colloc">ordinary train</span></span><span class="colloc-chip" data-thai="รถทัวร์ธรรมดา" role="button" tabindex="0" ><span class="thai">รถทัวร์ธรรมดา</span><span class="en-colloc">ordinary bus</span></span><span class="colloc-chip" data-thai="ตั๋วธรรมดา" role="button" tabindex="0" ><span class="thai">ตั๋วธรรมดา</span><span class="en-colloc">regular ticket</span></span></div></td>
           <td><div class="triad"><div class="thai">รถธรรมดาจอดทุกสถานีค่ะ</div><div class="roman">rót tham-má-daa jɔ̀ɔt thúk sà-thǎa-nii khâ</div><div class="eng">The ordinary train stops at every station.</div></div></td>
         </tr>
 
@@ -908,7 +917,7 @@
           <td>Transport class</td>
           <td>คัน / ขบวน</td>
           <td>比普通車好，可能座位較少、較舒適。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รถทัวร์พิเศษ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถทัวร์พิเศษ</span><span class="en-colloc">special bus</span></span><span class="colloc-chip" data-thai="ที่นั่งพิเศษ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ที่นั่งพิเศษ</span><span class="en-colloc">special seat</span></span><span class="colloc-chip" data-thai="ตั๋วพิเศษ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วพิเศษ</span><span class="en-colloc">special ticket</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รถทัวร์พิเศษ" role="button" tabindex="0" ><span class="thai">รถทัวร์พิเศษ</span><span class="en-colloc">special bus</span></span><span class="colloc-chip" data-thai="ที่นั่งพิเศษ" role="button" tabindex="0" ><span class="thai">ที่นั่งพิเศษ</span><span class="en-colloc">special seat</span></span><span class="colloc-chip" data-thai="ตั๋วพิเศษ" role="button" tabindex="0" ><span class="thai">ตั๋วพิเศษ</span><span class="en-colloc">special ticket</span></span></div></td>
           <td><div class="triad"><div class="thai">รถทัวร์พิเศษมีที่นั่ง 24 ที่นั่งค่ะ</div><div class="roman">rót-thua phí-sèet mii thîi-nâng yîi-sìp-sìi thîi-nâng khâ</div><div class="eng">The special bus has 24 seats.</div></div></td>
         </tr>
 
@@ -917,7 +926,7 @@
           <td>Train type</td>
           <td>ขบวน</td>
           <td>快車，停較少站。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รถด่วนจอดสถานีใหญ่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถด่วนจอดสถานีใหญ่</span><span class="en-colloc">express train stops at big stations</span></span><span class="colloc-chip" data-thai="ตั๋วรถด่วน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วรถด่วน</span><span class="en-colloc">express train ticket</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รถด่วนจอดสถานีใหญ่" role="button" tabindex="0" ><span class="thai">รถด่วนจอดสถานีใหญ่</span><span class="en-colloc">express train stops at big stations</span></span><span class="colloc-chip" data-thai="ตั๋วรถด่วน" role="button" tabindex="0" ><span class="thai">ตั๋วรถด่วน</span><span class="en-colloc">express train ticket</span></span></div></td>
           <td><div class="triad"><div class="thai">รถด่วนจอดจากสถานีแรกถึงสถานีสุดท้ายค่ะ</div><div class="roman">rót-dùan jɔ̀ɔt jàak sà-thǎa-nii rɛ̂ɛk thʉ̌ng sà-thǎa-nii sùt-tháai khâ</div><div class="eng">The express train stops from the first station to the last station.</div></div></td>
         </tr>
 
@@ -926,7 +935,7 @@
           <td>Train type</td>
           <td>ขบวน</td>
           <td>字面是快車；在泰國火車系統中是車種名稱之一。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รถเร็ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถเร็ว</span><span class="en-colloc">rapid train</span></span><span class="colloc-chip" data-thai="รถเร็วไปเชียงใหม่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถเร็วไปเชียงใหม่</span><span class="en-colloc">rapid train to Chiang Mai</span></span><span class="colloc-chip" data-thai="ตั๋วรถเร็ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วรถเร็ว</span><span class="en-colloc">rapid train ticket</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รถเร็ว" role="button" tabindex="0" ><span class="thai">รถเร็ว</span><span class="en-colloc">rapid train</span></span><span class="colloc-chip" data-thai="รถเร็วไปเชียงใหม่" role="button" tabindex="0" ><span class="thai">รถเร็วไปเชียงใหม่</span><span class="en-colloc">rapid train to Chiang Mai</span></span><span class="colloc-chip" data-thai="ตั๋วรถเร็ว" role="button" tabindex="0" ><span class="thai">ตั๋วรถเร็ว</span><span class="en-colloc">rapid train ticket</span></span></div></td>
           <td><div class="triad"><div class="thai">รถเร็วอาจจะถูกกว่ารถด่วนค่ะ</div><div class="roman">rót-rew àat-jà thùuk gwàa rót-dùan khâ</div><div class="eng">The rapid train might be cheaper than the express train.</div></div></td>
         </tr>
 
@@ -935,7 +944,7 @@
           <td>Train class</td>
           <td>ชั้น</td>
           <td>教材圖片顯示有「มีแอร์ / ไม่มีแอร์」兩種二等車廂。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ชั้นสองมีแอร์ / ชั้นสองไม่มีแอร์ / ตั๋วชั้นสอง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ชั้นสองมีแอร์ / ชั้นสองไม่มีแอร์ / ตั๋วชั้นสอง</span><span class="en-colloc">second class with A/C / second class without A/C / second-class ticket</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ชั้นสองมีแอร์ / ชั้นสองไม่มีแอร์ / ตั๋วชั้นสอง" role="button" tabindex="0" ><span class="thai">ชั้นสองมีแอร์ / ชั้นสองไม่มีแอร์ / ตั๋วชั้นสอง</span><span class="en-colloc">second class with A/C / second class without A/C / second-class ticket</span></span></div></td>
           <td><div class="triad"><div class="thai">ขอตั๋วรถไฟชั้นสองมีแอร์ค่ะ</div><div class="roman">khɔ̌ɔ dtǔa rót-fai chán-sɔ̌ɔng mii ɛɛ khâ</div><div class="eng">I’d like a second-class train ticket with A/C.</div></div></td>
         </tr>
 
@@ -944,7 +953,7 @@
           <td>Train class</td>
           <td>ชั้น</td>
           <td>通常較便宜、較基本。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วชั้นสาม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั๋วชั้นสาม</span><span class="en-colloc">third-class ticket</span></span><span class="colloc-chip" data-thai="รถไฟชั้นสาม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รถไฟชั้นสาม</span><span class="en-colloc">third-class train</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั๋วชั้นสาม" role="button" tabindex="0" ><span class="thai">ตั๋วชั้นสาม</span><span class="en-colloc">third-class ticket</span></span><span class="colloc-chip" data-thai="รถไฟชั้นสาม" role="button" tabindex="0" ><span class="thai">รถไฟชั้นสาม</span><span class="en-colloc">third-class train</span></span></div></td>
           <td><div class="triad"><div class="thai">ชั้นสามถูกที่สุดค่ะ</div><div class="roman">chán-sǎam thùuk thîi-sùt khâ</div><div class="eng">Third class is the cheapest.</div></div></td>
         </tr>
 
@@ -953,7 +962,7 @@
           <td>Feature phrase</td>
           <td>—</td>
           <td>口語常用 <span class="thai">แอร์</span> 表示冷氣。訂巴士/火車/房間常問。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องมีแอร์ / รถมีแอร์ / ชั้นสองมีแอร์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องมีแอร์ / รถมีแอร์ / ชั้นสองมีแอร์</span><span class="en-colloc">room with A/C / bus with A/C / second class with A/C</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องมีแอร์ / รถมีแอร์ / ชั้นสองมีแอร์" role="button" tabindex="0" ><span class="thai">ห้องมีแอร์ / รถมีแอร์ / ชั้นสองมีแอร์</span><span class="en-colloc">room with A/C / bus with A/C / second class with A/C</span></span></div></td>
           <td><div class="triad"><div class="thai">ห้องนี้มีแอร์ไหมคะ</div><div class="roman">hɔ̂ng níi mii ɛɛ mái khá</div><div class="eng">Does this room have A/C?</div></div></td>
         </tr>
 
@@ -962,7 +971,7 @@
           <td>Feature phrase</td>
           <td>—</td>
           <td>泰國旅遊很重要，沒有冷氣可能非常熱。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องไม่มีแอร์ / รถไฟไม่มีแอร์" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องไม่มีแอร์ / รถไฟไม่มีแอร์</span><span class="en-colloc">room without A/C / train without A/C</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องไม่มีแอร์ / รถไฟไม่มีแอร์" role="button" tabindex="0" ><span class="thai">ห้องไม่มีแอร์ / รถไฟไม่มีแอร์</span><span class="en-colloc">room without A/C / train without A/C</span></span></div></td>
           <td><div class="triad"><div class="thai">ถ้าไม่มีแอร์ ฉันคงจะนอนไม่หลับค่ะ</div><div class="roman">thâa mâi mii ɛɛ chǎn khong-jà nɔɔn mâi làp khâ</div><div class="eng">If there’s no A/C, I probably won’t be able to sleep.</div></div></td>
         </tr>
       </tbody>
@@ -986,7 +995,7 @@
           <td>Hotel room type</td>
           <td>ห้อง</td>
           <td>一人房。注意 <span class="thai">เดี่ยว</span> 是單一的。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จองห้องเดี่ยว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">จองห้องเดี่ยว</span><span class="en-colloc">book a single room</span></span><span class="colloc-chip" data-thai="ห้องเดี่ยวหนึ่งคืน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องเดี่ยวหนึ่งคืน</span><span class="en-colloc">single room for one night</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="จองห้องเดี่ยว" role="button" tabindex="0" ><span class="thai">จองห้องเดี่ยว</span><span class="en-colloc">book a single room</span></span><span class="colloc-chip" data-thai="ห้องเดี่ยวหนึ่งคืน" role="button" tabindex="0" ><span class="thai">ห้องเดี่ยวหนึ่งคืน</span><span class="en-colloc">single room for one night</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องการจองห้องเดี่ยวหนึ่งคืนค่ะ</div><div class="roman">dtɔ̂ng-gaan jɔɔng hɔ̂ng-dìao nʉ̀eng khʉʉn khâ</div><div class="eng">I would like to book a single room for one night.</div></div></td>
         </tr>
 
@@ -995,7 +1004,7 @@
           <td>Hotel room type</td>
           <td>ห้อง</td>
           <td>雙人房。實際訂房時要再說床型：一大床或兩小床。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องคู่เตียงเดี่ยว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องคู่เตียงเดี่ยว</span><span class="en-colloc">double room with one bed</span></span><span class="colloc-chip" data-thai="ห้องคู่เตียงคู่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องคู่เตียงคู่</span><span class="en-colloc">twin room with two beds</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องคู่เตียงเดี่ยว" role="button" tabindex="0" ><span class="thai">ห้องคู่เตียงเดี่ยว</span><span class="en-colloc">double room with one bed</span></span><span class="colloc-chip" data-thai="ห้องคู่เตียงคู่" role="button" tabindex="0" ><span class="thai">ห้องคู่เตียงคู่</span><span class="en-colloc">twin room with two beds</span></span></div></td>
           <td><div class="triad"><div class="thai">ห้องคู่ยังว่างไหมคะ</div><div class="roman">hɔ̂ng-khûu yang wâang mái khá</div><div class="eng">Are double/twin rooms still available?</div></div></td>
         </tr>
 
@@ -1004,7 +1013,7 @@
           <td>Bed type</td>
           <td>เตียง</td>
           <td>教材第 14–15 頁出現。可指單張床，也可能在飯店語境中指一張大床房，需確認。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องเตียงเดี่ยว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องเตียงเดี่ยว</span><span class="en-colloc">single-bed room</span></span><span class="colloc-chip" data-thai="เตียงเดี่ยวหนึ่งเตียง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เตียงเดี่ยวหนึ่งเตียง</span><span class="en-colloc">one single bed</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องเตียงเดี่ยว" role="button" tabindex="0" ><span class="thai">ห้องเตียงเดี่ยว</span><span class="en-colloc">single-bed room</span></span><span class="colloc-chip" data-thai="เตียงเดี่ยวหนึ่งเตียง" role="button" tabindex="0" ><span class="thai">เตียงเดี่ยวหนึ่งเตียง</span><span class="en-colloc">one single bed</span></span></div></td>
           <td><div class="triad"><div class="thai">ขอห้องเตียงเดี่ยวค่ะ</div><div class="roman">khɔ̌ɔ hɔ̂ng dtiang-dìao khâ</div><div class="eng">I’d like a single-bed room.</div></div></td>
         </tr>
 
@@ -1013,7 +1022,7 @@
           <td>Bed type</td>
           <td>เตียง</td>
           <td>在泰國訂房要小心：有時 <span class="thai">เตียงคู่</span> 指兩張床，有時英文 double/twin 對應會混亂，最好明說 <span class="thai">สองเตียง</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องเตียงคู่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ห้องเตียงคู่</span><span class="en-colloc">twin-bed room</span></span><span class="colloc-chip" data-thai="เตียงคู่สองเตียง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เตียงคู่สองเตียง</span><span class="en-colloc">two beds</span></span><span class="colloc-chip" data-thai="ขอสองเตียง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขอสองเตียง</span><span class="en-colloc">please give two beds</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ห้องเตียงคู่" role="button" tabindex="0" ><span class="thai">ห้องเตียงคู่</span><span class="en-colloc">twin-bed room</span></span><span class="colloc-chip" data-thai="เตียงคู่สองเตียง" role="button" tabindex="0" ><span class="thai">เตียงคู่สองเตียง</span><span class="en-colloc">two beds</span></span><span class="colloc-chip" data-thai="ขอสองเตียง" role="button" tabindex="0" ><span class="thai">ขอสองเตียง</span><span class="en-colloc">please give two beds</span></span></div></td>
           <td><div class="triad"><div class="thai">ต้องการห้องเตียงคู่สำหรับสองคนค่ะ</div><div class="roman">dtɔ̂ng-gaan hɔ̂ng dtiang-khûu sǎm-ràp sɔ̌ɔng khon khâ</div><div class="eng">I would like a twin-bed room for two people.</div></div></td>
         </tr>
 
@@ -1022,7 +1031,7 @@
           <td>Hotel bed</td>
           <td>เตียง</td>
           <td>加床。家庭/三人入住很常問。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เพิ่มเตียงเสริม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เพิ่มเตียงเสริม</span><span class="en-colloc">add an extra bed</span></span><span class="colloc-chip" data-thai="ขอเตียงเสริม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ขอเตียงเสริม</span><span class="en-colloc">request an extra bed</span></span><span class="colloc-chip" data-thai="มีเตียงเสริมไหม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">มีเตียงเสริมไหม</span><span class="en-colloc">is there an extra bed?</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เพิ่มเตียงเสริม" role="button" tabindex="0" ><span class="thai">เพิ่มเตียงเสริม</span><span class="en-colloc">add an extra bed</span></span><span class="colloc-chip" data-thai="ขอเตียงเสริม" role="button" tabindex="0" ><span class="thai">ขอเตียงเสริม</span><span class="en-colloc">request an extra bed</span></span><span class="colloc-chip" data-thai="มีเตียงเสริมไหม" role="button" tabindex="0" ><span class="thai">มีเตียงเสริมไหม</span><span class="en-colloc">is there an extra bed?</span></span></div></td>
           <td><div class="triad"><div class="thai">เพิ่มเตียงเสริมได้ไหมคะ</div><div class="roman">phə̂əm dtiang-sə̌əm dâai mái khá</div><div class="eng">Can we add an extra bed?</div></div></td>
         </tr>
       </tbody>
@@ -2002,5 +2011,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>

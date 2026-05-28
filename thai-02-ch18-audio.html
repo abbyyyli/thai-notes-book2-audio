@@ -358,34 +358,23 @@
       color: var(--muted);
       line-height: 1.2;
     }
-
   
 
-    /* ── Clean-label + collocation-only audio pill patch ───────── */
+    /* ── ch1-19 clean triad + collocation pill patch ───────── */
     .triad .thai::before,
     .triad .roman::before,
     .triad .eng::before { content: none !important; }
 
-    .classifier-chip,
-    .classifier-inline,
-    .classifier-plain {
-      display: inline-block;
-      font-weight: 700;
-      color: var(--text);
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      margin: 2px 4px 2px 0;
-    }
-
+    .collocation-pills,
     .colloc-cell {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      margin: 4px 0;
     }
 
+    .audio-pill,
     .colloc-chip {
       display: inline-flex;
       flex-direction: column;
@@ -394,38 +383,58 @@
       gap: 1px;
       border: .5px solid rgba(22,163,74,.24);
       background: rgba(240,253,244,.78);
+      color: var(--text);
       border-radius: 12px;
       padding: 5px 10px;
       margin: 3px 3px 3px 0;
       cursor: pointer;
-      transition: all .15s ease;
+      line-height: 1.25;
+      transition: background-color .12s ease, border-color .12s ease;
       min-width: 72px;
       text-align: center;
-      box-shadow: 0 3px 9px rgba(15,23,42,.025);
+      box-shadow: none !important;
+      transform: none !important;
+      animation: none !important;
+      font: inherit;
     }
 
+    .audio-pill:hover,
+    .audio-pill:focus-visible,
     .colloc-chip:hover,
     .colloc-chip:focus-visible {
-      background: rgba(255,247,237,.92);
-      border-color: rgba(249,115,22,.34);
-      transform: translateY(-1px);
+      background: rgba(220,252,231,.86);
+      border-color: rgba(22,163,74,.32);
+      transform: none !important;
+      animation: none !important;
       outline: none;
     }
 
+    .audio-pill.speaking,
     .colloc-chip.speaking {
-      background: var(--orange-soft);
-      border-color: rgba(249,115,22,.45);
-      animation: pulse .6s ease-in-out infinite alternate;
+      background: rgba(220,252,231,.96) !important;
+      border-color: rgba(22,163,74,.38) !important;
+      transform: none !important;
+      animation: none !important;
     }
 
+    .audio-pill::before,
+    .audio-pill::after,
+    .colloc-chip::before,
+    .colloc-chip::after {
+      content: none !important;
+    }
+
+    .audio-pill .pill-thai,
     .colloc-chip .thai {
       display: block;
       font-size: 14px;
       font-weight: 600;
       font-family: "Noto Sans Thai", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.25;
+      color: var(--text);
     }
 
+    .audio-pill .pill-eng,
     .colloc-chip .en-colloc {
       display: block;
       font-size: 10.5px;
@@ -589,7 +598,7 @@
           <td>Duration pattern</td>
           <td>—</td>
           <td>放在動詞後，表示從過去持續到現在。<span class="thai">มา</span> 可強調「一路到現在」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เรียนมา...แล้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เรียนมา...แล้ว</span><span class="en-colloc">have studied for</span></span><span class="colloc-chip" data-thai="อยู่มา...แล้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อยู่มา...แล้ว</span><span class="en-colloc">have lived for</span></span><span class="colloc-chip" data-thai="ทำงานมา...แล้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำงานมา...แล้ว</span><span class="en-colloc">have worked for</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เรียนมา...แล้ว" role="button" tabindex="0" ><span class="thai">เรียนมา...แล้ว</span><span class="en-colloc">have studied for</span></span><span class="colloc-chip" data-thai="อยู่มา...แล้ว" role="button" tabindex="0" ><span class="thai">อยู่มา...แล้ว</span><span class="en-colloc">have lived for</span></span><span class="colloc-chip" data-thai="ทำงานมา...แล้ว" role="button" tabindex="0" ><span class="thai">ทำงานมา...แล้ว</span><span class="en-colloc">have worked for</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยู่กรุงเทพฯ มาสองเดือนแล้วค่ะ</div><div class="roman">chǎn yùu grung-thêep maa sɔ̌ɔng dʉan lɛ́ɛw khâ</div><div class="eng">I have lived in Bangkok for two months already.</div></div></td>
         </tr>
 
@@ -598,7 +607,7 @@
           <td>Time noun</td>
           <td>ปี</td>
           <td>可當名詞也可當時間量詞。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สองปี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สองปี</span><span class="en-colloc">two years</span></span><span class="colloc-chip" data-thai="ปีหน้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปีหน้า</span><span class="en-colloc">next year</span></span><span class="colloc-chip" data-thai="ปีนี้" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ปีนี้</span><span class="en-colloc">this year</span></span><span class="colloc-chip" data-thai="หลายปี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หลายปี</span><span class="en-colloc">many years</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สองปี" role="button" tabindex="0" ><span class="thai">สองปี</span><span class="en-colloc">two years</span></span><span class="colloc-chip" data-thai="ปีหน้า" role="button" tabindex="0" ><span class="thai">ปีหน้า</span><span class="en-colloc">next year</span></span><span class="colloc-chip" data-thai="ปีนี้" role="button" tabindex="0" ><span class="thai">ปีนี้</span><span class="en-colloc">this year</span></span><span class="colloc-chip" data-thai="หลายปี" role="button" tabindex="0" ><span class="thai">หลายปี</span><span class="en-colloc">many years</span></span></div></td>
           <td><div class="triad"><div class="thai">ครูทำงานที่โรงเรียนนี้มาห้าปีแล้วค่ะ</div><div class="roman">khruu tham-ngaan thîi rooŋ-rian níi maa hâa bpii lɛ́ɛw khâ</div><div class="eng">The teacher has worked at this school for five years.</div></div></td>
         </tr>
 
@@ -607,7 +616,7 @@
           <td>Time noun</td>
           <td>เดือน</td>
           <td>月份與持續幾個月都用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สองเดือน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">สองเดือน</span><span class="en-colloc">two months</span></span><span class="colloc-chip" data-thai="เดือนหน้า" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนหน้า</span><span class="en-colloc">next month</span></span><span class="colloc-chip" data-thai="เดือนที่แล้ว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เดือนที่แล้ว</span><span class="en-colloc">last month</span></span><span class="colloc-chip" data-thai="ทุกเดือน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทุกเดือน</span><span class="en-colloc">every month</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="สองเดือน" role="button" tabindex="0" ><span class="thai">สองเดือน</span><span class="en-colloc">two months</span></span><span class="colloc-chip" data-thai="เดือนหน้า" role="button" tabindex="0" ><span class="thai">เดือนหน้า</span><span class="en-colloc">next month</span></span><span class="colloc-chip" data-thai="เดือนที่แล้ว" role="button" tabindex="0" ><span class="thai">เดือนที่แล้ว</span><span class="en-colloc">last month</span></span><span class="colloc-chip" data-thai="ทุกเดือน" role="button" tabindex="0" ><span class="thai">ทุกเดือน</span><span class="en-colloc">every month</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันเรียนภาษาไทยมาสองเดือนแล้ว แต่ยังพูดไม่ค่อยคล่องค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai maa sɔ̌ɔng dʉan lɛ́ɛw, dtɛ̀ɛ yang phûut mâi khɔ̂i khlɔ̂ng khâ</div><div class="eng">I’ve studied Thai for two months, but I still don’t speak very fluently.</div></div></td>
         </tr>
 
@@ -616,7 +625,7 @@
           <td>Verb</td>
           <td>—</td>
           <td>後面接情緒或感受。可說 <span class="thai">รู้สึก + Adj</span>。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกดีใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รู้สึกดีใจ</span><span class="en-colloc">feel happy</span></span><span class="colloc-chip" data-thai="รู้สึกเครียด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รู้สึกเครียด</span><span class="en-colloc">feel stressed</span></span><span class="colloc-chip" data-thai="รู้สึกไม่สบายใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รู้สึกไม่สบายใจ</span><span class="en-colloc">feel uneasy</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกดีใจ" role="button" tabindex="0" ><span class="thai">รู้สึกดีใจ</span><span class="en-colloc">feel happy</span></span><span class="colloc-chip" data-thai="รู้สึกเครียด" role="button" tabindex="0" ><span class="thai">รู้สึกเครียด</span><span class="en-colloc">feel stressed</span></span><span class="colloc-chip" data-thai="รู้สึกไม่สบายใจ" role="button" tabindex="0" ><span class="thai">รู้สึกไม่สบายใจ</span><span class="en-colloc">feel uneasy</span></span></div></td>
           <td><div class="triad"><div class="thai">เวลาได้พูดไทยกับคนไทย ฉันรู้สึกภูมิใจค่ะ</div><div class="roman">wee-laa dâai phûut thai gàp khon thai, chǎn rúu-sʉ̀k phuum-jai khâ</div><div class="eng">When I get to speak Thai with Thai people, I feel proud.</div></div></td>
         </tr>
       </tbody>
@@ -640,7 +649,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>開心、很高興。常用 <span class="thai">ดีใจที่...</span> 表示「很高興……」。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกดีใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รู้สึกดีใจ</span><span class="en-colloc">feel happy</span></span><span class="colloc-chip" data-thai="ดีใจมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ดีใจมาก</span><span class="en-colloc">very happy</span></span><span class="colloc-chip" data-thai="ดีใจที่ได้เจอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ดีใจที่ได้เจอ</span><span class="en-colloc">happy to meet</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกดีใจ" role="button" tabindex="0" ><span class="thai">รู้สึกดีใจ</span><span class="en-colloc">feel happy</span></span><span class="colloc-chip" data-thai="ดีใจมาก" role="button" tabindex="0" ><span class="thai">ดีใจมาก</span><span class="en-colloc">very happy</span></span><span class="colloc-chip" data-thai="ดีใจที่ได้เจอ" role="button" tabindex="0" ><span class="thai">ดีใจที่ได้เจอ</span><span class="en-colloc">happy to meet</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันดีใจที่เริ่มเข้าใจคนไทยพูดมากขึ้นค่ะ</div><div class="roman">chǎn dii-jai thîi rə̂əm khâo-jai khon thai phûut mâak khʉ̂n khâ</div><div class="eng">I’m happy that I’m starting to understand Thai people more.</div></div></td>
         </tr>
 
@@ -649,7 +658,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>可表示難過，也可表示抱歉、遺憾。和 <span class="thai">ดีใจ</span> 相反。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกเสียใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รู้สึกเสียใจ</span><span class="en-colloc">feel sad</span></span><span class="colloc-chip" data-thai="เสียใจมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสียใจมาก</span><span class="en-colloc">very sad</span></span><span class="colloc-chip" data-thai="เสียใจที่ไม่ได้ไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสียใจที่ไม่ได้ไป</span><span class="en-colloc">regret not going</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกเสียใจ" role="button" tabindex="0" ><span class="thai">รู้สึกเสียใจ</span><span class="en-colloc">feel sad</span></span><span class="colloc-chip" data-thai="เสียใจมาก" role="button" tabindex="0" ><span class="thai">เสียใจมาก</span><span class="en-colloc">very sad</span></span><span class="colloc-chip" data-thai="เสียใจที่ไม่ได้ไป" role="button" tabindex="0" ><span class="thai">เสียใจที่ไม่ได้ไป</span><span class="en-colloc">regret not going</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันเสียใจที่เมื่อวานไม่ได้ไปเรียนค่ะ</div><div class="roman">chǎn sǐa-jai thîi mʉ̂a-waan mâi dâai bpai rian khâ</div><div class="eng">I’m sad/regretful that I couldn’t go to class yesterday.</div></div></td>
         </tr>
 
@@ -658,7 +667,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>突然被嚇到、驚訝到。比一般 surprise 更像瞬間反應。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตกใจมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตกใจมาก</span><span class="en-colloc">very shocked</span></span><span class="colloc-chip" data-thai="ทำให้ตกใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้ตกใจ</span><span class="en-colloc">make startled</span></span><span class="colloc-chip" data-thai="เสียงดังจนตกใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสียงดังจนตกใจ</span><span class="en-colloc">startled by loud sound</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตกใจมาก" role="button" tabindex="0" ><span class="thai">ตกใจมาก</span><span class="en-colloc">very shocked</span></span><span class="colloc-chip" data-thai="ทำให้ตกใจ" role="button" tabindex="0" ><span class="thai">ทำให้ตกใจ</span><span class="en-colloc">make startled</span></span><span class="colloc-chip" data-thai="เสียงดังจนตกใจ" role="button" tabindex="0" ><span class="thai">เสียงดังจนตกใจ</span><span class="en-colloc">startled by loud sound</span></span></div></td>
           <td><div class="triad"><div class="thai">เสียงฟ้าร้องดังมาก ทำให้ฉันตกใจค่ะ</div><div class="roman">sǐang fáa-rɔ́ɔng dang mâak, tham-hâi chǎn dtòk-jai khâ</div><div class="eng">The thunder was very loud and startled me.</div></div></td>
         </tr>
 
@@ -667,7 +676,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>害怕。可接名詞，也可接句子。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กลัวผี" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลัวผี</span><span class="en-colloc">afraid of ghosts</span></span><span class="colloc-chip" data-thai="กลัวเข็ม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลัวเข็ม</span><span class="en-colloc">afraid of needles</span></span><span class="colloc-chip" data-thai="กลัวว่าจะลืม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลัวว่าจะลืม</span><span class="en-colloc">afraid that one will forget</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กลัวผี" role="button" tabindex="0" ><span class="thai">กลัวผี</span><span class="en-colloc">afraid of ghosts</span></span><span class="colloc-chip" data-thai="กลัวเข็ม" role="button" tabindex="0" ><span class="thai">กลัวเข็ม</span><span class="en-colloc">afraid of needles</span></span><span class="colloc-chip" data-thai="กลัวว่าจะลืม" role="button" tabindex="0" ><span class="thai">กลัวว่าจะลืม</span><span class="en-colloc">afraid that one will forget</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันกลัวว่าจะพูดผิดเวลาคุยกับแม่ค้าค่ะ</div><div class="roman">chǎn glua wâa jà phûut phìt wee-laa khui gàp mɛ̂ɛ-kháa khâ</div><div class="eng">I’m afraid I’ll say something wrong when talking to vendors.</div></div></td>
         </tr>
 
@@ -676,7 +685,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>不是身體不舒服，而是心裡不舒服、不安。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกไม่สบายใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">รู้สึกไม่สบายใจ</span><span class="en-colloc">feel uneasy</span></span><span class="colloc-chip" data-thai="ทำให้ไม่สบายใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้ไม่สบายใจ</span><span class="en-colloc">make uneasy</span></span><span class="colloc-chip" data-thai="ไม่สบายใจเรื่องเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่สบายใจเรื่องเงิน</span><span class="en-colloc">uneasy about money</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="รู้สึกไม่สบายใจ" role="button" tabindex="0" ><span class="thai">รู้สึกไม่สบายใจ</span><span class="en-colloc">feel uneasy</span></span><span class="colloc-chip" data-thai="ทำให้ไม่สบายใจ" role="button" tabindex="0" ><span class="thai">ทำให้ไม่สบายใจ</span><span class="en-colloc">make uneasy</span></span><span class="colloc-chip" data-thai="ไม่สบายใจเรื่องเงิน" role="button" tabindex="0" ><span class="thai">ไม่สบายใจเรื่องเงิน</span><span class="en-colloc">uneasy about money</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันไม่สบายใจเวลาต้องตัดสินใจเรื่องใหญ่คนเดียวค่ะ</div><div class="roman">chǎn mâi sà-baai-jai wee-laa dtɔ̂ng dtàt-sǐn-jai rʉ̂ang yài khon-diao khâ</div><div class="eng">I feel uneasy when I have to make a big decision alone.</div></div></td>
         </tr>
 
@@ -685,7 +694,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>可惜、捨不得、錯過覺得可惜。跟 <span class="thai">เสียใจ</span> 不一樣。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เสียดายเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสียดายเงิน</span><span class="en-colloc">pity about money</span></span><span class="colloc-chip" data-thai="เสียดายเวลา" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสียดายเวลา</span><span class="en-colloc">pity about time</span></span><span class="colloc-chip" data-thai="เสียดายที่ไม่ได้ไป" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เสียดายที่ไม่ได้ไป</span><span class="en-colloc">regret not going</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เสียดายเงิน" role="button" tabindex="0" ><span class="thai">เสียดายเงิน</span><span class="en-colloc">pity about money</span></span><span class="colloc-chip" data-thai="เสียดายเวลา" role="button" tabindex="0" ><span class="thai">เสียดายเวลา</span><span class="en-colloc">pity about time</span></span><span class="colloc-chip" data-thai="เสียดายที่ไม่ได้ไป" role="button" tabindex="0" ><span class="thai">เสียดายที่ไม่ได้ไป</span><span class="en-colloc">regret not going</span></span></div></td>
           <td><div class="triad"><div class="thai">เสียดายมากที่ร้านนั้นปิดก่อนที่ฉันจะไปถึงค่ะ</div><div class="roman">sǐa-daai mâak thîi ráan nán bpìt gɔ̀ɔn thîi chǎn jà bpai thʉ̌ng khâ</div><div class="eng">It’s such a pity that the shop closed before I arrived.</div></div></td>
         </tr>
 
@@ -694,7 +703,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>心裡煩、煩惱較重，常是事情解不開。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กลุ้มใจเรื่องงาน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลุ้มใจเรื่องงาน</span><span class="en-colloc">troubled about work</span></span><span class="colloc-chip" data-thai="กลุ้มใจเรื่องเรียน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">กลุ้มใจเรื่องเรียน</span><span class="en-colloc">troubled about study</span></span><span class="colloc-chip" data-thai="ทำให้กลุ้มใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้กลุ้มใจ</span><span class="en-colloc">make distressed</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="กลุ้มใจเรื่องงาน" role="button" tabindex="0" ><span class="thai">กลุ้มใจเรื่องงาน</span><span class="en-colloc">troubled about work</span></span><span class="colloc-chip" data-thai="กลุ้มใจเรื่องเรียน" role="button" tabindex="0" ><span class="thai">กลุ้มใจเรื่องเรียน</span><span class="en-colloc">troubled about study</span></span><span class="colloc-chip" data-thai="ทำให้กลุ้มใจ" role="button" tabindex="0" ><span class="thai">ทำให้กลุ้มใจ</span><span class="en-colloc">make distressed</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันกลุ้มใจเรื่องค่าใช้จ่ายตอนอยู่กรุงเทพฯ ค่ะ</div><div class="roman">chǎn glûm-jai rʉ̂ang khâa-chái-jàai dtɔɔn yùu grung-thêep khâ</div><div class="eng">I’m worried about expenses while living in Bangkok.</div></div></td>
         </tr>
 
@@ -703,7 +712,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>壓力大。現代口語非常常用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เครียดมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เครียดมาก</span><span class="en-colloc">very stressed</span></span><span class="colloc-chip" data-thai="เครียดเรื่องสอบ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เครียดเรื่องสอบ</span><span class="en-colloc">stressed about exams</span></span><span class="colloc-chip" data-thai="เครียดจนปวดหัว" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เครียดจนปวดหัว</span><span class="en-colloc">so stressed that one gets a headache</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เครียดมาก" role="button" tabindex="0" ><span class="thai">เครียดมาก</span><span class="en-colloc">very stressed</span></span><span class="colloc-chip" data-thai="เครียดเรื่องสอบ" role="button" tabindex="0" ><span class="thai">เครียดเรื่องสอบ</span><span class="en-colloc">stressed about exams</span></span><span class="colloc-chip" data-thai="เครียดจนปวดหัว" role="button" tabindex="0" ><span class="thai">เครียดจนปวดหัว</span><span class="en-colloc">so stressed that one gets a headache</span></span></div></td>
           <td><div class="triad"><div class="thai">ช่วงนี้ฉันเครียดเรื่องอนาคต เลยนอนไม่ค่อยหลับค่ะ</div><div class="roman">chûang níi chǎn khrîat rʉ̂ang à-naa-khót, ləəi nɔɔn mâi khɔ̂i làp khâ</div><div class="eng">Recently I’m stressed about the future, so I don’t sleep very well.</div></div></td>
         </tr>
 
@@ -712,7 +721,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>無聊，也可表示膩了、受夠了。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เบื่อมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เบื่อมาก</span><span class="en-colloc">very bored</span></span><span class="colloc-chip" data-thai="เบื่องาน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เบื่องาน</span><span class="en-colloc">fed up with work</span></span><span class="colloc-chip" data-thai="เบื่ออาหารเดิม ๆ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เบื่ออาหารเดิม ๆ</span><span class="en-colloc">bored of the same food</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เบื่อมาก" role="button" tabindex="0" ><span class="thai">เบื่อมาก</span><span class="en-colloc">very bored</span></span><span class="colloc-chip" data-thai="เบื่องาน" role="button" tabindex="0" ><span class="thai">เบื่องาน</span><span class="en-colloc">fed up with work</span></span><span class="colloc-chip" data-thai="เบื่ออาหารเดิม ๆ" role="button" tabindex="0" ><span class="thai">เบื่ออาหารเดิม ๆ</span><span class="en-colloc">bored of the same food</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันเบื่ออยู่ห้องทั้งวัน เลยออกไปเดินเล่นที่ห้างค่ะ</div><div class="roman">chǎn bʉ̀a yùu hɔ̂ng tháng wan, ləəi ɔ̀ɔk bpai dəən-lên thîi hâang khâ</div><div class="eng">I was bored staying in the room all day, so I went for a walk at the mall.</div></div></td>
         </tr>
 
@@ -721,7 +730,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>擔心某人，帶有關心、愛護。和 <span class="thai">คิดถึง</span> 不同。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เป็นห่วงแม่" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เป็นห่วงแม่</span><span class="en-colloc">worried about mom</span></span><span class="colloc-chip" data-thai="เป็นห่วงแฟน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เป็นห่วงแฟน</span><span class="en-colloc">worried about partner</span></span><span class="colloc-chip" data-thai="ไม่ต้องเป็นห่วง" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่ต้องเป็นห่วง</span><span class="en-colloc">don’t worry</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เป็นห่วงแม่" role="button" tabindex="0" ><span class="thai">เป็นห่วงแม่</span><span class="en-colloc">worried about mom</span></span><span class="colloc-chip" data-thai="เป็นห่วงแฟน" role="button" tabindex="0" ><span class="thai">เป็นห่วงแฟน</span><span class="en-colloc">worried about partner</span></span><span class="colloc-chip" data-thai="ไม่ต้องเป็นห่วง" role="button" tabindex="0" ><span class="thai">ไม่ต้องเป็นห่วง</span><span class="en-colloc">don’t worry</span></span></div></td>
           <td><div class="triad"><div class="thai">ฝนตกหนัก ฉันเป็นห่วงว่าเขาจะกลับบ้านลำบากค่ะ</div><div class="roman">fǒn-dtòk nàk, chǎn bpen-hùang wâa khǎo jà glàp bâan lam-bàak khâ</div><div class="eng">It’s raining heavily, and I’m worried he’ll have trouble going home.</div></div></td>
         </tr>
 
@@ -730,7 +739,7 @@
           <td>Emotion / verb</td>
           <td>—</td>
           <td>想念某人或某地。和 <span class="thai">เป็นห่วง</span> 不同，不一定有擔心。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คิดถึงบ้าน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คิดถึงบ้าน</span><span class="en-colloc">miss home</span></span><span class="colloc-chip" data-thai="คิดถึงเธอ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คิดถึงเธอ</span><span class="en-colloc">miss you</span></span><span class="colloc-chip" data-thai="คิดถึงอาหารไทย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">คิดถึงอาหารไทย</span><span class="en-colloc">miss Thai food</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="คิดถึงบ้าน" role="button" tabindex="0" ><span class="thai">คิดถึงบ้าน</span><span class="en-colloc">miss home</span></span><span class="colloc-chip" data-thai="คิดถึงเธอ" role="button" tabindex="0" ><span class="thai">คิดถึงเธอ</span><span class="en-colloc">miss you</span></span><span class="colloc-chip" data-thai="คิดถึงอาหารไทย" role="button" tabindex="0" ><span class="thai">คิดถึงอาหารไทย</span><span class="en-colloc">miss Thai food</span></span></div></td>
           <td><div class="triad"><div class="thai">เวลาอยู่ไทยนาน ๆ ฉันคิดถึงครอบครัวที่ไต้หวันค่ะ</div><div class="roman">wee-laa yùu thai naan-naan, chǎn khít-thʉ̌ng khrɔ̂ɔp-khrua thîi dtâi-wǎn khâ</div><div class="eng">When I stay in Thailand for a long time, I miss my family in Taiwan.</div></div></td>
         </tr>
 
@@ -739,7 +748,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>較口語、情緒上來、生氣到有火氣。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="โมโหมาก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">โมโหมาก</span><span class="en-colloc">very angry</span></span><span class="colloc-chip" data-thai="โมโหง่าย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">โมโหง่าย</span><span class="en-colloc">easily angered</span></span><span class="colloc-chip" data-thai="ทำให้โมโห" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้โมโห</span><span class="en-colloc">make angry</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="โมโหมาก" role="button" tabindex="0" ><span class="thai">โมโหมาก</span><span class="en-colloc">very angry</span></span><span class="colloc-chip" data-thai="โมโหง่าย" role="button" tabindex="0" ><span class="thai">โมโหง่าย</span><span class="en-colloc">easily angered</span></span><span class="colloc-chip" data-thai="ทำให้โมโห" role="button" tabindex="0" ><span class="thai">ทำให้โมโห</span><span class="en-colloc">make angry</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันโมโหตอน Grab ยกเลิกงานตอนฝนตกค่ะ</div><div class="roman">chǎn moo-hǒo dtɔɔn gráp yók-lə̂ək ngaan dtɔɔn fǒn-dtòk khâ</div><div class="eng">I got angry when the Grab driver canceled during the rain.</div></div></td>
         </tr>
 
@@ -748,7 +757,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>比較中性、標準的「生氣」。比 <span class="thai">โมโห</span> 沒那麼爆發感。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="โกรธเขา / โกรธมาก / อย่าโกรธนะ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">โกรธเขา / โกรธมาก / อย่าโกรธนะ</span><span class="en-colloc">angry at him/her / very angry / don’t be angry</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="โกรธเขา / โกรธมาก / อย่าโกรธนะ" role="button" tabindex="0" ><span class="thai">โกรธเขา / โกรธมาก / อย่าโกรธนะ</span><span class="en-colloc">angry at him/her / very angry / don’t be angry</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันไม่ได้โกรธ แค่รู้สึกไม่สบายใจค่ะ</div><div class="roman">chǎn mâi dâai gròot, khɛ̂ɛ rúu-sʉ̀k mâi sà-baai-jai khâ</div><div class="eng">I’m not angry; I just feel uneasy.</div></div></td>
         </tr>
 
@@ -757,7 +766,7 @@
           <td>Emotion</td>
           <td>—</td>
           <td>煩躁、不爽、小事累積的惱怒。比 <span class="thai">โกรธ</span> 輕。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="งุดงิดนิดหน่อย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">งุดงิดนิดหน่อย</span><span class="en-colloc">a bit annoyed</span></span><span class="colloc-chip" data-thai="งุดงิดเพราะรถติด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">งุดงิดเพราะรถติด</span><span class="en-colloc">annoyed because of traffic</span></span><span class="colloc-chip" data-thai="ทำให้งุดงิด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ทำให้งุดงิด</span><span class="en-colloc">make annoyed</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="งุดงิดนิดหน่อย" role="button" tabindex="0" ><span class="thai">งุดงิดนิดหน่อย</span><span class="en-colloc">a bit annoyed</span></span><span class="colloc-chip" data-thai="งุดงิดเพราะรถติด" role="button" tabindex="0" ><span class="thai">งุดงิดเพราะรถติด</span><span class="en-colloc">annoyed because of traffic</span></span><span class="colloc-chip" data-thai="ทำให้งุดงิด" role="button" tabindex="0" ><span class="thai">ทำให้งุดงิด</span><span class="en-colloc">make annoyed</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันงุดงิดเพราะรออาหารนานมากค่ะ</div><div class="roman">chǎn ngùt-ngìt phrɔ́ rɔɔ aa-hǎan naan mâak khâ</div><div class="eng">I’m annoyed because I waited for the food for a long time.</div></div></td>
         </tr>
       </tbody>
@@ -781,7 +790,7 @@
           <td>Verb / mental state</td>
           <td>—</td>
           <td>可表示「下定決心做」或「專心」。本課是下定決心。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั้งใจเรียน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั้งใจเรียน</span><span class="en-colloc">study seriously</span></span><span class="colloc-chip" data-thai="ตั้งใจทำงาน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั้งใจทำงาน</span><span class="en-colloc">work seriously</span></span><span class="colloc-chip" data-thai="ตั้งใจเก็บเงิน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ตั้งใจเก็บเงิน</span><span class="en-colloc">intentionally save money</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ตั้งใจเรียน" role="button" tabindex="0" ><span class="thai">ตั้งใจเรียน</span><span class="en-colloc">study seriously</span></span><span class="colloc-chip" data-thai="ตั้งใจทำงาน" role="button" tabindex="0" ><span class="thai">ตั้งใจทำงาน</span><span class="en-colloc">work seriously</span></span><span class="colloc-chip" data-thai="ตั้งใจเก็บเงิน" role="button" tabindex="0" ><span class="thai">ตั้งใจเก็บเงิน</span><span class="en-colloc">intentionally save money</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันตั้งใจเก็บเงินเพื่อเรียนภาษาไทยที่กรุงเทพฯ ค่ะ</div><div class="roman">chǎn dtâng-jai gèp ngən phʉ̂a rian phaa-sǎa-thai thîi grung-thêep khâ</div><div class="eng">I’m determined to save money to study Thai in Bangkok.</div></div></td>
         </tr>
 
@@ -790,7 +799,7 @@
           <td>Phrase</td>
           <td>—</td>
           <td>常接 <span class="thai">ว่า...</span> 表達不確定某件事。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไม่แน่ใจว่า..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่แน่ใจว่า...</span><span class="en-colloc">not sure that...</span></span><span class="colloc-chip" data-thai="ยังไม่แน่ใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ยังไม่แน่ใจ</span><span class="en-colloc">still not sure</span></span><span class="colloc-chip" data-thai="ไม่ค่อยแน่ใจ" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ไม่ค่อยแน่ใจ</span><span class="en-colloc">not really sure</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ไม่แน่ใจว่า..." role="button" tabindex="0" ><span class="thai">ไม่แน่ใจว่า...</span><span class="en-colloc">not sure that...</span></span><span class="colloc-chip" data-thai="ยังไม่แน่ใจ" role="button" tabindex="0" ><span class="thai">ยังไม่แน่ใจ</span><span class="en-colloc">still not sure</span></span><span class="colloc-chip" data-thai="ไม่ค่อยแน่ใจ" role="button" tabindex="0" ><span class="thai">ไม่ค่อยแน่ใจ</span><span class="en-colloc">not really sure</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันยังไม่แน่ใจว่าจะอยู่ไทยต่อไหมค่ะ</div><div class="roman">chǎn yang mâi nɛ̂ɛ-jai wâa jà yùu thai dtɔ̀ɔ mái khâ</div><div class="eng">I’m still not sure whether I’ll stay in Thailand longer.</div></div></td>
         </tr>
 
@@ -799,7 +808,7 @@
           <td>Phrase</td>
           <td>—</td>
           <td>後面接希望發生或不要發生的事。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หวังว่าจะดีขึ้น" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หวังว่าจะดีขึ้น</span><span class="en-colloc">hope it gets better</span></span><span class="colloc-chip" data-thai="หวังว่าจะไม่ลืม" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หวังว่าจะไม่ลืม</span><span class="en-colloc">hope I won’t forget</span></span><span class="colloc-chip" data-thai="หวังว่าฝนจะไม่ตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">หวังว่าฝนจะไม่ตก</span><span class="en-colloc">hope it won’t rain</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="หวังว่าจะดีขึ้น" role="button" tabindex="0" ><span class="thai">หวังว่าจะดีขึ้น</span><span class="en-colloc">hope it gets better</span></span><span class="colloc-chip" data-thai="หวังว่าจะไม่ลืม" role="button" tabindex="0" ><span class="thai">หวังว่าจะไม่ลืม</span><span class="en-colloc">hope I won’t forget</span></span><span class="colloc-chip" data-thai="หวังว่าฝนจะไม่ตก" role="button" tabindex="0" ><span class="thai">หวังว่าฝนจะไม่ตก</span><span class="en-colloc">hope it won’t rain</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันหวังว่าสัปดาห์หน้าจะพูดไทยได้มั่นใจขึ้นค่ะ</div><div class="roman">chǎn wǎng wâa sàp-daa nâa jà phûut thai dâai mân-jai khʉ̂n khâ</div><div class="eng">I hope next week I can speak Thai more confidently.</div></div></td>
         </tr>
 
@@ -808,7 +817,7 @@
           <td>Conjunction</td>
           <td>—</td>
           <td>接原因。句型：結果 + <span class="thai">เพราะว่า</span> + 原因。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เพราะว่าอยาก..." role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เพราะว่าอยาก...</span><span class="en-colloc">because I want to...</span></span><span class="colloc-chip" data-thai="เพราะว่าฝนตก" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เพราะว่าฝนตก</span><span class="en-colloc">because it rains</span></span><span class="colloc-chip" data-thai="เพราะว่าไม่สบาย" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เพราะว่าไม่สบาย</span><span class="en-colloc">because sick</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="เพราะว่าอยาก..." role="button" tabindex="0" ><span class="thai">เพราะว่าอยาก...</span><span class="en-colloc">because I want to...</span></span><span class="colloc-chip" data-thai="เพราะว่าฝนตก" role="button" tabindex="0" ><span class="thai">เพราะว่าฝนตก</span><span class="en-colloc">because it rains</span></span><span class="colloc-chip" data-thai="เพราะว่าไม่สบาย" role="button" tabindex="0" ><span class="thai">เพราะว่าไม่สบาย</span><span class="en-colloc">because sick</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันเรียนภาษาไทย เพราะว่าอยากคุยกับคนไทยให้ธรรมชาติค่ะ</div><div class="roman">chǎn rian phaa-sǎa-thai phrɔ́-wâa yàak khui gàp khon thai hâi tham-má-châat khâ</div><div class="eng">I study Thai because I want to talk with Thai people naturally.</div></div></td>
         </tr>
 
@@ -817,7 +826,7 @@
           <td>Connector</td>
           <td>—</td>
           <td>接結果。句型：原因 + <span class="thai">ก็เลย</span> + 結果。口語非常常用。</td>
-          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฝนตกก็เลยรถติด" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">ฝนตกก็เลยรถติด</span><span class="en-colloc">it rains so traffic</span></span><span class="colloc-chip" data-thai="เหนื่อยก็เลยกลับบ้าน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">เหนื่อยก็เลยกลับบ้าน</span><span class="en-colloc">tired so go home</span></span><span class="colloc-chip" data-thai="อยากพูดเก่งก็เลยเรียน" role="button" tabindex="0" title="點擊播放泰文"><span class="thai">อยากพูดเก่งก็เลยเรียน</span><span class="en-colloc">want to speak well so study</span></span></div></td>
+          <td><div class="colloc-cell"><span class="colloc-chip" data-thai="ฝนตกก็เลยรถติด" role="button" tabindex="0" ><span class="thai">ฝนตกก็เลยรถติด</span><span class="en-colloc">it rains so traffic</span></span><span class="colloc-chip" data-thai="เหนื่อยก็เลยกลับบ้าน" role="button" tabindex="0" ><span class="thai">เหนื่อยก็เลยกลับบ้าน</span><span class="en-colloc">tired so go home</span></span><span class="colloc-chip" data-thai="อยากพูดเก่งก็เลยเรียน" role="button" tabindex="0" ><span class="thai">อยากพูดเก่งก็เลยเรียน</span><span class="en-colloc">want to speak well so study</span></span></div></td>
           <td><div class="triad"><div class="thai">ฉันอยากฟังคนไทยเข้าใจ ก็เลยฝึกฟังทุกวันค่ะ</div><div class="roman">chǎn yàak fang khon thai khâo-jai, gɔ̂ɔ ləəi fʉ̀k fang thúk wan khâ</div><div class="eng">I want to understand Thai people, so I practice listening every day.</div></div></td>
         </tr>
       </tbody>
@@ -1772,5 +1781,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+
+<script>
+(function () {
+  function speakText(text, el) {
+    if (!text || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.audio-pill.speaking, .colloc-chip.speaking').forEach(function (node) {
+      node.classList.remove('speaking');
+    });
+    if (el) el.classList.add('speaking');
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'th-TH';
+    utterance.rate = 0.82;
+    utterance.onend = function () { if (el) el.classList.remove('speaking'); };
+    utterance.onerror = function () { if (el) el.classList.remove('speaking'); };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  window.playCollocationThai = function (el) {
+    speakText(el && el.dataset ? el.dataset.thai : '', el);
+  };
+
+  document.addEventListener('click', function (event) {
+    var pill = event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var pill = event.target.closest && event.target.closest('.audio-pill[data-thai], .colloc-chip[data-thai]');
+    if (!pill) return;
+    event.preventDefault();
+    speakText(pill.dataset.thai, pill);
+  });
+})();
+</script>
+
 </body>
 </html>
