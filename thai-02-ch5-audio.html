@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thai Book 2｜Day 5 Study Guide</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thai Book 2｜Day 5 Study Guide</title>
+<style>
     :root {
       --text: var(--color-text-primary, #1f2937);
       --muted: #6b7280;
@@ -119,9 +120,9 @@
     .eng { font-size: 13px; color: var(--text); }
 
     .triad { display: grid; gap: 2px; margin: 4px 0; }
-    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
-    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
-    .triad .eng::before { content: "English: "; color: var(--muted); }
+    .triad .thai::before { content: none; }
+    .triad .roman::before { content: none; }
+    .triad .eng::before { content: none; }
 
     table {
       width: 100%;
@@ -268,6 +269,55 @@
     }
     .thai-text { flex: 1; }
 
+
+    .classifier-plain {
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .collocation-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: flex-start;
+    }
+
+    .collocation-pill {
+      border: .5px solid rgba(22,163,74,.28);
+      background: rgba(22,163,74,.11);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 10px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      cursor: pointer;
+      font: inherit;
+      line-height: 1.25;
+      transition: all .16s ease;
+    }
+
+    .collocation-pill:hover {
+      background: rgba(22,163,74,.17);
+      transform: translateY(-1px);
+    }
+
+    .collocation-pill.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+
+    .collocation-pill .pill-thai {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .collocation-pill .pill-eng {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
 @media (max-width: 720px) {
       body { padding: 14px; }
       .tab-content { padding: 16px; }
@@ -276,41 +326,37 @@
     }
   </style>
 </head>
-
 <body>
 <div class="container">
-  <section class="hero">
-    <h1>Thai Book 2｜Day 5 學習指南</h1>
-    <p class="subtitle">主題：ถ้า...จะทำยังไง、電話號碼、接電話/掛電話、找人、轉接、稍等、對方不在/正在忙、留言、請回電、重複確認</p>
-    <p>
-      <span class="label textbook">Textbook-based</span>
-      <span class="label local">Supplement / Local usage</span>
-      <span class="label practical">Practical Usage</span>
-      <span class="label review">Review</span>
-      <span class="label warn">Common mistake</span>
-    </p>
-  </section>
+<section class="hero">
+<h1>Thai Book 2｜Day 5 學習指南</h1>
+<p class="subtitle">主題：ถ้า...จะทำยังไง、電話號碼、接電話/掛電話、找人、轉接、稍等、對方不在/正在忙、留言、請回電、重複確認</p>
+<p>
 
-  <nav class="tabs">
-    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
-    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
-    <button class="tab-btn" onclick="openTab(event, 'ifthen')">If-Then</button>
-    <button class="tab-btn" onclick="openTab(event, 'phonebasic')">Phone Basics</button>
-    <button class="tab-btn" onclick="openTab(event, 'transfer')">Transfer & Message</button>
-    <button class="tab-btn" onclick="openTab(event, 'synonyms')">Synonyms & Opposites</button>
-    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
-    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
-    <button class="tab-btn" onclick="openTab(event, 'usage')">Practical Usage</button>
-    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
-    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
-    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
-  </nav>
 
-  <section id="overview" class="tab-content active">
-    <h2>Lesson Overview</h2>
 
-    <p>
-      <span class="label textbook">Textbook-based</span>
+<span class="label review">Review</span>
+<span class="label warn">Common mistake</span>
+</p>
+</section>
+<nav class="tabs">
+<button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+<button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+<button class="tab-btn" onclick="openTab(event, 'ifthen')">If-Then</button>
+<button class="tab-btn" onclick="openTab(event, 'phonebasic')">Phone Basics</button>
+<button class="tab-btn" onclick="openTab(event, 'transfer')">Transfer &amp; Message</button>
+<button class="tab-btn" onclick="openTab(event, 'synonyms')">Synonyms &amp; Opposites</button>
+<button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+<button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+<button class="tab-btn" onclick="openTab(event, 'usage')">Practical Usage</button>
+<button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+<button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+<button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+</nav>
+<section class="tab-content active" id="overview">
+<h2>Lesson Overview</h2>
+<p>
+
       Day 5 的核心是「如果遇到某種狀況，你會怎麼做？」以及「正式電話對話」。第 2 頁的句型是：
       <span class="thai">ถ้า...</span> / <span class="roman">thâa...</span> / <span class="eng">if...</span>
       搭配
@@ -319,1155 +365,1024 @@
       <span class="thai">ถ้าคุณไม่เข้าใจภาษาไทย คุณจะทำยังไงคะ</span> /
       <span class="roman">thâa khun mâi khâo-jai phaa-sǎa thai, khun jà tham yang-ngai khá</span> /
       <span class="eng">If you don’t understand Thai, what will you do?</span>
-    </p>
-
-    <p>
+</p>
+<p>
       第 3–6 頁則是電話對話流程：問電話號碼、接電話、掛電話、找某人、問對方是誰/從哪裡打來、對方正在講電話、請稍等、幫忙轉告、請對方回電、可以留言嗎，以及重複確認電話內容。
     </p>
-
-    <div class="cards">
-      <div class="card">
-        <div class="mini-title">If-Then</div>
-        <div class="triad">
-          <div class="thai">ถ้าฉันไม่เข้าใจภาษาไทย ฉันก็จะถามครูค่ะ</div>
-          <div class="roman">thâa chǎn mâi khâo-jai phaa-sǎa thai, chǎn gɔ̂ɔ jà thǎam khruu khâ</div>
-          <div class="eng">If I don’t understand Thai, I will ask the teacher.</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="mini-title">Phone number</div>
-        <div class="triad">
-          <div class="thai">โทรศัพท์เบอร์อะไรคะ</div>
-          <div class="roman">thoo-rá-sàp bəə à-rai khá</div>
-          <div class="eng">What phone number is it?</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="mini-title">Please wait</div>
-        <div class="triad">
-          <div class="thai">รอสักครู่นะคะ</div>
-          <div class="roman">rɔɔ sàk-khrûu ná khá</div>
-          <div class="eng">Please wait a moment.</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="mini-title">Call back</div>
-        <div class="triad">
-          <div class="thai">ช่วยบอกคุณซีว่าให้โทรกลับมาหาผมหน่อยครับ</div>
-          <div class="roman">chûai bɔ̀ɔk khun sii wâa hâi thoo glàp maa hǎa phǒm nɔ̀i khráp</div>
-          <div class="eng">Please tell C to call me back.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="tip orange">
-      <strong>Review：</strong>
-      <span class="thai">ขอ...หน่อยค่ะ</span> /
+<div class="cards">
+<div class="card">
+<div class="mini-title">If-Then</div>
+<div class="triad">
+<div class="thai">ถ้าฉันไม่เข้าใจภาษาไทย ฉันก็จะถามครูค่ะ</div>
+<div class="roman">thâa chǎn mâi khâo-jai phaa-sǎa thai, chǎn gɔ̂ɔ jà thǎam khruu khâ</div>
+<div class="eng">If I don’t understand Thai, I will ask the teacher.</div>
+</div>
+</div>
+<div class="card">
+<div class="mini-title">Phone number</div>
+<div class="triad">
+<div class="thai">โทรศัพท์เบอร์อะไรคะ</div>
+<div class="roman">thoo-rá-sàp bəə à-rai khá</div>
+<div class="eng">What phone number is it?</div>
+</div>
+</div>
+<div class="card">
+<div class="mini-title">Please wait</div>
+<div class="triad">
+<div class="thai">รอสักครู่นะคะ</div>
+<div class="roman">rɔɔ sàk-khrûu ná khá</div>
+<div class="eng">Please wait a moment.</div>
+</div>
+</div>
+<div class="card">
+<div class="mini-title">Call back</div>
+<div class="triad">
+<div class="thai">ช่วยบอกคุณซีว่าให้โทรกลับมาหาผมหน่อยครับ</div>
+<div class="roman">chûai bɔ̀ɔk khun sii wâa hâi thoo glàp maa hǎa phǒm nɔ̀i khráp</div>
+<div class="eng">Please tell C to call me back.</div>
+</div>
+</div>
+</div>
+<div class="tip orange">
+<strong>Review：</strong>
+<span class="thai">ขอ...หน่อยค่ะ</span> /
       <span class="roman">khɔ̌ɔ ... nɔ̀i khâ</span> /
       <span class="eng">please / could I...</span>
       之前已學過，Day 5 會用在電話中：
       <span class="thai">ขอพูดกับคุณบีหน่อยค่ะ</span> /
       <span class="roman">khɔ̌ɔ phûut gàp khun bii nɔ̀i khâ</span> /
       <span class="eng">Could I speak with B?</span>
-    </div>
-
-    <div class="tip">
-      <strong>Bangkok Practical Focus：</strong>
+</div>
+<div class="tip">
+<strong>Bangkok Practical Focus：</strong>
       這課超實用，因為你在曼谷可能會打給語言學校、房仲、餐廳、客服、外送司機、朋友或公司。電話泰文不一定要很長，但要會說「找誰、請稍等、不在、忙、可以留言嗎、請回電、請再說一次」。
     </div>
-  </section>
+</section>
+<section class="tab-content" id="vocab">
+<h2>Vocabulary Table</h2>
+<h3>If-Then &amp; Understanding</h3>
+<table>
+<thead>
+<tr>
+<th>Thai / Romanization / English</th>
+<th>Category</th>
+<th>Grammar Notes</th>
+<th>Collocations</th>
+<th>Example Sentence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><div class="triad"><div class="thai">ถ้า</div><div class="roman">thâa</div><div class="eng">if</div></div></td>
+<td>Conjunction</td>
+<td>放在條件句開頭，後面接完整句。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="ถ้าไม่เข้าใจ" type="button"><span class="pill-thai">ถ้าไม่เข้าใจ</span><span class="pill-eng">if I don’t understand</span></button><button class="collocation-pill" data-thai="ถ้าไม่ว่าง" type="button"><span class="pill-thai">ถ้าไม่ว่าง</span><span class="pill-eng">if not free</span></button><button class="collocation-pill" data-thai="ถ้าโทรไม่ได้" type="button"><span class="pill-thai">ถ้าโทรไม่ได้</span><span class="pill-eng">if unable to call</span></button></div></td>
+<td><div class="triad"><div class="thai">ถ้าฝนตก ฉันจะอยู่บ้านค่ะ</div><div class="roman">thâa fǒn dtòk, chǎn jà yùu bâan khâ</div><div class="eng">If it rains, I will stay home.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">เข้าใจ</div><div class="roman">khâo-jai</div><div class="eng">understand</div></div></td>
+<td>Verb</td>
+<td>否定是 <span class="thai">ไม่เข้าใจ</span>，電話聽不懂時很重要。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="เข้าใจภาษาไทย" type="button"><span class="pill-thai">เข้าใจภาษาไทย</span><span class="pill-eng">understand Thai</span></button><button class="collocation-pill" data-thai="ไม่เข้าใจ" type="button"><span class="pill-thai">ไม่เข้าใจ</span><span class="pill-eng">don’t understand</span></button><button class="collocation-pill" data-thai="ฟังไม่เข้าใจ" type="button"><span class="pill-thai">ฟังไม่เข้าใจ</span><span class="pill-eng">don’t understand by listening</span></button></div></td>
+<td><div class="triad"><div class="thai">ฉันฟังไม่เข้าใจค่ะ</div><div class="roman">chǎn fang mâi khâo-jai khâ</div><div class="eng">I don’t understand what I heard.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">ทำยังไง</div><div class="roman">tham yang-ngai</div><div class="eng">what to do / how to do</div></div></td>
+<td>Question phrase</td>
+<td>生活中遇到問題時很常用。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="จะทำยังไง" type="button"><span class="pill-thai">จะทำยังไง</span><span class="pill-eng">what will you do</span></button><button class="collocation-pill" data-thai="ต้องทำยังไง" type="button"><span class="pill-thai">ต้องทำยังไง</span><span class="pill-eng">what should I do</span></button></div></td>
+<td><div class="triad"><div class="thai">ถ้ากุญแจหาย ต้องทำยังไงคะ</div><div class="roman">thâa gun-jae hǎai, dtɔ̂ng tham yang-ngai khá</div><div class="eng">If the key is missing, what should I do?</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">ก็จะ</div><div class="roman">gɔ̂ɔ jà</div><div class="eng">then will / would</div></div></td>
+<td>Result marker</td>
+<td>常在 <span class="thai">ถ้า...</span> 後面回答，像「那我就會……」。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="ก็จะถาม" type="button"><span class="pill-thai">ก็จะถาม</span><span class="pill-eng">then will ask</span></button><button class="collocation-pill" data-thai="ก็จะโทร" type="button"><span class="pill-thai">ก็จะโทร</span><span class="pill-eng">then will call</span></button><button class="collocation-pill" data-thai="ก็จะรอ" type="button"><span class="pill-thai">ก็จะรอ</span><span class="pill-eng">then will wait</span></button></div></td>
+<td><div class="triad"><div class="thai">ถ้าไม่เข้าใจ ฉันก็จะถามอีกครั้งค่ะ</div><div class="roman">thâa mâi khâo-jai, chǎn gɔ̂ɔ jà thǎam ìik khráng khâ</div><div class="eng">If I don’t understand, I will ask again.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h3>Phone Call Vocabulary</h3>
+<table>
+<thead>
+<tr>
+<th>Thai / Romanization / English</th>
+<th>Category</th>
+<th>Grammar Notes</th>
+<th>Collocations</th>
+<th>Example Sentence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><div class="triad"><div class="thai">โทรศัพท์</div><div class="roman">thoo-rá-sàp</div><div class="eng">telephone / phone</div></div></td>
+<td>Noun / verb base</td>
+<td>可指電話，也可進入動詞片語 <span class="thai">โทรหา</span>。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="เบอร์โทรศัพท์" type="button"><span class="pill-thai">เบอร์โทรศัพท์</span><span class="pill-eng">phone number</span></button><button class="collocation-pill" data-thai="โทรศัพท์หา" type="button"><span class="pill-thai">โทรศัพท์หา</span><span class="pill-eng">call someone</span></button><button class="collocation-pill" data-thai="โทรกลับ" type="button"><span class="pill-thai">โทรกลับ</span><span class="pill-eng">call back</span></button></div></td>
+<td><div class="triad"><div class="thai">เบอร์โทรศัพท์ของโรงเรียนคืออะไรคะ</div><div class="roman">bəə thoo-rá-sàp khɔ̌ɔng roong-rian khʉʉ à-rai khá</div><div class="eng">What is the school’s phone number?</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">เบอร์</div><div class="roman">bəə</div><div class="eng">number</div></div></td>
+<td>Noun</td>
+<td>電話號碼口語常說 <span class="thai">เบอร์โทร</span>。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="เบอร์อะไร" type="button"><span class="pill-thai">เบอร์อะไร</span><span class="pill-eng">what number</span></button><button class="collocation-pill" data-thai="เบอร์โทร" type="button"><span class="pill-thai">เบอร์โทร</span><span class="pill-eng">phone number</span></button><button class="collocation-pill" data-thai="ขอเบอร์" type="button"><span class="pill-thai">ขอเบอร์</span><span class="pill-eng">ask for number</span></button></div></td>
+<td><div class="triad"><div class="thai">ขอเบอร์โทรหน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ bəə thoo nɔ̀i dâai mái khá</div><div class="eng">Can I have your phone number?</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">รับสาย</div><div class="roman">ráp-sǎai</div><div class="eng">answer the phone</div></div></td>
+<td>Verb phrase</td>
+<td><span class="thai">รับ</span> = receive；<span class="thai">สาย</span> = phone line/call。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="รับสาย" type="button"><span class="pill-thai">รับสาย</span><span class="pill-eng">answer</span></button><button class="collocation-pill" data-thai="ไม่รับสาย" type="button"><span class="pill-thai">ไม่รับสาย</span><span class="pill-eng">not answer</span></button><button class="collocation-pill" data-thai="กำลังรับสาย" type="button"><span class="pill-thai">กำลังรับสาย</span><span class="pill-eng">answering</span></button></div></td>
+<td><div class="triad"><div class="thai">เขาไม่รับสายค่ะ</div><div class="roman">khǎo mâi ráp-sǎai khâ</div><div class="eng">He/she didn’t answer the phone.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">วางสาย</div><div class="roman">waang-sǎai</div><div class="eng">hang up</div></div></td>
+<td>Verb phrase</td>
+<td><span class="thai">วาง</span> = put down；電話中表示掛電話。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="วางสาย" type="button"><span class="pill-thai">วางสาย</span><span class="pill-eng">hang up</span></button><button class="collocation-pill" data-thai="อย่าวางสายนะคะ" type="button"><span class="pill-thai">อย่าวางสายนะคะ</span><span class="pill-eng">don’t hang up</span></button></div></td>
+<td><div class="triad"><div class="thai">อย่าเพิ่งวางสายนะคะ</div><div class="roman">yàa phə̂ng waang-sǎai ná khá</div><div class="eng">Please don’t hang up yet.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">โอนสาย</div><div class="roman">oon-sǎai</div><div class="eng">transfer a call</div></div></td>
+<td>Verb phrase</td>
+<td>公司/學校/客服會用。教材上用 <span class="thai">ต่อ</span> 的概念，日常客服也常說 <span class="thai">โอนสาย</span>。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="โอนสายให้" type="button"><span class="pill-thai">โอนสายให้</span><span class="pill-eng">transfer the call for someone</span></button><button class="collocation-pill" data-thai="ต่อสายให้" type="button"><span class="pill-thai">ต่อสายให้</span><span class="pill-eng">connect the line for someone</span></button></div></td>
+<td><div class="triad"><div class="thai">จะโอนสายให้นะคะ</div><div class="roman">jà oon-sǎai hâi ná khá</div><div class="eng">I will transfer the call for you.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">ต่อสาย</div><div class="roman">dtɔ̀ɔ-sǎai</div><div class="eng">connect the call / transfer the line</div></div></td>
+<td>Verb phrase</td>
+<td>正式電話裡常見，意思接近轉接。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="ต่อสายให้คุณบี" type="button"><span class="pill-thai">ต่อสายให้คุณบี</span><span class="pill-eng">connect you to B</span></button><button class="collocation-pill" data-thai="รอสาย" type="button"><span class="pill-thai">รอสาย</span><span class="pill-eng">wait on the line</span></button></div></td>
+<td><div class="triad"><div class="thai">รอสายนิดหนึ่งนะคะ จะต่อสายให้ค่ะ</div><div class="roman">rɔɔ-sǎai nít-nʉ̀eng ná khá, jà dtɔ̀ɔ-sǎai hâi khâ</div><div class="eng">Please hold for a moment. I’ll connect you.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">กำลังพูดอยู่</div><div class="roman">gam-lang phûut yùu</div><div class="eng">be speaking right now</div></div></td>
+<td>Present progressive</td>
+<td><span class="thai">กำลัง...อยู่</span> 表示正在做某事。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="กำลังพูดอยู่" type="button"><span class="pill-thai">กำลังพูดอยู่</span><span class="pill-eng">speaking now</span></button><button class="collocation-pill" data-thai="กำลังคุยโทรศัพท์อยู่" type="button"><span class="pill-thai">กำลังคุยโทรศัพท์อยู่</span><span class="pill-eng">talking on the phone now</span></button></div></td>
+<td><div class="triad"><div class="thai">ตอนนี้คุณบีกำลังพูดอยู่ค่ะ</div><div class="roman">dtɔɔn-níi khun bii gam-lang phûut yùu khâ</div><div class="eng">B is speaking right now.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">ว่าง</div><div class="roman">wâang</div><div class="eng">free / available</div></div></td>
+<td>Adjective</td>
+<td>電話中問某人是否有空接電話。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="ว่างไหม" type="button"><span class="pill-thai">ว่างไหม</span><span class="pill-eng">free?</span></button><button class="collocation-pill" data-thai="ไม่ว่าง" type="button"><span class="pill-thai">ไม่ว่าง</span><span class="pill-eng">not free</span></button><button class="collocation-pill" data-thai="ยังไม่ว่าง" type="button"><span class="pill-thai">ยังไม่ว่าง</span><span class="pill-eng">still not free</span></button></div></td>
+<td><div class="triad"><div class="thai">คุณซีว่างไหมคะ</div><div class="roman">khun sii wâang mái khá</div><div class="eng">Is C available?</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">ไม่อยู่</div><div class="roman">mâi yùu</div><div class="eng">not here / not in</div></div></td>
+<td>State</td>
+<td>電話中常表示某人不在現場。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="คุณซีไม่อยู่" type="button"><span class="pill-thai">คุณซีไม่อยู่</span><span class="pill-eng">C is not here</span></button><button class="collocation-pill" data-thai="ตอนนี้ไม่อยู่" type="button"><span class="pill-thai">ตอนนี้ไม่อยู่</span><span class="pill-eng">not here now</span></button></div></td>
+<td><div class="triad"><div class="thai">ตอนนี้คุณซีไม่อยู่ค่ะ</div><div class="roman">dtɔɔn-níi khun sii mâi yùu khâ</div><div class="eng">C is not here right now.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">รอสักครู่</div><div class="roman">rɔɔ sàk-khrûu</div><div class="eng">please wait a moment</div></div></td>
+<td>Polite phone phrase</td>
+<td>正式、客服、學校電話都常用。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="รอสักครู่นะคะ" type="button"><span class="pill-thai">รอสักครู่นะคะ</span><span class="pill-eng">please wait a moment</span></button><button class="collocation-pill" data-thai="กรุณารอสักครู่" type="button"><span class="pill-thai">กรุณารอสักครู่</span><span class="pill-eng">please kindly wait a moment</span></button></div></td>
+<td><div class="triad"><div class="thai">รอสักครู่นะคะ จะเช็กให้ค่ะ</div><div class="roman">rɔɔ sàk-khrûu ná khá, jà chék hâi khâ</div><div class="eng">Please wait a moment. I’ll check for you.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">โทรกลับ</div><div class="roman">thoo glàp</div><div class="eng">call back</div></div></td>
+<td>Verb phrase</td>
+<td><span class="thai">กลับ</span> 是回來/回去，電話中是回電。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="โทรกลับมา" type="button"><span class="pill-thai">โทรกลับมา</span><span class="pill-eng">call back to me</span></button><button class="collocation-pill" data-thai="โทรกลับไป" type="button"><span class="pill-thai">โทรกลับไป</span><span class="pill-eng">call back to them</span></button><button class="collocation-pill" data-thai="ให้โทรกลับ" type="button"><span class="pill-thai">ให้โทรกลับ</span><span class="pill-eng">have someone call back</span></button></div></td>
+<td><div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">ฝากข้อความ</div><div class="roman">fàak khɔ̂ɔ-khwaam</div><div class="eng">leave a message</div></div></td>
+<td>Verb phrase</td>
+<td><span class="thai">ฝาก</span> 是寄放/託付；<span class="thai">ข้อความ</span> 是訊息。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="มีอะไรฝากไหม" type="button"><span class="pill-thai">มีอะไรฝากไหม</span><span class="pill-eng">do you have a message to leave?</span></button><button class="collocation-pill" data-thai="ฝากข้อความไว้" type="button"><span class="pill-thai">ฝากข้อความไว้</span><span class="pill-eng">leave a message</span></button></div></td>
+<td><div class="triad"><div class="thai">ฝากข้อความไว้ได้ไหมคะ</div><div class="roman">fàak khɔ̂ɔ-khwaam wái dâai mái khá</div><div class="eng">Can I leave a message?</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">ทวน</div><div class="roman">thuan</div><div class="eng">repeat / review back</div></div></td>
+<td>Verb</td>
+<td>電話中確認資訊時很實用。</td>
+<td><div class="collocation-pills"><button class="collocation-pill" data-thai="ทวนอีกครั้ง" type="button"><span class="pill-thai">ทวนอีกครั้ง</span><span class="pill-eng">repeat once again</span></button><button class="collocation-pill" data-thai="ขอทวนเบอร์" type="button"><span class="pill-thai">ขอทวนเบอร์</span><span class="pill-eng">let me repeat the number</span></button></div></td>
+<td><div class="triad"><div class="thai">ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Let me repeat the number again.</div></div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="tab-content" id="ifthen">
+<h2>If-Then｜ถ้า...จะทำยังไง</h2>
+<h3>1. Textbook Pattern</h3>
+<div class="pattern">
 
-  <section id="vocab" class="tab-content">
-    <h2>Vocabulary Table</h2>
-
-    <h3>If-Then & Understanding</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Thai / Romanization / English</th>
-          <th>Category</th>
-          <th>Grammar Notes</th>
-          <th>Collocations</th>
-          <th>Example Sentence</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="triad"><div class="thai">ถ้า</div><div class="roman">thâa</div><div class="eng">if</div></div></td>
-          <td>Conjunction</td>
-          <td>放在條件句開頭，後面接完整句。</td>
-          <td><div class="triad"><div class="thai">ถ้าไม่เข้าใจ / ถ้าไม่ว่าง / ถ้าโทรไม่ได้</div><div class="roman">thâa mâi khâo-jai / thâa mâi wâang / thâa thoo mâi dâai</div><div class="eng">if I don’t understand / if not free / if unable to call</div></div></td>
-          <td><div class="triad"><div class="thai">ถ้าฝนตก ฉันจะอยู่บ้านค่ะ</div><div class="roman">thâa fǒn dtòk, chǎn jà yùu bâan khâ</div><div class="eng">If it rains, I will stay home.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">เข้าใจ</div><div class="roman">khâo-jai</div><div class="eng">understand</div></div></td>
-          <td>Verb</td>
-          <td>否定是 <span class="thai">ไม่เข้าใจ</span>，電話聽不懂時很重要。</td>
-          <td><div class="triad"><div class="thai">เข้าใจภาษาไทย / ไม่เข้าใจ / ฟังไม่เข้าใจ</div><div class="roman">khâo-jai phaa-sǎa thai / mâi khâo-jai / fang mâi khâo-jai</div><div class="eng">understand Thai / don’t understand / don’t understand by listening</div></div></td>
-          <td><div class="triad"><div class="thai">ฉันฟังไม่เข้าใจค่ะ</div><div class="roman">chǎn fang mâi khâo-jai khâ</div><div class="eng">I don’t understand what I heard.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">ทำยังไง</div><div class="roman">tham yang-ngai</div><div class="eng">what to do / how to do</div></div></td>
-          <td>Question phrase</td>
-          <td>生活中遇到問題時很常用。</td>
-          <td><div class="triad"><div class="thai">จะทำยังไง / ต้องทำยังไง</div><div class="roman">jà tham yang-ngai / dtɔ̂ng tham yang-ngai</div><div class="eng">what will you do / what should I do</div></div></td>
-          <td><div class="triad"><div class="thai">ถ้ากุญแจหาย ต้องทำยังไงคะ</div><div class="roman">thâa gun-jae hǎai, dtɔ̂ng tham yang-ngai khá</div><div class="eng">If the key is missing, what should I do?</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">ก็จะ</div><div class="roman">gɔ̂ɔ jà</div><div class="eng">then will / would</div></div></td>
-          <td>Result marker</td>
-          <td>常在 <span class="thai">ถ้า...</span> 後面回答，像「那我就會……」。</td>
-          <td><div class="triad"><div class="thai">ก็จะถาม / ก็จะโทร / ก็จะรอ</div><div class="roman">gɔ̂ɔ jà thǎam / gɔ̂ɔ jà thoo / gɔ̂ɔ jà rɔɔ</div><div class="eng">then will ask / then will call / then will wait</div></div></td>
-          <td><div class="triad"><div class="thai">ถ้าไม่เข้าใจ ฉันก็จะถามอีกครั้งค่ะ</div><div class="roman">thâa mâi khâo-jai, chǎn gɔ̂ɔ jà thǎam ìik khráng khâ</div><div class="eng">If I don’t understand, I will ask again.</div></div></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Phone Call Vocabulary</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Thai / Romanization / English</th>
-          <th>Category</th>
-          <th>Grammar Notes</th>
-          <th>Collocations</th>
-          <th>Example Sentence</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="triad"><div class="thai">โทรศัพท์</div><div class="roman">thoo-rá-sàp</div><div class="eng">telephone / phone</div></div></td>
-          <td>Noun / verb base</td>
-          <td>可指電話，也可進入動詞片語 <span class="thai">โทรหา</span>。</td>
-          <td><div class="triad"><div class="thai">เบอร์โทรศัพท์ / โทรศัพท์หา / โทรกลับ</div><div class="roman">bəə thoo-rá-sàp / thoo-rá-sàp hǎa / thoo glàp</div><div class="eng">phone number / call someone / call back</div></div></td>
-          <td><div class="triad"><div class="thai">เบอร์โทรศัพท์ของโรงเรียนคืออะไรคะ</div><div class="roman">bəə thoo-rá-sàp khɔ̌ɔng roong-rian khʉʉ à-rai khá</div><div class="eng">What is the school’s phone number?</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">เบอร์</div><div class="roman">bəə</div><div class="eng">number</div></div></td>
-          <td>Noun</td>
-          <td>電話號碼口語常說 <span class="thai">เบอร์โทร</span>。</td>
-          <td><div class="triad"><div class="thai">เบอร์อะไร / เบอร์โทร / ขอเบอร์</div><div class="roman">bəə à-rai / bəə thoo / khɔ̌ɔ bəə</div><div class="eng">what number / phone number / ask for number</div></div></td>
-          <td><div class="triad"><div class="thai">ขอเบอร์โทรหน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ bəə thoo nɔ̀i dâai mái khá</div><div class="eng">Can I have your phone number?</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">รับสาย</div><div class="roman">ráp-sǎai</div><div class="eng">answer the phone</div></div></td>
-          <td>Verb phrase</td>
-          <td><span class="thai">รับ</span> = receive；<span class="thai">สาย</span> = phone line/call。</td>
-          <td><div class="triad"><div class="thai">รับสาย / ไม่รับสาย / กำลังรับสาย</div><div class="roman">ráp-sǎai / mâi ráp-sǎai / gam-lang ráp-sǎai</div><div class="eng">answer / not answer / answering</div></div></td>
-          <td><div class="triad"><div class="thai">เขาไม่รับสายค่ะ</div><div class="roman">khǎo mâi ráp-sǎai khâ</div><div class="eng">He/she didn’t answer the phone.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">วางสาย</div><div class="roman">waang-sǎai</div><div class="eng">hang up</div></div></td>
-          <td>Verb phrase</td>
-          <td><span class="thai">วาง</span> = put down；電話中表示掛電話。</td>
-          <td><div class="triad"><div class="thai">วางสาย / อย่าวางสายนะคะ</div><div class="roman">waang-sǎai / yàa waang-sǎai ná khá</div><div class="eng">hang up / don’t hang up</div></div></td>
-          <td><div class="triad"><div class="thai">อย่าเพิ่งวางสายนะคะ</div><div class="roman">yàa phə̂ng waang-sǎai ná khá</div><div class="eng">Please don’t hang up yet.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">โอนสาย</div><div class="roman">oon-sǎai</div><div class="eng">transfer a call</div></div></td>
-          <td>Verb phrase</td>
-          <td>公司/學校/客服會用。教材上用 <span class="thai">ต่อ</span> 的概念，日常客服也常說 <span class="thai">โอนสาย</span>。</td>
-          <td><div class="triad"><div class="thai">โอนสายให้ / ต่อสายให้</div><div class="roman">oon-sǎai hâi / dtɔ̀ɔ-sǎai hâi</div><div class="eng">transfer the call for someone / connect the line for someone</div></div></td>
-          <td><div class="triad"><div class="thai">จะโอนสายให้นะคะ</div><div class="roman">jà oon-sǎai hâi ná khá</div><div class="eng">I will transfer the call for you.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">ต่อสาย</div><div class="roman">dtɔ̀ɔ-sǎai</div><div class="eng">connect the call / transfer the line</div></div></td>
-          <td>Verb phrase</td>
-          <td>正式電話裡常見，意思接近轉接。</td>
-          <td><div class="triad"><div class="thai">ต่อสายให้คุณบี / รอสาย</div><div class="roman">dtɔ̀ɔ-sǎai hâi khun bii / rɔɔ-sǎai</div><div class="eng">connect you to B / wait on the line</div></div></td>
-          <td><div class="triad"><div class="thai">รอสายนิดหนึ่งนะคะ จะต่อสายให้ค่ะ</div><div class="roman">rɔɔ-sǎai nít-nʉ̀eng ná khá, jà dtɔ̀ɔ-sǎai hâi khâ</div><div class="eng">Please hold for a moment. I’ll connect you.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">กำลังพูดอยู่</div><div class="roman">gam-lang phûut yùu</div><div class="eng">be speaking right now</div></div></td>
-          <td>Present progressive</td>
-          <td><span class="thai">กำลัง...อยู่</span> 表示正在做某事。</td>
-          <td><div class="triad"><div class="thai">กำลังพูดอยู่ / กำลังคุยโทรศัพท์อยู่</div><div class="roman">gam-lang phûut yùu / gam-lang khui thoo-rá-sàp yùu</div><div class="eng">speaking now / talking on the phone now</div></div></td>
-          <td><div class="triad"><div class="thai">ตอนนี้คุณบีกำลังพูดอยู่ค่ะ</div><div class="roman">dtɔɔn-níi khun bii gam-lang phûut yùu khâ</div><div class="eng">B is speaking right now.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">ว่าง</div><div class="roman">wâang</div><div class="eng">free / available</div></div></td>
-          <td>Adjective</td>
-          <td>電話中問某人是否有空接電話。</td>
-          <td><div class="triad"><div class="thai">ว่างไหม / ไม่ว่าง / ยังไม่ว่าง</div><div class="roman">wâang mái / mâi wâang / yang mâi wâang</div><div class="eng">free? / not free / still not free</div></div></td>
-          <td><div class="triad"><div class="thai">คุณซีว่างไหมคะ</div><div class="roman">khun sii wâang mái khá</div><div class="eng">Is C available?</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">ไม่อยู่</div><div class="roman">mâi yùu</div><div class="eng">not here / not in</div></div></td>
-          <td>State</td>
-          <td>電話中常表示某人不在現場。</td>
-          <td><div class="triad"><div class="thai">คุณซีไม่อยู่ / ตอนนี้ไม่อยู่</div><div class="roman">khun sii mâi yùu / dtɔɔn-níi mâi yùu</div><div class="eng">C is not here / not here now</div></div></td>
-          <td><div class="triad"><div class="thai">ตอนนี้คุณซีไม่อยู่ค่ะ</div><div class="roman">dtɔɔn-níi khun sii mâi yùu khâ</div><div class="eng">C is not here right now.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">รอสักครู่</div><div class="roman">rɔɔ sàk-khrûu</div><div class="eng">please wait a moment</div></div></td>
-          <td>Polite phone phrase</td>
-          <td>正式、客服、學校電話都常用。</td>
-          <td><div class="triad"><div class="thai">รอสักครู่นะคะ / กรุณารอสักครู่</div><div class="roman">rɔɔ sàk-khrûu ná khá / gà-rú-naa rɔɔ sàk-khrûu</div><div class="eng">please wait a moment / please kindly wait a moment</div></div></td>
-          <td><div class="triad"><div class="thai">รอสักครู่นะคะ จะเช็กให้ค่ะ</div><div class="roman">rɔɔ sàk-khrûu ná khá, jà chék hâi khâ</div><div class="eng">Please wait a moment. I’ll check for you.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">โทรกลับ</div><div class="roman">thoo glàp</div><div class="eng">call back</div></div></td>
-          <td>Verb phrase</td>
-          <td><span class="thai">กลับ</span> 是回來/回去，電話中是回電。</td>
-          <td><div class="triad"><div class="thai">โทรกลับมา / โทรกลับไป / ให้โทรกลับ</div><div class="roman">thoo glàp maa / thoo glàp bpai / hâi thoo glàp</div><div class="eng">call back to me / call back to them / have someone call back</div></div></td>
-          <td><div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">ฝากข้อความ</div><div class="roman">fàak khɔ̂ɔ-khwaam</div><div class="eng">leave a message</div></div></td>
-          <td>Verb phrase</td>
-          <td><span class="thai">ฝาก</span> 是寄放/託付；<span class="thai">ข้อความ</span> 是訊息。</td>
-          <td><div class="triad"><div class="thai">มีอะไรฝากไหม / ฝากข้อความไว้</div><div class="roman">mii à-rai fàak mái / fàak khɔ̂ɔ-khwaam wái</div><div class="eng">do you have a message to leave? / leave a message</div></div></td>
-          <td><div class="triad"><div class="thai">ฝากข้อความไว้ได้ไหมคะ</div><div class="roman">fàak khɔ̂ɔ-khwaam wái dâai mái khá</div><div class="eng">Can I leave a message?</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">ทวน</div><div class="roman">thuan</div><div class="eng">repeat / review back</div></div></td>
-          <td>Verb</td>
-          <td>電話中確認資訊時很實用。</td>
-          <td><div class="triad"><div class="thai">ทวนอีกครั้ง / ขอทวนเบอร์</div><div class="roman">thuan ìik khráng / khɔ̌ɔ thuan bəə</div><div class="eng">repeat once again / let me repeat the number</div></div></td>
-          <td><div class="triad"><div class="thai">ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Let me repeat the number again.</div></div></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="ifthen" class="tab-content">
-    <h2>If-Then｜ถ้า...จะทำยังไง</h2>
-
-    <h3>1. Textbook Pattern</h3>
-    <div class="pattern">
-      <span class="label textbook">Textbook-based</span>
-      <div class="triad">
-        <div class="thai">ถ้า + Subject + Situation, Subject + จะ + ทำยังไง + คะ/ครับ</div>
-        <div class="roman">thâa + Subject + Situation, Subject + jà + tham yang-ngai + khá/khráp</div>
-        <div class="eng">If subject is in a situation, what will subject do?</div>
-      </div>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Textbook Question</th>
-          <th>Textbook Answer</th>
-          <th>Chinese Note</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <div class="triad">
-              <div class="thai">ถ้าคุณไม่เข้าใจภาษาไทย คุณจะทำยังไงคะ</div>
-              <div class="roman">thâa khun mâi khâo-jai phaa-sǎa thai, khun jà tham yang-ngai khá</div>
-              <div class="eng">If you don’t understand Thai, what will you do?</div>
-            </div>
-          </td>
-          <td>
-            <div class="triad">
-              <div class="thai">ถ้าฉันไม่เข้าใจภาษาไทย ฉันก็จะถามครูค่ะ</div>
-              <div class="roman">thâa chǎn mâi khâo-jai phaa-sǎa thai, chǎn gɔ̂ɔ jà thǎam khruu khâ</div>
-              <div class="eng">If I don’t understand Thai, I will ask the teacher.</div>
-            </div>
-          </td>
-          <td>回答時 <span class="thai">ก็จะ</span> 有「那我就會……」的語感。</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>2. Real-life Variations</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Situation</th>
-          <th>Question</th>
-          <th>Answer</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>聽不懂電話</td>
-          <td><div class="triad"><div class="thai">ถ้าคุณฟังไม่เข้าใจ คุณจะทำยังไงคะ</div><div class="roman">thâa khun fang mâi khâo-jai, khun jà tham yang-ngai khá</div><div class="eng">If you don’t understand what you hear, what will you do?</div></div></td>
-          <td><div class="triad"><div class="thai">ฉันก็จะขอให้เขาพูดช้า ๆ ค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà khɔ̌ɔ hâi khǎo phûut cháa-cháa khâ</div><div class="eng">I will ask them to speak slowly.</div></div></td>
-        </tr>
-
-        <tr>
-          <td>找不到路</td>
-          <td><div class="triad"><div class="thai">ถ้าคุณหลงทาง คุณจะทำยังไงคะ</div><div class="roman">thâa khun lǒng-thaang, khun jà tham yang-ngai khá</div><div class="eng">If you get lost, what will you do?</div></div></td>
-          <td><div class="triad"><div class="thai">ฉันก็จะเปิดแผนที่ในโทรศัพท์ค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà bpə̀ət phɛ̌ɛn-thîi nai thoo-rá-sàp khâ</div><div class="eng">I will open the map on my phone.</div></div></td>
-        </tr>
-
-        <tr>
-          <td>房仲沒接電話</td>
-          <td><div class="triad"><div class="thai">ถ้าเอเจนต์ไม่รับสาย คุณจะทำยังไงคะ</div><div class="roman">thâa ee-jeen mâi ráp-sǎai, khun jà tham yang-ngai khá</div><div class="eng">If the agent doesn’t answer the phone, what will you do?</div></div></td>
-          <td><div class="triad"><div class="thai">ฉันก็จะส่งข้อความไปค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà sòng khɔ̂ɔ-khwaam bpai khâ</div><div class="eng">I will send a message.</div></div></td>
-        </tr>
-
-        <tr>
-          <td>餐廳客滿</td>
-          <td><div class="triad"><div class="thai">ถ้าร้านอาหารเต็ม คุณจะทำยังไงคะ</div><div class="roman">thâa ráan aa-hǎan dtem, khun jà tham yang-ngai khá</div><div class="eng">If the restaurant is full, what will you do?</div></div></td>
-          <td><div class="triad"><div class="thai">ฉันก็จะไปร้านอื่นค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà bpai ráan ʉ̀ʉn khâ</div><div class="eng">I will go to another restaurant.</div></div></td>
-        </tr>
-
-        <tr>
-          <td>泰文課跟不上</td>
-          <td><div class="triad"><div class="thai">ถ้าคุณเรียนไม่ทัน คุณจะทำยังไงคะ</div><div class="roman">thâa khun rian mâi than, khun jà tham yang-ngai khá</div><div class="eng">If you can’t keep up in class, what will you do?</div></div></td>
-          <td><div class="triad"><div class="thai">ฉันก็จะทบทวนที่บ้านค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà thóp-thuan thîi bâan khâ</div><div class="eng">I will review at home.</div></div></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="tip blue">
-      <strong>語感補充：</strong>
-      <span class="thai">ถ้า...</span> / <span class="roman">thâa...</span> / <span class="eng">if...</span>
+<div class="triad">
+<div class="thai">ถ้า + Subject + Situation, Subject + จะ + ทำยังไง + คะ/ครับ</div>
+<div class="roman">thâa + Subject + Situation, Subject + jà + tham yang-ngai + khá/khráp</div>
+<div class="eng">If subject is in a situation, what will subject do?</div>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Textbook Question</th>
+<th>Textbook Answer</th>
+<th>Chinese Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<div class="triad">
+<div class="thai">ถ้าคุณไม่เข้าใจภาษาไทย คุณจะทำยังไงคะ</div>
+<div class="roman">thâa khun mâi khâo-jai phaa-sǎa thai, khun jà tham yang-ngai khá</div>
+<div class="eng">If you don’t understand Thai, what will you do?</div>
+</div>
+</td>
+<td>
+<div class="triad">
+<div class="thai">ถ้าฉันไม่เข้าใจภาษาไทย ฉันก็จะถามครูค่ะ</div>
+<div class="roman">thâa chǎn mâi khâo-jai phaa-sǎa thai, chǎn gɔ̂ɔ jà thǎam khruu khâ</div>
+<div class="eng">If I don’t understand Thai, I will ask the teacher.</div>
+</div>
+</td>
+<td>回答時 <span class="thai">ก็จะ</span> 有「那我就會……」的語感。</td>
+</tr>
+</tbody>
+</table>
+<h3>2. Real-life Variations</h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>聽不懂電話</td>
+<td><div class="triad"><div class="thai">ถ้าคุณฟังไม่เข้าใจ คุณจะทำยังไงคะ</div><div class="roman">thâa khun fang mâi khâo-jai, khun jà tham yang-ngai khá</div><div class="eng">If you don’t understand what you hear, what will you do?</div></div></td>
+<td><div class="triad"><div class="thai">ฉันก็จะขอให้เขาพูดช้า ๆ ค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà khɔ̌ɔ hâi khǎo phûut cháa-cháa khâ</div><div class="eng">I will ask them to speak slowly.</div></div></td>
+</tr>
+<tr>
+<td>找不到路</td>
+<td><div class="triad"><div class="thai">ถ้าคุณหลงทาง คุณจะทำยังไงคะ</div><div class="roman">thâa khun lǒng-thaang, khun jà tham yang-ngai khá</div><div class="eng">If you get lost, what will you do?</div></div></td>
+<td><div class="triad"><div class="thai">ฉันก็จะเปิดแผนที่ในโทรศัพท์ค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà bpə̀ət phɛ̌ɛn-thîi nai thoo-rá-sàp khâ</div><div class="eng">I will open the map on my phone.</div></div></td>
+</tr>
+<tr>
+<td>房仲沒接電話</td>
+<td><div class="triad"><div class="thai">ถ้าเอเจนต์ไม่รับสาย คุณจะทำยังไงคะ</div><div class="roman">thâa ee-jeen mâi ráp-sǎai, khun jà tham yang-ngai khá</div><div class="eng">If the agent doesn’t answer the phone, what will you do?</div></div></td>
+<td><div class="triad"><div class="thai">ฉันก็จะส่งข้อความไปค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà sòng khɔ̂ɔ-khwaam bpai khâ</div><div class="eng">I will send a message.</div></div></td>
+</tr>
+<tr>
+<td>餐廳客滿</td>
+<td><div class="triad"><div class="thai">ถ้าร้านอาหารเต็ม คุณจะทำยังไงคะ</div><div class="roman">thâa ráan aa-hǎan dtem, khun jà tham yang-ngai khá</div><div class="eng">If the restaurant is full, what will you do?</div></div></td>
+<td><div class="triad"><div class="thai">ฉันก็จะไปร้านอื่นค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà bpai ráan ʉ̀ʉn khâ</div><div class="eng">I will go to another restaurant.</div></div></td>
+</tr>
+<tr>
+<td>泰文課跟不上</td>
+<td><div class="triad"><div class="thai">ถ้าคุณเรียนไม่ทัน คุณจะทำยังไงคะ</div><div class="roman">thâa khun rian mâi than, khun jà tham yang-ngai khá</div><div class="eng">If you can’t keep up in class, what will you do?</div></div></td>
+<td><div class="triad"><div class="thai">ฉันก็จะทบทวนที่บ้านค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà thóp-thuan thîi bâan khâ</div><div class="eng">I will review at home.</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="tip blue">
+<strong>語感補充：</strong>
+<span class="thai">ถ้า...</span> / <span class="roman">thâa...</span> / <span class="eng">if...</span>
       後面可以接非常生活的事情，不只課本句。你可以把它當成「情境反應訓練」：如果聽不懂、迷路、電話沒人接、老師講太快、餐廳客滿，我要怎麼說？
     </div>
-  </section>
-
-  <section id="phonebasic" class="tab-content">
-    <h2>Phone Basics｜電話基本句</h2>
-
-    <h3>1. Phone Number</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Function</th>
-          <th>Thai / Romanization / English</th>
-          <th>Usage Note</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>問電話號碼</td>
-          <td><div class="triad"><div class="thai">โทรศัพท์เบอร์อะไรคะ</div><div class="roman">thoo-rá-sàp bəə à-rai khá</div><div class="eng">What phone number is it?</div></div></td>
-          <td>教材第 3 頁句型。</td>
-        </tr>
-
-        <tr>
-          <td>回答電話號碼</td>
-          <td><div class="triad"><div class="thai">โทรศัพท์เบอร์ศูนย์สอง สองห้า ห้าสาม ศูนย์สามหก ต่อหนึ่งศูนย์สี่ค่ะ</div><div class="roman">thoo-rá-sàp bəə sǔun sɔ̌ɔng, sɔ̌ɔng hâa, hâa sǎam, sǔun sǎam hòk, dtɔ̀ɔ nʉ̀eng sǔun sìi khâ</div><div class="eng">The phone number is 02-2553036 extension 104.</div></div></td>
-          <td><span class="thai">ต่อ</span> 在這裡是分機。</td>
-        </tr>
-
-        <tr>
-          <td>問分機</td>
-          <td><div class="triad"><div class="thai">ต่อเบอร์อะไรคะ</div><div class="roman">dtɔ̀ɔ bəə à-rai khá</div><div class="eng">What extension is it?</div></div></td>
-          <td>打公司/學校常用。</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>2. Answering & Hanging Up</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Pair</th>
-          <th>Thai / Romanization / English</th>
-          <th>Example for A</th>
-          <th>Example for B</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>接電話 / 掛電話</td>
-          <td>
-            <div class="triad"><div class="thai">รับสาย</div><div class="roman">ráp-sǎai</div><div class="eng">answer the phone</div></div>
-            <div class="triad"><div class="thai">วางสาย</div><div class="roman">waang-sǎai</div><div class="eng">hang up</div></div>
-          </td>
-          <td><div class="triad"><div class="thai">ทำไมคุณไม่รับสายคะ</div><div class="roman">tham-mai khun mâi ráp-sǎai khá</div><div class="eng">Why didn’t you answer the phone?</div></div></td>
-          <td><div class="triad"><div class="thai">แค่นี้นะคะ สวัสดีค่ะ</div><div class="roman">khɛ̂ɛ-níi ná khá, sà-wàt-dii khâ</div><div class="eng">That’s all for now. Goodbye.</div></div></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>3. Basic Phone Opening</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Step</th>
-          <th>Thai / Romanization / English</th>
-          <th>Chinese Note</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>打招呼</td>
-          <td><div class="triad"><div class="thai">สวัสดีค่ะ</div><div class="roman">sà-wàt-dii khâ</div><div class="eng">Hello.</div></div></td>
-          <td><span class="label review">Review</span> 電話開頭也用。</td>
-        </tr>
-
-        <tr>
-          <td>找某人</td>
-          <td><div class="triad"><div class="thai">ขอพูดกับคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun bii nɔ̀i khâ</div><div class="eng">Could I speak with B?</div></div></td>
-          <td>教材第 4 頁核心電話句。</td>
-        </tr>
-
-        <tr>
-          <td>更像「幫我接某人」</td>
-          <td><div class="triad"><div class="thai">ขอสายคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai khun bii nɔ̀i khâ</div><div class="eng">Could you connect me to B?</div></div></td>
-          <td>電話常用，比 <span class="thai">ขอพูดกับ</span> 更像電話固定句。</td>
-        </tr>
-
-        <tr>
-          <td>問從哪裡打來</td>
-          <td><div class="triad"><div class="thai">จากไหนคะ</div><div class="roman">jàak nǎi khá</div><div class="eng">Where are you calling from?</div></div></td>
-          <td>教材中也有 <span class="thai">ที่ไหน</span> 的形式。</td>
-        </tr>
-
-        <tr>
-          <td>問是誰</td>
-          <td><div class="triad"><div class="thai">ใครคะ</div><div class="roman">khrai khá</div><div class="eng">Who is it?</div></div></td>
-          <td>電話中單獨說可，但正式一點可說 <span class="thai">ไม่ทราบว่าใครโทรมาคะ</span>。</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="transfer" class="tab-content">
-    <h2>Transfer & Message｜轉接、稍等、留言、回電</h2>
-
-    <h3>1. Please Wait</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Formality</th>
-          <th>Thai / Romanization / English</th>
-          <th>Usage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Formal / customer service</td>
-          <td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td>
-          <td>公司、語言學校、客服。</td>
-        </tr>
-
-        <tr>
-          <td>Neutral spoken</td>
-          <td><div class="triad"><div class="thai">รอเดี๋ยวนะคะ</div><div class="roman">rɔɔ dǐao ná khá</div><div class="eng">Wait a moment.</div></div></td>
-          <td>熟一點、日常電話。</td>
-        </tr>
-
-        <tr>
-          <td>Local casual</td>
-          <td><div class="triad"><div class="thai">รอแป๊บนะคะ</div><div class="roman">rɔɔ bpɛ́ɛp ná khá</div><div class="eng">Wait a sec.</div></div></td>
-          <td>朋友、熟人、口語。</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>2. Availability</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Situation</th>
-          <th>Thai / Romanization / English</th>
-          <th>Natural Follow-up</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>對方正在講電話</td>
-          <td><div class="triad"><div class="thai">คุณบีกำลังพูดอยู่ค่ะ</div><div class="roman">khun bii gam-lang phûut yùu khâ</div><div class="eng">B is speaking right now.</div></div></td>
-          <td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td>
-        </tr>
-
-        <tr>
-          <td>對方忙</td>
-          <td><div class="triad"><div class="thai">คุณซีไม่ว่างค่ะ</div><div class="roman">khun sii mâi wâang khâ</div><div class="eng">C is not available.</div></div></td>
-          <td><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have a message to leave?</div></div></td>
-        </tr>
-
-        <tr>
-          <td>對方不在</td>
-          <td><div class="triad"><div class="thai">คุณซีไม่อยู่ค่ะ</div><div class="roman">khun sii mâi yùu khâ</div><div class="eng">C is not here.</div></div></td>
-          <td><div class="triad"><div class="thai">จะให้เขาโทรกลับไหมคะ</div><div class="roman">jà hâi khǎo thoo glàp mái khá</div><div class="eng">Would you like him/her to call back?</div></div></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>3. Leave a Message / Call Back</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Function</th>
-          <th>Thai / Romanization / English</th>
-          <th>Chinese Note</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>問是否要留言</td>
-          <td><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have anything to leave as a message?</div></div></td>
-          <td>教材第 6 頁句型，正式電話很實用。</td>
-        </tr>
-
-        <tr>
-          <td>問可不可以留言</td>
-          <td><div class="triad"><div class="thai">ฝากอะไรไว้ได้ไหมคะ</div><div class="roman">fàak à-rai wái dâai mái khá</div><div class="eng">Can I leave something as a message?</div></div></td>
-          <td><span class="thai">ไว้</span> 有「先留下來」的感覺。</td>
-        </tr>
-
-        <tr>
-          <td>請幫忙轉告</td>
-          <td><div class="triad"><div class="thai">ช่วยบอกคุณซีว่า...</div><div class="roman">chûai bɔ̀ɔk khun sii wâa...</div><div class="eng">Please tell C that...</div></div></td>
-          <td><span class="thai">ว่า</span> 後面接要轉告的內容。</td>
-        </tr>
-
-        <tr>
-          <td>請對方回電</td>
-          <td><div class="triad"><div class="thai">ให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please have him/her call me back.</div></div></td>
-          <td><span class="thai">มาหา</span> 是回到我這邊，電話中是打給我。</td>
-        </tr>
-
-        <tr>
-          <td>接受留言</td>
-          <td><div class="triad"><div class="thai">ได้ค่ะ</div><div class="roman">dâai khâ</div><div class="eng">Yes, you can.</div></div></td>
-          <td>短句，但電話中很常用。</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>4. Repeat / Confirm</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Function</th>
-          <th>Thai / Romanization / English</th>
-          <th>When to use</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>請對方重複</td>
-          <td><div class="triad"><div class="thai">ช่วยพูดอีกครั้งได้ไหมคะ</div><div class="roman">chûai phûut ìik khráng dâai mái khá</div><div class="eng">Could you say it again?</div></div></td>
-          <td>聽不清楚。</td>
-        </tr>
-
-        <tr>
-          <td>請慢慢說</td>
-          <td><div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Could you speak slowly?</div></div></td>
-          <td>外國人安全句。</td>
-        </tr>
-
-        <tr>
-          <td>重複確認電話</td>
-          <td><div class="triad"><div class="thai">ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Let me repeat the number again.</div></div></td>
-          <td>確認電話號碼。</td>
-        </tr>
-
-        <tr>
-          <td>確認訊息</td>
-          <td><div class="triad"><div class="thai">ขอทวนข้อความนะคะ</div><div class="roman">khɔ̌ɔ thuan khɔ̂ɔ-khwaam ná khá</div><div class="eng">Let me repeat the message.</div></div></td>
-          <td>確認留言內容。</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="synonyms" class="tab-content">
-    <h2>Synonyms & Opposites｜同義詞 / 反義詞例句</h2>
-
-    <h3>Phone Opposites</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Pair</th>
-          <th>Thai / Romanization / English</th>
-          <th>Example for A</th>
-          <th>Example for B</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>接電話 / 掛電話</td>
-          <td>
-            <div class="triad"><div class="thai">รับสาย</div><div class="roman">ráp-sǎai</div><div class="eng">answer the phone</div></div>
-            <div class="triad"><div class="thai">วางสาย</div><div class="roman">waang-sǎai</div><div class="eng">hang up</div></div>
-          </td>
-          <td><div class="triad"><div class="thai">ฉันรับสายไม่ทันค่ะ</div><div class="roman">chǎn ráp-sǎai mâi than khâ</div><div class="eng">I couldn’t answer the phone in time.</div></div></td>
-          <td><div class="triad"><div class="thai">อย่าเพิ่งวางสายนะคะ</div><div class="roman">yàa phə̂ng waang-sǎai ná khá</div><div class="eng">Please don’t hang up yet.</div></div></td>
-        </tr>
-
-        <tr>
-          <td>在 / 不在</td>
-          <td>
-            <div class="triad"><div class="thai">อยู่</div><div class="roman">yùu</div><div class="eng">be here / be located</div></div>
-            <div class="triad"><div class="thai">ไม่อยู่</div><div class="roman">mâi yùu</div><div class="eng">not here / not in</div></div>
-          </td>
-          <td><div class="triad"><div class="thai">คุณซีอยู่ไหมคะ</div><div class="roman">khun sii yùu mái khá</div><div class="eng">Is C here?</div></div></td>
-          <td><div class="triad"><div class="thai">ตอนนี้คุณซีไม่อยู่ค่ะ</div><div class="roman">dtɔɔn-níi khun sii mâi yùu khâ</div><div class="eng">C is not here right now.</div></div></td>
-        </tr>
-
-        <tr>
-          <td>有空 / 沒空</td>
-          <td>
-            <div class="triad"><div class="thai">ว่าง</div><div class="roman">wâang</div><div class="eng">free / available</div></div>
-            <div class="triad"><div class="thai">ไม่ว่าง</div><div class="roman">mâi wâang</div><div class="eng">busy / not available</div></div>
-          </td>
-          <td><div class="triad"><div class="thai">ตอนบ่ายคุณว่างไหมคะ</div><div class="roman">dtɔɔn-bàai khun wâang mái khá</div><div class="eng">Are you free in the afternoon?</div></div></td>
-          <td><div class="triad"><div class="thai">ตอนนี้ฉันไม่ว่างค่ะ กำลังเรียนอยู่</div><div class="roman">dtɔɔn-níi chǎn mâi wâang khâ, gam-lang rian yùu</div><div class="eng">I’m not free now. I’m studying.</div></div></td>
-        </tr>
-
-        <tr>
-          <td>打來 / 打回去</td>
-          <td>
-            <div class="triad"><div class="thai">โทรมา</div><div class="roman">thoo maa</div><div class="eng">call in / call to me</div></div>
-            <div class="triad"><div class="thai">โทรกลับ</div><div class="roman">thoo glàp</div><div class="eng">call back</div></div>
-          </td>
-          <td><div class="triad"><div class="thai">คุณเอโทรมาหาคุณซีค่ะ</div><div class="roman">khun ee thoo maa hǎa khun sii khâ</div><div class="eng">A called C.</div></div></td>
-          <td><div class="triad"><div class="thai">ช่วยให้เขาโทรกลับมาหาฉันนะคะ</div><div class="roman">chûai hâi khǎo thoo glàp maa hǎa chǎn ná khá</div><div class="eng">Please have him/her call me back.</div></div></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Wait Synonyms</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Meaning</th>
-          <th>Thai / Romanization / English</th>
-          <th>Example</th>
-          <th>Usage Difference</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>稍等片刻</td>
-          <td><div class="triad"><div class="thai">รอสักครู่</div><div class="roman">rɔɔ sàk-khrûu</div><div class="eng">please wait a moment</div></div></td>
-          <td><div class="triad"><div class="thai">รอสักครู่นะคะ จะโอนสายให้ค่ะ</div><div class="roman">rɔɔ sàk-khrûu ná khá, jà oon-sǎai hâi khâ</div><div class="eng">Please wait a moment. I’ll transfer the call.</div></div></td>
-          <td>最適合正式電話。</td>
-        </tr>
-
-        <tr>
-          <td>等一下</td>
-          <td><div class="triad"><div class="thai">รอเดี๋ยว</div><div class="roman">rɔɔ dǐao</div><div class="eng">wait a moment</div></div></td>
-          <td><div class="triad"><div class="thai">รอเดี๋ยวนะคะ ฉันกำลังเช็กค่ะ</div><div class="roman">rɔɔ dǐao ná khá, chǎn gam-lang chék khâ</div><div class="eng">Wait a moment. I’m checking.</div></div></td>
-          <td>日常自然。</td>
-        </tr>
-
-        <tr>
-          <td>等一下下</td>
-          <td><div class="triad"><div class="thai">รอแป๊บ</div><div class="roman">rɔɔ bpɛ́ɛp</div><div class="eng">wait a sec</div></div></td>
-          <td><div class="triad"><div class="thai">รอแป๊บนะคะ เดี๋ยวโทรกลับค่ะ</div><div class="roman">rɔɔ bpɛ́ɛp ná khá, dǐao thoo glàp khâ</div><div class="eng">Wait a sec. I’ll call back in a bit.</div></div></td>
-          <td>朋友/熟人，較口語。</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Ask Someone to Speak / Tell</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Meaning</th>
-          <th>Thai / Romanization / English</th>
-          <th>Example 1</th>
-          <th>Example 2</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>說 / 告訴 / 轉告</td>
-          <td>
-            <div class="triad"><div class="thai">พูด</div><div class="roman">phûut</div><div class="eng">speak</div></div>
-            <div class="triad"><div class="thai">บอก</div><div class="roman">bɔ̀ɔk</div><div class="eng">tell</div></div>
-            <div class="triad"><div class="thai">ฝากบอก</div><div class="roman">fàak bɔ̀ɔk</div><div class="eng">leave a message for someone / ask someone to tell</div></div>
-          </td>
-          <td><div class="triad"><div class="thai">ขอพูดกับคุณซีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun sii nɔ̀i khâ</div><div class="eng">Could I speak with C?</div></div></td>
-          <td><div class="triad"><div class="thai">ฝากบอกคุณซีให้โทรกลับนะคะ</div><div class="roman">fàak bɔ̀ɔk khun sii hâi thoo glàp ná khá</div><div class="eng">Please tell C to call back.</div></div></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="structures" class="tab-content">
-    <h2>Sentence Structures</h2>
-
-    <h3>1. If you do not understand, what will you do?</h3>
-    <div class="pattern">
-      <span class="label textbook">Textbook-based</span>
-      <div class="triad">
-        <div class="thai">ถ้า + S + ไม่ + V, S + จะทำยังไงคะ</div>
-        <div class="roman">thâa + S + mâi + V, S + jà tham yang-ngai khá</div>
-        <div class="eng">If S does not V, what will S do?</div>
-      </div>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Textbook Example</th>
-          <th>Additional Variations</th>
-          <th>Chinese Note</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="triad"><div class="thai">ถ้าคุณไม่เข้าใจภาษาไทย คุณจะทำยังไงคะ</div><div class="roman">thâa khun mâi khâo-jai phaa-sǎa thai, khun jà tham yang-ngai khá</div><div class="eng">If you don’t understand Thai, what will you do?</div></div></td>
-          <td>
-            <div class="triad"><div class="thai">ถ้าคุณโทรหาเขาไม่ได้ คุณจะทำยังไงคะ</div><div class="roman">thâa khun thoo hǎa khǎo mâi dâai, khun jà tham yang-ngai khá</div><div class="eng">If you cannot call him/her, what will you do?</div></div>
-            <div class="triad"><div class="thai">ถ้าคุณไม่ว่าง คุณจะทำยังไงคะ</div><div class="roman">thâa khun mâi wâang, khun jà tham yang-ngai khá</div><div class="eng">If you are not free, what will you do?</div></div>
-            <div class="triad"><div class="thai">ถ้าคุณฟังไม่ทัน คุณจะทำยังไงคะ</div><div class="roman">thâa khun fang mâi than, khun jà tham yang-ngai khá</div><div class="eng">If you cannot keep up with listening, what will you do?</div></div>
-          </td>
-          <td>可以用來練任何「問題 → 反應」的生活情境。</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>2. Could I speak with...?</h3>
-    <div class="pattern">
-      <span class="label textbook">Textbook-based</span>
-      <div class="triad">
-        <div class="thai">สวัสดีค่ะ ขอพูดกับ + Person + หน่อยค่ะ</div>
-        <div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp + Person + nɔ̀i khâ</div>
-        <div class="eng">Hello, could I speak with person?</div>
-      </div>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Sentence</th>
-          <th>Usage</th>
-          <th>More Natural Phone Variant</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="triad"><div class="thai">สวัสดีค่ะ ขอพูดกับคุณบีหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp khun bii nɔ̀i khâ</div><div class="eng">Hello, could I speak with B?</div></div></td>
-          <td>標準教材句。</td>
-          <td><div class="triad"><div class="thai">ขอสายคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai khun bii nɔ̀i khâ</div><div class="eng">Could you connect me to B?</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">สวัสดีค่ะ ขอพูดกับฝ่ายสมัครเรียนหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp fàai sà-màk-rian nɔ̀i khâ</div><div class="eng">Hello, could I speak with the admissions/enrollment department?</div></div></td>
-          <td>打給語言學校。</td>
-          <td><div class="triad"><div class="thai">ขอสายฝ่ายสมัครเรียนหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai fàai sà-màk-rian nɔ̀i khâ</div><div class="eng">Could you connect me to admissions?</div></div></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>3. Someone is busy / not here</h3>
-    <div class="pattern">
-      <div class="triad">
-        <div class="thai">Person + กำลัง + Verb + อยู่ค่ะ</div>
-        <div class="roman">Person + gam-lang + Verb + yùu khâ</div>
-        <div class="eng">Person is doing verb right now.</div>
-      </div>
-      <div class="triad">
-        <div class="thai">Person + ไม่อยู่ / ไม่ว่าง + ค่ะ</div>
-        <div class="roman">Person + mâi yùu / mâi wâang + khâ</div>
-        <div class="eng">Person is not here / not available.</div>
-      </div>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Situation</th>
-          <th>Thai / Romanization / English</th>
-          <th>Follow-up</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>正在講電話</td>
-          <td><div class="triad"><div class="thai">คุณบีกำลังพูดอยู่ค่ะ</div><div class="roman">khun bii gam-lang phûut yùu khâ</div><div class="eng">B is speaking right now.</div></div></td>
-          <td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td>
-        </tr>
-
-        <tr>
-          <td>沒空</td>
-          <td><div class="triad"><div class="thai">คุณซีไม่ว่างค่ะ</div><div class="roman">khun sii mâi wâang khâ</div><div class="eng">C is not available.</div></div></td>
-          <td><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have anything to leave?</div></div></td>
-        </tr>
-
-        <tr>
-          <td>不在</td>
-          <td><div class="triad"><div class="thai">คุณซีไม่อยู่ค่ะ</div><div class="roman">khun sii mâi yùu khâ</div><div class="eng">C is not here.</div></div></td>
-          <td><div class="triad"><div class="thai">จะให้โทรกลับไหมคะ</div><div class="roman">jà hâi thoo glàp mái khá</div><div class="eng">Would you like them to call back?</div></div></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="street" class="tab-content">
-    <h2>Textbook vs Street Thai</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Situation</th>
-          <th>Textbook / Polite</th>
-          <th>Street / Local Bangkok</th>
-          <th>小撇步</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>找某人接電話</td>
-          <td><div class="triad"><div class="thai">ขอพูดกับคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun bii nɔ̀i khâ</div><div class="eng">Could I speak with B?</div></div></td>
-          <td><div class="triad"><div class="thai">ขอสายคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai khun bii nɔ̀i khâ</div><div class="eng">Could you connect me to B?</div></div></td>
-          <td>電話裡 <span class="thai">ขอสาย...</span> 很自然。</td>
-        </tr>
-
-        <tr>
-          <td>請稍等</td>
-          <td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td>
-          <td><div class="triad"><div class="thai">รอแป๊บนะคะ</div><div class="roman">rɔɔ bpɛ́ɛp ná khá</div><div class="eng">Wait a sec.</div></div></td>
-          <td>客服用前者；朋友/熟人用後者。</td>
-        </tr>
-
-        <tr>
-          <td>問對方是誰</td>
-          <td><div class="triad"><div class="thai">ใครคะ</div><div class="roman">khrai khá</div><div class="eng">Who is it?</div></div></td>
-          <td><div class="triad"><div class="thai">ไม่ทราบว่าใครโทรมาคะ</div><div class="roman">mâi sâap wâa khrai thoo maa khá</div><div class="eng">May I ask who is calling?</div></div></td>
-          <td>後者更正式、有禮貌。</td>
-        </tr>
-
-        <tr>
-          <td>對方不在</td>
-          <td><div class="triad"><div class="thai">คุณซีไม่อยู่ค่ะ</div><div class="roman">khun sii mâi yùu khâ</div><div class="eng">C is not here.</div></div></td>
-          <td><div class="triad"><div class="thai">ตอนนี้คุณซีไม่อยู่ค่ะ ฝากข้อความไว้ไหมคะ</div><div class="roman">dtɔɔn-níi khun sii mâi yùu khâ, fàak khɔ̂ɔ-khwaam wái mái khá</div><div class="eng">C is not here now. Would you like to leave a message?</div></div></td>
-          <td>真實電話會接續問是否留言。</td>
-        </tr>
-
-        <tr>
-          <td>請回電</td>
-          <td><div class="triad"><div class="thai">ช่วยบอกคุณซีว่าให้โทรกลับมาหาผมหน่อยครับ</div><div class="roman">chûai bɔ̀ɔk khun sii wâa hâi thoo glàp maa hǎa phǒm nɔ̀i khráp</div><div class="eng">Please tell C to call me back.</div></div></td>
-          <td><div class="triad"><div class="thai">ฝากบอกเขาโทรกลับหน่อยนะคะ</div><div class="roman">fàak bɔ̀ɔk khǎo thoo glàp nɔ̀i ná khá</div><div class="eng">Please tell him/her to call back.</div></div></td>
-          <td>朋友間可簡化，但正式電話保留完整句較好。</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="usage" class="tab-content">
-    <h2>Practical Usage Bank｜實戰句庫</h2>
-
-    <h3>Calling a Thai Language School</h3>
-    <table>
-      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>打給語言學校</td>
-          <td><div class="triad"><div class="thai">สวัสดีค่ะ ขอพูดกับฝ่ายสมัครเรียนหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp fàai sà-màk-rian nɔ̀i khâ</div><div class="eng">Hello, could I speak with the admissions/enrollment department?</div></div></td>
-          <td>詢問課程、報名、學費。</td>
-        </tr>
-
-        <tr>
-          <td>聽不懂</td>
-          <td><div class="triad"><div class="thai">ขอโทษค่ะ ฉันฟังไม่เข้าใจค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, chǎn fang mâi khâo-jai khâ</div><div class="eng">Sorry, I don’t understand what I heard.</div></div></td>
-          <td>外國人電話安全句。</td>
-        </tr>
-
-        <tr>
-          <td>請慢慢說</td>
-          <td><div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Could you speak slowly?</div></div></td>
-          <td>非常實用。</td>
-        </tr>
-
-        <tr>
-          <td>請重複</td>
-          <td><div class="triad"><div class="thai">ช่วยพูดอีกครั้งได้ไหมคะ</div><div class="roman">chûai phûut ìik khráng dâai mái khá</div><div class="eng">Could you say it again?</div></div></td>
-          <td>電話中比面對面更常用。</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Calling a Condo Agent</h3>
-    <table>
-      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>找房仲</td>
-          <td><div class="triad"><div class="thai">สวัสดีค่ะ ขอสายคุณเอเจนต์หน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ sǎai khun ee-jeen nɔ̀i khâ</div><div class="eng">Hello, could you connect me to the agent?</div></div></td>
-          <td>看房前後可用。</td>
-        </tr>
-
-        <tr>
-          <td>對方不在時留言</td>
-          <td><div class="triad"><div class="thai">ฝากบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">fàak bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div></td>
-          <td>可留給櫃台或同事。</td>
-        </tr>
-
-        <tr>
-          <td>重複電話號碼</td>
-          <td><div class="triad"><div class="thai">ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Let me repeat the number again.</div></div></td>
-          <td>避免號碼聽錯。</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Calling a Restaurant</h3>
-    <table>
-      <thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>問餐廳有沒有空位</td>
-          <td><div class="triad"><div class="thai">วันนี้มีโต๊ะว่างไหมคะ</div><div class="roman">wan-níi mii dtó wâang mái khá</div><div class="eng">Are there any available tables today?</div></div></td>
-          <td><span class="thai">ว่าง</span> 可用於人有空，也可用於位子空。</td>
-        </tr>
-
-        <tr>
-          <td>預約</td>
-          <td><div class="triad"><div class="thai">ขอจองโต๊ะสำหรับสองคนค่ะ</div><div class="roman">khɔ̌ɔ jɔɔng dtó sǎm-ràp sɔ̌ɔng khon khâ</div><div class="eng">I’d like to reserve a table for two.</div></div></td>
-          <td>餐廳電話補充。</td>
-        </tr>
-
-        <tr>
-          <td>如果聽不懂店員</td>
-          <td><div class="triad"><div class="thai">ขอโทษค่ะ ช่วยพูดช้า ๆ ได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, chûai phûut cháa-cháa dâai mái khá</div><div class="eng">Sorry, could you speak slowly?</div></div></td>
-          <td>外國人友善句。</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="dialogues" class="tab-content">
-    <h2>Real-life Dialogues｜真實場景對話</h2>
-
-    <h3>1. Textbook Style：找 B 接電話</h3>
-    <div class="bubble-wrap">
-      <div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">สวัสดีครับ ขอพูดกับคุณบีหน่อยครับ</div><div class="roman">sà-wàt-dii khráp, khɔ̌ɔ phûut gàp khun bii nɔ̀i khráp</div><div class="eng">Hello, could I speak with B?</div></div></div>
-      <div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">ดิฉันกำลังพูดอยู่ค่ะ จากไหนคะ</div><div class="roman">dì-chǎn gam-lang phûut yùu khâ, jàak nǎi khá</div><div class="eng">I’m speaking. Where are you calling from?</div></div></div>
-      <div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">ผมชื่อเอครับ จากโรงเรียนภาษาไทยครับ</div><div class="roman">phǒm chʉ̂ʉ ee khráp, jàak roong-rian phaa-sǎa thai khráp</div><div class="eng">My name is A. I’m calling from a Thai language school.</div></div></div>
-      <div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">ค่ะ พูดได้ค่ะ</div><div class="roman">khâ, phûut dâai khâ</div><div class="eng">Yes, you can speak.</div></div></div>
-      <div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">แค่นี้นะครับ สวัสดีครับ</div><div class="roman">khɛ̂ɛ-níi ná khráp, sà-wàt-dii khráp</div><div class="eng">That’s all for now. Goodbye.</div></div></div>
-    </div>
-
-    <h3>2. Office Style：B 轉接給 C</h3>
-    <div class="bubble-wrap">
-      <div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">สวัสดีครับ ขอสายคุณซีหน่อยครับ</div><div class="roman">sà-wàt-dii khráp, khɔ̌ɔ sǎai khun sii nɔ̀i khráp</div><div class="eng">Hello, could you connect me to C?</div></div></div>
-      <div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">คุณซีว่างอยู่ค่ะ จากไหนคะ</div><div class="roman">khun sii wâang yùu khâ, jàak nǎi khá</div><div class="eng">C is available. Where are you calling from?</div></div></div>
-      <div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">ผมชื่อเอครับ จากบริษัทเอครับ</div><div class="roman">phǒm chʉ̂ʉ ee khráp, jàak bɔɔ-rí-sàt ee khráp</div><div class="eng">My name is A. I’m calling from Company A.</div></div></div>
-      <div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">รอสักครู่นะคะ จะโอนสายให้ค่ะ</div><div class="roman">rɔɔ sàk-khrûu ná khá, jà oon-sǎai hâi khâ</div><div class="eng">Please wait a moment. I’ll transfer the call.</div></div></div>
-      <div class="bubble c"><span class="speaker c">C</span><div class="triad"><div class="thai">สวัสดีค่ะ คุณเอ</div><div class="roman">sà-wàt-dii khâ, khun ee</div><div class="eng">Hello, A.</div></div></div>
-    </div>
-
-    <h3>3. C 不在：請留言與回電</h3>
-    <div class="bubble-wrap">
-      <div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">สวัสดีครับ ขอพูดกับคุณซีหน่อยครับ</div><div class="roman">sà-wàt-dii khráp, khɔ̌ɔ phûut gàp khun sii nɔ̀i khráp</div><div class="eng">Hello, could I speak with C?</div></div></div>
-      <div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">ตอนนี้คุณซีไม่อยู่ค่ะ จากไหนคะ</div><div class="roman">dtɔɔn-níi khun sii mâi yùu khâ, jàak nǎi khá</div><div class="eng">C is not here right now. Where are you calling from?</div></div></div>
-      <div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">ผมชื่อเอครับ จากโรงเรียนครับ</div><div class="roman">phǒm chʉ̂ʉ ee khráp, jàak roong-rian khráp</div><div class="eng">My name is A. I’m calling from the school.</div></div></div>
-      <div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have a message to leave?</div></div></div>
-      <div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">ช่วยบอกคุณซีว่าให้โทรกลับมาหาผมหน่อยครับ</div><div class="roman">chûai bɔ̀ɔk khun sii wâa hâi thoo glàp maa hǎa phǒm nɔ̀i khráp</div><div class="eng">Please tell C to call me back.</div></div></div>
-      <div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">ได้ค่ะ ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">dâai khâ, khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Sure. Let me repeat the number again.</div></div></div>
-    </div>
-
-    <h3>4. 外國人安全版：聽不懂電話</h3>
-    <div class="bubble-wrap">
-      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">สวัสดีค่ะ โรงเรียนภาษาไทยค่ะ</div><div class="roman">sà-wàt-dii khâ, roong-rian phaa-sǎa thai khâ</div><div class="eng">Hello, Thai language school.</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ ขอโทษค่ะ ฉันพูดไทยได้นิดหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ-thôot khâ, chǎn phûut thai dâai nít-nɔ̀i khâ</div><div class="eng">Hello, sorry, I speak a little Thai.</div></div></div>
-      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ได้ค่ะ ต้องการสอบถามเรื่องอะไรคะ</div><div class="roman">dâai khâ, dtɔ̂ng-gaan sɔ̀ɔp-thǎam rʉ̂ang à-rai khá</div><div class="eng">Okay. What would you like to ask about?</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Could you speak slowly?</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ถ้าฉันไม่เข้าใจ ฉันจะถามอีกครั้งค่ะ</div><div class="roman">thâa chǎn mâi khâo-jai, chǎn jà thǎam ìik khráng khâ</div><div class="eng">If I don’t understand, I will ask again.</div></div></div>
-    </div>
-
-    <h3>5. 餐廳電話：訂位</h3>
-    <div class="bubble-wrap">
-      <div class="bubble a"><span class="speaker a">Restaurant</span><div class="triad"><div class="thai">สวัสดีค่ะ ร้านอาหารค่ะ</div><div class="roman">sà-wàt-dii khâ, ráan aa-hǎan khâ</div><div class="eng">Hello, restaurant speaking.</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ วันนี้มีโต๊ะว่างไหมคะ</div><div class="roman">sà-wàt-dii khâ, wan-níi mii dtó wâang mái khá</div><div class="eng">Hello, are there any tables available today?</div></div></div>
-      <div class="bubble a"><span class="speaker a">Restaurant</span><div class="triad"><div class="thai">กี่คนคะ</div><div class="roman">gìi khon khá</div><div class="eng">For how many people?</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สองคนค่ะ ขอจองตอนหนึ่งทุ่มได้ไหมคะ</div><div class="roman">sɔ̌ɔng khon khâ, khɔ̌ɔ jɔɔng dtɔɔn nʉ̀eng thûm dâai mái khá</div><div class="eng">Two people. Can I reserve for 7 p.m.?</div></div></div>
-    </div>
-
-    <h3>6. 房仲電話：沒接到電話，請回電</h3>
-    <div class="bubble-wrap">
-      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ ฉันโทรหาเอเจนต์เมื่อกี้ แต่เขาไม่รับสายค่ะ</div><div class="roman">sà-wàt-dii khâ, chǎn thoo hǎa ee-jeen mʉ̂a-gîi, dtɛ̀ɛ khǎo mâi ráp-sǎai khâ</div><div class="eng">Hello, I called the agent just now, but they didn’t answer.</div></div></div>
-      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have a message to leave?</div></div></div>
-      <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell them to call me back.</div></div></div>
-      <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ได้ค่ะ ขอเบอร์โทรด้วยค่ะ</div><div class="roman">dâai khâ, khɔ̌ɔ bəə thoo dûai khâ</div><div class="eng">Sure. May I have your phone number?</div></div></div>
-    </div>
-  </section>
-
-  <section id="mistakes" class="tab-content">
-    <h2>Common Mistakes & Quick Review</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Mistake</th>
-          <th>Why It’s Wrong / Risky</th>
-          <th>Better Version</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="triad"><div class="thai">รับสาย / วางสาย 搞反</div><div class="roman">ráp-sǎai / waang-sǎai</div><div class="eng">answer the phone / hang up</div></div></td>
-          <td><span class="thai">รับสาย</span> 是接電話；<span class="thai">วางสาย</span> 是掛電話。</td>
-          <td>
-            <div class="triad"><div class="thai">เขาไม่รับสายค่ะ</div><div class="roman">khǎo mâi ráp-sǎai khâ</div><div class="eng">He/she didn’t answer.</div></div>
-            <div class="triad"><div class="thai">อย่าเพิ่งวางสายนะคะ</div><div class="roman">yàa phə̂ng waang-sǎai ná khá</div><div class="eng">Please don’t hang up yet.</div></div>
-          </td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">อยู่ / ว่าง 混用</div><div class="roman">yùu / wâang</div><div class="eng">be here / be free</div></div></td>
-          <td><span class="thai">อยู่</span> 是人在不在；<span class="thai">ว่าง</span> 是有沒有空。</td>
-          <td>
-            <div class="triad"><div class="thai">คุณซีอยู่ไหมคะ</div><div class="roman">khun sii yùu mái khá</div><div class="eng">Is C here?</div></div>
-            <div class="triad"><div class="thai">คุณซีว่างไหมคะ</div><div class="roman">khun sii wâang mái khá</div><div class="eng">Is C available?</div></div>
-          </td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">直接說 ใครคะ 太短</div><div class="roman">khrai khá</div><div class="eng">Who is it?</div></div></td>
-          <td>不是錯，但在正式電話可能有點短。</td>
-          <td><div class="triad"><div class="thai">ไม่ทราบว่าใครโทรมาคะ</div><div class="roman">mâi sâap wâa khrai thoo maa khá</div><div class="eng">May I ask who is calling?</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">ถ้า 後面忘記完整句</div><div class="roman">thâa</div><div class="eng">if</div></div></td>
-          <td><span class="thai">ถ้า</span> 後面要接一個完整情境，再接結果。</td>
-          <td><div class="triad"><div class="thai">ถ้าฉันไม่เข้าใจ ฉันก็จะถามครูค่ะ</div><div class="roman">thâa chǎn mâi khâo-jai, chǎn gɔ̂ɔ jà thǎam khruu khâ</div><div class="eng">If I don’t understand, I will ask the teacher.</div></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="triad"><div class="thai">โทรกลับมา / โทรกลับไป 不分</div><div class="roman">thoo glàp maa / thoo glàp bpai</div><div class="eng">call back to me / call back to them</div></div></td>
-          <td><span class="thai">มา</span> 往我這裡；<span class="thai">ไป</span> 往別人那裡。</td>
-          <td>
-            <div class="triad"><div class="thai">ให้เขาโทรกลับมาหาฉันค่ะ</div><div class="roman">hâi khǎo thoo glàp maa hǎa chǎn khâ</div><div class="eng">Have him/her call me back.</div></div>
-            <div class="triad"><div class="thai">ฉันจะโทรกลับไปค่ะ</div><div class="roman">chǎn jà thoo glàp bpai khâ</div><div class="eng">I will call back.</div></div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="tip red">
-      <strong>本課最重要記憶點：</strong>
-      <p>1. <span class="thai">ถ้าฉันไม่เข้าใจภาษาไทย ฉันก็จะถามครูค่ะ</span> / <span class="roman">thâa chǎn mâi khâo-jai phaa-sǎa thai, chǎn gɔ̂ɔ jà thǎam khruu khâ</span> / <span class="eng">If I don’t understand Thai, I will ask the teacher.</span></p>
-      <p>2. <span class="thai">ขอสายคุณบีหน่อยค่ะ</span> / <span class="roman">khɔ̌ɔ sǎai khun bii nɔ̀i khâ</span> / <span class="eng">Could you connect me to B?</span></p>
-      <p>3. <span class="thai">รอสักครู่นะคะ</span> / <span class="roman">rɔɔ sàk-khrûu ná khá</span> / <span class="eng">Please wait a moment.</span></p>
-      <p>4. <span class="thai">คุณซีไม่อยู่ค่ะ</span> / <span class="roman">khun sii mâi yùu khâ</span> / <span class="eng">C is not here.</span></p>
-      <p>5. <span class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</span> / <span class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</span> / <span class="eng">Please tell him/her to call me back.</span></p>
-    </div>
-  </section>
-
-  <section id="practice" class="tab-content">
-    <h2>Practice Questions</h2>
-
-    <h3>A. Vocabulary Recall</h3>
-
-    <details>
-      <summary>1. answer the phone / hang up</summary>
-      <div class="triad"><div class="thai">รับสาย / วางสาย</div><div class="roman">ráp-sǎai / waang-sǎai</div><div class="eng">answer the phone / hang up</div></div>
-    </details>
-
-    <details>
-      <summary>2. free / busy</summary>
-      <div class="triad"><div class="thai">ว่าง / ไม่ว่าง</div><div class="roman">wâang / mâi wâang</div><div class="eng">free / busy, not available</div></div>
-    </details>
-
-    <details>
-      <summary>3. not here / not in</summary>
-      <div class="triad"><div class="thai">ไม่อยู่</div><div class="roman">mâi yùu</div><div class="eng">not here / not in</div></div>
-    </details>
-
-    <details>
-      <summary>4. call back</summary>
-      <div class="triad"><div class="thai">โทรกลับ</div><div class="roman">thoo glàp</div><div class="eng">call back</div></div>
-    </details>
-
-    <details>
-      <summary>5. repeat / confirm back</summary>
-      <div class="triad"><div class="thai">ทวน</div><div class="roman">thuan</div><div class="eng">repeat / review back</div></div>
-    </details>
-
-    <h3>B. Translation Practice</h3>
-
-    <details>
-      <summary>1. If I don’t understand Thai, I will ask the teacher.</summary>
-      <div class="triad"><div class="thai">ถ้าฉันไม่เข้าใจภาษาไทย ฉันก็จะถามครูค่ะ</div><div class="roman">thâa chǎn mâi khâo-jai phaa-sǎa thai, chǎn gɔ̂ɔ jà thǎam khruu khâ</div><div class="eng">If I don’t understand Thai, I will ask the teacher.</div></div>
-    </details>
-
-    <details>
-      <summary>2. Could I speak with C?</summary>
-      <div class="triad"><div class="thai">ขอพูดกับคุณซีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun sii nɔ̀i khâ</div><div class="eng">Could I speak with C?</div></div>
-    </details>
-
-    <details>
-      <summary>3. Please wait a moment.</summary>
-      <div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div>
-    </details>
-
-    <details>
-      <summary>4. C is not available.</summary>
-      <div class="triad"><div class="thai">คุณซีไม่ว่างค่ะ</div><div class="roman">khun sii mâi wâang khâ</div><div class="eng">C is not available.</div></div>
-    </details>
-
-    <details>
-      <summary>5. Please tell him/her to call me back.</summary>
-      <div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div>
-    </details>
-
-    <details>
-      <summary>6. Could you speak slowly?</summary>
-      <div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Could you speak slowly?</div></div>
-    </details>
-
-    <h3>C. Mini Role-play</h3>
-
-    <div class="tip blue">
+</section>
+<section class="tab-content" id="phonebasic">
+<h2>Phone Basics｜電話基本句</h2>
+<h3>1. Phone Number</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Thai / Romanization / English</th>
+<th>Usage Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>問電話號碼</td>
+<td><div class="triad"><div class="thai">โทรศัพท์เบอร์อะไรคะ</div><div class="roman">thoo-rá-sàp bəə à-rai khá</div><div class="eng">What phone number is it?</div></div></td>
+<td>教材第 3 頁句型。</td>
+</tr>
+<tr>
+<td>回答電話號碼</td>
+<td><div class="triad"><div class="thai">โทรศัพท์เบอร์ศูนย์สอง สองห้า ห้าสาม ศูนย์สามหก ต่อหนึ่งศูนย์สี่ค่ะ</div><div class="roman">thoo-rá-sàp bəə sǔun sɔ̌ɔng, sɔ̌ɔng hâa, hâa sǎam, sǔun sǎam hòk, dtɔ̀ɔ nʉ̀eng sǔun sìi khâ</div><div class="eng">The phone number is 02-2553036 extension 104.</div></div></td>
+<td><span class="thai">ต่อ</span> 在這裡是分機。</td>
+</tr>
+<tr>
+<td>問分機</td>
+<td><div class="triad"><div class="thai">ต่อเบอร์อะไรคะ</div><div class="roman">dtɔ̀ɔ bəə à-rai khá</div><div class="eng">What extension is it?</div></div></td>
+<td>打公司/學校常用。</td>
+</tr>
+</tbody>
+</table>
+<h3>2. Answering &amp; Hanging Up</h3>
+<table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>Thai / Romanization / English</th>
+<th>Example for A</th>
+<th>Example for B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接電話 / 掛電話</td>
+<td>
+<div class="triad"><div class="thai">รับสาย</div><div class="roman">ráp-sǎai</div><div class="eng">answer the phone</div></div>
+<div class="triad"><div class="thai">วางสาย</div><div class="roman">waang-sǎai</div><div class="eng">hang up</div></div>
+</td>
+<td><div class="triad"><div class="thai">ทำไมคุณไม่รับสายคะ</div><div class="roman">tham-mai khun mâi ráp-sǎai khá</div><div class="eng">Why didn’t you answer the phone?</div></div></td>
+<td><div class="triad"><div class="thai">แค่นี้นะคะ สวัสดีค่ะ</div><div class="roman">khɛ̂ɛ-níi ná khá, sà-wàt-dii khâ</div><div class="eng">That’s all for now. Goodbye.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h3>3. Basic Phone Opening</h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Thai / Romanization / English</th>
+<th>Chinese Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>打招呼</td>
+<td><div class="triad"><div class="thai">สวัสดีค่ะ</div><div class="roman">sà-wàt-dii khâ</div><div class="eng">Hello.</div></div></td>
+<td><span class="label review">Review</span> 電話開頭也用。</td>
+</tr>
+<tr>
+<td>找某人</td>
+<td><div class="triad"><div class="thai">ขอพูดกับคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun bii nɔ̀i khâ</div><div class="eng">Could I speak with B?</div></div></td>
+<td>教材第 4 頁核心電話句。</td>
+</tr>
+<tr>
+<td>更像「幫我接某人」</td>
+<td><div class="triad"><div class="thai">ขอสายคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai khun bii nɔ̀i khâ</div><div class="eng">Could you connect me to B?</div></div></td>
+<td>電話常用，比 <span class="thai">ขอพูดกับ</span> 更像電話固定句。</td>
+</tr>
+<tr>
+<td>問從哪裡打來</td>
+<td><div class="triad"><div class="thai">จากไหนคะ</div><div class="roman">jàak nǎi khá</div><div class="eng">Where are you calling from?</div></div></td>
+<td>教材中也有 <span class="thai">ที่ไหน</span> 的形式。</td>
+</tr>
+<tr>
+<td>問是誰</td>
+<td><div class="triad"><div class="thai">ใครคะ</div><div class="roman">khrai khá</div><div class="eng">Who is it?</div></div></td>
+<td>電話中單獨說可，但正式一點可說 <span class="thai">ไม่ทราบว่าใครโทรมาคะ</span>。</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="tab-content" id="transfer">
+<h2>Transfer &amp; Message｜轉接、稍等、留言、回電</h2>
+<h3>1. Please Wait</h3>
+<table>
+<thead>
+<tr>
+<th>Formality</th>
+<th>Thai / Romanization / English</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Formal / customer service</td>
+<td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td>
+<td>公司、語言學校、客服。</td>
+</tr>
+<tr>
+<td>Neutral spoken</td>
+<td><div class="triad"><div class="thai">รอเดี๋ยวนะคะ</div><div class="roman">rɔɔ dǐao ná khá</div><div class="eng">Wait a moment.</div></div></td>
+<td>熟一點、日常電話。</td>
+</tr>
+<tr>
+<td>Local casual</td>
+<td><div class="triad"><div class="thai">รอแป๊บนะคะ</div><div class="roman">rɔɔ bpɛ́ɛp ná khá</div><div class="eng">Wait a sec.</div></div></td>
+<td>朋友、熟人、口語。</td>
+</tr>
+</tbody>
+</table>
+<h3>2. Availability</h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Thai / Romanization / English</th>
+<th>Natural Follow-up</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>對方正在講電話</td>
+<td><div class="triad"><div class="thai">คุณบีกำลังพูดอยู่ค่ะ</div><div class="roman">khun bii gam-lang phûut yùu khâ</div><div class="eng">B is speaking right now.</div></div></td>
+<td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td>
+</tr>
+<tr>
+<td>對方忙</td>
+<td><div class="triad"><div class="thai">คุณซีไม่ว่างค่ะ</div><div class="roman">khun sii mâi wâang khâ</div><div class="eng">C is not available.</div></div></td>
+<td><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have a message to leave?</div></div></td>
+</tr>
+<tr>
+<td>對方不在</td>
+<td><div class="triad"><div class="thai">คุณซีไม่อยู่ค่ะ</div><div class="roman">khun sii mâi yùu khâ</div><div class="eng">C is not here.</div></div></td>
+<td><div class="triad"><div class="thai">จะให้เขาโทรกลับไหมคะ</div><div class="roman">jà hâi khǎo thoo glàp mái khá</div><div class="eng">Would you like him/her to call back?</div></div></td>
+</tr>
+</tbody>
+</table>
+<h3>3. Leave a Message / Call Back</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Thai / Romanization / English</th>
+<th>Chinese Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>問是否要留言</td>
+<td><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have anything to leave as a message?</div></div></td>
+<td>教材第 6 頁句型，正式電話很實用。</td>
+</tr>
+<tr>
+<td>問可不可以留言</td>
+<td><div class="triad"><div class="thai">ฝากอะไรไว้ได้ไหมคะ</div><div class="roman">fàak à-rai wái dâai mái khá</div><div class="eng">Can I leave something as a message?</div></div></td>
+<td><span class="thai">ไว้</span> 有「先留下來」的感覺。</td>
+</tr>
+<tr>
+<td>請幫忙轉告</td>
+<td><div class="triad"><div class="thai">ช่วยบอกคุณซีว่า...</div><div class="roman">chûai bɔ̀ɔk khun sii wâa...</div><div class="eng">Please tell C that...</div></div></td>
+<td><span class="thai">ว่า</span> 後面接要轉告的內容。</td>
+</tr>
+<tr>
+<td>請對方回電</td>
+<td><div class="triad"><div class="thai">ให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please have him/her call me back.</div></div></td>
+<td><span class="thai">มาหา</span> 是回到我這邊，電話中是打給我。</td>
+</tr>
+<tr>
+<td>接受留言</td>
+<td><div class="triad"><div class="thai">ได้ค่ะ</div><div class="roman">dâai khâ</div><div class="eng">Yes, you can.</div></div></td>
+<td>短句，但電話中很常用。</td>
+</tr>
+</tbody>
+</table>
+<h3>4. Repeat / Confirm</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Thai / Romanization / English</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>請對方重複</td>
+<td><div class="triad"><div class="thai">ช่วยพูดอีกครั้งได้ไหมคะ</div><div class="roman">chûai phûut ìik khráng dâai mái khá</div><div class="eng">Could you say it again?</div></div></td>
+<td>聽不清楚。</td>
+</tr>
+<tr>
+<td>請慢慢說</td>
+<td><div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Could you speak slowly?</div></div></td>
+<td>外國人安全句。</td>
+</tr>
+<tr>
+<td>重複確認電話</td>
+<td><div class="triad"><div class="thai">ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Let me repeat the number again.</div></div></td>
+<td>確認電話號碼。</td>
+</tr>
+<tr>
+<td>確認訊息</td>
+<td><div class="triad"><div class="thai">ขอทวนข้อความนะคะ</div><div class="roman">khɔ̌ɔ thuan khɔ̂ɔ-khwaam ná khá</div><div class="eng">Let me repeat the message.</div></div></td>
+<td>確認留言內容。</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="tab-content" id="synonyms">
+<h2>Synonyms &amp; Opposites｜同義詞 / 反義詞例句</h2>
+<h3>Phone Opposites</h3>
+<table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>Thai / Romanization / English</th>
+<th>Example for A</th>
+<th>Example for B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接電話 / 掛電話</td>
+<td>
+<div class="triad"><div class="thai">รับสาย</div><div class="roman">ráp-sǎai</div><div class="eng">answer the phone</div></div>
+<div class="triad"><div class="thai">วางสาย</div><div class="roman">waang-sǎai</div><div class="eng">hang up</div></div>
+</td>
+<td><div class="triad"><div class="thai">ฉันรับสายไม่ทันค่ะ</div><div class="roman">chǎn ráp-sǎai mâi than khâ</div><div class="eng">I couldn’t answer the phone in time.</div></div></td>
+<td><div class="triad"><div class="thai">อย่าเพิ่งวางสายนะคะ</div><div class="roman">yàa phə̂ng waang-sǎai ná khá</div><div class="eng">Please don’t hang up yet.</div></div></td>
+</tr>
+<tr>
+<td>在 / 不在</td>
+<td>
+<div class="triad"><div class="thai">อยู่</div><div class="roman">yùu</div><div class="eng">be here / be located</div></div>
+<div class="triad"><div class="thai">ไม่อยู่</div><div class="roman">mâi yùu</div><div class="eng">not here / not in</div></div>
+</td>
+<td><div class="triad"><div class="thai">คุณซีอยู่ไหมคะ</div><div class="roman">khun sii yùu mái khá</div><div class="eng">Is C here?</div></div></td>
+<td><div class="triad"><div class="thai">ตอนนี้คุณซีไม่อยู่ค่ะ</div><div class="roman">dtɔɔn-níi khun sii mâi yùu khâ</div><div class="eng">C is not here right now.</div></div></td>
+</tr>
+<tr>
+<td>有空 / 沒空</td>
+<td>
+<div class="triad"><div class="thai">ว่าง</div><div class="roman">wâang</div><div class="eng">free / available</div></div>
+<div class="triad"><div class="thai">ไม่ว่าง</div><div class="roman">mâi wâang</div><div class="eng">busy / not available</div></div>
+</td>
+<td><div class="triad"><div class="thai">ตอนบ่ายคุณว่างไหมคะ</div><div class="roman">dtɔɔn-bàai khun wâang mái khá</div><div class="eng">Are you free in the afternoon?</div></div></td>
+<td><div class="triad"><div class="thai">ตอนนี้ฉันไม่ว่างค่ะ กำลังเรียนอยู่</div><div class="roman">dtɔɔn-níi chǎn mâi wâang khâ, gam-lang rian yùu</div><div class="eng">I’m not free now. I’m studying.</div></div></td>
+</tr>
+<tr>
+<td>打來 / 打回去</td>
+<td>
+<div class="triad"><div class="thai">โทรมา</div><div class="roman">thoo maa</div><div class="eng">call in / call to me</div></div>
+<div class="triad"><div class="thai">โทรกลับ</div><div class="roman">thoo glàp</div><div class="eng">call back</div></div>
+</td>
+<td><div class="triad"><div class="thai">คุณเอโทรมาหาคุณซีค่ะ</div><div class="roman">khun ee thoo maa hǎa khun sii khâ</div><div class="eng">A called C.</div></div></td>
+<td><div class="triad"><div class="thai">ช่วยให้เขาโทรกลับมาหาฉันนะคะ</div><div class="roman">chûai hâi khǎo thoo glàp maa hǎa chǎn ná khá</div><div class="eng">Please have him/her call me back.</div></div></td>
+</tr>
+</tbody>
+</table>
+<h3>Wait Synonyms</h3>
+<table>
+<thead>
+<tr>
+<th>Meaning</th>
+<th>Thai / Romanization / English</th>
+<th>Example</th>
+<th>Usage Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>稍等片刻</td>
+<td><div class="triad"><div class="thai">รอสักครู่</div><div class="roman">rɔɔ sàk-khrûu</div><div class="eng">please wait a moment</div></div></td>
+<td><div class="triad"><div class="thai">รอสักครู่นะคะ จะโอนสายให้ค่ะ</div><div class="roman">rɔɔ sàk-khrûu ná khá, jà oon-sǎai hâi khâ</div><div class="eng">Please wait a moment. I’ll transfer the call.</div></div></td>
+<td>最適合正式電話。</td>
+</tr>
+<tr>
+<td>等一下</td>
+<td><div class="triad"><div class="thai">รอเดี๋ยว</div><div class="roman">rɔɔ dǐao</div><div class="eng">wait a moment</div></div></td>
+<td><div class="triad"><div class="thai">รอเดี๋ยวนะคะ ฉันกำลังเช็กค่ะ</div><div class="roman">rɔɔ dǐao ná khá, chǎn gam-lang chék khâ</div><div class="eng">Wait a moment. I’m checking.</div></div></td>
+<td>日常自然。</td>
+</tr>
+<tr>
+<td>等一下下</td>
+<td><div class="triad"><div class="thai">รอแป๊บ</div><div class="roman">rɔɔ bpɛ́ɛp</div><div class="eng">wait a sec</div></div></td>
+<td><div class="triad"><div class="thai">รอแป๊บนะคะ เดี๋ยวโทรกลับค่ะ</div><div class="roman">rɔɔ bpɛ́ɛp ná khá, dǐao thoo glàp khâ</div><div class="eng">Wait a sec. I’ll call back in a bit.</div></div></td>
+<td>朋友/熟人，較口語。</td>
+</tr>
+</tbody>
+</table>
+<h3>Ask Someone to Speak / Tell</h3>
+<table>
+<thead>
+<tr>
+<th>Meaning</th>
+<th>Thai / Romanization / English</th>
+<th>Example 1</th>
+<th>Example 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>說 / 告訴 / 轉告</td>
+<td>
+<div class="triad"><div class="thai">พูด</div><div class="roman">phûut</div><div class="eng">speak</div></div>
+<div class="triad"><div class="thai">บอก</div><div class="roman">bɔ̀ɔk</div><div class="eng">tell</div></div>
+<div class="triad"><div class="thai">ฝากบอก</div><div class="roman">fàak bɔ̀ɔk</div><div class="eng">leave a message for someone / ask someone to tell</div></div>
+</td>
+<td><div class="triad"><div class="thai">ขอพูดกับคุณซีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun sii nɔ̀i khâ</div><div class="eng">Could I speak with C?</div></div></td>
+<td><div class="triad"><div class="thai">ฝากบอกคุณซีให้โทรกลับนะคะ</div><div class="roman">fàak bɔ̀ɔk khun sii hâi thoo glàp ná khá</div><div class="eng">Please tell C to call back.</div></div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="tab-content" id="structures">
+<h2>Sentence Structures</h2>
+<h3>1. If you do not understand, what will you do?</h3>
+<div class="pattern">
+
+<div class="triad">
+<div class="thai">ถ้า + S + ไม่ + V, S + จะทำยังไงคะ</div>
+<div class="roman">thâa + S + mâi + V, S + jà tham yang-ngai khá</div>
+<div class="eng">If S does not V, what will S do?</div>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Textbook Example</th>
+<th>Additional Variations</th>
+<th>Chinese Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><div class="triad"><div class="thai">ถ้าคุณไม่เข้าใจภาษาไทย คุณจะทำยังไงคะ</div><div class="roman">thâa khun mâi khâo-jai phaa-sǎa thai, khun jà tham yang-ngai khá</div><div class="eng">If you don’t understand Thai, what will you do?</div></div></td>
+<td>
+<div class="triad"><div class="thai">ถ้าคุณโทรหาเขาไม่ได้ คุณจะทำยังไงคะ</div><div class="roman">thâa khun thoo hǎa khǎo mâi dâai, khun jà tham yang-ngai khá</div><div class="eng">If you cannot call him/her, what will you do?</div></div>
+<div class="triad"><div class="thai">ถ้าคุณไม่ว่าง คุณจะทำยังไงคะ</div><div class="roman">thâa khun mâi wâang, khun jà tham yang-ngai khá</div><div class="eng">If you are not free, what will you do?</div></div>
+<div class="triad"><div class="thai">ถ้าคุณฟังไม่ทัน คุณจะทำยังไงคะ</div><div class="roman">thâa khun fang mâi than, khun jà tham yang-ngai khá</div><div class="eng">If you cannot keep up with listening, what will you do?</div></div>
+</td>
+<td>可以用來練任何「問題 → 反應」的生活情境。</td>
+</tr>
+</tbody>
+</table>
+<h3>2. Could I speak with...?</h3>
+<div class="pattern">
+
+<div class="triad">
+<div class="thai">สวัสดีค่ะ ขอพูดกับ + Person + หน่อยค่ะ</div>
+<div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp + Person + nɔ̀i khâ</div>
+<div class="eng">Hello, could I speak with person?</div>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Sentence</th>
+<th>Usage</th>
+<th>More Natural Phone Variant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><div class="triad"><div class="thai">สวัสดีค่ะ ขอพูดกับคุณบีหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp khun bii nɔ̀i khâ</div><div class="eng">Hello, could I speak with B?</div></div></td>
+<td>標準教材句。</td>
+<td><div class="triad"><div class="thai">ขอสายคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai khun bii nɔ̀i khâ</div><div class="eng">Could you connect me to B?</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">สวัสดีค่ะ ขอพูดกับฝ่ายสมัครเรียนหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp fàai sà-màk-rian nɔ̀i khâ</div><div class="eng">Hello, could I speak with the admissions/enrollment department?</div></div></td>
+<td>打給語言學校。</td>
+<td><div class="triad"><div class="thai">ขอสายฝ่ายสมัครเรียนหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai fàai sà-màk-rian nɔ̀i khâ</div><div class="eng">Could you connect me to admissions?</div></div></td>
+</tr>
+</tbody>
+</table>
+<h3>3. Someone is busy / not here</h3>
+<div class="pattern">
+<div class="triad">
+<div class="thai">Person + กำลัง + Verb + อยู่ค่ะ</div>
+<div class="roman">Person + gam-lang + Verb + yùu khâ</div>
+<div class="eng">Person is doing verb right now.</div>
+</div>
+<div class="triad">
+<div class="thai">Person + ไม่อยู่ / ไม่ว่าง + ค่ะ</div>
+<div class="roman">Person + mâi yùu / mâi wâang + khâ</div>
+<div class="eng">Person is not here / not available.</div>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Thai / Romanization / English</th>
+<th>Follow-up</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正在講電話</td>
+<td><div class="triad"><div class="thai">คุณบีกำลังพูดอยู่ค่ะ</div><div class="roman">khun bii gam-lang phûut yùu khâ</div><div class="eng">B is speaking right now.</div></div></td>
+<td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td>
+</tr>
+<tr>
+<td>沒空</td>
+<td><div class="triad"><div class="thai">คุณซีไม่ว่างค่ะ</div><div class="roman">khun sii mâi wâang khâ</div><div class="eng">C is not available.</div></div></td>
+<td><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have anything to leave?</div></div></td>
+</tr>
+<tr>
+<td>不在</td>
+<td><div class="triad"><div class="thai">คุณซีไม่อยู่ค่ะ</div><div class="roman">khun sii mâi yùu khâ</div><div class="eng">C is not here.</div></div></td>
+<td><div class="triad"><div class="thai">จะให้โทรกลับไหมคะ</div><div class="roman">jà hâi thoo glàp mái khá</div><div class="eng">Would you like them to call back?</div></div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="tab-content" id="street">
+<h2>Textbook vs Street Thai</h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Textbook / Polite</th>
+<th>Street / Local Bangkok</th>
+<th>小撇步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>找某人接電話</td>
+<td><div class="triad"><div class="thai">ขอพูดกับคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun bii nɔ̀i khâ</div><div class="eng">Could I speak with B?</div></div></td>
+<td><div class="triad"><div class="thai">ขอสายคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai khun bii nɔ̀i khâ</div><div class="eng">Could you connect me to B?</div></div></td>
+<td>電話裡 <span class="thai">ขอสาย...</span> 很自然。</td>
+</tr>
+<tr>
+<td>請稍等</td>
+<td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td>
+<td><div class="triad"><div class="thai">รอแป๊บนะคะ</div><div class="roman">rɔɔ bpɛ́ɛp ná khá</div><div class="eng">Wait a sec.</div></div></td>
+<td>客服用前者；朋友/熟人用後者。</td>
+</tr>
+<tr>
+<td>問對方是誰</td>
+<td><div class="triad"><div class="thai">ใครคะ</div><div class="roman">khrai khá</div><div class="eng">Who is it?</div></div></td>
+<td><div class="triad"><div class="thai">ไม่ทราบว่าใครโทรมาคะ</div><div class="roman">mâi sâap wâa khrai thoo maa khá</div><div class="eng">May I ask who is calling?</div></div></td>
+<td>後者更正式、有禮貌。</td>
+</tr>
+<tr>
+<td>對方不在</td>
+<td><div class="triad"><div class="thai">คุณซีไม่อยู่ค่ะ</div><div class="roman">khun sii mâi yùu khâ</div><div class="eng">C is not here.</div></div></td>
+<td><div class="triad"><div class="thai">ตอนนี้คุณซีไม่อยู่ค่ะ ฝากข้อความไว้ไหมคะ</div><div class="roman">dtɔɔn-níi khun sii mâi yùu khâ, fàak khɔ̂ɔ-khwaam wái mái khá</div><div class="eng">C is not here now. Would you like to leave a message?</div></div></td>
+<td>真實電話會接續問是否留言。</td>
+</tr>
+<tr>
+<td>請回電</td>
+<td><div class="triad"><div class="thai">ช่วยบอกคุณซีว่าให้โทรกลับมาหาผมหน่อยครับ</div><div class="roman">chûai bɔ̀ɔk khun sii wâa hâi thoo glàp maa hǎa phǒm nɔ̀i khráp</div><div class="eng">Please tell C to call me back.</div></div></td>
+<td><div class="triad"><div class="thai">ฝากบอกเขาโทรกลับหน่อยนะคะ</div><div class="roman">fàak bɔ̀ɔk khǎo thoo glàp nɔ̀i ná khá</div><div class="eng">Please tell him/her to call back.</div></div></td>
+<td>朋友間可簡化，但正式電話保留完整句較好。</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="tab-content" id="usage">
+<h2>Practical Usage Bank｜實戰句庫</h2>
+<h3>Calling a Thai Language School</h3>
+<table>
+<thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+<tbody>
+<tr>
+<td>打給語言學校</td>
+<td><div class="triad"><div class="thai">สวัสดีค่ะ ขอพูดกับฝ่ายสมัครเรียนหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp fàai sà-màk-rian nɔ̀i khâ</div><div class="eng">Hello, could I speak with the admissions/enrollment department?</div></div></td>
+<td>詢問課程、報名、學費。</td>
+</tr>
+<tr>
+<td>聽不懂</td>
+<td><div class="triad"><div class="thai">ขอโทษค่ะ ฉันฟังไม่เข้าใจค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, chǎn fang mâi khâo-jai khâ</div><div class="eng">Sorry, I don’t understand what I heard.</div></div></td>
+<td>外國人電話安全句。</td>
+</tr>
+<tr>
+<td>請慢慢說</td>
+<td><div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Could you speak slowly?</div></div></td>
+<td>非常實用。</td>
+</tr>
+<tr>
+<td>請重複</td>
+<td><div class="triad"><div class="thai">ช่วยพูดอีกครั้งได้ไหมคะ</div><div class="roman">chûai phûut ìik khráng dâai mái khá</div><div class="eng">Could you say it again?</div></div></td>
+<td>電話中比面對面更常用。</td>
+</tr>
+</tbody>
+</table>
+<h3>Calling a Condo Agent</h3>
+<table>
+<thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+<tbody>
+<tr>
+<td>找房仲</td>
+<td><div class="triad"><div class="thai">สวัสดีค่ะ ขอสายคุณเอเจนต์หน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ sǎai khun ee-jeen nɔ̀i khâ</div><div class="eng">Hello, could you connect me to the agent?</div></div></td>
+<td>看房前後可用。</td>
+</tr>
+<tr>
+<td>對方不在時留言</td>
+<td><div class="triad"><div class="thai">ฝากบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">fàak bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div></td>
+<td>可留給櫃台或同事。</td>
+</tr>
+<tr>
+<td>重複電話號碼</td>
+<td><div class="triad"><div class="thai">ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Let me repeat the number again.</div></div></td>
+<td>避免號碼聽錯。</td>
+</tr>
+</tbody>
+</table>
+<h3>Calling a Restaurant</h3>
+<table>
+<thead><tr><th>Situation</th><th>Thai / Romanization / English</th><th>Usage Note</th></tr></thead>
+<tbody>
+<tr>
+<td>問餐廳有沒有空位</td>
+<td><div class="triad"><div class="thai">วันนี้มีโต๊ะว่างไหมคะ</div><div class="roman">wan-níi mii dtó wâang mái khá</div><div class="eng">Are there any available tables today?</div></div></td>
+<td><span class="thai">ว่าง</span> 可用於人有空，也可用於位子空。</td>
+</tr>
+<tr>
+<td>預約</td>
+<td><div class="triad"><div class="thai">ขอจองโต๊ะสำหรับสองคนค่ะ</div><div class="roman">khɔ̌ɔ jɔɔng dtó sǎm-ràp sɔ̌ɔng khon khâ</div><div class="eng">I’d like to reserve a table for two.</div></div></td>
+<td>餐廳電話補充。</td>
+</tr>
+<tr>
+<td>如果聽不懂店員</td>
+<td><div class="triad"><div class="thai">ขอโทษค่ะ ช่วยพูดช้า ๆ ได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, chûai phûut cháa-cháa dâai mái khá</div><div class="eng">Sorry, could you speak slowly?</div></div></td>
+<td>外國人友善句。</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="tab-content" id="dialogues">
+<h2>Real-life Dialogues｜真實場景對話</h2>
+<h3>1. Textbook Style：找 B 接電話</h3>
+<div class="bubble-wrap">
+<div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">สวัสดีครับ ขอพูดกับคุณบีหน่อยครับ</div><div class="roman">sà-wàt-dii khráp, khɔ̌ɔ phûut gàp khun bii nɔ̀i khráp</div><div class="eng">Hello, could I speak with B?</div></div></div>
+<div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">ดิฉันกำลังพูดอยู่ค่ะ จากไหนคะ</div><div class="roman">dì-chǎn gam-lang phûut yùu khâ, jàak nǎi khá</div><div class="eng">I’m speaking. Where are you calling from?</div></div></div>
+<div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">ผมชื่อเอครับ จากโรงเรียนภาษาไทยครับ</div><div class="roman">phǒm chʉ̂ʉ ee khráp, jàak roong-rian phaa-sǎa thai khráp</div><div class="eng">My name is A. I’m calling from a Thai language school.</div></div></div>
+<div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">ค่ะ พูดได้ค่ะ</div><div class="roman">khâ, phûut dâai khâ</div><div class="eng">Yes, you can speak.</div></div></div>
+<div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">แค่นี้นะครับ สวัสดีครับ</div><div class="roman">khɛ̂ɛ-níi ná khráp, sà-wàt-dii khráp</div><div class="eng">That’s all for now. Goodbye.</div></div></div>
+</div>
+<h3>2. Office Style：B 轉接給 C</h3>
+<div class="bubble-wrap">
+<div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">สวัสดีครับ ขอสายคุณซีหน่อยครับ</div><div class="roman">sà-wàt-dii khráp, khɔ̌ɔ sǎai khun sii nɔ̀i khráp</div><div class="eng">Hello, could you connect me to C?</div></div></div>
+<div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">คุณซีว่างอยู่ค่ะ จากไหนคะ</div><div class="roman">khun sii wâang yùu khâ, jàak nǎi khá</div><div class="eng">C is available. Where are you calling from?</div></div></div>
+<div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">ผมชื่อเอครับ จากบริษัทเอครับ</div><div class="roman">phǒm chʉ̂ʉ ee khráp, jàak bɔɔ-rí-sàt ee khráp</div><div class="eng">My name is A. I’m calling from Company A.</div></div></div>
+<div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">รอสักครู่นะคะ จะโอนสายให้ค่ะ</div><div class="roman">rɔɔ sàk-khrûu ná khá, jà oon-sǎai hâi khâ</div><div class="eng">Please wait a moment. I’ll transfer the call.</div></div></div>
+<div class="bubble c"><span class="speaker c">C</span><div class="triad"><div class="thai">สวัสดีค่ะ คุณเอ</div><div class="roman">sà-wàt-dii khâ, khun ee</div><div class="eng">Hello, A.</div></div></div>
+</div>
+<h3>3. C 不在：請留言與回電</h3>
+<div class="bubble-wrap">
+<div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">สวัสดีครับ ขอพูดกับคุณซีหน่อยครับ</div><div class="roman">sà-wàt-dii khráp, khɔ̌ɔ phûut gàp khun sii nɔ̀i khráp</div><div class="eng">Hello, could I speak with C?</div></div></div>
+<div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">ตอนนี้คุณซีไม่อยู่ค่ะ จากไหนคะ</div><div class="roman">dtɔɔn-níi khun sii mâi yùu khâ, jàak nǎi khá</div><div class="eng">C is not here right now. Where are you calling from?</div></div></div>
+<div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">ผมชื่อเอครับ จากโรงเรียนครับ</div><div class="roman">phǒm chʉ̂ʉ ee khráp, jàak roong-rian khráp</div><div class="eng">My name is A. I’m calling from the school.</div></div></div>
+<div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have a message to leave?</div></div></div>
+<div class="bubble a"><span class="speaker a">A</span><div class="triad"><div class="thai">ช่วยบอกคุณซีว่าให้โทรกลับมาหาผมหน่อยครับ</div><div class="roman">chûai bɔ̀ɔk khun sii wâa hâi thoo glàp maa hǎa phǒm nɔ̀i khráp</div><div class="eng">Please tell C to call me back.</div></div></div>
+<div class="bubble b"><span class="speaker b">B</span><div class="triad"><div class="thai">ได้ค่ะ ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">dâai khâ, khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Sure. Let me repeat the number again.</div></div></div>
+</div>
+<h3>4. 外國人安全版：聽不懂電話</h3>
+<div class="bubble-wrap">
+<div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">สวัสดีค่ะ โรงเรียนภาษาไทยค่ะ</div><div class="roman">sà-wàt-dii khâ, roong-rian phaa-sǎa thai khâ</div><div class="eng">Hello, Thai language school.</div></div></div>
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ ขอโทษค่ะ ฉันพูดไทยได้นิดหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ-thôot khâ, chǎn phûut thai dâai nít-nɔ̀i khâ</div><div class="eng">Hello, sorry, I speak a little Thai.</div></div></div>
+<div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ได้ค่ะ ต้องการสอบถามเรื่องอะไรคะ</div><div class="roman">dâai khâ, dtɔ̂ng-gaan sɔ̀ɔp-thǎam rʉ̂ang à-rai khá</div><div class="eng">Okay. What would you like to ask about?</div></div></div>
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Could you speak slowly?</div></div></div>
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ถ้าฉันไม่เข้าใจ ฉันจะถามอีกครั้งค่ะ</div><div class="roman">thâa chǎn mâi khâo-jai, chǎn jà thǎam ìik khráng khâ</div><div class="eng">If I don’t understand, I will ask again.</div></div></div>
+</div>
+<h3>5. 餐廳電話：訂位</h3>
+<div class="bubble-wrap">
+<div class="bubble a"><span class="speaker a">Restaurant</span><div class="triad"><div class="thai">สวัสดีค่ะ ร้านอาหารค่ะ</div><div class="roman">sà-wàt-dii khâ, ráan aa-hǎan khâ</div><div class="eng">Hello, restaurant speaking.</div></div></div>
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ วันนี้มีโต๊ะว่างไหมคะ</div><div class="roman">sà-wàt-dii khâ, wan-níi mii dtó wâang mái khá</div><div class="eng">Hello, are there any tables available today?</div></div></div>
+<div class="bubble a"><span class="speaker a">Restaurant</span><div class="triad"><div class="thai">กี่คนคะ</div><div class="roman">gìi khon khá</div><div class="eng">For how many people?</div></div></div>
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สองคนค่ะ ขอจองตอนหนึ่งทุ่มได้ไหมคะ</div><div class="roman">sɔ̌ɔng khon khâ, khɔ̌ɔ jɔɔng dtɔɔn nʉ̀eng thûm dâai mái khá</div><div class="eng">Two people. Can I reserve for 7 p.m.?</div></div></div>
+</div>
+<h3>6. 房仲電話：沒接到電話，請回電</h3>
+<div class="bubble-wrap">
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ ฉันโทรหาเอเจนต์เมื่อกี้ แต่เขาไม่รับสายค่ะ</div><div class="roman">sà-wàt-dii khâ, chǎn thoo hǎa ee-jeen mʉ̂a-gîi, dtɛ̀ɛ khǎo mâi ráp-sǎai khâ</div><div class="eng">Hello, I called the agent just now, but they didn’t answer.</div></div></div>
+<div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have a message to leave?</div></div></div>
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell them to call me back.</div></div></div>
+<div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ได้ค่ะ ขอเบอร์โทรด้วยค่ะ</div><div class="roman">dâai khâ, khɔ̌ɔ bəə thoo dûai khâ</div><div class="eng">Sure. May I have your phone number?</div></div></div>
+</div>
+</section>
+<section class="tab-content" id="mistakes">
+<h2>Common Mistakes &amp; Quick Review</h2>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Why It’s Wrong / Risky</th>
+<th>Better Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><div class="triad"><div class="thai">รับสาย / วางสาย 搞反</div><div class="roman">ráp-sǎai / waang-sǎai</div><div class="eng">answer the phone / hang up</div></div></td>
+<td><span class="thai">รับสาย</span> 是接電話；<span class="thai">วางสาย</span> 是掛電話。</td>
+<td>
+<div class="triad"><div class="thai">เขาไม่รับสายค่ะ</div><div class="roman">khǎo mâi ráp-sǎai khâ</div><div class="eng">He/she didn’t answer.</div></div>
+<div class="triad"><div class="thai">อย่าเพิ่งวางสายนะคะ</div><div class="roman">yàa phə̂ng waang-sǎai ná khá</div><div class="eng">Please don’t hang up yet.</div></div>
+</td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">อยู่ / ว่าง 混用</div><div class="roman">yùu / wâang</div><div class="eng">be here / be free</div></div></td>
+<td><span class="thai">อยู่</span> 是人在不在；<span class="thai">ว่าง</span> 是有沒有空。</td>
+<td>
+<div class="triad"><div class="thai">คุณซีอยู่ไหมคะ</div><div class="roman">khun sii yùu mái khá</div><div class="eng">Is C here?</div></div>
+<div class="triad"><div class="thai">คุณซีว่างไหมคะ</div><div class="roman">khun sii wâang mái khá</div><div class="eng">Is C available?</div></div>
+</td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">直接說 ใครคะ 太短</div><div class="roman">khrai khá</div><div class="eng">Who is it?</div></div></td>
+<td>不是錯，但在正式電話可能有點短。</td>
+<td><div class="triad"><div class="thai">ไม่ทราบว่าใครโทรมาคะ</div><div class="roman">mâi sâap wâa khrai thoo maa khá</div><div class="eng">May I ask who is calling?</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">ถ้า 後面忘記完整句</div><div class="roman">thâa</div><div class="eng">if</div></div></td>
+<td><span class="thai">ถ้า</span> 後面要接一個完整情境，再接結果。</td>
+<td><div class="triad"><div class="thai">ถ้าฉันไม่เข้าใจ ฉันก็จะถามครูค่ะ</div><div class="roman">thâa chǎn mâi khâo-jai, chǎn gɔ̂ɔ jà thǎam khruu khâ</div><div class="eng">If I don’t understand, I will ask the teacher.</div></div></td>
+</tr>
+<tr>
+<td><div class="triad"><div class="thai">โทรกลับมา / โทรกลับไป 不分</div><div class="roman">thoo glàp maa / thoo glàp bpai</div><div class="eng">call back to me / call back to them</div></div></td>
+<td><span class="thai">มา</span> 往我這裡；<span class="thai">ไป</span> 往別人那裡。</td>
+<td>
+<div class="triad"><div class="thai">ให้เขาโทรกลับมาหาฉันค่ะ</div><div class="roman">hâi khǎo thoo glàp maa hǎa chǎn khâ</div><div class="eng">Have him/her call me back.</div></div>
+<div class="triad"><div class="thai">ฉันจะโทรกลับไปค่ะ</div><div class="roman">chǎn jà thoo glàp bpai khâ</div><div class="eng">I will call back.</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="tip red">
+<strong>本課最重要記憶點：</strong>
+<p>1. <span class="thai">ถ้าฉันไม่เข้าใจภาษาไทย ฉันก็จะถามครูค่ะ</span> / <span class="roman">thâa chǎn mâi khâo-jai phaa-sǎa thai, chǎn gɔ̂ɔ jà thǎam khruu khâ</span> / <span class="eng">If I don’t understand Thai, I will ask the teacher.</span></p>
+<p>2. <span class="thai">ขอสายคุณบีหน่อยค่ะ</span> / <span class="roman">khɔ̌ɔ sǎai khun bii nɔ̀i khâ</span> / <span class="eng">Could you connect me to B?</span></p>
+<p>3. <span class="thai">รอสักครู่นะคะ</span> / <span class="roman">rɔɔ sàk-khrûu ná khá</span> / <span class="eng">Please wait a moment.</span></p>
+<p>4. <span class="thai">คุณซีไม่อยู่ค่ะ</span> / <span class="roman">khun sii mâi yùu khâ</span> / <span class="eng">C is not here.</span></p>
+<p>5. <span class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</span> / <span class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</span> / <span class="eng">Please tell him/her to call me back.</span></p>
+</div>
+</section>
+<section class="tab-content" id="practice">
+<h2>Practice Questions</h2>
+<h3>A. Vocabulary Recall</h3>
+<details>
+<summary>1. answer the phone / hang up</summary>
+<div class="triad"><div class="thai">รับสาย / วางสาย</div><div class="roman">ráp-sǎai / waang-sǎai</div><div class="eng">answer the phone / hang up</div></div>
+</details>
+<details>
+<summary>2. free / busy</summary>
+<div class="triad"><div class="thai">ว่าง / ไม่ว่าง</div><div class="roman">wâang / mâi wâang</div><div class="eng">free / busy, not available</div></div>
+</details>
+<details>
+<summary>3. not here / not in</summary>
+<div class="triad"><div class="thai">ไม่อยู่</div><div class="roman">mâi yùu</div><div class="eng">not here / not in</div></div>
+</details>
+<details>
+<summary>4. call back</summary>
+<div class="triad"><div class="thai">โทรกลับ</div><div class="roman">thoo glàp</div><div class="eng">call back</div></div>
+</details>
+<details>
+<summary>5. repeat / confirm back</summary>
+<div class="triad"><div class="thai">ทวน</div><div class="roman">thuan</div><div class="eng">repeat / review back</div></div>
+</details>
+<h3>B. Translation Practice</h3>
+<details>
+<summary>1. If I don’t understand Thai, I will ask the teacher.</summary>
+<div class="triad"><div class="thai">ถ้าฉันไม่เข้าใจภาษาไทย ฉันก็จะถามครูค่ะ</div><div class="roman">thâa chǎn mâi khâo-jai phaa-sǎa thai, chǎn gɔ̂ɔ jà thǎam khruu khâ</div><div class="eng">If I don’t understand Thai, I will ask the teacher.</div></div>
+</details>
+<details>
+<summary>2. Could I speak with C?</summary>
+<div class="triad"><div class="thai">ขอพูดกับคุณซีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun sii nɔ̀i khâ</div><div class="eng">Could I speak with C?</div></div>
+</details>
+<details>
+<summary>3. Please wait a moment.</summary>
+<div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div>
+</details>
+<details>
+<summary>4. C is not available.</summary>
+<div class="triad"><div class="thai">คุณซีไม่ว่างค่ะ</div><div class="roman">khun sii mâi wâang khâ</div><div class="eng">C is not available.</div></div>
+</details>
+<details>
+<summary>5. Please tell him/her to call me back.</summary>
+<div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div>
+</details>
+<details>
+<summary>6. Could you speak slowly?</summary>
+<div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Could you speak slowly?</div></div>
+</details>
+<h3>C. Mini Role-play</h3>
+<div class="tip blue">
       情境：你打給語言學校，想找報名部門。你聽不懂，所以請對方慢慢說。
     </div>
-
-    <details>
-      <summary>Suggested Answer</summary>
-      <div class="bubble-wrap">
-        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ ขอพูดกับฝ่ายสมัครเรียนหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp fàai sà-màk-rian nɔ̀i khâ</div><div class="eng">Hello, could I speak with the admissions/enrollment department?</div></div></div>
-        <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></div>
-        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ขอโทษค่ะ ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Sorry, could you speak slowly?</div></div></div>
-      </div>
-    </details>
-
-    <div class="tip blue">
+<details>
+<summary>Suggested Answer</summary>
+<div class="bubble-wrap">
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ ขอพูดกับฝ่ายสมัครเรียนหน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ phûut gàp fàai sà-màk-rian nɔ̀i khâ</div><div class="eng">Hello, could I speak with the admissions/enrollment department?</div></div></div>
+<div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></div>
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ขอโทษค่ะ ช่วยพูดช้า ๆ หน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, chûai phûut cháa-cháa nɔ̀i dâai mái khá</div><div class="eng">Sorry, could you speak slowly?</div></div></div>
+</div>
+</details>
+<div class="tip blue">
       情境：你打給房仲，但對方不在。你要請櫃台幫忙轉告他回電。
     </div>
-
-    <details>
-      <summary>Suggested Answer</summary>
-      <div class="bubble-wrap">
-        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ ขอสายเอเจนต์หน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ sǎai ee-jeen nɔ̀i khâ</div><div class="eng">Hello, could you connect me to the agent?</div></div></div>
-        <div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ตอนนี้เขาไม่อยู่ค่ะ มีอะไรฝากไหมคะ</div><div class="roman">dtɔɔn-níi khǎo mâi yùu khâ, mii à-rai fàak mái khá</div><div class="eng">He/she is not here now. Do you have a message?</div></div></div>
-        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div></div>
-      </div>
-    </details>
-
-    <h3>今日最重要 10 句</h3>
-    <table>
-      <thead><tr><th>#</th><th>Thai / Romanization / English</th><th>Use</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td><div class="triad"><div class="thai">ถ้าคุณไม่เข้าใจภาษาไทย คุณจะทำยังไงคะ</div><div class="roman">thâa khun mâi khâo-jai phaa-sǎa thai, khun jà tham yang-ngai khá</div><div class="eng">If you don’t understand Thai, what will you do?</div></div></td><td>假設問句</td></tr>
-        <tr><td>2</td><td><div class="triad"><div class="thai">ฉันก็จะถามครูค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà thǎam khruu khâ</div><div class="eng">I will ask the teacher.</div></div></td><td>回答策略</td></tr>
-        <tr><td>3</td><td><div class="triad"><div class="thai">โทรศัพท์เบอร์อะไรคะ</div><div class="roman">thoo-rá-sàp bəə à-rai khá</div><div class="eng">What phone number is it?</div></div></td><td>問電話</td></tr>
-        <tr><td>4</td><td><div class="triad"><div class="thai">ขอพูดกับคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun bii nɔ̀i khâ</div><div class="eng">Could I speak with B?</div></div></td><td>找人</td></tr>
-        <tr><td>5</td><td><div class="triad"><div class="thai">ขอสายคุณซีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai khun sii nɔ̀i khâ</div><div class="eng">Could you connect me to C?</div></div></td><td>電話口語找人</td></tr>
-        <tr><td>6</td><td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td><td>正式稍等</td></tr>
-        <tr><td>7</td><td><div class="triad"><div class="thai">คุณซีไม่ว่างค่ะ</div><div class="roman">khun sii mâi wâang khâ</div><div class="eng">C is not available.</div></div></td><td>對方忙</td></tr>
-        <tr><td>8</td><td><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have a message to leave?</div></div></td><td>問留言</td></tr>
-        <tr><td>9</td><td><div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div></td><td>請回電</td></tr>
-        <tr><td>10</td><td><div class="triad"><div class="thai">ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Let me repeat the number again.</div></div></td><td>重複確認</td></tr>
-      </tbody>
-    </table>
-  </section>
+<details>
+<summary>Suggested Answer</summary>
+<div class="bubble-wrap">
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">สวัสดีค่ะ ขอสายเอเจนต์หน่อยค่ะ</div><div class="roman">sà-wàt-dii khâ, khɔ̌ɔ sǎai ee-jeen nɔ̀i khâ</div><div class="eng">Hello, could you connect me to the agent?</div></div></div>
+<div class="bubble a"><span class="speaker a">Staff</span><div class="triad"><div class="thai">ตอนนี้เขาไม่อยู่ค่ะ มีอะไรฝากไหมคะ</div><div class="roman">dtɔɔn-níi khǎo mâi yùu khâ, mii à-rai fàak mái khá</div><div class="eng">He/she is not here now. Do you have a message?</div></div></div>
+<div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div></div>
 </div>
-
+</details>
+<h3>今日最重要 10 句</h3>
+<table>
+<thead><tr><th>#</th><th>Thai / Romanization / English</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><div class="triad"><div class="thai">ถ้าคุณไม่เข้าใจภาษาไทย คุณจะทำยังไงคะ</div><div class="roman">thâa khun mâi khâo-jai phaa-sǎa thai, khun jà tham yang-ngai khá</div><div class="eng">If you don’t understand Thai, what will you do?</div></div></td><td>假設問句</td></tr>
+<tr><td>2</td><td><div class="triad"><div class="thai">ฉันก็จะถามครูค่ะ</div><div class="roman">chǎn gɔ̂ɔ jà thǎam khruu khâ</div><div class="eng">I will ask the teacher.</div></div></td><td>回答策略</td></tr>
+<tr><td>3</td><td><div class="triad"><div class="thai">โทรศัพท์เบอร์อะไรคะ</div><div class="roman">thoo-rá-sàp bəə à-rai khá</div><div class="eng">What phone number is it?</div></div></td><td>問電話</td></tr>
+<tr><td>4</td><td><div class="triad"><div class="thai">ขอพูดกับคุณบีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ phûut gàp khun bii nɔ̀i khâ</div><div class="eng">Could I speak with B?</div></div></td><td>找人</td></tr>
+<tr><td>5</td><td><div class="triad"><div class="thai">ขอสายคุณซีหน่อยค่ะ</div><div class="roman">khɔ̌ɔ sǎai khun sii nɔ̀i khâ</div><div class="eng">Could you connect me to C?</div></div></td><td>電話口語找人</td></tr>
+<tr><td>6</td><td><div class="triad"><div class="thai">รอสักครู่นะคะ</div><div class="roman">rɔɔ sàk-khrûu ná khá</div><div class="eng">Please wait a moment.</div></div></td><td>正式稍等</td></tr>
+<tr><td>7</td><td><div class="triad"><div class="thai">คุณซีไม่ว่างค่ะ</div><div class="roman">khun sii mâi wâang khâ</div><div class="eng">C is not available.</div></div></td><td>對方忙</td></tr>
+<tr><td>8</td><td><div class="triad"><div class="thai">มีอะไรฝากไหมคะ</div><div class="roman">mii à-rai fàak mái khá</div><div class="eng">Do you have a message to leave?</div></div></td><td>問留言</td></tr>
+<tr><td>9</td><td><div class="triad"><div class="thai">ช่วยบอกเขาให้โทรกลับมาหาฉันหน่อยค่ะ</div><div class="roman">chûai bɔ̀ɔk khǎo hâi thoo glàp maa hǎa chǎn nɔ̀i khâ</div><div class="eng">Please tell him/her to call me back.</div></div></td><td>請回電</td></tr>
+<tr><td>10</td><td><div class="triad"><div class="thai">ขอทวนเบอร์อีกครั้งนะคะ</div><div class="roman">khɔ̌ɔ thuan bəə ìik khráng ná khá</div><div class="eng">Let me repeat the number again.</div></div></td><td>重複確認</td></tr>
+</tbody>
+</table>
+</section>
+</div>
 <script>
   function openTab(event, tabId) {
     const contents = document.querySelectorAll('.tab-content');
@@ -1503,7 +1418,7 @@ function speakThai(text, btn) {
   if (activBtn === btn && speechSynthesis.speaking) {
     speechSynthesis.cancel();
     btn.classList.remove('speaking');
-    btn.textContent = '🔊';
+    if (!btn.classList.contains('collocation-pill')) btn.textContent = '🔊';
     activBtn = null;
     return;
   }
@@ -1519,12 +1434,12 @@ function speakThai(text, btn) {
   if (thaiVoice) utter.voice = thaiVoice;
   utter.onstart = () => {
     btn.classList.add('speaking');
-    btn.textContent = '⏸';
+    if (!btn.classList.contains('collocation-pill')) btn.textContent = '⏸';
     activBtn = btn;
   };
   utter.onend = utter.onerror = () => {
     btn.classList.remove('speaking');
-    btn.textContent = '🔊';
+    if (!btn.classList.contains('collocation-pill')) btn.textContent = '🔊';
     activBtn = null;
   };
   speechSynthesis.speak(utter);
@@ -1539,7 +1454,7 @@ document.addEventListener('DOMContentLoaded', () => {
     span.textContent = rawText;
     const btn = document.createElement('button');
     btn.className = 'speak-btn';
-    btn.textContent = '🔊';
+    if (!btn.classList.contains('collocation-pill')) btn.textContent = '🔊';
     btn.title = '唸出泰文';
     btn.setAttribute('aria-label', '播放發音');
     btn.addEventListener('click', e => {
@@ -1550,6 +1465,17 @@ document.addEventListener('DOMContentLoaded', () => {
     el.appendChild(span);
     el.appendChild(btn);
   });
+  document.querySelectorAll('.collocation-pill').forEach(pill => {
+    const rawText = pill.dataset.thai || pill.querySelector('.pill-thai')?.textContent?.trim() || '';
+    if (!rawText) return;
+    pill.title = '唸出泰文';
+    pill.setAttribute('aria-label', '播放發音：' + rawText);
+    pill.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, pill);
+    });
+  });
+
 });
 </script>
 </body>
